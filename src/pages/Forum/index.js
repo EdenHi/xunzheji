@@ -13,7 +13,11 @@ export default class Forum extends Component{
     render(){
         return(
             <View>
-                <Text>这是论坛</Text>
+                <Text onPress={()=>{this.props.navigation.navigate('articel')}}>这是论坛</Text>
+                <Text></Text>
+                <Text onPress={()=>{this.props.navigation.navigate('Chats')}}>       聊天</Text>
+                <Text></Text>
+                <Text onPress={()=>{this.props.navigation.navigate('luntan')}}>       聊天</Text>
             </View>
         )
     }
