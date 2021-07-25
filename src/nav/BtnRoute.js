@@ -17,11 +17,10 @@ export default function BtnRoute() {
         inactiveTintColor: 'gray',
       }}
       >
-        <Tab.Screen name="Home" component={Home}></Tab.Screen>
-        <Tab.Screen name="Forum" component={Forum} />
-        <Tab.Screen name="Store" component={Store} />
-        <Tab.Screen name="Tour" component={Tour} />
-        <Tab.Screen name="MyScreen" component={My} />
+        <Tab.Screen name="首页" component={Home}></Tab.Screen>
+        <Tab.Screen name="社区" component={Forum} />
+        <Tab.Screen name="商城" component={Store} />
+        <Tab.Screen name="我的" component={My} />
       </Tab.Navigator>
     );
   
