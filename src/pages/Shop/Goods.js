@@ -13,7 +13,7 @@ export default class Good extends Component {
                         <Text style={{ borderWidth: 0, fontSize: 16, color: '#fff', fontWeight: 'bold' }}>￥{this.props.price}</Text>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', height: '50%', borderWidth: 0, marginTop: 4 }}>
-                        <Text style={{ borderWidth: 0, fontSize: 10, paddingLeft: width * 0.035, color: '#fff', width: '50%', textAlignVertical: 'center' }}>浙江·杭州</Text>
+                        <Text style={{ borderWidth: 0, fontSize: 10, paddingLeft: width * 0.055, color: '#fff', width: '50%', textAlignVertical: 'center', }}>浙江·杭州</Text>
                         <View style={{ flexDirection: 'row-reverse', justifyContent: 'flex-start' }}>
                             <TouchableOpacity activeOpacity={0.7} style={{ borderWidth: 0, width: '27%', borderRadius: 50, marginRight: 10, backgroundColor: '#fff' }}>
                                 <AntDesign style={{ alignSelf: 'center', marginTop: 2 }}

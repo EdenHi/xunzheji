@@ -31,7 +31,7 @@ class GoodsDetail extends Component {
                 <ScrollView style={{ borderWidth: 0, }}>
                     {/* 图片展示 */}
                     <View style={styles.ImgBox}>
-                        <Swiper>
+                        <Swiper loop={true}>
                             <View>
                                 <Lightbox>
                                     <Image style={{ width: "100%", height: "100%" }} source={{ uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg' }}></Image>
@@ -60,15 +60,15 @@ class GoodsDetail extends Component {
                         </View>
                         <View style={{ borderWidth: 0, height: height * 0.08, flexDirection: 'row', borderBottomWidth: 0.5, borderColor: 'grey', backgroundColor: '#fff' }}>
                             <Text style={{ borderWidth: 0, textAlignVertical: 'top', height: '100%', fontSize: 18, fontWeight: 'bold', marginTop: "2%" }}>特点</Text>
-                            <Text style={{ borderWidth: 0, textAlignVertical: 'top', color: 'grey', paddingTop: "2%", width: width * 0.64, fontSize: 13, marginLeft: width * 0.116 }}>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</Text>
+                            <Text style={{ borderWidth: 0, textAlignVertical: 'top', color: 'grey', paddingTop: "2%", width: width * 0.64, fontSize: 13, marginLeft: width * 0.116 }}numberOfLines={3}ellipsizeMode={'tail'}>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</Text>
                         </View>
                         <View style={{ borderWidth: 0, height: height * 0.05, flexDirection: 'row', borderBottomWidth: 0.5, borderColor: 'grey', backgroundColor: '#fff' }}>
                             <Text style={{ borderWidth: 0, textAlignVertical: 'center', height: '100%', fontSize: 18, fontWeight: 'bold' }}>材质</Text>
-                            <Text style={{ borderWidth: 1, textAlignVertical: 'center', color: 'grey', width: width * 0.64, fontSize: 13, marginLeft: width * 0.116 }}>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</Text>
+                            <Text style={{ borderWidth: 0, textAlignVertical: 'center', color: 'grey', width: width * 0.64, fontSize: 13, marginLeft: width * 0.116, }}numberOfLines={2}ellipsizeMode={'tail'}>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</Text>
                         </View>
                         <View style={{ borderWidth: 0, height: height * 0.12, flexDirection: 'row', borderBottomWidth: 0.2, borderColor: 'grey', backgroundColor: '#fff' }}>
                             <Text style={{ borderWidth: 0, textAlignVertical: 'top', height: '90%', fontSize: 18, fontWeight: 'bold', marginTop: "2%" }}>商品评价</Text>
-                            <Text style={{ borderWidth: 1, textAlignVertical: 'top', color: 'grey', paddingTop: "2%", width: width * 0.64, fontSize: 13, marginLeft: width * 0.05, height: "70%" }}>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</Text>
+                            <Text style={{ borderWidth: 0, textAlignVertical: 'top', color: 'grey', paddingTop: "2%", width: width * 0.64, fontSize: 13,marginLeft:'2.5%', height: "70%" }}numberOfLines={3}ellipsizeMode={'tail'}>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</Text>
                             <Text style={{ fontWeight: 'bold', borderWidth: 0, marginTop: "23%", marginLeft: -width * 0.19, alignItems: 'center' }}>查看更多</Text>
                             <Entypo
                                 style={{ marginTop: height * 0.0889 }}
@@ -79,15 +79,15 @@ class GoodsDetail extends Component {
                         </View>
 
                     </View>
-                    <View style={{ height: "5%", borderWidth: 1, borderRadius: 10, }}>
+                    <View style={{ height: "5%", borderWidth: 0, borderRadius: 10, }}>
                         <View style={{ flexDirection: 'row', justifyContent: 'space-around', height: '100%' }}>
-                            <View style={{ borderWidth: 1, width: "30%", }}>
+                            <View style={{ borderWidth: 0, width: "30%", }}>
 
-                                <Image style={{ borderWidth: 1, width: "90%", height: "80%", alignSelf: 'center',marginVertical:"10%"}} source={{ uri: 'http://pic.sc.chinaz.com/files/pic/pic9/201812/zzpic15507.jpg' }}></Image>
+                                <Image style={{ borderWidth: 0, width: "90%", height: "80%", alignSelf: 'center',marginVertical:"10%"}} source={{ uri: 'http://pic.sc.chinaz.com/files/pic/pic9/201812/zzpic15507.jpg' }}></Image>
 
 
                             </View>
-                            <View style={{ borderWidth: 1, width: '35%',justifyContent:'center' }}>
+                            <View style={{ borderWidth: 0, width: '35%',justifyContent:'center' }}>
                                 <Text style={{ width: '100%', height: '50%', textAlign: 'center', fontSize: 20 }}>门口小店</Text>
                                 <Text style={{ width: '100%', height: '50%', textAlign: 'center', fontSize: 20 }}>浙江·杭州</Text>
                             </View>
@@ -121,11 +121,11 @@ class GoodsDetail extends Component {
                             </View>
                         </View>
                     </View>
-                    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ borderWidth: 1, width: width, height: height * 0.23, flexDirection: 'row'}}>
-                        <View style={styles.tuijian}><Good navigation={this.props.navigation} /></View>
-                        <View style={styles.tuijian}><Good navigation={this.props.navigation} /></View>
-                        <View style={styles.tuijian}><Good navigation={this.props.navigation} /></View>
-                        <View style={styles.tuijian}><Good navigation={this.props.navigation} /></View>
+                    <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ borderWidth: 0, width: "100%", height: width*0.55, flexDirection: 'row'}}>
+                        <View style={styles.tuijian}><Good img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg" navigation={this.props.navigation} /></View>
+                        <View style={styles.tuijian}><Good img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg" navigation={this.props.navigation} /></View>
+                        <View style={styles.tuijian}><Good img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg" navigation={this.props.navigation} /></View>
+                        <View style={styles.tuijian}><Good img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg" navigation={this.props.navigation} /></View>
                     </ScrollView>
 
                     <Image style={{ width: '100%', height: width }} source={{ uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg' }}></Image>
