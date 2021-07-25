@@ -35,7 +35,7 @@ const ENTRIES1 = [
     illustration: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2F100f0u000000jh5qyCC3D.jpg&refer=http%3A%2F%2Fdimg03.c-ctrip.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629593494&t=15e6aa5f7ea45225a39714655ad4965e',
   },
 ];
-const {width: screenWidth} = Dimensions.get('window');
+const {width,height} = Dimensions.get('window');
 
 const MyCarousel = props => {
   const [entries, setEntries] = useState([]);
@@ -74,9 +74,9 @@ const MyCarousel = props => {
       </TouchableOpacity> */}
       <Carousel
         ref={carouselRef}
-        sliderWidth={screenWidth}
-        sliderHeight={screenWidth}
-        itemWidth={screenWidth }
+        sliderWidth={width}
+        sliderHeight={width}
+        itemWidth={width }
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
@@ -93,8 +93,8 @@ const styles = StyleSheet.create({
 
   },
   item: {
-    width: screenWidth,
-    height: screenWidth -150,
+    width: width,
+    height:width -150,
     // backgroundColor:"red"
   },
   imageContainer: {

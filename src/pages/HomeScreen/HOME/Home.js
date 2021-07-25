@@ -12,8 +12,10 @@ export default class Home extends Component {
     render() {
         return (
             <View style={styles.containter}>
-                <ScrollView refreshControl={<RefreshControl />}>
+                <ScrollView >
+                    <View style={{width:width*0.95}}>
                   <ShiCha/>
+                  </View>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                     <ImageBackground style={{height:150,marginTop:10,marginBottom:10,width:width*0.8,marginRight:10}} borderRadius={10} source={require("../photos/travel4.jpeg")}>
                           <View style={{height:150,borderRadius: 10,padding:15,width:width*0.8}}>
@@ -130,7 +132,6 @@ export default class Home extends Component {
 }
 const styles = StyleSheet.create({
     containter:{
-        padding:5,
         flex:1
     },
     lb:{
