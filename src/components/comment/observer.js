@@ -52,7 +52,6 @@ export default class Observer extends Component {
         }}>{this.props.datetime}</Text>
         <Text style={{
           borderColor: "grey",
-          borderBottomWidth: 0.5,
           marginTop: 15,
           marginLeft: 60,
           fontSize: 15,

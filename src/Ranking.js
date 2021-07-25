@@ -28,7 +28,7 @@ export default class Ranking extends Component {
 
                 </ImageBackground>
 
-                <ImageBackground resizeMode={'stretch'} style={{ width: width * 0.95, height: height * 0.3478, marginTop: height * -0.2, marginHorizontal: "2.5%", elevation: 1.5, }} source={require('./imgs/1.png')}>
+                <ImageBackground resizeMode={'stretch'} style={{ width: width * 0.95, height: height * 0.3478, marginTop: height * -0.2, marginHorizontal: "2.5%", elevation: 1.5, }} source={require('./pages/img/14.png')}>
                     <View style={{width:150,height:150,position:"absolute",left:"23.5%",top:-70}}>
                     <LottieView style={{width:"100%",height:"100%"}} source={require('../animal/trophy.json')} progress={this.state.progress} />
                     </View>

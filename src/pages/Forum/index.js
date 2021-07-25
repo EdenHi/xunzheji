@@ -18,7 +18,10 @@ export default class Forum extends Component{
                 <Text onPress={()=>{this.props.navigation.navigate('Chats')}}>       聊天</Text>
                 <Text></Text>
                 <Text onPress={()=>{this.props.navigation.navigate('luntan')}}>       聊天</Text>
-            </View>
+                <Text></Text>
+                <Text onPress={()=>{this.props.navigation.navigate('Page1')}}>       Page1</Text>
+                <Text></Text>            
+                </View>
         )
     }
 }

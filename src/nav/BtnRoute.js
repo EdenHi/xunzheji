@@ -3,10 +3,11 @@ import { Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import My from "../pages/MyScreen/My"
-import Store from "../pages/Store/index"
-import Home from "../pages/HomeScreen/Home"
+import Store from "../pages/Shop/store"
+import Home from "../pages/HomeScreen/HOME/Home"
 import Forum from "../pages/Forum/index"
 import Tour from "../pages/Tour/index"
+
 const Tab = createBottomTabNavigator();//底部导航
 export default function BtnRoute() {
     return (
