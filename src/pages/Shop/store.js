@@ -19,7 +19,7 @@ import Carousel from 'react-native-snap-carousel';
 import ActionButton from 'react-native-action-button';
 
 const {width, height} = Dimensions.get('window');
-const images = [require("../img/6.jpg"), require("../img/6.jpg"), require("../img/6.jpg"), require("../img/2.jpg")]
+const images = [require("../img/5.jpg"), require("../img/6.jpg"), require("../img/6.jpg"), require("../img/5.jpg")]
 
 export default class Store extends Component {
   constructor(props) {
