@@ -97,7 +97,6 @@ export default class Store extends Component {
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.header}>
           <TouchableOpacity style={styles.left}>
             <MaterialCommunityIcons style={{ textAlign: 'center',borderWidth:0,height:'100%',textAlignVertical:'center'}}

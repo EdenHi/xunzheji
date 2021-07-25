@@ -7,7 +7,10 @@ import Store from "../pages/Shop/store"
 import Home from "../pages/HomeScreen/HOME/Home"
 import Forum from "../pages/Forum/index"
 import Tour from "../pages/Tour/index"
-
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import Feather from 'react-native-vector-icons/Feather';
+import Ionicons  from 'react-native-vector-icons/Ionicons';
+import SimpleLineIcons  from 'react-native-vector-icons/SimpleLineIcons';
 const Tab = createBottomTabNavigator();//底部导航
 export default function BtnRoute() {
     return (
@@ -17,10 +20,47 @@ export default function BtnRoute() {
         inactiveTintColor: 'gray',
       }}
       >
-        <Tab.Screen name="首页" component={Home}></Tab.Screen>
-        <Tab.Screen name="社区" component={Forum} />
-        <Tab.Screen name="商城" component={Store} />
-        <Tab.Screen name="我的" component={My} />
+        <Tab.Screen name="首页"
+         component={Home}
+         options={{
+          tabBarIcon: ({ color }) => (
+            <AntDesign
+              name={'home'}
+              size={28}
+              color={color} />
+          ),
+        }}
+        ></Tab.Screen>
+        <Tab.Screen name="社区" component={Forum} 
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Ionicons 
+              name={'planet-outline'}
+              size={28}
+              color={color} />
+          ),
+        }} 
+        />
+        <Tab.Screen name="商城" component={Store} 
+         options={{
+          tabBarIcon: ({ color }) => (
+            <Feather 
+              name={'shopping-bag'}
+              size={26}
+              color={color} />
+          ),
+        }}
+        />
+        <Tab.Screen name="我的" component={My}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <SimpleLineIcons  
+              name={'ghost'}
+              size={24}
+              color={color} />
+          ),
+        }}
+        />
       </Tab.Navigator>
     );
   
