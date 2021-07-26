@@ -9,6 +9,7 @@ import luntan from '../components/danmu/Barrage';
 import Chats from '../pages/chat/Chats';
 import articel from '../pages/article/comment/article_detail'
 import Comment from '../pages/article/comment/comment_detail';
+import CustomMade from '../pages/Shop/CustomMade';
 const Stack = createStackNavigator();
 
 
@@ -34,6 +35,7 @@ export default function StackNav() {
       <Stack.Screen name="Page2" component={Page2}  />
       <Stack.Screen name="Page3" component={Page3}/>
       <Stack.Screen name="comment" component={Comment}/>
+      <Stack.Screen name="CustomMade" component={CustomMade}/>
     <Stack.Screen name="GoodsDetail" component={GoodsDetail}/>
     </Stack.Navigator>
 

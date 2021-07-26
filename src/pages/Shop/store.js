@@ -95,6 +95,7 @@ export default class Store extends Component {
     )
   }
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -138,7 +139,9 @@ export default class Store extends Component {
                 autoplayTimeout={2}
               /></ImageBackground>
             <View style={styles.part}>
-              <TouchableOpacity style={{ width: "39%", height: "100%", backgroundColor: "#fff", borderRadius: 10, marginRight: "1%", elevation: 5 }}>
+              <TouchableOpacity style={{ width: "39%", height: "100%", backgroundColor: "#fff", borderRadius: 10, marginRight: "1%", elevation: 5 }}
+               onPress={() => navigation.navigate('CustomMade')}
+              >
 
                 <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
