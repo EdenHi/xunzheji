@@ -1,9 +1,10 @@
+/* eslint-disable prettier/prettier */
 /**
  * @format
  */
 
 import {AppRegistry} from 'react-native';
-import App from './src/pages/Shop/CustomMade';
+import App from './App';
 import {name as appName} from './app.json';
 import textInput from './src/components/textInput';
 import {Login, Register} from "./src/pages/index"
