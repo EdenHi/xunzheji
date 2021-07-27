@@ -59,7 +59,7 @@ export default class LunTan extends Component {
         const {modalVisible,imgUrls,currentIndex} = this.state;
         const navigation = this.context;
         return (
-            <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
+            <View>
                 <View>
                     <ScrollView
                     showsVerticalScrollIndicator={false}>
@@ -67,43 +67,44 @@ export default class LunTan extends Component {
                         this.state.data.map((v,k)=>{
                             if (v.title === null){
                                 return (
-                                    <View key={k} style={{marginTop:20}}>
-                                        <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                            <TouchableOpacity>
-                                                <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                            </TouchableOpacity>
-                                            <View style={{marginLeft:10}}>
-                                                <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text style={{color:'#aaa'}}>{v.fabiao_time}</Text>
+                                    <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
+                                        <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
+                                            <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                <TouchableOpacity>
+                                                    <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                </TouchableOpacity>
+                                                <View style={{marginLeft:10}}>
+                                                    <Text style={styles.name}>{v.nickname}</Text>
+                                                    <Text style={{color:'#aaa'}}>{v.fabiao_time}</Text>
+                                                </View>
                                             </View>
-                                        </View>
-                                      <View style={styles.box}>
-                                      <FlatList
-                                        contentContainerStyle={styles.listViewStyle}
-                                        keyExtractor={(item, index) => (index + '1')}
-                                        data = {v.pic}
-                                       renderItem={({item,index})=>{
-                                         if (item === null ){
-                                            return ;
-                                        }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                        <View style={styles.box}>
+                                        <FlatList
+                                            contentContainerStyle={styles.listViewStyle}
+                                            keyExtractor={(item, index) => (index + '1')}
+                                            data = {v.pic}
+                                        renderItem={({item,index})=>{
+                                            if (item === null ){
+                                                return ;
+                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                                return (
+                                                    <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.95 - 4) / 2,width:(width * 0.95 - 4) / 2}}/>
+                                                </TouchableOpacity>
+                                                </View>
+                                                );
+                                        } else if (v.pic.length >= 5 && v.pic.length <= 9){
                                             return (
                                                 <View style={styles.box2}>
-                                            <TouchableOpacity
-                                            key = {index}
-                                            onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.95 - 4) / 2,width:(width * 0.95 - 4) / 2}}/>
-                                            </TouchableOpacity>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.95 - 7) / 3,width:(width * 0.95 - 7) / 3}}/>
+                                                </TouchableOpacity>
                                             </View>
-                                            );
-                                    } else if (v.pic.length >= 5 && v.pic.length <= 9){
-                                        return (
-                                            <View style={styles.box2}>
-                                            <TouchableOpacity
-                                            key = {index}
-                                            onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.95 - 6) / 3,width:(width * 0.95 - 6) / 3}}/>
-                                            </TouchableOpacity>
-                                        </View>
                                         );
                                     } else {
                                         return (
@@ -118,7 +119,7 @@ export default class LunTan extends Component {
                                     }
                                        }}/>
                                        </View>
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around'}}>
+                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
                                                     <Ionicons
@@ -146,12 +147,13 @@ export default class LunTan extends Component {
                                                 </View>
                                             </TouchableOpacity>
                                        </View>
-        
+                                       </View>
                                     </View>
                                   ) 
                             } else {
                                 return (
-                                    <View key={k} style={{marginTop:20}}>
+                                    <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
+                                        <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
                                         <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                             <TouchableOpacity>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
@@ -188,7 +190,7 @@ export default class LunTan extends Component {
                                             <TouchableOpacity
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.95 - 6) / 3,width:(width * 0.95 - 6) / 3}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.95 - 7) / 3,width:(width * 0.95 - 7) / 3}}/>
                                             </TouchableOpacity>
                                         </View>
                                         );
@@ -205,7 +207,7 @@ export default class LunTan extends Component {
                                     }
                                        }}/>
                                        </View>
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around'}}>
+                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
                                                     <Ionicons
@@ -233,7 +235,7 @@ export default class LunTan extends Component {
                                                 </View>
                                             </TouchableOpacity>
                                        </View>
-        
+                                       </View>
                                     </View>
                                   );
                             }
@@ -284,6 +286,7 @@ const styles = StyleSheet.create({
         height:50,
         width:50,
         borderRadius:50,
+        marginTop:10,
     },
     name:{
         fontSize:20,
