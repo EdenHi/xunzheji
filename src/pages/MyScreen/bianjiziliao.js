@@ -306,7 +306,11 @@ export default class app1 extends Component {
                         </ListItem>
                     {/* 修改个签结束 */}
                 </View>
-
+                <View>
+                    <TouchableOpacity onPress={()=>this.context.navigate('BtnRoute',this.state)}>
+                        <Text>返回上一级</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
