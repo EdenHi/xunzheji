@@ -21,6 +21,7 @@ import {
   Fabu,
   bianjiziliao,
   shezhi,
+  CustomMade
 } from '../pages/index';
 import Ranking from '../Ranking';
 import {startClock} from 'react-native-reanimated';
@@ -42,6 +43,7 @@ export default function StackNav() {
       <Stack.Screen name="FindPass" component={FindPass} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="Ranking" component={Ranking} />
+      <Stack.Screen name="CustomMade" component={CustomMade} />
       <Stack.Screen name="Chats" component={Chats} />
 
       <Stack.Screen name="articel" component={articel} />

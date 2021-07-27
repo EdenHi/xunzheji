@@ -95,6 +95,7 @@ export default class Store extends Component {
     )
   }
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.header}>
@@ -105,16 +106,16 @@ export default class Store extends Component {
             />
 
           </TouchableOpacity>
-          <View style={styles.input}>
+          <TouchableOpacity style={styles.input}>
             <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07,  }}>
               <SimpleLineIcons style={{textAlign:'center',textAlignVertical:'center',height:'100%',borderWidth:0,}}
                 name="magnifier"
                 size={18}
-                color="black"
+                color="grey"
               />
             </View>
-            <TextInput placeholder="搜索好物" style={{ width: width * 0.5, marginLeft: "1%", height: 40, }}></TextInput>
-          </View>
+            <Text style={{fontSize:15,marginLeft:"3%",color:"grey"}}>搜索好物</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.left}>
             <MaterialCommunityIcons style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="dots-vertical"
@@ -138,7 +139,9 @@ export default class Store extends Component {
                 autoplayTimeout={2}
               /></ImageBackground>
             <View style={styles.part}>
-              <TouchableOpacity style={{ width: "39%", height: "100%", backgroundColor: "#fff", borderRadius: 10, marginRight: "1%", elevation: 5 }}>
+              <TouchableOpacity style={{ width: "39%", height: "100%", backgroundColor: "#fff", borderRadius: 10, marginRight: "1%", elevation: 5 }}
+                onPress={() => navigation.navigate('CustomMade')}
+              >
 
                 <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
@@ -310,10 +313,11 @@ const styles = StyleSheet.create({
   input: {
     width: width * 0.70,
     height: width * 0.09,
-    backgroundColor: "grey",
+    backgroundColor: "#fff",
     borderRadius: 20,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
+    elevation:5
   },
   icon: {
     width: "100%",
