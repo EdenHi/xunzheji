@@ -6,7 +6,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import My from '../pages/MyScreen/My';
 import Store from '../pages/Shop/store';
 import Home from '../pages/HomeScreen/HOME/Home';
-import Forum from '../pages/Forum/LunTan';
+import Forum from '../pages/Forum/luntan';
 import ForumTop from '../pages/Forum/ForumTop'
 import Tour from '../pages/Tour/index';
 import AntDesign from 'react-native-vector-icons/AntDesign';
