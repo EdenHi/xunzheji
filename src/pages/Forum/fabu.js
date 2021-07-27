@@ -135,10 +135,14 @@ export default class pinglun extends Component {
         return (
             <View style = {styles.container}>
                 <View style = {styles.box}>
-                    <Text>取消</Text>
+                <TouchableOpacity
+                    onPress = {()=>this._goget()}>
+                        <Text>取消</Text>
+                    </TouchableOpacity>
                     <Text>发表文章</Text>
                     <TouchableOpacity
-                    onPress = {()=>this._goget()}>
+                    // onPress = {()=>this._goget()}
+                    >
                         <Text>发布</Text>
                     </TouchableOpacity>
                 </View>
