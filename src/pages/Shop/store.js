@@ -116,7 +116,9 @@ export default class Store extends Component {
             </View>
             <Text style={{fontSize:15,marginLeft:"3%",color:"grey"}}>搜索好物</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.left}>
+          <TouchableOpacity style={styles.left}
+          onPress={() => navigation.navigate('ShoppingCart')}
+          >
             <MaterialCommunityIcons style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="dots-vertical"
               size={25}
@@ -276,14 +278,14 @@ export default class Store extends Component {
             </View>
           </View>
         </ScrollView>
-        <ActionButton
+        {/* <ActionButton
           hideLabelShadow={true}
           activeOpacity={1}
           elevation={100}
           size={60}
           buttonColor="rgba(231,76,60,1)"
           onPress={() => { alert('你点了我！') }}
-        />
+        /> */}
       </View>
     );
   }

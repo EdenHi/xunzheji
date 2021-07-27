@@ -6,13 +6,15 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import My from '../pages/MyScreen/My';
 import Store from '../pages/Shop/store';
 import Home from '../pages/HomeScreen/HOME/Home';
-import Forum from '../pages/Forum/luntan';
+import Forum from '../pages/Forum/LunTan';
+import ForumTop from '../pages/Forum/ForumTop'
 import Tour from '../pages/Tour/index';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 const Tab = createBottomTabNavigator(); //底部导航
+
 export default function BtnRoute() {
   return (
     <Tab.Navigator
@@ -31,7 +33,7 @@ export default function BtnRoute() {
       />
       <Tab.Screen
         name="社区"
-        component={Forum}
+        component={ForumTop}
         options={{
           tabBarIcon: ({color}) => (
             <Ionicons name={'planet-outline'} size={28} color={color} />

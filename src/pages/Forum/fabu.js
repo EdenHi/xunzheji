@@ -6,7 +6,7 @@ import {View,Image,FlatList,Text ,StyleSheet, TextInput, TouchableOpacity,Dimens
 const {height,width} = Dimensions.get('window');
 import ImagePicker from 'react-native-image-crop-picker';
 import randId from '../../components/comment/randId';
-export default class pinglun extends Component {
+export default class Fabu extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -132,11 +132,13 @@ export default class pinglun extends Component {
     }
 
     render() {
+
         return (
             <View style = {styles.container}>
                 <View style = {styles.box}>
                 <TouchableOpacity
-                    onPress = {()=>this._goget()}>
+                   
+                    >
                         <Text>取消</Text>
                     </TouchableOpacity>
                     <Text>发表文章</Text>

@@ -17,7 +17,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default class luntan extends Component {
+export default class LunTan extends Component {
     static contextType = NavigationContext;
     constructor(props){
         super(props);
@@ -53,7 +53,7 @@ export default class luntan extends Component {
       }
       goComment=(v)=>{
        this.context.navigate('Comment',v);
-     //  this.props.navigation.navigate('pinglun3')
+      this.props.navigation.navigate('Fabu')
       }
 
     render () {
@@ -64,9 +64,9 @@ export default class luntan extends Component {
                 <View>
                     <ScrollView
                     showsVerticalScrollIndicator={false}>
-                        <TouchableOpacity onPress={()=>this.props.navigation.navigate('Fabu')}>
+                        {/* <TouchableOpacity onPress={()=>this.props.navigation.navigate('Fabu')}>
                             <Text>发布动态</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     {
                         this.state.data.map((v,k)=>{
                           return (
@@ -95,7 +95,7 @@ export default class luntan extends Component {
                                 }  else if (v.pic.length > 1 && v.pic.length < 5){
                                     return (
                                         <View style={styles.box2}>
-                                    <TouchableOpacity
+                                    <TouchableOpacity   
                                     key = {index}
                                     onPress={()=>this.handleShowAlbum(k,index)}>
                                         <Image source={{uri:item}} style={{height:(width - 32) / 2,width:(width - 32) / 2}}/>
