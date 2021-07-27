@@ -24,12 +24,13 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     box: {
-        borderWidth: 1,
         width: width * 0.4,
         height: width * 0.45,
         borderRadius: 13,
-        backgroundColor: '#D9D9F3',
-        marginHorizontal:width*0.015
+        backgroundColor: '#87cefa',
+        marginHorizontal:width*0.015,
+        elevation:10,
+        marginTop:5
     },
     box2: {
 
