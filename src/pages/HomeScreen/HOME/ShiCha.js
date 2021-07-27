@@ -54,14 +54,16 @@ const MyCarousel = props => {
       <View style={styles.item}>
         <ParallaxImage
           source={require("../photos/travel1.jpeg")}
+          source={require("../photos/travel2.jpeg")}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.4}
+          parallaxFactor={0.5}
           {...parallaxProps}
         />
-        {/* <Text style={styles.title} numberOfLines={2}>
+        { <Text style={styles.title} numberOfLines={2}>
           {item.title}
-        </Text> */}
+        </Text>}
+        
       </View>
       
     );
@@ -69,9 +71,9 @@ const MyCarousel = props => {
 
   return (
     <View style={styles.container}>
-      {/* <TouchableOpacity onPress={goForward}>
+      {/* { <TouchableOpacity onPress={goForward}>
         <Text>go to next slide</Text>
-      </TouchableOpacity> */}
+      </TouchableOpacity> } */}
       <Carousel
         ref={carouselRef}
         sliderWidth={width}
@@ -90,6 +92,7 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    borderRadius:10
 
   },
   item: {

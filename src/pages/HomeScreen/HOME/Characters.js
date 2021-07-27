@@ -4,7 +4,7 @@ const {width, height} = Dimensions.get("window")
 export default class Characters extends Component {
     render() {
         return (
-                <View style={{height:200, width:width*0.3, margin:10, borderRadius:10,alignItems:"center",padding:10}}>
+                <View style={{height:180,elevation:10,width:width*0.3, margin:10,marginTop:-10, borderRadius:10,alignItems:"center",padding:10}}>
                 <ImageBackground borderRadius={10} style={{height:180,width:width*0.3,}} source={require("../photos/blue.jpeg")}>
                                      <View style={{alignItems:"center",justifyContent:"center",}} > 
                                          <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
