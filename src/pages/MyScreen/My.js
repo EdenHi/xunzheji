@@ -28,15 +28,16 @@ export default class My extends Component {
             this.setState({
                 username:result,
             });
-            axios.post('http://192.168.50.119:3000/index/selectPerson',{
-                            username:this.state.username,
+            console.log('username',result)
+            axios.post('http://192.168.50.117:3000/index/selectPerson',{
+                            username:result,
                     }).then((json)=>{
                         this.setState({
                           data:json.data[0],
                         });
                       });
         } else {
-            console.log('获取数据失败');
+            console.log('获取数据失败',error);
         }
     });
     }
@@ -129,7 +130,7 @@ export default class My extends Component {
                 //     </View>
                 // }
                // stickyHeaderHeight={50}
-                parallaxHeaderHeight={ 270 }
+                parallaxHeaderHeight={ 350 }
                 >
 
                  <MyRoute />

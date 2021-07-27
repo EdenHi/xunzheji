@@ -43,7 +43,7 @@ export default class pinglun extends Component {
     }
 
     _fetchImage(image) {
-        let url = 'http://192.168.50.119:3000/dongtai/releaseDongtai';
+        let url = 'http://192.168.50.117:3000/dongtai/releaseDongtai';
         let head = { uri: image.path, type: image.mime, name: image.path.split('/').pop() };
         let formData = new FormData();
         formData.append('files', head); // 这里的 file 要与后台名字对应。
@@ -82,7 +82,7 @@ export default class pinglun extends Component {
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
 
-        fetch('http://192.168.50.119:3000/dongtai/title', {
+        fetch('http://192.168.50.117:3000/dongtai/title', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

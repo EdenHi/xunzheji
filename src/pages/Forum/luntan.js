@@ -42,7 +42,7 @@ export default class luntan extends Component {
         });
        }
     componentDidMount() {
-        axios.get('http://192.168.50.119:3000/dongtai/allDongtai')
+        axios.get('http://192.168.50.117:3000/dongtai/allDongtai')
           .then((json)=>{
             this.setState({
                 data:json.data,
