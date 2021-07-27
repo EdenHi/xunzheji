@@ -66,7 +66,7 @@ export default class comment extends React.Component {
             Minutes = '0' + Minutes;
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
-        fetch('http://192.168.50.119:3000/dongtai/insert_comment', {
+        fetch('http://192.168.50.117:3000/dongtai/insert_comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -120,7 +120,7 @@ export default class comment extends React.Component {
 
     //获取评论信息
     componentDidMount(){
-        fetch('http://192.168.50.119:3000/dongtai/comment', {
+        fetch('http://192.168.50.117:3000/dongtai/comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

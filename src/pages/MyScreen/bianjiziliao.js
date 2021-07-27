@@ -61,7 +61,7 @@ export default class app1 extends Component {
                     this.setState({
                         touxiang:image.path,
                     });
-                    fetch('http://192.168.50.119:3000/index/updatePortrait',{
+                    fetch('http://192.168.50.117:3000/index/updatePortrait',{
                     method:'POST',
                     headers:{
                         'Content-Type':'multipart/form-data',
@@ -80,7 +80,7 @@ export default class app1 extends Component {
     }
 
     go_nickname(){
-        axios.post('http://192.168.50.119:3000/index/updateNickname',{
+        axios.post('http://192.168.50.117:3000/index/updateNickname',{
                             username:this.state.username,
                             nickname:this.state.nickname,
                     }).then((json)=>{
@@ -91,7 +91,7 @@ export default class app1 extends Component {
         });
       }
     go_birthday=(birthday)=>{
-        axios.post('http://192.168.50.119:3000/index/updateBirthday',{
+        axios.post('http://192.168.50.117:3000/index/updateBirthday',{
                             username:this.state.username,
                             birthday:birthday,
                     }).then((json)=>{
@@ -102,7 +102,7 @@ export default class app1 extends Component {
         });
     }
     go_signature(){
-        axios.post('http://192.168.50.119:3000/index/updateSignature',{
+        axios.post('http://192.168.50.117:3000/index/updateSignature',{
             username:this.state.username,
             signature:this.state.signature,
             }).then((json)=>{
@@ -125,7 +125,7 @@ export default class app1 extends Component {
         Picker.show();
     }
     updateSex = (arr) =>{
-        axios.post('http://192.168.50.119:3000/index/updateSex',{
+        axios.post('http://192.168.50.117:3000/index/updateSex',{
                             username:this.state.username,
                             sex:arr[0],
                     }).then((json)=>{
@@ -149,9 +149,9 @@ export default class app1 extends Component {
         Picker.show();
     }
     updateArea = (arr) =>{
-        axios.post('http://192.168.50.119:3000/index/updateArea',{
+        axios.post('http://192.168.50.117:3000/index/updateArea',{
                             username:this.state.username,
-                            sex:arr[1],
+                            area:arr[1],
                     }).then((json)=>{
                         console.log('json',json.data);
                       });

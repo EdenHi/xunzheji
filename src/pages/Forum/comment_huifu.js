@@ -23,7 +23,7 @@ export default class comment_huifu extends Component {
                 });
             }
         });
-        fetch('http://192.168.50.119:3000/dongtai/comment_huifu', {
+        fetch('http://192.168.50.117:3000/dongtai/comment_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -61,7 +61,7 @@ export default class comment_huifu extends Component {
             Minutes = '0' + Minutes;
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
-        fetch('http://192.168.50.119:3000/dongtai/insert_huifu', {
+        fetch('http://192.168.50.117:3000/dongtai/insert_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

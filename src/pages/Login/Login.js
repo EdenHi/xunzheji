@@ -12,6 +12,7 @@ import {
   Dimensions,
   ImageBackground,
   TextInput,
+  AsyncStorage,
 } from 'react-native';
 import axios from 'axios';
 import Textinput from '../../components/textInput';
@@ -19,13 +20,20 @@ const ratio_w = Dimensions.get('window').width / 375;
 export default class Login extends Component {
   load() {
     axios
-      .post('http://192.168.50.119:3000/index/login', {
+      .post('http://192.168.50.117:3000/index/login', {
         username: this.state.username,
         password: this.state.password,
       })
       .then(resp => {
         if (resp.data === '登录成功') {
-          this.props.navigation.navigate('Home');
+          AsyncStorage.setItem('username',this.state.username,(error)=>{
+            if (!error){
+                console.log('保存成功');
+            } else {
+                console.log('保存失败');
+            }
+        });
+          this.props.navigation.navigate('BtnRoute');
         } else {
           alert(resp.data);
         }
