@@ -252,9 +252,9 @@ export default class ShoppingCart extends Component {
             <Text>全选</Text>
           </View>
           <Text style={{marginHorizontal: 10}}>合计:
-            <Text style={{color:"#a62300"}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
+            <Text style={{color:"#7cc0c0"}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
           </Text>
-          <View style={{width: 120, backgroundColor:"#a62300", alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>
+          <View style={{width: 120,backgroundColor:"#7cc0c0", alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>
             <Text style={{color: "#fff"}}>去结算({this.state.totalNum})</Text>
           </View>
         </View>

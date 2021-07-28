@@ -92,7 +92,7 @@ export default class Comment extends React.Component {
             <TouchableOpacity
             key = {index}
             onPress={()=>this.handleShowAlbum(index)}>
-                <Image source={{uri:item}} style={{height:(width - 32) / 2,width:(width - 32) / 2}}/>
+                <Image source={{uri:item}} style={{height:(width * 0.95 - 4) / 2,width:(width * 0.95 - 4) / 2}}/>
             </TouchableOpacity>
             </View>
             );
@@ -102,7 +102,7 @@ export default class Comment extends React.Component {
             <TouchableOpacity
             key = {index}
             onPress={()=>this.handleShowAlbum(index)}>
-                <Image source={{uri:item}} style={{height:(width - 40) / 3,width:(width - 40) / 3}}/>
+                <Image source={{uri:item}} style={{height:(width * 0.95 - 7) / 3,width:(width * 0.95 - 7) / 3}}/>
             </TouchableOpacity>
         </View>
         );
@@ -112,7 +112,7 @@ export default class Comment extends React.Component {
             <TouchableOpacity
             key = {index}
             onPress={()=>this.handleShowAlbum(index)}>
-                <Image source={{uri:item}} style={{height:(width - 24),width:(width - 24)}}/>
+                <Image source={{uri:item}} style={{height:width * 0.95 - 2,width:width * 0.95 - 2}}/>
             </TouchableOpacity>
         </View>
     );
@@ -319,7 +319,7 @@ const styles = StyleSheet.create({
     },
     box2:{
         flexDirection:'row',
-        margin:2,
+        margin:1,
     },
     photo1:{
         height:100,

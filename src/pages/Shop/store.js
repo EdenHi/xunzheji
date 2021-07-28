@@ -103,6 +103,7 @@ export default class Store extends Component {
             <MaterialCommunityIcons style={{ textAlign: 'center',borderWidth:0,height:'100%',textAlignVertical:'center'}}
               name="clipboard-text-outline"
               size={25}
+              color="#7cc0c0"
             />
 
           </TouchableOpacity>
@@ -114,7 +115,7 @@ export default class Store extends Component {
                 color="grey"
               />
             </View>
-            <Text style={{fontSize:15,marginLeft:"3%",color:"grey"}}>搜索好物</Text>
+            <Text style={{fontSize:15,marginLeft:"3%",color:"#7cc0c0"}}>搜索好物</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.left}
           onPress={() => navigation.navigate('ShoppingCart')}
@@ -122,6 +123,7 @@ export default class Store extends Component {
             <MaterialCommunityIcons style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="dots-vertical"
               size={25}
+              color="#7cc0c0"
             />
 
           </TouchableOpacity>
@@ -141,8 +143,8 @@ export default class Store extends Component {
                 autoplayTimeout={2}
               /></ImageBackground>
             <View style={styles.part}>
-              <TouchableOpacity style={{ width: "39%", height: "100%", backgroundColor: "#fff", borderRadius: 10, marginRight: "1%", elevation: 5 }}
-               onPress={() => navigation.navigate('CustomMade')}
+              <TouchableOpacity style={{ width: "39%", height: "100%",  borderRadius: 10, marginRight: "1%", elevation: 5 }}
+                onPress={() => navigation.navigate('CustomMade')}
               >
 
                 <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
@@ -158,13 +160,13 @@ export default class Store extends Component {
             </View>
             <View style={styles.old}>
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#a62300" }}></View>
-                <Text style={{ fontSize: 15, marginLeft: "2%" }}>上新好物</Text>
+                <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
+                <Text style={{ fontSize: 15, marginLeft: "2%",color:"#7cc0c0",fontWeight:"bold" }}>上新好物</Text>
                 <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
                 <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="right"
               size={20}
-              color="#a62300"
+              color="#7cc0c0"
             />
                 </TouchableOpacity>
               </View>
@@ -177,7 +179,7 @@ export default class Store extends Component {
                     <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>姜枣膏是一道美味佳肴，主料是姜，枣。</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text style={{ fontSize: 13, color: "#a62300" }}>￥50</Text>
+                    <Text style={{ fontSize: 13, color: "#7cc0c0" }}>￥50</Text>
                   </View>
                   <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
                     <View style={{ width: "70%", height: "100%", }}>
@@ -188,7 +190,7 @@ export default class Store extends Component {
                     </View>
                   </View>
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#a62300", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
@@ -215,7 +217,7 @@ export default class Store extends Component {
                     <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>双合成月饼连续十余年被国家评为“中国名饼、名牌月饼”。</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text style={{ fontSize: 13, color: "#a62300" }}>￥30</Text>
+                    <Text style={{ fontSize: 13, color: "#7cc0c0" }}>￥30</Text>
                   </View>
                   <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
                     <View style={{ width: "70%", height: "100%", }}>
@@ -226,7 +228,7 @@ export default class Store extends Component {
                     </View>
                   </View>
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#a62300", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
@@ -247,13 +249,13 @@ export default class Store extends Component {
             </View>
             <View style={styles.limit}>
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#a62300" }}></View>
-                <Text style={{ fontSize: 15, marginLeft: "2%" }}>浙江老字号</Text>
+                <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
+                <Text style={{ fontSize: 15, marginLeft: "2%" ,color:"#7cc0c0",fontWeight:"bold"}}>浙江老字号</Text>
                 <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" }}>
                 <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="right"
               size={20}
-              color="#a62300"
+              color="#7cc0c0"
             />
                 </TouchableOpacity>
               </View>
@@ -272,8 +274,8 @@ export default class Store extends Component {
             </View>
             <View style={styles.waterfall}>
               <View style={{ width: "100%", height: "12%", alignItems: "center" }}>
-                <Text style={{ fontSize: 15, color: "#a62300", fontWeight: "bold", marginTop: "2%" }}>今日推荐</Text>
-                <View style={{ width: "25%", height: "3%", backgroundColor: "#a62300" }}></View>
+                <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%" ,fontWeight:"bold"}}>今日推荐</Text>
+                <View style={{ width: "25%", height: "3%", backgroundColor: "#7cc0c0" }}></View>
               </View>
             </View>
           </View>

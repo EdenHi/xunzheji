@@ -110,13 +110,13 @@ export default class My extends Component {
                         <Feather
                         name="menu"
                         size={30}
-                        color="black"/>
+                        color="#7cc0c0"/>
                     </TouchableOpacity>
                     <TouchableOpacity style={{marginRight:30,marginTop:10}}>
                         <Feather
                         name="external-link"
                         size={30}
-                        color="black"/>
+                        color="#7cc0c0"/>
                     </TouchableOpacity>
                 </View>}
                 // renderStickyHeader={
