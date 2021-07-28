@@ -102,10 +102,10 @@ export default class Fabu extends Component {
             for (var i = 0; i < arr.length; i++)
             {this._fetchImage(arr[i]);}
             this._fetchText();
-            this.props.navigation.navigate('Forum');
+            this.props.navigation.navigate('BtnRoute');
         } else {
             this._fetchText();
-            this.props.navigation.navigate('Forum');
+            this.props.navigation.navigate('BtnRoute');
         }
 
     }
@@ -137,14 +137,12 @@ export default class Fabu extends Component {
             <View style = {styles.container}>
                 <View style = {styles.box}>
                 <TouchableOpacity
-                   
-                    >
+                   onPress = {()=>this.props.navigation.navigate('BtnRoute')} >
                         <Text>取消</Text>
                     </TouchableOpacity>
                     <Text>发表文章</Text>
                     <TouchableOpacity
-                    // onPress = {()=>this._goget()}
-                    >
+                     onPress = {()=>this._goget()}>
                         <Text>发布</Text>
                     </TouchableOpacity>
                 </View>
