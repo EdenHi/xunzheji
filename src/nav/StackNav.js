@@ -25,6 +25,8 @@ import {
   CustormerBar,
   Goods,
   dingzhi,
+  History,
+  News,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import {startClock} from 'react-native-reanimated';
@@ -64,6 +66,9 @@ export default function StackNav() {
       <Stack.Screen name="Comment_huifu" component={Comment_huifu} />
       <Stack.Screen name="Fabu" component={Fabu} />
       <Stack.Screen name="CustormerBar" component={CustormerBar} />
+      <Stack.Screen name="History" component={History} />
+      <Stack.Screen name="News" component={News} />
+
     </Stack.Navigator>
   );
 }
