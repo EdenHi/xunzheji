@@ -19,8 +19,9 @@ const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-export default class comment extends React.Component {
+export default class Comment extends React.Component {
     static contextType = NavigationContext;
     constructor(props){
         super(props);
@@ -84,7 +85,7 @@ export default class comment extends React.Component {
     //渲染图片
       renderData({item,index}){
         if (item === null ){
-            return ;
+            return;
         }  else if (this.state.data.pic.length > 1 && this.state.data.pic.length < 5){
             return (
                 <View style={styles.box2}>
@@ -148,66 +149,67 @@ export default class comment extends React.Component {
 
     goComment=(v)=>{
         this.context.navigate('Comment_huifu',v);
-      //  this.props.navigation.navigate('pinglun3')
        }
 
 
     render () {
         const {data,comment_zhu} = this.state;
-        console.log('data',data)
+        console.log('data',data);
         console.log('comment_zhu',comment_zhu);
         const {modalVisible,imgUrls,currentIndex} = this.state;
         return (
-            <View style={{marginLeft:10,marginRight:10,flex:1}}>
-                <ScrollView>
-                <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:20}}>
-                    <TouchableOpacity>
-                        <Image source={{uri:data.portrait}} style={styles.touxiang}/>
-                    </TouchableOpacity>
-                    <View style={{marginLeft:10}}>
-                        <Text style={styles.name}>{data.nickname}</Text>
-                        <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
-                    </View>
-                    </View>
-                    <Text style={styles.txt}
-                    ellipsizeMode="tail"
-                    numberOfLines={8}>{data.title}</Text>
-                    <View style={styles.box}>
-                        <FlatList
-                        contentContainerStyle={styles.listViewStyle}
-                        keyExtractor={(item, index) => (index + '1')}
-                        data = {data.pic}
-                        renderItem = {this.renderData.bind(this)}/>
-                    </View>
-                    <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around'}}>
-                        <TouchableOpacity>
-                            <View style={{flexDirection:'row'}}>
-                                <Ionicons
-                                name="heart-outline"
-                                size={20}
-                                color="black"/>
-                                <Text style={{marginLeft:5}}>{data.dianzan}</Text>
+            <View style={{flex:1}}>
+                <ScrollView >
+                    <View style={{backgroundColor:'white'}}>
+                        <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
+                            <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:20}}>
+                                <TouchableOpacity>
+                                    <Image source={{uri:data.portrait}} style={styles.touxiang}/>
+                                </TouchableOpacity>
+                                <View style={{marginLeft:10}}>
+                                    <Text style={styles.name}>{data.nickname}</Text>
+                                    <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
+                                </View>
                             </View>
-                        </TouchableOpacity>
-
-                        <View style={{flexDirection:'row'}}>
-                            <Ionicons
-                            name="chatbubble-ellipses-outline"
-                            size={20}
-                            color="black"/>
-                            <Text style={{marginLeft:5}}>{data.counts}</Text>
+                            <Text style={styles.txt}
+                            ellipsizeMode="tail"
+                            numberOfLines={8}>{data.title}</Text>
+                            <View style={styles.box}>
+                                <FlatList
+                                contentContainerStyle={styles.listViewStyle}
+                                keyExtractor={(item, index) => (index + '1')}
+                                data = {data.pic}
+                                renderItem = {this.renderData.bind(this)}/>
                             </View>
+                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                <TouchableOpacity>
+                                    <View style={{flexDirection:'row'}}>
+                                        <Ionicons
+                                        name="heart-outline"
+                                        size={20}
+                                        color="black"/>
+                                        <Text style={{marginLeft:5}}>{data.dianzan}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <View style={{flexDirection:'row'}}>
+                                    <Ionicons
+                                    name="chatbubble-ellipses-outline"
+                                    size={20}
+                                    color="black"/>
+                                    <Text style={{marginLeft:5}}>{data.counts}</Text>
+                                </View>
 
-                        <TouchableOpacity>
-                            <View style={{flexDirection:'row'}}>
-                                <Ionicons
-                                name="arrow-redo-outline"
-                                size={20}
-                                color="black"/>
+                                <TouchableOpacity>
+                                    <View style={{flexDirection:'row'}}>
+                                        <Ionicons
+                                        name="arrow-redo-outline"
+                                        size={20}
+                                        color="black"/>
+                                    </View>
+                                </TouchableOpacity>
                             </View>
-                        </TouchableOpacity>
                     </View>
-
+                </View>
                 {/* 放大图片的遮罩层 */}
                 <Modal animationType={'slide'}
                 transparent={true}
@@ -216,12 +218,13 @@ export default class comment extends React.Component {
                 <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
             </Modal>
                 {/* 评论的渲染 */}
+                <View style={{marginTop:10}}>
                 {
                     comment_zhu.map((v,k)=>{
                         if (v.counts > 0 ){
                             return (
-                                <View key={k}>
-                                    <View style={{flexDirection:'row',marginTop:20}}>
+                                <View key={k} style={{backgroundColor:'white'}}>
+                                    <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
                                         <TouchableOpacity>
                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                         </TouchableOpacity>
@@ -250,14 +253,13 @@ export default class comment extends React.Component {
                                                 <Text style={{color:'#aaa'}}>{v.date_zhu}</Text>
                                             </View>
                                         </View>
-
                                     </View>
                                 </View>
-                            )
+                            );
                         } else {
                             return (
-                                <View key={k}>
-                                    <View style={{flexDirection:'row',marginTop:20}}>
+                                <View key={k} style={{backgroundColor:'white'}}>
+                                    <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
                                         <TouchableOpacity>
                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                         </TouchableOpacity>
@@ -285,17 +287,25 @@ export default class comment extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            );
                         }
                     })
                 }
+                </View>
                 </ScrollView>
-                <View style={{flexDirection:'row'}}>
+                <View style={styles.box3}>
                     <TextInput
-                    style={{backgroundColor:'#ccc',width:300}}
-                    onChangeText={(content)=>this.setState({content:content})}/>
-                    <TouchableOpacity onPress={()=>this.pinglun()}>
-                        <Text>发布</Text>
+                        placeholder="我要评论..."
+                        style={styles.txt2}
+                        multiline = {true}
+                        clearTextOnFocus={true}
+                        onChangeText={(content)=>this.setState({content})}
+                    />
+                    <TouchableOpacity onPress={()=>this.pinglun()}
+                    style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
+                        <FontAwesome
+                        name="send-o"
+                        size={30}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -343,5 +353,23 @@ const styles = StyleSheet.create({
     txt:{
         marginTop:10,
         fontSize:18,
+    },
+    box3: {
+        flexDirection: 'row',
+        borderTopWidth: 1,
+        borderTopColor: '#ccc',
+        alignItems:'center',
+        marginLeft:width * 0.025,
+        width:width * 0.95,
+    },
+    txt2: {
+        backgroundColor: '#ccc',
+        paddingLeft: 15,
+        paddingRight:15,
+        width: '70%',
+        borderRadius: 15,
+        marginRight:0,
+        marginTop: 10 ,
+        marginBottom: 10 ,
     },
 });

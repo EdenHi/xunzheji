@@ -6,7 +6,6 @@ import BtnRoute from './BtnRoute';
 import {
   My,
   Tour,
-  Forum,
   Store,
   Home,
   Login,
@@ -23,7 +22,8 @@ import {
   shezhi,
   CustomMade,
   ShoppingCart,
-  dingzhi
+  CustormerBar,
+  Goods,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import {startClock} from 'react-native-reanimated';
@@ -34,12 +34,12 @@ const Stack = createStackNavigator();
 
 export default function StackNav() {
   return (
-    <Stack.Navigator headerMode="none">
+    <Stack.Navigator headerMode="none"
+      initialRouteName="Login">
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="BtnRoute" component={BtnRoute} />
       <Stack.Screen name="MyScreen" component={My} />
       <Stack.Screen name="Tour" component={Tour} />
-      <Stack.Screen name="Forum" component={Forum} />
       <Stack.Screen name="Store" component={Store} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="FindPass" component={FindPass} />
@@ -47,7 +47,6 @@ export default function StackNav() {
       <Stack.Screen name="Ranking" component={Ranking} />
       <Stack.Screen name="ShoppingCart" component={ShoppingCart} />
       <Stack.Screen name="CustomMade" component={CustomMade} />
-      <Stack.Screen name="dingzhi" component={dingzhi} />
       <Stack.Screen name="Chats" component={Chats} />
 
       <Stack.Screen name="articel" component={articel} />
@@ -56,11 +55,13 @@ export default function StackNav() {
       <Stack.Screen name="Page3" component={Page3} />
       <Stack.Screen name="Comment" component={Comment} />
       <Stack.Screen name="GoodsDetail" component={GoodsDetail} />
+      <Stack.Screen name="Goods" component={Goods} />
 
       <Stack.Screen name="bianjiziliao" component={bianjiziliao} />
       <Stack.Screen name="shezhi" component={shezhi} />
       <Stack.Screen name="Comment_huifu" component={Comment_huifu} />
       <Stack.Screen name="Fabu" component={Fabu} />
+      <Stack.Screen name="CustormerBar" component={CustormerBar} />
     </Stack.Navigator>
   );
 }
