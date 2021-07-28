@@ -2,8 +2,9 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,TouchableOpacity,Image ,StyleSheet, TextInput,AsyncStorage, ScrollView} from 'react-native';
-
+import {View,Text,TouchableOpacity,Image ,StyleSheet, TextInput,AsyncStorage, ScrollView,Dimensions} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+const {height,width} = Dimensions.get('window');
 export default class comment_huifu extends Component {
     constructor(props){
         super(props);
@@ -23,7 +24,7 @@ export default class comment_huifu extends Component {
                 });
             }
         });
-        fetch('http://192.168.50.119:3000/dongtai/comment_huifu', {
+        fetch('http://192.168.50.117:3000/dongtai/comment_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -61,7 +62,7 @@ export default class comment_huifu extends Component {
             Minutes = '0' + Minutes;
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
-        fetch('http://192.168.50.119:3000/dongtai/insert_huifu', {
+        fetch('http://192.168.50.117:3000/dongtai/insert_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -81,43 +82,54 @@ export default class comment_huifu extends Component {
         console.log('data',data);
         return (
             <View style={{flex:1}}>
-                <View style={{flexDirection:'row',marginTop:20,marginBottom:30}}>
-                    <TouchableOpacity>
-                        <Image source={{uri:data.portrait}} style={styles.touxiang}/>
-                    </TouchableOpacity>
-                    <View style={{marginLeft:10}}>
-                        <Text style={styles.name}>{data.nickname}</Text>
-                        <Text>{data.content}</Text>
-                        <Text style={{color:'#aaa'}}>{data.date_zhu}</Text>
-                    </View>
-                </View>
-                {/* 渲染回复列表 */}
                 <ScrollView>
-                {
-                    huifu.map((v,k)=>{
-                        return (
-                            <View key={k}>
-                                <View style={{flexDirection:'row',marginTop:20}}>
-                                    <TouchableOpacity>
-                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                    </TouchableOpacity>
-                                    <View style={{marginLeft:10}}>
-                                        <Text style={styles.name}>{v.nickname}</Text>
-                                        <Text>{v.content_huifu}</Text>
-                                        <Text style={{color:'#aaa'}}>{v.date_huifu}</Text>
-                                    </View>
-                                </View>
+                    <View style={{backgroundColor:'white'}}>
+                        <View style={{flexDirection:'row',marginTop:20,marginBottom:20,marginLeft:width * 0.025,width:width * 0.95}}>
+                            <TouchableOpacity>
+                                <Image source={{uri:data.portrait}} style={styles.touxiang}/>
+                            </TouchableOpacity>
+                            <View style={{marginLeft:10}}>
+                                <Text style={styles.name}>{data.nickname}</Text>
+                                <Text>{data.content}</Text>
+                                <Text style={{color:'#aaa'}}>{data.date_zhu}</Text>
                             </View>
-                        );
-                    })
-                }
+                        </View>
+                    </View>
+                    {/* 渲染回复列表 */}
+                    <View style={{marginTop:10}}>
+                        {
+                            huifu.map((v,k)=>{
+                                return (
+                                    <View key={k} style={{backgroundColor:'white'}}>
+                                        <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
+                                            <TouchableOpacity>
+                                                <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                            </TouchableOpacity>
+                                            <View style={{marginLeft:10}}>
+                                                <Text style={styles.name}>{v.nickname}</Text>
+                                                <Text>{v.content_huifu}</Text>
+                                                <Text style={{color:'#aaa'}}>{v.date_huifu}</Text>
+                                            </View>
+                                        </View>
+                                    </View>
+                                );
+                            })
+                        }
+                    </View>
                 </ScrollView>
-                <View style={{flexDirection:'row'}}>
+                <View style={styles.box3}>
                     <TextInput
-                    style={{backgroundColor:'#ccc',width:300}}
-                    onChangeText={(content_huifu)=>this.setState({content_huifu:content_huifu})}/>
-                    <TouchableOpacity onPress={()=>this.fabu()}>
-                        <Text>发布</Text>
+                        placeholder="我要评论..."
+                        style={styles.txt2}
+                        multiline = {true}
+                        clearTextOnFocus={true}
+                        onChangeText={(content)=>this.setState({content})}
+                    />
+                    <TouchableOpacity onPress={()=>this.pinglun()}
+                    style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
+                        <FontAwesome
+                        name="send-o"
+                        size={30}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -134,5 +146,23 @@ const styles = StyleSheet.create({
         fontSize:20,
         fontWeight:'bold',
         marginBottom:5,
+    },
+    box3: {
+        flexDirection: 'row',
+        borderTopWidth: 1,
+        borderTopColor: '#ccc',
+        alignItems:'center',
+        marginLeft:width * 0.025,
+        width:width * 0.95,
+    },
+    txt2: {
+        backgroundColor: '#ccc',
+        paddingLeft: 15,
+        paddingRight:15,
+        width: '70%',
+        borderRadius: 15,
+        marginRight:0,
+        marginTop: 10 ,
+        marginBottom: 10 ,
     },
 });
