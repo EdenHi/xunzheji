@@ -2,9 +2,12 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text, TouchableOpacity,Image,Dimensions, ScrollView,StyleSheet } from 'react-native';
+import {View,Text, TouchableOpacity,Image,Dimensions, ScrollView,StyleSheet,Animated } from 'react-native';
 const {height,width} = Dimensions.get('window');
 export default class dingzhi extends Component {
+    constructor(props){
+        super(props);
+    }
     render() {
         return (
             <View style={{width:width * 0.95,marginLeft:width * 0.025}}>
