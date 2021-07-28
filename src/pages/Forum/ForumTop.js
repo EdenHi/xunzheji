@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import CustormerBar from './CustormerBar';
-import LunTan from './luntan';
+import LunTan from './Luntan';
 
 export default class ForumTop extends Component {
   constructor(props) {
