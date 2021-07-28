@@ -13,6 +13,7 @@ import {
   ImageBackground,
 
 } from 'react-native';
+import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
 import LottieView from 'lottie-react-native';
 import Foundation from "react-native-vector-icons/Foundation"
@@ -150,10 +151,10 @@ export default class Store extends Component {
                 <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                <TouchableOpacity style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
+                <TouchableOpacity  onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/9.jpg")}></Image>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
+                <TouchableOpacity  onPress={() => navigation.navigate('Exchange')}style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/10.jpg")}></Image>
                 </TouchableOpacity>
               </View>
@@ -272,13 +273,14 @@ export default class Store extends Component {
                   onSnapToItem={index => this.setState({ activeIndex: index })} />
               </View>
             </View>
-            <View style={styles.waterfall}>
-              <View style={{ width: "100%", height: "12%", alignItems: "center" }}>
+
+              <View style={{ width: "100%", height: "2.2%", alignItems: "center" }}>
                 <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%" ,fontWeight:"bold"}}>今日推荐</Text>
                 <View style={{ width: "25%", height: "3%", backgroundColor: "#7cc0c0" }}></View>
               </View>
-            </View>
+
           </View>
+          <Water/>
         </ScrollView>
         {/* <ActionButton
           hideLabelShadow={true}

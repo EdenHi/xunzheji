@@ -25,3 +25,4 @@ export {default as Goods} from './Shop/Goods';
 export {default as bianjiziliao} from './MyScreen/bianjiziliao'; //个人中心，编辑资料
 export {default as shezhi} from './MyScreen/shezhi'; //个人中心，设置
 export {default as CustormerBar} from './Forum/CustormerBar';
+export {default as Exchange} from './Shop/Exchange/Exchange'
