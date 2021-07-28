@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
     box:{
         // backgroundColor:'blue',
         overflow:'hidden',
-        borderRadius:30,
+        borderRadius:15,
         marginTop:10,
     },
     touxiang:{
