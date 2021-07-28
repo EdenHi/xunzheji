@@ -24,7 +24,6 @@ export {default as ShoppingCart} from '../pages/Shop/ShoppingCar/ShoppingCart.js
 export {default as Goods} from './Shop/Goods';
 export {default as bianjiziliao} from './MyScreen/bianjiziliao'; //个人中心，编辑资料
 export {default as shezhi} from './MyScreen/shezhi'; //个人中心，设置
-export {default as CustormerBar} from "./Forum/CustormerBar"
 export {default as people} from "./Forum/UserDetails/people.js" 
 export {default as NewWorks} from "./Shop/NewWorks"
 export {default as OldBank} from "./Shop/OldBank"
