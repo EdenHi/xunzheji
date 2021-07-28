@@ -6,7 +6,7 @@ export default class Card extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.box} activeOpacity={1} onPress={()=>this.props.navigation.navigate('Ranking')}>
-                <View style={{ marginVertical: width * 0.03 }}><Text style={{ textAlign: 'center', fontSize: ratio_w * 15, fontWeight: 'bold', color: '#42426F' }}>国内最美村镇人气</Text></View>
+                <View style={{ marginVertical: width * 0.03 }}><Text style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>国内最美村镇人气</Text></View>
                 <View style={styles.img}>
                     <View style={styles.box2} ><Image style={{ width: '100%', height: '100%', borderRadius: 10 }} source={{ uri: 'https://sjbz-fd.zol-img.com.cn/t_s320x510c5/g2/M00/05/0C/ChMlWl1BWGKIa5b1AAkDHph43SoAAMQfgALVicACQM2533.jpg' }}></Image></View>
                     <View style={styles.box3}><Image style={{ width: '100%', height: '100%', borderRadius: 10 }} source={{ uri: 'http://img.ewebweb.com/uploads/20190506/13/1557121557-MeFPIjRBrN.jpg' }}></Image></View>
@@ -26,11 +26,10 @@ const styles = StyleSheet.create({
     box: {
         width: width * 0.4,
         height: width * 0.45,
-        borderRadius: 13,
-        backgroundColor: '#87cefa',
-        marginHorizontal:width*0.015,
-        elevation:10,
-        marginTop:5
+        borderRadius: 10,
+        backgroundColor:"white",
+        marginRight:10,
+        elevation:5
     },
     box2: {
 
@@ -61,8 +60,8 @@ const styles = StyleSheet.create({
 
     },
     text: {
-        fontSize: ratio_w * 14,
+        fontSize: 12,
         paddingLeft: width * 0.03,
-        color: '#4A766E'
+        color: "#000"
     }
 })
