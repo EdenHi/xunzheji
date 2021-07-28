@@ -107,7 +107,9 @@ export default class Store extends Component {
             />
 
           </TouchableOpacity>
-          <TouchableOpacity style={styles.input}>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('search')}
+           style={styles.input}>
             <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07,  }}>
               <SimpleLineIcons style={{textAlign:'center',textAlignVertical:'center',height:'100%',borderWidth:0,}}
                 name="magnifier"
@@ -162,7 +164,9 @@ export default class Store extends Component {
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%",color:"#7cc0c0",fontWeight:"bold" }}>上新好物</Text>
-                <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('NewWorks')}
+                 style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
                 <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="right"
               size={20}
@@ -237,7 +241,6 @@ export default class Store extends Component {
               color="orange"
               size={25}
             />
-
                     </TouchableOpacity>
 
                   </View>
@@ -251,7 +254,9 @@ export default class Store extends Component {
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%" ,color:"#7cc0c0",fontWeight:"bold"}}>浙江老字号</Text>
-                <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" }}>
+                <TouchableOpacity
+                 onPress={() => navigation.navigate('OldBank')}
+                 style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" }}>
                 <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="right"
               size={20}

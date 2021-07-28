@@ -24,6 +24,10 @@ import {
   ShoppingCart,
   CustormerBar,
   Goods,
+  NewWorks,
+  people,
+  OldBank,
+  search
 } from '../pages/index';
 import Ranking from '../Ranking';
 import {startClock} from 'react-native-reanimated';
@@ -47,6 +51,9 @@ export default function StackNav() {
       <Stack.Screen name="Ranking" component={Ranking} />
       <Stack.Screen name="ShoppingCart" component={ShoppingCart} />
       <Stack.Screen name="CustomMade" component={CustomMade} />
+      <Stack.Screen name="NewWorks" component={NewWorks} />
+      <Stack.Screen name="OldBank" component={OldBank} />
+      <Stack.Screen name="search" component={search} />
       <Stack.Screen name="Chats" component={Chats} />
 
       <Stack.Screen name="articel" component={articel} />
@@ -61,6 +68,7 @@ export default function StackNav() {
       <Stack.Screen name="shezhi" component={shezhi} />
       <Stack.Screen name="Comment_huifu" component={Comment_huifu} />
       <Stack.Screen name="Fabu" component={Fabu} />
+      <Stack.Screen name="people" component={people} />
       <Stack.Screen name="CustormerBar" component={CustormerBar} />
     </Stack.Navigator>
   );

@@ -57,7 +57,7 @@ export default class LunTan extends Component {
 
     render () {
         const {modalVisible,imgUrls,currentIndex} = this.state;
-        const navigation = this.context;
+       // const { navigation } = this.props;
         return (
             <View>
                 <View>
@@ -70,7 +70,9 @@ export default class LunTan extends Component {
                                     <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
                                             <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                                <TouchableOpacity>
+                                                <TouchableOpacity
+                                                 onPress={() => this.context.navigate('people')}
+                                                >
                                                     <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                 </TouchableOpacity> 
                                                 <View style={{marginLeft:10}}>
@@ -155,7 +157,8 @@ export default class LunTan extends Component {
                                     <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
                                         <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity
+                                            onPress={() => this.context.navigate('people')}>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                             </TouchableOpacity>
                                             <View style={{marginLeft:10}}>

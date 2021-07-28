@@ -5718,6 +5718,13 @@ react-native-ezswiper@^1.3.0:
   resolved "https://registry.nlark.com/react-native-ezswiper/download/react-native-ezswiper-1.3.0.tgz"
   integrity sha1-cGhl48r2e9wZDkEnWDpNS+w3LwU=
 
+react-native-flip-card@^3.5.6:
+  version "3.5.6"
+  resolved "https://registry.nlark.com/react-native-flip-card/download/react-native-flip-card-3.5.6.tgz#de26f0285aa6f8ee10bb4b696c60c6fb43bb580f"
+  integrity sha1-3ibwKFqm+O4Qu0tpbGDG+0O7WA8=
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"
   resolved "https://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.10.3.tgz"
@@ -5773,6 +5780,11 @@ react-native-lightbox@^0.8.1:
   dependencies:
     prop-types "^15.7.2"
 
+react-native-linear-gradient@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.npm.taobao.org/react-native-linear-gradient/download/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha1-liFcvF7HoBJHogiQiIqnW4NNRKA=
+
 react-native-parallax-scroll-view@^0.21.3:
   version "0.21.3"
   resolved "https://registry.nlark.com/react-native-parallax-scroll-view/download/react-native-parallax-scroll-view-0.21.3.tgz"
@@ -5798,6 +5810,11 @@ react-native-ratings@8.0.4:
   integrity sha512-Xczu5lskIIRD6BEdz9A0jDRpEck/SFxRqiglkXi0u67yAtI1/pcJC76P4MukCbT8K4BPVl+42w83YqXBoBRl7A==
   dependencies:
     lodash "^4.17.15"
+
+react-native-raw-bottom-sheet@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.nlark.com/react-native-raw-bottom-sheet/download/react-native-raw-bottom-sheet-2.2.0.tgz#d11dabb86aadb014273767ef7b554924b13633c5"
+  integrity sha1-0R2ruGqtsBQnN2fve1VJJLE2M8U=
 
 react-native-reanimated@^2.2.0:
   version "2.2.0"
@@ -5875,7 +5892,7 @@ react-native-snap-carousel@^3.9.1:
 
 react-native-swiper@^1.6.0:
   version "1.6.0"
-  resolved "https://registry.npm.taobao.org/react-native-swiper/download/react-native-swiper-1.6.0.tgz"
+  resolved "https://registry.npm.taobao.org/react-native-swiper/download/react-native-swiper-1.6.0.tgz#59fdbdf95addee49630312f27077622c27776819"
   integrity sha1-Wf29+Vrd7kljAxLycHdiLCd3aBk=
   dependencies:
     prop-types "^15.5.10"
@@ -5912,6 +5929,11 @@ react-native-vector-icons@^8.1.0:
     lodash.template "^4.5.0"
     prop-types "^15.7.2"
     yargs "^16.1.1"
+
+react-native-waterfall@0.0.8:
+  version "0.0.8"
+  resolved "https://registry.nlark.com/react-native-waterfall/download/react-native-waterfall-0.0.8.tgz#a0bf6502ab9388b72edc97b8364ee5c4eba34740"
+  integrity sha1-oL9lAquTiLcu3Je4Nk7lxOujR0A=
 
 react-native@0.64.2:
   version "0.64.2"

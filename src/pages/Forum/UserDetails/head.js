@@ -74,22 +74,22 @@ export default class AboutComponent {
                 <ImageBackground style={{ width: width, height: "100%",flexDirection:"column-reverse"}} source={{ uri: 'https://sjbz-fd.zol-img.com.cn/t_s320x510c5/g2/M00/05/0C/ChMlWl1BWGKIa5b1AAkDHph43SoAAMQfgALVicACQM2533.jpg' }}>  
                 <View style={{width:"100%",height:"60%",backgroundColor:"#fff",borderTopLeftRadius:15,borderTopRightRadius:15}}>
                     <View style={{width:"100%",height:"20%",flexDirection:"row-reverse",alignItems:"center"}}>
-                        <TouchableOpacity style={{width:"15%",height:"85%",borderWidth:1,borderRadius:20,margin:"5%",alignItems:"center",justifyContent:"center"}}>
+                        <TouchableOpacity style={{width:"15%",height:"85%",borderWidth:1,borderColor:"#7cc0c0",borderRadius:20,margin:"5%",alignItems:"center",justifyContent:"center"}}>
 
                         <Feather style={styles.icon}
                     name="mail"
                     size={30}
-                    color="black"
+                    color="#7cc0c0"
                 />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width:"35%",height:"78%",backgroundColor:"pink",borderRadius:20,alignItems:"center",justifyContent:"center"}}>
-                        {/* <Text style={{ color: "#fff" }}>{this.state.isPressed ? "取消关注" : "+关注"}</Text> */}
+                        <TouchableOpacity style={{width:"35%",height:"78%",backgroundColor:"#7cc0c0",borderRadius:20,alignItems:"center",elevation:5,justifyContent:"center"}}>
+                     
                         <Text style={{fontSize:15,color:"#fff"}}>关注</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{width:"100%",height:"15%",alignItems:"center",flexDirection:"row"}}>
                         <Text style={{marginLeft:"10%",fontSize:15}}>你好凡啊</Text>
-                        <View style={{width:"15%",height:"50%",alignItems:"center",justifyContent:"center",marginLeft:"5%",borderRadius:10,backgroundColor:"pink"}}>
+                        <View style={{width:"15%",height:"50%",alignItems:"center",justifyContent:"center",marginLeft:"5%",borderRadius:10,backgroundColor:"#7cc0c0"}}>
                             <Text style={{fontSize:12}}>Lv1</Text>
                         </View>
                     </View>
@@ -97,8 +97,8 @@ export default class AboutComponent {
                         <Text style={{marginLeft:"10%",fontSize:13}}>我的个性签名</Text>
                     </View>
                     <View style={{width:"100%",height:"15%",flexDirection:"row",alignItems:"center"}}>
-                     <View style={{width:"7%",height:"80%",alignItems:"center",justifyContent:"center",backgroundColor:"grey",marginLeft:"10%",borderRadius:5}}></View>
-                     <View style={{height:"80%",justifyContent:"center",backgroundColor:"grey",marginLeft:"2%",borderRadius:5}}>
+                     <View style={{width:"7%",height:"80%",alignItems:"center",justifyContent:"center",backgroundColor:"#f1f1f1",marginLeft:"10%",borderRadius:5}}></View>
+                     <View style={{height:"80%",justifyContent:"center",backgroundColor:"#f1f1f1",marginLeft:"2%",borderRadius:5}}>
                          <Text style={{fontSize:13,margin:3}}>浙江省/杭州市</Text>
                      </View>
                     </View>
@@ -117,7 +117,7 @@ export default class AboutComponent {
                         </View>
                     </View>
                 </View>
-                <View style={{width:"25%",height:"25%",backgroundColor:"pink",position:"absolute",borderRadius:50,borderWidth:3,borderColor:"#fff",bottom:"50%",left:"6%"}}>
+                <View style={{width:"25%",height:"25%",backgroundColor:"#7cc0c0",position:"absolute",borderRadius:50,borderWidth:3,borderColor:"#fff",bottom:"50%",left:"6%"}}>
 
                 </View>
                 </ImageBackground>
@@ -126,7 +126,7 @@ export default class AboutComponent {
         );
         config.renderStickyHeader = () => (
             <View key="sticky-header" style={styles.stickySection}>
-                <Image style={{width:30,height:30,backgroundColor:"pink",marginLeft:"10%",borderRadius:50}}></Image>
+                <Image style={{width:30,height:30,backgroundColor:"#7cc0c0",marginLeft:"10%",borderRadius:50}}></Image>
                 <Text style={styles.stickySectionText}>你好凡哦</Text>
             </View>
         );
