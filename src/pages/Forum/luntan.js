@@ -72,7 +72,7 @@ export default class LunTan extends Component {
                                             <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                 <TouchableOpacity>
                                                     <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                                </TouchableOpacity>
+                                                </TouchableOpacity> 
                                                 <View style={{marginLeft:10}}>
                                                     <Text style={styles.name}>{v.nickname}</Text>
                                                     <Text style={{color:'#aaa'}}>{v.fabiao_time}</Text>
