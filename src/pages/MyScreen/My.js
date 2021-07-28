@@ -76,13 +76,13 @@ export default class My extends Component {
                       <View style={{flexDirection:'row'}}>
                         <View style={{marginLeft:10}}>
                           <TouchableOpacity style={styles.box2}>
-                            <Text style={styles.txt2}>{data.collection}</Text>
+                            <Text style={styles.txt2}>{data.fensi}</Text>
                           </TouchableOpacity>
                           <Text style={{color:'white'}}>粉丝</Text>
                         </View>
                         <View style={{marginLeft:10}}>
                           <TouchableOpacity style={styles.box2}>
-                            <Text style={styles.txt2}>{data.dianzan}</Text>
+                            <Text style={styles.txt2}>{data.guanzhu}</Text>
                           </TouchableOpacity>
                           <Text style={{color:'white'}}>关注</Text>
                         </View>
