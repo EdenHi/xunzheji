@@ -11,7 +11,8 @@ import {
   Animated,
   Easing,
   ImageBackground,
-
+  Modal,
+  Alert
 } from 'react-native';
 import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
@@ -30,6 +31,7 @@ export default class Store extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
       activeIndex: 0,
@@ -95,13 +97,77 @@ export default class Store extends Component {
 
     )
   }
+
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  }
+
   render() {
+    const { modalVisible } = this.state;
     const { navigation } = this.props;
     return (
       <View style={styles.container}>
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible}
+          hardwareAccelerated={true}
+          onRequestClose={() => {
+            this.setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={{ borderBottomRightRadius:10,borderBottomLeftRadius:10,elevation:5, height: height * 0.15, width: width, backgroundColor: '#eee',width: "100%" }}>
+            <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row'}}>
+              <TouchableOpacity style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+
+                <MaterialCommunityIcons onPress={()=>{this.props.navigation.navigate('ShoppingCart'),this.setModalVisible(!modalVisible)}}style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="cart-outline"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
+
+
+              </TouchableOpacity>
+              <TouchableOpacity style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+                <MaterialCommunityIcons style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="clipboard-text-outline"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats'),this.setModalVisible(!modalVisible)}} style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+                <AntDesign style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="customerservice"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddressList'),this.setModalVisible(!modalVisible)}} style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+                <MaterialCommunityIcons  style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="map-marker-radius"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
+              </TouchableOpacity>
+            </View>
+            <MaterialCommunityIcons onPress={() => {
+              this.setModalVisible(!modalVisible);
+            }} style={{ borderWidth: 0, height: '20%', width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
+
+              name="apple-keyboard-control"
+              size={30}
+              color="#7cc0c0"
+            />
+          </View>
+        </Modal>
+
         <View style={styles.header}>
           <TouchableOpacity style={styles.left}>
-            <MaterialCommunityIcons style={{ textAlign: 'center',borderWidth:0,height:'100%',textAlignVertical:'center'}}
+            <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
               name="clipboard-text-outline"
               size={25}
               color="#7cc0c0"
@@ -109,21 +175,23 @@ export default class Store extends Component {
 
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigation.navigate('search')}
-           style={styles.input}>
-            <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07,  }}>
-              <SimpleLineIcons style={{textAlign:'center',textAlignVertical:'center',height:'100%',borderWidth:0,}}
+            onPress={() => navigation.navigate('search')}
+            style={styles.input}>
+            <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07, }}>
+              <SimpleLineIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', borderWidth: 0, }}
                 name="magnifier"
                 size={18}
                 color="grey"
               />
             </View>
-            <Text style={{fontSize:15,marginLeft:"3%",color:"#7cc0c0"}}>搜索好物</Text>
+            <Text style={{ fontSize: 15, marginLeft: "3%", color: "#7cc0c0" }}>搜索好物</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.left}
-          onPress={() => navigation.navigate('ShoppingCart')}
+            onPress={() => {
+              this.setModalVisible(true);
+            }}
           >
-            <MaterialCommunityIcons style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
+            <MaterialCommunityIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
               name="dots-vertical"
               size={25}
               color="#7cc0c0"
@@ -146,17 +214,17 @@ export default class Store extends Component {
                 autoplayTimeout={2}
               /></ImageBackground>
             <View style={styles.part}>
-              <TouchableOpacity style={{ width: "39%", height: "100%",  borderRadius: 10, marginRight: "1%", elevation: 5 }}
+              <TouchableOpacity style={{ width: "39%", height: "100%", borderRadius: 10, marginRight: "1%", elevation: 5 }}
                 onPress={() => navigation.navigate('CustomMade')}
               >
 
                 <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                <TouchableOpacity  onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/9.jpg")}></Image>
                 </TouchableOpacity>
-                <TouchableOpacity  onPress={() => navigation.navigate('Exchange')}style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
+                <TouchableOpacity onPress={() => navigation.navigate('Exchange')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/10.jpg")}></Image>
                 </TouchableOpacity>
               </View>
@@ -164,15 +232,15 @@ export default class Store extends Component {
             <View style={styles.old}>
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
-                <Text style={{ fontSize: 15, marginLeft: "2%",color:"#7cc0c0",fontWeight:"bold" }}>上新好物</Text>
+                <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>上新好物</Text>
                 <TouchableOpacity
                   onPress={() => navigation.navigate('NewWorks')}
-                 style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
-                <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="right"
-              size={20}
-              color="#7cc0c0"
-            />
+                  style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
+                  <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
+                    name="right"
+                    size={20}
+                    color="#7cc0c0"
+                  />
                 </TouchableOpacity>
               </View>
               <TouchableOpacity style={styles.suggest}>
@@ -199,11 +267,11 @@ export default class Store extends Component {
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                    <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="staro"
-              size={25}
-              color="orange"
-            />
+                      <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
+                        name="staro"
+                        size={25}
+                        color="orange"
+                      />
 
                     </TouchableOpacity>
 
@@ -237,11 +305,11 @@ export default class Store extends Component {
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                    <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="staro"
-              color="orange"
-              size={25}
-            />
+                      <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
+                        name="staro"
+                        color="orange"
+                        size={25}
+                      />
                     </TouchableOpacity>
 
                   </View>
@@ -254,15 +322,15 @@ export default class Store extends Component {
             <View style={styles.limit}>
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
-                <Text style={{ fontSize: 15, marginLeft: "2%" ,color:"#7cc0c0",fontWeight:"bold"}}>浙江老字号</Text>
+                <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>浙江老字号</Text>
                 <TouchableOpacity
-                 onPress={() => navigation.navigate('OldBank')}
-                 style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" }}>
-                <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="right"
-              size={20}
-              color="#7cc0c0"
-            />
+                  onPress={() => navigation.navigate('OldBank')}
+                  style={{ width: width * 0.08, height: width * 0.08, marginLeft: "60%" }}>
+                  <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
+                    name="right"
+                    size={20}
+                    color="#7cc0c0"
+                  />
                 </TouchableOpacity>
               </View>
               <View style={styles.oldname}>
@@ -279,13 +347,13 @@ export default class Store extends Component {
               </View>
             </View>
 
-              <View style={{ width: "100%", height: "2.2%", alignItems: "center" }}>
-                <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%" ,fontWeight:"bold"}}>今日推荐</Text>
-                <View style={{ width: "25%", height: "3%", backgroundColor: "#7cc0c0" }}></View>
-              </View>
+            <View style={{ width: "100%", height: "2.2%", alignItems: "center" }}>
+              <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
+              <View style={{ width: "25%", height: "3%", backgroundColor: "#7cc0c0" }}></View>
+            </View>
 
           </View>
-          <Water/>
+          <Water />
         </ScrollView>
         {/* <ActionButton
           hideLabelShadow={true}
@@ -328,7 +396,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     flexDirection: "row",
     alignItems: "center",
-    elevation:5
+    elevation: 5
   },
   icon: {
     width: "100%",

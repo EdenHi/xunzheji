@@ -1118,6 +1118,11 @@
   resolved "https://registry.npm.taobao.org/@react-native-community/viewpager/download/@react-native-community/viewpager-5.0.11.tgz"
   integrity sha1-2+stGyRSYHkmQHyZ5N5Zx9ueMBk=
 
+"@react-native-picker/picker@^1.16.3":
+  version "1.16.3"
+  resolved "https://registry.nlark.com/@react-native-picker/picker/download/@react-native-picker/picker-1.16.3.tgz#22750f8d44465432845fa59ce20e69761029b6ef"
+  integrity sha1-InUPjURGVDKEX6Wc4g5pdhAptu8=
+
 "@react-native/assets@1.0.0":
   version "1.0.0"
   resolved "https://registry.nlark.com/@react-native/assets/download/@react-native/assets-1.0.0.tgz"

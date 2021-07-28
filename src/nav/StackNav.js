@@ -29,7 +29,9 @@ import {
   OldBank,
   search,
   dingzhi,
-  Exchange
+  Exchange,
+  AddressList,
+  Address
 } from '../pages/index';
 import Ranking from '../Ranking';
 import {startClock} from 'react-native-reanimated';
@@ -67,13 +69,14 @@ export default function StackNav() {
       <Stack.Screen name="GoodsDetail" component={GoodsDetail} />
       <Stack.Screen name="Goods" component={Goods} />
       <Stack.Screen name="dingzhi" component={dingzhi} />
-
+      <Stack.Screen name="Address" component={Address} />
       <Stack.Screen name="bianjiziliao" component={bianjiziliao} />
       <Stack.Screen name="shezhi" component={shezhi} />
       <Stack.Screen name="Comment_huifu" component={Comment_huifu} />
       <Stack.Screen name="Fabu" component={Fabu} />
       <Stack.Screen name="people" component={people} />
       <Stack.Screen name="CustormerBar" component={CustormerBar} />
+      <Stack.Screen name="AddressList" component={AddressList}/>
     </Stack.Navigator>
   );
 }

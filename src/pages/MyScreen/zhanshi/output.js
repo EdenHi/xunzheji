@@ -2,12 +2,13 @@
 import React, {Component} from 'react';
 
 import {View,Text} from 'react-native';
+import Water from '../../water';
 
 export default class output extends Component {
     render() {
         return (
             <View>
-                <Text>这里是发布页面</Text>
+                <Water/>
             </View>
         );
     }
