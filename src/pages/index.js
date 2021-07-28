@@ -15,6 +15,7 @@ export { default as Page3 } from "./Shop/Page3";
 export {default as GoodsDetail } from "./Shop/GoodsDetail"
 export {default as Store} from "./Shop/store"
 export {default as LunTan} from "./Forum/LunTan"
+export {default as dingzhi} from "./Shop/dingzhi.js"
 export {default as ForumTop} from "./Forum/ForumTop.js"
 export {default as CustomMade} from "./Shop/CustomMade"
 export {default as ShoppingCart} from "../pages/Shop/ShoppingCar/ShoppingCart.js"

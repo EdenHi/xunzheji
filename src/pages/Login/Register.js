@@ -70,7 +70,7 @@ export default class Register extends Component {
             <AntDesign
               name="arrowleft"
               size={30 * ratio_w}
-              color="#49b3c5"
+              color="#7cc0c0"
               style={{textAlign: 'center'}}
             />
           </TouchableOpacity>
@@ -82,7 +82,7 @@ export default class Register extends Component {
                 borderWidth: 0,
                 textAlign: 'center',
                 marginBottom: height * 0.01,
-                color: '#49b3c5',
+                color: '#7cc0c0',
               }}
               allowFontScaling={false}>
               让我们开始吧！
@@ -104,12 +104,12 @@ export default class Register extends Component {
                 style={styles.icon}
                 name={'user'}
                 size={20 * ratio_w}
-                color="#49b3c5"
+                color="#7cc0c0"
               />
               <TextInput
                 style={styles.text}
                 placeholder={'请输入用户名'}
-                placeholderTextColor="#49b3c5"
+                placeholderTextColor="#7cc0c0"
                 onChangeText={username => {
                   this.setState({username});
                 }}
@@ -121,12 +121,12 @@ export default class Register extends Component {
                   style={styles.icon}
                   name={'phone'}
                   size={20 * ratio_w}
-                  color="#49b3c5"
+                  color="#7cc0c0"
                 />
                 <TextInput
                   style={styles.text}
                   placeholder={'请输入手机号'}
-                  placeholderTextColor="#49b3c5"
+                  placeholderTextColor="#7cc0c0"
                   onChangeText={phone => {
                     this.setState({phone});
                   }}
@@ -137,12 +137,12 @@ export default class Register extends Component {
               style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
-              color="#49b3c5"
+              color="#7cc0c0"
             />
             <TextInput
               style={styles.text}
               placeholder={'请输入密码'}
-              placeholderTextColor="#49b3c5"
+              placeholderTextColor="#7cc0c0"
               secureTextEntry={true}
               password={true}
               onChangeText={password1 => {
@@ -155,12 +155,12 @@ export default class Register extends Component {
               style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
-              color="#49b3c5"
+              color="#7cc0c0"
             />
             <TextInput
               style={styles.text}
               placeholder={'请确认密码'}
-              placeholderTextColor="#49b3c5"
+              placeholderTextColor="#7cc0c0"
               secureTextEntry={true}
               password={true}
               onChangeText={password2 => {
@@ -172,10 +172,8 @@ export default class Register extends Component {
           onPress={()=>{this.load();}}>
             <ImageBackground
               borderRadius={20}
-              style={{height: '100%', width: '100%'}}
-              source={{
-                uri: 'https://p1.ssl.qhmsg.com/dr/270_500_/t01b23b555f295d07f5.jpg?size=800x800',
-              }}>
+              style={{height: '100%', width: '100%',backgroundColor:"#7cc0c0",borderRadius:20,elevation:5}}
+              >
               <Text
                 style={{
                   fontSize: 20 * ratio_w,
@@ -205,7 +203,7 @@ export default class Register extends Component {
                   fontSize: 12 * ratio_w,
                   marginTop: height * 0.07,
                   textAlign: 'center',
-                  color: '#49b3c5',
+                  color: '#7cc0c0',
                 }}>
                 此处登录
               </Text>
@@ -231,7 +229,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 50,
     fontSize: 11 * ratio_w,
     backgroundColor: '#ffffff',
-    color: '#49b3c5',
+    color: '#7cc0c0',
   },
   box: {
     flexDirection: 'row',
