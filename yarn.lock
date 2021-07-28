@@ -5723,6 +5723,13 @@ react-native-ezswiper@^1.3.0:
   resolved "https://registry.nlark.com/react-native-ezswiper/download/react-native-ezswiper-1.3.0.tgz"
   integrity sha1-cGhl48r2e9wZDkEnWDpNS+w3LwU=
 
+react-native-flip-card@^3.5.6:
+  version "3.5.6"
+  resolved "https://registry.nlark.com/react-native-flip-card/download/react-native-flip-card-3.5.6.tgz#de26f0285aa6f8ee10bb4b696c60c6fb43bb580f"
+  integrity sha1-3ibwKFqm+O4Qu0tpbGDG+0O7WA8=
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"
   resolved "https://registry.npm.taobao.org/react-native-gesture-handler/download/react-native-gesture-handler-1.10.3.tgz"
@@ -5780,6 +5787,10 @@ react-native-lightbox@^0.8.1:
 
 react-native-linear-gradient@^2.5.6:
   version "2.5.6"
+<<<<<<< HEAD
+  resolved "https://registry.npm.taobao.org/react-native-linear-gradient/download/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
+  integrity sha1-liFcvF7HoBJHogiQiIqnW4NNRKA=
+=======
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz#96215cbc5ec7a01247a20890888aa75b834d44a0"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
 
@@ -5790,6 +5801,7 @@ react-native-page-control@^1.1.2:
   dependencies:
     create-react-class "^15.6.0"
     prop-types "^15.5.10"
+>>>>>>> 4e8b18c0eab2572ffad005ea29a066a3a1042051
 
 react-native-parallax-scroll-view@^0.21.3:
   version "0.21.3"
@@ -5816,6 +5828,11 @@ react-native-ratings@8.0.4:
   integrity sha512-Xczu5lskIIRD6BEdz9A0jDRpEck/SFxRqiglkXi0u67yAtI1/pcJC76P4MukCbT8K4BPVl+42w83YqXBoBRl7A==
   dependencies:
     lodash "^4.17.15"
+
+react-native-raw-bottom-sheet@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.nlark.com/react-native-raw-bottom-sheet/download/react-native-raw-bottom-sheet-2.2.0.tgz#d11dabb86aadb014273767ef7b554924b13633c5"
+  integrity sha1-0R2ruGqtsBQnN2fve1VJJLE2M8U=
 
 react-native-reanimated@^2.2.0:
   version "2.2.0"

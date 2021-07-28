@@ -14,7 +14,8 @@ import {
     SectionList
 } from 'react-native';
 import AboutComponent from "./head";
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import MyRoute from '../../../nav/MyRoute';
+
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -25,9 +26,9 @@ const instructions = Platform.select({
 // type Props = {};
 const width = Dimensions.get("window").width;
 
-const TribuneTabNavigation = createMaterialTopTabNavigator();
 
-export default class ParallaxScrollViewDemo extends Component {
+
+export default class people extends Component {
 
     constructor(props) {
         super(props)
@@ -38,8 +39,8 @@ export default class ParallaxScrollViewDemo extends Component {
     render() {
         let contentView = 
         <View
-            style={{width: width,backgroundColor:"#f2f2f2", flexDirection: "row", justifyContent: "center", alignItems: "center",marginTop:30}}>
-            <Text>自定义的布局</Text>
+            style={{width: width,backgroundColor:"#f2f2f2", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+            <MyRoute></MyRoute>
         </View>
 
         return this.aboutCommon.renderView(contentView, {
