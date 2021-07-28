@@ -5,7 +5,7 @@ import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
 import {pxToDp} from './styleKits';
 import {NavigationContext} from '@react-navigation/native';
 
-class Index extends Component {
+class CustormerBar extends Component {
     static contextType = NavigationContext;
     constructor(props){
         super(props);
@@ -63,4 +63,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default CustormerBar;
