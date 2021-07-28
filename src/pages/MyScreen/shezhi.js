@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text, TouchableOpacity,Dimensions,AsyncStorage } from 'react-native';
+import {View,Text, TouchableOpacity,Dimensions,AsyncStorage, ScrollView } from 'react-native';
 import {ListItem} from 'react-native-elements';
 const {height,width} = Dimensions.get('window');
 export default class shezhi extends Component {
@@ -14,7 +14,9 @@ export default class shezhi extends Component {
     }
     render() {
         return (
-            <View>
+            <View style={{flex:1}}>
+                <ScrollView
+                showsVerticalScrollIndicator={false}>
                <ListItem
                bottomDivider>
                    <ListItem.Content>
@@ -93,10 +95,11 @@ export default class shezhi extends Component {
                             size={30} />
                     </ListItem>
                 </View>
-                <TouchableOpacity style={{marginTop:20,width:width * 0.8,backgroundColor:'white',height:width * 0.15,alignItems:'center',justifyContent:'center',marginLeft:width * 0.1,borderRadius:30}}
+                <TouchableOpacity style={{marginTop:20,width:width * 0.8,backgroundColor:'white',height:width * 0.15,alignItems:'center',justifyContent:'center',marginLeft:width * 0.1,borderRadius:30,marginBottom:20}}
                 onPress={()=>this.go_back()}>
                     <Text style={{fontSize:17}}>退出登录</Text>
                 </TouchableOpacity>
+                </ScrollView>
             </View>
         );
     }

@@ -9,20 +9,20 @@ export default class dingzhi extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <View style={{width:width }}>
+            <View style={{flex:1}}>
                 <View style={{width:width,height:height*0.08,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
                 <TouchableOpacity style={{marginLeft:"2%"}}
                       onPress={() => navigation.goBack()}
-          >
-          <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="left"
-              size={20}
-              color="black"
-            />
-          </TouchableOpacity>
-          <Text style={{fontSize:15}}>手工定制</Text>
-          <View style={{width:width*0.09,height:width*0.09,}}></View>
-                </View>
+                    >
+                    <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
+                        name="left"
+                        size={20}
+                        color="black"
+                        />
+                    </TouchableOpacity>
+                    <Text style={{fontSize:15}}>手工定制</Text>
+                    <View style={{width:width*0.09,height:width*0.09,}}></View>
+                 </View>
                 <View style={{width:width * 0.95,marginLeft:width * 0.025}}>
                 <View style={{flexDirection:'row',marginTop:10,backgroundColor:'white',height:width * 0.2,justifyContent:'space-around'}}>
                         <View style={{justifyContent:'space-around'}}>
@@ -36,10 +36,11 @@ export default class dingzhi extends Component {
                             <Text style={{color:'white',fontSize:12}}>查看全部 </Text>
                         </TouchableOpacity>
                     </View>
+                    <View style={{height:height - height * 0.13 - width * 0.2}}>
                 <ScrollView
                 showsVerticalScrollIndicator={false}
                 >
-                   <View style={{width:width,height:1400}}>
+                   <View style={{width:width}}>
                     <View style={{marginTop:width * 0.03}}>
                         <Text style={{fontSize:20,fontWeight:'bold',marginLeft:width * 0.02}}>徽派竹雕</Text>
                         <Image source={{uri:'https://img1.baidu.com/it/u=4161466098,2632610288&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.95,height:width * 0.5,borderRadius:10,marginTop:width * 0.03}}/>
@@ -97,6 +98,7 @@ export default class dingzhi extends Component {
                     </View>
                     </View>
                 </ScrollView>
+                </View>
                 </View>
             </View>
         );
