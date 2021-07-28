@@ -19,7 +19,7 @@ export default function BtnRoute() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: '#945357',
+        activeTintColor: '#7196a8',
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen
