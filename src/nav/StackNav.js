@@ -23,6 +23,7 @@ import {
   CustomMade,
   ShoppingCart,
   CustormerBar,
+  Goods,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import {startClock} from 'react-native-reanimated';
@@ -54,6 +55,7 @@ export default function StackNav() {
       <Stack.Screen name="Page3" component={Page3} />
       <Stack.Screen name="Comment" component={Comment} />
       <Stack.Screen name="GoodsDetail" component={GoodsDetail} />
+      <Stack.Screen name="Goods" component={Goods} />
 
       <Stack.Screen name="bianjiziliao" component={bianjiziliao} />
       <Stack.Screen name="shezhi" component={shezhi} />

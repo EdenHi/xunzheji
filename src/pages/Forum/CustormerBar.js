@@ -30,7 +30,7 @@ class Index extends Component {
               onPress={() => goToPage(i)}
               style={{
                 justifyContent: 'center',
-                borderBottomColor: '#003C66', //下划线颜色
+                borderBottomColor: '#7cc0c0', //下划线颜色
                 borderBottomWidth: activeTab === i ? pxToDp(3) : 0,
                 borderRadius: 2,
               }}>
@@ -48,7 +48,7 @@ class Index extends Component {
             style={{
               width: '17%',
               height: '60%',
-              backgroundColor: 'pink',
+              backgroundColor: '#7cc0c0',
               borderRadius: 20,
               elevation: 5,
               alignItems: 'center',
