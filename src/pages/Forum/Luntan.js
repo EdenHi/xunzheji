@@ -11,6 +11,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  RefreshControl,
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -30,6 +31,7 @@ export default class LunTan extends Component {
             currentIndex:0,
             //存放图片的路径
             imgUrls:[],
+            isLoding:false,
         };
     }
     //图片点击放大
@@ -41,19 +43,35 @@ export default class LunTan extends Component {
             imgUrls,currentIndex,modalVisible,
         });
        }
-    componentDidMount() {
-        axios.get('http://192.168.50.117:3000/dongtai/allDongtai')
-          .then((json)=>{
-            this.setState({
-                data:json.data,
-            });
-            console.log('data',json.data);
-          });
 
+    get_xinxi(){
+        axios.get('http://192.168.50.117:3000/dongtai/allDongtai')
+        .then((json)=>{
+          this.setState({
+              data:json.data,
+          });
+          console.log('data',json.data);
+        });
+    }
+    componentDidMount() {
+        this.get_xinxi();
       }
-      goComment=(v)=>{
-       this.context.navigate('Comment',v);
-      }
+    goComment=(v)=>{
+        this.context.navigate('Comment',v);
+    }
+
+    loding(){
+        this.setState({
+            isLoding : true,
+        });
+
+        setTimeout(() => {
+            this.setState({
+                isLoding : false,
+            });
+            this.get_xinxi();
+        }, 1);
+    }
 
     render () {
         const {modalVisible,imgUrls,currentIndex} = this.state;
@@ -62,10 +80,17 @@ export default class LunTan extends Component {
             <View>
                 <View>
                     <ScrollView
-                    showsVerticalScrollIndicator={false}>
+                    showsVerticalScrollIndicator={false}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing = {this.state.isLoding} //设置是否在刷新
+                            onRefresh = {this.loding.bind(this)} //下拉刷新结束}
+                        />
+                    }
+                    >
                     {
                         this.state.data.map((v,k)=>{
-                            if (v.title === null){
+                            if (v.title === ''){
                                 return (
                                     <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
