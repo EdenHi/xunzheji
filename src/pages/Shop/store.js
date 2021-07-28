@@ -13,6 +13,7 @@ import {
   ImageBackground,
 
 } from 'react-native';
+import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
 import LottieView from 'lottie-react-native';
 import Foundation from "react-native-vector-icons/Foundation"
@@ -107,7 +108,9 @@ export default class Store extends Component {
             />
 
           </TouchableOpacity>
-          <TouchableOpacity style={styles.input}>
+          <TouchableOpacity
+          onPress={() => navigation.navigate('search')}
+           style={styles.input}>
             <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07,  }}>
               <SimpleLineIcons style={{textAlign:'center',textAlignVertical:'center',height:'100%',borderWidth:0,}}
                 name="magnifier"
@@ -150,10 +153,10 @@ export default class Store extends Component {
                 <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                <TouchableOpacity style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
+                <TouchableOpacity  onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/9.jpg")}></Image>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
+                <TouchableOpacity  onPress={() => navigation.navigate('Exchange')}style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/10.jpg")}></Image>
                 </TouchableOpacity>
               </View>
@@ -162,7 +165,9 @@ export default class Store extends Component {
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%",color:"#7cc0c0",fontWeight:"bold" }}>上新好物</Text>
-                <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('NewWorks')}
+                 style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
                 <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="right"
               size={20}
@@ -237,7 +242,6 @@ export default class Store extends Component {
               color="orange"
               size={25}
             />
-
                     </TouchableOpacity>
 
                   </View>
@@ -251,7 +255,9 @@ export default class Store extends Component {
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%" ,color:"#7cc0c0",fontWeight:"bold"}}>浙江老字号</Text>
-                <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" }}>
+                <TouchableOpacity
+                 onPress={() => navigation.navigate('OldBank')}
+                 style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" }}>
                 <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="right"
               size={20}
@@ -272,13 +278,14 @@ export default class Store extends Component {
                   onSnapToItem={index => this.setState({ activeIndex: index })} />
               </View>
             </View>
-            <View style={styles.waterfall}>
-              <View style={{ width: "100%", height: "12%", alignItems: "center" }}>
+
+              <View style={{ width: "100%", height: "2.2%", alignItems: "center" }}>
                 <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%" ,fontWeight:"bold"}}>今日推荐</Text>
                 <View style={{ width: "25%", height: "3%", backgroundColor: "#7cc0c0" }}></View>
               </View>
-            </View>
+
           </View>
+          <Water/>
         </ScrollView>
         {/* <ActionButton
           hideLabelShadow={true}

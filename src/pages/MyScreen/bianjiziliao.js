@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text, TouchableOpacity,Image,Dimensions ,AsyncStorage, TextInput} from 'react-native';
+import {View,Text, TouchableOpacity,Image,Dimensions ,AsyncStorage, TextInput,DeviceEventEmitter} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import {NavigationContext} from '@react-navigation/native';
 import {Overlay,ListItem} from 'react-native-elements';
@@ -159,6 +159,10 @@ export default class app1 extends Component {
             area:arr[1],
         });
     }
+    go_back(){
+        this.props.navigation.goBack();
+
+    }
     render() {
         const {data,portrait,nickname,shownickname,phone,area,signature,sex,birthday,showsignature} = this.state;
         console.log('test',this.props.route.params);
@@ -307,7 +311,7 @@ export default class app1 extends Component {
                     {/* 修改个签结束 */}
                 </View>
                 <View>
-                    <TouchableOpacity onPress={()=>this.context.navigate('BtnRoute',this.state)}>
+                    <TouchableOpacity onPress={()=>this.go_back()}>
                         <Text>返回上一级</Text>
                     </TouchableOpacity>
                 </View>
