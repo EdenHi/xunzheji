@@ -36,7 +36,6 @@ export default class Comment extends React.Component {
             comment_fu:[],
             content:'',
             username:'',
-            flg:'',
         };
     }
     //点击图片方法事件

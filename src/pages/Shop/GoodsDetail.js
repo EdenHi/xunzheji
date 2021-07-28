@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import {
@@ -8,20 +9,48 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  Modal,
 } from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
 import Swiper from 'react-native-swiper';
 import Entypo from 'react-native-vector-icons/Entypo';
-import Lightbox from 'react-native-lightbox';
+import ImageViewer from 'react-native-image-zoom-viewer';
 import Good from './Goods';
 const {width, height} = Dimensions.get('window');
 class GoodsDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      modalVisible:false,
+      //放大显示的图片索引
+      currentIndex:0,
+      //存放图片的路径
+      imgUrls:[
+        {
+          url:'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+        },
+        {
+          url:'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+        },
+        {
+          url:'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+        },
+      ],
+    };
   }
 
+  //点击图片方法事件
+  handleShowAlbum = (index)=>{
+    const imgUrls =   this.state.imgUrls;
+    const currentIndex = index;
+    const modalVisible = true;
+    this.setState({
+        imgUrls,currentIndex,modalVisible,
+    });
+   }
+
   render() {
+    const {modalVisible,imgUrls,currentIndex} = this.state;
     return (
       <View style={styles.Box1}>
         {/* 头部 */}
@@ -40,34 +69,39 @@ class GoodsDetail extends Component {
           {/* 图片展示 */}
           <View style={styles.ImgBox}>
             <Swiper loop={true}>
-              <View>
-                <Lightbox>
+                <TouchableOpacity onPress={()=>this.handleShowAlbum(0)}>
                   <Image
                     style={{width: '100%', height: '100%'}}
                     source={{
                       uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
                     }}
                   />
-                </Lightbox>
-              </View>
-              <Lightbox>
-                <Image
-                  style={{width: '100%', height: '100%'}}
-                  source={{
-                    uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
-                  }}
-                />
-              </Lightbox>
-              <Lightbox>
-                <Image
-                  style={{width: '100%', height: '100%'}}
-                  source={{
-                    uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
-                  }}
-                />
-              </Lightbox>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.handleShowAlbum(1)}>
+                  <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={{
+                      uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+                    }}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={()=>this.handleShowAlbum(2)}>
+                  <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={{
+                      uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+                    }}
+                  />
+                </TouchableOpacity>
             </Swiper>
           </View>
+          {/* 放大图片的遮罩层 */}
+          <Modal animationType={'slide'}
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => { this.setState({modalVisible:false});}}>
+                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+            </Modal>
 
           {/*描述及价格  */}
           <View style={styles.PriceBox}>
