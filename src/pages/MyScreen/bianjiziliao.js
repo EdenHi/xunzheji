@@ -48,6 +48,10 @@ export default class app1 extends Component {
             height:400,
             cropping: true,
         }).then(image => {
+            console.log('image',image)
+            this.setState({
+                portrait:image.path
+            })
             AsyncStorage.getItem('username',(error,result)=>{
                 if (!error) {
                     this.setState({
