@@ -14,11 +14,12 @@ import {
   ImageBackground,
   TouchableHighlight,
   TouchableOpacity,
+  AsyncStorage,
 } from 'react-native';
 
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import Feather from 'react-native-vector-icons/Feather';
-
+import axios from 'axios';
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -29,13 +30,7 @@ const instructions = Platform.select({
 const {height, width} = Dimensions.get('window');
 const ratio_w = Dimensions.get('window').width / 375;
 export default class AboutComponent {
-  isPresse() {
-    if (this.state.isPressed === false) {
-      this.setState({isPressed: true}, () => {});
-    } else {
-      this.setState({isPressed: false}, () => {});
-    }
-  }
+  
   /**
      * 这些参数可以根据自己的需要传递
      * 比如常见的我的，设置，关于等
@@ -50,10 +45,9 @@ export default class AboutComponent {
     this.updateState = updateState;
     this.flag = flag;
     this.config = config;
-    // this.state = {
-    //     isPressed: false
-    //   }
   }
+
+
 
   /**
    * 配置ParallaxScrollView
@@ -73,7 +67,7 @@ export default class AboutComponent {
             flexDirection: 'column-reverse',
           }}
           source={{
-            uri: 'https://sjbz-fd.zol-img.com.cn/t_s320x510c5/g2/M00/05/0C/ChMlWl1BWGKIa5b1AAkDHph43SoAAMQfgALVicACQM2533.jpg',
+            uri: params.backpic,
           }}>
           <View
             style={{
@@ -89,7 +83,7 @@ export default class AboutComponent {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <TouchableOpacity
+              <Image
                 style={{
                   width: width * 0.21,
                   height: width * 0.21,
@@ -97,6 +91,7 @@ export default class AboutComponent {
                   borderRadius: 50,
                   marginLeft: '5%',
                 }}
+                source={{uri:params.portrait}}
               />
               <View
                 style={{
@@ -107,9 +102,9 @@ export default class AboutComponent {
                 }}>
                 <Text
                   style={{fontSize: 15, color: '#7cc0c0', fontWeight: 'bold'}}>
-                  皮皮虾
+                  {params.nickname}
                 </Text>
-                <Text style={{fontSize: 13, color: '#7cc0c0'}}>皮皮虾</Text>
+                <Text style={{fontSize: 13, color: '#7cc0c0'}}>{params.signature === '' ? '暂无个性签名' : params.signature }</Text>
               </View>
             </View>
             <View
@@ -127,7 +122,7 @@ export default class AboutComponent {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Text style={{fontSize: 15, color: '#fff'}}>0</Text>
+                  <Text style={{fontSize: 15, color: '#fff'}}>{params.fensi}</Text>
                   <Text style={{fontSize: 15, color: '#fff'}}>粉丝</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -137,7 +132,7 @@ export default class AboutComponent {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Text style={{fontSize: 15, color: '#fff'}}>0</Text>
+                  <Text style={{fontSize: 15, color: '#fff'}}>{params.guanzhu}</Text>
                   <Text style={{fontSize: 15, color: '#fff'}}>关注</Text>
                 </TouchableOpacity>
               </View>
@@ -151,7 +146,18 @@ export default class AboutComponent {
                   backgroundColor: '#7cc0c0',
                   alignItems: 'center',
                   justifyContent: 'center',
-                }}>
+                }}
+                onPress={()=>this.props.navigation.navigate('bianjiziliao',{
+                    username:params.username,
+                    portrait:params.portrait,
+                    nickname:params.nickname,
+                    sex:params.sex,
+                    birthday:params.birthday,
+                    signature:params.signature,
+                    phone:params.phone,
+                    area:params.area,
+                    backpic:params.backpic,
+                })}>
 
                 <Text style={{fontSize: 15, color: '#fff'}}>编辑资料</Text>
               </TouchableOpacity>
@@ -165,7 +171,8 @@ export default class AboutComponent {
                   backgroundColor: '#7cc0c0',
                   alignItems: 'center',
                   justifyContent: 'center',
-                }}>
+                }}
+                onPress={()=>this.props.navigation.navigate('shezhi')}>
                 <Text style={{fontSize: 15, color: '#fff'}}>设置</Text>
               </TouchableOpacity>
             </View>
@@ -183,8 +190,9 @@ export default class AboutComponent {
             marginLeft: '10%',
             borderRadius: 50,
           }}
+          source={{uri:params.portrait}}
         />
-        <Text style={styles.stickySectionText}>你好凡哦</Text>
+        <Text style={styles.stickySectionText}>{params.nickname}</Text>
       </View>
     );
     config.renderFixedHeader = () => (
