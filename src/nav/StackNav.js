@@ -32,7 +32,9 @@ import {
   Exchange,
   AddressList,
   Address,
-  DaoHang
+  DaoHang,
+  Book,
+  Zhifu
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -79,7 +81,8 @@ export default function StackNav() {
       <Stack.Screen name="CustormerBar" component={CustormerBar} />
       <Stack.Screen name="AddressList" component={AddressList} />
       <Stack.Screen name="DaoHang" component={DaoHang} />
-
+      <Stack.Screen name="Book" component={Book} />
+      <Stack.Screen name="Zhifu" component={Zhifu} />
     </Stack.Navigator>
   );
 }
