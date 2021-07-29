@@ -39,6 +39,8 @@ export default class app1 extends Component {
             phone:this.props.route.params.phone,
             //地区
             area:this.props.route.params.area,
+            //背景图
+            backpic:this.props.route.params.backpic,
         };
     }
 
@@ -49,9 +51,6 @@ export default class app1 extends Component {
             cropping: true,
         }).then(image => {
             console.log('image',image)
-            this.setState({
-                portrait:image.path
-            })
             AsyncStorage.getItem('username',(error,result)=>{
                 if (!error) {
                     this.setState({
@@ -63,7 +62,7 @@ export default class app1 extends Component {
                     formData.append('username',result);
                     console.log('image',image);
                     this.setState({
-                        touxiang:image.path,
+                        portrait:image.path,
                     });
                     fetch('http://192.168.50.117:3000/index/updatePortrait',{
                     method:'POST',
@@ -92,6 +91,17 @@ export default class app1 extends Component {
                       });
         this.setState({
             shownickname:false,
+        });
+      }
+      go_phone(){
+        axios.post('http://192.168.50.117:3000/index/updatePhone',{
+                            username:this.state.username,
+                            phone:this.state.phone,
+                    }).then((json)=>{
+                        console.log('json',json.data);
+                      });
+        this.setState({
+            showphone:false,
         });
       }
     go_birthday=(birthday)=>{
@@ -164,11 +174,50 @@ export default class app1 extends Component {
         });
     }
     go_back(){
+        DeviceEventEmitter.emit('test',1);
         this.props.navigation.goBack();
-
     }
+
+    open_backPic(){
+        ImagePicker.openPicker({
+            width:300,
+            height:400,
+            cropping: true,
+        }).then(image => {
+            console.log('image',image)
+            AsyncStorage.getItem('username',(error,result)=>{
+                if (!error) {
+                    this.setState({
+                        username:result,
+                    });
+                    let formData = new FormData();//如果需要上传多张图片,需要遍历数组,把图片的路径数组放入formData中
+                    let file = {uri: image.path, type: image.mime, name: image.path.split('/').pop()};   //这里的key(uri和type和name)不能改变,
+                    formData.append('files',file);   //这里的files就是后台需要的key
+                    formData.append('username',result);
+                    console.log('image',image);
+                    this.setState({
+                        backpic:image.path,
+                    });
+                    fetch('http://192.168.50.117:3000/index/updateBackpic',{
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'multipart/form-data',
+                    },
+                    body:formData,
+                    })
+                    .then((response) => response.json())
+                    .then((josn)=>{
+                         console.log(josn);
+                    });
+                } else {
+                    console.log('获取数据失败');
+                }
+            });
+                });
+    }
+
     render() {
-        const {data,portrait,nickname,shownickname,phone,area,signature,sex,birthday,showsignature} = this.state;
+        const {data,portrait,nickname,shownickname,phone,area,signature,sex,birthday,showsignature,showphone,backpic} = this.state;
         console.log('test',this.props.route.params);
         var date = new Date();
         var seperatorl = '-';
@@ -181,12 +230,16 @@ export default class app1 extends Component {
         var currentdate = year + seperatorl + month + seperatorl + strDate;
         return (
             <View style={{backgroundColor:'white'}}>
+
+                {/* 修改头像 */}
                 <View style={{alignItems:'center',marginTop:width * 0.1}}>
                     <TouchableOpacity style={{borderRadius:50,height:width * 0.2,width:width * 0.2,borderWidth:1}}
                     onPress={()=>this._openPicker()}>
                         <Image source={{uri:portrait}} style={{height:width * 0.2,width:width * 0.2,borderRadius:50}}/>
                     </TouchableOpacity>
                 </View>
+                {/* 修改头像结束 */}
+
                 <View style={{marginTop:width * 0.1}}>
                     {/* 修改昵称 */}
                         <Overlay
@@ -233,9 +286,28 @@ export default class app1 extends Component {
 
 
                     {/* 修改手机号 */}
+                    <Overlay
+                            visible={showphone}
+                            onBackdropPress={()=>this.setState({shownickphone:false})}>
+                            <TextInput
+                            placeholder="修改手机号"
+                            defaultValue={phone}
+                            onChangeText={(phone)=>this.setState({phone})}
+                            style={{width:300,height:100,fontSize:22}}/>
+                            <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+                                <TouchableOpacity style={{borderWidth:1,justifyContent:'center',alignItems:'center'}}
+                                onPress={()=>this.setState({showphone:false})}>
+                                    <Text style={{fontSize:20}}>取消</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{borderWidth:1,justifyContent:'center',alignItems:'center'}}
+                                onPress={()=>this.go_phone()}>
+                                    <Text style={{fontSize:20}}>确认</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </Overlay>
                     <ListItem
                         bottomDivider
-                        >
+                        onPress={()=>this.setState({showphone:true})}>
                             <ListItem.Content>
                                 <ListItem.Title style={{fontSize:20}}>修改手机号</ListItem.Title>
                             </ListItem.Content>
@@ -313,6 +385,18 @@ export default class app1 extends Component {
                                 <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改个签结束 */}
+
+                    {/* 修改背景 */}
+                    <ListItem
+                            bottomDivider
+                            onPress={()=>this.open_backPic()}>
+                                <ListItem.Content>
+                                    <ListItem.Title style={{fontSize:20}}>背景图</ListItem.Title>
+                                </ListItem.Content>
+                                <Image source={{uri:backpic}} style={{height:50,width:50}}/>
+                                <ListItem.Chevron size={30}/>
+                        </ListItem>
+                    {/* 修改背景结束 */}
                 </View>
                 <View>
                     <TouchableOpacity onPress={()=>this.go_back()}>
