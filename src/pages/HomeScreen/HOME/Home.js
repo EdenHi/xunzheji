@@ -21,11 +21,12 @@ export default class Home extends Component {
                      <View style={{width:width*0.95,height:480,backgroundColor:"white",borderRadius:10,marginTop:10,elevation:3,shadowRadius:20,justifyContent:"center"}} >
                          <View>
                          <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center",padding:10,paddingTop:-10}}>
-                             <View style={{backgroundColor:"#7cc0bf",width:2,height:28}}></View><Text style={{fontSize:15,fontWeight:"bold",color:"#7cc0bf"}}>浙商历史推荐</Text><TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" ,color:"#7cc0bf"}}>
-                             <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="right" size={20} color="#000000" />
+                             <View style={{backgroundColor:"#7cc0bf",width:2,height:28}}></View><Text style={{fontSize:15,fontWeight:"bold",color:"#7cc0bf"}}>浙商历史推荐</Text>
+                             <TouchableOpacity  style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" ,color:"#7cc0bf"}}>
+                             <AntDesign onPress={()=>this.props.navigation.navigate("History")} style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="right" size={20} color="#000000" />
                              </TouchableOpacity></View> 
                                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                                   <TouchableOpacity>
+                                   <TouchableOpacity activeOpacity={1} style={{}}>
                                    <View style={{height:150,marginBottom:10,elevation:5,width:width*0.8,marginLeft:10,marginRight:10,elevation:10}}>
                                      <ImageBackground style={{height:150,marginBottom:10,width:width*0.8,marginRight:20}} borderRadius={10} source={require("../photos/zs1.jpeg")}>
                                        <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width*0.8}}>
@@ -138,70 +139,60 @@ export default class Home extends Component {
                         <Card navigation={this.props.navigation} />
                         <Card navigation={this.props.navigation} />
                     </ScrollView>
-                    <View style={{height:420, backgroundColor:"white", borderRadius: 10,elevation:10}}>
+                    <View style={{height:420, backgroundColor:"white", borderRadius: 10,padding:10}}>
                     <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
                              <View style={{backgroundColor:"#7cc0bf",width:2,height:28}}></View><Text style={{fontSize:15,fontWeight:"bold",color:"#7cc0bf"}}>浙商人物介绍</Text><TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,marginLeft: "60%" ,color:"#7cc0bf"}}>
                              <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="right" size={20} color="#000000" />
                              </TouchableOpacity></View> 
                         <View style={{alignItems:"center",marginTop:5}}>
                             <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                            <View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
+                            <View style={{height:180,elevation:2,width:width*0.3,borderColor:"#aad2da",borderWidth:1,backgroundColor:"white", borderRadius:10,alignItems:"center",marginRight:10}}>
                                                 <View style={{alignItems:"center",justifyContent:"center",}} > 
                                                     <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
                                                     <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
                                                     <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
+                                                    <TouchableOpacity style={{width:width*0.2,height:25,borderColor:"#7cc0bf",borderWidth:1,backgroundColor:"white",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
                                                 </View>
                             </View>
-                            <View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
+                            <View style={{height:180,elevation:2,width:width*0.3,borderColor:"#aad2da",borderWidth:1,backgroundColor:"white", borderRadius:10,alignItems:"center",marginRight:10}}>
                                                 <View style={{alignItems:"center",justifyContent:"center",}} > 
                                                     <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
                                                     <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
                                                     <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
-                                                </View>
-                            </View><View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
-                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
-                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
-                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
-                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
-                                                </View>
-                            </View><View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
-                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
-                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
-                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
-                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
-                                                </View>
-                            </View><View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
-                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
-                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
-                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
-                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
-                                                </View>
-                            </View><View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
-                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
-                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
-                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
-                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
-                                                </View>
-                            </View><View style={{height:180,elevation:2,width:width*0.3,backgroundColor:"#aad2da", borderRadius:10,alignItems:"center",marginRight:10}}>
-                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
-                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
-                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
-                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
-                                                    <TouchableOpacity style={{width:width*0.2,height:25,backgroundColor:"#7cc0bf",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
+                                                    <TouchableOpacity style={{width:width*0.2,height:25,borderColor:"#7cc0bf",borderWidth:1,backgroundColor:"white",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
                                                 </View>
                             </View>
+                            <View style={{height:180,elevation:2,width:width*0.3,borderColor:"#aad2da",borderWidth:1,backgroundColor:"white", borderRadius:10,alignItems:"center",marginRight:10}}>
+                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
+                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
+                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
+                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
+                                                    <TouchableOpacity style={{width:width*0.2,height:25,borderColor:"#7cc0bf",borderWidth:1,backgroundColor:"white",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
+                                                </View>
+                            </View>
+                            <View style={{height:180,elevation:2,width:width*0.3,borderColor:"#aad2da",borderWidth:1,backgroundColor:"white", borderRadius:10,alignItems:"center",marginRight:10}}>
+                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
+                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
+                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
+                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
+                                                    <TouchableOpacity style={{width:width*0.2,height:25,borderColor:"#7cc0bf",borderWidth:1,backgroundColor:"white",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
+                                                </View>
+                            </View>
+                            <View style={{height:180,elevation:2,width:width*0.3,borderColor:"#aad2da",borderWidth:1,backgroundColor:"white", borderRadius:10,alignItems:"center",marginRight:10}}>
+                                                <View style={{alignItems:"center",justifyContent:"center",}} > 
+                                                    <Image style={{height:width*0.2, width:width*0.2, borderRadius:100,alignContent:"center",marginTop:10}} source={require("../photos/my.jpg")}/>
+                                                    <Text style={{textAlign:"center",fontSize:15,width:width*0.2,marginTop:5}}>马云</Text>
+                                                    <Text style={{textAlign:"center",fontSize:12,width,}}>阿里巴巴创始人</Text>
+                                                    <TouchableOpacity style={{width:width*0.2,height:25,borderColor:"#7cc0bf",borderWidth:1,backgroundColor:"white",borderRadius:20,marginTop:5,justifyContent:"center"}}><Text style={{textAlign:"center",fontSize:12}}>详情</Text></TouchableOpacity>
+                                                </View>
+                            </View>
+                            
                             </ScrollView>
                             
                             <View style={{height:180,width:width*0.95,marginTop:10,borderRadius:10}}>
                             <Swiper showsPagination={false} horizontal={false} autoplay autoplayTimeout={5} >
                              <View style={{flex:1,height:180,width:width*0.95,borderRadius:10,justifyContent:"space-around",alignItems:"center"}}>
-                                     <TouchableOpacity>
+                                     <TouchableOpacity onPress={()=>this.props.navigation.navigate("News")}>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
                                          <View style={{height:30,width:width*0.2,backgroundColor:"#7cc0bf",borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>

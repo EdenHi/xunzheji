@@ -29,6 +29,12 @@ export {default as NewWorks} from "./Shop/NewWorks"
 export {default as OldBank} from "./Shop/OldBank"
 export {default as search} from "./Shop/search"
 export {default as CustormerBar} from './Forum/CustormerBar';
+<<<<<<< .mine
 export {default as Exchange} from './Shop/Exchange/Exchange'
 export {default as AddressList} from './Shop/shopping/AddressList'
 export {default as Address} from './Shop/shopping/Address'
+=======
+export {default as Exchange} from './Shop/Exchange/Exchange'
+
+
+>>>>>>> .theirs

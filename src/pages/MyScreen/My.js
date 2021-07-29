@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,Image,StyleSheet,Dimensions, TouchableOpacity,AsyncStorage, ScrollView,RefreshControl} from 'react-native';
+import {View,Text,Image,StyleSheet,Dimensions, TouchableOpacity,AsyncStorage,DeviceEventEmitter} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
@@ -19,6 +19,7 @@ export default class My extends Component {
       this.state = {
         username:'',
         data:[],
+
       };
     }
 
@@ -40,12 +41,15 @@ export default class My extends Component {
             console.log('获取数据失败',error);
         }
     });
+   
     }
+    
+    
     go_bianji=(v)=>{
       this.context.navigate('bianjiziliao',v);
     }
     render() {
-      const {data} = this.state;
+      const {data,nickname} = this.state;
       console.log('data',data);
         return (
           <View style={{flex:1}}>

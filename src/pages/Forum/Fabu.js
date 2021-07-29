@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import axios from 'axios';
-import {View,Image,FlatList,Text ,StyleSheet, TextInput, TouchableOpacity,Dimensions,AsyncStorage} from 'react-native';
+import {View,Image,FlatList,Text ,StyleSheet, TextInput, TouchableOpacity,Dimensions,AsyncStorage,DeviceEventEmitter} from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImagePicker from 'react-native-image-crop-picker';
 import randId from '../../components/comment/randId';
@@ -98,14 +98,15 @@ export default class Fabu extends Component {
     }
     _goget(){
         const arr = this.state.arr;
+        DeviceEventEmitter.emit('test',1);
         if (arr.length > 0 ) {
             for (var i = 0; i < arr.length; i++)
             {this._fetchImage(arr[i]);}
             this._fetchText();
-            this.props.navigation.navigate('BtnRoute');
+            this.props.navigation.goBack();
         } else {
             this._fetchText();
-            this.props.navigation.navigate('BtnRoute');
+            this.props.navigation.goBack();
         }
 
     }

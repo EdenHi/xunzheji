@@ -12,6 +12,7 @@ import {
   Dimensions,
   ScrollView,
   RefreshControl,
+  DeviceEventEmitter,
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -55,7 +56,13 @@ export default class LunTan extends Component {
     }
     componentDidMount() {
         this.get_xinxi();
+        this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
       }
+
+    componentWillUnmount(){
+    this.listener.remove();
+    }
+
     goComment=(v)=>{
         this.context.navigate('Comment',v);
     }
