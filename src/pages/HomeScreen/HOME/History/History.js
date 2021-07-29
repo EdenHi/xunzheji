@@ -13,13 +13,12 @@ export default class History extends Component {
         return ( 
          <View style={{}}>
               <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
-
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
-              <TouchableOpacity activeOpacity={1} style={{ width: width * 0.08, height: width * 0.08,color:"#fff"}}>
+              <TouchableOpacity activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85}}>浙商历史推荐</Text>
-              <View style={{backgroundColor:"#7cc0bf",width:2,height:28}}></View>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>浙商历史推荐</Text>
+            
             </View> 
             {/* <View style={{width:width*0.9,alignItems:"center"}}> */}
                 <ScrollView>
