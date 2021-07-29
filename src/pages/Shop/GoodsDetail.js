@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -11,48 +11,120 @@ import {
   FlatList,
   Modal,
 } from 'react-native';
-import {ScrollView} from 'react-native-gesture-handler';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import { ScrollView } from 'react-native-gesture-handler';
+import AntDesign from "react-native-vector-icons/AntDesign";
 import Swiper from 'react-native-swiper';
 import Entypo from 'react-native-vector-icons/Entypo';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import Good from './Goods';
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 class GoodsDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalVisible:false,
+      modalVisible1: false,
+      modalVisible: false,
       //放大显示的图片索引
-      currentIndex:0,
+      currentIndex: 0,
       //存放图片的路径
-      imgUrls:[
+      imgUrls: [
         {
-          url:'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+          url: 'https://gd2.alicdn.com/imgextra/i1/1990475129/TB2Zns2qlUSMeJjy1zkXXaWmpXa_!!1990475129.jpg',
         },
         {
-          url:'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+          url: 'https://gd4.alicdn.com/imgextra/i4/1990475129/TB2_Ge.qH8kpuFjy0FcXXaUhpXa_!!1990475129.jpg',
         },
         {
-          url:'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+          url: 'https://gd2.alicdn.com/imgextra/i2/1990475129/TB2NWcVcpXXXXbVXXXXXXXXXXXX_!!1990475129.jpg',
         },
       ],
     };
   }
 
   //点击图片方法事件
-  handleShowAlbum = (index)=>{
-    const imgUrls =   this.state.imgUrls;
+  handleShowAlbum = (index) => {
+    const imgUrls = this.state.imgUrls;
     const currentIndex = index;
     const modalVisible = true;
     this.setState({
-        imgUrls,currentIndex,modalVisible,
+      imgUrls, currentIndex, modalVisible,
     });
-   }
+  }
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible1: visible });
+  }
 
   render() {
-    const {modalVisible,imgUrls,currentIndex} = this.state;
+    const { modalVisible1 } = this.state;
+    const { navigation } = this.props;
+    const { modalVisible, imgUrls, currentIndex } = this.state;
     return (
       <View style={styles.Box1}>
+                <Modal
+          animationType="fade"
+          transparent={true}
+          visible={modalVisible1}
+          hardwareAccelerated={true}
+          onRequestClose={() => {
+            this.setModalVisible(!modalVisible1);
+          }}
+        >
+          <View>
+<View style={{ borderBottomRightRadius:10,borderBottomLeftRadius:10,elevation:5, height: height * 0.15, width: width, backgroundColor: '#eee',width: "100%" }}>
+            <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row'}}>
+              <TouchableOpacity style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+
+                <MaterialCommunityIcons onPress={()=>{this.props.navigation.navigate('ShoppingCart'),this.setModalVisible(!modalVisible1)}}style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="cart-outline"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
+
+
+              </TouchableOpacity>
+              <TouchableOpacity style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+                <MaterialCommunityIcons style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="clipboard-text-outline"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats'),this.setModalVisible(!modalVisible1)}} style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+                <AntDesign style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="customerservice"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddressList'),this.setModalVisible(!modalVisible1)}} style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+                <MaterialCommunityIcons  style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="map-marker-radius"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
+              </TouchableOpacity>
+            </View>
+            <MaterialCommunityIcons onPress={() => {
+              this.setModalVisible(!modalVisible1);
+            }} style={{ borderWidth: 0, height: '20%', width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
+
+              name="apple-keyboard-control"
+              size={30}
+              color="#7cc0c0"
+            />
+          </View>
+          <TouchableOpacity activeOpacity={1} onPress={() => {
+              this.setModalVisible(!modalVisible1);
+            }} style={{width:width,height:"85%"}}></TouchableOpacity>
+          </View>
+          
+          
+        </Modal>
         {/* 头部 */}
         <View style={styles.Head}>
           <Entypo
@@ -62,55 +134,57 @@ class GoodsDetail extends Component {
             name="chevron-thin-left"
             size={25}
           />
-          <Entypo name="dots-three-vertical" size={25} />
+          <Entypo onPress={() => {
+              this.setModalVisible(!modalVisible);
+            }} name="dots-three-vertical" size={25} />
         </View>
         {/* 可滑动部分 */}
-        <ScrollView style={{borderWidth: 0}}>
+        <ScrollView style={{ borderWidth: 0 }}>
           {/* 图片展示 */}
           <View style={styles.ImgBox}>
             <Swiper loop={true}>
-                <TouchableOpacity onPress={()=>this.handleShowAlbum(0)}>
-                  <Image
-                    style={{width: '100%', height: '100%'}}
-                    source={{
-                      uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
-                    }}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>this.handleShowAlbum(1)}>
-                  <Image
-                    style={{width: '100%', height: '100%'}}
-                    source={{
-                      uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
-                    }}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={()=>this.handleShowAlbum(2)}>
-                  <Image
-                    style={{width: '100%', height: '100%'}}
-                    source={{
-                      uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
-                    }}
-                  />
-                </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.handleShowAlbum(0)}>
+                <Image
+                  style={{ width: '100%', height: '100%' }}
+                  source={{
+                    uri: this.state.imgUrls[0].url,
+                  }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.handleShowAlbum(1)}>
+                <Image
+                  style={{ width: '100%', height: '100%' }}
+                  source={{
+                    uri: this.state.imgUrls[1].url,
+                  }}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => this.handleShowAlbum(2)}>
+                <Image
+                  style={{ width: '100%', height: '100%' }}
+                  source={{
+                    uri: this.state.imgUrls[2].url,
+                  }}
+                />
+              </TouchableOpacity>
             </Swiper>
           </View>
           {/* 放大图片的遮罩层 */}
           <Modal animationType={'slide'}
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => { this.setState({modalVisible:false});}}>
-                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
-            </Modal>
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => { this.setState({ modalVisible: false }); }}>
+            <ImageViewer imageUrls={imgUrls} style={{ flex: 1 }} index={currentIndex} />
+          </Modal>
 
           {/*描述及价格  */}
           <View style={styles.PriceBox}>
-            <Text style={styles.Wz}>$999999999</Text>
-            <Text style={styles.Wz}>大马路</Text>
-            <Text style={styles.Wz1}>家用大马路,自用一手，低价甩卖</Text>
+            <Text style={styles.Wz}>¥19.90</Text>
+            <Text style={styles.Wz}>万昌黑芝麻酥糖夹猪油</Text>
+            <Text style={styles.Wz1}>天天特价万昌黑芝麻酥糖夹猪油老字号传统糕点500g小包装点心包邮</Text>
           </View>
           <View
-            style={{width: '85%', marginHorizontal: '7.5%', borderRadius: 20}}>
+            style={{ width: '85%', marginHorizontal: '7.5%', borderRadius: 20 }}>
             <View
               style={{
                 borderWidth: 0,
@@ -128,19 +202,17 @@ class GoodsDetail extends Component {
                   fontSize: 18,
                   fontWeight: 'bold',
                 }}>
-                尺寸
+                净含量
               </Text>
               <Text
                 style={{
                   borderWidth: 0,
                   textAlignVertical: 'center',
                   color: 'grey',
-                  width: width * 0.71,
+                  width: width * 0.64,
                   fontSize: 13,
-                  marginLeft: width * 0.116,
-                }}>
-                1000000km*5m
-              </Text>
+                  marginLeft: width * 0.07,
+                }}>500g</Text>
             </View>
             <View
               style={{
@@ -160,7 +232,7 @@ class GoodsDetail extends Component {
                   fontWeight: 'bold',
                   marginTop: '2%',
                 }}>
-                特点
+                产品描述
               </Text>
               <Text
                 style={{
@@ -170,11 +242,11 @@ class GoodsDetail extends Component {
                   paddingTop: '2%',
                   width: width * 0.64,
                   fontSize: 13,
-                  marginLeft: width * 0.116,
+                  marginLeft: "2.5%",
                 }}
                 numberOfLines={3}
                 ellipsizeMode={'tail'}>
-                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                江南地区特色传统小吃，它是用炒熟的芝麻研粉和糖加料制成，用一张小纸包成长方形，小纸上印有店家的招牌，其味香甜、质感松软。过年时家家都把小纸包糖装在果子盒里招待客人，到亲戚家去拜年一定要送上麻酥糖。民谚曰:“拜年不带麻酥糖，请君不要进厅堂”。
               </Text>
             </View>
             <View
@@ -194,7 +266,7 @@ class GoodsDetail extends Component {
                   fontSize: 18,
                   fontWeight: 'bold',
                 }}>
-                材质
+                配料
               </Text>
               <Text
                 style={{
@@ -207,13 +279,13 @@ class GoodsDetail extends Component {
                 }}
                 numberOfLines={2}
                 ellipsizeMode={'tail'}>
-                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+                小麦粉、白砂糖、黑芝麻、饴糖、猪油
               </Text>
             </View>
             <View
               style={{
                 borderWidth: 0,
-                height: height * 0.12,
+                height: height * 0.15,
                 flexDirection: 'row',
                 borderBottomWidth: 0.2,
                 borderColor: 'grey',
@@ -230,156 +302,115 @@ class GoodsDetail extends Component {
                 }}>
                 商品评价
               </Text>
-              <Text
-                style={{
-                  borderWidth: 0,
-                  textAlignVertical: 'top',
-                  color: 'grey',
-                  paddingTop: '2%',
-                  width: width * 0.64,
-                  fontSize: 13,
-                  marginLeft: '2.5%',
-                  height: '70%',
-                }}
-                numberOfLines={3}
-                ellipsizeMode={'tail'}>
-                哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
-              </Text>
+              <View style={{marginTop:30}}>
+                <Text
+                  style={{
+                    borderBottomWidth: 0.5,
+                    textAlignVertical: 'center',
+                    color: 'grey',
+                    paddingTop: '2%',
+                    width: width * 0.64,
+                    fontSize: 13,
+                    marginLeft: '2.5%',
+                    height: '50%',
+                  }}
+                  numberOfLines={2}
+                  ellipsizeMode={'tail'}>
+李***1:太甜了，吃了一小块就感觉很甜腻。
+                </Text>
+                <Text
+                  style={{
+                    borderWidth: 0,
+                    textAlignVertical: 'center',
+                    color: 'grey',
+                    paddingTop: '2%',
+                    width: width * 0.64,
+                    fontSize: 13,
+                    marginLeft: '2.5%',
+                    height: '50%',
+                  }}
+                  numberOfLines={2}
+                  ellipsizeMode={'tail'}>
+阿***式:还是原来的味道，好评，儿子经常念叨要吃，一到货马上开吃
+                </Text>
+              </View>
+
               <Text
                 style={{
                   fontWeight: 'bold',
                   borderWidth: 0,
-                  marginTop: '23%',
-                  marginLeft: -width * 0.19,
+                  marginTop: '2.5%',
+                  marginLeft: -65,
                   alignItems: 'center',
+                  height:25
                 }}>
                 查看更多
               </Text>
               <Entypo
-                style={{marginTop: height * 0.0889}}
+                style={{ marginTop: '2.2%',marginLeft:-5}}
                 name="chevron-right"
                 size={20}
               />
             </View>
           </View>
-          <View style={{height: '5%', borderWidth: 0, borderRadius: 10}}>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-around',
-                height: '100%',
-              }}>
-              <View style={{borderWidth: 0, width: '30%'}}>
-                <Image
-                  style={{
-                    borderWidth: 0,
-                    width: '90%',
-                    height: '80%',
-                    alignSelf: 'center',
-                    marginVertical: '10%',
-                  }}
-                  source={{
-                    uri: 'http://pic.sc.chinaz.com/files/pic/pic9/201812/zzpic15507.jpg',
-                  }}
-                />
-              </View>
-              <View
-                style={{
-                  borderWidth: 0,
-                  width: '35%',
-                  justifyContent: 'center',
-                }}>
-                <Text
-                  style={{
-                    width: '100%',
-                    height: '50%',
-                    textAlign: 'center',
-                    fontSize: 20,
-                  }}>
-                  门口小店
-                </Text>
-                <Text
-                  style={{
-                    width: '100%',
-                    height: '50%',
-                    textAlign: 'center',
-                    fontSize: 20,
-                  }}>
-                  浙江·杭州
-                </Text>
-              </View>
-              <View style={{borderWidth: 0, width: '35%'}}>
-                <Text
-                  style={{
-                    width: '100%',
-                    height: '50%',
-                    textAlign: 'center',
-                    fontSize: 20,
-                  }}>
-                  评分
-                </Text>
-                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-                  <Entypo name="star" size={20} />
-                  <Entypo name="star" size={20} />
-                  <Entypo name="star" size={20} />
-                  <Entypo name="star" size={20} />
-                  <Entypo name="star" size={20} />
-                </View>
-              </View>
-            </View>
-          </View>
+
           <ScrollView
             showsHorizontalScrollIndicator={false}
             horizontal={true}
             style={{
-              borderWidth: 0,
+              marginTop:20,
               width: '100%',
-              height: width * 0.55,
+              height: width * 0.4,
               flexDirection: 'row',
             }}>
             <View style={styles.tuijian}>
-              <Good
-                img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg"
+              <Good price="10"
+                img={this.state.imgUrls[0].url}
                 navigation={this.props.navigation}
               />
             </View>
             <View style={styles.tuijian}>
-              <Good
-                img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg"
+              <Good price="10"
+               img={this.state.imgUrls[1].url}
                 navigation={this.props.navigation}
               />
             </View>
             <View style={styles.tuijian}>
-              <Good
-                img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg"
+              <Good price="10"
+              img={this.state.imgUrls[2].url}
                 navigation={this.props.navigation}
               />
             </View>
             <View style={styles.tuijian}>
-              <Good
-                img="http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg"
+              <Good price="10"
+              img={this.state.imgUrls[1].url}
                 navigation={this.props.navigation}
               />
             </View>
           </ScrollView>
-
-          <Image
-            style={{width: '100%', height: width}}
+          <Image resizeMode={'stretch'}
+            style={{ width: '100%', height: width,marginTop:20 }}
             source={{
-              uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+              uri: 'https://img.alicdn.com/imgextra/i3/1990475129/TB2WDMUqm0jpuFjy0FlXXc0bpXa_!!1990475129.jpg'
+            }}
+          />
+          <Image
+            style={{ width: '100%', height: width }}
+            source={{
+              uri: this.state.imgUrls[0].url
             }}
           />
 
           <Image
-            style={{width: '100%', height: width}}
+            style={{ width: '100%', height: width }}
             source={{
-              uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+              uri: this.state.imgUrls[1].url
             }}
           />
           <Image
-            style={{width: '100%', height: width}}
+            style={{ width: '100%', height: width }}
             source={{
-              uri: 'http://img.ewebweb.com/uploads/20190730/21/1564493723-CdYEFxqXur.jpg',
+              uri: this.state.imgUrls[2].url
             }}
           />
         </ScrollView>
@@ -398,7 +429,7 @@ class GoodsDetail extends Component {
                 alignSelf: 'center',
               }}>
               <Entypo
-                style={{borderWidth: 0, marginTop: '15%'}}
+                style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shop"
                 size={25}
               />
@@ -412,9 +443,9 @@ class GoodsDetail extends Component {
                 店铺
               </Text>
             </View>
-            <View style={{flexDirection: 'column', alignSelf: 'center'}}>
+            <View style={{ flexDirection: 'column', alignSelf: 'center' }}>
               <Entypo
-                style={{borderWidth: 0, marginTop: '15%'}}
+                style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shopping-bag"
                 size={25}
               />
@@ -452,7 +483,7 @@ class GoodsDetail extends Component {
               加入购物车
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('Zhifu')}
             activeOpacity={1}
             style={{
               borderWidth: 0,
@@ -533,6 +564,7 @@ const styles = StyleSheet.create({
     color: 'grey',
     marginLeft: width * 0.08,
     marginTop: '5%',
+    width: '85%'
   },
   Foot: {
     borderWidth: 0,

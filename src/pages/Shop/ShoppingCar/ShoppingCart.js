@@ -255,7 +255,10 @@ export default class ShoppingCart extends Component {
             <Text style={{color:"#7cc0c0"}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
           </Text>
           <View style={{width: 120,backgroundColor:"#7cc0c0", alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Zhifu')}>
             <Text style={{color: "#fff"}}>去结算({this.state.totalNum})</Text>
+            </TouchableOpacity>
+
           </View>
         </View>
       </View>

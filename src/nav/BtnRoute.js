@@ -4,6 +4,7 @@ import {Text, View, Button} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import My from '../pages/MyScreen/My';
+import Myself from '../pages/MyScreen/Myself';
 import Store from '../pages/Shop/store';
 import Home from '../pages/HomeScreen/HOME/Home';
 //import Forum from '../pages/Forum/LunTan';
@@ -51,7 +52,7 @@ export default function BtnRoute() {
       />
       <Tab.Screen
         name="我的"
-        component={My}
+        component={Myself}
         options={{
           tabBarIcon: ({color}) => (
             <SimpleLineIcons name={'ghost'} size={24} color={color} />

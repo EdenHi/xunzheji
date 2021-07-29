@@ -54,10 +54,7 @@ export default class My extends Component {
           <View style={{flex:1}}>
             <ParallaxScrollView
                 backgroundColor="#fff"
-                //contentBackgroundColor="pink"
-                //下面渲染背景
-              //  renderBackground={() =>  <Image style={{width:window.width,height:350}} source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic4.zhimg.com%2Fv2-b6eae3250bb62fadb3d2527f466cf033_b.jpg&refer=http%3A%2F%2Fpic4.zhimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629681285&t=ae09d63c302629ed285b9d5ac74f04a9'}}/>}
-                //下面是渲染前景
+          
                 renderForeground={() => (
                     <View style={{backgroundColor:'#3c454c',marginTop:width * 0.13}}>
                   <View style={styles.Box}>
