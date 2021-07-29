@@ -19,7 +19,6 @@ export default class My extends Component {
       this.state = {
         username:'',
         data:[],
-
       };
     }
 
