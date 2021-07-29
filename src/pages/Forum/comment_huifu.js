@@ -2,9 +2,15 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,TouchableOpacity,Image ,StyleSheet, TextInput,AsyncStorage, ScrollView,Dimensions} from 'react-native';
+import {View,Text,TouchableOpacity,Image ,StyleSheet, TextInput,AsyncStorage, ScrollView,Dimensions,TouchableWithoutFeedback,
+    Keyboard,RefreshControl,} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const {height,width} = Dimensions.get('window');
+const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
 export default class comment_huifu extends Component {
     constructor(props){
         super(props);
@@ -13,10 +19,10 @@ export default class comment_huifu extends Component {
             huifu:[],
             content_huifu:'',
             username:'',
+            isLoding:false,
         };
     }
-    //获取回复的数据
-    componentDidMount(){
+    go_select(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
                 this.setState({
@@ -42,7 +48,23 @@ export default class comment_huifu extends Component {
                 console.error('error',error);
               });
     }
+    //获取回复的数据
+    componentDidMount(){
+       this.go_select();
+    }
 
+    loding(){
+        this.setState({
+            isLoding : true,
+        });
+
+        setTimeout(() => {
+            this.setState({
+                isLoding : false,
+            });
+            this.go_select();
+        }, 1000);
+    }
     fabu(){
         var date = new Date();
         var seperatorl = '-';
@@ -75,6 +97,7 @@ export default class comment_huifu extends Component {
                 date_huifu:currentdate,
               }),
         });
+        this.go_select();
     }
     render() {
         const {data,huifu} = this.state;
@@ -82,7 +105,13 @@ export default class comment_huifu extends Component {
         console.log('data',data);
         return (
             <View style={{flex:1}}>
-                <ScrollView>
+                <ScrollView
+                 refreshControl={
+                    <RefreshControl
+                        refreshing = {this.state.isLoding} //设置是否在刷新
+                        onRefresh = {this.loding.bind(this)} //下拉刷新结束}
+                    />
+                }>
                     <View style={{backgroundColor:'white'}}>
                         <View style={{flexDirection:'row',marginTop:20,marginBottom:20,marginLeft:width * 0.025,width:width * 0.95}}>
                             <TouchableOpacity>
@@ -123,9 +152,10 @@ export default class comment_huifu extends Component {
                         style={styles.txt2}
                         multiline = {true}
                         clearTextOnFocus={true}
-                        onChangeText={(content)=>this.setState({content})}
+                        onChangeText={(content_huifu)=>this.setState({content_huifu})}
+                        ref={input => { this.textInput = input }} 
                     />
-                    <TouchableOpacity onPress={()=>this.pinglun()}
+                    <TouchableOpacity onPress={()=>{this.fabu(),Keyboard.dismiss(),this.textInput.clear()}}
                     style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
                         <FontAwesome
                         name="send-o"

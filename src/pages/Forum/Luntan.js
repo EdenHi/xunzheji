@@ -77,7 +77,7 @@ export default class LunTan extends Component {
                 isLoding : false,
             });
             this.get_xinxi();
-        }, 1);
+        }, 1000);
     }
 
     render () {

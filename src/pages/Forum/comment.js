@@ -15,7 +15,8 @@ import {
   ScrollView,
   AsyncStorage,
   TouchableWithoutFeedback,
-  Keyboard
+  Keyboard,
+  RefreshControl,
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -42,6 +43,7 @@ export default class Comment extends React.Component {
             comment_fu:[],
             content:'',
             username:'',
+            isLoding:false,
         };
     }
     //点击图片方法事件
@@ -53,6 +55,18 @@ export default class Comment extends React.Component {
             imgUrls,currentIndex,modalVisible,
         });
        }
+       loding(){
+        this.setState({
+            isLoding : true,
+        });
+
+        setTimeout(() => {
+            this.setState({
+                isLoding : false,
+            });
+            this.go_select();
+        }, 1000);
+    }
 
     pinglun(){
         var date = new Date();
@@ -86,6 +100,7 @@ export default class Comment extends React.Component {
                 date_zhu:currentdate,
                 }),
         });
+        this.go_select();
     }
 
     //渲染图片
@@ -125,8 +140,7 @@ export default class Comment extends React.Component {
     }
 }
 
-    //获取评论信息
-    componentDidMount(){
+    go_select(){
         fetch('http://192.168.50.117:3000/dongtai/comment', {
             method: 'POST',
             headers: {
@@ -151,6 +165,10 @@ export default class Comment extends React.Component {
                     });
                 }
             });
+    }
+    //获取评论信息
+    componentDidMount(){
+        this.go_select();
     }
 
     goComment=(v)=>{
@@ -317,7 +335,13 @@ export default class Comment extends React.Component {
         } else {
         return (
             <View style={{flex:1}}>
-                <ScrollView >
+                <ScrollView 
+                 refreshControl={
+                    <RefreshControl
+                        refreshing = {this.state.isLoding} //设置是否在刷新
+                        onRefresh = {this.loding.bind(this)} //下拉刷新结束}
+                    />
+                }>
                     <View style={{backgroundColor:'white'}}>
                         <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
                             <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:20}}>
