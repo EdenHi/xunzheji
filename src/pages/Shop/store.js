@@ -164,7 +164,7 @@ export default class Store extends Component {
               color="#7cc0c0"
             />
           </View>
-          <TouchableOpacity onPress={() => {
+          <TouchableOpacity activeOpacity={1} onPress={() => {
               this.setModalVisible(!modalVisible);
             }} style={{width:width,height:"85%"}}></TouchableOpacity>
           </View>

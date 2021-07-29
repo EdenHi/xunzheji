@@ -118,7 +118,7 @@ class GoodsDetail extends Component {
               color="#7cc0c0"
             />
           </View>
-          <TouchableOpacity onPress={() => {
+          <TouchableOpacity activeOpacity={1} onPress={() => {
               this.setModalVisible(!modalVisible1);
             }} style={{width:width,height:"85%"}}></TouchableOpacity>
           </View>
@@ -483,7 +483,7 @@ class GoodsDetail extends Component {
               加入购物车
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity onPress={()=>this.props.navigation.navigate('Zhifu')}
             activeOpacity={1}
             style={{
               borderWidth: 0,

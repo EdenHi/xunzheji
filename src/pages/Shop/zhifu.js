@@ -80,7 +80,7 @@ export default class zhifu extends Component {
                     <View style={{ width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
                        
                     <TouchableOpacity style={{marginLeft:"2%"}}
-                      onPress={() => navigation.goBack()}
+                      onPress={() => this.props.navigation.goBack()}
           >
           <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="left"
@@ -92,7 +92,7 @@ export default class zhifu extends Component {
           <View style={{width:width*0.09,height:width*0.09,}}></View>
                     </View>
 
-                    <TouchableOpacity style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
                         <View style={{ marginTop: 20, marginLeft: 20, flexDirection: "row", }}>
                             <Text style={{ fontSize: 16 }}>{this.state.name}</Text>
                             <Text style={{ fontSize: 16, marginLeft: 40 }}>{this.state.phone}</Text>
@@ -149,7 +149,7 @@ export default class zhifu extends Component {
 
                         <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin: 10, flexDirection: "row", backgroundColor: "white", margin: 5, borderRadius:15 }} activeOpacity={0.95}>
                             <Text style={{ marginLeft: 15 }}>支付方式:</Text>
-                            <Text style={{ marginLeft: 200 ,}}>{this.state.way}</Text>
+                            <Text style={{ marginRight:15 ,}}>{this.state.way}</Text>
                             {/* <IconFont name="jiantou" size={20}  /> */}
                         </TouchableOpacity>
 
