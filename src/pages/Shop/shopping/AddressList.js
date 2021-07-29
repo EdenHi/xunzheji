@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View,Image,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
+import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
 const {width,height} = Dimensions.get('window');
 import { SwipeRow } from 'react-native-swipe-list-view';
 
@@ -12,7 +12,6 @@ export default class AddressList extends Component {
             data:[],
             username:'',
             isLoding:false,
-            
         };
     }
 
@@ -83,6 +82,23 @@ export default class AddressList extends Component {
         this.loding();
         }
 
+    //修改默认地址
+    update_moren = (k)=>{
+        fetch('http://192.168.50.117:3000/shop/update_moren', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id:this.state.data[k].id
+            }),
+        }).then((response) => response.json())
+        .then((responseJson) => {
+          console.log(responseJson)
+        })
+        this.get_list();
+    }
     render() {
         const {data} = this.state;
         console.log('data',data)
@@ -118,16 +134,28 @@ export default class AddressList extends Component {
                                     onPress={()=>this.handleShowAlbum(k)}>
                                         <Text allowFontScaling={false} style={{color:'white'}}>删除</Text>
                                     </TouchableOpacity>
-                                    <View style={{flexDirection:'row',height:60,justifyContent:'space-between',alignItems:'center',backgroundColor:'#ccc'}}>
+                                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#ccc'}}>
                                         <View>
-                                        <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:16,width:width * 0.2,fontWeight:'bold'}}>{v.name}</Text><Text>{v.phone}</Text></View>
-                                        <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10}}>{v.dizhi}</Text><Text style={{marginRight:10}}>{v.xiangxi}</Text></View>
+                                            <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:16,width:width * 0.2,fontWeight:'bold'}}>{v.name}</Text><Text>{v.phone}</Text></View>
+                                            <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10}}>{v.dizhi}</Text><Text style={{marginRight:10}}>{v.xiangxi}</Text></View>
+                                            <View style={{flexDirection:'row',height:30,alignItems:'center' }}>
+                                                    <Switch
+                                                    onTintColor={'#ffaa11'}
+                                                    tintColor={'#aaaa11'}
+                                                    value={v.dizhi_id === 1 ? true : false}
+                                                    onValueChange={()=> {
+                                                        this.update_moren(k);
+                                                        }}
+                                                        testID={'1'}
+                                                        thumbTintColor={'#ff1111'}/>
+                                                <Text style={{marginLeft:10}}>默认地址</Text>
+                                            </View>
                                         </View>
                                         <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
                                     </View>
-
                                     </SwipeRow>
-                                </View>
+                                    
+                            </View>
                         )
                     })
                 }
