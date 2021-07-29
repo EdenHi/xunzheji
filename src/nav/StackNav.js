@@ -77,8 +77,8 @@ export default function StackNav() {
       <Stack.Screen name="people" component={people} />
       <Stack.Screen name="CustormerBar" component={CustormerBar} />
       <Stack.Screen name="AddressList" component={AddressList}/>
-      <Stack.Screen name="History" component={History} />
-      <Stack.Screen name="News" component={News} />
+
+
     </Stack.Navigator>
   );
 }
