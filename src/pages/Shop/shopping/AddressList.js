@@ -1,8 +1,9 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View,Image,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter } from 'react-native';
+import { View,Image,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
 const {width,height} = Dimensions.get('window');
+import { SwipeRow } from 'react-native-swipe-list-view';
 
 export default class AddressList extends Component {
     constructor(props){
@@ -11,9 +12,11 @@ export default class AddressList extends Component {
             data:[],
             username:'',
             isLoding:false,
+            
         };
     }
 
+    //获取地址的方法
     get_list(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
@@ -32,7 +35,6 @@ export default class AddressList extends Component {
                     }),
                     }) .then((response) => response.json())
                     .then((responseJson) => {
-                        console.log(responseJson);
                         this.setState({
                             data:responseJson,
                         });
@@ -42,6 +44,7 @@ export default class AddressList extends Component {
             }
         });
     }
+    //刷新页面
     loding(){
         this.setState({
             isLoding : true,
@@ -52,7 +55,7 @@ export default class AddressList extends Component {
                 isLoding : false,
             });
             this.get_list();
-        }, 1000);
+        }, 500);
     }
     componentDidMount(){
         this.get_list();
@@ -61,19 +64,28 @@ export default class AddressList extends Component {
     componentWillUnmount(){
         this.listener.remove();
         }
-    renderItem({item,index}){
-        return (
-            <View key = {index} style={{flexDirection:'row',height:60,justifyContent:'space-between',alignItems:'center'}}>
-                    <View>
-                    <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:16,width:width * 0.2,fontWeight:'bold'}}>{item.name}</Text><Text>{item.phone}</Text></View>
-                    <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10}}>{item.dizhi}</Text><Text style={{marginRight:10}}>{item.xiangxi}</Text></View>
-                    </View>
-                    <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
-                </View>
-        );
-    }
+
+    //删除收货地址
+    handleShowAlbum = (k)=>{
+        fetch('http://192.168.50.117:3000/shop/delect_dizhi', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id:this.state.data[k].id
+                }),
+            }).then((response) => response.json())
+            .then((responseJson) => {
+              console.log(responseJson)
+            })
+        this.loding();
+        }
+
     render() {
         const {data} = this.state;
+        console.log('data',data)
         return (
             <View style={{padding:10}}>
                 <View style={{height:height * 0.85}}>
@@ -84,15 +96,74 @@ export default class AddressList extends Component {
                     </Text>
                     <View style={{width:width * 0.03,height:height * 0.03}} />
                 </View>
-                <FlatList
-                refreshing = {this.state.isLoding} //设置是否在刷新
-                onRefresh = {this.loding.bind(this)} //下拉刷新结束
-                keyExtractor={(item, index) => (index + '1')}
-                data = {data}
-                renderItem = {this.renderItem.bind(this)}/>
+
+                <ScrollView
+                showsVerticalScrollIndicator={false}
+                refreshControl={
+                    <RefreshControl
+                        refreshing = {this.state.isLoding} //设置是否在刷新
+                        onRefresh = {this.loding.bind(this)} //下拉刷新结束}
+                    />
+                }>
+                {
+                    data.map((v,k)=>{
+                        return (
+                            <View style={styles.outView} key = {k} >
+                                    <SwipeRow
+                                    leftOpenValue={75}
+                                    rightOpenValue={-75}
+                                    disableRightSwipe={true} //禁止向右滑动
+                                    >
+                                    <TouchableOpacity style={styles.rowBack}
+                                    onPress={()=>this.handleShowAlbum(k)}>
+                                        <Text allowFontScaling={false} style={{color:'white'}}>删除</Text>
+                                    </TouchableOpacity>
+                                    <View style={{flexDirection:'row',height:60,justifyContent:'space-between',alignItems:'center',backgroundColor:'#ccc'}}>
+                                        <View>
+                                        <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:16,width:width * 0.2,fontWeight:'bold'}}>{v.name}</Text><Text>{v.phone}</Text></View>
+                                        <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10}}>{v.dizhi}</Text><Text style={{marginRight:10}}>{v.xiangxi}</Text></View>
+                                        </View>
+                                        <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
+                                    </View>
+
+                                    </SwipeRow>
+                                </View>
+                        )
+                    })
+                }
+                </ScrollView>
                 </View>
                 <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red"><View style={{backgroundColor:'#ff0000',height:40,borderRadius:20,justifyContent:'center'}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text></View></TouchableOpacity>
             </View>
         );
     }
 }
+const styles = StyleSheet.create({
+    outView: {
+      marginBottom:10,
+    },
+    rowBack: {
+      alignItems: 'center',
+      backgroundColor: 'blue',
+      flexDirection: 'row',
+      justifyContent: 'flex-end',
+      paddingRight:10,
+      flex: 1,
+    },
+    rowFront: {
+      alignItems: 'center',
+      backgroundColor: '#CCC',
+      borderBottomColor: 'black',
+      borderBottomWidth: 1,
+      justifyContent: 'center',
+      height: 50,
+    },
+    leftView: {
+      width: 75,
+      alignItems: 'center',
+      backgroundColor: 'green',
+      height: 50,
+      justifyContent: 'center',
+    },
+  });
+  
