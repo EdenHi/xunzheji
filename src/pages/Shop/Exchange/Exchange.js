@@ -28,7 +28,7 @@ export default class componentName extends Component {
                 <ScrollView style={{ flex: 1, borderWidth: 1 }}>
                     <View style={{ height:height*0.2}}>
 
-<Swiper style={{height:"100%"}}>
+<Swiper autoplay style={{height:"100%"}}>
 
     <Image resizeMode={"stretch"} source={{uri:'http://src.house.sina.com.cn/imp/imp/deal/6f/62/0/575c5b3e518069bbb868a2069ea_p24_mk24.jpg'}} style={{width:'100%',height:'100%'}}></Image>
     <Image resizeMode={"stretch"} source={{uri:'http://www.weishowzy.com/uploads/2019/09/2019091308112738.png'}} style={{width:'100%',height:'100%'}}></Image>
