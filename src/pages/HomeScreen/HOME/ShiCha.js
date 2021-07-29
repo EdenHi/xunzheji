@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     width:'100%',
     height:"100%",
     backgroundColor: 'white',
-    borderRadius: 5,
+    borderRadius: 15,
     alignSelf:'center'
   },
   image: {

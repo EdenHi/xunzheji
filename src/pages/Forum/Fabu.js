@@ -142,11 +142,13 @@ export default class Fabu extends Component {
                  <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
                  <View style = {styles.box}>
                 <TouchableOpacity
+                activeOpacity={1}
                    onPress = {()=>this.props.navigation.navigate('BtnRoute')} >
                        <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
                     <Text style={{fontSize:15,color:"#fff",fontWeight:"bold"}}>发布动态</Text>
                     <TouchableOpacity
+                      activeOpacity={1}
                      onPress = {()=>this._goget()}>
                         <FontAwesome
                         name="send-o"
@@ -154,7 +156,7 @@ export default class Fabu extends Component {
                         size={20}/>
                     </TouchableOpacity>
                 </View>
-            <View style={{width:width*0.9,height:height*0.5,backgroundColor:"#fff",borderRadius:15,elevation:5}}>
+            <View style={{width:width*0.9,height:height,backgroundColor:"#fff",borderRadius:15}}>
             <TextInput
                 style={styles.tx}
                 multiline={true}
@@ -172,7 +174,9 @@ export default class Fabu extends Component {
                     this.state.arr.map((v,k)=>{
                         return (
                             <View style={styles.Box}  key={k}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                  activeOpacity={1}
+                                >
                                     <Image style={{ height: (width - 40) / 3, width:(width - 60) / 3,marginLeft:"10%" }} source={{ uri: v.path }} />
                                 </TouchableOpacity>
 

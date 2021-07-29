@@ -11,7 +11,8 @@ import {
   Easing,
 } from 'react-native';
 import LottieView from 'lottie-react-native';
-import AntDesign from "react-native-vector-icons/AntDesign"
+import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 const { width, height } = Dimensions.get('window');
 export default class NewWorks extends Component {
   constructor(props) {
@@ -34,21 +35,14 @@ export default class NewWorks extends Component {
     const { navigation } = this.props;
     return (
       <View style = {styles.container}>
-          <View style={{width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
-          <TouchableOpacity style={{marginLeft:"2%"}}
-                      onPress={() => navigation.goBack()}
-          >
-          <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="left"
-              size={20}
-              color="black"
-            />
-          </TouchableOpacity>
-          <Text style={{fontSize:15}}>上新好物</Text>
-          <TouchableOpacity style={{width:width*0.09,height:width*0.09,}}>
+<LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+            <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>上新好物</Text>
 
-          </TouchableOpacity>
-        </View>
+            </View> 
         <View style={styles.list}>
           <FlatList
         //   style={{width:width,height:10000}}
@@ -62,7 +56,7 @@ export default class NewWorks extends Component {
             ]}
             renderItem = {({item})=>
             <View style={{width:width,alignItems:"center"}}>
-                 <TouchableOpacity style={styles.suggest}>
+                 <TouchableOpacity activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.key}</Text>
@@ -82,17 +76,17 @@ export default class NewWorks extends Component {
                     </View>
                   </View>
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    {/* <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                     <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="staro"
               size={25}
               color="orange"
             />
 
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
 
                   </View>
                 </View>
@@ -108,6 +102,7 @@ export default class NewWorks extends Component {
 
           />
         </View>
+        </LinearGradient>
       </View> 
     );
   }
@@ -115,7 +110,9 @@ export default class NewWorks extends Component {
 
 const styles = StyleSheet.create({
   container: {
- flex:1,
+    width: width,
+    height: height,
+    alignItems: "center"
   },
 
   list: {
@@ -123,10 +120,10 @@ flex:1,
     alignItems:"center"
   },
   suggest: {
-    width: width*0.95,
-    height: height*0.2,
+    width: width*0.9,
+    height: height*0.18,
     backgroundColor: "grey",
-    marginTop: "3%",
+    marginBottom: "3%",
     borderRadius: 10,
     elevation: 10,
     flexDirection: "row",

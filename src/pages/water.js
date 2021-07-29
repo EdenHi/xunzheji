@@ -250,11 +250,11 @@ export default class Water extends Component {
 
   renderItem = (itemData, itemIdx, itemContainer) => {
     return (
-      <TouchableOpacity style={{ width: itemContainer.width, height: itemData.height, borderRadius: 10, elevation: 5 }} onPress={() => { console.log({ itemIdx }); }}>
+      <TouchableOpacity activeOpacity={1} style={{ width: itemContainer.width, height: itemData.height, borderRadius: 10, elevation: 5 }} onPress={() => { console.log({ itemIdx }); }}>
         <ImageBackground imageStyle={{borderRadius:10}} style={{width: '100%', height: '100%', flexDirection: 'column-reverse' }} source={{ uri: this.data[itemIdx].img }}>
-          <View style={{ justifyContent:'space-between',height: height * 0.07, backgroundColor: 'rgba(118,118,118,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-            <Text style={{ color: '#fff', height: '40%', textAlign: 'left', fontWeight: 'bold',paddingLeft:5,paddingTop:5,}}ellipsizeMode="tail" numberOfLines={1}>食肉者钛合金折扇子</Text>
-            <Text style={{color:'#fff',fontSize:20,paddingLeft:5,paddingBottom:5}}>￥30</Text>
+          <View style={{ justifyContent:'space-between',height: height * 0.075, backgroundColor: 'rgba(118,118,118,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
+            <Text style={{ color: '#fff', height: '40%', textAlign: 'left', fontWeight: 'bold',paddingLeft:5,paddingTop:5,fontSize:15}}ellipsizeMode="tail" numberOfLines={1}>食肉者钛合金折扇子</Text>
+            <Text style={{color:'#fff',fontSize:15,paddingLeft:5,paddingBottom:5}}>￥30</Text>
           </View>
 
         </ImageBackground>

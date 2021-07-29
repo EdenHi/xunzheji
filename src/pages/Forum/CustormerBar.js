@@ -44,6 +44,7 @@ class CustormerBar extends Component {
             </TouchableOpacity>
           ))}
           <TouchableOpacity
+            activeOpacity={1}
             onPress={() => this.context.navigate('Fabu')}
             style={{
               width: '17%',
