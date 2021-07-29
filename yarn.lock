@@ -2357,7 +2357,7 @@
     "js-yaml" "^3.13.1"
     "parse-json" "^4.0.0"
 
-"create-react-class@^15.6.0", "create-react-class@^15.6.2":
+"create-react-class@*", "create-react-class@^15.6.0", "create-react-class@^15.6.2":
   "integrity" "sha1-dJnXyi5pu1HRP69ZvQTwxlodbB4="
   "resolved" "https://registry.npm.taobao.org/create-react-class/download/create-react-class-15.7.0.tgz?cache=0&sync_timestamp=1602801795820&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcreate-react-class%2Fdownload%2Fcreate-react-class-15.7.0.tgz"
   "version" "15.7.0"
@@ -2566,6 +2566,16 @@
   "integrity" "sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak="
   "resolved" "https://registry.npm.taobao.org/depd/download/depd-1.1.2.tgz"
   "version" "1.1.2"
+
+"deprecated-react-native-listview@^0.0.7":
+  "integrity" "sha512-l0lWjpU70MlHF0Sy/xi1I6vQkb5tatXKag5iSbXmEKh9g8ZqUbdlP9wGTy5g3GQc5qqaUYAf6mIY5CtkN5BStQ=="
+  "resolved" "https://registry.npmjs.org/deprecated-react-native-listview/-/deprecated-react-native-listview-0.0.7.tgz"
+  "version" "0.0.7"
+  dependencies:
+    "create-react-class" "*"
+    "fbjs" "*"
+    "invariant" "*"
+    "react-clone-referenced-element" "*"
 
 "destroy@~1.0.4":
   "integrity" "sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA="
@@ -3087,6 +3097,19 @@
   "resolved" "https://registry.npm.taobao.org/fbjs-css-vars/download/fbjs-css-vars-1.0.2.tgz"
   "version" "1.0.2"
 
+"fbjs@*", "fbjs@^3.0.0":
+  "integrity" "sha1-CQcGf7P1enj0XZXx6s/8rNYjwWU="
+  "resolved" "https://registry.npm.taobao.org/fbjs/download/fbjs-3.0.0.tgz?cache=0&sync_timestamp=1602048313843&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffbjs%2Fdownload%2Ffbjs-3.0.0.tgz"
+  "version" "3.0.0"
+  dependencies:
+    "cross-fetch" "^3.0.4"
+    "fbjs-css-vars" "^1.0.0"
+    "loose-envify" "^1.0.0"
+    "object-assign" "^4.1.0"
+    "promise" "^7.1.1"
+    "setimmediate" "^1.0.5"
+    "ua-parser-js" "^0.7.18"
+
 "fbjs@^0.8.4":
   "integrity" "sha1-xNWY6taUkRJlPWWIsBpc3Nn5D90="
   "resolved" "https://registry.npm.taobao.org/fbjs/download/fbjs-0.8.17.tgz?cache=0&sync_timestamp=1602048313843&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffbjs%2Fdownload%2Ffbjs-0.8.17.tgz"
@@ -3094,19 +3117,6 @@
   dependencies:
     "core-js" "^1.0.0"
     "isomorphic-fetch" "^2.1.1"
-    "loose-envify" "^1.0.0"
-    "object-assign" "^4.1.0"
-    "promise" "^7.1.1"
-    "setimmediate" "^1.0.5"
-    "ua-parser-js" "^0.7.18"
-
-"fbjs@^3.0.0":
-  "integrity" "sha1-CQcGf7P1enj0XZXx6s/8rNYjwWU="
-  "resolved" "https://registry.npm.taobao.org/fbjs/download/fbjs-3.0.0.tgz?cache=0&sync_timestamp=1602048313843&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ffbjs%2Fdownload%2Ffbjs-3.0.0.tgz"
-  "version" "3.0.0"
-  dependencies:
-    "cross-fetch" "^3.0.4"
-    "fbjs-css-vars" "^1.0.0"
     "loose-envify" "^1.0.0"
     "object-assign" "^4.1.0"
     "promise" "^7.1.1"
@@ -3593,7 +3603,7 @@
   "resolved" "https://registry.nlark.com/interpret/download/interpret-1.4.0.tgz"
   "version" "1.4.0"
 
-"invariant@^2.2.2", "invariant@^2.2.4", "invariant@2.2.4":
+"invariant@*", "invariant@^2.2.2", "invariant@^2.2.4", "invariant@2.2.4":
   "integrity" "sha1-YQ88ksk1nOHbYW5TgAjSP/NRWOY="
   "resolved" "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz"
   "version" "2.2.4"
@@ -5715,7 +5725,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.5.10", "prop-types@^15.6.0", "prop-types@^15.6.1", "prop-types@^15.7.2", "prop-types@^15.7.x":
+"prop-types@^15.5.10", "prop-types@^15.6.0", "prop-types@^15.6.1", "prop-types@^15.7.2", "prop-types@^15.7.x", "prop-types@>=15.5.0":
   "integrity" "sha1-UsQedbjIfnK52TYOAga5ncv/psU="
   "resolved" "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -5769,6 +5779,11 @@
   dependencies:
     "fbjs" "^0.8.4"
     "object-assign" "^4.1.0"
+
+"react-clone-referenced-element@*":
+  "integrity" "sha512-LZBPvQV8W0B5dFzXFu+D3Tpil8YHS8tO00iFsfXcTLdtpuH7XyvaHqHcoz4hd4uNPQCZ30fceh+s7mLznzMXvg=="
+  "resolved" "https://registry.npmjs.org/react-clone-referenced-element/-/react-clone-referenced-element-1.1.1.tgz"
+  "version" "1.1.1"
 
 "react-devtools-core@^4.6.0":
   "integrity" "sha1-S53FCTftTPTAT6KTQwysYtgp+os="
@@ -6035,6 +6050,11 @@
     "prop-types" "^15.6.1"
     "react-addons-shallow-compare" "15.6.2"
 
+"react-native-swipe-list-view@^3.2.9":
+  "integrity" "sha512-SjAEuHc/D6ovp+RjDUhfNmw6NYOntdT7+GFhfMGfP/BSLMuMWynpzJy9GKQeyB8sI78T6Lzip21TVbongOg1Mw=="
+  "resolved" "https://registry.npmjs.org/react-native-swipe-list-view/-/react-native-swipe-list-view-3.2.9.tgz"
+  "version" "3.2.9"
+
 "react-native-swiper@^1.6.0":
   "integrity" "sha1-Wf29+Vrd7kljAxLycHdiLCd3aBk="
   "resolved" "https://registry.npm.taobao.org/react-native-swiper/download/react-native-swiper-1.6.0.tgz"
@@ -6088,7 +6108,7 @@
     "escape-string-regexp" "2.0.0"
     "invariant" "2.2.4"
 
-"react-native@>=0.55", "react-native@>=0.57", "react-native@>=0.60 <=0.64", "react-native@0.64.2":
+"react-native@*", "react-native@>=0.23.1", "react-native@>=0.55", "react-native@>=0.57", "react-native@>=0.60 <=0.64", "react-native@0.64.2":
   "integrity" "sha1-Iztu2ErEdJyLwqLWz2NXehxDfRg="
   "resolved" "https://registry.nlark.com/react-native/download/react-native-0.64.2.tgz?cache=0&sync_timestamp=1626571153617&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-native%2Fdownload%2Freact-native-0.64.2.tgz"
   "version" "0.64.2"
@@ -6185,7 +6205,7 @@
   "resolved" "https://registry.npm.taobao.org/react-timer-mixin/download/react-timer-mixin-0.13.4.tgz"
   "version" "0.13.4"
 
-"react@16 || 17", "react@17.0.1":
+"react@*", "react@>=0.14.8", "react@16 || 17", "react@17.0.1":
   "integrity" "sha1-bgYAQWvVdXTj+G2S7bo9kAhyYSc="
   "resolved" "https://registry.nlark.com/react/download/react-17.0.1.tgz?cache=0&sync_timestamp=1626452436815&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact%2Fdownload%2Freact-17.0.1.tgz"
   "version" "17.0.1"
