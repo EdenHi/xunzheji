@@ -46,7 +46,7 @@ export default class OldBank extends Component{
     return (
       <View style={{ flex: 1 }}>
         <Animated.Image ref={Imgref} source={this.state.imgUrl} style={[styles.imageBackground, animatedStyle]} />
-        <Text style={styles.text}>底部图片</Text>
+        <Text onPress={()=>this.props.navigation.navigate('DaoHang')} style={styles.text}>底部图片</Text>
         <Swiper style={styles.wrapper}
           removeClippedSubviews={false}
           showsPagination={false}

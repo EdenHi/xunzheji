@@ -32,3 +32,4 @@ export {default as CustormerBar} from './Forum/CustormerBar';
 export {default as Exchange} from './Shop/Exchange/Exchange'
 export {default as AddressList} from './Shop/shopping/AddressList'
 export {default as Address} from './Shop/shopping/Address'
+export {default as DaoHang} from './Shop/WebView/DaoHang'
