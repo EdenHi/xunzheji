@@ -1,5 +1,3 @@
-/* eslint-disable prettier/prettier */
-
 export { default as Home } from './HomeScreen/HOME/Home';//首页
 export { default as My } from './MyScreen/My';
 export { default as Tour } from './Tour/index.js';
@@ -34,3 +32,4 @@ export {default as Address} from './Shop/shopping/Address'
 export {default as DaoHang} from './Shop/WebView/DaoHang'
 export {default as Book} from './HomeScreen/Book/book'
 export {default as Zhifu} from './Shop/zhifu'
+export {default as History} from './HomeScreen/HOME/History/History'
