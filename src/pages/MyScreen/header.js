@@ -152,7 +152,7 @@ export default class AboutComponent {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}>
-                }}>
+
                 <Text style={{fontSize: 15, color: '#fff'}}>编辑资料</Text>
               </TouchableOpacity>
               <TouchableOpacity

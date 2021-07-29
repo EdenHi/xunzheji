@@ -33,7 +33,4 @@ export {default as DaoHang} from './Shop/WebView/DaoHang'
 export {default as Myself} from './MyScreen/Myself'
 export {default as Book} from './HomeScreen/Book/book'
 export {default as Zhifu} from './Shop/zhifu'
-<<<<<<< HEAD
 export {default as History} from './HomeScreen/HOME/History/History'
-=======
->>>>>>> 4228b7a570b5f55ae71a760874ed2d6407f7c327
