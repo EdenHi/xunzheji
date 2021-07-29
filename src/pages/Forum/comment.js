@@ -322,8 +322,9 @@ export default class Comment extends React.Component {
                             multiline = {true}
                             clearTextOnFocus={true}
                             onChangeText={(content)=>this.setState({content})}
+                            ref={input => { this.textInput = input }} 
                         />
-                        <TouchableOpacity onPress={()=>this.pinglun()}
+                        <TouchableOpacity onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
                         style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
                             <FontAwesome
                             name="send-o"

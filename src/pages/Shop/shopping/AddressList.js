@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View,Image,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
+import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
 const {width,height} = Dimensions.get('window');
 import { SwipeRow } from 'react-native-swipe-list-view';
 
@@ -12,7 +12,7 @@ export default class AddressList extends Component {
             data:[],
             username:'',
             isLoding:false,
-            
+            swicthValue1: true,
         };
     }
 
@@ -125,9 +125,21 @@ export default class AddressList extends Component {
                                         </View>
                                         <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
                                     </View>
-
                                     </SwipeRow>
-                                </View>
+                                    <Switch style={{marginTop: 20}}
+                                            onTintColor={'#ffaa11'}
+                                            tintColor={'#aaaa11'}
+                                            value={this.state.swicthValue1}
+                                            onValueChange={(value)=> {
+                                                //当开关状态改变了，一定要修改value的值，不然最终无法改变状态
+                                                console.log('onValueChange1 =' + value);
+                                                this.setState({
+                                                    swicthValue1: value
+                                                })
+                                                }}
+                                                testID={'one'}
+                                                thumbTintColor={'#ff1111'}/>
+                                                            </View>
                         )
                     })
                 }
