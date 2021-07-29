@@ -14,13 +14,19 @@ import {
   TextInput,
   ScrollView,
   AsyncStorage,
+  TouchableWithoutFeedback,
+  Keyboard
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
+const DismissKeyboard = ({ children }) => (
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      {children}
+    </TouchableWithoutFeedback>
+  );
 export default class Comment extends React.Component {
     static contextType = NavigationContext;
     constructor(props){
@@ -452,8 +458,10 @@ export default class Comment extends React.Component {
                         multiline = {true}
                         clearTextOnFocus={true}
                         onChangeText={(content)=>this.setState({content})}
+                        ref={input => { this.textInput = input }} 
                     />
-                    <TouchableOpacity onPress={()=>this.pinglun()}
+                        
+                    <TouchableOpacity onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
                     style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
                         <FontAwesome
                         name="send-o"

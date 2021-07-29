@@ -347,9 +347,9 @@ export default class Store extends Component {
               </View>
             </View>
 
-            <View style={{ width: "100%", height: "2.2%", alignItems: "center" }}>
-              <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
-              <View style={{ width: "25%", height: "3%", backgroundColor: "#7cc0c0" }}></View>
+            <View style={{ width: "100%", height: "2.2%", alignItems: "center" ,marginBottom:-height*0.08}}>
+              <Text style={{height:20,fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
+              <View style={{ width: "25%", height: "4%", backgroundColor: "#7cc0c0",marginTop:10 }}></View>
             </View>
 
           </View>

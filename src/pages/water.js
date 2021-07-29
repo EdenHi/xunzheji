@@ -5,9 +5,11 @@ import {
   View,
   TouchableOpacity,
   RefreshControl,
-  Image
+  Image,
+  ImageBackground,
+  Dimensions
 } from 'react-native';
-
+const { width, height } = Dimensions.get('window');
 import Waterfall from 'react-native-waterfall'
 
 const styles = StyleSheet.create({
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
   },
   waterfall: {
     flex: 1,
-    backgroundColor: 'black'
+    backgroundColor: '#eee'
   }
 });
 
@@ -35,154 +37,154 @@ export default class Water extends Component {
         id: 1,
         name: 'Table',
         price: 1000,
-        img: 'http://pic33.nipic.com/20131009/8952533_124801280000_2.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://www.engiel.com/wp-content/uploads/2018/07/gif-applauso-3.gif',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 2,
         name: 'chair1',
         price: 1000,
-        img: 'https://www.ikea.cn/cn/zh/images/products/battern-ba-teng-zhuo-zi-bai-se__0488715_PE623254_S4.JPG',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2021/01/28/14/45/meerkat-5958194_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 3,
         name: 'chair1',
         price: 1000,
         img: 'http://pic101.nipic.com/file/20160621/7063349_180901327000_2.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 4,
         name: 'chair1',
         price: 1000,
         img: 'https://www.fordaq.com/p-17880000-17870270-1/%e6%a1%8c%e5%ad%90---%e8%ae%be%e8%ae%a1.JPG',
-        height: 200 + Math.floor(Math.random() * 30)
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 5,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2010/12/13/10/05/berries-2277_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 6,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2014/02/01/17/28/apple-256261_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 7,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2014/05/02/21/50/laptop-336378_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 8,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2012/03/04/01/01/father-22194_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 9,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2015/01/08/18/26/man-593333_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 10,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2015/02/04/08/03/baby-623417_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 11,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 30)
+        img: 'https://cdn.pixabay.com/photo/2013/10/16/14/04/polar-bear-196318_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/07/30/02/00/iceberg-404966_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/08/27/12/58/emperor-penguins-429128_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/08/27/12/59/penguins-429134_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2018/04/28/12/17/sculpture-3357150_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2013/10/22/19/54/buddha-199462_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/01/05/01/19/dragon-238931_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/07/10/10/20/golden-gate-bridge-388917_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2012/08/06/00/53/bridge-53769_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2012/03/01/00/55/garden-19830_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
+        img: 'https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228_960_720.jpg',
         height: 200 + Math.floor(Math.random() * 100)
       },
 
@@ -190,15 +192,15 @@ export default class Water extends Component {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/12/21/15/44/raindrops-574971_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
       {
         id: 12,
         name: 'chair1',
         price: 1000,
-        img: 'http://eter888.com/upload/portal/20190617/9bce0d01d2f8a4302acbb28d3d5c70e1.jpg',
-        height: 200 + Math.floor(Math.random() * 50)
+        img: 'https://cdn.pixabay.com/photo/2014/02/27/16/08/splashing-275950_960_720.jpg',
+        height: 200 + Math.floor(Math.random() * 100)
       },
     ]
 
@@ -248,8 +250,13 @@ export default class Water extends Component {
 
   renderItem = (itemData, itemIdx, itemContainer) => {
     return (
-      <TouchableOpacity style={{ width: itemContainer.width, height: itemData.height, borderRadius: 10, borderWidth: 1, borderColor: 'white' }} onPress={() => { console.log({ itemIdx }); }}>
-        <Image borderRadius={10} style={{ width: '100%', height: '100%' }} source={{ uri: this.data[itemIdx].img }}></Image>
+      <TouchableOpacity style={{ width: itemContainer.width, height: itemData.height, borderRadius: 10, elevation: 5 }} onPress={() => { console.log({ itemIdx }); }}>
+        <ImageBackground borderRadius={10} style={{ width: '100%', height: '100%', flexDirection: 'column-reverse' }} source={{ uri: this.data[itemIdx].img }}>
+          <View style={{ height: height * 0.06, backgroundColor: 'rgba(118,118,118,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
+            <Text style={{ color: '#fff', height: '100%', textAlign: 'left', fontWeight: 'bold', }}>精品俺爸爸我告诉</Text>
+          </View>
+
+        </ImageBackground>
       </TouchableOpacity>
     )
   }
@@ -260,7 +267,7 @@ export default class Water extends Component {
         <Waterfall
           style={styles.waterfall}
           data={this.data}
-          gap={5}
+          gap={15}
           numberOfColumns={2}
           expansionOfScope={0}
           onEndReachedThreshold={1000}
