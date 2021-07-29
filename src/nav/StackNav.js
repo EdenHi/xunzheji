@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import BtnRoute from './BtnRoute';
 import {
@@ -31,10 +31,11 @@ import {
   dingzhi,
   Exchange,
   AddressList,
-  Address
+  Address,
+  DaoHang
 } from '../pages/index';
 import Ranking from '../Ranking';
-import {startClock} from 'react-native-reanimated';
+import { startClock } from 'react-native-reanimated';
 
 import Chats from '../pages/chat/Chats';
 import articel from '../pages/article/comment/article_detail';
@@ -76,8 +77,8 @@ export default function StackNav() {
       <Stack.Screen name="Fabu" component={Fabu} />
       <Stack.Screen name="people" component={people} />
       <Stack.Screen name="CustormerBar" component={CustormerBar} />
-      <Stack.Screen name="AddressList" component={AddressList}/>
-
+      <Stack.Screen name="AddressList" component={AddressList} />
+      <Stack.Screen name="DaoHang" component={DaoHang} />
 
     </Stack.Navigator>
   );
