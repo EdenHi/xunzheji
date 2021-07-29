@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { Image, View,Text,Dimensions, TextInput, TouchableOpacity,AsyncStorage,DeviceEventEmitter } from 'react-native';
+import { Image, View,Text,Dimensions, TextInput, TouchableOpacity,AsyncStorage,DeviceEventEmitter,Switch } from 'react-native';
 import Picker from 'react-native-picker';
 import cities from '../../MyScreen/cities/cities.json'
 
@@ -15,7 +15,7 @@ export default class Address extends Component {
             phone:'',
             dizhi:'北京省北京市东城区',
             xiangxi:'',
-
+            swicthValue1:false,
         }
     }
 
@@ -40,30 +40,58 @@ export default class Address extends Component {
     }
 
     insert(){
-        AsyncStorage.getItem('username',(error,result)=>{
-            if (!error) {
-                this.setState({
-                    username:result,
-                });
-                console.log('username',result);
-                fetch('http://192.168.50.117:3000/shop/insert_dizhi', {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
+        if (this.state.swicthValue1 === true){
+            AsyncStorage.getItem('username',(error,result)=>{
+                if (!error) {
+                    this.setState({
                         username:result,
-                        name:this.state.name,
-                        phone:this.state.phone,
-                        dizhi:this.state.dizhi,
-                        xiangxi:this.state.xiangxi,
-                    }),
-                    })
-            } else {
-                console.log('获取数据失败',error);
-            }
-        });
+                    });
+                    console.log('username',result);
+                    fetch('http://192.168.50.117:3000/shop/insert_dizhi2', {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            username:result,
+                            name:this.state.name,
+                            phone:this.state.phone,
+                            dizhi:this.state.dizhi,
+                            xiangxi:this.state.xiangxi,
+                        }),
+                        })
+                } else {
+                    console.log('获取数据失败',error);
+                }
+            });
+        } else {
+            AsyncStorage.getItem('username',(error,result)=>{
+                if (!error) {
+                    this.setState({
+                        username:result,
+                    });
+                    console.log('username',result);
+                    fetch('http://192.168.50.117:3000/shop/insert_dizhi1', {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            username:result,
+                            name:this.state.name,
+                            phone:this.state.phone,
+                            dizhi:this.state.dizhi,
+                            xiangxi:this.state.xiangxi,
+                        }),
+                        })
+                } else {
+                    console.log('获取数据失败',error);
+                }
+            });
+        }
+        
         DeviceEventEmitter.emit('test',1);
         this.props.navigation.goBack();
     }
@@ -95,6 +123,22 @@ export default class Address extends Component {
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
                     <Text style={{fontSize:16,width:width * 0.2}}>详细地址</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="请输入" onChangeText={(xiangxi)=>this.setState({xiangxi})}/>
+                </View>
+                <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
+                    <Text style={{fontSize:16,width:width * 0.2}}>默认地址</Text>
+                    <Switch style={{}}
+                            onTintColor={'#ffaa11'}
+                            tintColor={'#aaaa11'}
+                            value={this.state.swicthValue1}
+                            onValueChange={(value)=> {
+                                //当开关状态改变了，一定要修改value的值，不然最终无法改变状态
+                                console.log('onValueChange1 =' + value);
+                                this.setState({
+                                    swicthValue1: value
+                                })
+                                }}
+                            testID={'one'}
+                            thumbTintColor={'#ff1111'}/>
                 </View>
                 </View>
                 <TouchableOpacity underlayColor="red"  onPress={()=>this.insert()}><View style={{backgroundColor:'#d3d3d3',height:40,borderRadius:20,justifyContent:'center'}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>保存收货信息</Text></View></TouchableOpacity>
