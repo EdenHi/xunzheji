@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 
-
 export { default as Home } from './HomeScreen/HOME/Home';//首页
 export { default as My } from './MyScreen/My';
 export { default as Tour } from './Tour/index.js';

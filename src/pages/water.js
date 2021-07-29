@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
   waterfall: {
     flex: 1,
-    backgroundColor: '#eee'
+    backgroundColor: '#fff'
   }
 });
 
@@ -251,9 +251,10 @@ export default class Water extends Component {
   renderItem = (itemData, itemIdx, itemContainer) => {
     return (
       <TouchableOpacity style={{ width: itemContainer.width, height: itemData.height, borderRadius: 10, elevation: 5 }} onPress={() => { console.log({ itemIdx }); }}>
-        <ImageBackground borderRadius={10} style={{ width: '100%', height: '100%', flexDirection: 'column-reverse' }} source={{ uri: this.data[itemIdx].img }}>
-          <View style={{ height: height * 0.06, backgroundColor: 'rgba(118,118,118,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-            <Text style={{ color: '#fff', height: '100%', textAlign: 'left', fontWeight: 'bold', }}>精品俺爸爸我告诉</Text>
+        <ImageBackground imageStyle={{borderRadius:10}} style={{width: '100%', height: '100%', flexDirection: 'column-reverse' }} source={{ uri: this.data[itemIdx].img }}>
+          <View style={{ justifyContent:'space-between',height: height * 0.07, backgroundColor: 'rgba(118,118,118,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
+            <Text style={{ color: '#fff', height: '40%', textAlign: 'left', fontWeight: 'bold',paddingLeft:5,paddingTop:5,}}ellipsizeMode="tail" numberOfLines={1}>食肉者钛合金折扇子</Text>
+            <Text style={{color:'#fff',fontSize:20,paddingLeft:5,paddingBottom:5}}>￥30</Text>
           </View>
 
         </ImageBackground>

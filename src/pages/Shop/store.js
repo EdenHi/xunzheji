@@ -23,7 +23,7 @@ import Carousel from 'react-native-snap-carousel';
 import ActionButton from 'react-native-action-button';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign"
-import { bgWhite } from 'chalk';
+
 const { width, height } = Dimensions.get('window');
 const images = [require("../img/5.jpg"), require("../img/6.jpg"), require("../img/6.jpg"), require("../img/5.jpg")]
 
@@ -107,7 +107,7 @@ export default class Store extends Component {
     const { navigation } = this.props;
     return (
       <View style={styles.container}>
-        <Modal
+                      <Modal
           animationType="fade"
           transparent={true}
           visible={modalVisible}
@@ -116,7 +116,8 @@ export default class Store extends Component {
             this.setModalVisible(!modalVisible);
           }}
         >
-          <View style={{ borderBottomRightRadius:10,borderBottomLeftRadius:10,elevation:5, height: height * 0.15, width: width, backgroundColor: '#eee',width: "100%" }}>
+          <View>
+<View style={{ borderBottomRightRadius:10,borderBottomLeftRadius:10,elevation:5, height: height * 0.15, width: width, backgroundColor: '#eee',width: "100%" }}>
             <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row'}}>
               <TouchableOpacity style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
 
@@ -163,6 +164,12 @@ export default class Store extends Component {
               color="#7cc0c0"
             />
           </View>
+          <TouchableOpacity onPress={() => {
+              this.setModalVisible(!modalVisible);
+            }} style={{width:width,height:"85%"}}></TouchableOpacity>
+          </View>
+          
+          
         </Modal>
 
         <View style={styles.header}>
@@ -347,13 +354,16 @@ export default class Store extends Component {
               </View>
             </View>
 
-            <View style={{ width: "100%", height: "2.2%", alignItems: "center" ,marginBottom:-height*0.08}}>
+            <View style={{ width: "95%", height: "5%", alignItems: "center" ,marginBottom:-height*0.235,backgroundColor:'#fff',marginTop:10,marginHorizontal:'2.5%',borderTopRightRadius:10,borderTopLeftRadius:10}}>
               <Text style={{height:20,fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
               <View style={{ width: "25%", height: "4%", backgroundColor: "#7cc0c0",marginTop:10 }}></View>
             </View>
 
           </View>
-          <Water />
+          <View style={{marginBottom:160,width:"95%",marginHorizontal:'2.5%',}}>
+            <Water />
+          </View>
+          
         </ScrollView>
         {/* <ActionButton
           hideLabelShadow={true}
