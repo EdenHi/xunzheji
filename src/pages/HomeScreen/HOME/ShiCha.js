@@ -92,14 +92,13 @@ export default MyCarousel;
 const styles = StyleSheet.create({
   container: {
     borderRadius:10,
-  
-
-
   },
   item: {
-    height:width -150,
-
-    justifyContent:"center"
+    marginTop:10,
+    height:140,
+    width:width*0.95,
+    justifyContent:"center",
+    alignItems:"center"
     // backgroundColor:"red"
   },
   imageContainer: {
