@@ -18,14 +18,11 @@ export default class Home extends Component {
     render() {
         return (
             <View style={{alignItems:"center",width}}>
-                      
                          <LinearGradient style={{width}} colors={["#7cc0bf","#fff","#fff"]} >
                              <View style={{marginTop:20,marginLeft:10}}>
                                  <Text style={{fontSize:20,fontWeight:"bold",color:"#fff"}}>寻商迹</Text>
                                  <Text style={{fontSize:13,fontWeight:"bold",color:"#fff"}}>XUN SHANG JI</Text>
                              </View>
-                         
-                   
                 <View style={{alignItems:"center",marginTop:5,}}>
                 <ScrollView  showsVerticalScrollIndicator={false}>
                     <View style={{width:width*0.95}}>
@@ -40,7 +37,7 @@ export default class Home extends Component {
                                         <Text style={{fontSize:15,fontWeight:"bold",color:"#7cc0bf"}}>浙商历史推荐</Text>
                                         <Text style={{fontSize:7,fontWeight:"bold",color:"#7cc0bf"}}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
                                     </View>
-                                    <TouchableOpacity  style={{ width: width * 0.1, height: width * 0.1,marginLeft: "35%" ,color:"#7cc0bf"}}>
+                                    <TouchableOpacity activeOpacity={1}  style={{ width: width * 0.1, height: width * 0.1,marginLeft: "35%" ,color:"#7cc0bf"}}>
                                          <AntDesign onPress={()=>this.props.navigation.navigate("History")} style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="doubleright" size={25} color="#000000" />
                                     </TouchableOpacity>
                             </View> 
@@ -53,9 +50,9 @@ export default class Home extends Component {
                                                <View style={{flex:2,}}><Text style={{fontSize:22,fontWeight:"bold",color:"#fff"}}>浙江商帮的崛起</Text></View>
                                                <View style={{flex:1,}}>
                                                    <View style={{flexDirection:"row"}}>
-                                                       <TouchableOpacity><View style={{borderRadius:5, marginRight:5,backgroundColor:"#ffffff",width:55,alignItems:"center"}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                                       <TouchableOpacity><View style={{borderRadius:5, marginRight:5,backgroundColor:"#ffffff",width:55,alignItems:"center"}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                                       <TouchableOpacity><View style={{borderRadius:5, marginRight:5,backgroundColor:"#ffffff",width:55,alignItems:"center"}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
+                                                       <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:"#ffffff",width:55,alignItems:"center"}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
+                                                       <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:"#ffffff",width:55,alignItems:"center"}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
+                                                       <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:"#ffffff",width:55,alignItems:"center"}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
                                                    </View>
                                                </View>
                                            </View>
@@ -90,8 +87,8 @@ export default class Home extends Component {
                                         <Text style={{fontSize:15,fontWeight:"bold",color:"#7cc0bf"}}>浙商必知丛书</Text>
                                         <Text style={{fontSize:7,fontWeight:"bold",color:"#7cc0bf"}}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                       </View>
-                                      <TouchableOpacity  style={{ width: width * 0.1, height: width * 0.1,marginLeft: "35%" ,color:"#7cc0bf"}}>
-                                          <AntDesign onPress={()=>this.props.navigation.navigate("History")} style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="doubleright" size={25} color="#000000" />
+                                      <TouchableOpacity  activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,marginLeft: "35%" ,color:"#7cc0bf"}}>
+                                          <AntDesign onPress={()=>this.props.navigation.navigate("Book")} style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="doubleright" size={25} color="#000000" />
                                       </TouchableOpacity>
                                    </View> 
                                            <View style={{flexDirection:"row",elevation:10}}>
@@ -114,7 +111,7 @@ export default class Home extends Component {
                                       <Text style={{marginLeft:10,fontSize:7,fontWeight:"bold",color:"#7cc0bf" }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                    </View>
                         </View>
-                         <TouchableOpacity>
+                         <TouchableOpacity activeOpacity={1} >
                          <View style={{height:200,backgroundColor:"#fff",justifyContent:"center",margin:10,marginTop:-5,borderRadius:10,padding:10,elevation:10}}>
                         <View style={{flexDirection:"row"}}>
                             <View><Image style={{height:80,width:width*0.3,borderRadius:10,marginLeft:5,alignItems:"center"}} source={require("../photos/jm2.jpeg")}/></View>
@@ -128,7 +125,7 @@ export default class Home extends Component {
                          </TouchableOpacity>
                       <View style={{height:120,backgroundColor:"#fff",justifyContent:"center",alignItems:"center",margin:10,borderRadius: 10,elevation:10,paddingTop:10}}>
                              <Swiper paginationStyle={{bottom:-1}} horizontal={true} autoplay autoplayTimeout={3} >
-                                 <TouchableOpacity>
+                                 <TouchableOpacity activeOpacity={1}>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",justifyContent:"center"}}>
                                            <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:5,alignItems:"center"}} source={require("../photos/jm1.jpeg")}/></View>
                                            <View >
@@ -137,7 +134,7 @@ export default class Home extends Component {
                                            </View>
                                    </View>
                                  </TouchableOpacity>
-                                 <TouchableOpacity>
+                                 <TouchableOpacity activeOpacity={1}>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",}}>
                                            <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:5,alignItems:"center"}} source={require("../photos/jm5.jpeg")}/></View>
                                            <View style={{}}>
@@ -146,7 +143,7 @@ export default class Home extends Component {
                                            </View>
                                    </View>
                                  </TouchableOpacity>
-                                 <TouchableOpacity>
+                                 <TouchableOpacity activeOpacity={1}>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",}}>
                                            <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:5,alignItems:"center"}} source={require("../photos/jm4.jpeg")}/></View>
                                            <View style={{}}>
@@ -177,7 +174,7 @@ export default class Home extends Component {
                                         <Text style={{fontSize:15,fontWeight:"bold",color:"#7cc0bf"}}>浙商人物介绍</Text>
                                         <Text style={{fontSize:7,fontWeight:"bold",color:"#7cc0bf"}}>INTRODUCTION TO ZHEJIANG BUSINESSMEN</Text>
                                     </View>
-                                    <TouchableOpacity  style={{ width: width * 0.1, height: width * 0.1,marginLeft: "35%" ,color:"#7cc0bf"}}>
+                                    <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,marginLeft: "35%" ,color:"#7cc0bf"}}>
                                          <AntDesign onPress={()=>this.props.navigation.navigate("History")} style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="doubleright" size={25} color="#000000" />
                                     </TouchableOpacity>
                             </View>

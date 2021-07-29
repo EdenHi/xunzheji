@@ -204,9 +204,6 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: 15,
         marginLeft:5
-        
-
-
     },
     fixedSection: {
         width: SCREEN_WIDTH,
