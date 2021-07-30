@@ -234,7 +234,7 @@ export default class app1 extends Component {
             <View style={{backgroundColor:'white'}}>
 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={15} color="#000000" />
+                  <AntDesign onPress={()=>this.go_back()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={15} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>编辑资料</Text>
 

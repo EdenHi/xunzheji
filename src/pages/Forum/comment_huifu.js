@@ -170,7 +170,7 @@ export default class comment_huifu extends Component {
                         ref={input => { this.textInput = input }} 
                     />
                     <TouchableOpacity onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
-                    style={{marginLeft:width * 0.05,backgroundColor:'#fedc61',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
+                    style={{marginLeft:width * 0.05,backgroundColor:'#7cc0c0',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
                         <FontAwesome
                         name="send-o"
                         color="#fff"

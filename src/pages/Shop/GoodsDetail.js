@@ -452,7 +452,7 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shop"
-                color="#fedc61"
+                color="#7cc0c0"
                 size={25}
               />
               <Text
@@ -470,7 +470,7 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shopping-bag"
-                color="#fedc61"
+                color="#7cc0c0"
                 size={25}
               />
               <Text
@@ -492,7 +492,7 @@ class GoodsDetail extends Component {
               borderWidth: 0,
               width: '27.5%',
               height: '80%',
-              backgroundColor: '#fedc61',
+              backgroundColor: '#7cc0c0',
               borderTopLeftRadius: 30,
               borderBottomLeftRadius: 30,
               marginTop: '1%',
@@ -514,7 +514,7 @@ class GoodsDetail extends Component {
               borderWidth: 0,
               width: '27.5%',
               height: '80%',
-              backgroundColor: '#fedc61',
+              backgroundColor: '#7cc0c0',
               borderTopRightRadius: 30,
               borderBottomRightRadius: 30,
               marginTop: '1%',

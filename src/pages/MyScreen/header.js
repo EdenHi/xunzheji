@@ -146,7 +146,7 @@ export default class AboutComponent {
                   borderRadius: 20,
                   marginLeft: '15%',
                   marginTop: '8%',
-                  backgroundColor: '#fedc61',
+                  backgroundColor: '#7cc0c0',
                   elevation:5,
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -174,7 +174,7 @@ export default class AboutComponent {
                   elevation:5,
                   marginLeft: '5%',
                   marginTop: '8%',
-                  backgroundColor: '#fedc61',
+                  backgroundColor: '#7cc0c0',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}

@@ -49,7 +49,7 @@ class CustormerBar extends Component {
             style={{
               width: '17%',
               height: '60%',
-              backgroundColor: '#fedc61',
+              backgroundColor: '#7cc0c0',
               borderRadius: 20,
               elevation: 5,
               alignItems: 'center',
