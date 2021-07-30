@@ -215,7 +215,7 @@ export default class AboutComponent {
             this.props.navigation.goBack();
           }}
           >
-          <Feather name="menu" size={30} color="#7cc0c0" />
+          <Feather name="menu" size={25} color="#7cc0c0" />
         </TouchableOpacity>
         <TouchableOpacity
         activeOpacity={1}
@@ -225,7 +225,7 @@ export default class AboutComponent {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Feather name="external-link" size={30} color="#7cc0c0" />  
+          <Feather name="external-link" size={25} color="#7cc0c0" />  
         </TouchableOpacity>
       </View>
     );
