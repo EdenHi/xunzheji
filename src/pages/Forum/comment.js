@@ -23,6 +23,8 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
@@ -111,6 +113,7 @@ export default class Comment extends React.Component {
             return (
                 <View style={styles.box2}>
             <TouchableOpacity
+                               activeOpacity={1}
             key = {index}
             onPress={()=>this.handleShowAlbum(index)}>
                 <Image source={{uri:item}} style={{height:(width * 0.95 - 4) / 2,width:(width * 0.95 - 4) / 2}}/>
@@ -121,6 +124,7 @@ export default class Comment extends React.Component {
         return (
             <View style={styles.box2}>
             <TouchableOpacity
+                               activeOpacity={1}
             key = {index}
             onPress={()=>this.handleShowAlbum(index)}>
                 <Image source={{uri:item}} style={{height:(width * 0.95 - 7) / 3,width:(width * 0.95 - 7) / 3}}/>
@@ -131,6 +135,7 @@ export default class Comment extends React.Component {
           return (
         <View style={styles.box2}>
             <TouchableOpacity
+                               activeOpacity={1}
             key = {index}
             onPress={()=>this.handleShowAlbum(index)}>
                 <Image source={{uri:item}} style={{height:width * 0.95 - 2,width:width * 0.95 - 2}}/>
@@ -183,12 +188,20 @@ export default class Comment extends React.Component {
         const {modalVisible,imgUrls,currentIndex} = this.state;
         if (data.title === ''){
             return (
-                <View style={{flex:1}}>
+                <View style={{flex:1,}}>
+                     <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>定制</Text>
+
+            </View> 
                     <ScrollView >
                         <View style={{backgroundColor:'white'}}>
-                            <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
-                                <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:20}}>
-                                    <TouchableOpacity>
+
+                            <View style={{marginLeft:width * 0.025,width:width * 0.9}}>
+                                <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:15}}>
+                                    <TouchableOpacity activeOpacity={1}>
                                         <Image source={{uri:data.portrait}} style={styles.touxiang}/>
                                     </TouchableOpacity>
                                     <View style={{marginLeft:10}}>
@@ -204,11 +217,11 @@ export default class Comment extends React.Component {
                                     renderItem = {this.renderData.bind(this)}/>
                                 </View>
                                 <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                    <TouchableOpacity>
+                                    <TouchableOpacity activeOpacity={1}>
                                         <View style={{flexDirection:'row'}}>
                                             <Ionicons
                                             name="heart-outline"
-                                            size={20}
+                                            size={15}
                                             color="black"/>
                                             <Text style={{marginLeft:5}}>{data.dianzan}</Text>
                                         </View>
@@ -216,16 +229,16 @@ export default class Comment extends React.Component {
                                     <View style={{flexDirection:'row'}}>
                                         <Ionicons
                                         name="chatbubble-ellipses-outline"
-                                        size={20}
+                                        size={15}
                                         color="black"/>
                                         <Text style={{marginLeft:5}}>{data.counts}</Text>
                                     </View>
     
-                                    <TouchableOpacity>
+                                    <TouchableOpacity activeOpacity={1}>
                                         <View style={{flexDirection:'row'}}>
                                             <Ionicons
                                             name="arrow-redo-outline"
-                                            size={20}
+                                            size={15}
                                             color="black"/>
                                         </View>
                                     </TouchableOpacity>
@@ -240,35 +253,35 @@ export default class Comment extends React.Component {
                     <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
                 </Modal>
                     {/* 评论的渲染 */}
-                    <View style={{marginTop:10}}>
+                    <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
                     {
                         comment_zhu.map((v,k)=>{
                             if (v.counts > 0 ){
                                 return (
-                                    <View key={k} style={{backgroundColor:'white'}}>
-                                        <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
-                                            <TouchableOpacity>
+                                    <View key={k} >
+                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10,paddingBottom:10,marginLeft:width * 0.025,width:width * 0.85,borderBottomWidth:1/3,borderColor:"#7cc0c0"}}>
+                                            <TouchableOpacity activeOpacity={1}>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                             </TouchableOpacity>
                                             <View style={{marginLeft:10,width:width * 0.8}}>
                                                 <Text style={styles.name}>{v.nickname}</Text>
                                                 <Text>{v.content}</Text>
-                                                <TouchableOpacity  onPress={()=>this.goComment(v)}
+                                                <TouchableOpacity activeOpacity={1}  onPress={()=>this.goComment(v)}
                                                 style={{marginTop:5,width:width * 0.8,backgroundColor:'#eee',height:width * 0.08,justifyContent:'center'}}>
                                                     <Text style={{color:'skyblue',paddingLeft:10}}>{'共' + v.counts + '条回复'}</Text>
                                                 </TouchableOpacity>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity>
+                                                        <TouchableOpacity activeOpacity={1}>
                                                             <Ionicons
                                                             name="heart-outline"
-                                                            size={20}
+                                                            size={15}
                                                             color="black"/>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
+                                                        <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                             <Ionicons
                                                             name="chatbubble-ellipses-outline"
-                                                            size={20}
+                                                            size={15}
                                                             color="black"/>
                                                         </TouchableOpacity>
                                                     </View>
@@ -280,9 +293,10 @@ export default class Comment extends React.Component {
                                 );
                             } else {
                                 return (
+                                    <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
                                     <View key={k} style={{backgroundColor:'white'}}>
-                                        <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
-                                            <TouchableOpacity>
+                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10,paddingBottom:10,marginLeft:width * 0.025,width:width * 0.85,borderBottomWidth:1/3,borderColor:"#7cc0c0"}}>
+                                            <TouchableOpacity activeOpacity={1}>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                             </TouchableOpacity>
                                             <View style={{marginLeft:10,width:width * 0.8}}>
@@ -290,17 +304,17 @@ export default class Comment extends React.Component {
                                                 <Text>{v.content}</Text>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
-                                                            <TouchableOpacity>
+                                                            <TouchableOpacity activeOpacity={1}>
                                                                 <Ionicons
                                                                 name="heart-outline"
-                                                                size={20}
+                                                                size={15}
                                                                 color="black"/>
                                                             </TouchableOpacity>
-                                                            <TouchableOpacity style={{marginLeft:10}}
+                                                            <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
                                                             onPress={()=>this.goComment(v)}>
                                                                 <Ionicons
                                                                 name="chatbubble-ellipses-outline"
-                                                                size={20}
+                                                                size={15}
                                                                 color="black"/>
                                                             </TouchableOpacity>
                                                     </View>
@@ -308,6 +322,7 @@ export default class Comment extends React.Component {
                                                 </View>
                                             </View>
                                         </View>
+                                    </View>
                                     </View>
                                 );
                             }
@@ -324,7 +339,7 @@ export default class Comment extends React.Component {
                             onChangeText={(content)=>this.setState({content})}
                             ref={input => { this.textInput = input }} 
                         />
-                        <TouchableOpacity onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
+                        <TouchableOpacity activeOpacity={1} onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
                         style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
                             <FontAwesome
                             name="send-o"
@@ -336,6 +351,13 @@ export default class Comment extends React.Component {
         } else {
         return (
             <View style={{flex:1}}>
+                 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
+
+            </View> 
                 <ScrollView 
                  refreshControl={
                     <RefreshControl
@@ -344,9 +366,9 @@ export default class Comment extends React.Component {
                     />
                 }>
                     <View style={{backgroundColor:'white'}}>
-                        <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
-                            <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:20}}>
-                                <TouchableOpacity>
+                        <View style={{marginLeft:width * 0.025,width:width * 0.9,marginLeft:width*0.05}}>
+                            <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:15}}>
+                                <TouchableOpacity activeOpacity={1}>
                                     <Image source={{uri:data.portrait}} style={styles.touxiang}/>
                                 </TouchableOpacity>
                                 <View style={{marginLeft:10}}>
@@ -365,11 +387,11 @@ export default class Comment extends React.Component {
                                 renderItem = {this.renderData.bind(this)}/>
                             </View>
                             <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                <TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}>
                                     <View style={{flexDirection:'row'}}>
                                         <Ionicons
                                         name="heart-outline"
-                                        size={20}
+                                        size={15}
                                         color="black"/>
                                         <Text style={{marginLeft:5}}>{data.dianzan}</Text>
                                     </View>
@@ -377,16 +399,16 @@ export default class Comment extends React.Component {
                                 <View style={{flexDirection:'row'}}>
                                     <Ionicons
                                     name="chatbubble-ellipses-outline"
-                                    size={20}
+                                    size={15}
                                     color="black"/>
                                     <Text style={{marginLeft:5}}>{data.counts}</Text>
                                 </View>
 
-                                <TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}>
                                     <View style={{flexDirection:'row'}}>
                                         <Ionicons
                                         name="arrow-redo-outline"
-                                        size={20}
+                                        size={15}
                                         color="black"/>
                                     </View>
                                 </TouchableOpacity>
@@ -406,44 +428,47 @@ export default class Comment extends React.Component {
                     comment_zhu.map((v,k)=>{
                         if (v.counts > 0 ){
                             return (
-                                <View key={k} style={{backgroundColor:'white'}}>
-                                    <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
-                                        <TouchableOpacity>
+                                <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
+                                <View key={k} style={{backgroundColor:'#fff',borderRadius:15}}>
+                                <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
+                                        <TouchableOpacity activeOpacity={1}>
                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                         </TouchableOpacity>
                                         <View style={{marginLeft:10,width:width * 0.8}}>
                                             <Text style={styles.name}>{v.nickname}</Text>
                                             <Text>{v.content}</Text>
-                                            <TouchableOpacity  onPress={()=>this.goComment(v)}
-                                            style={{marginTop:5,width:width * 0.8,backgroundColor:'#eee',height:width * 0.08,justifyContent:'center'}}>
+                                            <TouchableOpacity activeOpacity={1} onPress={()=>this.goComment(v)}
+                                            style={{marginTop:5,width:width * 0.6,backgroundColor:'#eee',height:width * 0.08,justifyContent:'center',borderRadius:15}}>
                                                 <Text style={{color:'skyblue',paddingLeft:10}}>{'共' + v.counts + '条回复'}</Text>
                                             </TouchableOpacity>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
                                                         <Ionicons
                                                         name="heart-outline"
-                                                        size={20}
+                                                        size={15}
                                                         color="black"/>
                                                     </TouchableOpacity>
-                                                    <TouchableOpacity style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
+                                                    <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                         <Ionicons
                                                         name="chatbubble-ellipses-outline"
-                                                        size={20}
+                                                        size={15}
                                                         color="black"/>
                                                     </TouchableOpacity>
                                                 </View>
-                                                <Text style={{color:'#aaa'}}>{v.date_zhu}</Text>
+                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
                                             </View>
                                         </View>
                                     </View>
                                 </View>
+                                </View>
                             );
                         } else {
                             return (
-                                <View key={k} style={{backgroundColor:'white'}}>
-                                    <View style={{flexDirection:'row',marginTop:20,marginLeft:width * 0.025,width:width * 0.95,paddingBottom:10,borderBottomWidth:1 / 3}}>
-                                        <TouchableOpacity>
+                                <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
+                                <View key={k} >
+                                    <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
+                                        <TouchableOpacity activeOpacity={1}>
                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                         </TouchableOpacity>
                                         <View style={{marginLeft:10,width:width * 0.8}}>
@@ -451,24 +476,25 @@ export default class Comment extends React.Component {
                                             <Text>{v.content}</Text>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity>
+                                                        <TouchableOpacity activeOpacity={1}>
                                                             <Ionicons
                                                             name="heart-outline"
-                                                            size={20}
+                                                            size={15}
                                                             color="black"/>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{marginLeft:10}}
+                                                        <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
                                                         onPress={()=>this.goComment(v)}>
                                                             <Ionicons
                                                             name="chatbubble-ellipses-outline"
-                                                            size={20}
+                                                            size={15}
                                                             color="black"/>
                                                         </TouchableOpacity>
                                                 </View>
-                                                <Text style={{color:'#aaa'}}>{v.date_zhu}</Text>
+                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
                                             </View>
                                         </View>
                                     </View>
+                                </View>
                                 </View>
                             );
                         }
@@ -478,7 +504,7 @@ export default class Comment extends React.Component {
                 </ScrollView>
                 <View style={styles.box3}>
                     <TextInput
-                        placeholder="我要评论5..."
+                        placeholder="我要评论..."
                         style={styles.txt2}
                         multiline = {true}
                         clearTextOnFocus={true}
@@ -486,13 +512,18 @@ export default class Comment extends React.Component {
                         ref={input => { this.textInput = input }} 
                     />
                         
-                    <TouchableOpacity onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
-                    style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
+                    <TouchableOpacity
+                    activeOpacity={1}
+                    onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
+                    style={{marginLeft:width * 0.05,backgroundColor:'#fedc61',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
                         <FontAwesome
                         name="send-o"
-                        size={30}/>
+                        color="#fff"
+                        size={20}/>
                     </TouchableOpacity>
                 </View>
+
+
             </View>
         );
             }
@@ -532,30 +563,35 @@ const styles = StyleSheet.create({
         borderRadius:50,
     },
     name:{
-        fontSize:20,
+        fontSize:15,
         fontWeight:'bold',
         marginBottom:5,
     },
     txt:{
         marginTop:10,
-        fontSize:18,
+        fontSize:15,
     },
     box3: {
         flexDirection: 'row',
-        borderTopWidth: 1,
-        borderTopColor: '#ccc',
         alignItems:'center',
-        marginLeft:width * 0.025,
-        width:width * 0.95,
+        height:height*0.08,
+
+        elevation:5,
+  
+        width:width ,
+        backgroundColor:"#fff"
+        
     },
     txt2: {
         backgroundColor: '#ccc',
         paddingLeft: 15,
         paddingRight:15,
         width: '70%',
-        borderRadius: 15,
+        height:"60%",
+        borderRadius: 30,
         marginRight:0,
         marginTop: 10 ,
         marginBottom: 10 ,
+        marginLeft:"5%"
     },
 });

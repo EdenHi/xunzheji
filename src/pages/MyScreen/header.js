@@ -114,11 +114,12 @@ export default class AboutComponent {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <View style={{flexDirection: 'row', width: '30%'}}>
+              <View style={{flexDirection: 'row', width: '30%',backgroundColor:"rgba(0,0,0,0.5)",alignItems:"center",marginTop:"10%",justifyContent:"center",borderTopRightRadius:20,borderBottomRightRadius:20}}>
                 <TouchableOpacity
+                activeOpacity={1}
                   style={{
                     width: '50%',
-                    height: '100%',
+                    height: '60%',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
@@ -126,9 +127,10 @@ export default class AboutComponent {
                   <Text style={{fontSize: 15, color: '#fff'}}>粉丝</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
+                activeOpacity={1}
                   style={{
                     width: '50%',
-                    height: '100%',
+                    height: '70%',
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
@@ -137,13 +139,15 @@ export default class AboutComponent {
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
+              activeOpacity={1}
                 style={{
                   width: '25%',
-                  height: '40%',
+                  height: '30%',
                   borderRadius: 20,
                   marginLeft: '15%',
                   marginTop: '8%',
-                  backgroundColor: '#7cc0c0',
+                  backgroundColor: '#fedc61',
+                  elevation:5,
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
@@ -162,13 +166,15 @@ export default class AboutComponent {
                 <Text style={{fontSize: 15, color: '#fff'}}>编辑资料</Text>
               </TouchableOpacity>
               <TouchableOpacity
+              activeOpacity={1}
                 style={{
                   width: '20%',
-                  height: '40%',
+                  height: '30%',
                   borderRadius: 20,
+                  elevation:5,
                   marginLeft: '5%',
                   marginTop: '8%',
-                  backgroundColor: '#7cc0c0',
+                  backgroundColor: '#fedc61',
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
@@ -197,7 +203,8 @@ export default class AboutComponent {
     );
     config.renderFixedHeader = () => (
       <View key="fixed-header" style={styles.fixedSection}>
-        <TouchableHighlight
+        <TouchableOpacity
+        activeOpacity={1}
           style={{
             height: 40,
             width: 40,
@@ -206,18 +213,20 @@ export default class AboutComponent {
           }}
           onPress={() => {
             this.props.navigation.goBack();
-          }}>
+          }}
+          >
           <Feather name="menu" size={30} color="#7cc0c0" />
-        </TouchableHighlight>
-        <TouchableHighlight
+        </TouchableOpacity>
+        <TouchableOpacity
+        activeOpacity={1}
           style={{
             height: 40,
             width: 40,
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Feather name="external-link" size={30} color="#7cc0c0" />
-        </TouchableHighlight>
+          <Feather name="external-link" size={30} color="#7cc0c0" />  
+        </TouchableOpacity>
       </View>
     );
     return config;

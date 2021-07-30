@@ -56,7 +56,7 @@ export default class NewWorks extends Component {
             ]}
             renderItem = {({item})=>
             <View style={{width:width,alignItems:"center"}}>
-                 <TouchableOpacity activeOpacity={1} style={styles.suggest}>
+                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.key}</Text>
@@ -76,7 +76,7 @@ export default class NewWorks extends Component {
                     </View>
                   </View>
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#fedc61", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
                     {/* <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>

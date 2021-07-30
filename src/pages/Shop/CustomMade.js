@@ -70,7 +70,7 @@ export default class CustomMade extends React.Component {
                     <TouchableOpacity
                     activeOpacity={1}
                      onPress={() =>this.props.navigation.navigate('dingzhi')}
-                     style={{width:"50%",height:"20%",backgroundColor:"#7cc0c0",borderRadius:20,alignItems:"center",justifyContent:"center",elevation:10}}>
+                     style={{width:"50%",height:"20%",backgroundColor:"#fedc61",borderRadius:20,alignItems:"center",justifyContent:"center",elevation:10}}>
                       <Text style={{fontSize:15,color:"#fff"}}>去定制</Text>
                     </TouchableOpacity>
                   </View>
