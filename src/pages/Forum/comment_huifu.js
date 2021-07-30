@@ -109,7 +109,9 @@ export default class comment_huifu extends Component {
             <View style={{flex:1}}>
  <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
-              <TouchableOpacity activeOpacity={1} style={{ }}>
+              <TouchableOpacity
+              
+               activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>共111条评论</Text>
@@ -160,18 +162,19 @@ export default class comment_huifu extends Component {
                 </ScrollView>
                 <View style={styles.box3}>
                     <TextInput
-                        placeholder="我要评论a ..."
+                        placeholder="我要评论 ..."
                         style={styles.txt2}
                         multiline = {true}
                         clearTextOnFocus={true}
                         onChangeText={(content_huifu)=>this.setState({content_huifu})}
                         ref={input => { this.textInput = input }} 
                     />
-                    <TouchableOpacity activeOpacity={1} onPress={()=>{this.fabu(),Keyboard.dismiss(),this.textInput.clear()}}
-                    style={{marginLeft:width * 0.1,backgroundColor:'#7cc0c0',padding:7,borderRadius:50}}>
+                    <TouchableOpacity onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
+                    style={{marginLeft:width * 0.05,backgroundColor:'#7cc0c0',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
                         <FontAwesome
                         name="send-o"
-                        size={30}/>
+                        color="#fff"
+                        size={20}/>
                     </TouchableOpacity>
                 </View>
                 </LinearGradient>
@@ -198,20 +201,25 @@ const styles = StyleSheet.create({
     },
     box3: {
         flexDirection: 'row',
-        borderTopWidth: 1,
-        borderTopColor: '#ccc',
         alignItems:'center',
-        marginLeft:width * 0.025,
-        width:width * 0.95,
+        height:height*0.08,
+
+        elevation:5,
+  
+        width:width ,
+        backgroundColor:"#fff"
+        
     },
     txt2: {
         backgroundColor: '#ccc',
         paddingLeft: 15,
         paddingRight:15,
         width: '70%',
-        borderRadius: 15,
+        height:"60%",
+        borderRadius: 30,
         marginRight:0,
         marginTop: 10 ,
         marginBottom: 10 ,
+        marginLeft:"5%"
     },
 });

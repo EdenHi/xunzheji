@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
 const {width,height} = Dimensions.get('window');
 import { SwipeRow } from 'react-native-swipe-list-view';
+import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 
 export default class AddressList extends Component {
     constructor(props){
@@ -103,15 +105,16 @@ export default class AddressList extends Component {
         const {data} = this.state;
         console.log('data',data)
         return (
-            <View style={{padding:10}}>
+            <View style={{}}>
                 <View style={{height:height * 0.85}}>
-                <View style={{flexDirection:'row',alignItems:'center',marginBottom:10,marginTop:10,borderBottomWidth:0.5,borderBottomColor:'#808080',justifyContent:'space-between',height:50}}>
-                    <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
-                    <Text style={{width:width * 0.8,textAlign:'center',fontSize:18,fontWeight:'bold'}}>
-                        地址列表
-                    </Text>
-                    <View style={{width:width * 0.03,height:height * 0.03}} />
-                </View>
+                {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+                <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>地址管理</Text>
+
+            </View> 
 
                 <ScrollView
                 showsVerticalScrollIndicator={false}
@@ -130,14 +133,14 @@ export default class AddressList extends Component {
                                     rightOpenValue={-75}
                                     disableRightSwipe={true} //禁止向右滑动
                                     >
-                                    <TouchableOpacity style={styles.rowBack}
+                                    <TouchableOpacity activeOpacity={1} style={styles.rowBack}
                                     onPress={()=>this.handleShowAlbum(k)}>
                                         <Text allowFontScaling={false} style={{color:'white'}}>删除</Text>
                                     </TouchableOpacity>
-                                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#ccc'}}>
+                                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fff'}}>
                                         <View>
-                                            <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:16,width:width * 0.2,fontWeight:'bold'}}>{v.name}</Text><Text>{v.phone}</Text></View>
-                                            <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10}}>{v.dizhi}</Text><Text style={{marginRight:10}}>{v.xiangxi}</Text></View>
+                                            <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:15,width:width * 0.2,fontWeight:'bold',marginLeft:"5%"}}>{v.name}</Text><Text>{v.phone}</Text></View>
+                                            <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10,marginLeft:"5%"}}>{v.dizhi}</Text><Text style={{marginRight:10,marginLeft:"5%"}}>{v.xiangxi}</Text></View>
                                             <View style={{flexDirection:'row',height:30,alignItems:'center' }}>
                                                     <Switch
                                                     onTintColor={'#ffaa11'}
@@ -160,15 +163,16 @@ export default class AddressList extends Component {
                     })
                 }
                 </ScrollView>
+                {/* </LinearGradient> */}
                 </View>
-                <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red"><View style={{backgroundColor:'#ff0000',height:40,borderRadius:20,justifyContent:'center'}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text></View></TouchableOpacity>
+                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red"><View style={{backgroundColor:'#fedc61',height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text></View></TouchableOpacity>
             </View>
         );
     }
 }
 const styles = StyleSheet.create({
     outView: {
-      marginBottom:10,
+    //   marginBottom:10,
     },
     rowBack: {
       alignItems: 'center',

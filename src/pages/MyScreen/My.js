@@ -89,9 +89,9 @@ export default class My extends Component {
                       
                       </View>
                       <View style={{flexDirection:'row'}}>
-                        <TouchableOpacity style={{borderWidth:1,borderRadius:15,height:height * 0.04,width:width * 0.2,justifyContent:'center',alignItems:'center',borderColor:'white',marginRight:10}}
+                        <TouchableOpacity style={{borderWidth:1,borderRadius:15,height:height * 0.03,width:width * 0.2,justifyContent:'center',alignItems:'center',borderColor:'white',marginRight:10}}
                         onPress={()=>this.go_bianji(this.state.data)}>
-                          <Text style={{color:'white'}}>编辑资料</Text>
+                          <Text style={{color:'white',fontSize:15}}>编辑资料</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{borderWidth:1,borderRadius:15,height:height * 0.04,width:width * 0.2,justifyContent:'center',alignItems:'center',borderColor:'white',marginRight:10}}
                         onPress={()=>this.props.navigation.navigate('shezhi')}>

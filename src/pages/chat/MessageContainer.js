@@ -5,10 +5,10 @@ export const renderMessageText = (props) => (
     <MessageText
         {...props}
         containerStyle={{
-            left: { backgroundColor: 'pink',borderRadius:10 },
-            right: { backgroundColor: 'skyblue',borderRadius:10 },
+            left: { backgroundColor: '#7cc0c0',borderRadius:10 },//客服回复气泡颜色
+            right: { backgroundColor: '#7cc0c0',borderRadius:10 },
         }}
-        customTextStyle={{ fontSize: 20, lineHeight: 20 ,color:'white'}}
+        customTextStyle={{ fontSize: 20, lineHeight: 20 ,color:'white'}}//发送字的颜色
     />
 );
 

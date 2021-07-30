@@ -452,12 +452,14 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shop"
+                color="#7cc0c0"
                 size={25}
               />
               <Text
                 style={{
                   fontSize: 10,
                   alignSelf: 'center',
+                  color:"#000",
                   marginTop: '-5%',
                   borderWidth: 0,
                 }}>
@@ -468,6 +470,7 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shopping-bag"
+                color="#7cc0c0"
                 size={25}
               />
               <Text
@@ -475,6 +478,7 @@ class GoodsDetail extends Component {
                   fontSize: 10,
                   alignSelf: 'center',
                   marginTop: '-5%',
+                  color:"#000",
                   borderWidth: 0,
                 }}>
                 背包
@@ -592,8 +596,8 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     height: '6%',
     flexDirection: 'row',
-    borderTopWidth: 0.5,
-    borderColor: 'grey',
+
+   
   },
   tuijian: {
     marginHorizontal: 15,

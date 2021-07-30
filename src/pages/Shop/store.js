@@ -294,6 +294,44 @@ export default class Store extends Component {
 
                 </Image>
               </TouchableOpacity>
+              <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }}  activeOpacity={1} style={styles.suggest}>
+                <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+                  <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
+                    <Text style={{ fontSize: 15, fontWeight: "bold" }}>姜枣膏</Text>
+                  </View>
+                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>姜枣膏是一道美味佳肴，主料是姜，枣。</Text>
+                  </View>
+                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                    <Text style={{ fontSize: 13, color: "#7cc0c0" }}>￥50</Text>
+                  </View>
+                  <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
+                    <View style={{ width: "70%", height: "100%", }}>
+                      <LottieView source={require('./star5.json')} progress={this.state.progress} />
+                    </View>
+                    <View style={{ width: "26%", height: "100%", alignItems: "center", justifyContent: "center" }}>
+                      <Text style={{ fontSize: 12 }}>5.0</Text>
+                    </View>
+                  </View>
+                  <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
+                    <TouchableOpacity  activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                      <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
+                    </TouchableOpacity>
+                    {/* <TouchableOpacity  activeOpacity={1} style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                      <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
+                        name="staro"
+                        size={25}
+                        color="orange"
+                      />
+
+                    </TouchableOpacity> */}
+
+                  </View>
+                </View>
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={require("../img/2.jpg")} >
+
+                </Image>
+              </TouchableOpacity>
               <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
@@ -437,14 +475,14 @@ const styles = StyleSheet.create({
   },
   old: {
     width: width * 0.95,
-    height: width,
+    height: width*1.3,
     backgroundColor: "#fff",
     borderRadius: 15,
     alignItems: "center"
   },
   suggest: {
     width: "95%",
-    height: "40%",
+    height: "27%",
     backgroundColor: "grey",
     marginTop: "2%",
     borderRadius: 15,

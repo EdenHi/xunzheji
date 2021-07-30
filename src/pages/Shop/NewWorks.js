@@ -56,7 +56,7 @@ export default class NewWorks extends Component {
             ]}
             renderItem = {({item})=>
             <View style={{width:width,alignItems:"center"}}>
-                 <TouchableOpacity activeOpacity={1} style={styles.suggest}>
+                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold" }}>{item.key}</Text>
