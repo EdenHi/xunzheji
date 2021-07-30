@@ -103,7 +103,7 @@ export default class Table extends Component{
 
 render(){
     return(
-        <FlatList
+        <FlatList style={{borderWidth:1}}
         style={{ borderWidth:0,width:"100%",}}
         numColumns={2}
         data={good_data}
