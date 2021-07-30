@@ -5820,8 +5820,8 @@ react-native-page-control@^1.1.2:
 
 react-native-page-scrollview@^1.0.2:
   version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-page-scrollview/-/react-native-page-scrollview-1.0.2.tgz#90e6f88d08f149b9190b9591c390fb81fe85e216"
-  integrity sha512-ZsQemhcS3Bym1UUq+GmHSnzZLP92fZsDacAvXx+iLay9rpaWfoOhkuF/jC1EasNhC8xNqWI3gFg2oaliTF4s8w==
+  resolved "https://registry.nlark.com/react-native-page-scrollview/download/react-native-page-scrollview-1.0.2.tgz#90e6f88d08f149b9190b9591c390fb81fe85e216"
+  integrity sha1-kOb4jQjxSbkZC5WRw5D7gf6F4hY=
 
 react-native-parallax-scroll-view@^0.21.3:
   version "0.21.3"

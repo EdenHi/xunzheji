@@ -13,6 +13,8 @@ import {
   ScrollView,
   RefreshControl,
   DeviceEventEmitter,
+  AsyncStorage,
+  Share
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -81,6 +83,26 @@ export default class LunTan extends Component {
         }, 1000);
     }
 
+  
+onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          '是寻商迹哦',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+};
     render () {
         const {modalVisible,imgUrls,currentIndex} = this.state;
        // const { navigation } = this.props;
@@ -102,16 +124,19 @@ export default class LunTan extends Component {
                                 return (
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                            <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                                <TouchableOpacity
-                                                 onPress={() => this.context.navigate('people',v.username)}
-                                                >
-                                                    <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                                </TouchableOpacity> 
-                                                <View style={{marginLeft:10}}>
-                                                    <Text style={styles.name}>{v.nickname}</Text>
-                                                    <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                    <TouchableOpacity
+                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    >
+                                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                    </TouchableOpacity> 
+                                                    <View style={{marginLeft:10}}>
+                                                        <Text style={styles.name}>{v.nickname}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                    </View>
                                                 </View>
+                                                {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                             </View>
                                         <View style={styles.box}>
                                         <FlatList
@@ -173,7 +198,11 @@ export default class LunTan extends Component {
                                                 <Text style={{marginLeft:5}}>{v.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity
+                                             onPress={() => {
+                                                this.onShare();
+                                              }}
+                                            >
                                                 <View style={{flexDirection:'row'}}>
                                                     <Ionicons
                                                     name="arrow-redo-outline"
@@ -189,16 +218,20 @@ export default class LunTan extends Component {
                                 return (
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
-                                        <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                            <TouchableOpacity
-                                            onPress={() => this.context.navigate('people',v.username)}>
-                                                <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                            </TouchableOpacity>
-                                            <View style={{marginLeft:10}}>
-                                                <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                    <TouchableOpacity
+                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    >
+                                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                    </TouchableOpacity> 
+                                                    <View style={{marginLeft:10}}>
+                                                        <Text style={styles.name}>{v.nickname}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                    </View>
+                                                </View>
+                                                {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                             </View>
-                                        </View>
                                       <Text style={styles.txt}
                                       ellipsizeMode="tail"
                                       numberOfLines={8}>{v.title}</Text>
@@ -262,12 +295,17 @@ export default class LunTan extends Component {
                                                 <Text style={{marginLeft:5}}>{v.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity
+                                             onPress={() => {
+                                                
+                                                this.onShare();
+                                              }}
+                                            >
                                                 <View style={{flexDirection:'row'}}>
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}
-                                                    color="black"/>
+                                                    color="#000"/>
                                                 </View>
                                             </TouchableOpacity>
                                        </View>
@@ -275,8 +313,9 @@ export default class LunTan extends Component {
                                     </View>
                                   );
                             }
-
-                        })
+                        } 
+                       
+                        )
                       }
                     </ScrollView>
                     </View>

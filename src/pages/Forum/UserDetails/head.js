@@ -25,7 +25,7 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-let { height,width } = Dimensions.get('window');
+const { height,width } = Dimensions.get('window');
 const ratio_w = Dimensions.get('window').width / 375;
 export default class AboutComponent {
 
@@ -75,7 +75,6 @@ export default class AboutComponent {
                 <View style={{width:'100%',height:'60%',backgroundColor:'#fff',borderTopLeftRadius:15,borderTopRightRadius:15}}>
                     <View style={{width:'100%',height:'20%',flexDirection:'row-reverse',alignItems:'center'}}>
                         <TouchableOpacity style={{width:'15%',height:'85%',borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,margin:'5%',alignItems:'center',justifyContent:'center'}}>
-
                         <Feather style={styles.icon}
                     name="mail"
                     size={30}
@@ -117,7 +116,7 @@ export default class AboutComponent {
                         </View>
                     </View>
                 </View>
-                <Image style={{width:'25%',height:'25%',backgroundColor:'#7cc0c0',position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:params.portrait}}/>
+                <Image style={{width:width*0.28,height:width*0.28,backgroundColor:'#7cc0c0',position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:params.portrait}}/>
                 </ImageBackground>
 
             </View>
@@ -130,22 +129,22 @@ export default class AboutComponent {
         );
         config.renderFixedHeader = () => (
             <View key="fixed-header" style={styles.fixedSection}>
-                <TouchableHighlight style={{height: 40, width:40,alignItems:'center',justifyContent:'center'}} onPress={() => {
+                <TouchableOpacity activeOpacity={1} style={{height: 40, width:40,alignItems:'center',justifyContent:'center'}} onPress={() => {
                     this.props.navigation.goBack();
                 }}>
                     <Feather style={styles.icon}
                     name="chevron-left"
                     size={30}
-                    color="#000"
+                    color="#fff"
                 />
-                </TouchableHighlight>
-                <TouchableHighlight style={{height: 40, width: 40,alignItems:'center',justifyContent:'center'}} >
+                </TouchableOpacity>
+                {/* <TouchableHighlight style={{height: 40, width: 40,alignItems:'center',justifyContent:'center'}} >
                 <Feather style={styles.icon}
                     name="share"
                     size={30}
                     color="#000"
                 />
-                </TouchableHighlight>
+                </TouchableHighlight> */}
             </View>
         );
         return config;
