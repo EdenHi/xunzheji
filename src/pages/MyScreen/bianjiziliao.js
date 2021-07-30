@@ -11,6 +11,8 @@ import Picker from 'react-native-picker';
 import axios from 'axios';
 import cities from './cities/cities.json';
 const {width,height} = Dimensions.get('window');
+import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 export default class app1 extends Component {
     static contextType = NavigationContext;
     constructor(props){
@@ -39,6 +41,8 @@ export default class app1 extends Component {
             phone:this.props.route.params.phone,
             //地区
             area:this.props.route.params.area,
+            //背景图
+            backpic:this.props.route.params.backpic,
         };
     }
 
@@ -49,9 +53,6 @@ export default class app1 extends Component {
             cropping: true,
         }).then(image => {
             console.log('image',image)
-            this.setState({
-                portrait:image.path
-            })
             AsyncStorage.getItem('username',(error,result)=>{
                 if (!error) {
                     this.setState({
@@ -63,7 +64,7 @@ export default class app1 extends Component {
                     formData.append('username',result);
                     console.log('image',image);
                     this.setState({
-                        touxiang:image.path,
+                        portrait:image.path,
                     });
                     fetch('http://192.168.50.117:3000/index/updatePortrait',{
                     method:'POST',
@@ -92,6 +93,17 @@ export default class app1 extends Component {
                       });
         this.setState({
             shownickname:false,
+        });
+      }
+      go_phone(){
+        axios.post('http://192.168.50.117:3000/index/updatePhone',{
+                            username:this.state.username,
+                            phone:this.state.phone,
+                    }).then((json)=>{
+                        console.log('json',json.data);
+                      });
+        this.setState({
+            showphone:false,
         });
       }
     go_birthday=(birthday)=>{
@@ -164,11 +176,50 @@ export default class app1 extends Component {
         });
     }
     go_back(){
+        DeviceEventEmitter.emit('test',1);
         this.props.navigation.goBack();
-
     }
+
+    open_backPic(){
+        ImagePicker.openPicker({
+            width:300,
+            height:400,
+            cropping: true,
+        }).then(image => {
+            console.log('image',image)
+            AsyncStorage.getItem('username',(error,result)=>{
+                if (!error) {
+                    this.setState({
+                        username:result,
+                    });
+                    let formData = new FormData();//如果需要上传多张图片,需要遍历数组,把图片的路径数组放入formData中
+                    let file = {uri: image.path, type: image.mime, name: image.path.split('/').pop()};   //这里的key(uri和type和name)不能改变,
+                    formData.append('files',file);   //这里的files就是后台需要的key
+                    formData.append('username',result);
+                    console.log('image',image);
+                    this.setState({
+                        backpic:image.path,
+                    });
+                    fetch('http://192.168.50.117:3000/index/updateBackpic',{
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'multipart/form-data',
+                    },
+                    body:formData,
+                    })
+                    .then((response) => response.json())
+                    .then((josn)=>{
+                         console.log(josn);
+                    });
+                } else {
+                    console.log('获取数据失败');
+                }
+            });
+                });
+    }
+
     render() {
-        const {data,portrait,nickname,shownickname,phone,area,signature,sex,birthday,showsignature} = this.state;
+        const {data,portrait,nickname,shownickname,phone,area,signature,sex,birthday,showsignature,showphone,backpic} = this.state;
         console.log('test',this.props.route.params);
         var date = new Date();
         var seperatorl = '-';
@@ -181,12 +232,22 @@ export default class app1 extends Component {
         var currentdate = year + seperatorl + month + seperatorl + strDate;
         return (
             <View style={{backgroundColor:'white'}}>
+<View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.go_back()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={15} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>编辑资料</Text>
+
+            </View> 
+                {/* 修改头像 */}
                 <View style={{alignItems:'center',marginTop:width * 0.1}}>
-                    <TouchableOpacity style={{borderRadius:50,height:width * 0.2,width:width * 0.2,borderWidth:1}}
+                    <TouchableOpacity activeOpacity={1} style={{borderRadius:50,height:width * 0.3,width:width * 0.3}}
                     onPress={()=>this._openPicker()}>
-                        <Image source={{uri:portrait}} style={{height:width * 0.2,width:width * 0.2,borderRadius:50}}/>
+                        <Image source={{uri:portrait}} style={{height:width * 0.3,width:width * 0.3,borderRadius:50}}/>
                     </TouchableOpacity>
                 </View>
+                {/* 修改头像结束 */}
+
                 <View style={{marginTop:width * 0.1}}>
                     {/* 修改昵称 */}
                         <Overlay
@@ -198,13 +259,13 @@ export default class app1 extends Component {
                             onChangeText={(nickname)=>this.setState({nickname})}
                             style={{width:300,height:100,fontSize:22}}/>
                             <View style={{flexDirection:'row',justifyContent:'space-around'}}>
-                                <TouchableOpacity style={{borderWidth:1,justifyContent:'center',alignItems:'center'}}
+                                <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.setState({shownickname:false})}>
-                                    <Text style={{fontSize:20}}>取消</Text>
+                                    <Text style={{fontSize:15}}>取消</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={{borderWidth:1,justifyContent:'center',alignItems:'center'}}
+                                <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.go_nickname()}>
-                                    <Text style={{fontSize:20}}>确认</Text>
+                                    <Text style={{fontSize:15}}>确认</Text>
                                 </TouchableOpacity>
                             </View>
                         </Overlay>
@@ -212,9 +273,9 @@ export default class app1 extends Component {
                         bottomDivider
                         onPress={()=>this.setState({shownickname:true})}>
                             <ListItem.Content>
-                                <ListItem.Title style={{fontSize:20}}>昵称</ListItem.Title>
+                                <ListItem.Title style={{fontSize:15}}>昵称</ListItem.Title>
                             </ListItem.Content>
-                            <ListItem.Subtitle style={{fontSize:20}}>{nickname}</ListItem.Subtitle>
+                            <ListItem.Subtitle style={{fontSize:15}}>{nickname}</ListItem.Subtitle>
                             <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改昵称结束 */}
@@ -224,22 +285,41 @@ export default class app1 extends Component {
                         bottomDivider
                         onPress={()=>this.go_sex()}>
                             <ListItem.Content>
-                                <ListItem.Title style={{fontSize:20}}>性别</ListItem.Title>
+                                <ListItem.Title style={{fontSize:15}}>性别</ListItem.Title>
                             </ListItem.Content>
-                            <ListItem.Subtitle style={{fontSize:20}}>{sex}</ListItem.Subtitle>
+                            <ListItem.Subtitle style={{fontSize:15}}>{sex}</ListItem.Subtitle>
                             <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改昵称结束 */}
 
 
                     {/* 修改手机号 */}
+                    <Overlay
+                            visible={showphone}
+                            onBackdropPress={()=>this.setState({shownickphone:false})}>
+                            <TextInput
+                            placeholder="修改手机号"
+                            defaultValue={phone}
+                            onChangeText={(phone)=>this.setState({phone})}
+                            style={{width:300,height:100,fontSize:22}}/>
+                            <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+                                <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
+                                onPress={()=>this.setState({showphone:false})}>
+                                    <Text style={{fontSize:15}}>取消</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
+                                onPress={()=>this.go_phone()}>
+                                    <Text style={{fontSize:15}}>确认</Text>
+                                </TouchableOpacity>
+                            </View>
+                        </Overlay>
                     <ListItem
                         bottomDivider
-                        >
+                        onPress={()=>this.setState({showphone:true})}>
                             <ListItem.Content>
-                                <ListItem.Title style={{fontSize:20}}>修改手机号</ListItem.Title>
+                                <ListItem.Title style={{fontSize:15}}>修改手机号</ListItem.Title>
                             </ListItem.Content>
-                            <ListItem.Subtitle style={{fontSize:20}}>{phone}</ListItem.Subtitle>
+                            <ListItem.Subtitle style={{fontSize:15}}>{phone}</ListItem.Subtitle>
                             <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改手机号结束 */}
@@ -250,9 +330,9 @@ export default class app1 extends Component {
                         bottomDivider
                         onPress={()=>this.go_birthday(data)}>
                             <ListItem.Content>
-                                <ListItem.Title style={{fontSize:20}}>生日</ListItem.Title>
+                                <ListItem.Title style={{fontSize:15}}>生日</ListItem.Title>
                             </ListItem.Content>
-                            <ListItem.Subtitle style={{fontSize:20}}>{birthday}</ListItem.Subtitle>
+                            <ListItem.Subtitle style={{fontSize:15}}>{birthday}</ListItem.Subtitle>
                             <ListItem.Chevron size={30}/>
                         </ListItem>
                         <DatePicker
@@ -276,9 +356,9 @@ export default class app1 extends Component {
                         bottomDivider
                         onPress={()=>this.go_area()}>
                             <ListItem.Content>
-                                <ListItem.Title style={{fontSize:20}}>地区</ListItem.Title>
+                                <ListItem.Title style={{fontSize:15}}>地区</ListItem.Title>
                             </ListItem.Content>
-                            <ListItem.Subtitle style={{fontSize:20}}>{area}</ListItem.Subtitle>
+                            <ListItem.Subtitle style={{fontSize:15}}>{area}</ListItem.Subtitle>
                             <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改地区结束 */}
@@ -293,13 +373,13 @@ export default class app1 extends Component {
                             onChangeText={(signature)=>this.setState({signature})}
                             style={{width:300,height:100,fontSize:22}}/>
                             <View style={{flexDirection:'row',justifyContent:'space-around'}}>
-                                <TouchableOpacity style={{borderWidth:1,justifyContent:'center',alignItems:'center'}}
+                                <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.setState({showsignature:false})}>
-                                    <Text style={{fontSize:20}}>取消</Text>
+                                    <Text style={{fontSize:15}}>取消</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={{borderWidth:1,justifyContent:'center',alignItems:'center'}}
+                                <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.go_signature()}>
-                                    <Text style={{fontSize:20}}>确认</Text>
+                                    <Text style={{fontSize:15}}>确认</Text>
                                 </TouchableOpacity>
                             </View>
                         </Overlay>
@@ -307,18 +387,26 @@ export default class app1 extends Component {
                             bottomDivider
                             onPress={()=>this.setState({showsignature:true})}>
                                 <ListItem.Content>
-                                    <ListItem.Title style={{fontSize:20}}>个性签名</ListItem.Title>
+                                    <ListItem.Title style={{fontSize:15}}>个性签名</ListItem.Title>
                                 </ListItem.Content>
-                                <ListItem.Subtitle style={{fontSize:20}}>{signature}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={{fontSize:15}}>{signature}</ListItem.Subtitle>
                                 <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改个签结束 */}
+
+                    {/* 修改背景 */}
+                    <ListItem
+                            bottomDivider
+                            onPress={()=>this.open_backPic()}>
+                                <ListItem.Content>
+                                    <ListItem.Title style={{fontSize:15}}>背景图</ListItem.Title>
+                                </ListItem.Content>
+                                <Image source={{uri:backpic}} style={{height:50,width:50}}/>
+                                <ListItem.Chevron size={30}/>
+                        </ListItem>
+                    {/* 修改背景结束 */}
                 </View>
-                <View>
-                    <TouchableOpacity onPress={()=>this.go_back()}>
-                        <Text>返回上一级</Text>
-                    </TouchableOpacity>
-                </View>
+           
             </View>
         );
     }

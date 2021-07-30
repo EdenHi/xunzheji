@@ -17,6 +17,8 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import Swiper from 'react-native-swiper';
 import Entypo from 'react-native-vector-icons/Entypo';
 import ImageViewer from 'react-native-image-zoom-viewer';
+// import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 import Good from './Goods';
 const { width, height } = Dimensions.get('window');
 class GoodsDetail extends Component {
@@ -61,6 +63,16 @@ class GoodsDetail extends Component {
     const { modalVisible, imgUrls, currentIndex } = this.state;
     return (
       <View style={styles.Box1}>
+        {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+            {/* <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"space-around"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>定制</Text>
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+            </View>  */}
                 <Modal
           animationType="fade"
           transparent={true}
@@ -126,7 +138,16 @@ class GoodsDetail extends Component {
           
         </Modal>
         {/* 头部 */}
-        <View style={styles.Head}>
+        <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"#fff",height:height*0.07,justifyContent:"space-around"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",marginLeft:"25%",marginRight:"25%"}}>商品详情</Text>
+              <Entypo onPress={() => {
+              this.setModalVisible(!modalVisible);
+            }} name="dots-three-vertical"  color="#000"  size={20} />
+            </View> 
+        {/* <View style={styles.Head}>
           <Entypo
             onPress={() => {
               this.props.navigation.goBack();
@@ -137,7 +158,7 @@ class GoodsDetail extends Component {
           <Entypo onPress={() => {
               this.setModalVisible(!modalVisible);
             }} name="dots-three-vertical" size={25} />
-        </View>
+        </View> */}
         {/* 可滑动部分 */}
         <ScrollView style={{ borderWidth: 0 }}>
           {/* 图片展示 */}
@@ -199,7 +220,7 @@ class GoodsDetail extends Component {
                   borderWidth: 0,
                   textAlignVertical: 'center',
                   height: '100%',
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 'bold',
                 }}>
                 净含量
@@ -210,7 +231,7 @@ class GoodsDetail extends Component {
                   textAlignVertical: 'center',
                   color: 'grey',
                   width: width * 0.64,
-                  fontSize: 13,
+                  fontSize: 12,
                   marginLeft: width * 0.07,
                 }}>500g</Text>
             </View>
@@ -228,7 +249,7 @@ class GoodsDetail extends Component {
                   borderWidth: 0,
                   textAlignVertical: 'top',
                   height: '100%',
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 'bold',
                   marginTop: '2%',
                 }}>
@@ -241,7 +262,7 @@ class GoodsDetail extends Component {
                   color: 'grey',
                   paddingTop: '2%',
                   width: width * 0.64,
-                  fontSize: 13,
+                  fontSize: 12,
                   marginLeft: "2.5%",
                 }}
                 numberOfLines={3}
@@ -263,7 +284,7 @@ class GoodsDetail extends Component {
                   borderWidth: 0,
                   textAlignVertical: 'center',
                   height: '100%',
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 'bold',
                 }}>
                 配料
@@ -274,7 +295,7 @@ class GoodsDetail extends Component {
                   textAlignVertical: 'center',
                   color: 'grey',
                   width: width * 0.64,
-                  fontSize: 13,
+                  fontSize: 12,
                   marginLeft: width * 0.116,
                 }}
                 numberOfLines={2}
@@ -296,7 +317,7 @@ class GoodsDetail extends Component {
                   borderWidth: 0,
                   textAlignVertical: 'top',
                   height: '90%',
-                  fontSize: 18,
+                  fontSize: 15,
                   fontWeight: 'bold',
                   marginTop: '2%',
                 }}>
@@ -310,7 +331,7 @@ class GoodsDetail extends Component {
                     color: 'grey',
                     paddingTop: '2%',
                     width: width * 0.64,
-                    fontSize: 13,
+                    fontSize: 12,
                     marginLeft: '2.5%',
                     height: '50%',
                   }}
@@ -325,7 +346,7 @@ class GoodsDetail extends Component {
                     color: 'grey',
                     paddingTop: '2%',
                     width: width * 0.64,
-                    fontSize: 13,
+                    fontSize: 12,
                     marginLeft: '2.5%',
                     height: '50%',
                   }}
@@ -431,12 +452,14 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shop"
+                color="#7cc0c0"
                 size={25}
               />
               <Text
                 style={{
                   fontSize: 10,
                   alignSelf: 'center',
+                  color:"#000",
                   marginTop: '-5%',
                   borderWidth: 0,
                 }}>
@@ -447,6 +470,7 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shopping-bag"
+                color="#7cc0c0"
                 size={25}
               />
               <Text
@@ -454,6 +478,7 @@ class GoodsDetail extends Component {
                   fontSize: 10,
                   alignSelf: 'center',
                   marginTop: '-5%',
+                  color:"#000",
                   borderWidth: 0,
                 }}>
                 背包
@@ -466,8 +491,8 @@ class GoodsDetail extends Component {
             style={{
               borderWidth: 0,
               width: '27.5%',
-              height: '90%',
-              backgroundColor: 'black',
+              height: '80%',
+              backgroundColor: '#7cc0c0',
               borderTopLeftRadius: 30,
               borderBottomLeftRadius: 30,
               marginTop: '1%',
@@ -475,7 +500,7 @@ class GoodsDetail extends Component {
             <Text
               style={{
                 color: '#fff',
-                fontSize: 18,
+                fontSize: 15,
                 textAlignVertical: 'center',
                 height: '100%',
                 textAlign: 'center',
@@ -488,8 +513,8 @@ class GoodsDetail extends Component {
             style={{
               borderWidth: 0,
               width: '27.5%',
-              height: '90%',
-              backgroundColor: 'black',
+              height: '80%',
+              backgroundColor: '#7cc0c0',
               borderTopRightRadius: 30,
               borderBottomRightRadius: 30,
               marginTop: '1%',
@@ -497,7 +522,7 @@ class GoodsDetail extends Component {
             <Text
               style={{
                 color: '#fff',
-                fontSize: 18,
+                fontSize: 15,
                 textAlignVertical: 'center',
                 height: '100%',
                 textAlign: 'center',
@@ -506,6 +531,7 @@ class GoodsDetail extends Component {
             </Text>
           </TouchableOpacity>
         </View>
+        {/* </LinearGradient> */}
       </View>
     );
   }
@@ -552,26 +578,26 @@ const styles = StyleSheet.create({
     marginLeft: width * 0.08,
   },
   Wz: {
-    fontSize: 25,
+    fontSize: 15,
     fontWeight: 'bold',
     borderWidth: 0,
     marginLeft: width * 0.08,
-    marginTop: '5%',
+    marginTop: '2%',
   },
   Wz1: {
-    fontSize: 15,
+    fontSize: 12,
     borderWidth: 0,
     color: 'grey',
     marginLeft: width * 0.08,
-    marginTop: '5%',
+    marginTop: '2%',
     width: '85%'
   },
   Foot: {
     borderWidth: 0,
     height: '6%',
     flexDirection: 'row',
-    borderTopWidth: 0.5,
-    borderColor: 'grey',
+
+   
   },
   tuijian: {
     marginHorizontal: 15,

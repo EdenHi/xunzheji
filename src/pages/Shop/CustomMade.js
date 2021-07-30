@@ -7,7 +7,9 @@ import {
   ImageBackground,
   SafeAreaView, 
   TouchableOpacity} from 'react-native';
-  import AntDesign from "react-native-vector-icons/AntDesign"
+  import AntDesign from "react-native-vector-icons/AntDesign";
+  import LinearGradient from 'react-native-linear-gradient'
+
 
 import Carousel from 'react-native-snap-carousel';
 const {height,width} = Dimensions.get('window');
@@ -48,8 +50,8 @@ export default class CustomMade extends React.Component {
               }}>
                 <View style={{width:"100%",height:"65%"}}>
                   <ImageBackground style={{width:"100%",height:"100%"}} imageStyle={{borderTopLeftRadius:10,borderTopRightRadius:10}}  source={{uri:item.img}}>
-                  <View style={{width:width*0.4,height:height*0.06,backgroundColor:"#7cc0c0",borderTopLeftRadius:10,borderBottomRightRadius:10,alignItems:"center",justifyContent:"center"}}>
-                    <Text style={{fontSize:13,color:"#fff"}}>已有1000人参与</Text>
+                  <View style={{width:width*0.4,height:height*0.06,backgroundColor:"#f5e7aa",borderTopLeftRadius:10,borderBottomRightRadius:10,alignItems:"center",justifyContent:"center"}}>
+                    <Text style={{fontSize:13,color:"#fff"}}>已有10人参与</Text>
                   </View>
                   </ImageBackground>
                   </View>
@@ -66,6 +68,7 @@ export default class CustomMade extends React.Component {
                       </View>
                     </View>
                     <TouchableOpacity
+                    activeOpacity={1}
                      onPress={() =>this.props.navigation.navigate('dingzhi')}
                      style={{width:"50%",height:"20%",backgroundColor:"#7cc0c0",borderRadius:20,alignItems:"center",justifyContent:"center",elevation:10}}>
                       <Text style={{fontSize:15,color:"#fff"}}>去定制</Text>
@@ -80,32 +83,27 @@ export default class CustomMade extends React.Component {
       const { navigation } = this.props;
         return (
           <View style={{width:width,height:height}}>
-            <View style={{width:width,height:height*0.08,backgroundColor:"#fff",alignItems:"center",flexDirection:"row",justifyContent:"space-between"}}>
-            <TouchableOpacity style={{marginLeft:"2%"}}
-                      onPress={() => navigation.goBack()}
-          >
-          <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-              name="left"
-              size={20}
-              color="black"
-            />
-          </TouchableOpacity>
-          <Text style={{fontSize:15}}>定制</Text>
-          <View style={{width:width*0.09,height:width*0.09,}}></View>
+           <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+            <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>定制</Text>
 
-            </View>
-          <SafeAreaView style={{flex: 1, backgroundColor:'#f1f1f1', paddingTop: 50, }}>
+            </View> 
+          <SafeAreaView style={{flex: 1, paddingTop: 50, }}>
             <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>
                 <Carousel
                   layout={"default"}
                   ref={ref => this.carousel = ref}
                   data={this.state.carouselItems}
-                  sliderWidth={400}
+                  sliderWidth={350}
                   itemWidth={300}
                   renderItem={this._renderItem.bind(this)}
                   onSnapToItem = { index => this.setState({activeIndex:index}) } />
             </View>
           </SafeAreaView>
+          </LinearGradient>
           </View>
         );
     }

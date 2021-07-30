@@ -67,6 +67,7 @@ export default class LunTan extends Component {
         this.context.navigate('Comment',v);
     }
 
+
     loding(){
         this.setState({
             isLoding : true,
@@ -99,17 +100,17 @@ export default class LunTan extends Component {
                         this.state.data.map((v,k)=>{
                             if (v.title === ''){
                                 return (
-                                    <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
-                                        <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
+                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                        <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
                                             <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                 <TouchableOpacity
-                                                 onPress={() => this.context.navigate('people')}
+                                                 onPress={() => this.context.navigate('people',v.username)}
                                                 >
                                                     <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                 </TouchableOpacity> 
                                                 <View style={{marginLeft:10}}>
                                                     <Text style={styles.name}>{v.nickname}</Text>
-                                                    <Text style={{color:'#aaa'}}>{v.fabiao_time}</Text>
+                                                    <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
                                                 </View>
                                             </View>
                                         <View style={styles.box}>
@@ -126,7 +127,7 @@ export default class LunTan extends Component {
                                                 <TouchableOpacity
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.95 - 4) / 2,width:(width * 0.95 - 4) / 2}}/>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
                                                 </TouchableOpacity>
                                                 </View>
                                                 );
@@ -136,7 +137,7 @@ export default class LunTan extends Component {
                                                 <TouchableOpacity
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.95 - 7) / 3,width:(width * 0.95 - 7) / 3}}/>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
                                                 </TouchableOpacity>
                                             </View>
                                         );
@@ -146,7 +147,7 @@ export default class LunTan extends Component {
                                                 <TouchableOpacity
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.95 - 2,width:width * 0.95 - 2}}/>
+                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
                                                 </TouchableOpacity>
                                             </View>
                                         );
@@ -186,16 +187,16 @@ export default class LunTan extends Component {
                                   ) 
                             } else {
                                 return (
-                                    <View key={k} style={{marginTop:20,backgroundColor:'white'}}>
-                                        <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
+                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                        <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
                                         <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                             <TouchableOpacity
-                                            onPress={() => this.context.navigate('people')}>
+                                            onPress={() => this.context.navigate('people',v.username)}>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                             </TouchableOpacity>
                                             <View style={{marginLeft:10}}>
                                                 <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text style={{color:'#aaa'}}>{v.fabiao_time}</Text>
+                                                <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
                                             </View>
                                         </View>
                                       <Text style={styles.txt}
@@ -215,7 +216,7 @@ export default class LunTan extends Component {
                                             <TouchableOpacity
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.95 - 4) / 2,width:(width * 0.95 - 4) / 2}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
                                             </TouchableOpacity>
                                             </View>
                                             );
@@ -225,7 +226,7 @@ export default class LunTan extends Component {
                                             <TouchableOpacity
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.95 - 7) / 3,width:(width * 0.95 - 7) / 3}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
                                             </TouchableOpacity>
                                         </View>
                                         );
@@ -235,7 +236,7 @@ export default class LunTan extends Component {
                                                 <TouchableOpacity
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.95 - 2,width:width * 0.95 - 2}}/>
+                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
                                                 </TouchableOpacity>
                                             </View>
                                         );
@@ -318,18 +319,18 @@ const styles = StyleSheet.create({
         marginTop:10,
     },
     touxiang:{
-        height:50,
-        width:50,
+        height:40,
+        width:40,
         borderRadius:50,
         marginTop:10,
     },
     name:{
-        fontSize:20,
+        fontSize:15,
         fontWeight:'bold',
         marginBottom:5,
     },
     txt:{
         marginTop:10,
-        fontSize:18,
+        fontSize:15,
     },
 });

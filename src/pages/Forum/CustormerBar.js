@@ -17,7 +17,7 @@ class CustormerBar extends Component {
       <View>
         <View
           style={{
-            height: pxToDp(50),
+            height: pxToDp(60),
             flexDirection: 'row',
             alignItems: 'center',
             paddingLeft: pxToDp(20),
@@ -31,7 +31,7 @@ class CustormerBar extends Component {
               style={{
                 justifyContent: 'center',
                 borderBottomColor: '#7cc0c0', //下划线颜色
-                borderBottomWidth: activeTab === i ? pxToDp(3) : 0,
+                borderBottomWidth: activeTab === i ? pxToDp(4) : 0,
                 borderRadius: 2,
               }}>
               <Text
@@ -44,6 +44,7 @@ class CustormerBar extends Component {
             </TouchableOpacity>
           ))}
           <TouchableOpacity
+            activeOpacity={1}
             onPress={() => this.context.navigate('Fabu')}
             style={{
               width: '17%',
@@ -53,7 +54,7 @@ class CustormerBar extends Component {
               elevation: 5,
               alignItems: 'center',
               justifyContent: 'center',
-              marginLeft: '50%',
+              marginLeft: '40%',
             }}>
             <Text style={{color: '#fff'}}>发布</Text>
           </TouchableOpacity>

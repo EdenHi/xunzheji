@@ -3,6 +3,7 @@ const messages = [
     {
         _id: 1,
         text: '你好呀，欢迎使用本App',
+        
         createdAt: new Date,
         user: {
             _id: 2,

@@ -6,6 +6,9 @@ import {View,Image,FlatList,Text ,StyleSheet, TextInput, TouchableOpacity,Dimens
 const {height,width} = Dimensions.get('window');
 import ImagePicker from 'react-native-image-crop-picker';
 import randId from '../../components/comment/randId';
+import LinearGradient from 'react-native-linear-gradient';
+import AntDesign from "react-native-vector-icons/AntDesign";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 export default class Fabu extends Component {
     constructor(props){
         super(props);
@@ -36,7 +39,7 @@ export default class Fabu extends Component {
                 <TouchableOpacity
                 activeOpacity={1}
                 onPress={()=>this._openPicker()}>
-                    <Image source={require('../img/addimg.png')} style={{width:100,height:100}}/>
+                    <Image source={require('../img/addimg.png')} style={{width:100,height:100,marginLeft:"10%"}}/>
                 </TouchableOpacity>
             );
 		}
@@ -114,7 +117,7 @@ export default class Fabu extends Component {
     //打开本地图册
       _openPicker(){
         ImagePicker.openPicker({
-            width:300,
+            width:400,
             height:400,
             cropping: true,
             multiple: true,
@@ -136,18 +139,55 @@ export default class Fabu extends Component {
 
         return (
             <View style = {styles.container}>
-                <View style = {styles.box}>
+                 <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
+                 <View style = {styles.box}>
                 <TouchableOpacity
+                activeOpacity={1}
                    onPress = {()=>this.props.navigation.navigate('BtnRoute')} >
-                        <Text>取消</Text>
+                       <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
-                    <Text>发表文章</Text>
+                    <Text style={{fontSize:15,color:"#fff",fontWeight:"bold"}}>发布动态</Text>
                     <TouchableOpacity
+                      activeOpacity={1}
                      onPress = {()=>this._goget()}>
-                        <Text>发布</Text>
+                        <FontAwesome
+                        name="send-o"
+                        color="#fff"
+                        size={20}/>
                     </TouchableOpacity>
                 </View>
-                <TextInput
+            <View style={{width:width*0.9,height:height,backgroundColor:"#fff",borderRadius:15}}>
+            <TextInput
+                style={styles.tx}
+                multiline={true}
+                placeholder = "这一刻的想法..."
+                onChangeText={(fayan)=>this.setState({fayan:fayan})}
+                />
+                <View style={{// 主轴方向
+                                flexDirection: 'row',
+                                // 一行显示不下,换一行
+                                flexWrap: 'wrap',
+                                // 侧轴方向
+                                alignItems: 'center', // 必须设置,否则换行不起作用
+                            }}>
+                {
+                    this.state.arr.map((v,k)=>{
+                        return (
+                            <View style={styles.Box}  key={k}>
+                                <TouchableOpacity
+                                  activeOpacity={1}
+                                >
+                                    <Image style={{ height: (width - 40) / 3, width:(width - 60) / 3,marginLeft:"10%" }} source={{ uri: v.path }} />
+                                </TouchableOpacity>
+
+                             </View>
+                        );
+                    })
+                }
+                {this.tianjia()}
+                </View>
+            </View>
+                {/* <TextInput
                 style={styles.tx}
                 multiline={true}
                 placeholder = "这一刻的想法..."
@@ -173,7 +213,8 @@ export default class Fabu extends Component {
                     })
                 }
                 {this.tianjia()}
-                </View>
+                </View> */}
+                </LinearGradient>
             </View>
         );
     }
@@ -181,18 +222,24 @@ export default class Fabu extends Component {
 
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        backgroundColor:'#eee',
-        padding:10,
+        width:width,
+        height:height,
+        alignItems:"center",
+        justifyContent:"center"
+ 
+  
     },
     Box:{
         marginRight:10,
         marginBottom:10,
     },
     box:{
+        width:width*0.9,
+        height:height*0.07,
         flexDirection:'row',
         justifyContent:'space-between',
         paddingBottom:10,
+        alignItems:"center"
     },
     box1:{
         flexDirection:'row',
@@ -200,7 +247,8 @@ const styles = StyleSheet.create({
     },
     tx:{
         height:100,
-        width,
+        marginLeft:"2%"
+       
     },
     txt:{
         width:300,
