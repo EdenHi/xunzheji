@@ -13,13 +13,15 @@ import {
   ScrollView,
   RefreshControl,
   DeviceEventEmitter,
+<<<<<<< HEAD
   AsyncStorage,
   Share
+=======
+>>>>>>> 782fb2ae04e5c573192c24a3a790825bac1d3347
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
-import {Overlay,ListItem} from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default class LunTan extends Component {
@@ -36,9 +38,6 @@ export default class LunTan extends Component {
             //存放图片的路径
             imgUrls:[],
             isLoding:false,
-            username:'',
-            showtf:false,
-            kk:'',
         };
     }
     //图片点击放大
@@ -61,16 +60,8 @@ export default class LunTan extends Component {
         });
     }
     componentDidMount() {
-        AsyncStorage.getItem('username',(error,result)=>{
-            if (!error) {
-                this.setState({
-                    username:result,
-                });
-            }
-        });
-
         this.get_xinxi();
-        this.listener = DeviceEventEmitter.addListener('test',this.get_xinxi.bind(this))
+        this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
       }
 
     componentWillUnmount(){
@@ -127,26 +118,11 @@ onShare = async () => {
     }
 };
     render () {
-        const {modalVisible,imgUrls,currentIndex,username,showtf} = this.state;
+        const {modalVisible,imgUrls,currentIndex} = this.state;
        // const { navigation } = this.props;
         return (
             <View>
                 <View>
-                <Overlay
-                    visible={showtf}
-                    onBackdropPress={()=>this.setState({showtf:false})}>
-                        <Text>是否确认删除？</Text>
-                    <View style={{flexDirection:'row',justifyContent:'space-around'}}>
-                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
-                        onPress={()=>this.setState({showtf:false})}>
-                            <Text style={{fontSize:15}}>取消</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
-                        onPress={()=>this.go_delect()}>
-                            <Text style={{fontSize:15}}>确认</Text>
-                        </TouchableOpacity>
-                    </View>
-                </Overlay>
                     <ScrollView
                     showsVerticalScrollIndicator={false}
                     refreshControl={
@@ -158,6 +134,7 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
+<<<<<<< HEAD
                             if (v.username === username){
                             if (v.title === ''){
                                 return (
@@ -349,6 +326,8 @@ onShare = async () => {
                                   );
                             }
                         } else {
+=======
+>>>>>>> 782fb2ae04e5c573192c24a3a790825bac1d3347
                             if (v.title === ''){
                                 return (
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
@@ -526,7 +505,6 @@ onShare = async () => {
                                     </View>
                                   );
                             }
-                        }
 
                         })
                       }
