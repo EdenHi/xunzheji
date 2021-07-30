@@ -2,13 +2,15 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import axios from 'axios';
-import {View,Image,FlatList,Text ,StyleSheet, TextInput, TouchableOpacity,Dimensions,AsyncStorage,DeviceEventEmitter} from 'react-native';
+import {View,Image,FlatList,  Animated,Modal,
+    Easing,Text ,StyleSheet, TextInput, TouchableOpacity,Dimensions,AsyncStorage,DeviceEventEmitter} from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImagePicker from 'react-native-image-crop-picker';
 import randId from '../../components/comment/randId';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import LottieView from 'lottie-react-native';
 export default class Fabu extends Component {
     constructor(props){
         super(props);
@@ -17,17 +19,18 @@ export default class Fabu extends Component {
             arr:[],
             uuid:randId.uuid(8),
             username:'',
+            progress: new Animated.Value(0),
+            modalVisible: false,
         };
     }
 
     componentDidMount(){
-        AsyncStorage.getItem('username',(error,result)=>{
-            if (!error) {
-                this.setState({
-                    username:result,
-                });
-            }
-        });
+        Animated.timing(this.state.progress, {
+            toValue: 1,
+            duration: 1000,
+            easing: Easing.linear,
+            
+          }).start();
     }
     //加号图片的存放
     tianjia(){
@@ -84,20 +87,30 @@ export default class Fabu extends Component {
             Minutes = '0' + Minutes;
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
-
-        fetch('http://192.168.50.117:3000/dongtai/title', {
-        method: 'POST',
-        headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            title: this.state.fayan,
-            uuid:this.state.uuid,
-            fabiao_time:currentdate,
-            username:this.state.username,
-        }),
-});
+        AsyncStorage.getItem('username',(error,result)=>{
+            if (!error) {
+                this.setState({
+                    username:result,
+                });
+                console.log('username',result)
+                fetch('http://192.168.50.117:3000/dongtai/title', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title: this.state.fayan,
+                        uuid:this.state.uuid,
+                        fabiao_time:currentdate,
+                        username:result,
+                    }),
+                });
+            } else {
+                console.log('获取数据失败',error);
+            }
+        });
+        
     }
     _goget(){
         const arr = this.state.arr;
@@ -134,9 +147,18 @@ export default class Fabu extends Component {
         });
 
     }
+    _openModalWin = () => {
+        this.setState({modalVisible: true});
+    }
+ 
+    _closeModalWin = () => {
+        this.setState({modalVisible: false});
+    }
+
+
 
     render() {
-
+        const { navigation } = this.props;
         return (
             <View style = {styles.container}>
                  <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
@@ -148,13 +170,65 @@ export default class Fabu extends Component {
                     </TouchableOpacity>
                     <Text style={{fontSize:15,color:"#fff",fontWeight:"bold"}}>发布动态</Text>
                     <TouchableOpacity
+                      onPress={this._openModalWin}
                       activeOpacity={1}
-                     onPress = {()=>this._goget()}>
+                    >
                         <FontAwesome
                         name="send-o"
                         color="#fff"
                         size={20}/>
                     </TouchableOpacity>
+                    <Modal
+                    animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
+                    transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
+                    visible={this.state.modalVisible} // 是否显示 modal 窗口
+                    onRequestClose={() =>{ this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
+                    onShow={()=>{console.log('modal窗口显示了');}} // 回调函数会在 modal 显示时调用
+                >
+               
+            <TouchableOpacity
+            
+            style={{height:'100%',width:'100%',position:"absolute",top:0,left:0}}
+            // onPress={this._closeModalWin}
+        >
+                    <View style={styles.modalLayer}>
+
+                          <TouchableOpacity
+                          activeOpacity={1}
+                                onPress={()=>{
+                                   
+                                }}                           
+                            >
+                        <View style={styles.modalContainer}>
+                          <View style={{width:150,
+                            height:'45%',
+                            alignItems:'center',
+                            justifyContent:'center'
+                            }}>
+ <LottieView source={require('../../../animal/success')}  autoPlay loop  progress={this.state.progress} />
+                          </View>
+                          <View style={{width:'100%',
+                          height:'25%',
+                          alignItems:'center',
+                       
+                          }}>
+                              <Text style={{fontSize:20,color:"#7cc0c0"}}>发布成功</Text>
+                          </View>
+                            <TouchableOpacity style={styles.modalButtonStyle}
+                               onPress={()=>{     
+                                this._closeModalWin()
+                                this._goget()
+                               
+                              }}
+                                 
+                                    >
+                                        <Text style={{fontSize:15}}>确定</Text>
+                            </TouchableOpacity>
+                        </View>
+                        </TouchableOpacity>
+                    </View>
+                    </TouchableOpacity>
+                </Modal>
                 </View>
             <View style={{width:width*0.9,height:height,backgroundColor:"#fff",borderRadius:15}}>
             <TextInput
@@ -177,7 +251,7 @@ export default class Fabu extends Component {
                                 <TouchableOpacity
                                   activeOpacity={1}
                                 >
-                                    <Image style={{ height: (width - 40) / 3, width:(width - 60) / 3,marginLeft:"10%" }} source={{ uri: v.path }} />
+                                    <Image style={{ height: (width -100) / 3, width:(width *0.84 -  48) / 3,marginLeft:width*0.03 }} source={{ uri: v.path }} />
                                 </TouchableOpacity>
 
                              </View>
@@ -258,5 +332,24 @@ const styles = StyleSheet.create({
     },
     btn:{
         backgroundColor:'green',
+    },
+    modalLayer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.45)',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems:'center',
+       
+    },
+    modalContainer: {
+        width:250,
+        height: 150,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems:'center',
+        borderRadius:10
+    },
+    modalTitleStyle: {
+        textAlign: 'center',
+        fontSize: 15
     },
 });

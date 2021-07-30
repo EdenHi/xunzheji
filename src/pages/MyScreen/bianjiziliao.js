@@ -48,9 +48,10 @@ export default class app1 extends Component {
 
     _openPicker(){
         ImagePicker.openPicker({
-            width:300,
-            height:400,
+            width:width * 0.3,
+            height:width * 0.3,
             cropping: true,
+            cropperCircleOverlay:true
         }).then(image => {
             console.log('image',image)
             AsyncStorage.getItem('username',(error,result)=>{
@@ -185,6 +186,7 @@ export default class app1 extends Component {
             width:300,
             height:400,
             cropping: true,
+
         }).then(image => {
             console.log('image',image)
             AsyncStorage.getItem('username',(error,result)=>{
