@@ -13,10 +13,12 @@ import {
   ScrollView,
   RefreshControl,
   DeviceEventEmitter,
+  AsyncStorage,
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
+import {Overlay,ListItem} from 'react-native-elements';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default class LunTan extends Component {
@@ -33,6 +35,9 @@ export default class LunTan extends Component {
             //存放图片的路径
             imgUrls:[],
             isLoding:false,
+            username:'',
+            showtf:false,
+            kk:'',
         };
     }
     //图片点击放大
@@ -55,8 +60,16 @@ export default class LunTan extends Component {
         });
     }
     componentDidMount() {
+        AsyncStorage.getItem('username',(error,result)=>{
+            if (!error) {
+                this.setState({
+                    username:result,
+                });
+            }
+        });
+
         this.get_xinxi();
-        this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
+        this.listener = DeviceEventEmitter.addListener('test',this.get_xinxi.bind(this))
       }
 
     componentWillUnmount(){
@@ -80,13 +93,39 @@ export default class LunTan extends Component {
             this.get_xinxi();
         }, 1000);
     }
-
+    go_delect(){
+        let kk = this.state.kk;
+        axios.post('http://192.168.50.117:3000/dongtai/delect_Dongtai',{
+                            title_id:this.state.data[kk].title_id,
+                    }).then((json)=>{
+                        console.log('json',json.data);
+                        this.get_xinxi();
+                      });
+        this.setState({
+            showtf:false,
+        });
+      }
     render () {
-        const {modalVisible,imgUrls,currentIndex} = this.state;
+        const {modalVisible,imgUrls,currentIndex,username,showtf} = this.state;
        // const { navigation } = this.props;
         return (
             <View>
                 <View>
+                <Overlay
+                    visible={showtf}
+                    onBackdropPress={()=>this.setState({showtf:false})}>
+                        <Text>是否确认删除？</Text>
+                    <View style={{flexDirection:'row',justifyContent:'space-around'}}>
+                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
+                        onPress={()=>this.setState({showtf:false})}>
+                            <Text style={{fontSize:15}}>取消</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
+                        onPress={()=>this.go_delect()}>
+                            <Text style={{fontSize:15}}>确认</Text>
+                        </TouchableOpacity>
+                    </View>
+                </Overlay>
                     <ScrollView
                     showsVerticalScrollIndicator={false}
                     refreshControl={
@@ -98,6 +137,192 @@ export default class LunTan extends Component {
                     >
                     {
                         this.state.data.map((v,k)=>{
+                            if (v.username === username){
+                            if (v.title === ''){
+                                return (
+                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                        <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
+                                            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                    <TouchableOpacity
+                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    >
+                                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                    </TouchableOpacity> 
+                                                    <View style={{marginLeft:10}}>
+                                                        <Text style={styles.name}>{v.nickname}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                    </View>
+                                                </View>
+                                                <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity>
+                                            </View>
+                                        <View style={styles.box}>
+                                        <FlatList
+                                            contentContainerStyle={styles.listViewStyle}
+                                            keyExtractor={(item, index) => (index + '1')}
+                                            data = {v.pic}
+                                        renderItem={({item,index})=>{
+                                            if (item === null ){
+                                                return ;
+                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                                return (
+                                                    <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                </TouchableOpacity>
+                                                </View>
+                                                );
+                                        } else if (v.pic.length >= 5 && v.pic.length <= 9){
+                                            return (
+                                                <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                </TouchableOpacity>
+                                            </View>
+                                        );
+                                    } else {
+                                        return (
+                                            <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                </TouchableOpacity>
+                                            </View>
+                                        );
+                                    }
+                                       }}/>
+                                       </View>
+                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                            <TouchableOpacity>
+                                                <View style={{flexDirection:'row'}}>
+                                                    <Ionicons
+                                                    name="heart-outline"
+                                                    size={20}
+                                                    color="black"/>
+                                                    <Text style={{marginLeft:5}}>{v.dianzan}</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity onPress={()=>this.goComment(v)}>
+                                            <View style={{flexDirection:'row'}}>
+                                                <Ionicons
+                                                name="chatbubble-ellipses-outline"
+                                                size={20}
+                                                color="black"/>
+                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity>
+                                                <View style={{flexDirection:'row'}}>
+                                                    <Ionicons
+                                                    name="arrow-redo-outline"
+                                                    size={20}
+                                                    color="black"/>
+                                                </View>
+                                            </TouchableOpacity>
+                                       </View>
+                                       </View>
+                                    </View>
+                                  ) 
+                            } else {
+                                return (
+                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                        <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
+                                        <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                    <TouchableOpacity
+                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    >
+                                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                    </TouchableOpacity> 
+                                                    <View style={{marginLeft:10}}>
+                                                        <Text style={styles.name}>{v.nickname}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                    </View>
+                                                </View>
+                                                <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity>
+                                            </View>
+                                      <Text style={styles.txt}
+                                      ellipsizeMode="tail"
+                                      numberOfLines={8}>{v.title}</Text>
+                                      <View style={styles.box}>
+                                      <FlatList
+                                        contentContainerStyle={styles.listViewStyle}
+                                        keyExtractor={(item, index) => (index + '1')}
+                                        data = {v.pic}
+                                       renderItem={({item,index})=>{
+                                         if (item === null ){
+                                            return ;
+                                        }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                            return (
+                                                <View style={styles.box2}>
+                                            <TouchableOpacity
+                                            key = {index}
+                                            onPress={()=>this.handleShowAlbum(k,index)}>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                            </TouchableOpacity>
+                                            </View>
+                                            );
+                                    } else if (v.pic.length >= 5 && v.pic.length <= 9){
+                                        return (
+                                            <View style={styles.box2}>
+                                            <TouchableOpacity
+                                            key = {index}
+                                            onPress={()=>this.handleShowAlbum(k,index)}>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                            </TouchableOpacity>
+                                        </View>
+                                        );
+                                    } else {
+                                        return (
+                                            <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                </TouchableOpacity>
+                                            </View>
+                                        );
+                                    }
+                                       }}/>
+                                       </View>
+                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                            <TouchableOpacity>
+                                                <View style={{flexDirection:'row'}}>
+                                                    <Ionicons
+                                                    name="heart-outline"
+                                                    size={20}
+                                                    color="black"/>
+                                                    <Text style={{marginLeft:5}}>{v.dianzan}</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity onPress={()=>this.goComment(v)}>
+                                            <View style={{flexDirection:'row'}}>
+                                                <Ionicons
+                                                name="chatbubble-ellipses-outline"
+                                                size={20}
+                                                color="black"/>
+                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
+                                                </View>
+                                            </TouchableOpacity>
+                                            <TouchableOpacity>
+                                                <View style={{flexDirection:'row'}}>
+                                                    <Ionicons
+                                                    name="arrow-redo-outline"
+                                                    size={20}
+                                                    color="black"/>
+                                                </View>
+                                            </TouchableOpacity>
+                                       </View>
+                                       </View>
+                                    </View>
+                                  );
+                            }
+                        } else {
                             if (v.title === ''){
                                 return (
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
@@ -275,6 +500,7 @@ export default class LunTan extends Component {
                                     </View>
                                   );
                             }
+                        }
 
                         })
                       }
