@@ -67,6 +67,7 @@ export default class LunTan extends Component {
         this.context.navigate('Comment',v);
     }
 
+
     loding(){
         this.setState({
             isLoding : true,
@@ -103,7 +104,7 @@ export default class LunTan extends Component {
                                         <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
                                             <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                 <TouchableOpacity
-                                                 onPress={() => this.context.navigate('people')}
+                                                 onPress={() => this.context.navigate('people',v.username)}
                                                 >
                                                     <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                 </TouchableOpacity> 
@@ -190,7 +191,7 @@ export default class LunTan extends Component {
                                         <View style={{marginLeft:width * 0.025,width:width * 0.95}}>
                                         <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                             <TouchableOpacity
-                                            onPress={() => this.context.navigate('people')}>
+                                            onPress={() => this.context.navigate('people',v.username)}>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                             </TouchableOpacity>
                                             <View style={{marginLeft:10}}>
