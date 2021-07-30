@@ -3,7 +3,9 @@
 import React, {Component} from 'react';
 
 import {ScrollView, TouchableOpacity, View,Text, FlatList,Image,Dimensions} from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import LinearGradient from 'react-native-linear-gradient'
+import AntDesign from "react-native-vector-icons/AntDesign"
 const {height,width} = Dimensions.get('window');
 export default class book extends Component {
     constructor(props){
@@ -112,7 +114,7 @@ export default class book extends Component {
     renderItem({item,index}){
         return (
             <View key={index}>
-                <Image source={{uri:item.pic}} style={{height:width / 2 + 40,width:width * 0.925 / 2,marginLeft:width * 0.025,marginBottom:width * 0.025,borderRadius:10}}/>
+                <Image source={{uri:item.pic}} style={{height:width / 2 + 20,width:width *0.9/2.10,marginLeft:width * 0.050,marginBottom:width * 0.025,borderRadius:10}}/>
             </View>
         );
     }
@@ -129,8 +131,16 @@ export default class book extends Component {
         const {data0,data1,backgroundColor0,backgroundColor1,backgroundColor2,backgroundColor3,fontWeight0,fontWeight1,fontWeight2,fontWeight3} = this.state;
         return (
             <View >
+                  <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+            <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>浙商必知丛书</Text>
+
+            </View> 
                 <ScrollView
-                style={{width:width * 0.95,marginLeft:width * 0.025,marginTop:20,marginBottom:20}}
+                style={{width:width * 0.90,marginLeft:width * 0.05,height:"20%"}}
                 horizontal
                 showsHorizontalScrollIndicator={false}>
                     <TouchableOpacity style={{backgroundColor:backgroundColor0,width:width * 0.925 / 4.5,height:width * 0.06,justifyContent:'center',alignItems:'center',borderRadius:5}}
@@ -158,7 +168,7 @@ export default class book extends Component {
                         numColumns={2}
                         renderItem={this.renderItem.bind(this)}/>
 
-                        <View style={{backgroundColor:'white',width:width * 0.95,marginLeft:width * 0.025,marginBottom:20,marginRight:width * 0.025,borderRadius:10,elevation:5}}>
+                        <View style={{backgroundColor:'white',width:width * 0.90,marginLeft:width * 0.05,marginBottom:20,marginRight:width * 0.025,borderRadius:10,elevation:5}}>
                             <View style={{marginLeft:20,marginRight:20,marginBottom:20,marginTop:10}}>
                                 <View style={{flexDirection:'row',borderBottomColor:'black',borderBottomWidth:1 / 2,paddingBottom:10}}>
                                     <MaterialCommunityIcons
@@ -201,6 +211,7 @@ export default class book extends Component {
                         renderItem={this.renderItem.bind(this)}/>
                     </ScrollView>
                 </View>
+                </LinearGradient>
             </View>
         );
     }

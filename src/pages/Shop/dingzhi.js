@@ -4,35 +4,31 @@ import React, {Component} from 'react';
 
 import {View,Text, TouchableOpacity,Image,Dimensions, ScrollView,StyleSheet } from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign"
+import LinearGradient from 'react-native-linear-gradient'
 const {height,width} = Dimensions.get('window');
 export default class dingzhi extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <View style={{flex:1}}>
-                <View style={{width:width,height:height*0.08,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
-                <TouchableOpacity style={{marginLeft:"2%"}}
-                      onPress={() => navigation.goBack()}
-                    >
-                    <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-                        name="left"
-                        size={20}
-                        color="black"
-                        />
-                    </TouchableOpacity>
-                    <Text style={{fontSize:15}}>手工定制</Text>
-                    <View style={{width:width*0.09,height:width*0.09,}}></View>
-                 </View>
-                <View style={{width:width * 0.95,marginLeft:width * 0.025}}>
-                <View style={{flexDirection:'row',marginTop:10,backgroundColor:'white',height:width * 0.2,justifyContent:'space-around'}}>
+            <View style={{flex:1,alignItems:"center"}}>
+              <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+            <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>定制</Text>
+
+            </View> 
+                <View style={{width:width * 0.9,marginLeft:width * 0.05}}>
+                <View style={{flexDirection:'row',marginTop:10,height:width * 0.2,justifyContent:'space-around'}}>
                         <View style={{justifyContent:'space-around'}}>
                             <Text style={{fontSize:15}}>已收录31省市475名非遗大师、手艺人</Text>
-                            <TouchableOpacity style={{flexDirection:'row',borderWidth:1,borderRadius:25,borderColor:'#7cc0c0',alignItems:'center',width:width*0.5}}>
+                            <TouchableOpacity style={{flexDirection:'row',borderWidth:1,borderRadius:25,borderColor:'#fff',alignItems:'center',width:width*0.6}}>
                                 <Image source={{uri:'https://img0.baidu.com/it/u=209027227,4293619616&fm=26&fmt=auto&gp=0.jpg'}} style={{height:20,width:20,borderRadius:8,marginLeft:width * 0.04,marginTop:3,marginBottom:3,marginRight:width * 0.01}}/>
-                                <Text style={{fontSize:12,color:'#7cc0c0'}}>瓷器非遗传承人晨扬龙入住</Text>
+                                <Text style={{fontSize:12,color:'#fff'}}>瓷器非遗传承人晨扬龙入住</Text>
                             </TouchableOpacity>
                         </View>
-                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',height:width *0.06,width:width*0.15,borderRadius:5,elevation:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.03}}>
+                        <TouchableOpacity style={{backgroundColor:'#fedc61',height:width *0.06,width:width*0.15,borderRadius:5,elevation:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.03}}>
                             <Text style={{color:'white',fontSize:12}}>查看全部 </Text>
                         </TouchableOpacity>
                     </View>
@@ -40,27 +36,27 @@ export default class dingzhi extends Component {
                 <ScrollView
                 showsVerticalScrollIndicator={false}
                 >
-                   <View style={{width:width}}>
-                    <View style={{marginTop:width * 0.03}}>
+                   <View style={{width:width*0.95}}>
+                    <View style={{marginTop:width * 0.03,width:width*0.95,borderRadius:15}}>
                         <Text style={{fontSize:20,fontWeight:'bold',marginLeft:width * 0.02}}>徽派竹雕</Text>
-                        <Image source={{uri:'https://img1.baidu.com/it/u=4161466098,2632610288&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.95,height:width * 0.5,borderRadius:10,marginTop:width * 0.03}}/>
-                        <View style={{flexDirection:'row',marginTop:width * 0.03,backgroundColor:'white'}}>
+                        <Image source={{uri:'https://img1.baidu.com/it/u=4161466098,2632610288&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.9,height:width * 0.5,borderRadius:10,marginTop:width * 0.03}}/>
+                        <View style={{flexDirection:'row',marginTop:width * 0.03,}}>
                             <Image source={{uri:'https://img0.baidu.com/it/u=2899734245,647783329&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.3,height:width * 0.3,margin:width * 0.02,borderRadius:15}}/>
                             <View style={{marginBottom:width * 0.02,width:width * 0.4,marginTop:width * 0.015}}>
-                                <Text style={{fontSize:15,marginBottom:width * 0.03}}>洪建华</Text>
-                                <Text style={{color:'#666',marginBottom:width * 0.04,fontSize:12}}>省级非遗传承人</Text>
-                                <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:10,borderRadius:10,padding:5,marginBottom:width * 0.03,width:width * 0.35}}>中国木（竹）雕展“金雕手”</Text>
-                                <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:10,borderRadius:10,padding:5,width:width * 0.35}}>黄山市徽派雕刻博物馆馆长</Text>
+                                <Text style={{fontSize:15,marginBottom:width * 0.02}}>洪建华</Text>
+                                <Text style={{color:'#666',marginBottom:width * 0.02,fontSize:12}}>省级非遗传承人</Text>
+                                <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:10,borderRadius:10,padding:5,marginBottom:width * 0.03,width:width * 0.37}}>中国木（竹）雕展“金雕手”</Text>
+                                <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:10,borderRadius:10,padding:5,width:width * 0.37}}>黄山市徽派雕刻博物馆馆长</Text>
                             </View>
-                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',elevation:5,height:width * 0.06,width:width * 0.15,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
+                        <TouchableOpacity style={{backgroundColor:'#fedc61',elevation:5,height:width * 0.06,width:width * 0.15,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
                             <Text style={{color:'white',fontSize:12}}>查看定制</Text>
                         </TouchableOpacity>
                         </View>
                     </View>
                     <View style={{marginTop:width * 0.03}}>
                         <Text style={{fontSize:20,fontWeight:'bold',marginLeft:width * 0.02}}>砚雕</Text>
-                        <Image source={{uri:'https://img1.baidu.com/it/u=2243210361,1712617060&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.95,height:width * 0.5,borderRadius:10,marginTop:width * 0.03}}/>
-                        <View style={{flexDirection:'row',marginTop:width * 0.03,backgroundColor:'white'}}>
+                        <Image source={{uri:'https://img1.baidu.com/it/u=2243210361,1712617060&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.9,height:width * 0.5,borderRadius:10,marginTop:width * 0.03}}/>
+                        <View style={{flexDirection:'row',marginTop:width * 0.03,}}>
                             <Image source={{uri:'https://img1.baidu.com/it/u=2222344400,3431079609&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.3,height:width * 0.3,margin:width * 0.02,borderRadius:15}}/>
                             <View style={{marginBottom:width * 0.02,width:width * 0.4,marginTop:width * 0.015}}>
                                 <Text style={{fontSize:15,marginBottom:width * 0.03}}>陆小华</Text>
@@ -70,11 +66,11 @@ export default class dingzhi extends Component {
                                     <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:12,borderRadius:10,padding:5,marginLeft:5,marginBottom:width * 0.03}}>一砚一品</Text>
                                 </View>
                             </View>
-                            <TouchableOpacity style={{backgroundColor:'#7cc0c0',height:width * 0.06,width:width * 0.15,elevation:5,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
+                            <TouchableOpacity style={{backgroundColor:'#fedc61',height:width * 0.06,width:width * 0.15,elevation:5,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
                                 <Text style={{color:'white',fontSize:12}}>查看定制</Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={{marginTop:width * 0.03,backgroundColor:'white'}}>
+                        <View style={{marginTop:width * 0.03,}}>
                             <Image source={{uri:'https://img0.baidu.com/it/u=2274095050,1497185669&fm=26&fmt=auto&gp=0.jpg'}} style={{width:width * 0.91,height:width * 0.3,borderRadius:10,marginLeft:width * 0.02,marginTop:width * 0.03}}/>
                             {/* 进度条显示，后期把数值放入数据库，进行数字的更改 */}
                             <View style={{marginLeft:width * 0.035}}>
@@ -89,8 +85,8 @@ export default class dingzhi extends Component {
                                             <Text style={{ color: 'red', fontSize: 14}}>{80}%</Text>
                                         </View>
                                     </View>
-                                    <TouchableOpacity style={{borderColor:'#7cc0c0',borderWidth:1,height:width * 0.06,width:width * 0.15,borderRadius:10,justifyContent:'center',alignItems:'center',marginLeft:width * 0.1,top:-5}}>
-                                            <Text style={{color:'#7cc0c0',fontSize:12}}>查看详情</Text>
+                                    <TouchableOpacity style={{borderColor:'#fedc61',borderWidth:1,height:width * 0.06,width:width * 0.15,borderRadius:10,justifyContent:'center',alignItems:'center',marginLeft:width * 0.1,top:-5}}>
+                                            <Text style={{color:'#fedc61',fontSize:12}}>查看详情</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -100,6 +96,7 @@ export default class dingzhi extends Component {
                 </ScrollView>
                 </View>
                 </View>
+                </LinearGradient>
             </View>
         );
     }

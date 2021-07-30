@@ -22,7 +22,9 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Carousel from 'react-native-snap-carousel';
 import ActionButton from 'react-native-action-button';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import AntDesign from "react-native-vector-icons/AntDesign"
+import AntDesign from "react-native-vector-icons/AntDesign";
+import ShiCha from '../HomeScreen/HOME/ShiCha';
+import LinearGradient from 'react-native-linear-gradient'
 
 const { width, height } = Dimensions.get('window');
 const images = [require("../img/5.jpg"), require("../img/6.jpg"), require("../img/6.jpg"), require("../img/5.jpg")]
@@ -81,13 +83,13 @@ export default class Store extends Component {
     return (
       <View style={{
 
-        borderRadius: 10,
+        borderRadius: 15,
         height: 250,
         width: "90%",
-        elevation: 10,
+        elevation: 5,
         backgroundColor: "#fff"
       }}>
-        <ImageBackground imageStyle={{ borderRadius: 10, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={require("../img/2.jpg")} >
+        <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={require("../img/2.jpg")} >
           <View style={{ width: "100%", height: "30%", backgroundColor: 'rgba(0,0,0,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
             <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold", marginLeft: "5%", marginTop: "2%" }}>鱼宴馆·家宴老字号</Text>
             <Text numberOfLines={2} ellipsizeMode='tail' style={{ fontSize: 12, color: "#fff", marginLeft: "5%", marginTop: "2%" }}>一家经典网红餐厅，浓汤鱼头是主打，据说是千岛湖野生鱼头做的，店里的菜品品种丰富多样</Text>
@@ -107,6 +109,7 @@ export default class Store extends Component {
     const { navigation } = this.props;
     return (
       <View style={styles.container}>
+         <LinearGradient style={{width}} colors={["#7cc0bf","#fff","#fff"]} >
                       <Modal
           animationType="fade"
           transparent={true}
@@ -119,7 +122,7 @@ export default class Store extends Component {
           <View>
 <View style={{ borderBottomRightRadius:10,borderBottomLeftRadius:10,elevation:5, height: height * 0.15, width: width, backgroundColor: '#eee',width: "100%" }}>
             <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row'}}>
-              <TouchableOpacity style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+              <TouchableOpacity   activeOpacity={1} style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
 
                 <MaterialCommunityIcons onPress={()=>{this.props.navigation.navigate('ShoppingCart'),this.setModalVisible(!modalVisible)}}style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="cart-outline"
@@ -138,7 +141,7 @@ export default class Store extends Component {
                 />
                 <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats'),this.setModalVisible(!modalVisible)}} style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+              <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Chats'),this.setModalVisible(!modalVisible)}} style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
                 <AntDesign style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="customerservice"
                   size={35}
@@ -146,7 +149,7 @@ export default class Store extends Component {
                 />
                 <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddressList'),this.setModalVisible(!modalVisible)}} style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+              <TouchableOpacity   activeOpacity={1} onPress={()=>{this.props.navigation.navigate('AddressList'),this.setModalVisible(!modalVisible)}} style={{marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
                 <MaterialCommunityIcons  style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="map-marker-radius"
                   size={35}
@@ -171,17 +174,17 @@ export default class Store extends Component {
           
           
         </Modal>
-
+       
         <View style={styles.header}>
-          <TouchableOpacity style={styles.left}>
+          <TouchableOpacity activeOpacity={1} style={styles.left}>
             <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
               name="clipboard-text-outline"
               size={25}
-              color="#7cc0c0"
+              color="#fff"
             />
 
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity   activeOpacity={1}
             onPress={() => navigation.navigate('search')}
             style={styles.input}>
             <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07, }}>
@@ -193,7 +196,7 @@ export default class Store extends Component {
             </View>
             <Text style={{ fontSize: 15, marginLeft: "3%", color: "#7cc0c0" }}>搜索好物</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.left}
+          <TouchableOpacity   activeOpacity={1} style={styles.left}
             onPress={() => {
               this.setModalVisible(true);
             }}
@@ -201,15 +204,17 @@ export default class Store extends Component {
             <MaterialCommunityIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
               name="dots-vertical"
               size={25}
-              color="#7cc0c0"
+              color="#fff"
             />
 
           </TouchableOpacity>
         </View>
         <ScrollView>
-          <View style={{ alignItems: "center", backgroundColor: "#f1f1f1" }}>
-            <ImageBackground style={{ width: "100%", height: width * 0.42 }}  >
-              <EZSwiper style={{ width: "100%", height: "100%" }}
+          <View style={{ alignItems: "center", }}>
+            <View style={{ width: width*0.95, height: width * 0.42 }}  >
+
+            <ShiCha/>
+              {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
                 dataSource={images}
                 width={width}
                 height={160}
@@ -219,20 +224,21 @@ export default class Store extends Component {
                 horizontal={true}
                 loop={true}
                 autoplayTimeout={2}
-              /></ImageBackground>
+              /> */}
+              </View>
             <View style={styles.part}>
-              <TouchableOpacity style={{ width: "39%", height: "100%", borderRadius: 10, marginRight: "1%", elevation: 5 }}
+              <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5 }}
                 onPress={() => navigation.navigate('CustomMade')}
               >
 
-                <Image style={{ width: "100%", height: "100%", borderRadius: 10, }} source={require("../img/8.jpg")}></Image>
+                <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                <TouchableOpacity onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
-                  <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/9.jpg")}></Image>
+                <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                  <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={require("../img/9.jpg")}></Image>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Exchange')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 10, elevation: 5 }}>
-                  <Image style={{ width: "100%", height: "100%", borderRadius: 10 }} source={require("../img/10.jpg")}></Image>
+                <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Exchange')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                  <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={require("../img/10.jpg")}></Image>
                 </TouchableOpacity>
               </View>
             </View>
@@ -240,7 +246,7 @@ export default class Store extends Component {
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>上新好物</Text>
-                <TouchableOpacity
+                <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('NewWorks')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
                   <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
@@ -250,7 +256,7 @@ export default class Store extends Component {
                   />
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity style={styles.suggest}>
+              <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }}  activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold" }}>姜枣膏</Text>
@@ -270,17 +276,17 @@ export default class Store extends Component {
                     </View>
                   </View>
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity  activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    {/* <TouchableOpacity  activeOpacity={1} style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
                         name="staro"
                         size={25}
                         color="orange"
                       />
 
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
 
                   </View>
                 </View>
@@ -288,7 +294,7 @@ export default class Store extends Component {
 
                 </Image>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.suggest}>
+              <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold" }}>双合成月饼</Text>
@@ -308,16 +314,16 @@ export default class Store extends Component {
                     </View>
                   </View>
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    <TouchableOpacity  activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
+                    {/* <TouchableOpacity  activeOpacity={1} style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
                       <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
                         name="staro"
                         color="orange"
                         size={25}
                       />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
 
                   </View>
                 </View>
@@ -330,7 +336,7 @@ export default class Store extends Component {
               <View style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>浙江老字号</Text>
-                <TouchableOpacity
+                <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('OldBank')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "60%" }}>
                   <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
@@ -350,17 +356,18 @@ export default class Store extends Component {
                   sliderWidth={350}
                   itemWidth={300}
                   renderItem={this._renderItem}
+                  loop={true}
                   onSnapToItem={index => this.setState({ activeIndex: index })} />
               </View>
             </View>
 
-            <View style={{ width: "95%", height: "5%", alignItems: "center" ,marginBottom:-height*0.235,backgroundColor:'#fff',marginTop:10,marginHorizontal:'2.5%',borderTopRightRadius:10,borderTopLeftRadius:10}}>
+            <View style={{ width: "95%", height: "5%", alignItems: "center" ,marginBottom:-height*0.27,backgroundColor:'#fff',marginTop:10,marginHorizontal:'2.5%',borderTopRightRadius:10,borderTopLeftRadius:10}}>
               <Text style={{height:20,fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
               <View style={{ width: "25%", height: "4%", backgroundColor: "#7cc0c0",marginTop:10 }}></View>
             </View>
 
           </View>
-          <View style={{marginBottom:160,width:"95%",marginHorizontal:'2.5%',}}>
+          <View style={{marginBottom:200,width:"95%",marginHorizontal:'2.5%',}}>
             <Water />
           </View>
           
@@ -373,6 +380,7 @@ export default class Store extends Component {
           buttonColor="rgba(231,76,60,1)"
           onPress={() => { alert('你点了我！') }}
         /> */}
+        </LinearGradient>
       </View>
     );
   }
@@ -389,7 +397,7 @@ const styles = StyleSheet.create({
   header: {
     width: width,
     height: height * 0.07,
-    backgroundColor: "#f1f1f1",
+    // backgroundColor: "#f1f1f1",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around"
@@ -422,7 +430,7 @@ const styles = StyleSheet.create({
   part: {
     width: width * 0.95,
     height: width * 0.4,
-    backgroundColor: "#f1f1f1",
+  
     flexDirection: "row",
     marginBottom: "2%"
 
@@ -431,7 +439,7 @@ const styles = StyleSheet.create({
     width: width * 0.95,
     height: width,
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 15,
     alignItems: "center"
   },
   suggest: {
@@ -439,16 +447,16 @@ const styles = StyleSheet.create({
     height: "40%",
     backgroundColor: "grey",
     marginTop: "2%",
-    borderRadius: 10,
-    elevation: 10,
+    borderRadius: 15,
+    elevation: 5,
     flexDirection: "row",
 
   },
   limit: {
     width: width * 0.95,
-    height: width,
+    height: width*0.9,
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 15,
     alignItems: "center",
     marginTop: "2%"
 
@@ -458,7 +466,7 @@ const styles = StyleSheet.create({
     height: "80%",
     // backgroundColor:"grey",
     marginTop: "2%",
-    borderRadius: 10,
+    borderRadius: 15,
     // elevation:10,
     flexDirection: "row",
   },
@@ -466,7 +474,7 @@ const styles = StyleSheet.create({
     width: width * 0.95,
     height: height,
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius: 15,
     alignItems: "center",
     marginTop: "2%"
 

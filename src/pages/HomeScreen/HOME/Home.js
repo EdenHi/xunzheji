@@ -43,7 +43,7 @@ export default class Home extends Component {
                             </View> 
                                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                                    <TouchableOpacity activeOpacity={1}>
-                                         < View style={{height:150,marginBottom:10,elevation:5,width:width*0.8,marginLeft:10,marginRight:10,elevation:10,}}>
+                                         < View style={{height:150,marginBottom:10,elevation:5,width:width*0.8,marginLeft:10,marginRight:10,elevation:5,}}>
                                            <ImageBackground style={{height:150,marginBottom:10,width:width*0.8,marginRight:20}} borderRadius={10} source={require("../photos/zs1.jpeg")}>
                                            <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width*0.8}}>
                                                <View style={{flex:3,}}></View>
@@ -91,7 +91,7 @@ export default class Home extends Component {
                                           <AntDesign onPress={()=>this.props.navigation.navigate("Book")} style={{ textAlign: 'center',textAlignVertical:'center',height:"100%",color:"#7cc0bf" }} name="doubleright" size={25} color="#000000" />
                                       </TouchableOpacity>
                                    </View> 
-                                           <View style={{flexDirection:"row",elevation:10}}>
+                                           <View style={{flexDirection:"row",elevation:5}}>
                                                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                                                <View style={{width:width*0.3 ,height:180,margin:10,borderColor:"#00000",borderRadius:10,elevation:5}}><Image style={{width:width*0.3,flex:1,borderRadius:10}} source={require("../photos/sj1.jpeg")}/></View>
                                                <View style={{width:width*0.3 ,height:180,margin:10,borderColor:"#00000",borderRadius:10,elevation:5}}><Image style={{width:width*0.3,flex:1,borderRadius:10}} source={require("../photos/sj2.jpg")}/></View>
@@ -112,7 +112,7 @@ export default class Home extends Component {
                                    </View>
                         </View>
                          <TouchableOpacity activeOpacity={1} >
-                         <View style={{height:200,backgroundColor:"#fff",justifyContent:"center",margin:10,marginTop:-5,borderRadius:10,padding:10,elevation:10}}>
+                         <View style={{height:200,backgroundColor:"#fff",justifyContent:"center",margin:10,marginTop:-5,borderRadius:10,padding:10,elevation:5}}>
                         <View style={{flexDirection:"row"}}>
                             <View><Image style={{height:80,width:width*0.3,borderRadius:10,marginLeft:5,alignItems:"center"}} source={require("../photos/jm2.jpeg")}/></View>
                             <View style={{}}>
@@ -123,7 +123,7 @@ export default class Home extends Component {
                           <View ><Text style={{width:width*0.88,flexWrap:"wrap"}}>       鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
                       </View>
                          </TouchableOpacity>
-                      <View style={{height:120,backgroundColor:"#fff",justifyContent:"center",alignItems:"center",margin:10,borderRadius: 10,elevation:10,paddingTop:10}}>
+                      <View style={{height:120,backgroundColor:"#fff",justifyContent:"center",alignItems:"center",margin:10,borderRadius: 10,elevation:5,paddingTop:10}}>
                              <Swiper paginationStyle={{bottom:-1}} horizontal={true} autoplay autoplayTimeout={3} >
                                  <TouchableOpacity activeOpacity={1}>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",justifyContent:"center"}}>

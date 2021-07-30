@@ -42,7 +42,7 @@ export default class CustomMade extends React.Component {
                 <View style={{width:"100%",height:"65%"}}>
                   <ImageBackground style={{width:"100%",height:"100%"}} imageStyle={{borderTopLeftRadius:10,borderTopRightRadius:10}}  source={require("../img/15.jpg")}>
                   <View style={{width:width*0.4,height:height*0.06,backgroundColor:"grey",borderTopLeftRadius:10,borderBottomRightRadius:10,alignItems:"center",justifyContent:"center"}}>
-                    <Text style={{fontSize:13,color:"#fff"}}>已有1000人参与</Text>
+                    <Text style={{fontSize:13,color:"#fff"}}>已有100人参与</Text>
                   </View>
                   </ImageBackground>
                  

@@ -478,7 +478,7 @@ export default class Comment extends React.Component {
                 </ScrollView>
                 <View style={styles.box3}>
                     <TextInput
-                        placeholder="我要评论..."
+                        placeholder="我要评论5..."
                         style={styles.txt2}
                         multiline = {true}
                         clearTextOnFocus={true}

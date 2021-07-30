@@ -11,13 +11,13 @@ export default class search extends Component {
     return (
       <View style={{alignItems:"center",backgroundColor:"#fff",flex:1}}>
           <View style={{width:width,height:height*0.07,backgroundColor:"#FFF",flexDirection:"row",alignItems:"center"}}>
-              <View style={{width:"80%",height:"80%",backgroundColor:"#f1f1f1",marginLeft:"2%",borderRadius:20,flexDirection:"row",alignItems:"center"}}>
+              <View style={{width:"80%",height:"70%",alignItems:"center",elevation:5,backgroundColor:"#fff",marginLeft:"2%",borderRadius:20,flexDirection:"row",alignItems:"center"}}>
               <SimpleLineIcons style={{textAlign:'center',marginLeft:"5%",textAlignVertical:'center',height:'100%',borderWidth:0,}}
                 name="magnifier"
                 size={18}
                 color="grey"
               />
-              <TextInput style={{width:"80%",marginLeft:"2%",height:"100%",}}></TextInput>
+              <TextInput placeholder="搜索好物" style={{width:"80%",marginLeft:"2%",height:"100%",}}></TextInput>
               </View>
               <TouchableOpacity
               onPress={() => navigation.goBack()}
