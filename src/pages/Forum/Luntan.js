@@ -13,11 +13,8 @@ import {
   ScrollView,
   RefreshControl,
   DeviceEventEmitter,
-<<<<<<< HEAD
   AsyncStorage,
   Share
-=======
->>>>>>> 782fb2ae04e5c573192c24a3a790825bac1d3347
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -85,18 +82,7 @@ export default class LunTan extends Component {
             this.get_xinxi();
         }, 1000);
     }
-    go_delect(){
-        let kk = this.state.kk;
-        axios.post('http://192.168.50.117:3000/dongtai/delect_Dongtai',{
-                            title_id:this.state.data[kk].title_id,
-                    }).then((json)=>{
-                        console.log('json',json.data);
-                        this.get_xinxi();
-                      });
-        this.setState({
-            showtf:false,
-        });
-      }
+
   
 onShare = async () => {
     try {
@@ -134,8 +120,6 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
-<<<<<<< HEAD
-                            if (v.username === username){
                             if (v.title === ''){
                                 return (
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
@@ -152,7 +136,7 @@ onShare = async () => {
                                                         <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
                                                     </View>
                                                 </View>
-                                                <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity>
+                                                {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                             </View>
                                         <View style={styles.box}>
                                         <FlatList
@@ -214,7 +198,11 @@ onShare = async () => {
                                                 <Text style={{marginLeft:5}}>{v.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity
+                                             onPress={() => {
+                                                this.onShare();
+                                              }}
+                                            >
                                                 <View style={{flexDirection:'row'}}>
                                                     <Ionicons
                                                     name="arrow-redo-outline"
@@ -242,7 +230,7 @@ onShare = async () => {
                                                         <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
                                                     </View>
                                                 </View>
-                                                <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity>
+                                                {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                             </View>
                                       <Text style={styles.txt}
                                       ellipsizeMode="tail"
@@ -325,188 +313,9 @@ onShare = async () => {
                                     </View>
                                   );
                             }
-                        } else {
-=======
->>>>>>> 782fb2ae04e5c573192c24a3a790825bac1d3347
-                            if (v.title === ''){
-                                return (
-                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
-                                        <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                            <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                                <TouchableOpacity
-                                                 onPress={() => this.context.navigate('people',v.username)}
-                                                >
-                                                    <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                                </TouchableOpacity> 
-                                                <View style={{marginLeft:10}}>
-                                                    <Text style={styles.name}>{v.nickname}</Text>
-                                                    <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
-                                                </View>
-                                            </View>
-                                        <View style={styles.box}>
-                                        <FlatList
-                                            contentContainerStyle={styles.listViewStyle}
-                                            keyExtractor={(item, index) => (index + '1')}
-                                            data = {v.pic}
-                                        renderItem={({item,index})=>{
-                                            if (item === null ){
-                                                return ;
-                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
-                                                return (
-                                                    <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
-                                                </TouchableOpacity>
-                                                </View>
-                                                );
-                                        } else if (v.pic.length >= 5 && v.pic.length <= 9){
-                                            return (
-                                                <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
-                                                </TouchableOpacity>
-                                            </View>
-                                        );
-                                    } else {
-                                        return (
-                                            <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
-                                                </TouchableOpacity>
-                                            </View>
-                                        );
-                                    }
-                                       }}/>
-                                       </View>
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                            <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="heart-outline"
-                                                    size={20}
-                                                    color="black"/>
-                                                    <Text style={{marginLeft:5}}>{v.dianzan}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity onPress={()=>this.goComment(v)}>
-                                            <View style={{flexDirection:'row'}}>
-                                                <Ionicons
-                                                name="chatbubble-ellipses-outline"
-                                                size={20}
-                                                color="black"/>
-                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="arrow-redo-outline"
-                                                    size={20}
-                                                    color="black"/>
-                                                </View>
-                                            </TouchableOpacity>
-                                       </View>
-                                       </View>
-                                    </View>
-                                  ) 
-                            } else {
-                                return (
-                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
-                                        <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
-                                        <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                            <TouchableOpacity
-                                            onPress={() => this.context.navigate('people',v.username)}>
-                                                <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                            </TouchableOpacity>
-                                            <View style={{marginLeft:10}}>
-                                                <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
-                                            </View>
-                                        </View>
-                                      <Text style={styles.txt}
-                                      ellipsizeMode="tail"
-                                      numberOfLines={8}>{v.title}</Text>
-                                      <View style={styles.box}>
-                                      <FlatList
-                                        contentContainerStyle={styles.listViewStyle}
-                                        keyExtractor={(item, index) => (index + '1')}
-                                        data = {v.pic}
-                                       renderItem={({item,index})=>{
-                                         if (item === null ){
-                                            return ;
-                                        }  else if (v.pic.length > 1 && v.pic.length < 5){
-                                            return (
-                                                <View style={styles.box2}>
-                                            <TouchableOpacity
-                                            key = {index}
-                                            onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
-                                            </TouchableOpacity>
-                                            </View>
-                                            );
-                                    } else if (v.pic.length >= 5 && v.pic.length <= 9){
-                                        return (
-                                            <View style={styles.box2}>
-                                            <TouchableOpacity
-                                            key = {index}
-                                            onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
-                                            </TouchableOpacity>
-                                        </View>
-                                        );
-                                    } else {
-                                        return (
-                                            <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
-                                                </TouchableOpacity>
-                                            </View>
-                                        );
-                                    }
-                                       }}/>
-                                       </View>
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                            <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="heart-outline"
-                                                    size={20}
-                                                    color="black"/>
-                                                    <Text style={{marginLeft:5}}>{v.dianzan}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity onPress={()=>this.goComment(v)}>
-                                            <View style={{flexDirection:'row'}}>
-                                                <Ionicons
-                                                name="chatbubble-ellipses-outline"
-                                                size={20}
-                                                color="black"/>
-                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="arrow-redo-outline"
-                                                    size={20}
-                                                    color="black"/>
-                                                </View>
-                                            </TouchableOpacity>
-                                       </View>
-                                       </View>
-                                    </View>
-                                  );
-                            }
-
-                        })
+                        } 
+                       
+                        )
                       }
                     </ScrollView>
                     </View>
