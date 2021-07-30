@@ -14,8 +14,7 @@ import {
   TextInput,
   ScrollView,
   AsyncStorage,
-  TouchableWithoutFeedback,
-  Keyboard,
+ Keyboard,
   RefreshControl,
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
@@ -23,11 +22,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-const DismissKeyboard = ({ children }) => (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      {children}
-    </TouchableWithoutFeedback>
-  );
+
 export default class Comment extends React.Component {
     static contextType = NavigationContext;
     constructor(props){
