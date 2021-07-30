@@ -14,6 +14,7 @@ import {
   RefreshControl,
   DeviceEventEmitter,
   AsyncStorage,
+  Share
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -105,6 +106,26 @@ export default class LunTan extends Component {
             showtf:false,
         });
       }
+  
+onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          '是寻商迹哦',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+};
     render () {
         const {modalVisible,imgUrls,currentIndex,username,showtf} = this.state;
        // const { navigation } = this.props;
@@ -309,12 +330,17 @@ export default class LunTan extends Component {
                                                 <Text style={{marginLeft:5}}>{v.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity
+                                             onPress={() => {
+                                                
+                                                this.onShare();
+                                              }}
+                                            >
                                                 <View style={{flexDirection:'row'}}>
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}
-                                                    color="black"/>
+                                                    color="#000"/>
                                                 </View>
                                             </TouchableOpacity>
                                        </View>
