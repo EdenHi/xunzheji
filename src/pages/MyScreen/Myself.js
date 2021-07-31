@@ -95,6 +95,7 @@ componentWillUnmount(){
         username:this.state.username,
         sex:data.sex,
         backpic:data.backpic,
+        isScroll:false,
     });
   }
 }

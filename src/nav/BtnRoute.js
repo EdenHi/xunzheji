@@ -52,7 +52,7 @@ export default function BtnRoute() {
       />
       <Tab.Screen
         name="我的"
-        component={Myself}
+        component={My}
         options={{
           tabBarIcon: ({color}) => (
             <SimpleLineIcons name={'ghost'} size={24} color={color} />
