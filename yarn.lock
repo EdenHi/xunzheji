@@ -5691,6 +5691,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
+react-native-accurate-step-counter@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.nlark.com/react-native-accurate-step-counter/download/react-native-accurate-step-counter-2.0.1.tgz#9dace7273ffdcb3d6fd5ac109ec3d099cdd2b833"
+  integrity sha1-naznJz/9yz1v1awQnsPQmc3SuDM=
+  dependencies:
+    react-native-shake "^4.0.2"
+
 react-native-action-button@^2.8.5:
   version "2.8.5"
   resolved "https://registry.nlark.com/react-native-action-button/download/react-native-action-button-2.8.5.tgz"
@@ -5907,6 +5914,11 @@ react-native-searchbar@^1.16.0:
   dependencies:
     lodash "^4.16.4"
     react-native-vector-icons "^4.4.2"
+
+react-native-shake@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.nlark.com/react-native-shake/download/react-native-shake-4.0.2.tgz#6ea91049a87709c0917d79d3478f60089dfeb86f"
+  integrity sha1-bqkQSah3CcCRfXnTR49gCJ3+uG8=
 
 react-native-side-menu@^1.1.3:
   version "1.1.3"
