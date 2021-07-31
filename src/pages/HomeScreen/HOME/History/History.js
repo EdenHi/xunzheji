@@ -3,11 +3,7 @@ import { TouchableOpacityBase, View ,TouchableOpacity ,Dimensions,Image,Text, Im
 import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
-
-
 const {width, height} = Dimensions.get("window")
-
-
 export default class History extends Component {
     render() {
         return ( 
@@ -18,12 +14,10 @@ export default class History extends Component {
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>浙商历史推荐</Text>
-            
             </View> 
-            {/* <View style={{width:width*0.9,alignItems:"center"}}> */}
                 <ScrollView>
                 <View style={{width:width,alignItems:"center"}}>
-                <TouchableOpacity activeOpacity={1}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5}}>
                             <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history4.jpeg")}>
                                 <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
@@ -34,7 +28,7 @@ export default class History extends Component {
                             </ImageBackground>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
                             <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history1.jpeg")}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
@@ -43,7 +37,7 @@ export default class History extends Component {
                                 </View></ImageBackground>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
                             <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history2.jpeg")}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
@@ -52,7 +46,7 @@ export default class History extends Component {
                                 </View></ImageBackground>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
                             <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history3.jpeg")}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
@@ -62,7 +56,7 @@ export default class History extends Component {
                         </View>
                     </TouchableOpacity>
                    
-                    <TouchableOpacity activeOpacity={1}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
                             <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history1.jpeg")}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>

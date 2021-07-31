@@ -139,8 +139,9 @@ export default class book extends Component {
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>浙商必知丛书</Text>
 
             </View> 
+            <View>
                 <ScrollView
-                style={{width:width * 0.90,marginLeft:width * 0.05,height:"20%"}}
+                style={{width:width * 0.90,marginLeft:width * 0.05,marginTop:10,marginBottom:20}}
                 horizontal
                 showsHorizontalScrollIndicator={false}>
                     <TouchableOpacity style={{backgroundColor:backgroundColor0,width:width * 0.925 / 4.5,height:width * 0.06,justifyContent:'center',alignItems:'center',borderRadius:5}}
@@ -160,6 +161,7 @@ export default class book extends Component {
                         <Text style={{fontWeight:fontWeight3}}>传记</Text>
                     </TouchableOpacity>
                 </ScrollView>
+                </View>
                 <View style={{height:height - width * 0.11 - 40}}>
                     <ScrollView >
                         <FlatList
