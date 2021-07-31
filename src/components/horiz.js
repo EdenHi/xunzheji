@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Image, Text, Dimensions, StyleSheet, TouchableOpacity, FlatList, RefreshControl, } from 'react-native';
+import { View, ScrollView, Image, Text, Dimensions, StyleSheet, TouchableOpacity, FlatList, RefreshControl, Alert} from 'react-native';
 
 const DATA = [
     {
@@ -103,7 +103,7 @@ export default class Horiz extends Component {
     }
     renderGoods = ({ item }) => {
         return (
-            <TouchableOpacity style={{ borderWidth: 0.5, height: '100%', width: 160, marginLeft: 5, backgroundColor: '$fff', }}>
+            <TouchableOpacity onPress={()=>Alert.alert('click')} style={{ borderWidth: 0.5, height: '100%', width: 160, marginLeft: 5, backgroundColor: '$fff', }}>
                 <Image style={{ width: '100%', height: '80%', marginTop: item.picture }} source={{ uri: item.img }}></Image>
                 <View style={{ height: '80.1%', marginTop: item.top, backgroundColor: this.state[item.id] ? 'rgba(0,0,0,0.7)' : null }}></View>
                 <Text onPress={() => this.move()} style={{ borderWidth: 1, textAlign: 'center', fontSize: 25, fontWeight: 'bold', marginTop: item.name }}>曹武军</Text>
@@ -116,7 +116,7 @@ export default class Horiz extends Component {
     testForceFun(){
 
         this.forceUpdate();
-    
+
       }
     loadData() {
         this.setState({

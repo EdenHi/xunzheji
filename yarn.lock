@@ -5947,7 +5947,7 @@ react-native-tab-view@^2.15.2:
 
 react-native-timeline-listview@^0.2.3:
   version "0.2.3"
-  resolved "https://registry.yarnpkg.com/react-native-timeline-listview/-/react-native-timeline-listview-0.2.3.tgz#e46b7f0fd2c2206329eee6194795e03899afe882"
+  resolved "https://registry.nlark.com/react-native-timeline-listview/download/react-native-timeline-listview-0.2.3.tgz#e46b7f0fd2c2206329eee6194795e03899afe882"
   integrity sha1-5Gt/D9LCIGMp7uYZR5XgOJmv6II=
 
 react-native-typing-animation@^0.1.7:
