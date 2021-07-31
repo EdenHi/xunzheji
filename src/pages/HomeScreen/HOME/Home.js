@@ -58,7 +58,7 @@ export default class Home extends Component {
                                         horizontal={true} showsHorizontalScrollIndicator={false}
                                        
                                         >
-                                            <TouchableOpacity activeOpacity={1}>
+                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 10, marginRight: 10, elevation: 5 }}>
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={require('../photos/zs1.jpeg')}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
@@ -76,20 +76,20 @@ export default class Home extends Component {
                                                 </View>
                                             </TouchableOpacity>
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={require('../photos/travel4.jpeg')}>
-                                                <View style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江·温州</Text></View>
                                                     <View style={{ flex: 1 }}><Text style={{ fontSize: 14, color: '#fff' }}>温州集山、江、海、湖、岛、泉之大成</Text></View>
                                                     <View style={{ flex: 1 }}><Text style={{}} /></View>
-                                                </View>
+                                                </TouchableOpacity>
                                             </ImageBackground>
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={require('../photos/travel4.jpeg')}>
-                                                <View style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江·温州</Text></View>
                                                     <View style={{ flex: 1 }}><Text style={{ fontSize: 14, color: '#fff' }}>温州集山、江、海、湖、岛、泉之大成</Text></View>
                                                     <View style={{ flex: 1 }}><Text style={{}} /></View>
-                                                </View>
+                                                </TouchableOpacity>
                                             </ImageBackground>
                                         </ScrollView>
                                     </View>

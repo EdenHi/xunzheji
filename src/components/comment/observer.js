@@ -16,12 +16,11 @@ export default class Observer extends Component {
     else {
       this.setState({isPressed:false},()=>{})
     }
-
   }
   render() {
+
     return (
       <View>
-
         <TouchableOpacity style={{ borderWidth: 0, width: "60%", height: 50, marginTop: 10 }}>
           <Image style={{ width: 45, height: 45 }} source={{ uri: this.props.headimg }}></Image>
           <Text style={styles.nickname}>{this.props.username}</Text>
@@ -41,7 +40,6 @@ export default class Observer extends Component {
                      name={this.state.isPressed ? "heart" : "hearto"}
                      size={20}
                      color={this.state.isPressed ? "#FF0000" : "#000"} />
-
         </View>
         <Text style={{
           color: "grey",
@@ -56,9 +54,7 @@ export default class Observer extends Component {
           marginLeft: 60,
           fontSize: 15,
         }}>{this.props.comment}</Text>
-
       </View>
-
     );
   }
 }

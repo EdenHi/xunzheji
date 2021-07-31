@@ -35,7 +35,8 @@ import {
   DaoHang,
   Book,
   Zhifu,
-  History
+  History,
+  Zs
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -85,6 +86,7 @@ export default function StackNav() {
       <Stack.Screen name="Book" component={Book} />
       <Stack.Screen name="Zhifu" component={Zhifu} />
       <Stack.Screen name="History" component={History}/>
+      <Stack.Screen name="Zs" component={Zs}/>
     </Stack.Navigator>
   );
 }
