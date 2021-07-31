@@ -36,7 +36,7 @@ import {
   Book,
   Zhifu,
   History,
-  Zs
+  Zs,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
