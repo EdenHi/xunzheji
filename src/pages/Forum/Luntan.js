@@ -21,6 +21,8 @@ const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import LottieView from 'lottie-react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class LunTan extends Component {
     static contextType = NavigationContext;
@@ -222,69 +224,95 @@ onShare = async () => {
                                 } else {
                                     return (
                                         <View>
-                                            <View style={{marginTop:10,marginLeft:width * 0.05,width:width * 0.9}}>
-                                                 <Text style={{fontWeight:'bold'}}>官方推荐</Text>
+                                            <View style={{backgroundColor:"#fff",marginTop:"5%",width:width}}>
+                                                 <Text style={{fontWeight:'bold',marginTop:"2%"}}>官方推荐</Text>
                                                  <ScrollView
                                                  horizontal
                                                  showsHorizontalScrollIndicator={false}
-                                                 style={{marginTop:10}}>
+                                                 style={{marginTop:10,marginBottom:10}}>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
@@ -392,69 +420,96 @@ onShare = async () => {
                             if (v.title === ''){
                                 return (
                                     <View>
-                                    <View style={{marginTop:10,marginLeft:width * 0.05,width:width * 0.9}}>
-                                                 <Text style={{fontWeight:'bold'}}>官方推荐</Text>
+                                    <View style={{backgroundColor:"#fff",marginTop:10,width:width }}>
+                                                 <Text style={{fontWeight:'bold',marginLeft:width*0.05,marginTop:"2%"}}>官方推荐</Text>
                                                  <ScrollView
                                                  horizontal
                                                  showsHorizontalScrollIndicator={false}
-                                                 style={{marginTop:10}}>
+                                                 style={{marginTop:10,marginLeft:width*0.05,marginBottom:10}}>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10,marginRight:"2%"}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            
+                                                                <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
+                                                                
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginRight:"2%"}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
-                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
-                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>

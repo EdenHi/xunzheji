@@ -26,8 +26,6 @@ export default class CustomMade extends React.Component {
               t1:"T恤定制",
               t2:"手机壳定制",
               t3:"帆布袋定制"
-
-              
           },
           {
               title:"非遗大师",
@@ -48,7 +46,6 @@ export default class CustomMade extends React.Component {
         ]
       }
     }
-
     go_papg(index){
       if(index === 0){
         this.props.navigation.navigate('CulturalCreation')
@@ -58,10 +55,7 @@ export default class CustomMade extends React.Component {
       }
     }
     _renderItem({item,index}){
-      
         return (
-   
-
           <View style={{
               backgroundColor:'#fff',
               borderRadius: 10,
@@ -95,8 +89,6 @@ export default class CustomMade extends React.Component {
                     </TouchableOpacity>
                   </View>
           </View>
-      
-
         )
     }
     render() {
@@ -109,7 +101,6 @@ export default class CustomMade extends React.Component {
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>定制</Text>
-
             </View> 
           <SafeAreaView style={{flex: 1, paddingTop: 50, }}>
             <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>
