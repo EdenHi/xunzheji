@@ -48,7 +48,6 @@ export default class AboutComponent {
   }
 
 
-
   /**
    * 配置ParallaxScrollView
    * @param params
@@ -240,12 +239,23 @@ export default class AboutComponent {
    */
   renderView(contentView, params) {
     this.RenderConfig = this.renderParallaxScrollView(params);
+
+        this.isScroll = false;
+
     return (
       <ParallaxScrollView
         headerBackgroundColor="#fff"
         stickyHeaderHeight={STICKY_HEADER_HEIGHT}
         parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
         backgroundSpeed={1}
+        scrollEnabled={this.isScroll}
+        ref={ref => this.scrollRef = ref} 
+        onScroll={(e) =>{
+          if(e.nativeEvent.contentOffset.y <= 200){
+            this.isScroll = true
+          }
+          }}
+        
         {...this.RenderConfig}>
         {contentView}
       </ParallaxScrollView>
