@@ -18,11 +18,11 @@ const App = () => {
   }, []);
 
   return (
-    <SafeAreaView>
+
       <View style={styles.screen}>
         <Text style={styles.step}>{steps}</Text>
       </View>
-    </SafeAreaView>
+
   );
 };
 
