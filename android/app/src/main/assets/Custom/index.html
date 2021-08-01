@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动端相册贴纸拖拽移动拉伸</title>
+</head>
+<style>
+    #box {
+        /* position: relative; */
+        width: 440px;
+        height: 800px;
+        background-color: red;
+    }
+
+    #img, .ioc-main-box {
+        width: 440px;
+        height: 440px;
+    }
+
+    .ioc-main-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 10;
+    }
+
+    .ioc-list {
+        width: 100%;
+    }
+
+    .ioc {
+        cursor: pointer;
+        width: 100px;
+        margin: 0 20px;
+    }
+
+    .set-box {
+        position: absolute;
+        top: 300px;
+        left: 200px;
+    }
+
+    .set-img {
+        user-select: none;
+        width: 100px;
+        top: 0;
+        left: 0;
+    }
+
+    .set-close {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 20px;
+        cursor: pointer;
+    }
+</style>
+<body>
+<div id="box">
+    <img id="img" src="img/img.jpg">
+    <div class="ioc-main-box">
+
+    </div>
+    <div class="ioc-list">
+        <img src="img/t1.png" class="ioc">
+        <img src="img/t2.png" class="ioc">
+        <img src="img/t3.png" class="ioc">
+        <img src="img/t4.png" class="ioc">
+        <img src="img/t5.png" class="ioc">
+        <img src="img/t6.png" class="ioc">
+    </div>
+</div>
+
+<script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="js/touch.min.js"></script>
+<script src="js/myTouchImg.js"></script>
+<script>
+    $(function () {
+        //贴纸功能
+        $('.ioc').click(function () {
+            var html = ['<div class="set-box">',
+                '   <img src="' + $(this).attr('src') + '" class="set-img" draggable="false" ondragstart="return false;">',
+                '   <img src="img/close-icon2.png" class="set-close">',
+                '</div>'].join("");
+
+            $('.ioc-main-box').append(html);
+            myTouchjs($('.set-box').last());
+        });
+
+        //删除贴纸
+        $(document).on('click', '.set-close', function (e) {
+            $(this).parent().remove();
+        });
+
+        //将操作的贴纸置于最上层
+        $(document).on('mousedown touchstart', '.set-box', function (e) {
+            $(this).css({"z-index": '1'});
+            $(this).siblings().css({"z-index": '0'});
+        });
+    })
+</script>
+</body>
+</html>
