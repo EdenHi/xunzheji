@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import {
     Text,View,
-    AppRegistry,StyleSheet
+    AppRegistry,StyleSheet,
+    Dimensions
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 
+var SCREEN_WIDTH=Dimensions.get('window').width;
 
+var SCREEN_HEIGHT=Dimensions.get('window').HEIGHT;
+const INJECTEDJAVASCRIPT = `
+  const meta = document.createElement('meta'); 
+  meta.setAttribute('content', 'initial-scale=5, maximum-scale=0.8, user-scalable=0'); 
+  meta.setAttribute('name', 'viewport'); 
+  document.getElementsByTagName('head')[0].appendChild(meta); 
+`
 export default class Index extends Component {
 
     constructor(props) {
@@ -20,7 +29,18 @@ export default class Index extends Component {
         return (
             <View style={styles.div}>
                 <WebView
-                      style={styles.webView1}
+                style={{
+                    // flex: 1,
+                    // backgroundColor: 'white',
+                    width:SCREEN_WIDTH
+
+                    // marginBottom: 85,
+                }
+                }
+                javaScriptEnabled={true}
+                scalesPageToFit={false}
+                injectedJavaScript={ INJECTEDJAVASCRIPT }
+                    //   style={styles.webView1}
                       source={{uri: 'file:///android_asset/Custom/index.html'}}
                 />
             </View>
@@ -31,12 +51,13 @@ const styles = StyleSheet.create({
 
     div:{
         flex:1,
-
+alignItems:'center',
+justifyContent:"center",
         backgroundColor:"#F5F5F5"
     },
     webView1:{
-        backgroundColor:'#000001',
-        flex:1,
+
+   
         width:'100%',
         height:'100%',
     },
