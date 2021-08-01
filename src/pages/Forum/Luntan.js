@@ -14,7 +14,8 @@ import {
   RefreshControl,
   DeviceEventEmitter,
   AsyncStorage,
-  Share
+  Share,
+  ImageBackground
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -106,6 +107,7 @@ onShare = async () => {
     render () {
         const {modalVisible,imgUrls,currentIndex} = this.state;
        // const { navigation } = this.props;
+       let long = this.state.data.length;
         return (
             <View>
                 <View>
@@ -120,8 +122,344 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
+                            console.log('k',k);
+                            if(k === Math.random() * long + 1){
+                                if (v.title === ''){
+                                    return (
+                                        <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                            <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
+                                                <Text>1232321sifjdisfjdisfj</Text>
+                                                <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                    <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                        <TouchableOpacity
+                                                        onPress={() => this.context.navigate('people',v.username)}
+                                                        >
+                                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                        </TouchableOpacity> 
+                                                        <View style={{marginLeft:10}}>
+                                                            <Text style={styles.name}>{v.nickname}</Text>
+                                                            <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                        </View>
+                                                    </View>
+                                                    {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
+                                                </View>
+                                            <View style={styles.box}>
+                                            <FlatList
+                                                contentContainerStyle={styles.listViewStyle}
+                                                keyExtractor={(item, index) => (index + '1')}
+                                                data = {v.pic}
+                                            renderItem={({item,index})=>{
+                                                if (item === null ){
+                                                    return ;
+                                                }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                                    return (
+                                                        <View style={styles.box2}>
+                                                    <TouchableOpacity
+                                                    key = {index}
+                                                    onPress={()=>this.handleShowAlbum(k,index)}>
+                                                        <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                    </TouchableOpacity>
+                                                    </View>
+                                                    );
+                                            } else if (v.pic.length >= 5 && v.pic.length <= 9){
+                                                return (
+                                                    <View style={styles.box2}>
+                                                    <TouchableOpacity
+                                                    key = {index}
+                                                    onPress={()=>this.handleShowAlbum(k,index)}>
+                                                        <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                    </TouchableOpacity>
+                                                </View>
+                                            );
+                                        } else {
+                                            return (
+                                                <View style={styles.box2}>
+                                                    <TouchableOpacity
+                                                    key = {index}
+                                                    onPress={()=>this.handleShowAlbum(k,index)}>
+                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                    </TouchableOpacity>
+                                                </View>
+                                            );
+                                        }
+                                           }}/>
+                                           </View>
+                                           <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                                <TouchableOpacity>
+                                                    <View style={{flexDirection:'row'}}>
+                                                        <Ionicons
+                                                        name="heart-outline"
+                                                        size={20}
+                                                        color="black"/>
+                                                        <Text style={{marginLeft:5}}>{v.dianzan}</Text>
+                                                    </View>
+                                                </TouchableOpacity>
+                                                <TouchableOpacity onPress={()=>this.goComment(v)}>
+                                                <View style={{flexDirection:'row'}}>
+                                                    <Ionicons
+                                                    name="chatbubble-ellipses-outline"
+                                                    size={20}
+                                                    color="black"/>
+                                                    <Text style={{marginLeft:5}}>{v.counts}</Text>
+                                                    </View>
+                                                </TouchableOpacity>
+                                                <TouchableOpacity
+                                                 onPress={() => {
+                                                    this.onShare();
+                                                  }}
+                                                >
+                                                    <View style={{flexDirection:'row'}}>
+                                                        <Ionicons
+                                                        name="arrow-redo-outline"
+                                                        size={20}
+                                                        color="black"/>
+                                                    </View>
+                                                </TouchableOpacity>
+                                           </View>
+                                           </View>
+                                        </View>
+                                      ) 
+                                } else {
+                                    return (
+                                        <View>
+                                            <View style={{marginTop:10,marginLeft:width * 0.05,width:width * 0.9}}>
+                                                 <Text style={{fontWeight:'bold'}}>官方推荐</Text>
+                                                 <ScrollView
+                                                 horizontal
+                                                 showsHorizontalScrollIndicator={false}
+                                                 style={{marginTop:10}}>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                 </ScrollView>
+                                            </View>
+                                        <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                            <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
+                                            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                    <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                        <TouchableOpacity
+                                                        onPress={() => this.context.navigate('people',v.username)}
+                                                        >
+                                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                        </TouchableOpacity> 
+                                                        <View style={{marginLeft:10}}>
+                                                            <Text style={styles.name}>{v.nickname}</Text>
+                                                            <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                        </View>
+                                                    </View>
+                                                    {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
+                                                </View>
+                                          <Text style={styles.txt}
+                                          ellipsizeMode="tail"
+                                          numberOfLines={8}>{v.title}</Text>
+                                          <View style={styles.box}>
+                                          <FlatList
+                                            contentContainerStyle={styles.listViewStyle}
+                                            keyExtractor={(item, index) => (index + '1')}
+                                            data = {v.pic}
+                                           renderItem={({item,index})=>{
+                                             if (item === null ){
+                                                return ;
+                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                                return (
+                                                    <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                </TouchableOpacity>
+                                                </View>
+                                                );
+                                        } else if (v.pic.length >= 5 && v.pic.length <= 9){
+                                            return (
+                                                <View style={styles.box2}>
+                                                <TouchableOpacity
+                                                key = {index}
+                                                onPress={()=>this.handleShowAlbum(k,index)}>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                </TouchableOpacity>
+                                            </View>
+                                            );
+                                        } else {
+                                            return (
+                                                <View style={styles.box2}>
+                                                    <TouchableOpacity
+                                                    key = {index}
+                                                    onPress={()=>this.handleShowAlbum(k,index)}>
+                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                    </TouchableOpacity>
+                                                </View>
+                                            );
+                                        }
+                                           }}/>
+                                           </View>
+                                           <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                                <TouchableOpacity>
+                                                    <View style={{flexDirection:'row'}}>
+                                                        <Ionicons
+                                                        name="heart-outline"
+                                                        size={20}
+                                                        color="black"/>
+                                                        <Text style={{marginLeft:5}}>{v.dianzan}</Text>
+                                                    </View>
+                                                </TouchableOpacity>
+                                                <TouchableOpacity onPress={()=>this.goComment(v)}>
+                                                <View style={{flexDirection:'row'}}>
+                                                    <Ionicons
+                                                    name="chatbubble-ellipses-outline"
+                                                    size={20}
+                                                    color="black"/>
+                                                    <Text style={{marginLeft:5}}>{v.counts}</Text>
+                                                    </View>
+                                                </TouchableOpacity>
+                                                <TouchableOpacity
+                                                 onPress={() => {
+                                                    
+                                                    this.onShare();
+                                                  }}
+                                                >
+                                                    <View style={{flexDirection:'row'}}>
+                                                        <Ionicons
+                                                        name="arrow-redo-outline"
+                                                        size={20}
+                                                        color="#000"/>
+                                                    </View>
+                                                </TouchableOpacity>
+                                           </View>
+                                           </View>
+                                        </View>
+                                        </View>
+                                      );
+                                }
+                            }else {
                             if (v.title === ''){
                                 return (
+                                    <View>
+                                    <View style={{marginTop:10,marginLeft:width * 0.05,width:width * 0.9}}>
+                                                 <Text style={{fontWeight:'bold'}}>官方推荐</Text>
+                                                 <ScrollView
+                                                 horizontal
+                                                 showsHorizontalScrollIndicator={false}
+                                                 style={{marginTop:10}}>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:300,width:200,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                                <View style={{backgroundColor:'black',borderRadius:50,height:30,width:30,justifyContent:'center',alignItems:'center'}}>
+                                                                    <Text style={{color:'white',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <Text style={{color:'white',marginTop:20,backgroundColor:'#7cc0c0',fontSize:15,padding:5,borderRadius:15}}>参与 ></Text>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                 </ScrollView>
+                                            </View>
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
                                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
@@ -212,6 +550,7 @@ onShare = async () => {
                                             </TouchableOpacity>
                                        </View>
                                        </View>
+                                    </View>
                                     </View>
                                   ) 
                             } else {
@@ -313,7 +652,7 @@ onShare = async () => {
                                     </View>
                                   );
                             }
-                        } 
+                        } }
                        
                         )
                       }
