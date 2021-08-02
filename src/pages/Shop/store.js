@@ -171,10 +171,7 @@ export default class Store extends Component {
               this.setModalVisible(!modalVisible);
             }} style={{width:width,height:"85%"}}></TouchableOpacity>
           </View>
-          
-          
         </Modal>
-       
         <View style={styles.header}>
           <TouchableOpacity onPress={() => navigation.navigate('Page1')} activeOpacity={1} style={styles.left}>
             <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
@@ -182,7 +179,6 @@ export default class Store extends Component {
               size={25}
               color="#fff"
             />
-
           </TouchableOpacity>
           <TouchableOpacity   activeOpacity={1}
             onPress={() => navigation.navigate('search')}
@@ -212,7 +208,6 @@ export default class Store extends Component {
         <ScrollView>
           <View style={{ alignItems: "center", }}>
             <View style={{ width: width*0.95, height: width * 0.42 }}  >
-
             <ShiCha/>
               {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
                 dataSource={images}
@@ -230,7 +225,6 @@ export default class Store extends Component {
               <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5 }}
                 onPress={() => navigation.navigate('CustomMade')}
               >
-
                 <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>

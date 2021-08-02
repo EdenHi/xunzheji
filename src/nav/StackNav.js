@@ -38,7 +38,10 @@ import {
   History,
   Zs,
   CulturalCreation,
-  Classify
+  Classify,
+  Heritage,
+  Concerns,
+  fans
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -92,6 +95,10 @@ export default function StackNav() {
       <Stack.Screen name="CulturalCreation" component={CulturalCreation}/>
       <Stack.Screen name="Road" component={Road}/>
       <Stack.Screen name="Classify" component={Classify}/>
+
+      <Stack.Screen name="Heritage" component={Heritage}/>
+      <Stack.Screen name="Concerns" component={Concerns}/>
+      <Stack.Screen name="fans" component={fans}/>
     </Stack.Navigator>
   );
 }
