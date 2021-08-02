@@ -21,7 +21,7 @@ export default class Home extends Component {
     constructor(props){
         super(props)
         this.state={
-            isMove:false
+
         }
         
     }
@@ -35,7 +35,14 @@ export default class Home extends Component {
                     </View>
                     <View style={{ alignItems: 'center', marginTop: 5 }}>
                         <ScrollView 
-
+                        onScroll={(e)=>{console.log(Math.ceil(e.nativeEvent.contentOffset.y));if (Math.ceil(e.nativeEvent.contentOffset.y)==800) {
+                                this.childList.move()
+                        }else if(Math.ceil(e.nativeEvent.contentOffset.y)==420){
+                            this.childList.stopSlide()
+                        }
+                    }}
+                    
+                        
                         showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginTop: 10, marginBottom: -10 }}>
@@ -123,7 +130,7 @@ export default class Home extends Component {
                                     <View style={{ flexDirection: 'row', alignItems: 'center', margin: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
                                         <View>
-                                            <Text style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>重走鸡毛换糖之路</Text>
+                                            <Text onPress={()=>{this.props.navigation.navigate('Road')}} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>重走鸡毛换糖之路</Text>
                                             <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
                                     </View>
@@ -196,7 +203,10 @@ export default class Home extends Component {
                                     </View>
                                     <View style={{ alignItems: 'center', marginTop: 5 }}>
 <View>
-    <Horiz move={true}/>
+    <Horiz 
+    ref={(view)=>this.childList=view}
+    />
+    
 </View>
                                         <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>

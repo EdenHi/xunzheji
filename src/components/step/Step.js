@@ -19,7 +19,7 @@ const App = () => {
 
   return (
 
-      <View style={styles.screen}>
+      <View>
         <Text style={styles.step}>{steps}</Text>
       </View>
 
@@ -27,15 +27,8 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
   step: {
-    fontSize: 36
+    fontSize: 20
   }
 });
 

@@ -28,17 +28,7 @@ export default class Locked extends Component {
         });
       };
     
-showAlert(){
-Alert.alert(
-    '提示',
-    '确认解锁？',
-    [
-        {text:'确认',onPress:()=>this.setState({isUnlock:false})},
-        {text:'取消',style:'cancel'}
-    ],
-    {cancelable: false}
-)
-}
+
     render() {
         const {showAlert} = this.state;
      if (this.state.isUnlock==false) {
@@ -106,20 +96,23 @@ Alert.alert(
             <AwesomeAlert
           show={showAlert}
           showProgress={false}
-          title="AwesomeAlert"
-          message="I have a message for you!"
+          title="提示"
+          message="你确定要解锁该条路线吗!"
           closeOnTouchOutside={true}
           closeOnHardwareBackPress={false}
           showCancelButton={true}
           showConfirmButton={true}
-          cancelText="No, cancel"
-          confirmText="Yes, delete it"
-          confirmButtonColor="#DD6B55"
+          confirmText="确认"
+          cancelText="取消"
+
+          confirmButtonColor="#93c9c9"
           onCancelPressed={() => {
             this.hideAlert();
+
           }}
           onConfirmPressed={() => {
             this.hideAlert();
+            this.setState({isUnlock:false})
           }}
         />
         </View>
