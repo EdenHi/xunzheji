@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,Dimensions, AsyncStorage, Image,StyleSheet,FlatList, TouchableOpacity} from 'react-native';
+import {View,Text,Dimensions, AsyncStorage, Image,StyleSheet,FlatList, TouchableOpacity,DeviceEventEmitter} from 'react-native';
 import Timeline from 'react-native-timeline-listview'
 import {NavigationContext} from '@react-navigation/native';
 const {height,width} = Dimensions.get('window');
@@ -14,6 +14,7 @@ export default class output extends Component {
             data:[],
             username:'',
             selected: null,
+            jishu:0,
         }
     }
 
@@ -35,8 +36,41 @@ export default class output extends Component {
               })
             })
     }
+    get_shuju2(v){
+      fetch('http://192.168.50.117:3000/index/select_Dongtai2', {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              username: v,
+          })
+          }).then((response) => response.json())
+          .then((responseJson) => {
+            console.log('data',responseJson)
+            this.setState({
+              data:responseJson
+            })
+          })
+  }
 
-    componentDidMount(){
+  select(){
+    if(this.state.jishu === 0){
+      this.setState({
+        jishu : 1
+      })
+      this.get_shuju2(this.state.username)
+    }
+    if(this.state.jishu === 1){
+      this.setState({
+        jishu : 0
+      })
+      this.get_shuju(this.state.username)
+    }
+  }
+
+  componentDidMount(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
                 this.setState({
@@ -47,9 +81,7 @@ export default class output extends Component {
         })
     }
 
-    onEventPress(data){
-        this.setState({selected: data})
-      }
+
 
     go_comment(v){
       this.context.navigate('Comment',v)
@@ -133,11 +165,14 @@ export default class output extends Component {
     render() {
         return (
             <View style={styles.container}>
+              <TouchableOpacity onPress={()=>this.select()}>
+                <Text>排序</Text>
+              </TouchableOpacity>
                 <Timeline 
                 style={styles.list}
                 data={this.state.data}
                 circleSize={20}
-                circleColor='rgba(0,0,0,0)'
+              //   circleColor='rgba(45,156,219)'
                 lineColor='rgb(45,156,219)'
                 timeContainerStyle={{minWidth:52}}
                 timeStyle={{textAlign: 'center', backgroundColor:'#ff9797', color:'white', padding:5, borderRadius:13}}
@@ -146,8 +181,15 @@ export default class output extends Component {
                     style:{paddingTop:5}
                 }}
                 innerCircle={'dot'}
-              //  onEventPress={this.onEventPress.bind(this)}
-                renderDetail={this.renderDetail.bind(this)}
+                ref={ref => this.scrollRef = ref}
+                onScroll={(e) =>{
+                  console.log('e22',e.nativeEvent.contentOffset.y);
+                  if (e.nativeEvent.contentOffset.y === 0 ){
+                    DeviceEventEmitter.emit('scrollview',1);
+                  }
+                  }}
+              // //  onEventPress={this.onEventPress.bind(this)}
+                 renderDetail={this.renderDetail.bind(this)}
                 />
             </View>
         );

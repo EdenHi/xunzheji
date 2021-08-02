@@ -95,11 +95,170 @@ export default class Horiz extends Component {
 
         }
     }
+    slide(e){
+        if (e.nativeEvent.contentOffset.x >= 0 && e.nativeEvent.contentOffset.x <= 60) {
+            // this.scrollRef.scrollToOffset(160)
+            this.setState({ 0: true })
+            this.setState({ 1: false })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 1 })
+            
+            // this.scrollRef.scrollToOffset({ x: 85, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 60 && e.nativeEvent.contentOffset.x <= 220) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: false })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 2 })
+            
+            // this.scrollRef.scrollToIndex({viewPosition: 0.5, index: 2})
+
+            // this.scrollRef.scrollToOffset({ x: 240, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 220 && e.nativeEvent.contentOffset.x <= 390) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: false })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 3 })
+            
+            // this.scrollRef.scrollToOffset({ x: 430, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 390 && e.nativeEvent.contentOffset.x <= 555) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: false })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 4 })
+            
+            // this.scrollRef.scrollToOffset({ x: 600, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 555 && e.nativeEvent.contentOffset.x <= 720) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: false })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 5 })
+            
+            // this.scrollRef.scrollToOffset({ x: 770, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 720 && e.nativeEvent.contentOffset.x <= 885) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: false })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 6 })
+            
+            // this.scrollRef.scrollToOffset({ x: 940, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 885 && e.nativeEvent.contentOffset.x <= 1050) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: false })
+            this.setState({ 8: true })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 7 })
+            
+            // this.scrollRef.scrollToOffset({ x: 1110, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 1050 && e.nativeEvent.contentOffset.x <= 1215) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: false })
+            this.setState({ 9: true })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 8 })
+            
+            // this.scrollRef.scrollToOffset({ x: 1280, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 1215 && e.nativeEvent.contentOffset.x <= 1405) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: false })
+
+            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 9 })
+
+            
+            
+            // this.scrollRef.scrollToOffset({ x: 1450, y: 0, animated: true })
+        } else if (e.nativeEvent.contentOffset.x > 1405 && e.nativeEvent.contentOffset.x <= 1620) {
+            this.setState({ 0: true })
+            this.setState({ 1: true })
+            this.setState({ 2: true })
+            this.setState({ 3: true })
+            this.setState({ 4: true })
+            this.setState({ 5: true })
+            this.setState({ 6: true })
+            this.setState({ 7: true })
+            this.setState({ 8: true })
+            this.setState({ 9: false })
+
+            this.scrollRef.scrollToOffset({offset:10})
+            
+            // this.scrollRef.scrollToOffset({ x: 1620, y: 0, animated: true })
+        }
     
-
-
-    componentDidMount() {
-        this.scrollRef.scrollToOffset({ offset: 10 })
+    }
+    stopSlide(){
+       
+        
+    }
+    move(){
+            this.scrollRef.scrollToOffset({ offset: 10 })
     }
     renderGoods = ({ item }) => {
         return (
@@ -108,30 +267,9 @@ export default class Horiz extends Component {
                 <View style={{ height: '80.1%', marginTop: item.top, backgroundColor: this.state[item.id] ? 'rgba(0,0,0,0.7)' : null }}></View>
                 <Text onPress={() => this.move()} style={{ borderWidth: 1, textAlign: 'center', fontSize: 25, fontWeight: 'bold', marginTop: item.name }}>曹武军</Text>
                 <Text style={{ borderWidth: 1, textAlign: 'center', fontSize: 15, marginTop: item.position, }}>医械汇执行董事</Text>
-                <Text>{this.state.myName}</Text>
             </TouchableOpacity>
         )
 
-    }
-    testForceFun(){
-
-        this.forceUpdate();
-
-      }
-    loadData() {
-        this.setState({
-            isLoding: true,
-        });
-        setTimeout(() => {
-            let arrData = this.DATA;
-            this.setState({
-                isLoding: false,
-                arr: arrData,
-            });
-        }, 2000);
-    }
-    move() {
-        this.scrollRef.scrollToOffset({ offset: 1 })
     }
     render() {
 
@@ -139,166 +277,11 @@ export default class Horiz extends Component {
 
             <View style={{ borderWidth: 1, height: 0.4 * height }}>
                 <FlatList
-
+                    
                     showsHorizontalScrollIndicator={false}
                     
-                    ref={ref => this.scrollRef = ref} onScroll={(e) => {console.log(e.nativeEvent.contentOffset.x);
-
-                        if (e.nativeEvent.contentOffset.x >= 0 && e.nativeEvent.contentOffset.x <= 60) {
-                            // this.scrollRef.scrollToOffset(160)
-                            this.setState({ 0: true })
-                            this.setState({ 1: false })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 1 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 85, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 60 && e.nativeEvent.contentOffset.x <= 220) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: false })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 2 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToIndex({viewPosition: 0.5, index: 2})
-                            // sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 240, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 220 && e.nativeEvent.contentOffset.x <= 390) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: false })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 3 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 430, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 390 && e.nativeEvent.contentOffset.x <= 555) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: false })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 4 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 600, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 555 && e.nativeEvent.contentOffset.x <= 720) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: false })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 5 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 770, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 720 && e.nativeEvent.contentOffset.x <= 885) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: false })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 6 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 940, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 885 && e.nativeEvent.contentOffset.x <= 1050) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: false })
-                            this.setState({ 8: true })
-                            this.setState({ 9: true })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 7 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 1110, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 1050 && e.nativeEvent.contentOffset.x <= 1215) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: false })
-                            this.setState({ 9: true })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 8 })
-                            sleep(1000)
-                            // this.scrollRef.scrollToOffset({ x: 1280, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 1215 && e.nativeEvent.contentOffset.x <= 1405) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: false })
-                            // sleep(1000)
-                            this.scrollRef.scrollToIndex({ viewPosition: 0.5, index: 9 })
-
-                            sleep(1000)
-                            
-                            // this.scrollRef.scrollToOffset({ x: 1450, y: 0, animated: true })
-                        } else if (e.nativeEvent.contentOffset.x > 1405 && e.nativeEvent.contentOffset.x <= 1620) {
-                            this.setState({ 0: true })
-                            this.setState({ 1: true })
-                            this.setState({ 2: true })
-                            this.setState({ 3: true })
-                            this.setState({ 4: true })
-                            this.setState({ 5: true })
-                            this.setState({ 6: true })
-                            this.setState({ 7: true })
-                            this.setState({ 8: true })
-                            this.setState({ 9: false })
-                            // sleep(1000)
-                            this.scrollRef.scrollToOffset({offset:10})
-                            
-                            // this.scrollRef.scrollToOffset({ x: 1620, y: 0, animated: true })
-                        }
+                    ref={ref => this.scrollRef = ref} onScroll={(e) => {
+                        this.slide(e)
                     }}
                     data={DATA}
                     renderItem={this.renderGoods}

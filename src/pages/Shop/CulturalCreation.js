@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView,FlatList, TouchableOpacity} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Paper from './Paper/index'
+import Paper from './paper/index'
 
 export default function CulturalCreation ({navigation}){
   return (

@@ -45,7 +45,7 @@ import {
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
-
+import Road from '../pages/Road/Road';
 import Chats from '../pages/chat/Chats';
 import articel from '../pages/article/comment/article_detail';
 const Stack = createStackNavigator();
@@ -93,6 +93,7 @@ export default function StackNav() {
       <Stack.Screen name="History" component={History}/>
       <Stack.Screen name="Zs" component={Zs}/>
       <Stack.Screen name="CulturalCreation" component={CulturalCreation}/>
+      <Stack.Screen name="Road" component={Road}/>
       <Stack.Screen name="Classify" component={Classify}/>
 
       <Stack.Screen name="Heritage" component={Heritage}/>
