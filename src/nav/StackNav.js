@@ -90,11 +90,8 @@ export default function StackNav() {
       <Stack.Screen name="History" component={History}/>
       <Stack.Screen name="Zs" component={Zs}/>
       <Stack.Screen name="CulturalCreation" component={CulturalCreation}/>
-<<<<<<< .mine
       <Stack.Screen name="Road" component={Road}/>
-=======
       <Stack.Screen name="Classify" component={Classify}/>
->>>>>>> .theirs
     </Stack.Navigator>
   );
 }
