@@ -37,7 +37,8 @@ import {
   Zhifu,
   History,
   Zs,
-  CulturalCreation
+  CulturalCreation,
+  Classify
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -89,6 +90,7 @@ export default function StackNav() {
       <Stack.Screen name="History" component={History}/>
       <Stack.Screen name="Zs" component={Zs}/>
       <Stack.Screen name="CulturalCreation" component={CulturalCreation}/>
+      <Stack.Screen name="Classify" component={Classify}/>
     </Stack.Navigator>
   );
 }
