@@ -5715,6 +5715,13 @@ react-native-animated-carousel@^1.0.3:
   resolved "https://registry.npmjs.org/react-native-animated-carousel/-/react-native-animated-carousel-1.0.3.tgz"
   integrity sha512-XM2fOGrIwyw/w9qOEs5byNGN37QTBy8zgPzHTDsNUYkJaPffhSlvXdW6ZXvZW79bBcu/JQDzf3coPd1bv2tRLQ==
 
+react-native-awesome-alerts@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.nlark.com/react-native-awesome-alerts/download/react-native-awesome-alerts-1.5.2.tgz#eb8e05a8bc22ac304c59f82eab6be19308942c32"
+  integrity sha1-644FqLwirDBMWfguq2vhkwiULDI=
+  dependencies:
+    prop-types "^15.7.2"
+
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npm.taobao.org/react-native-codegen/download/react-native-codegen-0.0.6.tgz"
