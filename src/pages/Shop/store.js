@@ -176,7 +176,7 @@ export default class Store extends Component {
         </Modal>
        
         <View style={styles.header}>
-          <TouchableOpacity activeOpacity={1} style={styles.left}>
+          <TouchableOpacity onPress={() => navigation.navigate('Page1')} activeOpacity={1} style={styles.left}>
             <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
               name="clipboard-text-outline"
               size={25}
@@ -234,7 +234,7 @@ export default class Store extends Component {
                 <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={require("../img/8.jpg")}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Page1')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={require("../img/9.jpg")}></Image>
                 </TouchableOpacity>
                 <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Exchange')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
