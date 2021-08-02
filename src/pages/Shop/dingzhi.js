@@ -48,7 +48,7 @@ export default class dingzhi extends Component {
                                 <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:10,borderRadius:10,padding:5,marginBottom:width * 0.03,width:width * 0.37}}>中国木（竹）雕展“金雕手”</Text>
                                 <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:10,borderRadius:10,padding:5,width:width * 0.37}}>黄山市徽派雕刻博物馆馆长</Text>
                             </View>
-                        <TouchableOpacity style={{backgroundColor:'#fedc61',elevation:5,height:width * 0.06,width:width * 0.15,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
+                        <TouchableOpacity  onPress={() => navigation.navigate('Heritage')} style={{backgroundColor:'#fedc61',elevation:5,height:width * 0.06,width:width * 0.15,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
                             <Text style={{color:'white',fontSize:12}}>查看定制</Text>
                         </TouchableOpacity>
                         </View>
@@ -66,7 +66,7 @@ export default class dingzhi extends Component {
                                     <Text style={{backgroundColor:'#ccc',color:'#666',fontSize:12,borderRadius:10,padding:5,marginLeft:5,marginBottom:width * 0.03}}>一砚一品</Text>
                                 </View>
                             </View>
-                            <TouchableOpacity style={{backgroundColor:'#fedc61',height:width * 0.06,width:width * 0.15,elevation:5,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
+                            <TouchableOpacity  onPress={() => navigation.navigate('Heritage')} style={{backgroundColor:'#fedc61',height:width * 0.06,width:width * 0.15,elevation:5,borderRadius:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.26}}>
                                 <Text style={{color:'white',fontSize:12}}>查看定制</Text>
                             </TouchableOpacity>
                         </View>

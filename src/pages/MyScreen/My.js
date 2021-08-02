@@ -63,6 +63,7 @@ export default class My extends Component {
       this.context.navigate('bianjiziliao',v);
     }
     render() {
+      const { navigation } = this.props;
       const {data,isScroll} = this.state;
       console.log('data',data);
         return (
@@ -148,6 +149,7 @@ export default class My extends Component {
                     }}>
                     <View style={{flexDirection: 'row', width: '30%',backgroundColor:'rgba(0,0,0,0.5)',alignItems:'center',marginTop:'10%',justifyContent:'center',borderTopRightRadius:20,borderBottomRightRadius:20}}>
                       <TouchableOpacity
+                       onPress={() => navigation.navigate('fans')}
                       activeOpacity={1}
                         style={{
                           width: '50%',
@@ -159,6 +161,7 @@ export default class My extends Component {
                         <Text style={{fontSize: 15, color: '#fff'}}>粉丝</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
+                         onPress={() => navigation.navigate('Concerns')}
                       activeOpacity={1}
                         style={{
                           width: '50%',
