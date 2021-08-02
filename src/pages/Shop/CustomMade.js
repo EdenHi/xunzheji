@@ -22,26 +22,40 @@ export default class CustomMade extends React.Component {
           {
               title:"老字号出道",
               text: "文创定制",
-              img:"https://img2.baidu.com/it/u=646080808,1887979129&fm=26&fmt=auto&gp=0.jpg"
+              img:"https://img2.baidu.com/it/u=646080808,1887979129&fm=26&fmt=auto&gp=0.jpg",
+              t1:"T恤定制",
+              t2:"手机壳定制",
+              t3:"帆布袋定制"
           },
           {
               title:"非遗大师",
               text: "手工定制",
-              img:"https://img2.baidu.com/it/u=646080808,1887979129&fm=26&fmt=auto&gp=0.jpg"
+              img:"https://img2.baidu.com/it/u=646080808,1887979129&fm=26&fmt=auto&gp=0.jpg",
+              t1:"皮影定制",
+              t2:"木刻定制",
+              t3:"香包定制"
           },
           {
               title:"投资收藏",
               text: "名家定制",
-              img:"https://img2.baidu.com/it/u=646080808,1887979129&fm=26&fmt=auto&gp=0.jpg"
+              img:"https://img2.baidu.com/it/u=646080808,1887979129&fm=26&fmt=auto&gp=0.jpg",
+              t1:"T恤定制",
+              t2:"手机壳定制",
+              t3:"帆布袋定制"
           },
         ]
       }
     }
+    go_papg(index){
+      if(index === 0){
+        this.props.navigation.navigate('CulturalCreation')
+      }
+      if(index === 1){
+        this.props.navigation.navigate('dingzhi')
+      }
+    }
     _renderItem({item,index}){
-      
         return (
-   
-
           <View style={{
               backgroundColor:'#fff',
               borderRadius: 10,
@@ -62,21 +76,19 @@ export default class CustomMade extends React.Component {
                         <Text style={{fontSize:20,fontWeight:"bold",marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>{item.text}</Text>
                       </View>
                       <View style={{width:"40%",height:"100%",}}>
-                      <Text style={{fontSize:13,marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>T恤定制</Text>
-                      <Text style={{fontSize:13,marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>手机壳定制</Text>
-                      <Text style={{fontSize:13,marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>帆布袋定制</Text>
+                      <Text style={{fontSize:13,marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>{item.t1}</Text>
+                      <Text style={{fontSize:13,marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>{item.t2}</Text>
+                      <Text style={{fontSize:13,marginLeft:"10%",marginTop:"5%",color:"#7cc0c0"}}>{item.t3}</Text>
                       </View>
                     </View>
                     <TouchableOpacity
                     activeOpacity={1}
-                     onPress={() =>this.props.navigation.navigate('dingzhi')}
+                     onPress={() =>this.go_papg(index)}
                      style={{width:"50%",height:"20%",backgroundColor:"#7cc0c0",borderRadius:20,alignItems:"center",justifyContent:"center",elevation:10}}>
                       <Text style={{fontSize:15,color:"#fff"}}>去定制</Text>
                     </TouchableOpacity>
                   </View>
           </View>
-      
-
         )
     }
     render() {
@@ -89,7 +101,6 @@ export default class CustomMade extends React.Component {
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>定制</Text>
-
             </View> 
           <SafeAreaView style={{flex: 1, paddingTop: 50, }}>
             <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center', }}>

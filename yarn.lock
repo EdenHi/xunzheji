@@ -1117,6 +1117,11 @@
   resolved "https://registry.nlark.com/@react-native-community/masked-view/download/@react-native-community/masked-view-0.1.11.tgz?cache=0&sync_timestamp=1619440061429&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40react-native-community%2Fmasked-view%2Fdownload%2F%40react-native-community%2Fmasked-view-0.1.11.tgz"
   integrity sha1-L0xuEL7geGq/9GBOOaN97W85gM4=
 
+"@react-native-community/toolbar-android@^0.1.0-rc.2":
+  version "0.1.0-rc.2"
+  resolved "https://registry.npm.taobao.org/@react-native-community/toolbar-android/download/@react-native-community/toolbar-android-0.1.0-rc.2.tgz#86cae655836afacc52d4063062cc59837d1a8640"
+  integrity sha1-hsrmVYNq+sxS1AYwYsxZg30ahkA=
+
 "@react-native-community/viewpager@^2.0.1":
   version "2.0.2"
   resolved "https://registry.npm.taobao.org/@react-native-community/viewpager/download/@react-native-community/viewpager-2.0.2.tgz"
@@ -5710,6 +5715,13 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.npm.taobao.org/react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz"
   integrity sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
 
+react-native-accurate-step-counter@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.nlark.com/react-native-accurate-step-counter/download/react-native-accurate-step-counter-2.0.1.tgz#9dace7273ffdcb3d6fd5ac109ec3d099cdd2b833"
+  integrity sha1-naznJz/9yz1v1awQnsPQmc3SuDM=
+  dependencies:
+    react-native-shake "^4.0.2"
+
 react-native-action-button@^2.8.5:
   version "2.8.5"
   resolved "https://registry.nlark.com/react-native-action-button/download/react-native-action-button-2.8.5.tgz"
@@ -5721,6 +5733,13 @@ react-native-animated-carousel@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/react-native-animated-carousel/-/react-native-animated-carousel-1.0.3.tgz"
   integrity sha512-XM2fOGrIwyw/w9qOEs5byNGN37QTBy8zgPzHTDsNUYkJaPffhSlvXdW6ZXvZW79bBcu/JQDzf3coPd1bv2tRLQ==
+
+react-native-awesome-alerts@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.nlark.com/react-native-awesome-alerts/download/react-native-awesome-alerts-1.5.2.tgz#eb8e05a8bc22ac304c59f82eab6be19308942c32"
+  integrity sha1-644FqLwirDBMWfguq2vhkwiULDI=
+  dependencies:
+    prop-types "^15.7.2"
 
 react-native-codegen@^0.0.6:
   version "0.0.6"
@@ -5768,6 +5787,14 @@ react-native-flip-card@^3.5.6:
   integrity sha512-lqsjl4vF5DyHD7mjBJpyBoaLKVxalzoKfCosE63QF+TaCF9MKdJrxmGFQj/i64GDiMJqeS/5sNDcICUXtgFsVA==
   dependencies:
     prop-types "^15.5.10"
+
+react-native-floating-action-bar@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.nlark.com/react-native-floating-action-bar/download/react-native-floating-action-bar-1.1.3.tgz#af8491b9d0b37233316c2d9f1540810f71c9a58d"
+  integrity sha1-r4SRudCzcjMxbC2fFUCBD3HJpY0=
+  dependencies:
+    prop-types "^15.7.2"
+    react-native-vector-icons "^6.6.0"
 
 react-native-gesture-handler@^1.10.3:
   version "1.10.3"
@@ -5927,6 +5954,11 @@ react-native-searchbar@^1.16.0:
     lodash "^4.16.4"
     react-native-vector-icons "^4.4.2"
 
+react-native-shake@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.nlark.com/react-native-shake/download/react-native-shake-4.0.2.tgz#6ea91049a87709c0917d79d3478f60089dfeb86f"
+  integrity sha1-bqkQSah3CcCRfXnTR49gCJ3+uG8=
+
 react-native-side-menu@^1.1.3:
   version "1.1.3"
   resolved "https://registry.nlark.com/react-native-side-menu/download/react-native-side-menu-1.1.3.tgz"
@@ -5982,6 +6014,15 @@ react-native-vector-icons@^4.4.2:
     lodash "^4.0.0"
     prop-types "^15.5.10"
     yargs "^8.0.2"
+
+react-native-vector-icons@^6.6.0:
+  version "6.7.0"
+  resolved "https://registry.npm.taobao.org/react-native-vector-icons/download/react-native-vector-icons-6.7.0.tgz#8871ba52ef8e98878ba7a932847f96b6dfc1c137"
+  integrity sha1-iHG6Uu+OmIeLp6kyhH+Wtt/BwTc=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    yargs "^15.0.2"
 
 react-native-vector-icons@^8.1.0:
   version "8.1.0"
@@ -7528,7 +7569,7 @@ yargs-parser@^7.0.0:
   dependencies:
     camelcase "^4.1.0"
 
-yargs@^15.1.0, yargs@^15.3.1, yargs@^15.4.1:
+yargs@^15.0.2, yargs@^15.1.0, yargs@^15.3.1, yargs@^15.4.1:
   version "15.4.1"
   resolved "https://registry.nlark.com/yargs/download/yargs-15.4.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fyargs%2Fdownload%2Fyargs-15.4.1.tgz"
   integrity sha1-DYehbeAa7p2L7Cv7909nhRcw9Pg=
