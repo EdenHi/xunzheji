@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {
   Dimensions,
   Image,
-  ListView,
+  // ListView,
   PixelRatio,
   StyleSheet,
   Text,
@@ -20,6 +20,7 @@ import {
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import Feather from 'react-native-vector-icons/Feather';
 import axios from 'axios';
+import ListView from 'deprecated-react-native-listview'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:

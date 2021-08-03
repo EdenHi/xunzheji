@@ -44,6 +44,7 @@ import {
   fans,
   Exchange2,
   AddressList2,
+  Business
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -103,6 +104,7 @@ export default function StackNav() {
       <Stack.Screen name="Heritage" component={Heritage}/>
       <Stack.Screen name="Concerns" component={Concerns}/>
       <Stack.Screen name="fans" component={fans}/>
+      <Stack.Screen name="Business" component={Business}/>
     </Stack.Navigator>
   );
 }
