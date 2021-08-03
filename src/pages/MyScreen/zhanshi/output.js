@@ -70,6 +70,14 @@ export default class output extends Component {
     }
   }
 
+  select2(){
+    if(this.state.jishu === 0){
+      this.get_shuju2(this.state.username)
+    }
+    if(this.state.jishu === 1){
+      this.get_shuju(this.state.username)
+    }
+  }
   componentDidMount(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
@@ -79,6 +87,11 @@ export default class output extends Component {
                 this.get_shuju(result);
             }
         })
+        this.listener = DeviceEventEmitter.addListener('test',this.select2.bind(this))
+      }
+
+    componentWillUnmount(){
+    this.listener.remove();
     }
 
 
