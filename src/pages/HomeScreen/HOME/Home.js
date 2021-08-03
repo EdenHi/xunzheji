@@ -134,7 +134,7 @@ export default class Home extends Component {
                                             <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
                                         <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
-                                            <AntDesign onPress={() => this.props.navigation.navigate('Book')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
+                                            <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity>
                                     </View>
                                     <TouchableOpacity activeOpacity={1} >

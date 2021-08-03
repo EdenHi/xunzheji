@@ -78,7 +78,7 @@ export default class HuZhou extends Component {
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <View style={{ flexDirection: "row", marginTop: 10, width: width * 0.9, height: 150, borderWidth: 1, justifyContent: "center", alignItems: "center", borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10 }}>
+                        <View style={{ flexDirection: "row", marginBottom:10,marginTop: 10, width: width * 0.9, height: 150, borderWidth: 1, justifyContent: "center", alignItems: "center", borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10 }}>
                             <View style={{ width: width * 0.5 }}>
                                 <View><Text>刘镛（1825－1889）</Text></View>
                                 <View><Text>名介康，字冠军、贯经，浙江湖州府南浔人，祖籍浙江绍兴上虞；实业家、慈善家。</Text></View>
