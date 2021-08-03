@@ -41,6 +41,7 @@ export default class people extends Component {
         username:this.props.route.params,
         data:[],
         denglu_username:'',
+        panduan_guanzhu:'',
     }
   }
 
@@ -54,15 +55,30 @@ export default class people extends Component {
                 });
             });
   }
+
+  //判断是否关注该用户
+  panduan_guanzhu(v){
+    axios.post('http://192.168.50.117:3000/index/panduan_guanzhu',{
+        user_name:this.props.route.params,
+        username:v,
+        }).then((json)=>{
+            console.log('panduan_guanzhu',json.data);
+            this.setState({
+                panduan_guanzhu:json.data,
+            });
+        });
+  }
   componentDidMount(){
     AsyncStorage.getItem('username',(error,result)=>{
         if (!error) {
             this.setState({
                 denglu_username:result,
             });
+            this.panduan_guanzhu(result);
         }
     })
     this.get_shuju();
+    
   }
 
   //点击关注按钮，增加粉丝数量，增加登录用户的关注数
@@ -83,7 +99,60 @@ export default class people extends Component {
             console.log(responseJson);
         })
         this.get_shuju();
+        AsyncStorage.getItem('username',(error,result)=>{
+            if (!error) {
+                this.setState({
+                    denglu_username:result,
+                });
+                this.panduan_guanzhu(result);
+            }
+        })
   }
+
+  //取消关注
+  quxiao_guanzhu(){
+    fetch('http://192.168.50.117:3000/index/delect_guanzhu', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({
+            username:this.state.denglu_username,
+            user_name:this.state.username,
+        })
+    })
+       .then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson);
+        })
+        this.get_shuju();
+        AsyncStorage.getItem('username',(error,result)=>{
+            if (!error) {
+                this.setState({
+                    denglu_username:result,
+                });
+                this.panduan_guanzhu(result);
+            }
+        })
+  }
+
+//判断点击按钮是关注还是取消
+dianji_anniu(){
+    if(this.state.panduan_guanzhu === 1){
+        this.quxiao_guanzhu();
+        this.setState({
+            panduan_guanzhu:0
+        })
+    }
+    if(this.state.panduan_guanzhu === 0){
+        this.guanzhu();
+        this.setState({
+           panduan_guanzhu:1
+        })
+    }
+}
+
 
   render() {
     const { navigation } = this.props;
@@ -118,16 +187,21 @@ export default class people extends Component {
                 <View style={{width:'100%',height:'60%',backgroundColor:'#fff',borderTopLeftRadius:15,borderTopRightRadius:15}}>
                     <View style={{width:'100%',height:'20%',flexDirection:'row-reverse',alignItems:'center'}}>
                         <TouchableOpacity style={{width:'15%',height:'85%',borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,margin:'5%',alignItems:'center',justifyContent:'center'}}>
-                        <Feather style={styles.icon}
-                    name="mail"
-                    size={30}
-                    color="#7cc0c0"
-                />
+                            <Feather style={styles.icon}
+                                    name="mail"
+                                    size={30}
+                                    color="#7cc0c0"
+                                />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width:'35%',height:'78%',backgroundColor:'#7cc0c0',borderRadius:20,alignItems:'center',elevation:5,justifyContent:'center'}}
-                        onPress={()=>this.guanzhu()}>
-                        <Text style={{fontSize:15,color:'#fff'}}>关注</Text>
-                        </TouchableOpacity>
+                        
+                        
+                            
+                            <TouchableOpacity style={{width:'35%',height:'78%',backgroundColor:this.state.panduan_guanzhu === 1 ? 'white':'#7cc0c0',borderRadius:20,alignItems:'center',elevation:5,justifyContent:'center'}}
+                            onPress={()=>this.dianji_anniu()}>
+                            <Text style={{fontSize:15,color:this.state.panduan_guanzhu === 1 ? 'black' : '#fff'}}>{this.state.panduan_guanzhu === 1 ? '已关注' :'关注'}</Text>
+                            </TouchableOpacity>
+                        
+                    
                     </View>
                     <View style={{width:'100%',height:'15%',alignItems:'center',flexDirection:'row'}}>
                         <Text style={{marginLeft:'10%',fontSize:15}}>{data.nickname}</Text>
