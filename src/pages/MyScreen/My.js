@@ -161,7 +161,7 @@ export default class My extends Component {
                         <Text style={{fontSize: 15, color: '#fff'}}>粉丝</Text>
                       </TouchableOpacity>
                       <TouchableOpacity
-                         onPress={() => navigation.navigate('Concerns')}
+                         onPress={() => this.context.navigate('Concerns',this.state.username)}
                       activeOpacity={1}
                         style={{
                           width: '50%',

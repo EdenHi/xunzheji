@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, Dimensions, TouchableOpacity,AsyncStorage,DeviceEventEmitter } from 'react-native';
 import Swiper from 'react-native-swiper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 import EZSwiper from 'react-native-ezswiper';
-
+import { FlatList } from 'react-native';
+import {NavigationContext} from '@react-navigation/native';
 
 
 const { width, height } = Dimensions.get('window');
 
 
 export default class Concerns extends Component {
-
+    static contextType = NavigationContext;
     constructor(props) {
         super(props);
         this.state = {
-            isPressed: false
+            isPressed: false,
+            username:this.props.route.params,
+            data:[],
         }
         this.isPresse = this.isPresse.bind(this)
     }
@@ -28,12 +31,63 @@ export default class Concerns extends Component {
 
     }
 
+    select_shuju(){
+        fetch('http://192.168.50.117:3000/index/select_guanzhu', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username:this.state.username,
+              }),
+        }) .then((response) => response.json())
+            .then((json)=>{
+                this.setState({
+                    data:json
+                })
+            });
+    }
+
+    goBack(){
+        DeviceEventEmitter.emit('test',1)
+        this.props.navigation.goBack();
+    }
+
+    componentDidMount(){
+ 
+        this.select_shuju();
+    }
+  
+  
+
+
+    renderData({item,index}){
+        return (
+        <TouchableOpacity style={{marginBottom:10}} onPress={()=>this.props.navigation.push('people',item.user_name)}>
+        <View style={{ marginLeft:width*0.05,borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5,justifyContent:'space-between'}}>
+            <View style={{flexDirection: "row", alignItems: "center"}}>
+                <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={{uri:item.portrait}} /></View>
+                <View>
+                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" }}>{item.nickname}</Text>
+                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12 }}>{item.signature}</Text>
+                </View>  
+            </View>
+            <TouchableOpacity style={styles.btn1}  >
+                <Text>取消关注</Text>
+            </TouchableOpacity>
+        </View>
+        </TouchableOpacity>
+        )
+    }
+
     render() {
+        console.log('username',this.props.route.params);
         return (
                 <View style={{width:width}}>
                      <LinearGradient colors={['#7cc0bf', '#fff', '#fff']}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", height: height*0.07,width:width, alignItems: "center" }}>
-                        <TouchableOpacity style={{ width: width * 0.2, height: 20 }}>
+                        <TouchableOpacity style={{ width: width * 0.2, height: 20 }} onPress={()=>this.goBack()}>
                             <AntDesign name="left" size={20} />
                         </TouchableOpacity>
                         <View style={{ height: 30, marginTop: 5 }}>
@@ -44,48 +98,11 @@ export default class Concerns extends Component {
                         <TouchableOpacity style={{ width: width * 0.2, height: 20 }}></TouchableOpacity>
                     </View>
                     <View style={{height:height*0.93}}>
-                        <ScrollView>
-                            <View style={{ marginLeft:width*0.05,borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5}}>
-                                <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={require("../HomeScreen/photos/concern1.jpeg")} /></View>
-                                <View>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" }}>哈士奇呀</Text>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12 }}>我是柴犬，你个假粉！</Text>
-                                </View>  
-                                         <TouchableOpacity style={styles.btn1}  >
-                                             <Text>取消关注</Text>
-                                         </TouchableOpacity>
-                            </View>
-                            <View style={{  marginLeft:width*0.05,borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5}}>
-                                <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={require("../HomeScreen/photos/concern1.jpeg")} /></View>
-                                <View>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" }}>哈士奇呀</Text>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" ,fontSize:12 }}>我是柴犬，你个假粉！</Text>
-                                </View>  
-                                         <TouchableOpacity style={styles.btn1}>
-                                         <Text>取消关注</Text>
-                                         </TouchableOpacity>
-                            </View>
-                            <View style={{ marginLeft:width*0.05, borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5}}>
-                                <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={require("../HomeScreen/photos/concern1.jpeg")} /></View>
-                                <View>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" }}>哈士奇呀</Text>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" ,fontSize:12 }}>我是柴犬，你个假粉！</Text>
-                                </View>  
-                                         <TouchableOpacity style={styles.btn1} >
-                                         <Text>取消关注</Text>
-                                         </TouchableOpacity>
-                            </View>
-                            <View style={{ marginLeft:width*0.05, borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5}}>
-                                <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={require("../HomeScreen/photos/concern1.jpeg")} /></View>
-                                <View>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" }}>哈士奇呀</Text>
-                                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12  }}>我是柴犬，你个假粉！</Text>
-                                </View>  
-                                         <TouchableOpacity style={styles.btn1} >
-                                         <Text>取消关注</Text>
-                                         </TouchableOpacity>
-                            </View>
-                        </ScrollView>
+                        <FlatList
+                        data={this.state.data}
+                        keyExtractor={(item, index) => (index + '1')}
+                        renderItem={this.renderData.bind(this)}/>
+
                     </View>
                     </LinearGradient>
                 </View>
@@ -101,7 +118,7 @@ const styles=StyleSheet.create({
         borderRadius: 20, 
         alignItems: "center", 
         justifyContent: "center", 
-        marginLeft: 40
+        marginRight:10
     },
     btn2:{
         backgroundColor: "red", 
