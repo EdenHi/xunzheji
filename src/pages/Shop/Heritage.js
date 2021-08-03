@@ -12,14 +12,15 @@ export default class Heritage extends Component {
         return (
             <View >
                 <LinearGradient colors={['#7cc0c0', '#fff', '#fff']}>
-                                               <View style={{flexDirection:"row",justifyContent:"space-between",width,height:60,position:"absolute",elevation:15}}>
-                                                    <TouchableOpacity>
-                                                       <AntDesign name='leftcircleo' style={{margin:10,position:"relative"}} color="#fff" size={35}/>
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity>
-                                                      <AntDesign name='sharealt' style={{margin:10}} color="#fff" size={35} />
-                                                    </TouchableOpacity>
-                                              </View>
+                <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,width:width*0.9,marginLeft:width*0.05,justifyContent:"space-between"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",}}>浙商历史推荐</Text>
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+            </View> 
                  <View style={{marginTop:-5,alignItems:"center",height:height*0.95}}>
                      <ScrollView>
                          <View style={{alignItems:"center"}}>
@@ -75,13 +76,10 @@ export default class Heritage extends Component {
                                              </View>
                                              </View>
                                      </View>
-                                   
                                  </View>
-                          
                              </View>
-                    
                      </ScrollView>
-                     <View style={{height:50,backgroundColor:"#fff",marginTop:10,flexDirection:"row",width,alignItems:"center"}}>
+                     <View style={{height:50,backgroundColor:"#fff",flexDirection:"row",width,alignItems:"center"}}>
                          <AntDesign name='customerservice' style={{marginLeft:20}} size={40} color='#7cc0c0'/>
                          <View style={{width:width*0.5,height:40,backgroundColor:"#7cc0c0",marginLeft:"20%",justifyContent:"center",alignItems:"center",borderRadius:20}}><Text style={{fontWeight:"bold",fontSize:18,color:"#fff"}}>下单定制</Text></View>
                      </View>

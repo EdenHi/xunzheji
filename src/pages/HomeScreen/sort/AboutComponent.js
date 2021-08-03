@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
     Dimensions,
     Image,
-    ListView,
+
     PixelRatio,
     StyleSheet,
     Text,
@@ -17,6 +17,7 @@ import {
 import LottieView from 'lottie-react-native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import Feather from "react-native-vector-icons/Feather"
+
 
 // const instructions = Platform.select({
 //     ios: 'Press Cmd+R to reload,\n' +
@@ -53,11 +54,9 @@ export default class AboutComponent extends Component{
                     backgroundColor: '#fff',
                     height: PARALLAX_HEADER_HEIGHT
                 }}>
-                    
                 </View>
             </View>
         );
-
         config.renderForeground = () => (
             <View key="parallax-header" style={styles.parallaxHeader}>
                 <ImageBackground style={{ width: width, height: "80%" }} source={{ uri: 'https://sjbz-fd.zol-img.com.cn/t_s320x510c5/g2/M00/05/0C/ChMlWl1BWGKIa5b1AAkDHph43SoAAMQfgALVicACQM2533.jpg' }}>
@@ -78,7 +77,6 @@ export default class AboutComponent extends Component{
                     {/* {params.title} */}
                     榜单详情
                     </Text>
-                   
             </View>
         );
         config.renderFixedHeader = () => (

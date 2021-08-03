@@ -29,6 +29,7 @@
     "react-native-action-button": "^2.8.5",
     "react-native-animated-carousel": "^1.0.3",
     "react-native-awesome-alerts": "^1.5.2",
+    "react-native-collapsible": "^1.6.0",
     "react-native-datepicker": "^1.7.2",
     "react-native-elements": "^3.4.2",
     "react-native-ezswiper": "^1.3.0",

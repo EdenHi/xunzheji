@@ -15,7 +15,7 @@ const INJECTEDJAVASCRIPT = `
   meta.setAttribute('name', 'viewport'); 
   document.getElementsByTagName('head')[0].appendChild(meta); 
 `
-export default class Index extends Component {
+export default class paper extends Component {
 
     constructor(props) {
         super(props)
