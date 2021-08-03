@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet } from "react-native";
+import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
 // import { Nav } from "../../component";//顶部标签看
 import LinearGradient from 'react-native-linear-gradient';
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -47,7 +47,9 @@ export default class zhifu extends Component {
             price: '1200.00',
             dingdan:'待确认',
             goodsname:'康熙茶杯',
-            goods: '【专家鉴定】 质量保真康熙喝的水还在里面。质量非常好，日本人都说好'
+            goods: '【专家鉴定】 质量保真康熙喝的水还在里面。质量非常好，日本人都说好',
+            dizhi:'',
+            username:'',
         }
     }
     static defaultProps = {
@@ -71,8 +73,53 @@ export default class zhifu extends Component {
         this.setState({dingdan:'提交成功'})
     }
 
-    render() {
 
+    //获取地址
+    get_dizhi(){
+        AsyncStorage.getItem('username',(error,result)=>{
+            if (!error) {
+                this.setState({
+                    username:result,
+                });
+                console.log('username',result);
+                fetch('http://192.168.50.117:3000/shop/selectdizhi_2', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username:result,
+                    }),
+                    }) .then((response) => response.json())
+                    .then((responseJson) => {
+                        this.setState({
+                            dizhi:responseJson[0],
+                        });
+                        console.log('dizhi',responseJson);
+                    })
+            } else {
+                console.log('获取数据失败',error);
+            }
+        });
+    }
+    componentDidMount(){
+        this.get_dizhi();
+        this.listener = DeviceEventEmitter.addListener('test',this.update.bind(this))
+    }
+    update(dizhi){
+        console.log('dizhi',dizhi);
+        this.setState({
+            dizhi
+        });
+    }
+    
+    //移除监听
+    componentWillUnmount(){
+        this.listener.remove();
+        }
+    render() {
+        const {dizhi} = this.state
         return (
             <View >
                 {/* <Nav title="等待买家付款" /> */}
@@ -92,15 +139,16 @@ export default class zhifu extends Component {
           <View style={{width:width*0.09,height:width*0.09,}}></View>
                     </View>
 
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
                         <View style={{ marginTop: 20, marginLeft: 20, flexDirection: "row", }}>
-                            <Text style={{ fontSize: 16 }}>{this.state.name}</Text>
-                            <Text style={{ fontSize: 16, marginLeft: 40 }}>{this.state.phone}</Text>
+                            <Text style={{ fontSize: 16 }}>{dizhi.name}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi.phone}</Text>
 
                             {/* <IconFont name="jiantou" size={20} style={{ marginLeft: 130, marginTop: 15 }} /> */}
                         </View>
-                        <View style={{ marginLeft: 20, marginBottom: 10 }}>
-                            <Text style={{ fontSize: 14 }}>{this.state.address}</Text>
+                        <View style={{ marginLeft: 20, marginBottom: 10 ,flexDirection:'row'}}>
+                            <Text style={{ fontSize: 14 }}>{dizhi.dizhi}</Text>
+                            <Text style={{ fontSize: 14,marginLeft:10 }}>{dizhi.xiangxi}</Text>
                         </View>
                     </TouchableOpacity>
 

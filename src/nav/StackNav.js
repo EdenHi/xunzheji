@@ -42,6 +42,8 @@ import {
   Heritage,
   Concerns,
   fans,
+  Exchange2,
+  AddressList2,
   Business
 } from '../pages/index';
 import Ranking from '../Ranking';
@@ -71,6 +73,8 @@ export default function StackNav() {
       <Stack.Screen name="search" component={search} />
       <Stack.Screen name="Chats" component={Chats} />
       <Stack.Screen name="Exchange" component={Exchange} />
+      <Stack.Screen name="Exchange2" component={Exchange2} />
+      <Stack.Screen name="AddressList2" component={AddressList2} />
 
       <Stack.Screen name="articel" component={articel} />
       <Stack.Screen name="Page1" component={Page1} />
