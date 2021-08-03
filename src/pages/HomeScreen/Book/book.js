@@ -121,7 +121,7 @@ export default class book extends Component {
 
     foot(){
         return (
-            <View style={{width,justifyContent:'center',alignItems:'center',marginBottom:20}}>
+            <View style={{width,justifyContent:'center',alignItems:'center',marginBottom:40}}>
                 <Text style={{color:'#666'}}>已显示全部内容</Text>
             </View>
         )
@@ -144,19 +144,19 @@ export default class book extends Component {
                 style={{width:width * 0.90,marginLeft:width * 0.05,marginTop:10,marginBottom:20}}
                 horizontal
                 showsHorizontalScrollIndicator={false}>
-                    <TouchableOpacity style={{backgroundColor:backgroundColor0,width:width * 0.925 / 4.5,height:width * 0.06,justifyContent:'center',alignItems:'center',borderRadius:5}}
+                    <TouchableOpacity style={{backgroundColor:backgroundColor0,width:width * 0.95 / 4.5,height:width * 0.08,justifyContent:'center',alignItems:'center',borderRadius:5}}
                     onPress={()=>this.select_book(0)}>
                         <Text style={{fontWeight:fontWeight0}}>党史</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{marginLeft:30,backgroundColor:backgroundColor1,width:width * 0.925 / 4.5,height:width * 0.06,justifyContent:'center',alignItems:'center',borderRadius:5}}
+                    <TouchableOpacity style={{marginLeft:30,backgroundColor:backgroundColor1,width:width * 0.95 / 4.5,height:width * 0.08,justifyContent:'center',alignItems:'center',borderRadius:5}}
                     onPress={()=>this.select_book(1)}>
                         <Text style={{fontWeight:fontWeight1}}>文学</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{marginLeft:30,backgroundColor:backgroundColor2,width:width * 0.925 / 4.5,height:width * 0.06,justifyContent:'center',alignItems:'center',borderRadius:5}}
+                    <TouchableOpacity style={{marginLeft:30,backgroundColor:backgroundColor2,width:width * 0.95 / 4.5,height:width * 0.08,justifyContent:'center',alignItems:'center',borderRadius:5}}
                     onPress={()=>this.select_book(2)}>
                         <Text style={{fontWeight:fontWeight2}}>经济</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{marginLeft:30,backgroundColor:backgroundColor3,width:width * 0.925 / 4.5,height:width * 0.06,justifyContent:'center',alignItems:'center',borderRadius:5}}
+                    <TouchableOpacity style={{marginLeft:30,backgroundColor:backgroundColor3,width:width * 0.925 / 4.5,height:width * 0.08,justifyContent:'center',alignItems:'center',borderRadius:5}}
                     onPress={()=>this.select_book(3)}>
                         <Text style={{fontWeight:fontWeight3}}>传记</Text>
                     </TouchableOpacity>
