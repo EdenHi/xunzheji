@@ -65,6 +65,7 @@ export default class shhoucang extends Component {
     }
     render() {
         const {data} = this.state;
+        console.log('aaaa',this.props.route.params);
         return (
             <View style={{width:width * 0.9,marginLeft:width * 0.05}}>
                 <ScrollView

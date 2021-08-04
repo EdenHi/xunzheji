@@ -11,7 +11,6 @@ import {NavigationContext} from '@react-navigation/native';
 
 const { width, height } = Dimensions.get('window');
 
-
 export default class fans extends Component {
     static contextType = NavigationContext;
     constructor(props) {
@@ -56,12 +55,14 @@ export default class fans extends Component {
                 console.log('denglu_username',result);
                 this.setState({
                     denglu_username:result,
+                },()=>{
+                    console.log('123');
                 });
                 this.select_shuju();
             }
         })
         this.listener = DeviceEventEmitter.addListener('test2',this.select_shuju.bind(this));
-        
+       
     }
     componentWillUnmount(){
         this.listener.remove();

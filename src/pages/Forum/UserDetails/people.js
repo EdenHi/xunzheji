@@ -270,7 +270,7 @@ dianji_anniu(){
                   </View>}
                 >
 
-               {/* <MyRoute /> */}
+               <MyRoute />
 
           </ParallaxScrollView>
 
