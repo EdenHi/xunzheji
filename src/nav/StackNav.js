@@ -47,7 +47,8 @@ import {
   AddressList2,
   Business,
   LiuYu,
-  HuZhou
+  HuZhou,
+  updateDizhi,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -78,6 +79,7 @@ export default function StackNav() {
       <Stack.Screen name="Exchange" component={Exchange} />
       <Stack.Screen name="Exchange2" component={Exchange2} />
       <Stack.Screen name="AddressList2" component={AddressList2} />
+      <Stack.Screen name="updateDizhi" component={updateDizhi} />
 
       <Stack.Screen name="articel" component={articel} />
       <Stack.Screen name="Page1" component={Page1} />
