@@ -3,73 +3,90 @@ import { View, ScrollView, Image, Text, Dimensions, StyleSheet, TouchableOpacity
 
 const DATA = [
     {
-        top: '-170%',
+        top: '-168%',
         id: 0,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img1.baidu.com/it/u=3447401417,1566003888&fm=26&fmt=auto&gp=0.jpg',
+        names:'丁鸿敏',
+        organize:'湖州商帮代表人物'
     },
     {
-        picture: "43%",
+        picture: "39%",
         position: '0%',
-        name: '-210%',
-        top: '-170%',
+        name: '-205%',
+        top: '-151%',
         id: 1,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img0.baidu.com/it/u=2443355349,1915440844&fm=26&fmt=auto&gp=0.jpg',
+        names:'丁磊',
+        organize:'宁波商帮代表人物'
     },
     {
-        top: '-170%',
+        top: '-168%',
         id: 2,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img2.baidu.com/it/u=2291125540,2725084226&fm=26&fmt=auto&gp=0.jpg',
+        names:'陈建成',
+        organize:'绍兴商帮代表人物'
     },
     {
-        picture: "43%",
+        picture: "38%",
         position: '0%',
-        name: '-210%',
-        top: '-170%',
-
+        name: '-205%',
+        top: '-151%',
         id: 3,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img0.baidu.com/it/u=1312128531,3485265832&fm=26&fmt=auto&gp=0.jpg',
+        names:'余竹云',
+        organize:'龙游商帮代表人物'
+
     },
     {
-        top: '-170%',
+        top: '-168%',
         id: 4,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img0.baidu.com/it/u=3499188640,1709445744&fm=26&fmt=auto&gp=0.jpg',
+        names:'郑秀康',
+        organize:'温州商帮代表人物'
     },
     {
-        picture: "43%",
+        picture: "38%",
         position: '0%',
-        name: '-210%',
-        top: '-170%',
-
+        name: '-205%',
+        top: '-151%',
         id: 5,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img1.baidu.com/it/u=1228248987,2703960874&fm=26&fmt=auto&gp=0.jpg',
+        names:'陈妙林',
+        organize:'萧绍商帮代表人物'
     },
     {
-        top: '-170%',
+        top: '-168%',
         id: 6,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img0.baidu.com/it/u=536739110,4138105748&fm=26&fmt=auto&gp=0.jpg',
+        names:'王莺妹',
+        organize:'台州商帮代表人物'
     },
     {
-        picture: "43%",
+        picture: "38%",
         position: '0%',
-        name: '-210%',
-        top: '-170%',
-
+        name: '-205%',
+        top: '-151%',
         id: 7,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img1.baidu.com/it/u=4138310262,2076958814&fm=26&fmt=auto&gp=0.jpg',
+        names:'周晓光',
+        organize:'义乌商帮代表人物'
     },
     {
-        top: '-170%',
+        top: '-168%',
         id: 8,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img1.baidu.com/it/u=3066538619,1551338250&fm=26&fmt=auto&gp=0.jpg',
+        names:'冯亚丽',
+        organize:'萧绍商帮代表人物'
     },
     {
-        picture: "43%",
+        picture: "38%",
         position: '0%',
-        name: '-210%',
-        top: '-170%',
-
+        name: '-205%',
+        top: '-151%',
         id: 9,
-        img: 'https://himg2.huanqiucdn.cn/attachment2010/2020/0605/12/08/20200605120845560.jpg'
+        img: 'https://img0.baidu.com/it/u=3103019549,4040232266&fm=26&fmt=auto&gp=0.jpg',
+        names:'马云',
+        organize:'萧绍商帮代表人物'
     },
 ];
 const { width, height } = Dimensions.get('window');
@@ -262,20 +279,19 @@ export default class Horiz extends Component {
     }
     renderGoods = ({ item }) => {
         return (
-            <TouchableOpacity onPress={()=>Alert.alert('click')} style={{ borderWidth: 0.5, height: '100%', width: 160, marginLeft: 5, backgroundColor: '$fff', }}>
+            <TouchableOpacity onPress={()=>Alert.alert('click')} style={{ elevation:5, height: '100%', width: 160, marginLeft: 5, backgroundColor: '#7cc0c0', }}>
                 <Image style={{ width: '100%', height: '80%', marginTop: item.picture }} source={{ uri: item.img }}></Image>
-                <View style={{ height: '80.1%', marginTop: item.top, backgroundColor: this.state[item.id] ? 'rgba(0,0,0,0.7)' : null }}></View>
-                <Text onPress={() => this.move()} style={{ borderWidth: 1, textAlign: 'center', fontSize: 25, fontWeight: 'bold', marginTop: item.name }}>曹武军</Text>
-                <Text style={{ borderWidth: 1, textAlign: 'center', fontSize: 15, marginTop: item.position, }}>医械汇执行董事</Text>
+                <View style={{ height: '90%', marginTop: item.top, backgroundColor: this.state[item.id] ? 'rgba(0,0,0,0.7)' : null }}></View>
+                <Text onPress={() => this.move()} style={{color:"#fff", textAlign: 'center', fontSize: 20, fontWeight: 'bold', marginTop: item.name }}>{item.names}</Text>
+                <Text style={{ textAlign: 'center', color:"#fff",fontSize: 15, marginTop: item.position, }}>{item.organize}</Text>
             </TouchableOpacity>
         )
-
     }
     render() {
 
         return (
 
-            <View style={{ borderWidth: 1, height: 0.4 * height }}>
+            <View style={{  height: 0.4 * height }}>
                 <FlatList
                     
                     showsHorizontalScrollIndicator={false}

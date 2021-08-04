@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView,  Easing, Animated, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Card from '../../../components/Card';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -11,6 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Demo from './Demo';
 import EZSwiper from 'react-native-ezswiper';
 import Horiz from '../../../components/horiz';
+import LottieView from 'lottie-react-native';
 
 
 const { width, height } = Dimensions.get('window');
@@ -21,19 +22,33 @@ export default class Home extends Component {
     constructor(props){
         super(props)
         this.state={
+            progress: new Animated.Value(0),
 
         }
         
     }
+    componentDidMount() {
+        Animated.timing(this.state.progress, {
+          toValue: 1,
+          duration: 3500,
+          easing: Easing.linear,
+          
+        }).start();
+      }
     render() {
         return (
-            <View style={{ alignItems: 'center', width }}>
+            <View style={{ alignItems: 'center',  }}>
                 <LinearGradient style={{ width }} colors={['#7cc0bf', '#fff', '#fff']} >
-                    <View style={{ marginTop: 20, marginLeft: 10 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
+                    <View style={{ height:height*0.1,flexDirection:"row",alignItems:"center"}}>
+                    <View style={{marginLeft:"5%"}}>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
                         <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
+                        </View>
+                    
+   
+                       
                     </View>
-                    <View style={{ alignItems: 'center', marginTop: 5 }}>
+                    <View style={{ alignItems: 'center', }}>
                         <ScrollView 
                         onScroll={(e)=>{console.log(Math.ceil(e.nativeEvent.contentOffset.y));if (Math.ceil(e.nativeEvent.contentOffset.y)==800) {
                                 this.childList.move()
@@ -45,7 +60,7 @@ export default class Home extends Component {
                         
                         showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
-                                <View style={{ marginTop: 10, marginBottom: -10 }}>
+                                <View style={{  marginBottom: -10 }}>
                                     <ShiCha />
                                 </View>
                                 <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
@@ -193,8 +208,8 @@ export default class Home extends Component {
                         <Card navigation={this.props.navigation} />
                         <Card navigation={this.props.navigation} />
                     </ScrollView> */}
-                                <View style={{ height: 800, backgroundColor: 'white', borderRadius: 10 }}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
+                                <View style={{ height: 800, backgroundColor: '#fff', borderRadius: 10 }}>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.48 }}>
                                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商人物介绍</Text>
@@ -203,20 +218,20 @@ export default class Home extends Component {
                                         <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={() => this.props.navigation.navigate('Business')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity>
-                                    </View>
-                                    <View style={{ alignItems: 'center', marginTop: 5 }}>
+                                    </TouchableOpacity>
+                                    <View style={{ alignItems: 'center' }}>
 <View>
     <Horiz 
     ref={(view)=>this.childList=view}
     />
     
 </View>
-                                        <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
+                                        {/* <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, fontSize: 10 }}>杭州出台14项政策大力度吸引浙商回归</Text>
 
-                                            {/* <View style={{height:30}}><Demo/></View> */}
-                                        </View>
+    
+                                        </View> */}
 
                                         {/* <View style={{height:180,width:width*0.9,marginTop:10,borderRadius:10}}>
                             <Swiper showsPagination={false} horizontal={false} autoplay autoplayTimeout={5} >
