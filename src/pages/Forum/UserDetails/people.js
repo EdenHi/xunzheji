@@ -71,6 +71,7 @@ export default class people extends Component {
   componentDidMount(){
     AsyncStorage.getItem('username',(error,result)=>{
         if (!error) {
+            console.log('denglu_username',result);
             this.setState({
                 denglu_username:result,
             });
@@ -223,10 +224,11 @@ dianji_anniu(){
                             <Text style={{fontSize:25}}>101</Text>
                             <Text style={{fontSize:15}}>获赞</Text>
                         </View>
-                        <View style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}>
+                        <TouchableOpacity style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}
+                        onPress={()=>{this.props.navigation.push('fans',this.state.username)}}>
                             <Text style={{fontSize:25}}>{data.fensi}</Text>
                             <Text style={{fontSize:15}}>粉丝</Text>
-                        </View>
+                        </TouchableOpacity>
                         <TouchableOpacity style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}
                         onPress={()=>{this.props.navigation.push('Concerns',this.state.username)}}>
                             <Text style={{fontSize:25}}>{data.guanzhu}</Text>
@@ -250,7 +252,7 @@ dianji_anniu(){
                     renderFixedHeader={() =>
                       <View key="fixed-header" style={styles.fixedSection}>
                       <TouchableOpacity activeOpacity={1} style={{height: 40, width:40,alignItems:'center',justifyContent:'center'}} onPress={() => {
-                          this.props.navigation.goBack();
+                         { this.props.navigation.goBack(),DeviceEventEmitter.emit('test2',1)};
                       }}>
                           <Feather style={styles.icon}
                           name="chevron-left"

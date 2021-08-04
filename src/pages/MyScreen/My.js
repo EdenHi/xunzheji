@@ -149,7 +149,7 @@ export default class My extends Component {
                     }}>
                     <View style={{flexDirection: 'row', width: '30%',backgroundColor:'rgba(0,0,0,0.5)',alignItems:'center',marginTop:'10%',justifyContent:'center',borderTopRightRadius:20,borderBottomRightRadius:20}}>
                       <TouchableOpacity
-                       onPress={() => navigation.navigate('fans')}
+                       onPress={()=>{this.props.navigation.push('fans',this.state.username)}}
                       activeOpacity={1}
                         style={{
                           width: '50%',
