@@ -393,13 +393,13 @@ export default class Store extends Component {
               </View>
             </View>
 
-            <View style={{ width: "95%", height: "5%", alignItems: "center" ,marginBottom:-height*0.27,backgroundColor:'#fff',marginTop:10,marginHorizontal:'2.5%',borderTopRightRadius:10,borderTopLeftRadius:10}}>
-              <Text style={{height:20,fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
-              <View style={{ width: "25%", height: "4%", backgroundColor: "#7cc0c0",marginTop:10 }}></View>
+            <View style={{ width: "95%", height: height*0.4, alignItems: "center" ,marginBottom:-height*0.27,backgroundColor:'#fff',marginTop:10,marginHorizontal:'2.5%',borderTopRightRadius:10,borderTopLeftRadius:10}}>
+              <Text style={{height:20,fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop:"2%", fontWeight: "bold"}}>今日推荐</Text>
+              <View style={{ width: "25%", height:"1%", backgroundColor: "#7cc0c0",marginTop:10}}></View>
             </View>
 
           </View>
-          <View style={{marginBottom:200,width:"95%",marginHorizontal:'2.5%',}}>
+          <View style={{width:"95%",marginHorizontal:'2.5%',}}>
             <Water />
           </View>
           
