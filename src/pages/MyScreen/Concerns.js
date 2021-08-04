@@ -4,6 +4,7 @@ import Swiper from 'react-native-swiper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 import EZSwiper from 'react-native-ezswiper';
+import axios from 'axios';
 import { FlatList } from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
 
@@ -16,20 +17,13 @@ export default class Concerns extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isPressed: false,
             username:this.props.route.params,
             data:[],
+            panduan_guanzhu:'',
+            denglu_username:'',
         }
-        this.isPresse = this.isPresse.bind(this)
     }
-    isPresse() {
-        if (this.state.isPressed == false)
-            this.setState({ isPressed: true }, () => { })
-        else {
-            this.setState({ isPressed: false }, () => { })
-        }
 
-    }
 
     select_shuju(){
         fetch('http://192.168.50.117:3000/index/select_guanzhu', {
@@ -43,6 +37,7 @@ export default class Concerns extends Component {
               }),
         }) .then((response) => response.json())
             .then((json)=>{
+                console.log('json',json);
                 this.setState({
                     data:json
                 })
@@ -55,12 +50,22 @@ export default class Concerns extends Component {
     }
 
     componentDidMount(){
- 
-        this.select_shuju();
+        AsyncStorage.getItem('username',(error,result)=>{
+            if (!error) {
+                console.log('denglu_username',result);
+                this.setState({
+                    denglu_username:result,
+                });
+                this.select_shuju();
+            }
+        })
+        this.listener = DeviceEventEmitter.addListener('test2',this.select_shuju.bind(this));
+        
     }
+    componentWillUnmount(){
+        this.listener.remove();
+        }
   
-  
-
 
     renderData({item,index}){
         return (
@@ -73,7 +78,7 @@ export default class Concerns extends Component {
                     <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12 }}>{item.signature}</Text>
                 </View>  
             </View>
-            <TouchableOpacity style={styles.btn1}  >
+            <TouchableOpacity style={styles.btn1} >
                 <Text>取消关注</Text>
             </TouchableOpacity>
         </View>
@@ -83,6 +88,7 @@ export default class Concerns extends Component {
 
     render() {
         console.log('username',this.props.route.params);
+        console.log('denglu_username',this.state.denglu_username);
         return (
                 <View style={{width:width}}>
                      <LinearGradient colors={['#7cc0bf', '#fff', '#fff']}>
