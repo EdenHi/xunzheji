@@ -21,7 +21,7 @@ export default class HuZhou extends Component {
                 <View>
                     <View style={{ width: width * 0.3, height: 20, marginTop: 10, alignItems: "center", justifyContent: "center", borderRadius: 10 }}><Text style={{ fontSize: 15, fontWeight: 'bold' }}>湖州南浔四象</Text></View>
                     <View style={{ width: width * 0.9, height: 120, borderWidth: 1, borderStyle: "dashed", borderRadius: 10, justifyContent: "center", alignItems: "center", borderColor: "#7cc0c0", marginTop: 10 }}><Text style={{ fontSize: 12, width: width * 0.85 }}>南浔四象八牛，即以“四象八牛七十二金狗”为代表的南浔富商，清光绪年间，出现在湖州南浔民间及江浙一带。所谓“四象、八牛、七十二狗”者，皆资本雄厚，或自为丝通事，或有近亲为丝通事者。财产达千万两白银以上者称之曰“象”。五百万两以上不过千万者，称之曰“牛”，其在一百万两白银以上不达五百万者则譬之曰“狗”。下面介绍名声远扬的南浔四象。</Text></View>
-                    <TouchableOpacity onPress={() => this.props.navigate('LiuYu')}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('LiuYu')}>
                         <View style={{ flexDirection: "row", marginTop: 10, width: width * 0.9, height: 150, borderWidth: 1, justifyContent: "center", alignItems: "center", borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10 }}>
                             <View style={{ width: width * 0.5 }}>
                                 <View><Text>刘镛（1825－1889）</Text></View>

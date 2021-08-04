@@ -35,7 +35,7 @@ export default class Business extends Component {
                     <View style={{ flex: 1, width }}>
                         <ScrollableTabView renderTabBar={() => <SegmentTabBar />}>
                             <ScrollView tabLabel='湖州商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='宁波商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
                                 <HuZhou />
