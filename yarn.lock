@@ -6048,10 +6048,10 @@ react-native-waterfall@0.0.8:
   resolved "https://registry.nlark.com/react-native-waterfall/download/react-native-waterfall-0.0.8.tgz"
   integrity sha1-oL9lAquTiLcu3Je4Nk7lxOujR0A=
 
-react-native-webview@^11.6.5:
-  version "11.6.5"
-  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-11.6.5.tgz#34e86a342c6a2cbcf109db98f639f7bb8f055da2"
-  integrity sha512-5U+hI8snkCrFeDy+bUTszwhzcJIenaaOy3ubhY77HZq7R0pFIZzRYWkT0YXe1ymRYW9mSU96nr6S0AVDk8qkMw==
+react-native-webview@^10.9.3:
+  version "10.10.2"
+  resolved "https://registry.nlark.com/react-native-webview/download/react-native-webview-10.10.2.tgz#13208aef17c9ccfd28355363688f4cbe2143f10a"
+  integrity sha1-EyCK7xfJzP0oNVNjaI9MviFD8Qo=
   dependencies:
     escape-string-regexp "2.0.0"
     invariant "2.2.4"
