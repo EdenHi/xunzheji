@@ -1,13 +1,33 @@
 import { fromByteArray } from 'base64-js'
 import React, { Component } from 'react'
-import { View ,TouchableOpacity ,Image ,Dimensions ,Text, ImageBackground,FlatList} from 'react-native'
+import { View ,TouchableOpacity ,Image,Share ,Dimensions ,Text, ImageBackground,FlatList} from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const {width,height} = Dimensions.get("window")
 
 export default class Heritage extends Component {
+    onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              '是寻商迹哦',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+    };
     render() {
         return (
             <View >
@@ -16,9 +36,15 @@ export default class Heritage extends Component {
               <TouchableOpacity activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",}}>浙商历史推荐</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",}}>查看定制</Text>
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+                  {/* <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="share" size={20} color="#000000" /> */}
+                  <Ionicons  onPress={() => {
+                                                    this.onShare();
+                                                  }}
+                                                    name="arrow-redo-outline"
+                                                    size={20}
+                                                    color="#fff"/>
               </TouchableOpacity>
             </View> 
                  <View style={{marginTop:-5,alignItems:"center",height:height*0.95}}>
@@ -79,9 +105,11 @@ export default class Heritage extends Component {
                                  </View>
                              </View>
                      </ScrollView>
-                     <View style={{height:50,backgroundColor:"#fff",flexDirection:"row",width,alignItems:"center"}}>
+                     <View style={{height:height*0.07,backgroundColor:"#fff",marginBottom:"3%",flexDirection:"row",width:width,alignItems:"center",justifyContent:"space-around"}}>
                          <AntDesign name='customerservice' style={{marginLeft:20}} size={40} color='#7cc0c0'/>
-                         <View style={{width:width*0.5,height:40,backgroundColor:"#7cc0c0",marginLeft:"20%",justifyContent:"center",alignItems:"center",borderRadius:20}}><Text style={{fontWeight:"bold",fontSize:18,color:"#fff"}}>下单定制</Text></View>
+                         <View style={{width:width*0.6,height:"70%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:20}}>
+                             <Text style={{fontWeight:"bold",fontSize:18,color:"#fff"}}>下单定制</Text>
+                             </View>
                      </View>
                  </View>
                 </LinearGradient>

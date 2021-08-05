@@ -279,11 +279,11 @@ export default class Horiz extends Component {
     }
     renderGoods = ({ item }) => {
         return (
-            <TouchableOpacity onPress={()=>Alert.alert('click')} style={{ elevation:5, height: '100%', width: 160, marginLeft: 5, backgroundColor: '#7cc0c0', }}>
+            <TouchableOpacity onPress={()=>Alert.alert('click')} style={{ elevation:5, height: '100%', width: 160, marginLeft: 5, backgroundColor: '#fff', }}>
                 <Image style={{ width: '100%', height: '80%', marginTop: item.picture }} source={{ uri: item.img }}></Image>
                 <View style={{ height: '90%', marginTop: item.top, backgroundColor: this.state[item.id] ? 'rgba(0,0,0,0.7)' : null }}></View>
-                <Text onPress={() => this.move()} style={{color:"#fff", textAlign: 'center', fontSize: 20, fontWeight: 'bold', marginTop: item.name }}>{item.names}</Text>
-                <Text style={{ textAlign: 'center', color:"#fff",fontSize: 15, marginTop: item.position, }}>{item.organize}</Text>
+                <Text onPress={() => this.move()} style={{color:"#000", textAlign: 'center', fontSize: 20, fontWeight: 'bold', marginTop: item.name }}>{item.names}</Text>
+                <Text style={{ textAlign: 'center', color:"#000",fontSize: 15, marginTop: item.position, }}>{item.organize}</Text>
             </TouchableOpacity>
         )
     }

@@ -71,8 +71,8 @@ export default class Home extends Component {
                                                 <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商历史推荐</Text>
                                                 <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
                                             </View>
-                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
-                                                <AntDesign  style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
+                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
+                                                <LottieView source={require('../../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
                                             </TouchableOpacity>
                                         </TouchableOpacity>
                                         <ScrollView 
@@ -125,9 +125,12 @@ export default class Home extends Component {
                                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商必知丛书</Text>
                                             <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                         </View>
-                                        <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
+                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={() => this.props.navigation.navigate('Book')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
-                                        </TouchableOpacity>
+                                        </TouchableOpacity> */}
+                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '31%', color: '#7cc0bf' }}>
+                                                <LottieView source={require('../../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                            </TouchableOpacity>
                                     </TouchableOpacity>
                                     <View style={{ flexDirection: 'row', elevation: 5 }}>
                                         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -148,9 +151,12 @@ export default class Home extends Component {
                                             <Text onPress={()=>{this.props.navigation.navigate('Road')}} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>重走鸡毛换糖之路</Text>
                                             <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
-                                        <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
+                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
-                                        </TouchableOpacity>
+                                        </TouchableOpacity> */}
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Road')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '25%', color: '#7cc0bf' }}>
+                                                <LottieView source={require('../../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                            </TouchableOpacity>
                                     </View>
                                     <TouchableOpacity activeOpacity={1} >
                                         <View style={{ height: 200, backgroundColor: '#fff', justifyContent: 'center', margin: 10, marginTop: -5, borderRadius: 10, padding: 10, elevation: 5 }}>
@@ -215,9 +221,12 @@ export default class Home extends Component {
                                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商人物介绍</Text>
                                             <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>INTRODUCTION TO ZHEJIANG BUSINESSMEN</Text>
                                         </View>
-                                        <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
+                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={() => this.props.navigation.navigate('Business')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
-                                        </TouchableOpacity>
+                                        </TouchableOpacity> */}
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
+                                                <LottieView source={require('../../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                            </TouchableOpacity>
                                     </TouchableOpacity>
                                     <View style={{ alignItems: 'center' }}>
 <View>

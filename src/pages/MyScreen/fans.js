@@ -7,6 +7,7 @@ import EZSwiper from 'react-native-ezswiper';
 import axios from 'axios';
 import { FlatList } from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
+import { color } from 'react-native-elements/dist/helpers';
 
 
 const { width, height } = Dimensions.get('window');
@@ -72,7 +73,7 @@ export default class fans extends Component {
 
     renderData({item,index}){
         return (
-        <TouchableOpacity style={{marginBottom:10}} onPress={()=>this.props.navigation.push('people',item.username)}>
+        <TouchableOpacity activeOpacity={1} style={{marginBottom:2}} onPress={()=>this.props.navigation.push('people',item.username)}>
         <View style={{ marginLeft:width*0.05,borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5,justifyContent:'space-between'}}>
             <View style={{flexDirection: "row", alignItems: "center"}}>
                 <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={{uri:item.portrait}} /></View>
@@ -81,8 +82,8 @@ export default class fans extends Component {
                     <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12 }}>{item.signature}</Text>
                 </View>  
             </View>
-            <TouchableOpacity style={styles.btn1}  >
-                <Text>取消关注</Text>
+            <TouchableOpacity activeOpacity={1} style={styles.btn1}  >
+                <Text style={{fontSize:12}}>相互关注</Text>
             </TouchableOpacity>
         </View>
         </TouchableOpacity>
@@ -95,12 +96,12 @@ export default class fans extends Component {
         return (
                 <View style={{width:width}}>
                      <LinearGradient colors={['#7cc0bf', '#fff', '#fff']}>
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", height: height*0.07,width:width, alignItems: "center" }}>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", height: height*0.07,width:width*0.9,marginLeft:width*0.05, alignItems: "center" }}>
                         <TouchableOpacity style={{ width: width * 0.2, height: 20 }} onPress={()=>this.goBack()}>
-                            <AntDesign name="left" size={20} />
+                            <AntDesign name="left" size={20} color="#fff" />
                         </TouchableOpacity>
                         <View style={{ height: 30, marginTop: 5 }}>
-                            <Text style={{ fontSize: 15 }}>
+                            <Text style={{ fontSize: 15, color:"#fff",fontWeight:"bold"}}>
                                 我的粉丝
                             </Text>
                         </View>
@@ -121,13 +122,14 @@ export default class fans extends Component {
 }
 const styles=StyleSheet.create({
     btn1:{
-        backgroundColor: "#808080", 
+        backgroundColor: "#7cc0c0", 
         width: width * 0.18, 
         height: width * 0.08, 
         borderRadius: 20, 
         alignItems: "center", 
         justifyContent: "center", 
-        marginRight:10
+        marginRight:10,
+        elevation:5
     },
     btn2:{
         backgroundColor: "red", 
