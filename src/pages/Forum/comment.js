@@ -39,7 +39,8 @@ export default class Comment extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            data:this.props.route.params,
+            title_id:this.props.route.params.title_id,
+            data:[],
             modalVisible:false,
             //放大显示的图片索引
             currentIndex:0,
@@ -51,6 +52,7 @@ export default class Comment extends React.Component {
             username:'',
             isLoding:false,
             isVisible:false,
+            counts:this.props.route.params.counts,
         };
     }
     //底部弹窗
@@ -80,6 +82,28 @@ export default class Comment extends React.Component {
         this.go_luntan();
       }
 
+      //获取某一个数据
+      get_One(){
+        fetch('http://192.168.50.117:3000/dongtai/OneDongtai', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                title_id:this.state.title_id
+            })
+        })
+           .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    data:responseJson[0],
+                });
+            }) .catch((error) => {
+                console.error('error',error);
+              });
+      }
+
 
     //点击图片方法事件
     handleShowAlbum = (index)=>{
@@ -101,6 +125,7 @@ export default class Comment extends React.Component {
             isLoding : false,
         });
         this.go_select();
+        this.get_One();
     }, 1000);
     }
 
@@ -135,8 +160,9 @@ export default class Comment extends React.Component {
                 username:this.state.username,
                 date_zhu:currentdate,
                 }),
-        });
+        })
         this.go_select();
+        this.get_One();
     }
 
     //渲染图片
@@ -179,13 +205,14 @@ export default class Comment extends React.Component {
     }
 }
 
+    //获取评论信息
     go_select(){
         fetch('http://192.168.50.117:3000/dongtai/comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-               title_id: this.state.data.title_id,
+               title_id: this.state.title_id,
             },
         })
            .then((response) => response.json())
@@ -208,6 +235,7 @@ export default class Comment extends React.Component {
     //获取评论信息
     componentDidMount(){
         this.go_select();
+        this.get_One();
     }
 
     goComment=(v)=>{
