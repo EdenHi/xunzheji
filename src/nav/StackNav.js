@@ -50,7 +50,8 @@ import {
   HuZhou,
   updateDizhi,
   OldBankTimer,
-  MinJia
+  MinJia,
+  Jiang
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -116,6 +117,7 @@ export default function StackNav() {
       <Stack.Screen name="HuZhou" component={HuZhou}/>
       <Stack.Screen name="OldBankTimer" component={OldBankTimer}/>
       <Stack.Screen name="MinJia" component={MinJia}/>
+      <Stack.Screen name="Jiang" component={Jiang}/>
     </Stack.Navigator>
   );
 }
