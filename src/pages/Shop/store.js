@@ -240,7 +240,7 @@ export default class Store extends Component {
               <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>上新好物</Text>
-                <TouchableOpacity  activeOpacity={1}
+                {/* <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('NewWorks')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
                   <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
@@ -248,7 +248,10 @@ export default class Store extends Component {
                     size={20}
                     color="#7cc0c0"
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '64%', color: '#7cc0bf' }}>
+                                                <LottieView source={require('../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                            </TouchableOpacity>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }}  activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
@@ -359,7 +362,7 @@ export default class Store extends Component {
               <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
                 <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>浙江老字号</Text>
-                <TouchableOpacity  activeOpacity={1}
+                {/* <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('OldBankTimer')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "60%" }}>
                   <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
@@ -367,7 +370,10 @@ export default class Store extends Component {
                     size={20}
                     color="#7cc0c0"
                   />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '60%', color: '#7cc0bf' }}>
+                                                <LottieView source={require('../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                            </TouchableOpacity>
               </TouchableOpacity>
               <View style={styles.oldname}>
                 <Carousel
