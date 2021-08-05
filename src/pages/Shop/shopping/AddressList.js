@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
+import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl, Touchable } from 'react-native';
 const {width,height} = Dimensions.get('window');
 import { SwipeRow } from 'react-native-swipe-list-view';
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -137,7 +137,7 @@ export default class AddressList extends Component {
                                     onPress={()=>this.handleShowAlbum(k)}>
                                         <Text allowFontScaling={false} style={{color:'white'}}>删除</Text>
                                     </TouchableOpacity>
-                                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fff'}}>
+                                    <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'#fff'}}>
                                         <View>
                                             <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:15,width:width * 0.2,fontWeight:'bold',marginLeft:"5%"}}>{v.name}</Text><Text>{v.phone}</Text></View>
                                             <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10,marginLeft:"5%"}}>{v.dizhi}</Text><Text style={{marginRight:10,marginLeft:"5%"}}>{v.xiangxi}</Text></View>
@@ -154,7 +154,12 @@ export default class AddressList extends Component {
                                                 <Text style={{marginLeft:10}}>默认地址</Text>
                                             </View>
                                         </View>
-                                        <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
+                                        <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('updateDizhi',v)}>
+                                            <AntDesign
+                                            name='form'
+                                            size={25}
+                                            style={{marginRight:20}}/>
+                                        </TouchableOpacity>
                                     </View>
                                     </SwipeRow>
                                     
@@ -172,7 +177,7 @@ export default class AddressList extends Component {
 }
 const styles = StyleSheet.create({
     outView: {
-    //   marginBottom:10,
+      marginBottom:10,
     },
     rowBack: {
       alignItems: 'center',
