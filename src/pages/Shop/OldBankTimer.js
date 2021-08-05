@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, ScrollView,FlatList, TouchableOpacity} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Paper from './paper/paper'
+import Timer from './Timer/Timer'
 
-export default function CulturalCreation ({navigation}){
+export default function OldBankTimer ({navigation}){
   return (
     <View style={styles.container}>
       <View style={{
@@ -16,7 +16,7 @@ export default function CulturalCreation ({navigation}){
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => navigation.goBack()}
-            style={{
+            style={{ 
               width: 50,
               position: "absolute",
               height: "100%",
@@ -31,11 +31,11 @@ export default function CulturalCreation ({navigation}){
               fontSize: 18,
               textAlign: 'center',
               textAlignVertical: 'center',
-            }}>文创定制  </Text>
+            }}>浙江老字号  </Text>
           </View>
         </View>
       <View style={{width:"100%",height:"100%"}}>
-     <Paper></Paper>
+   <Timer></Timer>
       </View>
     </View>
 

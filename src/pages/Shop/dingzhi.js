@@ -5,7 +5,9 @@ import React, {Component} from 'react';
 import {View,Text, TouchableOpacity,Image,Dimensions, ScrollView,StyleSheet } from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
+import Swiper from 'react-native-swiper';
 const {height,width} = Dimensions.get('window');
+
 export default class dingzhi extends Component {
     render() {
         const { navigation } = this.props;
@@ -20,14 +22,20 @@ export default class dingzhi extends Component {
 
             </View> 
                 <View style={{width:width * 0.9,marginLeft:width * 0.05}}>
-                <View style={{flexDirection:'row',marginTop:10,height:width * 0.2,justifyContent:'space-around'}}>
+                <View style={{marginTop:10,height:width * 0.2,justifyContent:'space-around'}}>
                         <View style={{justifyContent:'space-around'}}>
                             <Text style={{fontSize:15}}>已收录31省市475名非遗大师、手艺人</Text>
-                            <TouchableOpacity style={{flexDirection:'row',borderWidth:1,borderRadius:25,borderColor:'#fff',alignItems:'center',width:width*0.6}}>
-                                <Image source={{uri:'https://img0.baidu.com/it/u=209027227,4293619616&fm=26&fmt=auto&gp=0.jpg'}} style={{height:20,width:20,borderRadius:8,marginLeft:width * 0.04,marginTop:3,marginBottom:3,marginRight:width * 0.01}}/>
-                                <Text style={{fontSize:12,color:'#fff'}}>瓷器非遗传承人晨扬龙入住</Text>
-                            </TouchableOpacity>
-                        </View>
+                               </View>
+                            {/* <TouchableOpacity style={{borderWidth:1,borderRadius:25,borderColor:'#fff',alignItems:'center',width:width*0.6}}> */}
+                                {/* <Image source={{uri:'https://img0.baidu.com/it/u=209027227,4293619616&fm=26&fmt=auto&gp=0.jpg'}} style={{height:20,width:20,borderRadius:8,marginLeft:width * 0.04,marginTop:3,marginBottom:3,marginRight:width * 0.01}}/>
+                                <Text style={{fontSize:12,color:'#fff'}}>瓷器非遗传承人晨扬龙入住</Text> */}
+                                  <Swiper   showsPagination={false} horizontal={false} autoplay autoplayTimeout={1} >
+                                        <View style={{flex:1,height:25,}}><Text style={{fontSize: 12, color: '#fff' }}>瓷器非遗传承人 宋雅婷入住</Text></View>
+                                        <View style={{flex:1,height:25,}}><Text style={{fontSize: 12, color: '#fff' }}>瓷器非遗传承人 宋雅婷入住</Text></View>
+                                        <View style={{flex:1,height:25,}}><Text style={{fontSize: 12, color: '#fff' }}>瓷器非遗传承人 宋雅婷入住</Text></View>
+                                    </Swiper>
+                            {/* </TouchableOpacity> */}
+                    
                         <TouchableOpacity style={{backgroundColor:'#fedc61',height:width *0.06,width:width*0.15,borderRadius:5,elevation:5,justifyContent:'center',alignItems:'center',marginTop:width * 0.03}}>
                             <Text style={{color:'white',fontSize:12}}>查看全部 </Text>
                         </TouchableOpacity>

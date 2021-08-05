@@ -53,6 +53,9 @@ export default class CustomMade extends React.Component {
       if(index === 1){
         this.props.navigation.navigate('dingzhi')
       }
+      if(index === 2){
+        this.props.navigation.navigate('MinJia')
+      }
     }
     _renderItem({item,index}){
         return (

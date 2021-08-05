@@ -5741,6 +5741,11 @@ react-native-awesome-alerts@^1.5.2:
   dependencies:
     prop-types "^15.7.2"
 
+react-native-baidu-asr@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.nlark.com/react-native-baidu-asr/download/react-native-baidu-asr-1.3.0.tgz#974e4cfee31587bf2ec631e56af7cdc517b3d525"
+  integrity sha1-l05M/uMVh78uxjHlavfNxRez1SU=
+
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npm.taobao.org/react-native-codegen/download/react-native-codegen-0.0.6.tgz"
