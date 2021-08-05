@@ -1,6 +1,6 @@
 import { fromByteArray } from 'base64-js'
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Image, Dimensions, Text, ImageBackground, FlatList } from 'react-native'
+import { View, TouchableOpacity, Image,Share,Dimensions, Text, ImageBackground, FlatList } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
@@ -37,8 +37,11 @@ export default class Heritage extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>浙商历史推荐</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>查看定制</Text>
+                        <TouchableOpacity  onPress={() => {
+                                                    
+                                                    this.onShare();
+                                                  }} activeOpacity={1} style={{}}>
                             <AntDesign  style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }}  name="sharealt" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>
@@ -50,7 +53,7 @@ export default class Heritage extends Component {
                                     </ImageBackground>
                                 </View>
                                 <View style={{ backgroundColor: "#fff", marginTop: 15, marginBottom: 10, elevation: 10, borderRadius: 10 }} >
-                                    <View style={{ flexDirection: "row", borderRadius: 5, backgroundColor: "#fff", alignItems: "center", height: 120, width: width * 0.95 }}>
+                                    <View style={{ flexDirection: "row", borderRadius: 10, backgroundColor: "#fff", alignItems: "center", height: 110, width: width * 0.95 }}>
                                         <Image style={{ width: width * 0.25, marginLeft: 10, height: width * 0.25, borderRadius: 5 }} source={{uri:"https://img2.baidu.com/it/u=360064306,3967606391&fm=15&fmt=auto&gp=0.jpg"}} />
                                         <View style={{ marginLeft: 10 }}>
                                             <View><Text style={{ fontSize: 15 }}>陆小华</Text></View>
@@ -61,12 +64,12 @@ export default class Heritage extends Component {
                                             </View>
                                         </View>
                                     </View>
-                                    <View style={{ width: width * 0.95, height: 120, backgroundColor: "#fff", borderRadius: 5, justifyContent: "center" }}>
+                                    <View style={{ width: width * 0.95, height: 120, backgroundColor: "#fff",  justifyContent: "center" }}>
                                         <Text style={{ marginLeft: 15 }}>我国非物质文化遗产研究领域的领军人物，民俗学博士，中国艺术研究院研究员、博士生导师。原国际亚细亚民俗学会副会长，中国分会会长，中国民间文艺家协会副主席、中国农业历史学会副理事长、中国人类学民族学学会民族遗产专业委员会主任。</Text>
                                     </View>
                                 </View>
                                 <View style={{ width: width * 0.95, height:40 }}><Text style={{ fontSize: 15, fontWeight: "bold", margin: 10, }}>可定制项目</Text></View>
-                                <View style={{ marginTop: 10}}>
+                                <View style={{}}>
                                     <Heritages/>
                                     {/* <View style={{ alignItems: "center" }}>
                                         <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
@@ -101,9 +104,11 @@ export default class Heritage extends Component {
                                 </View>
                             </View>
                         </ScrollView>
-                        <View style={{ height: 50, backgroundColor: "#fff", flexDirection: "row", width, alignItems: "center" }}>
-                            <AntDesign name='customerservice' style={{ marginLeft: 20 }} size={40} color='#7cc0c0' />
-                            <View style={{ width: width * 0.5, height: 40, backgroundColor: "#7cc0c0", marginLeft: "20%", justifyContent: "center", alignItems: "center", borderRadius: 20 }}><Text style={{ fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text></View>
+                        <View style={{ height: height*0.07, backgroundColor: "#fff", flexDirection: "row", width:width, alignItems: "center",justifyContent:"space-around" }}>
+                            <AntDesign name='customerservice' style={{  }} size={30} color='#7cc0c0' />
+                            <TouchableOpacity activeOpacity={1} style={{ width: width * 0.6, height: height*0.04,marginBottom:10, backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
+                                <Text style={{ fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
+                                </TouchableOpacity>
                         </View>
                     </View>
                 </LinearGradient>
