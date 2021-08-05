@@ -236,7 +236,14 @@ export default class Comment extends React.Component {
     componentDidMount(){
         this.go_select();
         this.get_One();
+        this.listener = DeviceEventEmitter.addListener('update',this.go_select.bind(this))
     }
+
+    //移除监听
+  componentWillUnmount(){
+    this.listener.remove();
+    }
+
 
     goComment=(v)=>{
         this.context.navigate('Comment_huifu',v);
