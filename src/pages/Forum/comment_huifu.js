@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,TouchableOpacity,Image ,StyleSheet, TextInput,AsyncStorage, ScrollView,Dimensions,TouchableWithoutFeedback,
+import {View,Text,TouchableOpacity,Image ,StyleSheet, TextInput,AsyncStorage, ScrollView,Dimensions,TouchableWithoutFeedback,DeviceEventEmitter,
     Keyboard,RefreshControl,} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LinearGradient from 'react-native-linear-gradient'
@@ -17,13 +17,35 @@ export default class comment_huifu extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data : this.props.route.params,
+            data : [],
             huifu:[],
             content_huifu:'',
             username:'',
             isLoding:false,
         };
     }
+
+    get_comment(){
+        fetch('http://192.168.50.117:3000/dongtai/One_comment', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                id: this.props.route.params.id,
+            })
+        })
+           .then((response) => response.json())
+            .then((responseJson) => {
+                this.setState({
+                    data:responseJson[0],
+                });
+            })
+    }
+
+
+
     go_select(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
@@ -37,8 +59,10 @@ export default class comment_huifu extends Component {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
-               id: this.state.data.id,
             },
+            body:JSON.stringify({
+                id: this.state.data.id,
+            })
         })
            .then((response) => response.json())
             .then((responseJson) => {
@@ -53,6 +77,7 @@ export default class comment_huifu extends Component {
     //获取回复的数据
     componentDidMount(){
        this.go_select();
+       this.get_comment();
     }
 
     loding(){
@@ -100,6 +125,7 @@ export default class comment_huifu extends Component {
               }),
         });
         this.go_select();
+        this.get_comment();
     }
     render() {
         const {data,huifu} = this.state;
@@ -111,7 +137,7 @@ export default class comment_huifu extends Component {
  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity
                activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+                  <AntDesign onPress={()=>{this.props.navigation.goBack(),DeviceEventEmitter.emit('update',1)}} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>共{data.counts}条评论</Text>
             </View> 

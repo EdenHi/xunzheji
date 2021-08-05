@@ -78,13 +78,13 @@ export default class Page1 extends Component {
                     <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%", borderBottomWidth: 1 }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }} onPress={() => { this.props.navigation.replace('Page2') }} >桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }} onPress={() => { this.props.navigation.replace('Page2') }} ></Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
                     <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}></Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
                     <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
