@@ -11,6 +11,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LottieView from 'lottie-react-native';
+
 export default class Fabu extends Component {
     constructor(props){
         super(props);
@@ -21,6 +22,7 @@ export default class Fabu extends Component {
             username:'',
             progress: new Animated.Value(0),
             modalVisible: false,
+
         };
     }
 
@@ -47,6 +49,8 @@ export default class Fabu extends Component {
             );
 		}
     }
+
+    
 
     _fetchImage(image) {
         let url = 'http://192.168.50.117:3000/dongtai/releaseDongtai';
@@ -137,12 +141,16 @@ export default class Fabu extends Component {
             maxFiles: 9,
         }).then(image => {
             console.log('imag',image);
-                this.setState({
-                    arr:image,
-                });
-            //     const {arr} = this.state;
-            //    arr.push(image);
-            //     this.setState({arr})
+
+               // this.state.arr.push(image)
+                // this.setState({
+                //     arr:image,
+                // });
+                const {arr} = this.state;
+                for(var i = 0 ; i<image.length;i++){
+               arr.push(image[i]);
+            }
+                this.setState({arr})
             //     console.log('arr',arr[1])
         });
 
@@ -159,6 +167,8 @@ export default class Fabu extends Component {
 
     render() {
         const { navigation } = this.props;
+        const {arr} = this.state;
+        console.log('arr',this.state.arr);
         return (
             <View style = {styles.container}>
                  <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
@@ -244,14 +254,20 @@ export default class Fabu extends Component {
                                 // 侧轴方向
                                 alignItems: 'center', // 必须设置,否则换行不起作用
                             }}>
+                    
                 {
                     this.state.arr.map((v,k)=>{
                         return (
                             <View style={styles.Box}  key={k}>
+                               <Image style={{ height: (width -100) / 3, width:(width *0.84 -  48) / 3,position:'relative'}} source={{ uri: v.path }} />
                                 <TouchableOpacity
-                                  activeOpacity={1}
+                                  activeOpacity={0.5}
+                                  onPress={()=>{arr.splice(k,1),this.setState({arr})}}
+                                  style={{position:'absolute'}}
                                 >
-                                    <Image style={{ height: (width -100) / 3, width:(width *0.84 -  48) / 3,marginLeft:width*0.03 }} source={{ uri: v.path }} />
+                                    <AntDesign
+                                    name='closecircle'
+                                    size={20}/>
                                 </TouchableOpacity>
 
                              </View>
@@ -261,33 +277,6 @@ export default class Fabu extends Component {
                 {this.tianjia()}
                 </View>
             </View>
-                {/* <TextInput
-                style={styles.tx}
-                multiline={true}
-                placeholder = "这一刻的想法..."
-                onChangeText={(fayan)=>this.setState({fayan:fayan})}
-                />
-                <View style={{// 主轴方向
-                                flexDirection: 'row',
-                                // 一行显示不下,换一行
-                                flexWrap: 'wrap',
-                                // 侧轴方向
-                                alignItems: 'center', // 必须设置,否则换行不起作用
-                            }}>
-                {
-                    this.state.arr.map((v,k)=>{
-                        return (
-                            <View style={styles.Box}  key={k}>
-                                <TouchableOpacity>
-                                    <Image style={{ height: (width - 40) / 3, width:(width - 60) / 3 }} source={{ uri: v.path }} />
-                                </TouchableOpacity>
-
-                             </View>
-                        );
-                    })
-                }
-                {this.tianjia()}
-                </View> */}
                 </LinearGradient>
             </View>
         );
@@ -306,6 +295,10 @@ const styles = StyleSheet.create({
     Box:{
         marginRight:10,
         marginBottom:10,
+        height: (width -100) / 3, 
+        width:(width *0.84 -  48) / 3,
+        alignItems:'flex-end',
+        marginLeft:width * 0.03
     },
     box:{
         width:width*0.9,

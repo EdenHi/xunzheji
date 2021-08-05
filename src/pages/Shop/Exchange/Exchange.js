@@ -68,7 +68,26 @@ export default class componentName extends Component {
             </Swiper>
           </View>
           <View style={{borderWidth: 1, height: height * 0.1}}>
-            <Text>旧物发布区</Text>
+            <Swiper
+            autoplay
+            autoplayTimeout={4}
+            horizontal={false}
+            showsPagination={false}
+            >
+              <View style={{justifyContent:'center',alignItems:'center', height: height * 0.1}}>
+                <Text>用户 金**** 7小时前发布帖子：用玫瑰换香水</Text>                
+              </View>
+              <View style={{justifyContent:'center',alignItems:'center', height: height * 0.1}}>
+                <Text>用户 皮*** 8小时前发布帖子：用篮球换球衣</Text>                
+              </View>
+              <View style={{justifyContent:'center',alignItems:'center', height: height * 0.1}}>
+                <Text>用户 S**** 1天前发布帖子：用红酒换故事</Text>                
+              </View>
+              <View style={{justifyContent:'center',alignItems:'center', height: height * 0.1}}>
+                <Text>用户 金**** 1天前发布帖子：用酒换朋友</Text>                
+              </View>
+            </Swiper>
+
           </View>
           <View style={{flex: 1}}>
             <Water />
