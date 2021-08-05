@@ -10,6 +10,25 @@ import Heritages from './WebView/Heritages'
 const { width, height } = Dimensions.get("window")
 
 export default class Heritage extends Component {
+    onShare = async () => {
+        try {
+          const result = await Share.share({
+            message:
+              '是寻商迹哦',
+          });
+          if (result.action === Share.sharedAction) {
+            if (result.activityType) {
+              // shared with activity type of result.activityType
+            } else {
+              // shared
+            }
+          } else if (result.action === Share.dismissedAction) {
+            // dismissed
+          }
+        } catch (error) {
+          alert(error.message);
+        }
+    };
     render() {
         return (
             <View >
