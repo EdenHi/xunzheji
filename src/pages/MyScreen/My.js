@@ -9,7 +9,7 @@ import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header
 import axios from 'axios';
 import {NavigationContext} from '@react-navigation/native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import MyRoute from '../../nav/MyRoute';
+import MyRoute2 from '../../nav/MyRoute2';
 
 const {height,width} = Dimensions.get('window');
 export default class My extends Component {
@@ -23,6 +23,7 @@ export default class My extends Component {
       };
     }
 
+    //获取个人信息数据
     get_shuju(){
       AsyncStorage.getItem('username',(error,result)=>{
           if (!error) {
@@ -43,13 +44,14 @@ export default class My extends Component {
       });
     }
 
-
+    //进行渲染页面
     componentDidMount(){
       this.get_shuju();
       this.listener = DeviceEventEmitter.addListener('test',this.get_shuju.bind(this));
       this.listener = DeviceEventEmitter.addListener('scrollview',this.scrollview.bind(this));
     }
 
+    //打开ScrollView的移动
     scrollview(){
       this.setState({isScroll:true})
     }
@@ -59,9 +61,11 @@ export default class My extends Component {
       this.listener.remove();
       }
 
+      //带着参数 跳转到编辑资料页面
     go_bianji=(v)=>{
       this.context.navigate('bianjiziliao',v);
     }
+
     render() {
       const { navigation } = this.props;
       const {data,isScroll} = this.state;
@@ -267,7 +271,7 @@ export default class My extends Component {
                       </View>}
                   >
 
-                 <MyRoute />
+                 <MyRoute2  />
 
             </ParallaxScrollView>
 

@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 
 
 
-export default class goods extends Component {
+export default class goods2 extends Component {
   static contextType = NavigationContext;
   constructor(props){
     super(props)
@@ -65,7 +65,7 @@ export default class goods extends Component {
     })
   }
   componentDidMount() {
-      AsyncStorage.getItem('Person',(err,result)=>{
+      AsyncStorage.getItem('username',(err,result)=>{
         if(!err){
           this.setState({
             username:result,

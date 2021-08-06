@@ -5,7 +5,7 @@ import {View,Text,Dimensions, AsyncStorage, Image,StyleSheet,FlatList, Touchable
 import Timeline from 'react-native-timeline-listview'
 import {NavigationContext} from '@react-navigation/native';
 const {height,width} = Dimensions.get('window');
-export default class output extends Component {
+export default class output2 extends Component {
   static contextType = NavigationContext;
     constructor(props){
         super(props);
@@ -79,7 +79,7 @@ export default class output extends Component {
     }
   }
   componentDidMount(){
-        AsyncStorage.getItem('Person',(error,result)=>{
+        AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
                 this.setState({
                     username:result,

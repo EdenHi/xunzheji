@@ -54,7 +54,7 @@ export default class Locked extends Component {
                 color='gold'
             /> 25</Text>
             <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%',color:"#000"}}>共2256万+用户参与</Text>
-            <TouchableOpacity style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Video')}} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
                 <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
             </View>
@@ -70,7 +70,7 @@ export default class Locked extends Component {
 
             <Text style={{ marginTop:10,fontSize: 20, width: '100%',color:"#7cc0bf",textAlign:'center'}}>共2256万+用户参与</Text>
             <Text style={{marginTop:10,width:'80%',marginHorizontal:'10%',fontSize:15,textAlign:'center'}}>空蒙山色里住着诗人的一直，潋滟水光映透西子成鱼落雁般的容颜，柔美的线条中透露江南韵味。</Text>
-            <TouchableOpacity style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Video')}} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
                 <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
             </View>

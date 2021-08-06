@@ -230,7 +230,15 @@ onShare = async () => {
                                                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
-                                                        onPress={() => this.context.navigate('people',v.username)}
+                                                        onPress={() => {this.context.navigate('people',v.username), 
+                                                        AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                            if (!error){
+                                                                console.log('Person保存成功');
+                                                            } else {
+                                                                console.log('保存失败',err);
+                                                            }
+                                                        });
+                                                    }}
                                                         >
                                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                         </TouchableOpacity> 
@@ -420,7 +428,15 @@ onShare = async () => {
                                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
-                                                        onPress={() => this.context.navigate('people',v.username)}
+                                                        onPress={() => {this.context.navigate('people',v.username), 
+                                                        AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                            if (!error){
+                                                                console.log('Person保存成功');
+                                                            } else {
+                                                                console.log('保存失败',err);
+                                                            }
+                                                        });
+                                                    }}
                                                         >
                                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                         </TouchableOpacity> 
@@ -523,7 +539,15 @@ onShare = async () => {
                                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                     <TouchableOpacity
-                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    onPress={() => {this.context.navigate('people',v.username), 
+                                                    AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                        if (!error){
+                                                            console.log('Person保存成功');
+                                                        } else {
+                                                            console.log('保存失败',err);
+                                                        }
+                                                    });
+                                               }}
                                                     >
                                                         <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                     </TouchableOpacity> 
@@ -618,7 +642,15 @@ onShare = async () => {
                                         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                     <TouchableOpacity
-                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    onPress={() => {this.context.navigate('people',v.username), 
+                                                                AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                                    if (!error){
+                                                                        console.log('Person保存成功');
+                                                                    } else {
+                                                                        console.log('保存失败',err);
+                                                                    }
+                                                                });
+                                                            }}
                                                     >
                                                         <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                     </TouchableOpacity> 
