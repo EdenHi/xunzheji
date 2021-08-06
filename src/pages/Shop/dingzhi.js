@@ -36,7 +36,7 @@ export default class dingzhi extends Component {
                                 </Swiper>
                                 {/* </TouchableOpacity> */}
                             </View>
-                            <TouchableOpacity style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, borderRadius: 5, elevation: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.03 ,marginLeft:15}}>
+                            <TouchableOpacity onPress={()=>this.props.navigation.navigate("Jiang")}  style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, borderRadius: 5, elevation: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.03 ,marginLeft:15}}>
                                 <Text style={{ color: 'white', fontSize: 12 }}>查看全部 </Text>
                             </TouchableOpacity>
                         </View>
