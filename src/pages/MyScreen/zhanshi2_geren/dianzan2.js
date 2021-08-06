@@ -4,12 +4,12 @@ import React, {Component} from 'react';
 import {View,Text, ScrollView, FlatList,AsyncStorage,Dimensions,ImageBackground,TouchableOpacity,DeviceEventEmitter, Image} from 'react-native';
 
 const {height,width} = Dimensions.get('window');
-export default class dianzan extends Component {
+export default class dianzan2 extends Component {
     constructor(props){
         super(props)
         this.state = {
             data:[],
-            Person:'',
+            denglu_username:'',
         }
     }
 
@@ -22,7 +22,7 @@ export default class dianzan extends Component {
                 'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                dianzan_username:this.state.Person,
+                dianzan_username:this.state.denglu_username,
             })
         })
            .then((response) => response.json())
@@ -38,10 +38,10 @@ export default class dianzan extends Component {
     }
 
     componentDidMount(){
-        AsyncStorage.getItem('Person',(err,result)=>{
+        AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({
-                    Person:result
+                    denglu_username:result
                 },()=>{
                     console.log('result123',result);
                 })

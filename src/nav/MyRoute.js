@@ -12,10 +12,10 @@ export default    function MyRoute() {
   return (
 
     <Tab.Navigator>
-      {/* <Tab.Screen name="收藏" component={shoucang} /> */}
-      <Tab.Screen name="点赞  " component={dianzan} />
-       {/* <Tab.Screen name="我的发布" component={output} />
-       <Tab.Screen name="我的商品" component={goods} /> */}
+      <Tab.Screen name="收藏" component={shoucang} />
+      <Tab.Screen name="点赞" component={dianzan} />
+       <Tab.Screen name="我的发布" component={output} />
+       <Tab.Screen name="我的商品" component={goods} />
     </Tab.Navigator>
 
   );

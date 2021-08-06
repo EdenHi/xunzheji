@@ -79,7 +79,6 @@ export default class people extends Component {
         }
     })
     this.get_shuju();
-    
   }
 
   //点击关注按钮，增加粉丝数量，增加登录用户的关注数
