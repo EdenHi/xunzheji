@@ -21,8 +21,8 @@ export default class dingzhi extends Component {
                         <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>定制</Text>
 
                     </View>
-                    <View style={{ width: width * 0.9, marginLeft: width * 0.05 }}>
-                        <View style={{ flexDirection: "row", height: width * 0.15 }}>
+                    <View style={{ width: width}}>
+                        <View style={{ flexDirection: "row", height: width * 0.15,marginLeft:width*0.05 }}>
                             <View style={{ height: width * 0.13, width: width * 0.7 }}>
                                 <View style={{height:width*0.08}}><Text style={{ fontSize: 15 }}>已收录31省市475名非遗大师、手艺人</Text></View>
 
@@ -31,8 +31,9 @@ export default class dingzhi extends Component {
                                 <Text style={{fontSize:12,color:'#fff'}}>瓷器非遗传承人晨扬龙入住</Text> */}
                                 <Swiper style={{}} showsPagination={false} horizontal={false} autoplay autoplayTimeout={1} >
                                     <View style={{ flex: 1 }}><Text style={{ fontSize: 12, color: '#fff' }}>瓷器非遗传承人 宋雅婷入住</Text></View>
-                                    <View style={{ flex: 1 }}><Text style={{ fontSize: 12, color: '#fff' }}>瓷器非遗传承人 宋雅婷入住</Text></View>
-                                    <View style={{ flex: 1 }}><Text style={{ fontSize: 12, color: '#fff' }}>瓷器非遗传承人 宋雅婷入住</Text></View>
+                                    <View style={{ flex: 1 }}><Text style={{ fontSize: 12, color: '#fff' }}>瓷器非遗传承人 陈钱钱入住</Text></View>
+                                    <View style={{ flex: 1 }}><Text style={{ fontSize: 12, color: '#fff' }}>瓷器非遗传承人 沈阳入住</Text></View>
+                                    <View style={{ flex: 1 }}><Text style={{ fontSize: 12, color: '#fff' }}>瓷器非遗传承人 张毅入住</Text></View>
                                 </Swiper>
                                 {/* </TouchableOpacity> */}
                             </View>
@@ -40,15 +41,15 @@ export default class dingzhi extends Component {
                                 <Text style={{ color: 'white', fontSize: 12 }}>查看全部 </Text>
                             </TouchableOpacity>
                         </View>
-                        <View style={{ height: height - height * 0.13 - width * 0.2 }}>
+                        <View style={{width:width}}>
                             <ScrollView
                                 showsVerticalScrollIndicator={false}
                             >
-                                <View style={{ width: width * 0.95 }}>
-                                    <View style={{ marginTop: width * 0.03, width: width * 0.95, borderRadius: 15 }}>
+                                <View style={{height:1250}}>
+                                    <View style={{ marginTop: width * 0.03, width: width , borderRadius: 15,marginLeft:width*0.05 }}>
                                         <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: width * 0.02 }}>徽派竹雕</Text>
                                         <Image source={{ uri: 'https://img1.baidu.com/it/u=4161466098,2632610288&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10, marginTop: width * 0.03 }} />
-                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 2, borderRadius: 10 ,width:width*0.9}}>
+                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 5, borderRadius: 10 ,width:width*0.9}}>
                                             <Image source={{ uri: 'https://img0.baidu.com/it/u=2899734245,647783329&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.3, height: width * 0.3, margin: width * 0.02, borderRadius: 15 }} />
                                             <View style={{ marginBottom: width * 0.02, width: width * 0.4, marginTop: width * 0.015 }}>
                                                 <Text style={{ fontSize: 15, marginBottom: width * 0.02 }}>洪建华</Text>
@@ -61,10 +62,10 @@ export default class dingzhi extends Component {
                                             </TouchableOpacity>
                                         </View>
                                     </View>
-                                    <View style={{ marginTop: width * 0.03 }}>
+                                    <View style={{ marginTop: width * 0.03 ,marginLeft:width*0.05 }}>
                                         <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: width * 0.02 }}>砚雕</Text>
                                         <Image source={{ uri: 'https://img1.baidu.com/it/u=2243210361,1712617060&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10, marginTop: width * 0.03 }} />
-                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 2, borderRadius:10 ,width:width*0.9}}>
+                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 5, borderRadius:10 ,width:width*0.9}}>
                                             <Image source={{ uri: 'https://img1.baidu.com/it/u=2222344400,3431079609&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.3, height: width * 0.3, margin: width * 0.02, borderRadius: 15 }} />
                                             <View style={{ marginBottom: width * 0.02, width: width * 0.4, marginTop: width * 0.015 }}>
                                                 <Text style={{ fontSize: 15, marginBottom: width * 0.03 }}>陆小华</Text>
