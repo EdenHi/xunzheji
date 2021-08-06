@@ -51,7 +51,9 @@ import {
   updateDizhi,
   OldBankTimer,
   MinJia,
-  Jiang
+  Jiang,
+  AR,
+  Video
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -83,7 +85,6 @@ export default function StackNav() {
       <Stack.Screen name="Exchange2" component={Exchange2} />
       <Stack.Screen name="AddressList2" component={AddressList2} />
       <Stack.Screen name="updateDizhi" component={updateDizhi} />
-
       <Stack.Screen name="articel" component={articel} />
       <Stack.Screen name="Page1" component={Page1} />
       <Stack.Screen name="Page2" component={Page2} />
@@ -103,21 +104,22 @@ export default function StackNav() {
       <Stack.Screen name="DaoHang" component={DaoHang} />
       <Stack.Screen name="Book" component={Book} />
       <Stack.Screen name="Zhifu" component={Zhifu} />
-      <Stack.Screen name="History" component={History}/>
-      <Stack.Screen name="Zs" component={Zs}/>
-      <Stack.Screen name="CulturalCreation" component={CulturalCreation}/>
-      <Stack.Screen name="Road" component={Road}/>
-      <Stack.Screen name="Classify" component={Classify}/>
-
-      <Stack.Screen name="Heritage" component={Heritage}/>
-      <Stack.Screen name="Concerns" component={Concerns}/>
-      <Stack.Screen name="fans" component={fans}/>
-      <Stack.Screen name="Business" component={Business}/>
-      <Stack.Screen name="LiuYu" component={LiuYu}/>
-      <Stack.Screen name="HuZhou" component={HuZhou}/>
-      <Stack.Screen name="OldBankTimer" component={OldBankTimer}/>
-      <Stack.Screen name="MinJia" component={MinJia}/>
-      <Stack.Screen name="Jiang" component={Jiang}/>
+      <Stack.Screen name="History" component={History} />
+      <Stack.Screen name="Zs" component={Zs} />
+      <Stack.Screen name="CulturalCreation" component={CulturalCreation} />
+      <Stack.Screen name="Road" component={Road} />
+      <Stack.Screen name="Video" component={Video} />
+      <Stack.Screen name="Classify" component={Classify} />
+      <Stack.Screen name="AR" component={AR} />
+      <Stack.Screen name="Heritage" component={Heritage} />
+      <Stack.Screen name="Concerns" component={Concerns} />
+      <Stack.Screen name="fans" component={fans} />
+      <Stack.Screen name="Business" component={Business} />
+      <Stack.Screen name="LiuYu" component={LiuYu} />
+      <Stack.Screen name="HuZhou" component={HuZhou} />
+      <Stack.Screen name="OldBankTimer" component={OldBankTimer} />
+      <Stack.Screen name="MinJia" component={MinJia} />
+      <Stack.Screen name="Jiang" component={Jiang} />
     </Stack.Navigator>
   );
 }
