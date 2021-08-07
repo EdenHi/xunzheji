@@ -46,7 +46,7 @@ export default class goods2 extends Component {
 
 
   select_shuju(){
-    fetch('http://192.168.50.117:3000/shop/select_PersonExchange',{
+    fetch('http://8.142.11.85:3000/shop/select_PersonExchange',{
       method:'POST',
       headers:{
           Accept: 'application/json',

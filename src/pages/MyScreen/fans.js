@@ -27,7 +27,7 @@ export default class fans extends Component {
 
 
     select_shuju(){
-        fetch('http://192.168.50.117:3000/index/select_fans', {
+        fetch('http://8.142.11.85:3000/index/select_fans', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

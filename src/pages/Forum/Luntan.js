@@ -51,7 +51,7 @@ export default class LunTan extends Component {
        }
 
     get_xinxi(){
-        axios.get('http://192.168.50.117:3000/dongtai/allDongtai')
+        axios.get('http://8.142.11.85:3000/dongtai/allDongtai')
         .then((json)=>{
           this.setState({
               data:json.data,
@@ -226,7 +226,7 @@ onShare = async () => {
                                             </View>
                                         <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                             <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                                <Text>1232321sifjdisfjdisfj</Text>
+
                                                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity

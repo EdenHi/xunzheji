@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, Image, Modal } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, Image, Modal, ScrollView } from 'react-native';
 import Video from 'react-native-video';
 const { width, height } = Dimensions.get('window');
 import LinearGradient from 'react-native-linear-gradient'
@@ -47,7 +47,7 @@ export default class componentName extends Component {
         this.setState({ currentTime: data.currentTime });
 
         // this.onPouse
-        if (data.currentTime >= 6*this.state.step/200) {
+        if (data.currentTime >= 6 * this.state.step / 200) {
             this.onPouse()
         }
     };
@@ -55,12 +55,12 @@ export default class componentName extends Component {
         this.setState({ poused: true })
     }
     Start() {
-        if (this.state.currentTime <=6*this.state.step/200)
+        if (this.state.currentTime <= 6 * this.state.step / 200)
             this.setState({ poused: false })
     }
     getSteps(e) {
         this.setState({
-            step: e+0
+            step: e + 0
         })
     }
     render() {
@@ -84,11 +84,27 @@ export default class componentName extends Component {
                                 <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%' }}>
                                 </TouchableOpacity>
                             </View>
+                            <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
+                                <Text style={{width,height:'100%',color:'#fff',textAlign:'center',textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>浙商小故事</Text>
+                            </View>
+                            <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
+                                <ScrollView style={{}}>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
 
-                            <View style={{ flex: 1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
-                                <View style={{ borderWidth: 1, height: '50%', borderTopRightRadius: 50, borderTopLeftRadius: 50 }}>
-                                    <Text>{this.state.step}</Text>
-                                </View>
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                </ScrollView>
                             </View>
                         </View>
                     </Modal>
@@ -108,13 +124,21 @@ export default class componentName extends Component {
 
                                 </TouchableOpacity>
                             </View>
+                            <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
+                                <Text style={{width,height:'100%',color:'#fff',textAlign:'center',textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>领取金币</Text>
+                            </View>
+                            <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
+                                <View style={{borderWidth:1,height:height*0.1,width,flexDirection:'row'}}>
+                                    <Text style={{width:'20%',height: '100%',borderWidth:1,textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>签到有奖:</Text>
+                                <Text style={{width:'40%',height: '100%',borderWidth:1,textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>每日签到可获得5金币</Text>
+                                <TouchableOpacity style={{borderWidth:1,width:'30%',height:'70%',backgroundColor:'orange',marginVertical:10}}>
 
-                            <View style={{ flex: 1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
-                                <Text style={{ borderWidth: 1 }}>123</Text>
+                                </TouchableOpacity>
+                                </View>
                             </View>
                         </View>
                     </Modal>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,justifyContent:'space-around' }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
                         <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={25} color="#000000" />
                         </TouchableOpacity>

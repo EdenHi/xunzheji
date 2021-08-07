@@ -68,7 +68,7 @@ export default class Comment extends React.Component {
       ];
       //删除该条评论
       delect(){
-        fetch('http://192.168.50.117:3000/dongtai/delect_Dongtai', {
+        fetch('http://8.142.11.85:3000/dongtai/delect_Dongtai', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -84,7 +84,7 @@ export default class Comment extends React.Component {
 
       //获取某一个数据
       get_One(){
-        fetch('http://192.168.50.117:3000/dongtai/OneDongtai', {
+        fetch('http://8.142.11.85:3000/dongtai/OneDongtai', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -148,7 +148,7 @@ export default class Comment extends React.Component {
             Minutes = '0' + Minutes;
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
-        fetch('http://192.168.50.117:3000/dongtai/insert_comment', {
+        fetch('http://8.142.11.85:3000/dongtai/insert_comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -207,7 +207,7 @@ export default class Comment extends React.Component {
 
     //获取评论信息
     go_select(){
-        fetch('http://192.168.50.117:3000/dongtai/comment', {
+        fetch('http://8.142.11.85:3000/dongtai/comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
