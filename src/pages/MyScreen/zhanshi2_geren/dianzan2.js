@@ -15,7 +15,7 @@ export default class dianzan2 extends Component {
 
     //获取点赞数据
     get_shuju(){
-        fetch('http://192.168.50.117:3000/index/selectDianzan',{
+        fetch('http://8.142.11.85:3000/index/selectDianzan',{
             method:'POST',
             headers: {
                 Accept: 'application/json',

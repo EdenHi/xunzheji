@@ -42,7 +42,7 @@ export default class updateDizhi extends Component {
     //更新地址
     update_Dizhi(){
         if (this.state.swicthValue1 === true){
-            fetch('http://192.168.50.117:3000/shop/update_Dizhi2', {
+            fetch('http://8.142.11.85:3000/shop/update_Dizhi2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -57,7 +57,7 @@ export default class updateDizhi extends Component {
                 }),
                 })
         } else {
-            fetch('http://192.168.50.117:3000/shop/update_Dizhi', {
+            fetch('http://8.142.11.85:3000/shop/update_Dizhi', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -80,13 +80,14 @@ export default class updateDizhi extends Component {
 
         return (
             <View style={{alignItems:"center"}}>
+                                <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} ></LinearGradient>
                 <View style={{height:height * 0.85,width:width*0.9}}>
-                {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>修改地址</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>修改地址</Text>
 
             </View> 
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
@@ -94,7 +95,7 @@ export default class updateDizhi extends Component {
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="请使用真实姓名" onChangeText={(name)=>this.setState({name})} defaultValue={this.state.name}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
-                    <Text style={{fontSize:16,width:width * 0.2}}>联系电话</Text>
+                    <Text style={{fontSizeppx:16,width:width * 0.2}}>联系电话</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="收件人电话号码" onChangeText={(phone)=>this.setState({phone})} defaultValue={this.state.phone}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>

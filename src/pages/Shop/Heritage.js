@@ -30,6 +30,7 @@ export default class Heritage extends Component {
         }
     };
     render() {
+              const { navigation } = this.props;
         return (
             <View >
                 <LinearGradient colors={['#7cc0c0', '#fff', '#fff']}>

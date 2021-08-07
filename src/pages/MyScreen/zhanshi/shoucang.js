@@ -14,7 +14,7 @@ export default class shhoucang extends Component {
         }
     }
     get_shuju(){
-        fetch('http://192.168.50.117:3000/index/selectShoucang', {
+        fetch('http://8.142.11.85:3000/index/selectShoucang', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

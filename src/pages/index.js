@@ -49,3 +49,5 @@ export {default as OldBankTimer} from './Shop/OldBankTimer.js'
 export {default as MinJia} from './Shop/MIN/MinJia'
 export {default as updateDizhi} from './Shop/shopping/updateDizhi'
 export {default as Jiang} from './Shop/Jiang'
+export {default as AR} from './AR'
+export {default as Video} from "./Road/Video"
