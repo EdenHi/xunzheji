@@ -38,6 +38,7 @@ export default class LunTan extends Component {
             //存放图片的路径
             imgUrls:[],
             isLoding:false,
+            
         };
     }
     //图片点击放大
@@ -226,7 +227,6 @@ onShare = async () => {
                                             </View>
                                         <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                             <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                                <Text>1232321sifjdisfjdisfj</Text>
                                                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
@@ -708,10 +708,13 @@ onShare = async () => {
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="heart-outline"
-                                                    size={20}
-                                                    color="black"/>
+                                                    <TouchableOpacity>
+                                                        <Ionicons
+                                                        name="heart-outline"
+                                                        size={20}
+                                                        color="black"
+                                                        />
+                                                    </TouchableOpacity> 
                                                     <Text style={{marginLeft:5}}>{v.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>
