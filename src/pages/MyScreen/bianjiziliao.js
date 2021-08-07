@@ -51,7 +51,8 @@ export default class app1 extends Component {
             width:width * 0.3,
             height:width * 0.3,
             cropping: true,
-            cropperCircleOverlay:true
+            cropperCircleOverlay:true,
+            quality:1
         }).then(image => {
             console.log('image',image)
             AsyncStorage.getItem('username',(error,result)=>{

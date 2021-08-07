@@ -42,6 +42,7 @@ export default class people extends Component {
         data:[],
         denglu_username:'',
         panduan_guanzhu:'',
+        isScroll:true,
     }
   }
 
@@ -79,7 +80,19 @@ export default class people extends Component {
         }
     })
     this.get_shuju();
-  }
+    this.listener = DeviceEventEmitter.addListener('scrollview',this.scrollview.bind(this));
+}
+
+        //打开ScrollView的移动
+        scrollview(){
+        this.setState({isScroll:true})
+        }
+
+        //移除监听
+        componentWillUnmount(){
+        this.listener.remove();
+        }
+
 
   //点击关注按钮，增加粉丝数量，增加登录用户的关注数
   guanzhu(){
@@ -171,7 +184,7 @@ dianji_anniu(){
               onScroll={(e) =>{
                 console.log('e',e.nativeEvent.contentOffset.y);
                 console.log('isScro',isScroll)
-                if (e.nativeEvent.contentOffset.y >= 195 && e.nativeEvent.contentOffset.y <= 199){
+                if (e.nativeEvent.contentOffset.y >= 349 && e.nativeEvent.contentOffset.y <= 353){
                   this.setState({
                     isScroll:false,
                   });
