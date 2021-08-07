@@ -53,8 +53,8 @@ const MyCarousel = props => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={require("../photos/travel1.jpeg")}
-          source={require("../photos/travel2.jpeg")}
+          source={{uri:'http://8.142.11.85:3000/public/images/travel1.jpeg'}}
+          source={{uri:'http://8.142.11.85:3000/public/images/travel2.jpeg'}}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.5}

@@ -146,7 +146,7 @@ export default class componentName extends Component {
 
                         <Step step={0} getSteps={this.getSteps.bind(this)} />
                     </View>
-                    <Image style={{ height: height * 0.8, width: width }} source={require('../img/南路.jpg')}></Image>
+                    <Image style={{ height: height * 0.8, width: width }} source={{uri:'http://8.142.11.85:3000/public/images/nanlu.jpg'}}></Image>
                     <Video
                         source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
                         paused={this.state.poused}
@@ -157,13 +157,13 @@ export default class componentName extends Component {
                     />
                     <View style={{ height: height * 0.2, flexDirection: 'row', justifyContent: 'space-around', marginTop: -height * 0.055 }}>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/28-plantrips.png')}></Image>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{uri:'http://8.142.11.85:3000/public/images/28-plantrips.png'}}></Image>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff' }}>
                             <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.setModalVisible2(!modalVisible2)} style={{ height: '100%', width: '30%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/16-travel.png')}></Image>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{uri:'http://8.142.11.85:3000/public/images/16-travel.png'}}></Image>
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>

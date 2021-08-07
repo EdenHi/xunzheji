@@ -38,7 +38,7 @@ export default class News extends Component {
                                              <Text style={{color:"#7cc0bf",fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
                                              <Text style={{color:"#000",fontSize: 13,marginLeft:10,flexWrap:"wrap",width:width*0.6,height:40,marginTop:20}} >{item.name}</Text>
                                            </View>
-                                           <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={require("../../photos/news1.jpeg")}/></View>
+                                           <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={{uri:'http://8.142.11.85:3000/public/images/news1.jpeg'}}/></View>
                                    </View>
                          </TouchableOpacity>
                          </View>
@@ -49,7 +49,7 @@ export default class News extends Component {
                                              <Text style={{color:"#7cc0bf",fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
                                              <Text style={{color:"#000",fontSize: 13,marginLeft:10,flexWrap:"wrap",width:width*0.6,height:40,marginTop:20}} >{item.name}</Text>
                                            </View>
-                                           <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={require("../../photos/news2.jpg")}/></View>
+                                           <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={{uri:'http://8.142.11.85:3000/public/images/news2.jpg'}}/></View>
                                    </View>
                          </TouchableOpacity>
                          </View>
@@ -60,7 +60,7 @@ export default class News extends Component {
                                              <Text style={{color:"#7cc0bf",fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
                                              <Text style={{color:"#000",fontSize: 13,marginLeft:10,flexWrap:"wrap",width:width*0.6,height:40,marginTop:20}} >{item.name}</Text>
                                            </View>
-                                           <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={require("../../photos/news3.jpeg")}/></View>
+                                           <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={{uri:'http://8.142.11.85:3000/public/images/news3.jpeg'}}/></View>
                                    </View>
                          </TouchableOpacity>
                          </View>

@@ -44,7 +44,7 @@ export default class Fabu extends Component {
                 <TouchableOpacity
                 activeOpacity={1}
                 onPress={()=>this._openPicker()}>
-                    <Image source={require('../img/addimg.png')} style={{width:100,height:100,marginLeft:"10%"}}/>
+                    <Image source={{uri:'http://8.142.11.85:3000/public/images/addimg.png'}} style={{width:100,height:100,marginLeft:"10%"}}/>
                 </TouchableOpacity>
             );
 		}
@@ -215,7 +215,7 @@ export default class Fabu extends Component {
                             alignItems:'center',
                             justifyContent:'center'
                             }}>
- <LottieView source={require('../../../animal/success')}  autoPlay loop  progress={this.state.progress} />
+ <LottieView  source={require('../../../animal/success.json')} autoPlay loop  progress={this.state.progress} />
                           </View>
                           <View style={{width:'100%',
                           height:'25%',

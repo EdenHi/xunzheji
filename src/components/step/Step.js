@@ -26,7 +26,7 @@ function Step(props){
   return (
 
       <View style={{borderWidth:0,flexDirection:'row',paddingStart:40,paddingEnd:10,width:width*0.4}}>
-         <LottieView  autoPlay autoSize={true} style={{ height: 40, alignSelf:'center' }} source={require('../../../animal/16969-walker-man.json')}  />
+         <LottieView  autoPlay autoSize={true} style={{ height: 40, alignSelf:'center' }}  source={require('../../../animal/16969-walker-man.json')}  />
         <Text  style={styles.step}>{steps}步</Text>
       </View>
 
