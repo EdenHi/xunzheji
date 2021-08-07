@@ -51,7 +51,7 @@ export default class LunTan extends Component {
        }
 
     get_xinxi(){
-        axios.get('http://192.168.50.117:3000/dongtai/allDongtai')
+        axios.get('http://8.142.11.85:3000/dongtai/allDongtai')
         .then((json)=>{
           this.setState({
               data:json.data,

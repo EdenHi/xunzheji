@@ -43,7 +43,7 @@ export default class Exchange2 extends Component {
     }
 
     _fetchImage() {
-        let url = 'http://192.168.50.117:3000/shop/insert_Exchange2';
+        let url = 'http://8.142.11.85:3000/shop/insert_Exchange2';
         let head = { uri: this.state.img.path, type: this.state.img.mime, name: this.state.img.path.split('/').pop() };
         let formData = new FormData();
         formData.append('files', head); // 这里的 file 要与后台名字对应。

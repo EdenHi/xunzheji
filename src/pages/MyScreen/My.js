@@ -31,7 +31,7 @@ export default class My extends Component {
                   username:result,
               });
               console.log('username',result);
-              axios.post('http://192.168.50.117:3000/index/selectPerson',{
+              axios.post('http://8.142.11.85:3000/index/selectPerson',{
                               username:result,
                       }).then((json)=>{
                           this.setState({
