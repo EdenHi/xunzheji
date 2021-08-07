@@ -63,9 +63,9 @@ export default class AboutComponent extends Component{
                 </ImageBackground>
                 <View style={{width: "95%", height:"57%", position:"absolute",marginVertical: width * 0.02, borderRadius: 10, backgroundColor: '#fff',elevation: 5,marginTop:100,alignItems:"center",
                     }}>  
-                    <LottieView style={{width:"100%",height:"100%"}} source={require('../../animal/trophy.json')} progress={this.state.progress} />
+                    <LottieView style={{width:"100%",height:"100%"}} source={require('../../../../animal/trophy.json')} progress={this.state.progress} />
                 <View style={{width:80,height:80,position:"absolute",marginTop:-50,alignItems:"center",justifyContent:"center"}}>
-                {/* <LottieView style={{width:"100%",height:"100%"}} source={require('../../animal/trophy.json')} progress={this.state.progress} /> */}
+                
                 </View>
                     </View>
             </View>

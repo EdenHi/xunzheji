@@ -22,7 +22,8 @@ export default class Exchange2 extends Component {
         ImagePicker.openPicker({
             width:100,
             height:100,
-            cropping: true,
+            cropping: false,
+
         }).then(image => {
             console.log('imag',image);
                 this.setState({

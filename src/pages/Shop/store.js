@@ -27,7 +27,7 @@ import ShiCha from '../HomeScreen/HOME/ShiCha';
 import LinearGradient from 'react-native-linear-gradient'
 
 const { width, height } = Dimensions.get('window');
-const images = [require("../img/5.jpg"), require("../img/6.jpg"), require("../img/6.jpg"), require("../img/5.jpg")]
+const images = [{uri:'http://8.142.11.85:3000/public/images/5.jpg'}, {uri:'http://8.142.11.85:3000/public/images/6.jpg'}, {uri:'http://8.142.11.85:3000/public/images/6.jpg'}, {uri:'http://8.142.11.85:3000/public/images/5.jpg'}]
 
 export default class Store extends Component {
   constructor(props) {
@@ -89,7 +89,7 @@ export default class Store extends Component {
         elevation: 5,
         backgroundColor: "#fff"
       }}>
-        <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={require("../img/2.jpg")} >
+        <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} >
           <View style={{ width: "100%", height: "30%", backgroundColor: 'rgba(0,0,0,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
             <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold", marginLeft: "5%", marginTop: "2%" }}>鱼宴馆·家宴老字号</Text>
             <Text numberOfLines={2} ellipsizeMode='tail' style={{ fontSize: 12, color: "#fff", marginLeft: "5%", marginTop: "2%" }}>一家经典网红餐厅，浓汤鱼头是主打，据说是千岛湖野生鱼头做的，店里的菜品品种丰富多样</Text>
@@ -225,14 +225,14 @@ export default class Store extends Component {
               <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5 }}
                 onPress={() => navigation.navigate('CustomMade')}
               >
-                <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={require("../img/8.jpg")}></Image>
+                <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{uri:'http://8.142.11.85:3000/public/images/8.jpg'}}></Image>
               </TouchableOpacity>
               <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
                 <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-                  <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={require("../img/9.jpg")}></Image>
+                  <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{uri:'http://8.142.11.85:3000/public/images/9.jpg'}}></Image>
                 </TouchableOpacity>
                 <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Exchange')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-                  <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={require("../img/10.jpg")}></Image>
+                  <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{uri:'http://8.142.11.85:3000/public/images/10.jpg'}}></Image>
                 </TouchableOpacity>
               </View>
             </View>
@@ -250,7 +250,7 @@ export default class Store extends Component {
                   />
                 </TouchableOpacity> */}
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '64%', color: '#7cc0bf' }}>
-                                                <LottieView source={require('../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                                <LottieView source={require('../../../animal/right.json')}  autoPlay loop  progress={this.state.progress} />
                                             </TouchableOpacity>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }}  activeOpacity={1} style={styles.suggest}>
@@ -287,7 +287,7 @@ export default class Store extends Component {
 
                   </View>
                 </View>
-                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={require("../img/2.jpg")} >
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} >
 
                 </Image>
               </TouchableOpacity>
@@ -325,7 +325,7 @@ export default class Store extends Component {
 
                   </View>
                 </View>
-                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={require("../img/2.jpg")} >
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} >
 
                 </Image>
               </TouchableOpacity>
@@ -354,7 +354,7 @@ export default class Store extends Component {
                     </TouchableOpacity>
                   </View>
                 </View>
-                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={require("../img/3.webp")} >
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{uri:'http://8.142.11.85:3000/public/images/3.webp'}} >
                 </Image>
               </TouchableOpacity>
             </View>
@@ -372,7 +372,7 @@ export default class Store extends Component {
                   />
                 </TouchableOpacity> */}
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '60%', color: '#7cc0bf' }}>
-                                                <LottieView source={require('../../../animal/right')}  autoPlay loop  progress={this.state.progress} />
+                                                <LottieView source={require('../../../animal/right.json')}  autoPlay loop  progress={this.state.progress} />
                                             </TouchableOpacity>
               </TouchableOpacity>
               <View style={styles.oldname}>

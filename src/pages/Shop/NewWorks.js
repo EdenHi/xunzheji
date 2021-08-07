@@ -90,7 +90,7 @@ export default class NewWorks extends Component {
 
                   </View>
                 </View>
-                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={require("../img/2.jpg")} >
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} >
 
                 </Image>
               </TouchableOpacity>
