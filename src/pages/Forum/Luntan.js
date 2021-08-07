@@ -226,7 +226,7 @@ onShare = async () => {
                                             </View>
                                         <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                             <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                                <Text>1232321sifjdisfjdisfj</Text>
+
                                                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
