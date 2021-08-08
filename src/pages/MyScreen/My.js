@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,Image,StyleSheet,Dimensions, TouchableOpacity,AsyncStorage,DeviceEventEmitter,ImageBackground} from 'react-native';
+import {View,Text,Image,StyleSheet,Dimensions, ScrollView,TouchableOpacity,AsyncStorage,DeviceEventEmitter,ImageBackground} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
@@ -10,8 +10,10 @@ import axios from 'axios';
 import {NavigationContext} from '@react-navigation/native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import MyRoute2 from '../../nav/MyRoute2';
-import Drawer from 'react-native-drawer';
+// import Drawer from 'react-native-drawer';
 import ControlPanel from './ControlPanel';
+import SideMenu from 'react-native-side-menu';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 
 const {height,width} = Dimensions.get('window');
 export default class My extends Component {
@@ -22,17 +24,33 @@ export default class My extends Component {
         username:'',
         data:[],
         isScroll:true,
-        drawerOpen: false,
-        drawerDisabled: false,
-      };
+        // drawerOpen: false,
+        // drawerDisabled: false,
+  
+      }
+      this._handleResults = this._handleResults.bind(this);
+      // this.SelectMenuItemCallBack = this.SelectMenuItemCallBack.bind(this);
+      
     }
     
-    closeDrawer = () => {
-      this._drawer.close()
-  };
-  openDrawer = () => {
-      this._drawer.open()
-  };
+
+  _handleResults(results) {
+    this.setState({ results });
+}
+
+//点击侧边栏的按钮，回调此函数，关闭menu
+// SelectMenuItemCallBack() {
+//     this.setState({
+//         isOpen: !this.state.isOpen,
+//     })
+// }
+
+//点击打开侧边栏
+SelectToOpenLeftSideMenu() {
+    this.setState({
+        isOpen: true,
+    })
+}
 
 
     //获取个人信息数据
@@ -82,53 +100,41 @@ export default class My extends Component {
       const { navigation } = this.props;
       const {data,isScroll} = this.state;
       console.log('data',data);
+      const menu = <ScrollView style={styles.container}>
+    
+      <View style={{flexDirection:'row',justifyContent:"space-around",marginTop:"5%"}}>
+   <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+   <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+   </View>
+   <View style={{flexDirection:'row',justifyContent:"space-around",marginTop:"5%",marginBottom:"2%"}}>
+   <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+   <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+   </View>
+  </ScrollView>
         return (
-          <Drawer
-          ref={(ref) => this._drawer = ref}
-          // type: 一共是3种（displace,overlay,static）, 用static就好啦，static让人感觉更舒适一些
-          type="static"
-          // Drawer 展开区域组件
-          content={
-              <ControlPanel closeDrawer={this.closeDrawer} />
-          }
-          // 响应区域双击可以打开抽屉
-          acceptDoubleTap
-          // styles 和 tweenHandler是设置向左拉后主内容区的颜色，相当于给主内容区加了一个遮罩
-          styles={{
-              mainOverlay: {
-                  backgroundColor: 'black',
-                  opacity: 0,
-              },
-          }}
-          tweenHandler={(ratio) => ({
-              mainOverlay: {
-                  opacity: ratio / 2,
-              }
-          })}
-          // drawer打开后调用的函数
-          onOpen={() => {
-              this.setState({drawerOpen: true});
-          }}
-          // drawer关闭后调用的函数
-          onClose={() => {
-              this.setState({drawerOpen: false});
-          }}
+          <SideMenu
+                menu={menu}                    //抽屉内的组件
+                isOpen={this.state.isOpen}     //抽屉打开/关闭
+                openMenuOffset={width *0.7}     //抽屉的宽度
+                hiddenMenuOffset={0}          //抽屉关闭状态时,显示多少宽度 默认0 抽屉完全隐藏
+                edgeHitWidth={100}              //距离屏幕多少距离可以滑出抽屉,默认60
+                disableGestures={false}
+                onChange={                   //抽屉状态变化的监听函数
+                    (isOpen) => {
+                        isOpen ? console.log('抽屉当前状态为开着')
+                            :
+                            console.log('抽屉当前状态为关着')
 
-          captureGestures={false}
-          // 打开/关闭 Drawer所需要的时间
-          tweenDuration={100}
-          // 触发抽屉打开/关闭必须经过的屏幕宽度比例
-          panThreshold={0.08}
-          disabled={this.state.drawerDisabled}
-          // Drawer打开后有边界距离屏幕右边界的距离
-          openDrawerOffset={(viewport) => {
-              return 100;
-          }}
-          // 拉开抽屉的响应区域
-          panOpenMask={0.2}
-          // 如果为true, 则尝试仅处理水平滑动
-          negotiatePan
-      >
+                    }}
+
+                onMove={                     //抽屉移动时的监听函数 , 参数为抽屉拉出来的距离 抽屉在左侧时参数为正,右侧则为负
+                    (marginLeft) => {
+                        console.log(marginLeft)
+                    }}
+
+                menuPosition={'left'}     //抽屉在左侧还是右侧
+                autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
+            >
           <View style={{flex:1}}>
             <ParallaxScrollView
                 headerBackgroundColor="#fff"
@@ -310,20 +316,15 @@ export default class My extends Component {
                             alignItems: 'center',
                             justifyContent: 'center',
                           }}
-                          onPress={this.openDrawer}
                           >
-                          <Feather name="menu" size={25} color="#7cc0c0" />
+                           <SimpleLineIcons onPress={() => { this.SelectToOpenLeftSideMenu() }}
+                            style={{ textAlignVertical: 'center' }}
+                            name="menu"
+                            size={25}
+                            color="black"
+                        />
                         </TouchableOpacity>
-                        <TouchableOpacity
-                        activeOpacity={1}
-                          style={{
-                            height: 40,
-                            width: 40,
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                          }}>
-                          <Feather name="external-link" size={25} color="#7cc0c0" />
-                        </TouchableOpacity>
+                   
                       </View>}
                   >
 
@@ -332,8 +333,7 @@ export default class My extends Component {
             </ParallaxScrollView>
 
           </View>
-          </Drawer>
-
+         </SideMenu>
         );
     }
 }

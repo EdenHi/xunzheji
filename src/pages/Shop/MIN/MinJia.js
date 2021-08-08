@@ -22,10 +22,11 @@ export default class MinJia extends Component {
                         </TouchableOpacity>
                         <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>名家定制</Text>
                     </View>
-                    <View style={{  }}>
-                        <ScrollView style={{height:height*0.9}}>
-                            <View style={{ height: height *2.5}}>
+              
+                         <ScrollView showsVerticalScrollIndicator={false}>
+                            
                                 <Min navigation={this.props.navigation}/>
+                                <View style={{ height:height*1.37}}>
                                 <ScrollableTabView renderTabBar={() => <SegmentTabBar />}>
                                     <View tabLabel='山水' >
                                         <Characters navigation={this.props.navigation}/>
@@ -43,10 +44,8 @@ export default class MinJia extends Component {
                                         <Characters navigation={this.props.navigation}/>
                                     </View>
                                 </ScrollableTabView>
-                            </View>
+                </View>
                         </ScrollView>
-                    </View>
-
                 </LinearGradient>
             </View>
         )
