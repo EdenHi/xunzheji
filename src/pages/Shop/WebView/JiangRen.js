@@ -2,12 +2,13 @@
 import React, { Component } from 'react'
 import { View, Image, Dimensions, Text, ImageBackground, TouchableOpacity } from 'react-native'
 import { TOUCHABLE_STATE } from 'react-native-gesture-handler/lib/typescript/components/touchables/GenericTouchable'
-
+import { navigate } from '@react-navigation/routers/lib/typescript/src/CommonActions'
 
 const { width, height } = Dimensions.get("window")
 
 export default class JiangRen extends Component {
     render() {
+        const { navigation } = this.props;
         return (
             <View style={{ flex: 1 }}>
                 <ImageBackground style={{ width: width * 0.9, height: width * 0.9, marginHorizontal: width * 0.05 ,marginTop:10}} borderRadius={10} source={{ uri: "https://img0.baidu.com/it/u=891597252,2888416509&fm=26&fmt=auto&gp=0.jpg" }}>
@@ -15,7 +16,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -24,7 +25,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -33,7 +34,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -43,7 +44,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -52,7 +53,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -61,7 +62,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -70,7 +71,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -79,7 +80,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
