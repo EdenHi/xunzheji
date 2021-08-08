@@ -128,9 +128,7 @@ export default class Fabu extends Component {
             this._fetchText();
             this.props.navigation.goBack();
         }
-
     }
-
     //打开本地图册
       _openPicker(){
         ImagePicker.openPicker({
@@ -153,7 +151,6 @@ export default class Fabu extends Component {
                 this.setState({arr})
             //     console.log('arr',arr[1])
         });
-
     }
     _openModalWin = () => {
         this.setState({modalVisible: true});
@@ -162,9 +159,6 @@ export default class Fabu extends Component {
     _closeModalWin = () => {
         this.setState({modalVisible: false});
     }
-
-
-
     render() {
         const { navigation } = this.props;
         const {arr} = this.state;
@@ -195,7 +189,6 @@ export default class Fabu extends Component {
                     onRequestClose={() =>{ this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
                     onShow={()=>{console.log('modal窗口显示了');}} // 回调函数会在 modal 显示时调用
                 >
-               
             <TouchableOpacity
             
             style={{height:'100%',width:'100%',position:"absolute",top:0,left:0}}

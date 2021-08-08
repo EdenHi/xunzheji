@@ -15,7 +15,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -24,7 +24,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -33,7 +33,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -43,7 +43,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -52,7 +52,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -61,7 +61,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -70,7 +70,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
@@ -79,7 +79,7 @@ export default class JiangRen extends Component {
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>徽派雕刻</Text></View>
                     </View>
-                    <TouchableOpacity style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"75%"}}>
+                    <TouchableOpacity activeOpacity={1} style={{width:80,height:30,backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",borderRadius:10,marginTop:"60%",marginLeft:"70%"}}>
                         <Text style={{color:"#fff"}}>请他定制</Text>
                     </TouchableOpacity>
                 </ImageBackground>
