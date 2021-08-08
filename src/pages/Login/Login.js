@@ -13,6 +13,7 @@ import {
   ImageBackground,
   TextInput,
   AsyncStorage,
+  DeviceEventEmitter
 } from 'react-native';
 import axios from 'axios';
 import Textinput from '../../components/textInput';
@@ -34,6 +35,7 @@ export default class Login extends Component {
             }
         });
           this.props.navigation.navigate('BtnRoute');
+          DeviceEventEmitter.emit('test',1)
         } else {
           alert(resp.data);
         }

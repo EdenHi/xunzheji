@@ -66,9 +66,10 @@ const Stack = createStackNavigator();
 export default function StackNav() {
   return (
     <Stack.Navigator headerMode="none"
-      initialRouteName="Login">
-      <Stack.Screen name="Login" component={Login} />
+      initialRouteName="BtnRoute">
+
       <Stack.Screen name="BtnRoute" component={BtnRoute} />
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="MyScreen" component={My} />
       <Stack.Screen name="Tour" component={Tour} />
       <Stack.Screen name="Store" component={Store} />
