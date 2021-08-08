@@ -15,6 +15,7 @@ export default class output2 extends Component {
             username:'',
             selected: null,
             jishu:0,
+            aa:1,
         }
     }
 
@@ -72,22 +73,35 @@ export default class output2 extends Component {
 
   select2(){
     if(this.state.jishu === 0){
-      this.get_shuju2(this.state.username)
-    }
-    if(this.state.jishu === 1){
       this.get_shuju(this.state.username)
     }
+    if(this.state.jishu === 1){
+      this.get_shuju2(this.state.username)
+    }
+  }
+
+
+  get(){
+    AsyncStorage.getItem('username',(error,result)=>{
+      if (!error) {
+          this.setState({
+              username:result,
+          });
+          this.get_shuju(result);
+      }
+  })
+  }
+
+  //退出登录，清空data数据
+  delect(){
+    this.setState({
+      data:[],
+    })
   }
   componentDidMount(){
-        AsyncStorage.getItem('username',(error,result)=>{
-            if (!error) {
-                this.setState({
-                    username:result,
-                });
-                this.get_shuju(result);
-            }
-        })
         this.listener = DeviceEventEmitter.addListener('test',this.select2.bind(this))
+        this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
+        this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
       }
 
     componentWillUnmount(){
@@ -180,7 +194,7 @@ export default class output2 extends Component {
         return (
             <View style={styles.container}>
               <TouchableOpacity onPress={()=>this.select()}>
-                <Text>排序</Text>
+                <Text>{this.state.data.length === 0 ? '' :'排序'}</Text>
               </TouchableOpacity>
                 <Timeline 
                 style={styles.list}
