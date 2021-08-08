@@ -16,92 +16,93 @@ import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper'
 let { height, width } = Dimensions.get('window');
 
-export default class OldBank extends Component{
+export default class OldBank extends Component {
   UNSAFE_componentWillMount = () => {
     this.state.fadeAnim = new Animated.Value(1)
   }
   state = {
-    imgUrl: {uri:'http://8.142.11.85:3000/public/images/5.jpg'}//第一张背景
+    imgUrl: {
+      uri: 'https://img1.baidu.com/it/u=1605489254,3208869051&fm=26&fmt=auto&gp=0.jpg',
+      uri: 'https://img1.baidu.com/it/u=1605489254,3208869051&fm=26&fmt=auto&gp=0.jpg',
+      uri: 'https://img1.baidu.com/it/u=1605489254,3208869051&fm=26&fmt=auto&gp=0.jpg'
+    },         //第一张背景
   }
   switch = (index) => {
-    this.state.fadeAnim = new Animated.Value(0.4)
+    this.state.fadeAnim = new Animated.Value(0.1)
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 1000,
       useNativeDriver: false,
     }).start()
     if (index == 0) {
-      this.setState({ imgUrl: {uri:'http://8.142.11.85:3000/public/images/2.jpg'} })
-    } else if (index == 1) {
-      this.setState({ imgUrl: {uri:'http://8.142.11.85:3000/public/images/2.jpg'} })
-    } else {
-      this.setState({ imgUrl: {uri:'http://8.142.11.85:3000/public/images/2.jpg'} })
+      this.setState({ imgUrl: { uri: 'http://8.142.11.85:3000/public/images/2.jpg' } })
+    }
+    if (index == 1) {
+      this.setState({ imgUrl: { uri: 'https://img1.baidu.com/it/u=3476655050,4029386946&fm=26&fmt=auto&gp=0.jpg' } })
+    }
+    if (index == 2) {
+      this.setState({ imgUrl: { uri: 'http://8.142.11.85:3000/public/images/2.jpg' } })
+    }
+    if (index == 3) {
+      this.setState({ imgUrl: { uri: 'https://img1.baidu.com/it/u=3476655050,4029386946&fm=26&fmt=auto&gp=0.jpg' } })
+    }
+    if (index == 4) {
+      this.setState({ imgUrl: { uri: 'http://8.142.11.85:3000/public/images/2.jpg' } })
+    }
+    if (index == 5) {
+      this.setState({ imgUrl: { uri: 'https://img1.baidu.com/it/u=3476655050,4029386946&fm=26&fmt=auto&gp=0.jpg' } })
     }
   }
-  render () {
-    const Imgref = createRef();
-    const animatedStyle = {
-      opacity: this.state.fadeAnim,
-    }
+  render() {
+
+
     return (
       <View style={{ flex: 1 }}>
-        <Animated.Image ref={Imgref} source={this.state.imgUrl} style={[styles.imageBackground, animatedStyle]} />
-        <Text onPress={()=>this.props.navigation.navigate('DaoHang')} style={styles.text}>底部图片</Text>
-        <Swiper style={styles.wrapper}
+        {/* <Animated.Image ref={Imgref} resizeMode='stretch' source={this.state.imgUrl} style={[styles.imageBackground, animatedStyle]} /> */}
+        <Swiper style={{}}
           removeClippedSubviews={false}
           showsPagination={false}
           showsButtons={false}         //显示控制按钮
-          loop={false}                    //如果设置为false，那么滑动到最后一张时，再次滑动将不会滑到第一张图片。
+          loop={true}                    //如果设置为false，那么滑动到最后一张时，再次滑动将不会滑到第一张图片。
           autoplay={false}
+          height={600}
           onIndexChanged={(index) => this.switch(index)}
-        // width= '90%'            
         >
-          <FlipCard
-            style={styles.card}
+          {/* <FlipCard
+            style={{}}
             friction={6}
             perspective={1000}
             flipHorizontal={true}
             flipVertical={false}
             flip={false}
             clickable={true}
-            onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
+           
           >
-            {/* Face Side */}
-            {/* <View style={[{ backgroundColor: '', marginLeft: pxToDp(5) }, styles.face]}>
-              <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={{uri:'http://8.142.11.85:3000/public/images/./imag}s/j1.jpg')}></Image>
-            </View> */}
             <View style={styles.slide}>
-              <View style={{width:"20%"}}></View>
-              <Image source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} style={styles.image} />
+              <Image source={{ uri: 'https://img1.baidu.com/it/u=3102336817,2216289337&fm=26&fmt=auto&gp=0.jpg' }} style={styles.image} />
             </View>
-            {/* Back Side */}
+            <View style={{ backgroundColor: "grey", marginLeft: 5, height: '90%', width: '97%', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
+              <View>
+                <Text style={{ fontSize: 14, fontWeight: '500', justifyContent: 'center', alignItems: 'center', }}>
+                  第一张图片翻转后的
+                </Text>
+              </View>
+            </View>
+          </FlipCard> */}
 
-            <View style={[{ backgroundColor:"grey" ,marginLeft: 5, height: '90%', width: '97%', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }, styles.back]}>
-              <ScrollView style={{ height: 400 }}>
-                <View>
-                  <Text style={{ fontSize: 14, fontWeight: '500', justifyContent: 'center', alignItems: 'center', }}>
-                    第一张图片翻转后的
-                  </Text>
-                </View>
-              </ScrollView>
-            </View>
-          </FlipCard>
           <FlipCard
-            style={styles.card}
+            style={{}}
             friction={6}
             perspective={1000}
             flipHorizontal={true}
             flipVertical={false}
             flip={false}
             clickable={true}
-            onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
-          >
-         
-            <View style={styles.slide}>
-              <Image source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} style={styles.image} />
-            </View>
-            {/* Back Side */}
 
+          >
+            <View style={styles.slide}>
+              <Image source={{ uri: 'https://img2.baidu.com/it/u=106635626,1403223942&fm=26&fmt=auto&gp=0.jpg' }} />
+            </View>
             <View style={[{ backgroundColor: '#595f79', marginLeft: 5, height: '90%', width: '97%', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }, styles.back]}>
               <ScrollView style={{ height: 400 }}>
                 <View>
@@ -120,22 +121,15 @@ export default class OldBank extends Component{
             flipVertical={false}
             flip={false}
             clickable={true}
-            onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
           >
-            {/* Face Side */}
-            {/* <View style={[{ backgroundColor: '', marginLeft: pxToDp(5) }, styles.face]}>
-              <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={{uri:'http://8.142.11.85:3000/public/images/./imag}s/j1.jpg')}></Image>
-            </View> */}
             <View style={styles.slide}>
-              <Image source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} style={styles.image} />
+              <Image source={{ uri: 'https://img2.baidu.com/it/u=3165790811,619175679&fm=26&fmt=auto&gp=0.jpg' }} style={styles.image} />
             </View>
-            {/* Back Side */}
-
-            <View style={[{ backgroundColor: '#595f79', marginLeft: 5, height: '90%', width: '97%', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }, styles.back]}>
+            <View style={{ backgroundColor: '#595f79', marginLeft: 5, height: '90%', width: '97%', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }}>
               <ScrollView style={{ height: 400 }}>
                 <View>
                   <Text style={{ fontSize: 14, fontWeight: '500', justifyContent: 'center', alignItems: 'center', }}>
-                   第三张图片翻转后的
+                    第三张图片翻转后的
                   </Text>
                 </View>
               </ScrollView>
@@ -148,14 +142,12 @@ export default class OldBank extends Component{
 };
 
 const styles = StyleSheet.create({
-  wrapper: {
-    // width: '90%',
-  }, //整体样式
+
   imageBackground: {
     position: 'absolute',
     height: '100%',
     width: '100%',
-    opacity: 1,
+    opacity: 0.15,
   },
   slide: {
     width: '100%',
@@ -169,16 +161,9 @@ const styles = StyleSheet.create({
   image: {
     width: '75%',
     height: '70%',
-    borderRadius:20,
-    elevation:5,
-    backgroundColor:"#FFF"
+    borderRadius: 20,
+    elevation: 5,
+    backgroundColor: "#FFF"
   },
-  text: {
-    color: '#000000',
-    fontSize: 30,
-    fontWeight: 'bold',
-    includeFontPadding: false,
-    textAlignVertical: 'center',
-  }
 });
 

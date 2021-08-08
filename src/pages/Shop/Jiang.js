@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
-
+import TabBar from '../Road/TabBar'
 import JiangRen from './WebView/JiangRen'
 
 
@@ -31,7 +31,7 @@ export default class Jiang extends Component {
                         <View style={{height:height*3}}>
                             <View style={{ width: width * 0.95, height: 150,overflow:"hidden",borderRadius:10 ,marginHorizontal:width*0.025}}><Image style={{ width: width * 0.95, height: 150 ,borderRadius:10}} source={{ uri: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170920%2Ff955cac704834b7b9a11a76f591f46d3.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630802028&t=aecfaf4f313f389cc34c8f036de4c7f7" }} /></View>
 
-                            <ScrollableTabView renderTabBar={() => <ScrollableTabBar />}  >
+                            <ScrollableTabView renderTabBar={() => <TabBar />}  >
 
                                 <JiangRen navigation={this.props.navigation} tabLabel='陶瓷器' />
                                 <JiangRen navigation={this.props.navigation} tabLabel='雕刻' />

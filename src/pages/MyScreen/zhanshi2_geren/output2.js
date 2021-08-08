@@ -103,6 +103,7 @@ export default class output2 extends Component {
         this.listener = DeviceEventEmitter.addListener('test',this.select2.bind(this))
         this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
         this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
+        this.listener = DeviceEventEmitter.addListener('myfabu',this.get.bind(this))
       }
 
     componentWillUnmount(){
