@@ -23,7 +23,6 @@ import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 export default class LunTan extends Component {
     static contextType = NavigationContext;
     constructor(props){
@@ -507,7 +506,7 @@ onShare = async () => {
                                            renderItem={({item,index})=>{
                                              if (item === null ){
                                                 return ;
-                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                            } else if (v.pic.length > 1 && v.pic.length < 5){
                                                 return (
                                                     <View style={styles.box2}>
                                                 <TouchableOpacity

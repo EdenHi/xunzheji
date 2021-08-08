@@ -125,9 +125,11 @@ export default class Fabu extends Component {
             {this._fetchImage(arr[i]);}
             this._fetchText();
             this.props.navigation.navigate('BtnRoute');
+            DeviceEventEmitter.emit('myfabu',1)
         } else {
             this._fetchText();
             this.props.navigation.navigate('BtnRoute');
+            DeviceEventEmitter.emit('myfabu',1)
         }
     }
     //打开本地图册
