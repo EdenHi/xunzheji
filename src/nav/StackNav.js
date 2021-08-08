@@ -52,6 +52,7 @@ import {
   OldBankTimer,
   MinJia,
   Jiang,
+  tag,
 Min,
   AR,
   Video
@@ -66,9 +67,10 @@ const Stack = createStackNavigator();
 export default function StackNav() {
   return (
     <Stack.Navigator headerMode="none"
-      initialRouteName="Login">
-      <Stack.Screen name="Login" component={Login} />
+      initialRouteName="BtnRoute">
+
       <Stack.Screen name="BtnRoute" component={BtnRoute} />
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="MyScreen" component={My} />
       <Stack.Screen name="Tour" component={Tour} />
       <Stack.Screen name="Store" component={Store} />
@@ -123,7 +125,7 @@ export default function StackNav() {
       <Stack.Screen name="Jiang" component={Jiang}/>
       <Stack.Screen name="AR" component={AR} />
       <Stack.Screen name="Video" component={Video} />
-   
+      <Stack.Screen name="tag" component={tag} />
     </Stack.Navigator>
   );
 }

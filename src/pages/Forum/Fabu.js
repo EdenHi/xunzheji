@@ -22,7 +22,7 @@ export default class Fabu extends Component {
             username:'',
             progress: new Animated.Value(0),
             modalVisible: false,
-
+            tag:this.props.route.params.tag
         };
     }
 
@@ -108,6 +108,7 @@ export default class Fabu extends Component {
                         uuid:this.state.uuid,
                         fabiao_time:currentdate,
                         username:result,
+                        tag:this.props.route.params.tag
                     }),
                 });
             } else {
@@ -123,10 +124,10 @@ export default class Fabu extends Component {
             for (var i = 0; i < arr.length; i++)
             {this._fetchImage(arr[i]);}
             this._fetchText();
-            this.props.navigation.goBack();
+            this.props.navigation.navigate('BtnRoute');
         } else {
             this._fetchText();
-            this.props.navigation.goBack();
+            this.props.navigation.navigate('BtnRoute');
         }
     }
     //打开本地图册
@@ -162,7 +163,7 @@ export default class Fabu extends Component {
     render() {
         const { navigation } = this.props;
         const {arr} = this.state;
-        console.log('arr',this.state.arr);
+        console.log('tag',this.props.route.params);
         return (
             <View style = {styles.container}>
                  <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
@@ -269,6 +270,23 @@ export default class Fabu extends Component {
                 }
                 {this.tianjia()}
                 </View>
+
+                {/* 选择标签 */}
+                <TouchableOpacity style={{width:'100%',backgroundColor:'#eee',marginTop:20,flexDirection:'row',alignItems:'center',height:width*0.12,justifyContent:'space-around'}}
+                onPress={()=>this.props.navigation.goBack()}>
+                    <View style={{flexDirection:'row',alignItems:'center'}}>
+                        <View style={{backgroundColor:'orange',height:30,width:30,borderRadius:50,justifyContent:'center',alignItems:'center'}}>
+                        <FontAwesome
+                        name='hashtag'
+                        color='white'
+                        size={16}
+                        />
+                        </View>
+                        <Text style={{marginLeft:10,color:'orange',fontSize:18,fontWeight:'bold'}}>{this.props.route.params.tag}</Text>
+                    </View>
+                    <Text style={{color:'#ccc'}}>选择合适的话题会有更多赞哦~</Text>
+                </TouchableOpacity>
+                
             </View>
                 </LinearGradient>
             </View>
