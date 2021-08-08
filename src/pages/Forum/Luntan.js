@@ -326,6 +326,14 @@ onShare = async () => {
                                         }
                                            }}/>
                                            </View>
+                                           
+                                            {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
@@ -530,6 +538,14 @@ onShare = async () => {
                                         }
                                            }}/>
                                            </View>
+
+                                        {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
@@ -641,6 +657,14 @@ onShare = async () => {
                                     }
                                        }}/>
                                        </View>
+
+                                       {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
@@ -750,6 +774,14 @@ onShare = async () => {
                                     }
                                        }}/>
                                        </View>
+
+                                       {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>

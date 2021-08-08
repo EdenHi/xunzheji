@@ -52,7 +52,7 @@ import {
   OldBankTimer,
   MinJia,
   Jiang,
-
+  tag,
   AR,
   Video
 } from '../pages/index';
@@ -122,7 +122,7 @@ export default function StackNav() {
       <Stack.Screen name="Jiang" component={Jiang}/>
       <Stack.Screen name="AR" component={AR} />
       <Stack.Screen name="Video" component={Video} />
-   
+      <Stack.Screen name="tag" component={tag} />
     </Stack.Navigator>
   );
 }
