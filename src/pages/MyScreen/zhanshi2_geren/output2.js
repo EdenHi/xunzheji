@@ -176,7 +176,7 @@ export default class output2 extends Component {
 
 
     render() {
-      console.log('aaaa',this.props.route);
+      console.log('我的发布',this.props.route);
         return (
             <View style={styles.container}>
               <TouchableOpacity onPress={()=>this.select()}>

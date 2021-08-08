@@ -10,7 +10,6 @@ const Tab = createMaterialTopTabNavigator();
 
 export default    function MyRoute2() {
   return (
-
     <Tab.Navigator>
       <Tab.Screen name="收藏" component={shoucang2} />
       <Tab.Screen name="点赞" component={dianzan2} />

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text, TouchableOpacity,Dimensions,AsyncStorage, ScrollView } from 'react-native';
+import {View,Text, TouchableOpacity,Dimensions,AsyncStorage, ScrollView,DeviceEventEmitter } from 'react-native';
 import {ListItem} from 'react-native-elements';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
@@ -9,10 +9,20 @@ const {height,width} = Dimensions.get('window');
 export default class shezhi extends Component {
     constructor(props){
         super(props);
+        this.state={
+        data:this.props.route.params,
+
+        username:this.props.route.params.username,
+    }}
+
+    componentDidMount(){
+        console.log(this.props.route.params);
     }
     go_back(){
         AsyncStorage.removeItem('username');
-        this.props.navigation.navigate('Login');
+        this.props.navigation.goBack();
+        this.props.route.params.callback('')
+        // this.props.route.params.shuaxing()
     }
     render() {
         return (
