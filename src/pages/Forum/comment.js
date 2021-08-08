@@ -49,7 +49,7 @@ export default class Comment extends React.Component {
             comment_zhu:[],
             comment_fu:[],
             content:'',
-            username:'',
+            denglu_username:'',
             isLoding:false,
             isVisible:false,
             counts:this.props.route.params.counts,
@@ -234,6 +234,15 @@ export default class Comment extends React.Component {
     }
     //获取评论信息
     componentDidMount(){
+        AsyncStorage.getItem('username',(err,resule)=>{
+            if(!err){
+                this.setState({
+                    denglu_username:resule
+                },()=>{
+                    console.log(',');
+                })
+            }
+        })
         this.go_select();
         this.get_One();
         this.listener = DeviceEventEmitter.addListener('update',this.go_select.bind(this))
@@ -244,13 +253,41 @@ export default class Comment extends React.Component {
     this.listener.remove();
     }
 
+     //更新点赞信息
+     update_dianzan(){
+        if(this.state.data.dianzan_username === this.state.denglu_username){
+            fetch('http://8.142.11.85:3000/dongtai/update_dianzan2', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title_id: this.state.data.title_id,
+                    }),
+                });
+        }else {
+            fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title_id: this.state.data.title_id,
+                        denglu_username:this.state.denglu_username,
+                    }),
+                });
+        }
+        this.get_One();
+    }
 
     goComment=(v)=>{
         this.context.navigate('Comment_huifu',v);
        }
 
     go_luntan(){
-        DeviceEventEmitter.emit('test',1);
+        DeviceEventEmitter.emit('shuaxin',1);
         this.props.navigation.goBack();
     }
     render () {
@@ -525,10 +562,13 @@ export default class Comment extends React.Component {
                             <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                 <TouchableOpacity activeOpacity={1}>
                                     <View style={{flexDirection:'row'}}>
-                                        <Ionicons
-                                        name="heart-outline"
-                                        size={15}
-                                        color="black"/>
+                                        <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
+                                            <Ionicons
+                                            name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                            size={20}
+                                            color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                            />
+                                        </TouchableOpacity> 
                                         <Text style={{marginLeft:5}}>{data.dianzan}</Text>
                                     </View>
                                 </TouchableOpacity>

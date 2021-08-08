@@ -62,7 +62,7 @@ get(){
 
   componentDidMount() {
     this.get();
-    this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
+    this.listener = DeviceEventEmitter.addListener('dianzan',this.get.bind(this))
     this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
   }
 
