@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, ImageBackground} from 'react-native';
+import {View, Text, TouchableOpacity, ImageBackground,AsyncStorage} from 'react-native';
 import {pxToDp} from './styleKits';
 import {NavigationContext} from '@react-navigation/native';
 
@@ -9,7 +9,29 @@ class CustormerBar extends Component {
     static contextType = NavigationContext;
     constructor(props){
         super(props);
+        this.state={
+          username:null
+        }
     }
+    componentDidMount(){
+
+      this.get_token()
+
+    }
+      //获取个人信息数据
+  get_token() {
+    AsyncStorage.getItem('username', (error, result) => {
+      if (!error) {
+        this.setState({
+          username: result,
+        });
+        console.log('username', result);
+      
+      } else {
+        console.log('获取数据失败', error);
+      }
+    });
+  }
   render() {
     // const { navigation } = this.props;
     const {goToPage, tabs, activeTab, navigation} = this.props;
@@ -45,7 +67,7 @@ class CustormerBar extends Component {
           ))}
           <TouchableOpacity
             activeOpacity={1}
-            onPress={() => this.context.navigate('tag')}
+            onPress={() =>this.state.username===null? console.log('登录'):this.context.navigate('tag')}
             style={{
               width: '17%',
               height: '60%',

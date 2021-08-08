@@ -87,7 +87,7 @@ export default class goods2 extends Component {
 
 
   componentDidMount() {
-     
+    this.get();
     this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
     this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
    // this.loadMore()
