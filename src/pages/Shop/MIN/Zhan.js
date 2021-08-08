@@ -13,7 +13,7 @@ export default class Zhan extends Component {
             <View style={{ flex: 1 }}>
                 <LinearGradient style={{ flex: 1 }} colors={["#7cc0c0", "#fff", "#f4a460", "#f4a460", "#f4a460", "#f4a460", "#f4a460", "#f4a460", "#f4a460", "#8b4513"]} >
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                        <TouchableOpacity activeOpacity={1} style={{}} onPress={() => this.props.navigation.goBack()}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
                             <AntDesign  style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>展览馆</Text>

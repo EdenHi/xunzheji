@@ -9,6 +9,9 @@ import Swiper from 'react-native-swiper';
 const { height, width } = Dimensions.get('window');
 
 export default class dingzhi extends Component {
+    componentDidMount(){
+        console.log("naviga"+this.props.navigation);
+    }
     render() {
         const { navigation } = this.props;
         return (

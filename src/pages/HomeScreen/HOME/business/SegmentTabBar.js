@@ -76,14 +76,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    tabs: {
-        borderRadius: 2,
-        borderColor: '#0086E5',
-        borderWidth: 1,
-        width: width / 2,
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignContent: 'center',
-        justifyContent: 'space-around',
-    },
 });
