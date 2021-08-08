@@ -12,21 +12,21 @@ const { width, height } = Dimensions.get("window")
 export default class Heritage extends Component {
     onShare = async () => {
         try {
-          const result = await Share.share({
-            message:
-              '是寻商迹哦',
-          });
-          if (result.action === Share.sharedAction) {
-            if (result.activityType) {
-              // shared with activity type of result.activityType
-            } else {
-              // shared
+            const result = await Share.share({
+                message:
+                    '是寻商迹哦',
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
             }
-          } else if (result.action === Share.dismissedAction) {
-            // dismissed
-          }
         } catch (error) {
-          alert(error.message);
+            alert(error.message);
         }
     };
     render() {
@@ -37,9 +37,9 @@ export default class Heritage extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>浙商历史推荐</Text>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>人物介绍</Text>
                         <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign  style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }}  name="sharealt" size={20} color="#000000" />
+                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sharealt" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>
                     <View style={{ marginTop: -5, alignItems: "center", height: height * 0.95 }}>
@@ -51,7 +51,7 @@ export default class Heritage extends Component {
                                 </View>
                                 <View style={{ backgroundColor: "#fff", marginTop: 15, marginBottom: 10, elevation: 10, borderRadius: 10 }} >
                                     <View style={{ flexDirection: "row", borderRadius: 5, backgroundColor: "#fff", alignItems: "center", height: 120, width: width * 0.95 }}>
-                                        <Image style={{ width: width * 0.25, marginLeft: 10, height: width * 0.25, borderRadius: 5 }} source={{uri:"https://img2.baidu.com/it/u=360064306,3967606391&fm=15&fmt=auto&gp=0.jpg"}} />
+                                        <Image style={{ width: width * 0.25, marginLeft: 10, height: width * 0.25, borderRadius: 5 }} source={{ uri: "https://img2.baidu.com/it/u=360064306,3967606391&fm=15&fmt=auto&gp=0.jpg" }} />
                                         <View style={{ marginLeft: 10 }}>
                                             <View><Text style={{ fontSize: 15 }}>陆小华</Text></View>
                                             <View tyle={{ marginTop: 10 }}><Text style={{ fontSize: 13 }}>市级非遗传承人</Text></View>
@@ -65,9 +65,9 @@ export default class Heritage extends Component {
                                         <Text style={{ marginLeft: 15 }}>我国非物质文化遗产研究领域的领军人物，民俗学博士，中国艺术研究院研究员、博士生导师。原国际亚细亚民俗学会副会长，中国分会会长，中国民间文艺家协会副主席、中国农业历史学会副理事长、中国人类学民族学学会民族遗产专业委员会主任。</Text>
                                     </View>
                                 </View>
-                                <View style={{ width: width * 0.95, height:40 }}><Text style={{ fontSize: 15, fontWeight: "bold", margin: 10, }}>可定制项目</Text></View>
-                                <View style={{ marginTop: 10}}>
-                                    <Heritages/>
+                                <View style={{ width: width * 0.95, height: 40 }}><Text style={{ fontSize: 15, fontWeight: "bold", margin: 10, }}>可定制项目</Text></View>
+                                <View style={{ marginTop: 10 }}>
+                                    <Heritages />
                                     {/* <View style={{ alignItems: "center" }}>
                                         <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
                                             <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={require("../HomeScreen/photos/customs4.jpeg")} />

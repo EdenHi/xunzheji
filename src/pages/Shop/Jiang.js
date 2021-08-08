@@ -12,7 +12,9 @@ import JiangRen from './WebView/JiangRen'
 const { width, height } = Dimensions.get("window")
 
 export default class Jiang extends Component {
+   
     render() {
+        const { navigation } = this.props;
         return (
             <View style={{}}>
                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
@@ -27,16 +29,16 @@ export default class Jiang extends Component {
                     </View>
                     <ScrollView>
                         <View style={{height:height*3}}>
-                            <View ><Image style={{ width: width * 0.95, height: 150 ,marginHorizontal:width*0.025,borderRadius:10}} source={{ uri: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnimg.ws.126.net%2F%3Furl%3Dhttp%253A%252F%252Fdingyue.ws.126.net%252F2021%252F0715%252Ffa5afaedj00qwa5v60028c000ht009lm.jpg%26thumbnail%3D650x2147483647%26quality%3D80%26type%3Djpg&refer=http%3A%2F%2Fnimg.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630755380&t=623957cc28eb7097a68b72e090085b00" }} /></View>
+                            <View style={{ width: width * 0.95, height: 150,overflow:"hidden",borderRadius:10 ,marginHorizontal:width*0.025}}><Image style={{ width: width * 0.95, height: 150 ,borderRadius:10}} source={{ uri: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170920%2Ff955cac704834b7b9a11a76f591f46d3.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630802028&t=aecfaf4f313f389cc34c8f036de4c7f7" }} /></View>
 
                             <ScrollableTabView renderTabBar={() => <ScrollableTabBar />}  >
 
-                                <JiangRen tabLabel='陶瓷器' />
-                                <JiangRen tabLabel='雕刻' />
-                                <JiangRen tabLabel='书画篆刻' />
-                                <JiangRen tabLabel='刺绣纺织' />
-                                <JiangRen tabLabel='民间艺术' />
-                                <JiangRen tabLabel='文化生活' />
+                                <JiangRen navigation={this.props.navigation} tabLabel='陶瓷器' />
+                                <JiangRen navigation={this.props.navigation} tabLabel='雕刻' />
+                                <JiangRen navigation={this.props.navigation} tabLabel='书画篆刻' />
+                                <JiangRen navigation={this.props.navigation} tabLabel='刺绣纺织' />
+                                <JiangRen navigation={this.props.navigation} tabLabel='民间艺术' />
+                                <JiangRen navigation={this.props.navigation} tabLabel='文化生活' />
 
 
                             </ScrollableTabView>

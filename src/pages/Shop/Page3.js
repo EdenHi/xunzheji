@@ -24,11 +24,11 @@ const instructions = Platform.select({
 const { width, heihgt } = Dimensions.get('window');
 const Props = {};
 export default class Page3 extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
-        this.state={
-            isOpen:false,
+        this.state = {
+            isOpen: false,
         }
 
         this.SelectMenuItemCallBack = this.SelectMenuItemCallBack.bind(this);
@@ -36,16 +36,16 @@ export default class Page3 extends Component {
 
 
     //点击侧边栏的按钮，回调此函数，关闭menu
-    SelectMenuItemCallBack(){
+    SelectMenuItemCallBack() {
         this.setState({
-            isOpen:!this.state.isOpen,
+            isOpen: !this.state.isOpen,
         })
     }
 
     //点击打开侧边栏
-    SelectToOpenLeftSideMenu(){
+    SelectToOpenLeftSideMenu() {
         this.setState({
-            isOpen:true,
+            isOpen: true,
         })
     }
 
@@ -53,22 +53,22 @@ export default class Page3 extends Component {
         const menu =
             <View style={{ backgroundColor: 'grey', flex: 1 }}>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-<Text style={{fontSize:20,textAlignVertical:'center',textAlign:'center',borderWidth:0,marginTop:"15%"}}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                <Text style={{fontSize:20,textAlignVertical:'center',textAlign:'center',borderWidth:0,marginTop:"15%"}}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                <Text style={{fontSize:20,textAlignVertical:'center',textAlign:'center',borderWidth:0,marginTop:"15%"}}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                <Text style={{fontSize:20,textAlignVertical:'center',textAlign:'center',borderWidth:0,marginTop:"15%"}}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                <Text style={{fontSize:20,textAlignVertical:'center',textAlign:'center',borderWidth:0,marginTop:"15%"}}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={{ borderWidth: 0, height: "10%" }}>
-                <Text style={{fontSize:20,textAlignVertical:'center',textAlign:'center',borderWidth:0,marginTop:"15%"}}>桌子</Text>
+                    <Text style={{ fontSize: 20, textAlignVertical: 'center', textAlign: 'center', borderWidth: 0, marginTop: "15%" }}>桌子</Text>
                 </TouchableOpacity>
             </View>
         return (
@@ -101,28 +101,28 @@ export default class Page3 extends Component {
                 autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
             >
 
-<View style={{flex:1,backgroundColor:"#eee"}}>
-            <View style={{borderWidth:0,height:50,justifyContent:"space-between",flexDirection:'row',marginHorizontal:width*0.05}}>
-            <SimpleLineIcons onPress={()=>{this.SelectToOpenLeftSideMenu()}}
-            style={{textAlignVertical:'center'}}
-            name="menu"
-            size={25}
-            color="black"
-            />
-            <SimpleLineIcons
-            style={{textAlignVertical:'center'}}
-            name="magnifier"
-            size={25}
-            color="black"
-            />
-            </View>
-             <ScrollableTabView>
-        <Chair tabLabel='椅子'/>
-        <Table tabLabel='桌子'/>
-    </ScrollableTabView>    
+                <View style={{ flex: 1, backgroundColor: "#eee" }}>
+                    <View style={{ borderWidth: 0, height: 50, justifyContent: "space-between", flexDirection: 'row', marginHorizontal: width * 0.05 }}>
+                        <SimpleLineIcons onPress={() => { this.SelectToOpenLeftSideMenu() }}
+                            style={{ textAlignVertical: 'center' }}
+                            name="menu"
+                            size={25}
+                            color="black"
+                        />
+                        <SimpleLineIcons
+                            style={{ textAlignVertical: 'center' }}
+                            name="magnifier"
+                            size={25}
+                            color="black"
+                        />
+                    </View>
+                    <ScrollableTabView>
+                        <Chair tabLabel='椅子' />
+                        <Table tabLabel='桌子' />
+                    </ScrollableTabView>
 
 
-        </View>
+                </View>
 
             </SideMenu>
 
