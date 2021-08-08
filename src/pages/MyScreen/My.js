@@ -79,12 +79,10 @@ init() {
 }
   //进行渲染页面
   componentDidMount() {
-    if (this.state.aa === 1) {
 
-    } else {
       this.get_shuju();
-    }
-    this.listener = DeviceEventEmitter.addListener('test', this.get_shuju.bind(this));
+    
+    this.listener = DeviceEventEmitter.addListener('denglu', this.get_shuju.bind(this));
     this.listener = DeviceEventEmitter.addListener('scrollview', this.scrollview.bind(this));
   }
 
@@ -112,9 +110,11 @@ init() {
     const { navigation } = this.props;
     const { data, isScroll } = this.state;
     console.log('data', data);
-    let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: '#7cc0c0', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
+    let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
       <View >
-        <Text style={{ color: '#fff', width: '100%', height: '100%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>登录</Text>
+        <Text style={{ color: '#7cc0c0', width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>账号</Text>
+        <Text style={{ color: '#7cc0c0', width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>登录</Text>
+
       </View>
     </TouchableOpacity> : null;
     return (

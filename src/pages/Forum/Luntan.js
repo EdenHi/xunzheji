@@ -147,7 +147,7 @@ onShare = async () => {
         const {modalVisible,imgUrls,currentIndex} = this.state;
        // const { navigation } = this.props;
        let long = this.state.data.length;
-       let mathrom = Math.round(Math.random() * long);
+    //    let mathrom = Math.round(Math.random() * long);
 
         return (
             <View>
@@ -163,7 +163,7 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
-                            if(k === mathrom){
+                            if(k === 2){
                                 if (v.title === ''){
                                     return (
                                         <View>
@@ -785,7 +785,7 @@ onShare = async () => {
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                    <TouchableOpacity onPress={()=>{this.update_dianzan(v)}}>
                                                         <Ionicons
                                                         name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}

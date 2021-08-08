@@ -36,6 +36,7 @@ export default class Login extends Component {
         });
           this.props.navigation.navigate('BtnRoute');
           DeviceEventEmitter.emit('test',1)
+          DeviceEventEmitter.emit('denglu',1)
         } else {
           alert(resp.data);
         }
@@ -97,11 +98,17 @@ export default class Login extends Component {
               }}
              />
           </View>
+          <View style={{flexDirection:'row',justifyContent:'space-between',borderWidth:0,width:'90%',marginHorizontal:'5%'}}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BtnRoute')}>
+              <Text style={{ textAlign: 'center',fontSize:13 * ratio_w  }}>游客登陆</Text>
+            </TouchableOpacity>
           <TouchableOpacity
           onPress={()=>this.props.navigation.navigate('FindPass')}
-          style={{ borderWidth: 0, width: width * 0.2, marginLeft: width * 0.75 }}>
-            <Text style={{ textAlign: 'center',fontSize:10 * ratio_w }}>忘记密码</Text>
+          style={{ borderWidth: 0,}}>
+            <Text style={{ textAlign: 'center',fontSize:13 * ratio_w }}>忘记密码</Text>
           </TouchableOpacity>
+          </View>
+         
 
           <TouchableOpacity style={styles.btn} onPress={() => { this.load(); }} >
             <View borderRadius={20} style={{ height: '100%', width: '100%',backgroundColor:"#7cc0c0",elevation:5 }}>
@@ -110,6 +117,7 @@ export default class Login extends Component {
           </TouchableOpacity>
           <View style={{ flexDirection: 'row', justifyContent: 'center', borderWidth: 0, height: height * 0.05, marginTop: height * 0.17 }}>
             <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', borderWidth: 0 }}>还没有账号？</Text>
+            
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
               <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: '#7cc0c0' }}>此处注册</Text>
             </TouchableOpacity>
