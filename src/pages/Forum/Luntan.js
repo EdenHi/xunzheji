@@ -69,7 +69,7 @@ export default class LunTan extends Component {
                 })
             }
         })
-        this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
+        this.listener = DeviceEventEmitter.addListener('shuaxin',this.loding.bind(this))
       }
 
     componentWillUnmount(){
@@ -109,6 +109,7 @@ export default class LunTan extends Component {
                     }),
                 });
         }else {
+
             fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
                     method: 'POST',
                     headers: {
@@ -163,6 +164,7 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
+
                             if(k === 2){
                                 if (v.title === ''){
                                     return (
@@ -785,7 +787,7 @@ onShare = async () => {
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity onPress={()=>{this.update_dianzan(v)}}>
+                                                    <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                         <Ionicons
                                                         name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}
