@@ -80,11 +80,10 @@ init() {
   //进行渲染页面
   componentDidMount() {
     if (this.state.aa === 1) {
-
     } else {
       this.get_shuju();
     }
-    this.listener = DeviceEventEmitter.addListener('test', this.get_shuju.bind(this));
+    this.listener = DeviceEventEmitter.addListener('denglu', this.get_shuju.bind(this));
     this.listener = DeviceEventEmitter.addListener('scrollview', this.scrollview.bind(this));
   }
 

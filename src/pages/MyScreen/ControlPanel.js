@@ -8,18 +8,27 @@ import {
     View,
     Dimensions
 } from 'react-native'
-
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import AntDesign from 'react-native-vector-icons/AntDesign'
 const {height,width} = Dimensions.get('window');
 export default class ControlPanel extends Component {
     render() {
         let {closeDrawer} = this.props
         return (
             <ScrollView style={styles.container}>
-                <View style={{width:width}}>
+                <View style={{width:"100%",flexDirection:'row-reverse',padding:10}}>
                     <TouchableOpacity style={styles.button} onPress={closeDrawer}>
-                        <Text>Close Drawer</Text>
+                    <AntDesign  name="left" size={25} color="#000000" />
                     </TouchableOpacity>
                 </View>
+                <View style={{flexDirection:'row',justifyContent:"space-around",marginTop:"5%"}}>
+             <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+             <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+             </View>
+             <View style={{flexDirection:'row',justifyContent:"space-around",marginTop:"5%",marginBottom:"2%"}}>
+             <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+             <View style={{width:width*0.22,height:width*0.22,borderRadius:15,backgroundColor:'#fff',elevation:5}}></View>
+             </View>
             </ScrollView>
         )
     }
@@ -28,16 +37,14 @@ export default class ControlPanel extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
-        backgroundColor: '#d0d0d0',
+      
+        backgroundColor: '#fff',
     },
-    controlText: {
-        color: 'white',
-    },
-    button: {
-        backgroundColor: 'white',
-        borderWidth: 1,
-        borderColor: 'black',
-        padding: 10,
+    button:{
+        // width:50,
+        // height:50,
+ 
     }
+ 
+   
 })

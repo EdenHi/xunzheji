@@ -37,20 +37,39 @@ export default class dianzan2 extends Component {
        
     }
 
-    componentDidMount(){
-        AsyncStorage.getItem('username',(err,result)=>{
-            if(!err){
-                this.setState({
-                    denglu_username:result
-                },()=>{
-                    console.log('result123',result);
-                })
-                this.get_shuju();
-            } else {
-                console.log('err',err);
-            }
-        })
+get(){
+    AsyncStorage.getItem('username',(err,result)=>{
+        if(!err){
+            this.setState({
+                denglu_username:result
+            },()=>{
+                console.log('result123',result);
+            })
+            this.get_shuju();
+        } else {
+            console.log('err',err);
+        }
+    })
+}
+
+    //退出登录
+  delect(){
+    this.setState({
+      data:[],
+    })
+  }
+
+
+  componentDidMount() {
+     
+    this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
+    this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
+  }
+
+  componentWillUnmount(){
+    this.listener.remove();
     }
+
 
 
     renderData({item,index}){

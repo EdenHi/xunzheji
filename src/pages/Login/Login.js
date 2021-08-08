@@ -36,6 +36,7 @@ export default class Login extends Component {
         });
           this.props.navigation.navigate('BtnRoute');
           DeviceEventEmitter.emit('test',1)
+          DeviceEventEmitter.emit('denglu',1)
         } else {
           alert(resp.data);
         }

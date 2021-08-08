@@ -40,30 +40,30 @@ export default class Min extends Component {
     }
   
 
-    _renderItem({ item, index }) {
+    _renderItem({item, index }) {
 
         return (
             <View>
                 <View style={{ flexDirection: "row", marginLeft: -30 }} >
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Heritage')}>
+                    <TouchableOpacity activeOpacity={1} >
                         <ImageBackground borderRadius={10} style={{ width: width * 0.6, height: height * 0.45 }} source={{ uri: item.img }}>
                             <Text style={{ flexWrap: "wrap", width: 15, marginLeft: 10, fontWeight: "bold", marginTop: 10 }}>{item.title}</Text>
                         </ImageBackground>
                     </TouchableOpacity>
                     <View style={{ justifyContent: "center", marginLeft: 10, }}>
-                        <TouchableOpacity  >
+                        <TouchableOpacity activeOpacity={1} >
                             <View style={{ marginBottom: 10 }}>
                                 <MaterialCommunityIcons style={{ marginLeft: 10 }} color='#7cc0c0' name='eye-circle-outline' size={25} />
                                 <Text style={{ fontSize: 13, color: '#7cc0c0' }}>逛展览</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1}>
                             <View style={{ marginBottom: 10 }}>
                                 <FontAwesome style={{ marginLeft: 10 }} name='bars' color='#7cc0c0' size={25} />
                                 <Text style={{ fontSize: 13, color: '#7cc0c0' }}>看介绍</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1}>
                             <View>
                                 <Ionicons style={{ marginLeft: 10 }} name='md-brush-outline' color='#7cc0c0' size={25} />
                                 <Text style={{ fontSize: 13, color: '#7cc0c0' }}>去定制</Text>

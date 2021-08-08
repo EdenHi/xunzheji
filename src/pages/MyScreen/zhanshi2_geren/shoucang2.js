@@ -32,7 +32,8 @@ export default class shhoucang2 extends Component {
         })
         
     }
-    componentDidMount(){
+
+    get(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
                 this.setState({
@@ -41,7 +42,23 @@ export default class shhoucang2 extends Component {
                 this.get_shuju();
             }
         });
+    }
+     //退出登录
+  delect(){
+    this.setState({
+      data:[],
+    })
+  }
 
+
+  componentDidMount() {
+     
+    this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
+    this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
+  }
+
+  componentWillUnmount(){
+    this.listener.remove();
     }
 
     renderData({item,index}){
@@ -65,7 +82,6 @@ export default class shhoucang2 extends Component {
     }
     render() {
         const {data} = this.state;
-        console.log('aaaa',this.props.route.params);
         return (
             <View style={{width:width * 0.9,marginLeft:width * 0.05}}>
                 <ScrollView
