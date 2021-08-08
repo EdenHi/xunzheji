@@ -1,13 +1,18 @@
 
 import React, { Component } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, Image, Modal } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, Image, Modal, ScrollView } from 'react-native';
 import Video from 'react-native-video';
 const { width, height } = Dimensions.get('window');
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Step from '../../components/step/Step'
 import { Animated } from 'react-native';
-import LottieView from 'lottie-react-native';
+
+
+
+
+
+
 export default class componentName extends Component {
     constructor(props) {
         super(props)
@@ -15,7 +20,10 @@ export default class componentName extends Component {
             currentTime: 0,
             poused: true,
             modalVisible: false,
+            modalVisible2: false,
             progress: new Animated.Value(0),
+            play: true,
+            step: 0
         }
     }
     componentDidMount() {
@@ -24,14 +32,22 @@ export default class componentName extends Component {
             duration: 0,
         }).start();
     }
+    continuePlay() {
+        this.setState({
+            play: true
+        })
+    }
     setModalVisible = (visible) => {
         this.setState({ modalVisible: visible });
     }
+    setModalVisible2 = (visible) => {
+        this.setState({ modalVisible2: visible });
+    }
     onProgress = (data) => {
         this.setState({ currentTime: data.currentTime });
-        console.log(Math.ceil(data.currentTime) + "s");
+
         // this.onPouse
-        if (Math.ceil(data.currentTime) >= 5) {
+        if (data.currentTime >= 6 * this.state.step / 200) {
             this.onPouse()
         }
     };
@@ -39,12 +55,16 @@ export default class componentName extends Component {
         this.setState({ poused: true })
     }
     Start() {
-        if (this.state.currentTime <= 4)
+        if (this.state.currentTime <= 6 * this.state.step / 200)
             this.setState({ poused: false })
     }
-
+    getSteps(e) {
+        this.setState({
+            step: e + 0
+        })
+    }
     render() {
-        const { modalVisible } = this.state;
+        const { modalVisible, modalVisible2 } = this.state;
         return (
 
             <View style={{ backgroundColor: 'orange', flex: 1 }}>
@@ -59,31 +79,76 @@ export default class componentName extends Component {
                             this.setModalVisible(!modalVisible);
                         }}
                     >
-
                         <View style={{ flex: 1 }}>
                             <View style={{ flex: 1, backgroundColor: 'rgba(255,255,255,0)', }}>
                                 <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%' }}>
-
-
                                 </TouchableOpacity>
                             </View>
+                            <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
+                                <Text style={{width,height:'100%',color:'#fff',textAlign:'center',textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>浙商小故事</Text>
+                            </View>
+                            <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
+                                <ScrollView style={{}}>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
 
-                            <View style={{ flex: 1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
 
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                    <View style={{ borderRadius: 5, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
+
+                                    </View>
+                                </ScrollView>
                             </View>
                         </View>
                     </Modal>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-between' }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                    <Modal
+                        animationType='slide'
+                        transparent={true}
+                        visible={modalVisible2}
+                        hardwareAccelerated={true}
+                        onRequestClose={() => {
+                            this.setModalVisible2(!modalVisible2);
+                        }}
+                    >
+
+                        <View style={{ flex: 1 }}>
+                            <View style={{ flex: 1, backgroundColor: 'rgba(255,255,255,0)', }}>
+                                <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible2(!modalVisible2)} style={{ height: '100%' }}>
+
+                                </TouchableOpacity>
+                            </View>
+                            <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
+                                <Text style={{width,height:'100%',color:'#fff',textAlign:'center',textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>领取金币</Text>
+                            </View>
+                            <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
+                                <View style={{borderWidth:1,height:height*0.1,width,flexDirection:'row'}}>
+                                    <Text style={{width:'20%',height: '100%',borderWidth:1,textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>签到有奖:</Text>
+                                <Text style={{width:'40%',height: '100%',borderWidth:1,textAlignVertical:'center',fontSize:15,fontWeight:'bold'}}>每日签到可获得5金币</Text>
+                                <TouchableOpacity style={{borderWidth:1,width:'30%',height:'70%',backgroundColor:'orange',marginVertical:10}}>
+
+                                </TouchableOpacity>
+                                </View>
+                            </View>
+                        </View>
+                    </Modal>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
+                        <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
+                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={25} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>路线</Text>
-                        <LottieView autoPlay={true} autoSize={true} style={{height:40,marginLeft:-75}} source={require('../../../animal/16969-walker-man.json')} progress={this.state.progress} />
-                        <Step />
+                        <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff", width: width * 0.15, marginLeft: "37.5%" }}>路线</Text>
+
+                        <Step step={0} getSteps={this.getSteps.bind(this)} />
                     </View>
-                    <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'https://img.zcool.cn/community/0156955dfdd320a80120a8950ca2bf.jpg@1280w_1l_2o_100sh.jpg' }}></Image>
+                    <Image style={{ height: height * 0.8, width: width }} source={{uri:'http://8.142.11.85:3000/public/images/nanlu.jpg'}}></Image>
                     <Video
-                        source={{ uri: "https://stream7.iqilu.com/10339/upload_transcode/202002/18/20200218114723HDu3hhxqIT.mp4" }}
+                        source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
                         paused={this.state.poused}
                         resizeMode="stretch"
                         posterResizeMode='contain'
@@ -91,15 +156,15 @@ export default class componentName extends Component {
                         onProgress={this.onProgress}
                     />
                     <View style={{ height: height * 0.2, flexDirection: 'row', justifyContent: 'space-around', marginTop: -height * 0.055 }}>
-                        <TouchableOpacity  activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/28-plantrips.png')}></Image>
+                        <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{uri:'http://8.142.11.85:3000/public/images/28-plantrips.png'}}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity  activeOpacity={1} onPress={() => { this.Start() }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff' }}>
-                            <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 25, fontWeight: 'bold', color: '#fff' }}>Go</Text>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff' }}>
+                            <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
-                        <View style={{ height: '100%', width: '30%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/16-travel.png')}></Image>
-                        </View>
+                        <TouchableOpacity onPress={() => this.setModalVisible2(!modalVisible2)} style={{ height: '100%', width: '30%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{uri:'http://8.142.11.85:3000/public/images/16-travel.png'}}></Image>
+                        </TouchableOpacity>
                     </View>
                 </LinearGradient>
             </View>

@@ -46,7 +46,7 @@ export default class Heritages extends Component {
                 style={{ borderColor:isActive? "#7cc0c0":"#fff" ,borderWidth:3 ,width:width*0.9,marginHorizontal:width*0.05,borderRadius:10,marginTop:10,elevation:2}}>
                 <View style={{ flexDirection: "row",backgroundColor:"#fff",borderRadius:5}}>
 
-                    <Image style={{ width: width * 0.5, height: width * 0.5, borderRadius: 10 }} source={{ uri: SECTIONS[index].img }} />
+                    <Image style={{ width: width * 0.5, height: width * 0.5, borderRadius: 5 }} source={{ uri: SECTIONS[index].img }} />
                     <View style={{ width: width * 0.32, marginLeft: 10, height: width * 0.5, justifyContent: "center" }}>
                         <Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center" }}>{section.title}</Text>
                         <Text style={{ fontSize: 13, flexWrap: "wrap", marginTop: 10 }}>{section.title2}</Text>

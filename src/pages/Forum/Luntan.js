@@ -38,6 +38,7 @@ export default class LunTan extends Component {
             //存放图片的路径
             imgUrls:[],
             isLoding:false,
+            denglu_username:'',
         };
     }
     //图片点击放大
@@ -51,7 +52,7 @@ export default class LunTan extends Component {
        }
 
     get_xinxi(){
-        axios.get('http://192.168.50.117:3000/dongtai/allDongtai')
+        axios.get('http://8.142.11.85:3000/dongtai/allDongtai')
         .then((json)=>{
           this.setState({
               data:json.data,
@@ -61,6 +62,13 @@ export default class LunTan extends Component {
     }
     componentDidMount() {
         this.get_xinxi();
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
+                this.setState({
+                    denglu_username:result
+                })
+            }
+        })
         this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
       }
 
@@ -87,6 +95,35 @@ export default class LunTan extends Component {
     }
 
   
+    //更新点赞信息
+    update_dianzan(v){
+        if(v.dianzan_username === this.state.denglu_username){
+            fetch('http://8.142.11.85:3000/dongtai/update_dianzan2', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title_id: v.title_id,
+                    }),
+                });
+        }else {
+            fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        title_id: v.title_id,
+                        denglu_username:this.state.denglu_username,
+                    }),
+                });
+        }
+        this.get_xinxi();
+    }
+
 onShare = async () => {
     try {
       const result = await Share.share({
@@ -226,11 +263,18 @@ onShare = async () => {
                                             </View>
                                         <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                             <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                                <Text>1232321sifjdisfjdisfj</Text>
                                                 <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
-                                                        onPress={() => this.context.navigate('people',v.username)}
+                                                        onPress={() => {this.context.navigate('people',v.username), 
+                                                        AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                            if (!error){
+                                                                console.log('Person保存成功');
+                                                            } else {
+                                                                console.log('保存失败',err);
+                                                            }
+                                                        });
+                                                    }}
                                                         >
                                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                         </TouchableOpacity> 
@@ -285,10 +329,13 @@ onShare = async () => {
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <Ionicons
-                                                        name="heart-outline"
-                                                        size={20}
-                                                        color="black"/>
+                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                            <Ionicons
+                                                            name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                                            size={20}
+                                                            color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                            />
+                                                        </TouchableOpacity> 
                                                         <Text style={{marginLeft:5}}>{v.dianzan}</Text>
                                                     </View>
                                                 </TouchableOpacity>
@@ -420,7 +467,15 @@ onShare = async () => {
                                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
-                                                        onPress={() => this.context.navigate('people',v.username)}
+                                                        onPress={() => {this.context.navigate('people',v.username), 
+                                                        AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                            if (!error){
+                                                                console.log('Person保存成功');
+                                                            } else {
+                                                                console.log('保存失败',err);
+                                                            }
+                                                        });
+                                                    }}
                                                         >
                                                             <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                         </TouchableOpacity> 
@@ -478,10 +533,13 @@ onShare = async () => {
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <Ionicons
-                                                        name="heart-outline"
-                                                        size={20}
-                                                        color="black"/>
+                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                            <Ionicons
+                                                            name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                                            size={20}
+                                                            color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                            />
+                                                        </TouchableOpacity> 
                                                         <Text style={{marginLeft:5}}>{v.dianzan}</Text>
                                                     </View>
                                                 </TouchableOpacity>
@@ -523,7 +581,15 @@ onShare = async () => {
                                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                     <TouchableOpacity
-                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    onPress={() => {this.context.navigate('people',v.username), 
+                                                    AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                        if (!error){
+                                                            console.log('Person保存成功');
+                                                        } else {
+                                                            console.log('保存失败',err);
+                                                        }
+                                                    });
+                                               }}
                                                     >
                                                         <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                     </TouchableOpacity> 
@@ -578,10 +644,13 @@ onShare = async () => {
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="heart-outline"
-                                                    size={20}
-                                                    color="black"/>
+                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                                <Ionicons
+                                                                name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                                                size={20}
+                                                                color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                                />
+                                                        </TouchableOpacity> 
                                                     <Text style={{marginLeft:5}}>{v.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>
@@ -618,7 +687,15 @@ onShare = async () => {
                                         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                     <TouchableOpacity
-                                                    onPress={() => this.context.navigate('people',v.username)}
+                                                    onPress={() => {this.context.navigate('people',v.username), 
+                                                                AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                                    if (!error){
+                                                                        console.log('Person保存成功');
+                                                                    } else {
+                                                                        console.log('保存失败',err);
+                                                                    }
+                                                                });
+                                                            }}
                                                     >
                                                         <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                                     </TouchableOpacity> 
@@ -676,10 +753,13 @@ onShare = async () => {
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="heart-outline"
-                                                    size={20}
-                                                    color="black"/>
+                                                    <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <Ionicons
+                                                        name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                                        size={20}
+                                                        color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                        />
+                                                    </TouchableOpacity> 
                                                     <Text style={{marginLeft:5}}>{v.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>

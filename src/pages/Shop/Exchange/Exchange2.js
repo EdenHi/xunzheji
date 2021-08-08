@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {Text, TextInput, View,Dimensions, TouchableOpacity,Image,AsyncStorage ,DeviceEventEmitter} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
-const {width} = Dimensions.get('window')
+const {width,height} = Dimensions.get('window')
 export default class Exchange2 extends Component {
     constructor(props){
         super(props)
@@ -22,7 +22,8 @@ export default class Exchange2 extends Component {
         ImagePicker.openPicker({
             width:100,
             height:100,
-            cropping: true,
+            cropping: false,
+
         }).then(image => {
             console.log('imag',image);
                 this.setState({
@@ -43,7 +44,7 @@ export default class Exchange2 extends Component {
     }
 
     _fetchImage() {
-        let url = 'http://192.168.50.117:3000/shop/insert_Exchange2';
+        let url = 'http://8.142.11.85:3000/shop/insert_Exchange2';
         let head = { uri: this.state.img.path, type: this.state.img.mime, name: this.state.img.path.split('/').pop() };
         let formData = new FormData();
         formData.append('files', head); // 这里的 file 要与后台名字对应。
@@ -79,7 +80,8 @@ export default class Exchange2 extends Component {
                     <View style={{borderWidth:1,borderColor:'black',width:width * 0.9,marginTop:width * 0.05,height:400}}>
                         <TextInput
                         maxLength={1500}
-                        placeholder='你的 物品/服务/技能 背后的故事，背后的酸甜苦辣，欢迎和我们分享（最多1500字）'
+                        
+                        placeholder='你的 物品/服务/技能 背后的故事，背后的酸甜苦辣，欢迎和我们分享'
                         style={{width:width * 0.8,paddingLeft:10}}
                         multiline={true}
                         onChangeText={(jieshao)=>this.setState({jieshao})}
@@ -90,7 +92,7 @@ export default class Exchange2 extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                     activeOpacity={0.9}
-                    style={{width:width * 0.7,marginLeft:width * 0.1,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:50,borderRadius:10}}
+                    style={{width:width * 0.7,marginLeft:width * 0.1,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:height*0.05,borderRadius:20}}
                     onPress = {()=>this._fetchImage()}>
                         <Text style={{color:'white',fontSize:15}}>上传</Text>
                     </TouchableOpacity>

@@ -19,7 +19,7 @@ export default class output extends Component {
   }
 
   get_shuju(v) {
-    fetch('http://192.168.50.117:3000/index/select_Dongtai', {
+    fetch('http://8.142.11.85:3000/index/select_Dongtai', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -37,7 +37,7 @@ export default class output extends Component {
       })
   }
   get_shuju2(v) {
-    fetch('http://192.168.50.117:3000/index/select_Dongtai2', {
+    fetch('http://8.142.11.85:3000/index/select_Dongtai2', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -79,7 +79,7 @@ export default class output extends Component {
     }
   }
   componentDidMount() {
-    AsyncStorage.getItem('username', (error, result) => {
+    AsyncStorage.getItem('Person', (error, result) => {
       if (!error) {
         this.setState({
           username: result,
@@ -90,124 +90,126 @@ export default class output extends Component {
     this.listener = DeviceEventEmitter.addListener('test', this.select2.bind(this))
   }
 
-  componentWillUnmount() {
-    this.listener.remove();
-  }
+
+
+componentWillUnmount() {
+  this.listener.remove();
+}
 
 
 
-  go_comment(v) {
-    this.context.navigate('Comment', v)
-  }
+go_comment(v) {
+  this.context.navigate('Comment', v)
+}
 
-  renderDetail(rowData, sectionID, rowID) {
-    //  let title = <Text style={[styles.title]}>{rowData.title}</Text>
-    console.log('rowdata', rowData)
-    if (rowData.title && rowData.pic[0] === null) {
-      return (
-        <TouchableOpacity onPress={() => this.go_comment(rowData)}>
-          <View style={styles.descriptionContainer}>
-            <Text style={{ color: 'gray', backgroundColor: '#eee', width: width }}>{rowData.title}</Text>
-          </View>
-        </TouchableOpacity>
-      )
-    } else {
-      return (
-        <TouchableOpacity onPress={() => this.go_comment(rowData)}>
-          <View style={styles.descriptionContainer}>
+renderDetail(rowData, sectionID, rowID) {
+  //  let title = <Text style={[styles.title]}>{rowData.title}</Text>
+  console.log('rowdata', rowData)
+  if (rowData.title && rowData.pic[0] === null) {
+    return (
+      <TouchableOpacity onPress={() => this.go_comment(rowData)}>
+        <View style={styles.descriptionContainer}>
+          <Text style={{ color: 'gray', backgroundColor: '#eee', width: width }}>{rowData.title}</Text>
+        </View>
+      </TouchableOpacity>
+    )
+  } else {
+    return (
+      <TouchableOpacity onPress={() => this.go_comment(rowData)}>
+        <View style={styles.descriptionContainer}>
 
-            <View>
-              <FlatList
-                contentContainerStyle={styles.listViewStyle}
-                keyExtractor={(item, index) => (index + '1')}
-                data={rowData.pic}
-                renderItem={({ item, index }) => {
-                  if (rowData.pic.length === 1) {
-                    if (item === null) {
-                      return;
-                    } else {
-                      return (
-                        <View key={index} >
-                          <Image source={{ uri: item }} style={{ height: 100, width: 100 }} />
-                        </View>
-                      )
-                    }
-                  } else if (rowData.pic.length === 2) {
-                    return (
-                      <View key={index}>
-                        <Image source={{ uri: item }} style={{ height: 100, width: 50 }} />
-                      </View>
-                    )
-                  } else if (rowData.pic.length === 3) {
-                    return (
-                      <View key={index}>
-                        <Image source={{ uri: item }} style={{ height: 100, width: 33.3 }} />
-                      </View>
-                    )
-                  } else if (rowData.pic.length === 4) {
-                    return (
-                      <View key={index}>
-                        <Image source={{ uri: item }} style={{ height: 50, width: 50 }} />
-                      </View>
-                    )
-                  } else if (rowData.pic.length > 4 && item.length <= 6) {
-                    return (
-                      <View key={index}>
-                        <Image source={{ uri: item }} style={{ height: 50, width: 33.3 }} />
-                      </View>
-                    )
+          <View>
+            <FlatList
+              contentContainerStyle={styles.listViewStyle}
+              keyExtractor={(item, index) => (index + '1')}
+              data={rowData.pic}
+              renderItem={({ item, index }) => {
+                if (rowData.pic.length === 1) {
+                  if (item === null) {
+                    return;
                   } else {
                     return (
-                      <View key={index}>
-                        <Image source={{ uri: item }} style={{ height: 33.3, width: 33.3 }} />
+                      <View key={index} >
+                        <Image source={{ uri: item }} style={{ height: 100, width: 100 }} />
                       </View>
                     )
                   }
-                }}
-              />
-            </View>
-            <Text style={[styles.textDescription]}>{rowData.title}</Text>
-
+                } else if (rowData.pic.length === 2) {
+                  return (
+                    <View key={index}>
+                      <Image source={{ uri: item }} style={{ height: 100, width: 50 }} />
+                    </View>
+                  )
+                } else if (rowData.pic.length === 3) {
+                  return (
+                    <View key={index}>
+                      <Image source={{ uri: item }} style={{ height: 100, width: 33.3 }} />
+                    </View>
+                  )
+                } else if (rowData.pic.length === 4) {
+                  return (
+                    <View key={index}>
+                      <Image source={{ uri: item }} style={{ height: 50, width: 50 }} />
+                    </View>
+                  )
+                } else if (rowData.pic.length > 4 && item.length <= 6) {
+                  return (
+                    <View key={index}>
+                      <Image source={{ uri: item }} style={{ height: 50, width: 33.3 }} />
+                    </View>
+                  )
+                } else {
+                  return (
+                    <View key={index}>
+                      <Image source={{ uri: item }} style={{ height: 33.3, width: 33.3 }} />
+                    </View>
+                  )
+                }
+              }}
+            />
           </View>
-        </TouchableOpacity>
-      )
-    }
+          <Text style={[styles.textDescription]}>{rowData.title}</Text>
+
+        </View>
+      </TouchableOpacity>
+    )
   }
+}
 
 
-  render() {
-    console.log('aaaa', this.props.route);
-    return (
-      <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.select()}>
-          <Text>排序</Text>
-        </TouchableOpacity>
-        <Timeline
-          style={styles.list}
-          data={this.state.data}
-          circleSize={20}
-          //   circleColor='rgba(45,156,219)'
-          lineColor='rgb(45,156,219)'
-          timeContainerStyle={{ minWidth: 52 }}
-          timeStyle={{ textAlign: 'center', backgroundColor: '#ff9797', color: 'white', padding: 5, borderRadius: 13 }}
-          descriptionStyle={{ color: 'gray' }}
-          options={{
-            style: { paddingTop: 5 }
-          }}
-          innerCircle={'dot'}
-          ref={ref => this.scrollRef = ref}
-          onScroll={(e) => {
-            console.log('e22', e.nativeEvent.contentOffset.y);
-            if (e.nativeEvent.contentOffset.y === 0) {
-              DeviceEventEmitter.emit('scrollview', 1);
-            }
-          }}
-          // //  onEventPress={this.onEventPress.bind(this)}
-          renderDetail={this.renderDetail.bind(this)}
-        />
-      </View>
-    );
-  }
+render() {
+  console.log('aaaa', this.props.route);
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={() => this.select()}>
+        <Text>排序</Text>
+      </TouchableOpacity>
+      <Timeline
+        style={styles.list}
+        data={this.state.data}
+        circleSize={20}
+        //   circleColor='rgba(45,156,219)'
+        lineColor='rgb(45,156,219)'
+        timeContainerStyle={{ minWidth: 52 }}
+        timeStyle={{ textAlign: 'center', backgroundColor: '#ff9797', color: 'white', padding: 5, borderRadius: 13 }}
+        descriptionStyle={{ color: 'gray' }}
+        options={{
+          style: { paddingTop: 5 }
+        }}
+        innerCircle={'dot'}
+        ref={ref => this.scrollRef = ref}
+        onScroll={(e) => {
+          console.log('e22', e.nativeEvent.contentOffset.y);
+          if (e.nativeEvent.contentOffset.y === 0) {
+            DeviceEventEmitter.emit('scrollview', 1);
+          }
+        }}
+        // //  onEventPress={this.onEventPress.bind(this)}
+        renderDetail={this.renderDetail.bind(this)}
+      />
+    </View>
+  );
+}
 }
 const styles = StyleSheet.create({
   container: {

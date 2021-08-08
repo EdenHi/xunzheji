@@ -25,7 +25,7 @@ export default class AddressList extends Component {
                     username:result,
                 });
                 console.log('username',result);
-                fetch('http://192.168.50.117:3000/shop/selectdizhi', {
+                fetch('http://8.142.11.85:3000/shop/selectdizhi', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -68,7 +68,7 @@ export default class AddressList extends Component {
 
     //删除收货地址
     handleShowAlbum = (k)=>{
-        fetch('http://192.168.50.117:3000/shop/delect_dizhi', {
+        fetch('http://8.142.11.85:3000/shop/delect_dizhi', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -86,7 +86,7 @@ export default class AddressList extends Component {
 
     //修改默认地址
     update_moren = (k)=>{
-        fetch('http://192.168.50.117:3000/shop/update_moren', {
+        fetch('http://8.142.11.85:3000/shop/update_moren', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -106,13 +106,14 @@ export default class AddressList extends Component {
         console.log('data',data)
         return (
             <View style={{}}>
-                <View style={{height:height * 0.85}}>
-                {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+                 <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+                <View style={{}}>
+               
                 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>地址管理</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>地址管理</Text>
 
             </View> 
 
@@ -170,8 +171,13 @@ export default class AddressList extends Component {
                 </ScrollView>
                 {/* </LinearGradient> */}
                 </View>
-                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red"><View style={{backgroundColor:'#fedc61',height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text></View></TouchableOpacity>
-            </View>
+                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
+                    <View style={{backgroundColor:'#7cc0c0',height:40,marginTop:height*0.5,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
+                        <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
+                        </View>
+                        </TouchableOpacity>
+                </LinearGradient>
+   </View>
         );
     }
 }

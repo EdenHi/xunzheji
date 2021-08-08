@@ -44,7 +44,7 @@ export default class Water extends Component {
 
 
   select_shuju(){
-    fetch('http://192.168.50.117:3000/shop/select_Exchange')
+    fetch('http://8.142.11.85:3000/shop/select_Exchange')
     .then((response) => response.json())
     .then((responseJson) => {
       console.log('responseJson',responseJson);

@@ -52,7 +52,9 @@ import {
   OldBankTimer,
   MinJia,
   Jiang,
-  Min
+
+  AR,
+  Video
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -84,7 +86,6 @@ export default function StackNav() {
       <Stack.Screen name="Exchange2" component={Exchange2} />
       <Stack.Screen name="AddressList2" component={AddressList2} />
       <Stack.Screen name="updateDizhi" component={updateDizhi} />
-
       <Stack.Screen name="articel" component={articel} />
       <Stack.Screen name="Page1" component={Page1} />
       <Stack.Screen name="Page2" component={Page2} />
@@ -120,6 +121,9 @@ export default function StackNav() {
       <Stack.Screen name="MinJia" component={MinJia}/>
       <Stack.Screen name="Min" component={Min}/>
       <Stack.Screen name="Jiang" component={Jiang}/>
+      <Stack.Screen name="AR" component={AR} />
+      <Stack.Screen name="Video" component={Video} />
+   
     </Stack.Navigator>
   );
 }

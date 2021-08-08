@@ -26,7 +26,7 @@ export default class comment_huifu extends Component {
     }
 
     get_comment(){
-        fetch('http://192.168.50.117:3000/dongtai/One_comment', {
+        fetch('http://8.142.11.85:3000/dongtai/One_comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -54,7 +54,7 @@ export default class comment_huifu extends Component {
                 });
             }
         });
-        fetch('http://192.168.50.117:3000/dongtai/comment_huifu', {
+        fetch('http://8.142.11.85:3000/dongtai/comment_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -111,7 +111,7 @@ export default class comment_huifu extends Component {
             Minutes = '0' + Minutes;
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
-        fetch('http://192.168.50.117:3000/dongtai/insert_huifu', {
+        fetch('http://8.142.11.85:3000/dongtai/insert_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -136,12 +136,10 @@ export default class comment_huifu extends Component {
  <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity
-              
                activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>{this.props.navigation.goBack(),DeviceEventEmitter.emit('update',1)}} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>共{data.counts}条评论</Text>
-
             </View> 
                 <ScrollView
                  refreshControl={

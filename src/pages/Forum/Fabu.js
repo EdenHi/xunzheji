@@ -44,7 +44,7 @@ export default class Fabu extends Component {
                 <TouchableOpacity
                 activeOpacity={1}
                 onPress={()=>this._openPicker()}>
-                    <Image source={require('../img/addimg.png')} style={{width:100,height:100,marginLeft:"10%"}}/>
+                    <Image source={{uri:'http://8.142.11.85:3000/public/images/addimg.png'}} style={{width:100,height:100,marginLeft:"10%"}}/>
                 </TouchableOpacity>
             );
 		}
@@ -53,7 +53,7 @@ export default class Fabu extends Component {
     
 
     _fetchImage(image) {
-        let url = 'http://192.168.50.117:3000/dongtai/releaseDongtai';
+        let url = 'http://8.142.11.85:3000/dongtai/releaseDongtai';
         let head = { uri: image.path, type: image.mime, name: image.path.split('/').pop() };
         let formData = new FormData();
         formData.append('files', head); // 这里的 file 要与后台名字对应。
@@ -97,7 +97,7 @@ export default class Fabu extends Component {
                     username:result,
                 });
                 console.log('username',result)
-                fetch('http://192.168.50.117:3000/dongtai/title', {
+                fetch('http://8.142.11.85:3000/dongtai/title', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -128,9 +128,7 @@ export default class Fabu extends Component {
             this._fetchText();
             this.props.navigation.goBack();
         }
-
     }
-
     //打开本地图册
       _openPicker(){
         ImagePicker.openPicker({
@@ -153,7 +151,6 @@ export default class Fabu extends Component {
                 this.setState({arr})
             //     console.log('arr',arr[1])
         });
-
     }
     _openModalWin = () => {
         this.setState({modalVisible: true});
@@ -162,9 +159,6 @@ export default class Fabu extends Component {
     _closeModalWin = () => {
         this.setState({modalVisible: false});
     }
-
-
-
     render() {
         const { navigation } = this.props;
         const {arr} = this.state;
@@ -195,7 +189,6 @@ export default class Fabu extends Component {
                     onRequestClose={() =>{ this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
                     onShow={()=>{console.log('modal窗口显示了');}} // 回调函数会在 modal 显示时调用
                 >
-               
             <TouchableOpacity
             
             style={{height:'100%',width:'100%',position:"absolute",top:0,left:0}}
@@ -215,7 +208,7 @@ export default class Fabu extends Component {
                             alignItems:'center',
                             justifyContent:'center'
                             }}>
- <LottieView source={require('../../../animal/success')}  autoPlay loop  progress={this.state.progress} />
+ <LottieView  source={require('../../../animal/success.json')} autoPlay loop  progress={this.state.progress} />
                           </View>
                           <View style={{width:'100%',
                           height:'25%',

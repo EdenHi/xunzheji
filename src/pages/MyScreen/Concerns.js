@@ -26,7 +26,7 @@ export default class Concerns extends Component {
 
 
     select_shuju(){
-        fetch('http://192.168.50.117:3000/index/select_guanzhu', {
+        fetch('http://8.142.11.85:3000/index/select_guanzhu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -69,7 +69,15 @@ export default class Concerns extends Component {
 
     renderData({item,index}){
         return (
-        <TouchableOpacity style={{marginBottom:2}} onPress={()=>this.props.navigation.push('people',item.user_name)}>
+        <TouchableOpacity style={{marginBottom:2}} onPress={()=>{this.props.navigation.push('people',item.user_name),
+                                                                    AsyncStorage.setItem('Person',item.username,(error)=>{
+                                                                        if (!error){
+                                                                            console.log('Person保存成功');
+                                                                        } else {
+                                                                            console.log('保存失败',err);
+                                                                        }
+                                                                    });}
+                                                                    }>
         <View style={{ marginLeft:width*0.05,borderRadius:10,width: width * 0.9, height: 80, flexDirection: "row", alignItems: "center", marginTop: 5, marginBottom: 10,backgroundColor:"#fff",elevation:5,justifyContent:'space-between'}}>
             <View style={{flexDirection: "row", alignItems: "center"}}>
                 <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={{uri:item.portrait}} /></View>

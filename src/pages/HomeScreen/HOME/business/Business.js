@@ -38,25 +38,25 @@ export default class Business extends Component {
                                 <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='宁波商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='龙游商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='萧绍商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='绍兴商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='温州商人' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='义乌商人' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                             <ScrollView tabLabel='台州商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou />
+                                <HuZhou navigation={this.props.navigation}/>
                             </ScrollView>
                         </ScrollableTabView>
                     </View>
