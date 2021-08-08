@@ -339,7 +339,7 @@ onShare = async () => {
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                             size={20}
@@ -551,7 +551,7 @@ onShare = async () => {
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                             size={20}
@@ -670,7 +670,7 @@ onShare = async () => {
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                                 <Ionicons
                                                                 name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                                 size={20}
