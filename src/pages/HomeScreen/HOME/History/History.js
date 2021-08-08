@@ -19,7 +19,7 @@ export default class History extends Component {
                 <View style={{width:width,alignItems:"center"}}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history4.jpeg")}>
+                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history4.jpeg'}}>
                                 <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
                                <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
                             <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
@@ -30,7 +30,7 @@ export default class History extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history1.jpeg")}>
+                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history1.jpeg'}}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
                                <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
                             <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
@@ -39,7 +39,7 @@ export default class History extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history2.jpeg")}>
+                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history2.jpeg'}}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
                                <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
                             <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
@@ -48,7 +48,7 @@ export default class History extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history3.jpeg")}>
+                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history3.jpeg'}}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
                                <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
                             <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
@@ -58,7 +58,7 @@ export default class History extends Component {
                    
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
                         <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={require("../../photos/history1.jpeg")}>
+                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history1.jpeg'}}>
                             <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
                                <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
                             <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>

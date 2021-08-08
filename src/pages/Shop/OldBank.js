@@ -21,7 +21,7 @@ export default class OldBank extends Component{
     this.state.fadeAnim = new Animated.Value(1)
   }
   state = {
-    imgUrl: require('../img/5.jpg')//第一张背景
+    imgUrl: {uri:'http://8.142.11.85:3000/public/images/5.jpg'}//第一张背景
   }
   switch = (index) => {
     this.state.fadeAnim = new Animated.Value(0.4)
@@ -31,11 +31,11 @@ export default class OldBank extends Component{
       useNativeDriver: false,
     }).start()
     if (index == 0) {
-      this.setState({ imgUrl: require('../img/2.jpg') })
+      this.setState({ imgUrl: {uri:'http://8.142.11.85:3000/public/images/2.jpg'} })
     } else if (index == 1) {
-      this.setState({ imgUrl: require('../img/2.jpg') })
+      this.setState({ imgUrl: {uri:'http://8.142.11.85:3000/public/images/2.jpg'} })
     } else {
-      this.setState({ imgUrl: require('../img/2.jpg') })
+      this.setState({ imgUrl: {uri:'http://8.142.11.85:3000/public/images/2.jpg'} })
     }
   }
   render () {
@@ -68,11 +68,11 @@ export default class OldBank extends Component{
           >
             {/* Face Side */}
             {/* <View style={[{ backgroundColor: '', marginLeft: pxToDp(5) }, styles.face]}>
-              <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={require('../../../images/j1.jpg')}></Image>
+              <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={{uri:'http://8.142.11.85:3000/public/images/./imag}s/j1.jpg')}></Image>
             </View> */}
             <View style={styles.slide}>
               <View style={{width:"20%"}}></View>
-              <Image source={require('../img/2.jpg')} style={styles.image} />
+              <Image source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} style={styles.image} />
             </View>
             {/* Back Side */}
 
@@ -98,7 +98,7 @@ export default class OldBank extends Component{
           >
          
             <View style={styles.slide}>
-              <Image source={require('../img/2.jpg')} style={styles.image} />
+              <Image source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} style={styles.image} />
             </View>
             {/* Back Side */}
 
@@ -124,10 +124,10 @@ export default class OldBank extends Component{
           >
             {/* Face Side */}
             {/* <View style={[{ backgroundColor: '', marginLeft: pxToDp(5) }, styles.face]}>
-              <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={require('../../../images/j1.jpg')}></Image>
+              <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={{uri:'http://8.142.11.85:3000/public/images/./imag}s/j1.jpg')}></Image>
             </View> */}
             <View style={styles.slide}>
-              <Image source={require('../img/2.jpg')} style={styles.image} />
+              <Image source={{uri:'http://8.142.11.85:3000/public/images/2.jpg'}} style={styles.image} />
             </View>
             {/* Back Side */}
 

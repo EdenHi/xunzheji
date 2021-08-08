@@ -50,7 +50,7 @@ export default class Heritage extends Component {
                         <ScrollView>
                             <View style={{ alignItems: "center" }}>
                                 <View style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                                    <ImageBackground style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between" }} source={require("../HomeScreen/photos/customs.gif")}>
+                                    <ImageBackground style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between" }} source={{uri:'http://8.142.11.85:3000/public/images/customs.gif'}}>
                                     </ImageBackground>
                                 </View>
                                 <View style={{ backgroundColor: "#fff", marginTop: 15, marginBottom: 10, elevation: 10, borderRadius: 10 }} >
@@ -74,28 +74,28 @@ export default class Heritage extends Component {
                                     <Heritages/>
                                     {/* <View style={{ alignItems: "center" }}>
                                         <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={require("../HomeScreen/photos/customs4.jpeg")} />
+                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs4.jpeg'}} />
                                             <View style={{ marginLeft: 10 }}>
                                                 <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
                                                 <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
                                             </View>
                                         </View>
                                         <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={require("../HomeScreen/photos/customs1.jpeg")} />
+                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs1.jpeg'}} />
                                             <View style={{ marginLeft: 10 }}>
                                                 <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
                                                 <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
                                             </View>
                                         </View>
                                         <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={require("../HomeScreen/photos/customs3.jpg")} />
+                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs3.jpg"'} />
                                             <View style={{ marginLeft: 10 }}>
                                                 <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
                                                 <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
                                             </View>
                                         </View>
                                         <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={require("../HomeScreen/photos/customs2.jpeg")} />
+                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs2.jpeg'}} />
                                             <View style={{ marginLeft: 10 }}>
                                                 <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
                                                 <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
