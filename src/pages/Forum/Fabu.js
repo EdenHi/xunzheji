@@ -22,7 +22,7 @@ export default class Fabu extends Component {
             username:'',
             progress: new Animated.Value(0),
             modalVisible: false,
-
+            tag:this.props.route.params.tag
         };
     }
 
@@ -108,6 +108,7 @@ export default class Fabu extends Component {
                         uuid:this.state.uuid,
                         fabiao_time:currentdate,
                         username:result,
+                        tag:this.props.route.params.tag
                     }),
                 });
             } else {
@@ -123,14 +124,12 @@ export default class Fabu extends Component {
             for (var i = 0; i < arr.length; i++)
             {this._fetchImage(arr[i]);}
             this._fetchText();
-            this.props.navigation.goBack();
+            this.props.navigation.navigate('BtnRoute');
         } else {
             this._fetchText();
-            this.props.navigation.goBack();
+            this.props.navigation.navigate('BtnRoute');
         }
-
     }
-
     //打开本地图册
       _openPicker(){
         ImagePicker.openPicker({
@@ -153,7 +152,6 @@ export default class Fabu extends Component {
                 this.setState({arr})
             //     console.log('arr',arr[1])
         });
-
     }
     _openModalWin = () => {
         this.setState({modalVisible: true});
@@ -162,13 +160,10 @@ export default class Fabu extends Component {
     _closeModalWin = () => {
         this.setState({modalVisible: false});
     }
-
-
-
     render() {
         const { navigation } = this.props;
         const {arr} = this.state;
-        console.log('arr',this.state.arr);
+        console.log('tag',this.props.route.params);
         return (
             <View style = {styles.container}>
                  <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
@@ -195,7 +190,6 @@ export default class Fabu extends Component {
                     onRequestClose={() =>{ this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
                     onShow={()=>{console.log('modal窗口显示了');}} // 回调函数会在 modal 显示时调用
                 >
-               
             <TouchableOpacity
             
             style={{height:'100%',width:'100%',position:"absolute",top:0,left:0}}
@@ -276,6 +270,23 @@ export default class Fabu extends Component {
                 }
                 {this.tianjia()}
                 </View>
+
+                {/* 选择标签 */}
+                <TouchableOpacity style={{width:'100%',backgroundColor:'#eee',marginTop:20,flexDirection:'row',alignItems:'center',height:width*0.12,justifyContent:'space-around'}}
+                onPress={()=>this.props.navigation.goBack()}>
+                    <View style={{flexDirection:'row',alignItems:'center'}}>
+                        <View style={{backgroundColor:'orange',height:30,width:30,borderRadius:50,justifyContent:'center',alignItems:'center'}}>
+                        <FontAwesome
+                        name='hashtag'
+                        color='white'
+                        size={16}
+                        />
+                        </View>
+                        <Text style={{marginLeft:10,color:'orange',fontSize:18,fontWeight:'bold'}}>{this.props.route.params.tag}</Text>
+                    </View>
+                    <Text style={{color:'#ccc'}}>选择合适的话题会有更多赞哦~</Text>
+                </TouchableOpacity>
+                
             </View>
                 </LinearGradient>
             </View>

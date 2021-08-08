@@ -24,7 +24,7 @@ export default class dingzhi extends Component {
                     <View style={{ width: width}}>
                         <View style={{ flexDirection: "row", height: width * 0.15,marginLeft:width*0.05 }}>
                             <View style={{ height: width * 0.13, width: width * 0.7 }}>
-                                <View style={{height:width*0.08}}><Text style={{ fontSize: 15 }}>已收录31省市475名非遗大师、手艺人</Text></View>
+                                <View style={{ height: width * 0.08 }}><Text style={{ fontSize: 15 }}>已收录31省市475名非遗大师、手艺人</Text></View>
 
                                 {/* <TouchableOpacity style={{borderWidth:1,borderRadius:25,borderColor:'#fff',alignItems:'center',width:width*0.6}}> */}
                                 {/* <Image source={{uri:'https://img0.baidu.com/it/u=209027227,4293619616&fm=26&fmt=auto&gp=0.jpg'}} style={{height:20,width:20,borderRadius:8,marginLeft:width * 0.04,marginTop:3,marginBottom:3,marginRight:width * 0.01}}/>
@@ -37,7 +37,7 @@ export default class dingzhi extends Component {
                                 </Swiper>
                                 {/* </TouchableOpacity> */}
                             </View>
-                            <TouchableOpacity onPress={()=>this.props.navigation.navigate("Jiang")}  style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, borderRadius: 5, elevation: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.03 ,marginLeft:15}}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate("Jiang")} style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, borderRadius: 5, elevation: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.03, marginLeft: 15 }}>
                                 <Text style={{ color: 'white', fontSize: 12 }}>查看全部 </Text>
                             </TouchableOpacity>
                         </View>
@@ -48,8 +48,8 @@ export default class dingzhi extends Component {
                                 <View style={{height:1250}}>
                                     <View style={{ marginTop: width * 0.03, width: width , borderRadius: 15,marginLeft:width*0.05 }}>
                                         <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: width * 0.02 }}>徽派竹雕</Text>
-                                        <Image source={{ uri: 'https://img1.baidu.com/it/u=4161466098,2632610288&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10, marginTop: width * 0.03 }} />
-                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 5, borderRadius: 10 ,width:width*0.9}}>
+                                        <View style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10, marginTop: width * 0.03 ,overflow:"hidden"}}><Image source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi03.c.aliimg.com%2Fimg%2Fibank%2F2015%2F050%2F317%2F2045713050_1963800487.jpg&refer=http%3A%2F%2Fi03.c.aliimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630802028&t=9600f09bde5760599589c2ed9caf7c49' }} style={{ width: width * 0.9, height: width * 0.5 }} /></View>
+                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 2, borderRadius: 10, width: width * 0.9 }}>
                                             <Image source={{ uri: 'https://img0.baidu.com/it/u=2899734245,647783329&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.3, height: width * 0.3, margin: width * 0.02, borderRadius: 15 }} />
                                             <View style={{ marginBottom: width * 0.02, width: width * 0.4, marginTop: width * 0.015 }}>
                                                 <Text style={{ fontSize: 15, marginBottom: width * 0.02 }}>洪建华</Text>
@@ -64,8 +64,9 @@ export default class dingzhi extends Component {
                                     </View>
                                     <View style={{ marginTop: width * 0.03 ,marginLeft:width*0.05 }}>
                                         <Text style={{ fontSize: 20, fontWeight: 'bold', marginLeft: width * 0.02 }}>砚雕</Text>
-                                        <Image source={{ uri: 'https://img1.baidu.com/it/u=2243210361,1712617060&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10, marginTop: width * 0.03 }} />
-                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 5, borderRadius:10 ,width:width*0.9}}>
+
+                                        <View style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10, marginTop: width * 0.03 ,overflow:"hidden"}} ><Image source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Ftc.sinaimg.cn%2Fmaxwidth.800%2Ftc.service.weibo.com%2Fmmbiz_qpic_cn%2F11683ca48fe01f0db2342f41cad423be.jpg&refer=http%3A%2F%2Ftc.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630802037&t=9b6e6d9aaf1664c039fd661c48110414' }} style={{ width: width * 0.9, height: width * 0.5 }} /></View>
+                                        <View style={{ flexDirection: 'row', marginTop: width * 0.03, backgroundColor: "#fff", elevation: 2, borderRadius: 10, width: width * 0.9 }}>
                                             <Image source={{ uri: 'https://img1.baidu.com/it/u=2222344400,3431079609&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.3, height: width * 0.3, margin: width * 0.02, borderRadius: 15 }} />
                                             <View style={{ marginBottom: width * 0.02, width: width * 0.4, marginTop: width * 0.015 }}>
                                                 <Text style={{ fontSize: 15, marginBottom: width * 0.03 }}>陆小华</Text>
@@ -80,7 +81,7 @@ export default class dingzhi extends Component {
                                             </TouchableOpacity>
                                         </View>
                                         <View style={{ marginTop: width * 0.03, }}>
-                                            <Image source={{ uri: 'https://img0.baidu.com/it/u=2274095050,1497185669&fm=26&fmt=auto&gp=0.jpg' }} style={{ width: width * 0.91, height: width * 0.3, borderRadius: 10, marginLeft: width * 0.02, marginTop: width * 0.03 }} />
+                                            <View style={{ borderRadius: 10, elevation: 2, overflow: 'hidden', width: width * 0.9 }}><Image source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzkres2.myzaker.com%2F201808%2F5b794f877f52e97e45000210_raw.gif&refer=http%3A%2F%2Fzkres2.myzaker.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630800879&t=4b6f89a11eb1d3f28926683357105b77' }} style={{ width: width * 0.9, height: width * 0.5, borderRadius: 10 }} /></View>
                                             {/* 进度条显示，后期把数值放入数据库，进行数字的更改 */}
                                             <View style={{ marginLeft: width * 0.035 }}>
                                                 <View style={{ flexDirection: 'row', marginTop: width * 0.03, alignItems: 'center' }}>

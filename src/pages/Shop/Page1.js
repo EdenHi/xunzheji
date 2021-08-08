@@ -8,7 +8,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import SideMenu from 'react-native-side-menu';
-import ScrollableTabView ,{ScrollableTabBar}from 'react-native-scrollable-tab-view';
+import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import Chair from './Chair';
 import Table from './Table';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
@@ -138,7 +138,7 @@ export default class Page1 extends Component {
                     </View>
                     {/* 顶部导航 */}
                     <ScrollableTabView
-                    renderTabBar={()=><ScrollableTabBar/>}
+                        renderTabBar={() => <ScrollableTabBar />}
                     >
                         <Chair navigation={this.props.navigation} tabLabel='椅子' />
                         <Table navigation={this.props.navigation} tabLabel='桌子' />

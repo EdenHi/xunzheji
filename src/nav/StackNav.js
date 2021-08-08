@@ -52,7 +52,8 @@ import {
   OldBankTimer,
   MinJia,
   Jiang,
-
+  tag,
+Min,
   AR,
   Video
 } from '../pages/index';
@@ -120,10 +121,11 @@ export default function StackNav() {
       <Stack.Screen name="HuZhou" component={HuZhou}/>
       <Stack.Screen name="OldBankTimer" component={OldBankTimer}/>
       <Stack.Screen name="MinJia" component={MinJia}/>
+      <Stack.Screen name="Min" component={Min}/>
       <Stack.Screen name="Jiang" component={Jiang}/>
       <Stack.Screen name="AR" component={AR} />
       <Stack.Screen name="Video" component={Video} />
-   
+      <Stack.Screen name="tag" component={tag} />
     </Stack.Navigator>
   );
 }

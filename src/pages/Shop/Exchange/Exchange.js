@@ -25,16 +25,16 @@ export default class componentName extends Component {
     return (
       <View style={{flex: 1}}>
         <LinearGradient style={{flex:1}} colors={["#7cc0bf", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, }}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>以物换物</Text>
+                        {/* <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
-        <ScrollView style={{flex: 1, borderWidth: 1}}>
+        <ScrollView style={{flex: 1}}>
           <View style={{height: height * 0.2}}>
             <Swiper autoplay style={{height: '100%'}}>
               <Image
@@ -53,7 +53,7 @@ export default class componentName extends Component {
               />
             </Swiper>
           </View>
-          <View style={{borderWidth: 1, height: height * 0.1}}>
+          <View style={{height: height * 0.1}}>
             <Swiper
             autoplay
             autoplayTimeout={4}

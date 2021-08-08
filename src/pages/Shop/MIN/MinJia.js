@@ -11,6 +11,7 @@ import SegmentTabBar from './SenmentTabBar'
 const { width, height } = Dimensions.get("window")
 
 export default class MinJia extends Component {
+
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -19,27 +20,27 @@ export default class MinJia extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商历史推荐</Text>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>名家定制</Text>
                     </View>
                     <View style={{  }}>
                         <ScrollView style={{height:height*0.9}}>
                             <View style={{ height: height *2.5}}>
-                                <Min />
+                                <Min navigation={this.props.navigation}/>
                                 <ScrollableTabView renderTabBar={() => <SegmentTabBar />}>
                                     <View tabLabel='山水' >
-                                        <Characters />
+                                        <Characters navigation={this.props.navigation}/>
                                     </View>
                                     <View tabLabel='人物' >
-                                        <Characters />
+                                        <Characters navigation={this.props.navigation}/>
                                     </View>
                                     <View tabLabel='花鸟' >
-                                        <Characters />
+                                        <Characters navigation={this.props.navigation}/>
                                     </View>
                                     <View tabLabel='湖州商帮' >
-                                        <Characters />
+                                        <Characters navigation={this.props.navigation}/>
                                     </View>
                                     <View tabLabel='湖州商帮' >
-                                        <Characters />
+                                        <Characters navigation={this.props.navigation}/>
                                     </View>
                                 </ScrollableTabView>
                             </View>

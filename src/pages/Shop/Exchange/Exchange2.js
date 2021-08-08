@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import {Text, TextInput, View,Dimensions, TouchableOpacity,Image,AsyncStorage ,DeviceEventEmitter} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 
-const {width} = Dimensions.get('window')
+const {width,height} = Dimensions.get('window')
 export default class Exchange2 extends Component {
     constructor(props){
         super(props)
@@ -80,7 +80,8 @@ export default class Exchange2 extends Component {
                     <View style={{borderWidth:1,borderColor:'black',width:width * 0.9,marginTop:width * 0.05,height:400}}>
                         <TextInput
                         maxLength={1500}
-                        placeholder='你的 物品/服务/技能 背后的故事，背后的酸甜苦辣，欢迎和我们分享（最多1500字）'
+                        
+                        placeholder='你的 物品/服务/技能 背后的故事，背后的酸甜苦辣，欢迎和我们分享'
                         style={{width:width * 0.8,paddingLeft:10}}
                         multiline={true}
                         onChangeText={(jieshao)=>this.setState({jieshao})}
@@ -91,7 +92,7 @@ export default class Exchange2 extends Component {
                     </TouchableOpacity>
                     <TouchableOpacity
                     activeOpacity={0.9}
-                    style={{width:width * 0.7,marginLeft:width * 0.1,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:50,borderRadius:10}}
+                    style={{width:width * 0.7,marginLeft:width * 0.1,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:height*0.05,borderRadius:20}}
                     onPress = {()=>this._fetchImage()}>
                         <Text style={{color:'white',fontSize:15}}>上传</Text>
                     </TouchableOpacity>
