@@ -69,7 +69,7 @@ export default class LunTan extends Component {
                 })
             }
         })
-        this.listener = DeviceEventEmitter.addListener('shuaxin',this.loding.bind(this))
+        this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
       }
 
     componentWillUnmount(){
@@ -108,7 +108,6 @@ export default class LunTan extends Component {
                         title_id: v.title_id,
                     }),
                 });
-
         }else {
             fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
                     method: 'POST',
@@ -122,6 +121,7 @@ export default class LunTan extends Component {
                     }),
                 });
         }
+        this.get_xinxi();
     }
 
 onShare = async () => {
@@ -337,7 +337,7 @@ onShare = async () => {
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v)}}>
+                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                             size={20}
@@ -801,7 +801,7 @@ onShare = async () => {
                                                 name="chatbubble-ellipses-outline"
                                                 size={20}
                                                 color="black"/>
-                                                <Text style={{marginLeft:5}}>{v.counts+1}</Text>
+                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity

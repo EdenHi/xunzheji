@@ -119,7 +119,7 @@ export default class Fabu extends Component {
     }
     _goget(){
         const arr = this.state.arr;
-        DeviceEventEmitter.emit('shuaxin',1);
+        DeviceEventEmitter.emit('test',1);
         if (arr.length > 0 ) {
             for (var i = 0; i < arr.length; i++)
             {this._fetchImage(arr[i]);}
