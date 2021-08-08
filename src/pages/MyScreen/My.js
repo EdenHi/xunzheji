@@ -10,6 +10,8 @@ import axios from 'axios';
 import {NavigationContext} from '@react-navigation/native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import MyRoute2 from '../../nav/MyRoute2';
+import Drawer from 'react-native-drawer';
+import ControlPanel from './ControlPanel';
 
 const {height,width} = Dimensions.get('window');
 export default class My extends Component {
@@ -20,8 +22,18 @@ export default class My extends Component {
         username:'',
         data:[],
         isScroll:true,
+        drawerOpen: false,
+        drawerDisabled: false,
       };
     }
+    
+    closeDrawer = () => {
+      this._drawer.close()
+  };
+  openDrawer = () => {
+      this._drawer.open()
+  };
+
 
     //获取个人信息数据
     get_shuju(){
@@ -71,6 +83,52 @@ export default class My extends Component {
       const {data,isScroll} = this.state;
       console.log('data',data);
         return (
+          <Drawer
+          ref={(ref) => this._drawer = ref}
+          // type: 一共是3种（displace,overlay,static）, 用static就好啦，static让人感觉更舒适一些
+          type="static"
+          // Drawer 展开区域组件
+          content={
+              <ControlPanel closeDrawer={this.closeDrawer} />
+          }
+          // 响应区域双击可以打开抽屉
+          acceptDoubleTap
+          // styles 和 tweenHandler是设置向左拉后主内容区的颜色，相当于给主内容区加了一个遮罩
+          styles={{
+              mainOverlay: {
+                  backgroundColor: 'black',
+                  opacity: 0,
+              },
+          }}
+          tweenHandler={(ratio) => ({
+              mainOverlay: {
+                  opacity: ratio / 2,
+              }
+          })}
+          // drawer打开后调用的函数
+          onOpen={() => {
+              this.setState({drawerOpen: true});
+          }}
+          // drawer关闭后调用的函数
+          onClose={() => {
+              this.setState({drawerOpen: false});
+          }}
+
+          captureGestures={false}
+          // 打开/关闭 Drawer所需要的时间
+          tweenDuration={100}
+          // 触发抽屉打开/关闭必须经过的屏幕宽度比例
+          panThreshold={0.08}
+          disabled={this.state.drawerDisabled}
+          // Drawer打开后有边界距离屏幕右边界的距离
+          openDrawerOffset={(viewport) => {
+              return 100;
+          }}
+          // 拉开抽屉的响应区域
+          panOpenMask={0.2}
+          // 如果为true, 则尝试仅处理水平滑动
+          negotiatePan
+      >
           <View style={{flex:1}}>
             <ParallaxScrollView
                 headerBackgroundColor="#fff"
@@ -252,9 +310,7 @@ export default class My extends Component {
                             alignItems: 'center',
                             justifyContent: 'center',
                           }}
-                          onPress={() => {
-                            this.props.navigation.goBack();
-                          }}
+                          onPress={this.openDrawer}
                           >
                           <Feather name="menu" size={25} color="#7cc0c0" />
                         </TouchableOpacity>
@@ -276,6 +332,7 @@ export default class My extends Component {
             </ParallaxScrollView>
 
           </View>
+          </Drawer>
 
         );
     }

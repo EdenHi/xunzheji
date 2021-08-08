@@ -1,10 +1,10 @@
 export { default as Home } from './HomeScreen/HOME/Home';//首页
 export { default as My } from './MyScreen/My';
 export { default as Tour } from './Tour/index.js';
-export {default as Forum} from './Forum/Luntan.js';//论坛列表
-export {default as Comment} from './Forum/comment.js';//论坛内容
-export {default as Comment_huifu} from './Forum/comment_huifu.js';//论坛回复
-export {default as Fabu} from './Forum/Fabu.js';//论坛发布动态
+export { default as Forum } from './Forum/Luntan.js';//论坛列表
+export { default as Comment } from './Forum/comment.js';//论坛内容
+export { default as Comment_huifu } from './Forum/comment_huifu.js';//论坛回复
+export { default as Fabu } from './Forum/Fabu.js';//论坛发布动态
 export { default as Login } from './Login/Login';
 export { default as Register } from './Login/Register';
 export { default as FindPass } from './Login/FindPass';
@@ -52,3 +52,5 @@ export {default as Jiang} from './Shop/Jiang'
 export {default as AR} from './AR'
 export {default as Video} from "./Road/Video"
 export {default as tag} from "./Forum/tag"
+export {default as Min} from "./Shop/MIN/Min"
+
