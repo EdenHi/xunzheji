@@ -54,11 +54,10 @@ import {
   Jiang,
   Min,
   tag,
-Min,
   AR,
   Video,
   Zhan,
-  JieShao
+  JieShao,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
