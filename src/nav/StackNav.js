@@ -52,7 +52,7 @@ import {
   OldBankTimer,
   MinJia,
   Jiang,
-
+Min,
   AR,
   Video
 } from '../pages/index';

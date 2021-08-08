@@ -51,3 +51,5 @@ export {default as updateDizhi} from './Shop/shopping/updateDizhi'
 export {default as Jiang} from './Shop/Jiang'
 export {default as AR} from './AR'
 export {default as Video} from "./Road/Video"
+export {default as Min} from "./Shop/MIN/Min"
+
