@@ -64,19 +64,32 @@ export default class goods2 extends Component {
       })
     })
   }
-  componentDidMount() {
-      AsyncStorage.getItem('username',(err,result)=>{
-        if(!err){
-          this.setState({
-            username:result,
-          },() => {
-            console.log(this.state.username); 
-          })
-          this.select_shuju();
-        }
-      })
 
-    this.listener = DeviceEventEmitter.addListener('test',this.select_shuju.bind(this))
+  get(){
+    AsyncStorage.getItem('username',(err,result)=>{
+      if(!err){
+        this.setState({
+          username:result,
+        },() => {
+          console.log(this.state.username); 
+        })
+        this.select_shuju();
+      }
+    })
+  }
+
+  //退出登录
+  delect(){
+    this.setState({
+      data:[],
+    })
+  }
+
+
+  componentDidMount() {
+    this.get();
+    this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
+    this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
    // this.loadMore()
    
   }

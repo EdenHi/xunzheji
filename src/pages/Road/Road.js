@@ -54,7 +54,7 @@ export default class Road extends Component {
                         <ScrollView tabLabel='亚运路线' style={{width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
                             <View style={{ width:width*0.9, marginLeft:width*0.05}}>
                                 {/* 卡片解锁后展开界面 */}
-
+                                
                                 {/* 卡片未解锁界面 */}
                                 <Locked navigation={this.props.navigation}/>
                                 {/* 卡片未解锁界面 */}

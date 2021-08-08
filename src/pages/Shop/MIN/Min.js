@@ -118,7 +118,7 @@ export default class Min extends Component {
                                 <Text style={{ fontSize: 13, color: '#7cc0c0' }}>看介绍</Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1}>
                             <View>
                                 <Ionicons style={{ marginLeft: 10 }} name='md-brush-outline' color='#7cc0c0' size={25} />
                                 <Text style={{ fontSize: 13, color: '#7cc0c0' }}>去定制</Text>

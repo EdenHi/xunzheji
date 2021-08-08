@@ -23,7 +23,6 @@ import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 export default class LunTan extends Component {
     static contextType = NavigationContext;
     constructor(props){
@@ -69,7 +68,7 @@ export default class LunTan extends Component {
                 })
             }
         })
-        this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
+        this.listener = DeviceEventEmitter.addListener('shuaxin',this.loding.bind(this))
       }
 
     componentWillUnmount(){
@@ -109,6 +108,7 @@ export default class LunTan extends Component {
                     }),
                 });
         }else {
+
             fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
                     method: 'POST',
                     headers: {
@@ -147,7 +147,7 @@ onShare = async () => {
         const {modalVisible,imgUrls,currentIndex} = this.state;
        // const { navigation } = this.props;
        let long = this.state.data.length;
-       let mathrom = Math.round(Math.random() * long);
+    //    let mathrom = Math.round(Math.random() * long);
 
         return (
             <View>
@@ -163,7 +163,8 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
-                            if(k === mathrom){
+
+                            if(k === 2){
                                 if (v.title === ''){
                                     return (
                                         <View>
@@ -326,10 +327,18 @@ onShare = async () => {
                                         }
                                            }}/>
                                            </View>
+                                           
+                                            {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                             size={20}
@@ -497,7 +506,7 @@ onShare = async () => {
                                            renderItem={({item,index})=>{
                                              if (item === null ){
                                                 return ;
-                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                            } else if (v.pic.length > 1 && v.pic.length < 5){
                                                 return (
                                                     <View style={styles.box2}>
                                                 <TouchableOpacity
@@ -530,10 +539,18 @@ onShare = async () => {
                                         }
                                            }}/>
                                            </View>
+
+                                        {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                             size={20}
@@ -641,10 +658,18 @@ onShare = async () => {
                                     }
                                        }}/>
                                        </View>
+
+                                       {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                                 <Ionicons
                                                                 name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                                 size={20}
@@ -750,10 +775,18 @@ onShare = async () => {
                                     }
                                        }}/>
                                        </View>
+
+                                       {/* tag标签 */}
+                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
+                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
+                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       </View>
+
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity onPress={()=>this.update_dianzan(v)}>
+                                                    <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                         <Ionicons
                                                         name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}

@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "shopName" : "蔬菜",
+
       "shopId" : "0001",
       "shopItems": [
         {
@@ -50,52 +50,7 @@
           "itemDes": "这个测试商品"
         }
       ]
-    },
-    {
-      "shopName" : "肉类",
-      "shopId" : "0001",
-      "shopItems": [
-        {
-          "itemName": "猪肉",
-          "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
-          "itemPrice": 140.00,
-          "minQuantity": 1,
-          "maxQuantity": 5,
-          "itemDes": "这个测试商品"
-        },
-        {
-          "itemName": "牛肉",
-          "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
-          "itemPrice": 150.00,
-          "minQuantity": 1,
-          "maxQuantity": 15,
-          "itemDes": "这个测试商品"
-        },
-        {
-          "itemName": "鸡肉",
-          "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
-          "itemPrice": 160.00,
-          "minQuantity": 1,
-          "maxQuantity": 22,
-          "itemDes": "这个测试商品"
-        },
-        {
-          "itemName": "羊肉",
-          "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
-          "itemPrice": 170.00,
-          "minQuantity": 1,
-          "maxQuantity": 24,
-          "itemDes": "这个测试商品"
-        }
-      ]
-    
-   
     }
-  
-    
   ]
 }
+   

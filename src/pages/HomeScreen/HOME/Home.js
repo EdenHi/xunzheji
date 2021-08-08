@@ -23,11 +23,11 @@ export default class Home extends Component {
         super(props)
         this.state={
             progress: new Animated.Value(0),
-
         }
         
     }
     componentDidMount() {
+        console.log(this.state.username);
         Animated.timing(this.state.progress, {
           toValue: 1,
           duration: 3500,
