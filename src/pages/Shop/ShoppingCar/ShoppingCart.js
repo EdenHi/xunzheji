@@ -220,7 +220,7 @@ export default class ShoppingCart extends Component {
     })
     return (
       <View style={styles.container}>
-        <View style={{width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
+        <View style={{width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",alignItems:"center"}}>
           <TouchableOpacity style={{marginLeft:"2%"}}
                       onPress={() => navigation.goBack()}
           >
@@ -230,14 +230,12 @@ export default class ShoppingCart extends Component {
               color="black"
             />
           </TouchableOpacity>
-          <Text style={{fontSize:15}}>购物车</Text>
+          <Text style={{fontSize:15,marginLeft:"2%"}}>购物车</Text>
           <TouchableOpacity style={{width:width*0.09,height:width*0.09,}}>
-
           </TouchableOpacity>
         </View>
-       
         <SectionList
-          renderSectionHeader={this.renderSectionHeader}
+          // renderSectionHeader={this.renderSectionHeader}
           renderItem={this.renderItem}
           sections={tempArr}
           ItemSeparatorComponent={() => <View/>}
