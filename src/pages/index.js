@@ -51,9 +51,12 @@ export {default as updateDizhi} from './Shop/shopping/updateDizhi'
 export {default as Jiang} from './Shop/Jiang'
 export {default as AR} from './AR'
 export {default as Video} from "./Road/Video"
-export {default as tag} from "./Forum/tag"
 export {default as Min} from "./Shop/MIN/Min"
+export {default as Zhan} from "./Shop/MIN/Zhan"
+export {default as JieShao} from "./Shop/MIN/JieShao"
+export {default as tag} from "./Forum/tag"
 export {default as Characters} from "./Shop/MIN/Characters"
 export {default as Shopclassifymore} from "./Shop/shoplist/Shopclassifymore"
+export {default as Swop} from "./Shop/Exchange/Swop"
 
 

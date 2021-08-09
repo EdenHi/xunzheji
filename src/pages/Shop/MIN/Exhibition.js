@@ -21,10 +21,10 @@ export default class Exhibition extends React.Component {
 
     render() {
         return (
-            <View style={{ }}>
+            <View >
                 <ImageBackground style={{width,height:height*0.8,elevation:1}} source={{uri:"https://img1.baidu.com/it/u=2332409694,365761318&fm=26&fmt=auto&gp=0.jpg"}} >
                 <ImageBackground resizeMode="stretch" style={{ width: width * 0.95, height: width * 0.7, marginHorizontal: width * 0.025, marginVertical: height * 0.2, justifyContent: "center", alignItems: "center", elevation: 1 }} source={{ uri: "https://img0.baidu.com/it/u=260609161,2032145387&fm=26&fmt=auto&gp=0.jpg" }}>
-                    <View style={{}}>
+                    <View >
                         <TouchableOpacity onPress={this._openModalWin} >
                             <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
                         </TouchableOpacity>

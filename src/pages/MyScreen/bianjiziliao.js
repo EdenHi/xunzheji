@@ -178,7 +178,7 @@ export default class app1 extends Component {
         });
     }
     go_back(){
-        DeviceEventEmitter.emit('test',1);
+        DeviceEventEmitter.emit('denglu',1);
         this.props.navigation.goBack();
     }
 

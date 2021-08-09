@@ -172,7 +172,7 @@ export default class AddressList extends Component {
                 {/* </LinearGradient> */}
                 </View>
                 <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
-                    <View style={{backgroundColor:'#7cc0c0',height:40,marginTop:height*0.5,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
+                    <View style={{backgroundColor:'#7cc0c0',height:40,marginTop:height*0.8,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
                         </View>
                         </TouchableOpacity>

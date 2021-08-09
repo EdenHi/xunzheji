@@ -40,7 +40,7 @@ export default class MinJia extends Component {
                                     <View tabLabel='湖州商帮' >
                                         <Characters navigation={this.props.navigation}/>
                                     </View>
-                                    <View tabLabel='湖州商帮' >
+                                    <View tabLabel='湖州商帮1' >
                                         <Characters navigation={this.props.navigation}/>
                                     </View>
                                 </ScrollableTabView>

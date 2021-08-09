@@ -11,6 +11,8 @@ import { NavigationContext } from '@react-navigation/native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import MyRoute2 from '../../nav/MyRoute2';
 import AwesomeAlert from 'react-native-awesome-alerts';
+import SideMenu from 'react-native-side-menu';
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 const { height, width } = Dimensions.get('window');
 let _this = this;
 export default class My extends Component {
@@ -21,10 +23,23 @@ export default class My extends Component {
       username: '',
       data: [],
       isScroll: true,
+      isOpen: false,
       aa: 1,
       showAlert: false,
-    };
+    }
+    // this.SelectMenuItemCallBack = this.SelectMenuItemCallBack.bind(this);
   }
+//   SelectMenuItemCallBack() {
+//     this.setState({
+//         isOpen: !this.state.isOpen,
+//     })
+// }
+   //点击打开侧边栏
+   SelectToOpenLeftSideMenu() {
+    this.setState({
+        isOpen: true,
+    })
+}
 
   showAlert = () => {
     this.setState({
@@ -117,7 +132,74 @@ init() {
 
       </View>
     </TouchableOpacity> : null;
+    const menu =
+    <View style={{ backgroundColor: '#fff', flex: 1 }}>
+      <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:"center",marginTop:'5%'}}>
+        <TouchableOpacity style={{width:width*0.23,height:width*0.25,backgroundColor:"#fff",borderRadius:15,elevation:5}}>
+        <MaterialCommunityIcons onPress={()=>{this.props.navigation.navigate('ShoppingCart') }}style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="cart-outline"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{width:width*0.23,height:width*0.25,backgroundColor:"#fff",borderRadius:15,elevation:5}}>
+        <MaterialCommunityIcons style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="clipboard-text-outline"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={{flexDirection:'row',justifyContent:'space-around',alignItems:"center",marginTop:'5%'}}>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats')}} style={{width:width*0.23,height:width*0.25,backgroundColor:"#fff",borderRadius:15,elevation:5}}>
+        <AntDesign style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="customerservice"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('AddressList')}} style={{width:width*0.23,height:width*0.25,backgroundColor:"#fff",borderRadius:15,elevation:5}}>
+        <MaterialCommunityIcons  style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
+                  name="map-marker-radius"
+                  size={35}
+                  color="#7cc0c0"
+                />
+                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
+        </TouchableOpacity>
+        
+      </View>
+        
+    </View>
     return (
+      <SideMenu
+      menu={menu}                    //抽屉内的组件
+      isOpen={this.state.isOpen}     //抽屉打开/关闭
+      openMenuOffset={width*0.8}     //抽屉的宽度
+      hiddenMenuOffset={0}          //抽屉关闭状态时,显示多少宽度 默认0 抽屉完全隐藏
+      edgeHitWidth={100}              //距离屏幕多少距离可以滑出抽屉,默认60
+      disableGestures={false}
+
+      onChange={                   //抽屉状态变化的监听函数
+          (isOpen) => {
+              isOpen ? console.log('抽屉当前状态为开着')
+                  :
+                  console.log('抽屉当前状态为关着')
+
+          }}
+
+      onMove={                     //抽屉移动时的监听函数 , 参数为抽屉拉出来的距离 抽屉在左侧时参数为正,右侧则为负
+          (marginLeft) => {
+              console.log(marginLeft)
+          }}
+
+      menuPosition={'left'}     //抽屉在左侧还是右侧
+      autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
+  >
+
+
       <View style={{ flex: 1 }}>
         <AwesomeAlert
           show={showAlert}
@@ -334,9 +416,7 @@ init() {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
-                onPress={() => {
-                  this.props.navigation.goBack();
-                }}
+                onPress={() => { this.SelectToOpenLeftSideMenu() }}
               >
                 <Feather name="menu" size={25} color="#7cc0c0" />
               </TouchableOpacity>
@@ -352,12 +432,10 @@ init() {
               </TouchableOpacity>
             </View>}
         >
-
           <MyRoute2 />
-
         </ParallaxScrollView>
-
       </View>
+      </SideMenu>
 
     );
   }

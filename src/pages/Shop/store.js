@@ -231,7 +231,7 @@ export default class Store extends Component {
                 <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{uri:'http://8.142.11.85:3000/public/images/9.jpg'}}></Image>
                 </TouchableOpacity>
-                <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Exchange')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                <TouchableOpacity  activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
                   <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{uri:'http://8.142.11.85:3000/public/images/10.jpg'}}></Image>
                 </TouchableOpacity>
               </View>

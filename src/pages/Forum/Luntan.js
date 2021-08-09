@@ -23,7 +23,6 @@ import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
-
 export default class LunTan extends Component {
     static contextType = NavigationContext;
     constructor(props){
@@ -109,6 +108,7 @@ export default class LunTan extends Component {
                     }),
                 });
         }else {
+
             fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
                     method: 'POST',
                     headers: {
@@ -163,6 +163,7 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
+
                             if(k === 2){
                                 if (v.title === ''){
                                     return (
@@ -505,7 +506,7 @@ onShare = async () => {
                                            renderItem={({item,index})=>{
                                              if (item === null ){
                                                 return ;
-                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
+                                            } else if (v.pic.length > 1 && v.pic.length < 5){
                                                 return (
                                                     <View style={styles.box2}>
                                                 <TouchableOpacity
