@@ -359,10 +359,13 @@ export default class Comment extends React.Component {
                             <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                 <TouchableOpacity activeOpacity={1}>
                                     <View style={{flexDirection:'row'}}>
-                                        <Ionicons
-                                        name="heart-outline"
-                                        size={15}
-                                        color="black"/>
+                                        <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
+                                            <Ionicons
+                                            name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                            size={20}
+                                            color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                            />
+                                        </TouchableOpacity> 
                                         <Text style={{marginLeft:5}}>{data.dianzan}</Text>
                                     </View>
                                 </TouchableOpacity>
@@ -748,15 +751,18 @@ export default class Comment extends React.Component {
                                        </View>
 
                                 <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                    <TouchableOpacity activeOpacity={1}>
-                                        <View style={{flexDirection:'row'}}>
-                                            <Ionicons
-                                            name="heart-outline"
-                                            size={15}
-                                            color="black"/>
-                                            <Text style={{marginLeft:5}}>{data.dianzan}</Text>
-                                        </View>
-                                    </TouchableOpacity>
+                                        <TouchableOpacity activeOpacity={1}>
+                                            <View style={{flexDirection:'row'}}>
+                                                <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
+                                                    <Ionicons
+                                                    name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                                    size={20}
+                                                    color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                    />
+                                                </TouchableOpacity> 
+                                                <Text style={{marginLeft:5}}>{data.dianzan}</Text>
+                                            </View>
+                                        </TouchableOpacity>
                                     <View style={{flexDirection:'row'}}>
                                         <Ionicons
                                         name="chatbubble-ellipses-outline"
@@ -938,10 +944,13 @@ export default class Comment extends React.Component {
                                 <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                     <TouchableOpacity activeOpacity={1}>
                                         <View style={{flexDirection:'row'}}>
-                                            <Ionicons
-                                            name="heart-outline"
-                                            size={15}
-                                            color="black"/>
+                                            <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
+                                                <Ionicons
+                                                name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                                                size={20}
+                                                color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                />
+                                            </TouchableOpacity> 
                                             <Text style={{marginLeft:5}}>{data.dianzan}</Text>
                                         </View>
                                     </TouchableOpacity>

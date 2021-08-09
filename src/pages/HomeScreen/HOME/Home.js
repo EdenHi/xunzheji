@@ -80,7 +80,7 @@ export default class Home extends Component {
                                         horizontal={true} showsHorizontalScrollIndicator={false}
                                        
                                         >
-                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
+                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs',{wenzhang_id:1})} activeOpacity={1}>
                                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 10, marginRight: 10, elevation: 5 }}>
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>

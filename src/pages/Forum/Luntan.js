@@ -69,7 +69,7 @@ export default class LunTan extends Component {
                 })
             }
         })
-        this.listener = DeviceEventEmitter.addListener('shuaxin',this.loding.bind(this))
+        this.listener = DeviceEventEmitter.addListener('shuaxin',this.get_xinxi.bind(this))
       }
 
     componentWillUnmount(){
