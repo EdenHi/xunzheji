@@ -18,7 +18,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient'
 const {height,width} = Dimensions.get('window');
 
+
 export default class Classify extends React.Component {
+    constructor(props){
+        super(props)
+    }
     render() {
         const { navigation } = this.props;
         return (
@@ -81,8 +85,8 @@ export default class Classify extends React.Component {
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30, width: 130 }}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>琢磨</Text>
-                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>ZHUOMO</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" }}>餐饮</Text>
+                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>CANYIN</Text>
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
@@ -103,7 +107,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                             
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi02.c.aliimg.com%2Fimg%2Fibank%2F2013%2F752%2F854%2F907458257_415171204.jpg&refer=http%3A%2F%2Fi02.c.aliimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630460908&t=ed402682f64b634c08a8ab3207bfd8b1'}}
+                                source={{uri:'https://bkimg.cdn.bcebos.com/pic/962bd40735fae6cd39f0056d09b30f2442a70f71?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg'}}
                                     >
                                 </Image>
                                 <View style={{
@@ -112,8 +116,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>木雕</Text>
-                                    <Text>MUDIAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>楼外楼</Text>
+                                    <Text>LOUWAILOU</Text>
                                 </View>
                             </View>
                             </TouchableOpacity>
@@ -135,7 +139,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                    
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1706%2F24%2Fc15%2F50872932_1498276162414.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630460984&t=4f09a6cfd2705c528d53d6372bf17eb8'}}
+                                source={{uri:'https://bkimg.cdn.bcebos.com/pic/cb8065380cd7912302ff6a51a7345982b2b780fc?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -144,8 +148,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>石雕</Text>
-                                    <Text>SHIDIAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>山外山</Text>
+                                    <Text>SHANWAISHAN</Text>
                                 </View>
                             </View>
                             </TouchableOpacity>
@@ -168,7 +172,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                    
                                 }}
-                                source={{uri:'https://img0.baidu.com/it/u=170547647,3731638159&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'http://ywhz.hangzhou.com.cn/scms/images/2016-06/20/b8ac6f27a37c1904047c54.jpg'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -177,8 +181,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>铜雕</Text>
-                                    <Text>TONGDIAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>杭州酒家</Text>
+                                    <Text>HANGZHOUJIUJIA</Text>
                                 </View>
                             </View>
                             </TouchableOpacity>
@@ -200,7 +204,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                  
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.99114.com%2Fgroup10%2FM00%2FEC%2FAB%2FrBADsll3f-2Aa4x8AALp2muYpus154.jpg&refer=http%3A%2F%2Fimg2.99114.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630461084&t=94d6509dbd464395161a21ab38dd9d49'}}
+                                source={{uri:'http://5b0988e595225.cdn.sohucs.com/images/20171225/b937df7434dc43c8950c3531bec40b84.jpeg'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -209,16 +213,16 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>锡雕</Text>
-                                    <Text>XIDIAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>素春斋</Text>
+                                    <Text>SUCHUNZHAI</Text>
                                 </View>
                             </View>
                             </TouchableOpacity>
                             <TouchableOpacity
                             activeOpacity={0.8}
-                            // onPress={()=>{
-                            // navigation.navigate('Shopclassifymore',{dalei:"琢磨",pinyin:"ZHUOMO"})
-                            // }}
+                            onPress={()=>{
+                            navigation.navigate('Shopclassifymore',{title:"餐饮",dalei:"canyin",num:0})
+                            }}
                             >
                             <View style={{width:"100%",
                             height:35,
@@ -238,8 +242,8 @@ export default class Classify extends React.Component {
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30}}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>浴火</Text>
-                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>YUHUO</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" }}>美食</Text>
+                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>MEISHI</Text>
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
@@ -259,8 +263,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>越窑</Text>
-                                    <Text>YUEYAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>知味观</Text>
+                                    <Text>ZHIWEIGUAN</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -268,7 +272,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                         
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.baiyewang.com%2Fimg2%2F5%2F231%2F263%2F11596763%2Fmsgpic%2Fb06d13e01aca21f64c1363917149441e.jpeg&refer=http%3A%2F%2Fimg1.baiyewang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630461234&t=c86decf3b0dd6062f55718fc934a3d0d'}}
+                                source={{uri:'https://gd4.alicdn.com/imgextra/i4/2209861795974/O1CN01oQxYo61u08jlpRxZR_!!2209861795974.png_150x150.jpg_.webp'}}
                                    >
                                 </Image>
                             </View></TouchableOpacity>
@@ -291,8 +295,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>婺州窑</Text>
-                                    <Text>WUZHOUYAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>翠沁斋</Text>
+                                    <Text>CUIXINZHAI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -300,7 +304,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                             
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.cnarts.net%2Fuploadimages%2Fcweb%2Fnews%2F2017-08%2F2017-08-01%2F2017-08-01_173449167.jpg&refer=http%3A%2F%2Fwww.cnarts.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630461278&t=20541d4764fcb64877d1c51649391573'}}
+                                source={{uri:'https://i.loli.net/2021/08/09/Jkbdoh3DIyeT9Lt.jpg'}}
                                     >
                                 </Image>
                             </View></TouchableOpacity>
@@ -322,8 +326,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>龙泉窑</Text>
-                                    <Text>LONGQUANYAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>陈源昌</Text>
+                                    <Text>CHENYUANCHANG</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -331,7 +335,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                    
                                 }}
-                                source={{uri:'https://img0.baidu.com/it/u=1267995182,109654882&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://5b0988e595225.cdn.sohucs.com/images/20170927/2e0458795d5447f894722b23dbec8934.png'}}
                                    >
                                 </Image>
                             </View></TouchableOpacity>
@@ -354,8 +358,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>南宋官窑</Text>
-                                    <Text>NANSONGGUANYAO</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>朱一堂</Text>
+                                    <Text>ZHUYITANG</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -363,15 +367,15 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                 
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.itc.cn%2Fimages03%2F20200522%2F6be041acbbe94679bf41ce0e2913c32b.jpeg&refer=http%3A%2F%2Fp6.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630461366&t=44c2253a6a71a12e3b8c20dd5522fe42'}}
+                                source={{uri:'https://img.alicdn.com/imgextra/i4/2206713410364/O1CN01FQyJjF1EYkrhmdzei_!!2206713410364.jpg_150x150q90.jpg'}}
                                    >
                                 </Image>
                             </View></TouchableOpacity>
                             <TouchableOpacity
                             activeOpacity={0.8}
-                            // onPress={()=>{
-                            // navigation.navigate('Shopclassifymore',{dalei:"浴火",pinyin:"YUHUO"})
-                            // }}
+                            onPress={()=>{
+                            navigation.navigate('Shopclassifymore',{title:"美食",dalei:"meishi",num:1})
+                            }}
                             >
                             <View style={{width:"100%",
                             height:35,
@@ -390,8 +394,8 @@ export default class Classify extends React.Component {
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30, width: 130 }}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>茶道</Text>
-                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>CHADAO</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" }}>制造</Text>
+                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>ZHIZAO</Text>
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
@@ -412,7 +416,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                   
                                 }}
-                                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11955993823%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630461493&t=cd4abdbba0f6bdea86bdac6d4bc9e6d6'}}
+                                source={{uri:'https://img.alicdn.com/imgextra/https://img.alicdn.com/bao/uploaded/i1/2824527807/TB2fx64qr1YBuNjSszhXXcUsFXa_!!2824527807.jpg_150x150q90.jpg'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -421,8 +425,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>绿茶</Text>
-                                    <Text>LVCHA</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>张小泉</Text>
+                                    <Text>ZHANGXIAOQUAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -443,7 +447,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
 
                                 }}
-                                source={{uri:'https://img0.baidu.com/it/u=627907953,3160720599&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://img.alicdn.com/imgextra/i2/1963505180/O1CN01Jody7q1o8UI4P01pc_!!1963505180.jpg_150x150q90.jpg'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -452,8 +456,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>云雾茶</Text>
-                                    <Text>YUNWUCHA</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>毛源昌</Text>
+                                    <Text>MAOYUANCHANG</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -475,7 +479,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                         
                                 }}
-                                source={{uri:'https://img2.baidu.com/it/u=1451713448,2148349053&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://bkimg.cdn.bcebos.com/pic/54fbb2fb43166d224da409d84b2309f79152d2ae?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -484,8 +488,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>龙顶茶</Text>
-                                    <Text>LONGDINGCHA</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>邵芝岩</Text>
+                                    <Text>SHAOZHIYAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -506,7 +510,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                    
                                 }}
-                                source={{uri:'https://img1.baidu.com/it/u=1080152356,997627710&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'http://www.dongtangdaojian.com/upload/slide/1617008727848519.jpg'}}
                                   >
                                 </Image>
                                 <View style={{
@@ -515,15 +519,15 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>白茶</Text>
-                                    <Text>BAICHA</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>龙泉宝剑</Text>
+                                    <Text>LONGQUANBAOJIAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
                             activeOpacity={0.8}
-                            // onPress={()=>{
-                            // navigation.navigate('Shopclassifymore',{dalei:"茶道",pinyin:"CHADAO"})
-                            // }}
+                            onPress={()=>{
+                            navigation.navigate('Shopclassifymore',{title:"制造",dalei:"zhizao",num:2})
+                            }}
                             >
                             <View style={{width:"100%",
                             height:35,
@@ -542,8 +546,8 @@ export default class Classify extends React.Component {
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30}}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>珍馐</Text>
-                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>ZHENXIU</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" }}>工美</Text>
+                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>GONGMEI</Text>
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
@@ -563,8 +567,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>糕点</Text>
-                                    <Text>GAODIAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>王星记</Text>
+                                    <Text>WANGXINGJI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -572,7 +576,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
 
                                 }}
-                                source={{uri:'https://img2.baidu.com/it/u=246454658,4211482516&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://img.alicdn.com/imgextra/i4/2013831043/O1CN01mIGIni1JZjm48Xh9F_!!2013831043.jpg_150x150q90.jpg'}}
                                    >
                                 </Image>
                             </View></TouchableOpacity>
@@ -595,8 +599,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>小食</Text>
-                                    <Text>XIAOSHI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>朱府铜艺</Text>
+                                    <Text>ZHUFUTONGYI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -604,7 +608,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                   
                                 }}
-                                source={{uri:'https://img0.baidu.com/it/u=1435364727,1957226847&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://img.alicdn.com/imgextra/i4/2211562091974/O1CN017uWHIr1QS8VtcLJJV_!!0-item_pic.jpg_160x160q90.jpg'}}
                                   >
                                 </Image>
                             </View></TouchableOpacity>
@@ -626,8 +630,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>百味</Text>
-                                    <Text>BAIWEI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>善琏湖笔</Text>
+                                    <Text>SHANLIANHUBI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -635,7 +639,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                    
                                 }}
-                                source={{uri:'https://img1.baidu.com/it/u=1041960056,1050123122&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2928866662,1560677089&fm=199&app=68&f=JPEG?w=750&h=750&s=C1C09A464A67BADC54DDB59E03005082'}}
                                     >
                                 </Image>
                             </View></TouchableOpacity>
@@ -658,8 +662,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>酒香</Text>
-                                    <Text>JIUXIANG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>大竹元宣纸</Text>
+                                    <Text>DAZHUYUANXUANZHI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -667,15 +671,15 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                     
                                 }}
-                                source={{uri:'https://img2.baidu.com/it/u=614408143,3546105676&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://gd3.alicdn.com/imgextra/i3/692968394/O1CN01LrudIM2BsV919nDjU_!!692968394.jpg'}}
                                    >
                                 </Image>
                             </View></TouchableOpacity>
                             <TouchableOpacity
                             activeOpacity={0.8}
-                            // onPress={()=>{
-                            // navigation.navigate('Shopclassifymore',{dalei:"珍馐",pinyin:"ZHENXIU"})
-                            // }}
+                            onPress={()=>{
+                            navigation.navigate('Shopclassifymore',{title:"工美",dalei:"gongmei",num:3})
+                            }}
                             >
                             <View style={{width:"100%",
                             height:35,
@@ -694,8 +698,8 @@ export default class Classify extends React.Component {
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30, width: 130 }}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>市井</Text>
-                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>SHIJING</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" }}>茶酒</Text>
+                                <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>CHAJIU</Text>
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
@@ -716,7 +720,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                               
                                 }}
-                                source={{uri:'https://img1.baidu.com/it/u=680122641,3399379399&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://img.alicdn.com/imgextra/i3/1665326773/O1CN01NyzYBR1zu54pkOOEX_!!0-item_pic.jpg_160x160q90.jpg'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -725,8 +729,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>纸品</Text>
-                                    <Text>ZHIPIN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>益龙芳</Text>
+                                    <Text>YILONGFANG</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -747,7 +751,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                    
                                 }}
-                                source={{uri:'https://img2.baidu.com/it/u=489263191,2067368350&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'http://cdn.tjkximg.com/2020-03/20/11/32341423408.jpg'}}
                                     >
                                 </Image>
                                 <View style={{
@@ -756,8 +760,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>日用</Text>
-                                    <Text>RIYONG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>会稽山</Text>
+                                    <Text>KUAIJISHAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -779,7 +783,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                      
                                 }}
-                                source={{uri:'https://img1.baidu.com/it/u=1712048449,4149674107&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://img11.360buyimg.com/n5/jfs/t1/122547/30/8206/772301/5f20e443E97c05633/ff633060c6add9c0.png'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -788,8 +792,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>饰品</Text>
-                                    <Text>SHIPIN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>福茂和记</Text>
+                                    <Text>FUMAOHEJI</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -810,7 +814,7 @@ export default class Classify extends React.Component {
                                     resizeMode: "stretch",
                                     
                                 }}
-                                source={{uri:'https://img2.baidu.com/it/u=2162118539,933757842&fm=26&fmt=auto&gp=0.jpg'}}
+                                source={{uri:'https://bkimg.cdn.bcebos.com/pic/a9d3fd1f4134970a304e02dde081c6c8a786c817f7a4?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto'}}
                                    >
                                 </Image>
                                 <View style={{
@@ -819,15 +823,15 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>文玩</Text>
-                                    <Text>WENWAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold"}}>女儿红</Text>
+                                    <Text>NVERHONG</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
                             activeOpacity={0.8}
-                            // onPress={()=>{
-                            // navigation.navigate('Shopclassifymore',{dalei:"市井",pinyin:"SHIJING"})
-                            // }}
+                            onPress={()=>{
+                            navigation.navigate('Shopclassifymore',{title:"茶酒",dalei:"chajiu",num:4})
+                            }}
                             >
                             <View style={{width:"100%",
                             height:35,

@@ -1,29 +1,116 @@
 import React, { Component } from 'react'
-import { Dimensions, Image, View, TouchableOpacity, Text } from 'react-native'
+import { Dimensions, Image, View, TouchableOpacity, Text, AsyncStorage,FlatList } from 'react-native'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import Entypo from "react-native-vector-icons/Entypo"
 import LinearGradient from 'react-native-linear-gradient'
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 const { width, height } = Dimensions.get("window")
 
 export default class Zs extends Component {
-    render() {
-        return (
-            <View style={{flex:1}}>
-                <LinearGradient style={{flex:1}} colors={["#7cc0bf", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+    constructor(props){
+        super(props)
+        this.state = {
+            pinglun:[],
+            denglu_username:'',
+        }
+    }
+
+    get_pinglun(){
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
+                this.setState({
+                    denglu_username:result,
+                })
+                fetch('http://8.142.11.85:3000/shouye/get_pinglun',{
+                    method:'POST',
+                    headers:{
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body:JSON.stringify({
+                        username:result,
+                        wenzhang_id:this.props.route.params.wenzhang_id
+                    })
+                    })
+                    .then((response) => response.json())
+                    .then((json)=>{
+                         this.setState({
+                             pinglun:json
+                         })
+                    });
+            }
+        })
+    }
+
+    componentDidMount(){
+        this.get_pinglun();
+    }
+   
+    //更新文章评论点赞
+    update_dianzan(v){
+        if(v.wenzhang_dianzan === this.state.denglu_username){
+            fetch('http://8.142.11.85:3000/shouye/update_pldianzan2', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: v.id,
+                    }),
+                });
+        }else {
+            fetch('http://8.142.11.85:3000/shouye/update_pldianzan', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        id: v.id,
+                        username:this.state.denglu_username,
+                    }),
+                });
+        }
+        this.get_pinglun();
+    }
+    
+
+
+    //Flastlist 中间渲染
+    renderDate({item,index}){
+        return(
+            <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,padding:5,borderRadius:15,elevation:5,marginBottom:5}} key={index}>
+                <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,alignItems:'center',justifyContent:'space-between'}}>
+                    <View style={{flexDirection:'row'}}>
+                        <TouchableOpacity activeOpacity={1}>
+                            <Image source={{uri:item.portrait}} style={{width:width*0.08,height:width*0.08,backgroundColor:'pink',borderRadius:50}}/>
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
-                        </TouchableOpacity>
+                        <View style={{marginLeft:10}}>
+                            <Text style={{fontSize:14,marginLeft:'2%',fontWeight:'bold',color:'#6edcf8'}}>{item.nickname}</Text>
+                            <Text style={{marginTop:10}}>{item.pinglun}</Text>
+                            <Text style={{color:'#aaa',marginRight:width*0.2,fontSize:13,marginTop:10}}>{item.pinglun_time}</Text>
+                        </View>
                     </View>
-                
-                        <ScrollView showsVerticalScrollIndicator={false}>
-                            <View style={{ width ,alignItems: "center"}}>
+                    <TouchableOpacity activeOpacity={0.5} style={{marginRight:10}}>
+                        <Ionicons
+                        name={item.wenzhang_dianzan === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                        size={20}
+                        color={item.wenzhang_dianzan === this.state.denglu_username ? 'red' : 'black'}
+                        onPress={()=>this.update_dianzan(item)}
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
+    
+    //Flastlist 顶部渲染
+    header(){
+        return(
+            <View>
+                <View style={{ width ,alignItems: "center"}}>
                                 {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
                                 <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold" }}>浙江商帮为何能在明清时期就纷纷兴起？</Text>
                                 <View style={{ flexDirection: "row", marginTop: 5 }}>
@@ -76,48 +163,46 @@ export default class Zs extends Component {
                                 <Text style={{fontSize:15,color:"#7cc0c0",marginLeft:"2%"}}>相关评论</Text>
                                 
                             </View>
-                            <View style={{width:width*0.9,marginBottom:'5%',marginLeft:width*0.05,backgroundColor:'#fff',borderRadius:15,elevation:5,marginTop:'2%'}}>
-                                   <View style={{width:'100%',padding:10,}}>
-                                    <View style={{width:"100%",flexDirection:'row',alignItems:'center'}}>
-                                        <Image style={{width:width*0.08,height:width*0.08,backgroundColor:'pink',borderRadius:50}}></Image>
-                                        <Text style={{fontSize:12,marginLeft:'2%',fontWeight:'bold'}}>涂生发液了吗</Text>
-                                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1,  marginLeft: 5 ,marginLeft:"50%"}}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#000" }} name="heart-outlined" size={20} color="#000000" />
+            </View>
+        )
+    }
+    render() {
+        console.log('123',this.state.pinglun);
+        return (
+            <View style={{flex:1}}>
+                <LinearGradient style={{flex:1}} colors={["#7cc0bf", "#fff", "#fff"]}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                                    </View>
-                                    <Text style={{fontSize:13,marginLeft:"11%"}}>浙江商人yyds</Text>
-                                </View>
-                                <View style={{width:'100%',padding:10,}}>
-                                    <View style={{width:"100%",flexDirection:'row',alignItems:'center'}}>
-                                        <Image style={{width:width*0.08,height:width*0.08,backgroundColor:'pink',borderRadius:50}}></Image>
-                                        <Text style={{fontSize:12,marginLeft:'2%',fontWeight:'bold'}}>涂生发液了吗</Text>
-                                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1,  marginLeft: 5 ,marginLeft:"50%"}}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#000" }} name="heart-outlined" size={20} color="#000000" />
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
                         </TouchableOpacity>
-                                    </View>
-                                    <Text style={{fontSize:13,marginLeft:"11%"}}>浙江商人yyds</Text>
-                                </View>
-                                <View style={{width:'100%',padding:10,}}>
-                                    <View style={{width:"100%",flexDirection:'row',alignItems:'center'}}>
-                                        <Image style={{width:width*0.08,height:width*0.08,backgroundColor:'pink',borderRadius:50}}></Image>
-                                        <Text style={{fontSize:12,marginLeft:'2%',fontWeight:'bold'}}>涂生发液了吗</Text>
-                                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1,  marginLeft: 5 ,marginLeft:"50%"}}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#000" }} name="heart-outlined" size={20} color="#000000" />
-                        </TouchableOpacity>
-                                    </View>
-                                    <Text style={{fontSize:13,marginLeft:"11%"}}>浙江商人yyds</Text>
-                                </View>
-                                </View>   
+                    </View>
+                
+                            
 
-                        </ScrollView>
+                                <FlatList
+                                data={this.state.pinglun}
+                                renderItem={this.renderDate.bind(this)}
+                                ListHeaderComponent={this.header.bind(this)}
+                             />
+                                  
+                
+                               
+                               
+                            
+
+
 
                
-                    <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center" }} >
+                    <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center",justifyContent:'space-around' }} >
                         <View style={{ width: 250, height: 40, backgroundColor: "#808080", opacity: 0.4, marginLeft: 20, borderRadius: 20 }}>
                             <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
                         </View>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5 }}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="heart-outlined" size={25} color="#000000" />
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5,alignItems:'center',justifyContent:'center' }}>
+                            <Ionicons  name="heart-outline" size={25} color="#7cc0bf" />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf" }}>
                             <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="export" size={25} color="#000000" />
