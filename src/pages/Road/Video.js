@@ -32,10 +32,10 @@ export default class componentName extends Component {
             toValue: 1,
             duration: 0,
         }).start();
-        console.log('road', this.props.route.params.road);
+        console.log('road', this.props.route.params);
         console.log('username', this.props.route.params.username);
 //网络请求
-        fetch('http://8.142.11.85:3000/shouye/get_map', {
+        fetch('http://8.142.11.85:3000/shouye/get_user_map', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -169,14 +169,41 @@ export default class componentName extends Component {
                                 <Text style={{ width, height: '100%', color: '#fff', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>领取金币</Text>
                             </View>
                             <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
-                                <View style={{ borderWidth: 1, height: height * 0.1, width, flexDirection: 'row' }}>
-                                    <Text style={{ width: '20%', height: '100%', borderWidth: 1, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>签到有奖:</Text>
-                                    <Text style={{ width: '40%', height: '100%', borderWidth: 1, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>每日签到可获得5金币</Text>
-                                    <TouchableOpacity style={{ borderWidth: 1, width: '30%', height: '70%', backgroundColor: 'orange', marginVertical: 10 }}>
+                                <View style={{  height: height * 0.1, width, flexDirection: 'row',backgroundColor:'rgba(255,255,255,0.25)',marginVertical:'0.25%' }}>
+                                    <Text style={{ marginLeft:'5%',width: '20%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>签到有奖:</Text>
+                                    <Text style={{ width: '40%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>每日签到可获得5金币</Text>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderWidth: 0, width: '20%', height: '50%', backgroundColor: 'orange', marginVertical: '6%' ,borderRadius:20,marginHorizontal:'9%',}}>
+                                    <Text style={{height:'100%',width:'100%',textAlign:'center',textAlignVertical:'center',fontsize:15,fontWeight:'bold',color:'#fff'}}>领取</Text>
 
                                     </TouchableOpacity>
-                                </View>
+                             </View>
+                                <View style={{  height: height * 0.1, width, flexDirection: 'row',backgroundColor:'rgba(255,255,255,0.25)',marginVertical:'0.25%' }}>
+                                    <Text style={{ marginLeft:'5%',width: '20%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>运动有奖:</Text>
+                                    <Text style={{ width: '40%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>已抵达孝顺镇</Text>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderWidth: 0, width: '20%', height: '50%', backgroundColor: 'orange', marginVertical: '6%' ,borderRadius:20,marginHorizontal:'9%',}}>
+                                    <Text style={{height:'100%',width:'100%',textAlign:'center',textAlignVertical:'center',fontsize:15,fontWeight:'bold',color:'#fff'}}>领取</Text>
+
+                                    </TouchableOpacity>
+                             </View>
+                                <View style={{  height: height * 0.1, width, flexDirection: 'row',backgroundColor:'rgba(255,255,255,0.25)',marginVertical:'0.25%' }}>
+                                    <Text style={{ marginLeft:'5%',width: '20%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>运动有奖:</Text>
+                                    <Text style={{ width: '40%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>已抵达衢州</Text>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderWidth: 0, width: '20%', height: '50%', backgroundColor: 'orange', marginVertical: '6%' ,borderRadius:20,marginHorizontal:'9%',}}>
+                                    <Text style={{height:'100%',width:'100%',textAlign:'center',textAlignVertical:'center',fontsize:15,fontWeight:'bold',color:'#fff'}}>领取</Text>
+                                    </TouchableOpacity>
+                             </View>
+                                <View style={{  height: height * 0.1, width, flexDirection: 'row',backgroundColor:'rgba(255,255,255,0.25)',marginVertical:'0.25%' }}>
+                                    <Text style={{ marginLeft:'5%',width: '20%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>运动有奖:</Text>
+                                    <Text style={{ width: '40%', height: '100%', borderWidth:0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>已抵达玉山</Text>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderWidth: 0, width: '20%', height: '50%', backgroundColor: 'orange', marginVertical: '6%' ,borderRadius:20,marginHorizontal:'9%',}}>
+                                        <Text style={{height:'100%',width:'100%',textAlign:'center',textAlignVertical:'center',fontsize:15,fontWeight:'bold',color:'#fff'}}>领取</Text>
+                                    </TouchableOpacity>
+                             </View>
+                            
+                            
+                            
                             </View>
+                            
                         </View>
                     </Modal>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
