@@ -58,5 +58,7 @@ export {default as tag} from "./Forum/tag"
 export {default as Characters} from "./Shop/MIN/Characters"
 export {default as Shopclassifymore} from "./Shop/shoplist/Shopclassifymore"
 export {default as Swop} from "./Shop/Exchange/Swop"
+export {default as Shoplist} from "./Shop/shoplist/Shoplist"
+export {default as Shopdetails} from "./Shop/shoplist/Shopdetails"
 
 

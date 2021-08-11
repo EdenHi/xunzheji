@@ -59,7 +59,9 @@ import {
   Shopclassifymore,
   Zhan,
   JieShao,
-  Swop
+  Swop,
+  Shoplist,
+  Shopdetails,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -136,6 +138,8 @@ export default function StackNav() {
       <Stack.Screen name="tag" component={tag} />
       <Stack.Screen name="Shopclassifymore" component={Shopclassifymore} />
       <Stack.Screen name="Swop" component={Swop} />
+      <Stack.Screen name="Shoplist" component={Shoplist} />
+      <Stack.Screen name="Shopdetails" component={Shopdetails} />
     </Stack.Navigator>
   );
 }

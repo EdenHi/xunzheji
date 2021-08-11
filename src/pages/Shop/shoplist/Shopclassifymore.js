@@ -48,9 +48,9 @@ export default class Shopclassifymore extends Component {
             return(
                 <TouchableOpacity
                     activeOpacity={0.8}
-                //    onPress={()=>{
-                //        navigation.navigate('Shoplist',{xiaolei:"石雕"})
-                //    }}
+                    onPress={()=>{
+                        this.props.navigation.navigate('Shoplist',{shops:item.shops})
+                    }}
                     key={index}
                     >
                     <View style={{
@@ -85,9 +85,9 @@ export default class Shopclassifymore extends Component {
             return(
             <TouchableOpacity
                 activeOpacity={0.8}
-            //    onPress={()=>{
-            //        navigation.navigate('Shoplist',{xiaolei:"铜雕"})
-            //    }}
+                onPress={()=>{
+                    this.props.navigation.navigate('Shoplist',{shops:item.shops})
+                }}
                 >
                 <View style={{
                     width: "100%",
@@ -125,9 +125,9 @@ export default class Shopclassifymore extends Component {
             return(
                 <TouchableOpacity
                         activeOpacity={0.8}
-                    //    onPress={()=>{
-                    //        navigation.navigate('Shoplist',{xiaolei:"龙泉窑"})
-                    //    }}
+                        onPress={()=>{
+                            this.props.navigation.navigate('Shoplist',{shops:item.shops})
+                        }}
                         >
                     <View style={{
                         width: "100%",
@@ -161,9 +161,9 @@ export default class Shopclassifymore extends Component {
             return(
                 <TouchableOpacity
                         activeOpacity={0.8}
-                    //    onPress={()=>{
-                    //        navigation.navigate('Shoplist',{xiaolei:"婺州窑"})
-                    //    }}
+                       onPress={()=>{
+                            this.props.navigation.navigate('Shoplist',{shops:item.shops})
+                       }}
                         >
                     <View style={{
                         width: "100%",
@@ -200,7 +200,7 @@ export default class Shopclassifymore extends Component {
     //底部渲染
     ListFooterComponent(){
         return(
-            <Text style={{textAlign:"center",marginTop:20}}>—————————————到底啦—————————————</Text>
+            <Text style={{textAlign:"center",marginTop:20,marginBottom:10}}>—————————————到底啦—————————————</Text>
         )
     }
 

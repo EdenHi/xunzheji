@@ -393,7 +393,7 @@ export default class Comment extends React.Component {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
             </Modal>
                 {/* 评论的渲染 */}
                 <View style={{marginTop:10}}>
@@ -599,7 +599,7 @@ export default class Comment extends React.Component {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
             </Modal>
                 {/* 评论的渲染 */}
                 <View style={{marginTop:10}}>
@@ -787,7 +787,7 @@ export default class Comment extends React.Component {
                     transparent={true}
                     visible={modalVisible}
                     onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
                     {/* 评论的渲染 */}
                     <View style={{marginTop:10}}>
@@ -978,7 +978,7 @@ export default class Comment extends React.Component {
                     transparent={true}
                     visible={modalVisible}
                     onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
                     {/* 评论的渲染 */}
                     <View style={{marginTop:10}}>
