@@ -175,7 +175,7 @@ onShare = async () => {
                                                  showsHorizontalScrollIndicator={false}
                                                  style={{marginTop:10,marginBottom:10}}>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                                 
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
@@ -193,7 +193,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -210,7 +210,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10,marginLeft:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -227,7 +227,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -244,7 +244,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
