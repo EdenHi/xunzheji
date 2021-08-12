@@ -5,6 +5,7 @@ import {View,Text,Dimensions, TextInput, TouchableOpacity,AsyncStorage,DeviceEve
 import Picker from 'react-native-picker';
 import cities from '../../MyScreen/cities/cities.json';
 import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 
 const {width, height} = Dimensions.get('window');
 export default class updateDizhi extends Component {
@@ -79,8 +80,9 @@ export default class updateDizhi extends Component {
     render() {
 
         return (
+            <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
             <View style={{alignItems:"center"}}>
-                                <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} ></LinearGradient>
+                                {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
                 <View style={{height:height * 0.85,width:width*0.9}}>
 
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
@@ -122,14 +124,16 @@ export default class updateDizhi extends Component {
                             testID={'one'}
                             thumbTintColor={'#ff1111'}/>
                 </View>
-                {/* </LinearGradient> */}
+               
                 </View>
                 <TouchableOpacity underlayColor="red"  onPress={()=>this.update_Dizhi()}>
                     <View style={{backgroundColor:'#7cc0c0',height:40,borderRadius:20,justifyContent:'center',width:width*0.9}}>
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>修改收货信息</Text>
                     </View>
                 </TouchableOpacity>
+                {/* </LinearGradient> */}
             </View>
+            </LinearGradient>
         );
     }
 }
