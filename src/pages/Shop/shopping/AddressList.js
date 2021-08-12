@@ -130,15 +130,15 @@ export default class AddressList extends Component {
                         return (
                             <View style={styles.outView} key = {k} >
                                     <SwipeRow
-                                    leftOpenValue={75}
-                                    rightOpenValue={-75}
+                                    leftOpenValue={55}
+                                    rightOpenValue={-55}
                                     disableRightSwipe={true} //禁止向右滑动
                                     >
                                     <TouchableOpacity activeOpacity={1} style={styles.rowBack}
                                     onPress={()=>this.handleShowAlbum(k)}>
                                         <Text allowFontScaling={false} style={{color:'white'}}>删除</Text>
                                     </TouchableOpacity>
-                                    <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'#fff'}}>
+                                    <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'#fff',borderRadius:15}}>
                                         <View>
                                             <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:15,width:width * 0.2,fontWeight:'bold',marginLeft:"5%"}}>{v.name}</Text><Text>{v.phone}</Text></View>
                                             <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10,marginLeft:"5%"}}>{v.dizhi}</Text><Text style={{marginRight:10,marginLeft:"5%"}}>{v.xiangxi}</Text></View>
@@ -172,7 +172,7 @@ export default class AddressList extends Component {
                 {/* </LinearGradient> */}
                 </View>
                 <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
-                    <View style={{backgroundColor:'#7cc0c0',height:40,marginTop:height*0.8,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
+                    <View style={{backgroundColor:'#7cc0c0',height:40,marginTop:height*0.65,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
                         </View>
                         </TouchableOpacity>
@@ -182,16 +182,20 @@ export default class AddressList extends Component {
     }
 }
 const styles = StyleSheet.create({
-    outView: {
+      outView: {
       marginBottom:10,
+      width:width*0.9,
+      marginLeft:width*0.05,
+      borderRadius:15
     },
     rowBack: {
       alignItems: 'center',
-      backgroundColor: 'blue',
+      backgroundColor: 'red',
       flexDirection: 'row',
       justifyContent: 'flex-end',
       paddingRight:10,
       flex: 1,
+      borderRadius:15
     },
     rowFront: {
       alignItems: 'center',
