@@ -62,7 +62,7 @@ import {
   Swop,
   Topic1,
   Topic2,
-  Dingdan
+  Dingdan,
   Shoplist,
   Shopdetails,
 } from '../pages/index';
