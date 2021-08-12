@@ -58,5 +58,7 @@ export {default as tag} from "./Forum/tag"
 export {default as Characters} from "./Shop/MIN/Characters"
 export {default as Shopclassifymore} from "./Shop/shoplist/Shopclassifymore"
 export {default as Swop} from "./Shop/Exchange/Swop"
-
+export {default as Topic1} from "./HomeScreen/HOME/History/Topic1"
+export {default as Topic2} from "./HomeScreen/HOME/History/Topic2"
+export {default as Dingdan} from "./Shop/Dingdan"
 

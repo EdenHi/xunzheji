@@ -1,75 +1,97 @@
 import React, { Component } from 'react'
-import { TouchableOpacityBase, View ,TouchableOpacity ,Dimensions,Image,Text, ImageBackground} from 'react-native'
+import { TouchableOpacityBase, View, TouchableOpacity, Dimensions, Image, Text, ImageBackground } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
-const {width, height} = Dimensions.get("window")
+const { width, height } = Dimensions.get("window")
 export default class History extends Component {
     render() {
-        return ( 
-         <View style={{}}>
-              <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
-            <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
-              <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
-              </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>浙商历史推荐</Text>
-            </View> 
-                <ScrollView>
-                <View style={{width:width,alignItems:"center"}}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
-                        <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history4.jpeg'}}>
-                                <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
-                               <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
-                            <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
+        return (
+            <View style={{}}>
+                <LinearGradient style={{ width: width, height: "100%" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商历史推荐</Text>
+                    </View>
+                    <ScrollView>
+                        <View style={{ width: width, alignItems: "center" }}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
+                                < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.9, marginLeft: 10, marginRight: 10, elevation: 5 }}>
+                                    <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
+                                        <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
+                                            <View style={{ flex: 3 }} />
+                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江商帮的崛起</Text></View>
+                                            <View style={{ flex: 1 }}>
+                                                <View style={{ flexDirection: 'row' }}>
+                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>宁波商帮</Text></View></TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>龙游商帮</Text></View></TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>南浔商帮</Text></View></TouchableOpacity>
+                                                </View>
+                                            </View>
+                                        </View>
+                                    </ImageBackground>
                                 </View>
-                      
+                            </TouchableOpacity>
+                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3608384836,3487578051&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=301' }}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic1')} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                    <View style={{ flex: 3 }} />
+                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>“浙商人”在非洲</Text></View>
+                                    <View style={{ flex: 1 }}>
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江商人</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>尼日利亚</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            </ImageBackground>
+                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                    <View style={{ flex: 3 }} />
+                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
+                                    <View style={{ flex: 1 }}>
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 75, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>#浙商观察</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江</Text></View></TouchableOpacity>
+                                            {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            </ImageBackground>
+                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                    <View style={{ flex: 3 }} />
+                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
+                                    <View style={{ flex: 1 }}>
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 75, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>#浙商观察</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江</Text></View></TouchableOpacity>
+                                            {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
+                            </ImageBackground>
+
+                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9}} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
+                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                    <View style={{ flex: 3 }} />
+                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
+                                    <View style={{ flex: 1 }}>
+                                        <View style={{ flexDirection: 'row' }}>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 75, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>#浙商观察</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江</Text></View></TouchableOpacity>
+                                            {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
+                                        </View>
+                                    </View>
+                                </TouchableOpacity>
                             </ImageBackground>
                         </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
-                        <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history1.jpeg'}}>
-                            <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
-                               <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
-                            <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
-                                </View></ImageBackground>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
-                        <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history2.jpeg'}}>
-                            <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
-                               <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
-                            <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
-                                </View></ImageBackground>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
-                        <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history3.jpeg'}}>
-                            <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
-                               <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
-                            <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
-                                </View></ImageBackground>
-                        </View>
-                    </TouchableOpacity>
-                   
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1}>
-                        <View style={{width:width*0.9,height:150,borderRadius:10,elevation:2,shadowRadius:5,marginTop:10}}>
-                            <ImageBackground style={{width:width*0.9,height:150}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/history1.jpeg'}}>
-                            <View style={{width:"65%",height:"40%",backgroundColor:"rgba(255,255,255,0.6)",marginTop:"20%",borderTopRightRadius:30,borderBottomRightRadius:30}}>
-                               <Text style={{color:"#000",fontSize:15,fontWeight:"bold",marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商</Text>
-                            <Text style={{color:"#000",fontSize:13,marginLeft:"2%",marginTop:"2%"}}>勇立潮头看浙商——40人说40年</Text>
-                                </View></ImageBackground>
-                        </View>
-                    </TouchableOpacity>
-                    </View>
-                </ScrollView>
-            {/* </View> */}
-            </LinearGradient>
-         </View>
+                    </ScrollView>
+                    {/* </View> */}
+                </LinearGradient>
+            </View>
         )
     }
 }
