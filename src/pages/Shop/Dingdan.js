@@ -5,6 +5,8 @@ import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Entypo from 'react-native-vector-icons/Entypo'
 
+
+
 const { width, height } = Dimensions.get("window")
 
 
@@ -18,7 +20,7 @@ export default class Dingdan extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold"}}>订单</Text></View>
+                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>订单</Text></View>
                     </View>
                 </View>
                 <View style={{height:height*0.9}}>
@@ -235,7 +237,7 @@ export default class Dingdan extends Component {
                         </View>
                     </ScrollView>
                     
-              
+                   
                 </View>
                 </LinearGradient>
             </View>

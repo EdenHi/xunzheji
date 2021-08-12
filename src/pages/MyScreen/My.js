@@ -358,10 +358,8 @@ init() {
                           backpic: data.backpic,
                         })
                       }}>
-
                       <Text style={{ fontSize: 15, color: '#fff' }}>编辑资料</Text>
                     </TouchableOpacity>
-
                     <TouchableOpacity
                       activeOpacity={1}
                       style={{
@@ -380,7 +378,6 @@ init() {
                         callback: () => this.loginOut(),
                         shuaxing: () => this.get_shuju()
                       })}
-
                     >
                       <Text style={{ fontSize: 15, color: '#fff' }}>设置</Text>
                     </TouchableOpacity>

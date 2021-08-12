@@ -67,7 +67,7 @@ class CustormerBar extends Component {
           ))}
           <TouchableOpacity
             activeOpacity={1}
-            onPress={() =>this.state.username===null? console.log('登录'):this.context.navigate('tag')}
+            onPress={() =>this.state.username===null? console.log('登录'):this.context.navigate('Fabu')}
             style={{
               width: '17%',
               height: '60%',
