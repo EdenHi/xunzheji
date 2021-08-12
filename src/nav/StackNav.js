@@ -60,14 +60,11 @@ import {
   Zhan,
   JieShao,
   Swop,
-<<<<<<< HEAD
   Topic1,
   Topic2,
   Dingdan
-=======
   Shoplist,
   Shopdetails,
->>>>>>> adbf42153b1e525fd509ba1f160c45dc8cc53d7f
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
