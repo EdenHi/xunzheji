@@ -74,7 +74,7 @@ export default class History extends Component {
                                 </TouchableOpacity>
                             </ImageBackground>
 
-                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9}} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
+                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
                                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                     <View style={{ flex: 3 }} />
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>从“天堂之城”到“双创”热土</Text></View>
