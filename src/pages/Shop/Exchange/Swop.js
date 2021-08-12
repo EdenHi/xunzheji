@@ -15,6 +15,7 @@ import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LottieView from 'lottie-react-native';
+import {SpeedDial } from 'react-native-elements'
 
 const { width, height } = Dimensions.get("window")
 
@@ -25,6 +26,7 @@ export default class Swop extends Component {
     this.state.fadeAnim = new Animated.Value(0)
   }
   state = {
+    open:false,
     imgUrl: { uri: 'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' }
   }
   switch = (index) => {
@@ -83,7 +85,7 @@ export default class Swop extends Component {
             onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
           >
             <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15 }}>
-              <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' }} >
+              <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' }} >
                 <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
                   <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
                   <Text style={{ fontSize: 14, fontWeight: "bold" }}>闲置很久的耳机</Text>
@@ -139,7 +141,7 @@ export default class Swop extends Component {
             onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
           >
             <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15 }}>
-              <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img0.baidu.com/it/u=3857011018,2401665306&fm=26&fmt=auto&gp=0.jpg' }} >
+              <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img0.baidu.com/it/u=3857011018,2401665306&fm=26&fmt=auto&gp=0.jpg' }} >
                 <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
                   <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
                   <Text style={{ fontSize: 14, fontWeight: "bold" }}>闲置很久的耳机</Text>
@@ -195,7 +197,7 @@ export default class Swop extends Component {
             onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
           >
             <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15 }}>
-              <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img1.baidu.com/it/u=1425906286,3699473188&fm=26&fmt=auto&gp=0.jpg' }} >
+              <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img1.baidu.com/it/u=1425906286,3699473188&fm=26&fmt=auto&gp=0.jpg' }} >
                 <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
                   <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
                   <Text style={{ fontSize: 14, fontWeight: "bold" }}>闲置很久的耳机</Text>
@@ -251,7 +253,7 @@ export default class Swop extends Component {
             onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
           >
             <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15 }}>
-              <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img2.baidu.com/it/u=1773206586,3319484616&fm=26&fmt=auto&gp=0.jpg' }} >
+              <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img2.baidu.com/it/u=1773206586,3319484616&fm=26&fmt=auto&gp=0.jpg' }} >
                 <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
                   <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
                   <Text style={{ fontSize: 14, fontWeight: "bold" }}>闲置很久的耳机</Text>
@@ -307,7 +309,7 @@ export default class Swop extends Component {
             onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
           >
             <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15 }}>
-              <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img0.baidu.com/it/u=903583436,3995759237&fm=26&fmt=auto&gp=0.jpg' }} >
+              <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: 'https://img0.baidu.com/it/u=903583436,3995759237&fm=26&fmt=auto&gp=0.jpg' }} >
                 <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
                   <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
                   <Text style={{ fontSize: 14, fontWeight: "bold" }}>闲置很久的耳机</Text>
@@ -354,8 +356,24 @@ export default class Swop extends Component {
 
           </FlipCard>
   
-      
+          
         </Swiper>
+        <SpeedDial
+          buttonStyle={{borderRadius:50}}
+          isOpen={this.state.open}
+          color="#7cc0c0"
+          icon={{ name: 'add', color: '#fff' }}
+          openIcon={{ name: 'close', color: '#fff' }}
+          onOpen={() => this.setState({open:true})}
+          onClose={() =>this.setState({open:false})}
+        >
+          <SpeedDial.Action
+          color="#7cc0c0"
+            buttonStyle={{borderRadius:50}}
+            icon={{ name: 'drive-file-rename-outline', color: '#fff' }}
+            onPress={() => {this.props.navigation.navigate('Exchange2'),this.setState({open:false})}}
+          />
+        </SpeedDial>
       </View>
     )
   }

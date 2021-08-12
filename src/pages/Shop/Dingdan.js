@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Dimensions, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Dimensions, Image,TextInput } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import Entypo from 'react-native-vector-icons/Entypo'
+
 
 
 const { width, height } = Dimensions.get("window")
@@ -18,7 +20,7 @@ export default class Dingdan extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold"}}>订单</Text></View>
+                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>订单</Text></View>
                     </View>
                 </View>
                 <View style={{height:height*0.86}}>
@@ -235,17 +237,7 @@ export default class Dingdan extends Component {
                         </View>
                     </ScrollView>
                     
-                    <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center",justifyContent:'space-around' }} >
-                        <View style={{ width: 250, height: 40, backgroundColor: "#808080", opacity: 0.4, marginLeft: 20, borderRadius: 20 }}>
-                            <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
-                        </View>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5,alignItems:'center',justifyContent:'center' }}>
-                            <AntDesign  name="staro" size={25} color="#7cc0bf" />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf" }}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="export" size={25} color="#000000" />
-                        </TouchableOpacity>
-                    </View>
+                   
                 </View>
                 </LinearGradient>
             </View>

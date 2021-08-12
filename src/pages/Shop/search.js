@@ -10,8 +10,8 @@ export default class search extends Component {
     const { navigation } = this.props;
     return (
       <View style={{alignItems:"center",backgroundColor:"#fff",flex:1}}>
-          <View style={{width:width,height:height*0.07,backgroundColor:"#FFF",flexDirection:"row",alignItems:"center"}}>
-              <View style={{width:"80%",height:"70%",alignItems:"center",elevation:5,backgroundColor:"#fff",marginLeft:"2%",borderRadius:20,flexDirection:"row",alignItems:"center"}}>
+          <View style={{width:width,marginTop:"2%",height:height*0.07,backgroundColor:"#FFF",flexDirection:"row",alignItems:"center"}}>
+              <View style={{width:"80%",height:"90%",alignItems:"center",elevation:5,backgroundColor:"#fff",marginLeft:"2%",borderRadius:20,flexDirection:"row",alignItems:"center"}}>
               <SimpleLineIcons style={{textAlign:'center',marginLeft:"5%",textAlignVertical:'center',height:'100%',borderWidth:0,}}
                 name="magnifier"
                 size={18}
