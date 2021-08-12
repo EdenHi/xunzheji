@@ -833,7 +833,7 @@ onShare = async () => {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} />
+                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
             </View>
         );

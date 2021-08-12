@@ -60,9 +60,14 @@ import {
   Zhan,
   JieShao,
   Swop,
+<<<<<<< HEAD
   Topic1,
   Topic2,
   Dingdan
+=======
+  Shoplist,
+  Shopdetails,
+>>>>>>> adbf42153b1e525fd509ba1f160c45dc8cc53d7f
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -142,6 +147,8 @@ export default function StackNav() {
       <Stack.Screen name="Topic1" component={Topic1} />
       <Stack.Screen name="Topic2" component={Topic2} />
       <Stack.Screen name="Dingdan" component={Dingdan} />
+      <Stack.Screen name="Shoplist" component={Shoplist} />
+      <Stack.Screen name="Shopdetails" component={Shopdetails} />
     </Stack.Navigator>
   );
 }

@@ -2,12 +2,12 @@
   "data": [
     {
 
-      "shopId" : "0001",
+      "key" : "0001",
       "shopItems": [
         {
           "itemName": "青菜",
           "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
           "itemPrice": 100.00,
           "minQuantity": 2,
           "maxQuantity": 10,
@@ -16,7 +16,7 @@
         {
           "itemName": "小白菜",
           "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
           "itemPrice": 110.00,
           "minQuantity": 1,
           "maxQuantity": 20,
@@ -25,7 +25,7 @@
         {
           "itemName": "小白菜",
           "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
           "itemPrice": 110.00,
           "minQuantity": 1,
           "maxQuantity": 20,
@@ -34,7 +34,7 @@
         {
           "itemName": "花菜",
           "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
           "itemPrice": 120.00,
           "minQuantity": 1,
           "maxQuantity": 30,
@@ -43,7 +43,58 @@
         {
           "itemName": "油麦菜",
           "itemId": "10001",
-          "itemimg": "http://ovyjkveav.bkt.clouddn.com/17-10-19/15885901.jpg",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
+          "itemPrice": 130.00,
+          "minQuantity": 1,
+          "maxQuantity": 40,
+          "itemDes": "这个测试商品"
+        }
+      ]
+    },
+    {
+
+      "shopId" : "0002",
+      "shopItems": [
+        {
+          "itemName": "青菜",
+          "itemId": "10001",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
+          "itemPrice": 100.00,
+          "minQuantity": 2,
+          "maxQuantity": 10,
+          "itemDes": "这个测试商品"
+        },
+        {
+          "itemName": "小白菜",
+          "itemId": "10001",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
+          "itemPrice": 110.00,
+          "minQuantity": 1,
+          "maxQuantity": 20,
+          "itemDes": "这个测试商品"
+        },
+        {
+          "itemName": "小白菜",
+          "itemId": "10001",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
+          "itemPrice": 110.00,
+          "minQuantity": 1,
+          "maxQuantity": 20,
+          "itemDes": "这个测试商品"
+        },
+        {
+          "itemName": "花菜",
+          "itemId": "10001",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
+          "itemPrice": 120.00,
+          "minQuantity": 1,
+          "maxQuantity": 30,
+          "itemDes": "这个测试商品"
+        },
+        {
+          "itemName": "油麦菜",
+          "itemId": "10001",
+          "itemimg": "https://img.alicdn.com/bao/uploaded/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg",
           "itemPrice": 130.00,
           "minQuantity": 1,
           "maxQuantity": 40,
