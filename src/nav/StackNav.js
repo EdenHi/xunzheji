@@ -60,6 +60,10 @@ import {
   Zhan,
   JieShao,
   Swop,
+  Topic1,
+  Topic2,
+  Topic3,
+  Dingdan,
   Shoplist,
   Shopdetails,
 } from '../pages/index';
@@ -138,6 +142,10 @@ export default function StackNav() {
       <Stack.Screen name="tag" component={tag} />
       <Stack.Screen name="Shopclassifymore" component={Shopclassifymore} />
       <Stack.Screen name="Swop" component={Swop} />
+      <Stack.Screen name="Topic1" component={Topic1} />
+      <Stack.Screen name="Topic2" component={Topic2} />
+      <Stack.Screen name="Topic3" component={Topic3} />
+      <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
     </Stack.Navigator>

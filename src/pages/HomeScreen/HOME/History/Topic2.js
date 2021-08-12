@@ -1,0 +1,82 @@
+import React, { Component } from 'react'
+import { View, Text, Image, Dimensions, TouchableOpacity, TextInput } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
+import AntDesign from 'react-native-vector-icons/AntDesign'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Entypo from "react-native-vector-icons/Entypo"
+import { ScrollView } from 'react-native-gesture-handler';
+
+const { width, height } = Dimensions.get("window")
+
+export default class Topic1 extends Component {
+    render() {
+        return (
+            <View>
+                <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={{ height: height * 0.865, marginHorizontal: width * 0.05 }}>
+                        <ScrollView showsVerticalScrollIndicator={false}>
+                            <View >
+                                <Image style={{ width: width * 0.9, height: height * 0.2, borderRadius: 10 }} source={{ uri: "https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg" }} />
+                            </View>
+                            <View style={{ marginTop: 10, width: width * 0.9 }} ><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center",flexWrap:"wrap" }}>全国最多！浙江七人入选全国非公有制经济人士“优秀建设者”公示名单</Text></View>
+                            <View style={{ flexDirection: "row", marginTop: 5 }}>
+                                <Text style={{ fontSize: 10, marginLeft: "2%" }}>#浙商话题</Text>
+                                <Text style={{ fontSize: 10 }}>|2021-8-30</Text>
+                            </View>
+
+                            <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
+                                <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 }} >  　“非公有制经济人士”，指个体工商户、私营企业主、股份制公司中的自然人股东等群体中的代表性人物。在统一战线工作中，主要指私营企业主中的代表性人物。</Text>
+                            </View>
+                            <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
+                                <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 }} > 　7月31日，中央统战部网站公布了第五届全国非公有制经济人士优秀中国特色社会主义事业建设者人选名单向社会公示，雷军、丁磊、陶碧华等100人上榜。其实，表彰非公有制经济人士是中央统战部等国家部门联合举办的“传统节目”，第一次表彰在2004年，上一次是在2014年，每次都是100名候选人。时隔五年，这次表彰有何不同？非公经济代表为何能受到如此高规格的表彰？</Text>
+                            </View>
+                            <View style={{ marginBottom: 10, marginTop: 10 }}><Image style={{ width: width * 0.9, height: height * 0.2, borderRadius: 10 }} source={{ uri: "https://img1.baidu.com/it/u=299862045,605840038&fm=26&fmt=auto&gp=0.jpg" }} /></View>
+                           <View style={{width:width*0.9}} >
+                               <Text style={{fontWeight:"bold",fontSize:15,textAlign:"center"}}>重视实体经济 鼓劲民营经济</Text>
+                           </View>
+                            <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
+                                <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 }} >　此次名单中的优秀经济人士主要分布在科技、金融、制造等领域，但没有以房地产为主业的企业人士上榜。而在5年前的上一届评选中，有多位以房地产为主业的企业人士上榜。对此，国家行政学院教授竹立家认为，出现这种变化可以从两个方面来看，一是这几年房地产市场不景气，很多房地产企业的业绩在下滑，另外，从目前国家鼓励的方向看，国家重点鼓励科技创新企业，而房地产并不是鼓励的方向。对非公有制经济人士进行表彰，是对民营企业和民营经济的充分肯定，更是在给民营企业家们加油打气。此次表彰，尤其突出了对以先进制造业为代表的实体经济的重视，显示出国家把振兴实体经济作为推动高质量发展着力点的决心。当前，中国非公有制经济人士数量已经过亿，民营经济撑起了中国经济“半壁江山”，在稳定增长、促进创新、增加就业、改善民生等方面发挥了重要作用。浙江更是民营经济大省，也是中国民营经济的重要发祥地。2018年，民营经济创造了浙江58.1%的税收、65.5%的生产总值、78.0%的外贸出口、87%的就业岗位、91.2%的企业数量——省统计局最新公布的2018年浙江民营经济“体检单”显示，我省民营经济持续保持良好发展态势。</Text>
+                            </View>
+                            <View>
+                                <Image style={{ width: width * 0.8, height: height * 0.7, borderRadius: 10 ,marginHorizontal:width*0.05}} source={{ uri: "http://img.zjol.com.cn/mlf/dzw/zsw/tslm/zsgc/201908/W020190802730368377807.png" }} />
+                            </View>
+                            <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
+                                <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 }} >　本次浙江共有7名非公有制经济人士入选，比上届（第四届）获奖的6名增加了一名，是入围数最多的省份，超过广东、江苏的6名。他们分别是万向集团公司董事长兼首席执行官鲁伟鼎、网易（杭州）网络有限公司首席执行官丁磊、宁波杉杉股份有限公司董事局主席郑永刚、天能集团股份有限公司董事局主席兼总裁张天任、浙江润兰科技有限公司董事长秦旺仁增、华妹百货店负责人章华妹、浙江省公羊会公益救援促进会会长何军。鲁伟鼎、丁磊、郑永刚、张天任这几位大型民营企业的当家人，以及中国第一位个体工商户章华妹入选，并不让人意外。</Text>
+                            </View>
+                            <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
+                                <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 }} >但还有秦旺仁增、何军这两个公众可能不太熟悉的名字，也出现在了名单上。秦旺仁增是从云南香格里拉来到浙江这片创业热土的藏族小伙，经过15年从零开始的打拼，成为浙江润兰科技有限公司董事长，十多年来，秦旺仁增热衷慈善公益、反哺香格里拉，为汉藏民族友好交流作出了贡献。而何军是公益救助组织“公羊会”的创始人，是100位入选者中唯一来自社团组织的人士。而在第四届的6名中，除了知名浙商圣奥集团有限公司董事长倪良正，奥克斯集团有限公司董事长郑坚江，另外还有嘉兴市蓝驰光电科技有限公司董事长徐云明，浙江普农家电有限公司董事长蒋文标，长兴雉城金陵灯饰经营部经理胡大有，浙江天册律师事务所管理合伙人黄廉熙。查阅两届入围者的事迹，不难发现，他们之中，有敢为天下先，率领企业艰苦奋斗、开拓进取的；有以实业为本，秉持工匠精神的；有的自觉承担社会责任，积极参与公益慈善事业的。从他们的事迹中都能充分体现党对非公有制经济人士“爱国、敬业、诚信、守法、贡献”的要求。</Text>
+                            </View>
+                           
+
+
+                        </ScrollView>
+                    </View>
+
+
+
+                    <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center",justifyContent:'space-around' }} >
+                        <View style={{ width: 250, height: 40, backgroundColor: "#808080", opacity: 0.4, marginLeft: 20, borderRadius: 20 }}>
+                            <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
+                        </View>
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5,alignItems:'center',justifyContent:'center' }}>
+                            <AntDesign  name="staro" size={25} color="#7cc0bf" />
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf" }}>
+                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="export" size={25} color="#000000" />
+                        </TouchableOpacity>
+                    </View>
+                </LinearGradient>
+            </View>
+        )
+    }
+}

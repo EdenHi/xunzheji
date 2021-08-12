@@ -202,7 +202,7 @@ export default class Zs extends Component {
                             <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
                         </View>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5,alignItems:'center',justifyContent:'center' }}>
-                            <Ionicons  name="heart-outline" size={25} color="#7cc0bf" />
+                            <AntDesign  name="staro" size={25} color="#7cc0bf" />
                         </TouchableOpacity>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf" }}>
                             <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="export" size={25} color="#000000" />
