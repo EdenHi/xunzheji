@@ -329,10 +329,10 @@ onShare = async () => {
                                            </View>
                                            
                                             {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
+                                           
                                        </View>
 
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -541,10 +541,10 @@ onShare = async () => {
                                            </View>
 
                                         {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
+                                           
                                        </View>
 
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -660,10 +660,8 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </View>
 
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -777,10 +775,8 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </View>
 
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>

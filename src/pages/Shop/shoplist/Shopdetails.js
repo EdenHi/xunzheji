@@ -55,7 +55,7 @@ export default class Shopdetails extends Component {
             })
         }
     })
-    ToastAndroid.showWithGravity('加入购物车成功',2000,ToastAndroid.CENTER)
+    ToastAndroid.showWithGravity('加入购物车成功',2000,ToastAndroid.BOTTOM)
     DeviceEventEmitter.emit('shop_cart',1)
   }
 
@@ -120,6 +120,7 @@ export default class Shopdetails extends Component {
                         <TouchableOpacity onPress={() => this.handleShowAlbum(2)}>
                             <Image
                             style={{ width: '100%', height: height * 0.4 }}
+                            resizeMode='stretch'
                             source={{
                                 uri: this.state.shops.pic[2],
                             }}
