@@ -184,10 +184,12 @@ init() {
 
       onChange={                   //抽屉状态变化的监听函数
           (isOpen) => {
-              isOpen ? console.log('抽屉当前状态为开着')
-                  :
-                  console.log('抽屉当前状态为关着')
-
+              // isOpen ? console.log('抽屉当前状态为开着')
+              //     :
+              //     console.log('抽屉当前状态为关着')
+            this.setState({
+              isOpen
+            })
           }}
 
       onMove={                     //抽屉移动时的监听函数 , 参数为抽屉拉出来的距离 抽屉在左侧时参数为正,右侧则为负
