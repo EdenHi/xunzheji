@@ -16,6 +16,7 @@ import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LottieView from 'lottie-react-native';
+import {SpeedDial } from 'react-native-elements'
 
 const { width, height } = Dimensions.get("window")
 

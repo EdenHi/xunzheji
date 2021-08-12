@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 let { height, width } = Dimensions.get('window');
 import Feather from 'react-native-vector-icons/Feather';
+import LottieView from 'lottie-react-native';
 import {
   View,
   StyleSheet,
@@ -13,10 +14,13 @@ import {
   ImageBackground,
   TextInput,
   AsyncStorage,
-  DeviceEventEmitter
+  DeviceEventEmitter,Easing, Animated
 } from 'react-native';
 import axios from 'axios';
 import Textinput from '../../components/textInput';
+import LinearGradient from 'react-native-linear-gradient';
+
+
 const ratio_w = Dimensions.get('window').width / 375;
 export default class Login extends Component {
   load() {
@@ -47,29 +51,30 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
+      progress: new Animated.Value(0),
       username: '',
       password: '',
 
     };
   }
-
-
-
+  componentDidMount() {
+    console.log(this.state.username);
+    Animated.timing(this.state.progress, {
+        toValue: 1,
+        duration: 3500,
+        easing: Easing.linear,
+    }).start();
+}
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#f1f1f1' }}>
-
-        <View style={{ flex: 2, borderWidth: 0, justifyContent: 'space-between', flexDirection: 'column-reverse' }}>
-
-
-          <View style={{ marginBottom: height * 0.03 }}>
-            <Text style={{ fontSize: ratio_w * 30, borderWidth: 0, textAlign: 'center', marginBottom: height * 0.01, color: '#7cc0c0' }} allowFontScaling={false}>欢迎回来！</Text>
-            <Text style={{ fontSize: ratio_w * 20, borderWidth: 0, textAlign: 'center', color: 'grey' }}>登录以获取更多资讯</Text>
-          </View>
-        </View>
-        <View style={{ flex: 3 }}>
+      <View style={{ width:width,height:height, }}>
+         <LinearGradient style={{width:width,height:height,}} colors={['#7cc0bf', '#fff',  '#fff', '#fff']} >
+           <View style={{width:width,height:height*0.3}}>
+           <LottieView source={require('../../../animal/welcome.json')} autoPlay loop progress={this.state.progress} />
+           </View>
+        <View style={{width:width,height:height*0.7,backgroundColor:"#fff",elevation:10,borderTopLeftRadius:50,borderTopRightRadius:50}}>
+        <View style={{ marginTop:height*0.10}}>
             <View style={styles.box}>
-
               <Feather style={styles.icon}
                 name={'user'}
                 size={20 * ratio_w}
@@ -84,7 +89,6 @@ export default class Login extends Component {
               />
             </View>
           <View style={styles.box}>
-
             <Feather style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
@@ -98,31 +102,34 @@ export default class Login extends Component {
               }}
              />
           </View>
-          <View style={{flexDirection:'row',justifyContent:'space-between',borderWidth:0,width:'90%',marginHorizontal:'5%'}}>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('BtnRoute')}>
-              <Text style={{ textAlign: 'center',fontSize:13 * ratio_w  }}>游客登陆</Text>
+          <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:"2%",borderWidth:0,width:'90%',marginHorizontal:'5%'}}>
+          <TouchableOpacity style={{marginLeft:"10%"}} onPress={() => this.props.navigation.navigate('BtnRoute')}>
+              <Text style={{ textAlign: 'center',fontSize:13 * ratio_w  }}>游客登录</Text>
             </TouchableOpacity>
           <TouchableOpacity
           onPress={()=>this.props.navigation.navigate('FindPass')}
-          style={{ borderWidth: 0,}}>
+          style={{ borderWidth: 0,marginRight:"10%"}}>
             <Text style={{ textAlign: 'center',fontSize:13 * ratio_w }}>忘记密码</Text>
           </TouchableOpacity>
           </View>
-         
-
           <TouchableOpacity style={styles.btn} onPress={() => { this.load(); }} >
-            <View borderRadius={20} style={{ height: '100%', width: '100%',backgroundColor:"#7cc0c0",elevation:5 }}>
+          <LottieView source={require('../../../animal/loginicon.json')} autoPlay loop progress={this.state.progress} />
+            {/* <View borderRadius={20} style={{ height: '100%', width: '100%',backgroundColor:"#7cc0c0",elevation:5 }}>
               <Text style={{ fontSize: 20 * ratio_w, textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#ffffff', borderRadius: 20 }}  >登录</Text>
-            </View>
+            </View> */}
           </TouchableOpacity>
-          <View style={{ flexDirection: 'row', justifyContent: 'center', borderWidth: 0, height: height * 0.05, marginTop: height * 0.17 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'center',marginTop:"20%", borderWidth: 0}}>
             <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', borderWidth: 0 }}>还没有账号？</Text>
-            
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
               <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: '#7cc0c0' }}>此处注册</Text>
             </TouchableOpacity>
           </View>
+          <View style={{width:width}}>
+          {/* <LottieView style={{width:width,height:height*0.25}} source={require('../../../animal/LoginCar.json')} autoPlay loop progress={this.state.progress} /> */}
+          </View>
         </View>
+        </View>
+        </LinearGradient>
       </View>
     );
   }
@@ -132,18 +139,18 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   btn: {
-    height: height * 0.05,
-    width: '40%',
+    height: height * 0.07,
     marginHorizontal: '30%',
-    marginTop: '6%',
+    marginTop:"10%",
+
   },
   text: {
-    width: '80%',
-    marginRight: '10%',
+    width: '65%',
+    marginRight: '15%',
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
     fontSize: 11 * ratio_w,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#f1f1f1',
     color: '#7cc0c0',
   },
   box: {
@@ -151,11 +158,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginVertical: 0.015 * height,
     height: height * 0.07,
+    
   },
   icon: {
     width: '20%',
-    marginLeft: '10%',
-    backgroundColor: '#ffffff',
+    marginLeft: '15%',
+    backgroundColor: '#f1f1f1',
     borderTopLeftRadius: 50,
     borderBottomLeftRadius: 50,
     paddingLeft: '3%',
