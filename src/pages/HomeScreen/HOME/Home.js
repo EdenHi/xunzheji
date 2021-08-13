@@ -1,11 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
-<<<<<<< .mine
 import { View, Text, StyleSheet, ScrollView, Easing, Animated, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity, AsyncStorage } from 'react-native';
-=======
-import { View, Text, StyleSheet, ScrollView, Easing, Animated, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity } from 'react-native';
->>>>>>> .theirs
 import Swiper from 'react-native-swiper';
 import Card from '../../../components/Card';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -30,11 +26,8 @@ export default class Home extends Component {
             username: '',
 
         }
-<<<<<<< .mine
 
-=======
 
->>>>>>> .theirs
     }
 
     //获取路线信息
@@ -52,27 +45,15 @@ export default class Home extends Component {
     componentDidMount() {
         console.log(this.state.username);
         Animated.timing(this.state.progress, {
-<<<<<<< .mine
             toValue: 1,
             duration: 3500,
             easing: Easing.linear,
 
-=======
-            toValue: 1,
-            duration: 3500,
-            easing: Easing.linear,
 
->>>>>>> .theirs
         }).start();
-<<<<<<< .mine
 
         this.get_shuju();
     }
-=======
-    }
-
-
->>>>>>> .theirs
     render() {
         return (
             <View style={{ alignItems: 'center', }}>
@@ -82,30 +63,14 @@ export default class Home extends Component {
                             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
                             <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
                         </View>
-<<<<<<< .mine
 
 
 
-=======
 
 
 
->>>>>>> .theirs
                     </View>
                     <View style={{ alignItems: 'center', }}>
-<<<<<<< .mine
-                        <ScrollView
-                            onScroll={(e) => {
-                                console.log(Math.ceil(e.nativeEvent.contentOffset.y)); if (Math.ceil(e.nativeEvent.contentOffset.y) == 800) {
-                                    this.childList.move()
-                                } else if (Math.ceil(e.nativeEvent.contentOffset.y) == 420) {
-                                    this.childList.stopSlide()
-                                }
-                            }}
-
-
-                            showsVerticalScrollIndicator={false}>
-=======
                         <ScrollView
                             onScroll={(e) => {
                                 console.log(Math.ceil(e.nativeEvent.contentOffset.y)); if (Math.ceil(e.nativeEvent.contentOffset.y) == 800) {
@@ -117,7 +82,6 @@ export default class Home extends Component {
                             showsVerticalScrollIndicator={false}>
 
 
->>>>>>> .theirs
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginBottom: -10 }}>
                                     <ShiCha />
@@ -134,17 +98,10 @@ export default class Home extends Component {
                                                 <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                             </TouchableOpacity>
                                         </TouchableOpacity>
-<<<<<<< .mine
-                                        <ScrollView
-
-                                            horizontal={true} showsHorizontalScrollIndicator={false}
-
-=======
                                         <ScrollView
                                             horizontal={true} showsHorizontalScrollIndicator={false}
 
 
->>>>>>> .theirs
                                         >
                                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
                                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 10, marginRight: 10, elevation: 5 }}>
@@ -163,13 +120,8 @@ export default class Home extends Component {
                                                     </ImageBackground>
                                                 </View>
                                             </TouchableOpacity>
-<<<<<<< .mine
-                                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/travel4.jpeg' }}>
-                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
-=======
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3608384836,3487578051&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=301' }}>
                                                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic1')} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
->>>>>>> .theirs
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>“浙商人”在非洲</Text></View>
                                                     <View style={{ flex: 1 }}>
@@ -181,13 +133,8 @@ export default class Home extends Component {
                                                     </View>
                                                 </TouchableOpacity>
                                             </ImageBackground>
-<<<<<<< .mine
-                                            <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/travel4.jpeg' }}>
-                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
-=======
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
                                                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
->>>>>>> .theirs
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
                                                     <View style={{ flex: 1 }}>
@@ -229,7 +176,6 @@ export default class Home extends Component {
                                     <View style={{ flexDirection: 'row', alignItems: 'center', margin: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
                                         <View>
-<<<<<<< .mine
                                             <Text onPress={() => {
 
                                                 this.props.navigation.navigate('Road', {
@@ -248,44 +194,16 @@ export default class Home extends Component {
                                             }} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}
 
                                             >重走鸡毛换糖之路</Text>
-=======
-                                            <Text onPress={() => { this.props.navigation.navigate('Road') }} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>重走鸡毛换糖之路</Text>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> .theirs
                                             <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity> */}
-<<<<<<< .mine
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Road', {
                                             username: this.state.username,
                                         })} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '25%', color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
-=======
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Road')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '25%', color: '#7cc0bf' }}>
-                                            <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
-                                        </TouchableOpacity>
-
-
->>>>>>> .theirs
                                     </View>
                                     <TouchableOpacity activeOpacity={1} >
                                         <View style={{ height: 200, backgroundColor: '#fff', justifyContent: 'center', margin: 10, marginTop: -5, borderRadius: 10, padding: 10, elevation: 5 }}>
@@ -357,21 +275,12 @@ export default class Home extends Component {
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                     <View style={{ alignItems: 'center' }}>
-<<<<<<< .mine
                                         <View>
                                             <Horiz
                                                 ref={(view) => this.childList = view}
                                             />
 
                                         </View>
-=======
-                                        <View>
-                                            <Horiz
-                                                ref={(view) => this.childList = view}
-                                            />
-                                        </View>
-
->>>>>>> .theirs
                                         {/* <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, fontSize: 10 }}>杭州出台14项政策大力度吸引浙商回归</Text>

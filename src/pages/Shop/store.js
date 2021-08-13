@@ -166,24 +166,8 @@ export default class Store extends Component {
                   this.setModalVisible(!modalVisible);
                 }} style={{ borderWidth: 0, height: '20%', width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
 
-<<<<<<< HEAD
-              </TouchableOpacity>
-              <TouchableOpacity style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
-                <MaterialCommunityIcons style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
-                  name="clipboard-text-outline"
-                  size={35}
-                  color="#7cc0c0"
-                />
-                <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Chat'),this.setModalVisible(!modalVisible)}} style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
-                <AntDesign style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
-                  name="customerservice"
-                  size={35}
-=======
                   name="apple-keyboard-control"
                   size={30}
->>>>>>> 0771e7087842b82bc47fdabe1ca083ed10336f78
                   color="#7cc0c0"
                 />
               </View>
