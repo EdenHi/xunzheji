@@ -184,10 +184,12 @@ init() {
 
       onChange={                   //抽屉状态变化的监听函数
           (isOpen) => {
-              isOpen ? console.log('抽屉当前状态为开着')
-                  :
-                  console.log('抽屉当前状态为关着')
-
+              // isOpen ? console.log('抽屉当前状态为开着')
+              //     :
+              //     console.log('抽屉当前状态为关着')
+            this.setState({
+              isOpen
+            })
           }}
 
       onMove={                     //抽屉移动时的监听函数 , 参数为抽屉拉出来的距离 抽屉在左侧时参数为正,右侧则为负
@@ -196,7 +198,7 @@ init() {
           }}
 
       menuPosition={'left'}     //抽屉在左侧还是右侧
-      autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
+      autoClosing={true}         //默认为true 如果为true 一有事件发生抽屉就会关闭
   >
 
 
@@ -413,9 +415,9 @@ init() {
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
-                onPress={() => { this.SelectToOpenLeftSideMenu() }}
+
               >
-                <Feather name="menu" size={25} color="#7cc0c0" />
+                <Feather name="menu" size={25} color="#7cc0c0"  onPress={() => { this.SelectToOpenLeftSideMenu() }} />
               </TouchableOpacity>
               <TouchableOpacity
                 activeOpacity={1}
