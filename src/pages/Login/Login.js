@@ -70,7 +70,7 @@ export default class Login extends Component {
       <View style={{ width:width,height:height, }}>
          <LinearGradient style={{width:width,height:height,}} colors={['#7cc0bf', '#fff',  '#fff', '#fff']} >
            <View style={{width:width,height:height*0.3}}>
-           <LottieView source={require('../../../animal/welcome.json')} autoPlay loop progress={this.state.progress} />
+           {/* <LottieView source={require('../../../animal/welcome.json')} autoPlay loop progress={this.state.progress} /> */}
            </View>
         <View style={{width:width,height:height*0.7,backgroundColor:"#fff",elevation:10,borderTopLeftRadius:50,borderTopRightRadius:50}}>
         <View style={{ marginTop:height*0.10}}>
@@ -118,15 +118,15 @@ export default class Login extends Component {
               <Text style={{ fontSize: 20 * ratio_w, textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#ffffff', borderRadius: 20 }}  >登录</Text>
             </View> */}
           </TouchableOpacity>
-          <View style={{ flexDirection: 'row', justifyContent: 'center',marginTop:"20%", borderWidth: 0}}>
+          <View style={{ flexDirection: 'row', justifyContent: 'center',marginTop:"2%", borderWidth: 0}}>
             <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', borderWidth: 0 }}>还没有账号？</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
               <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: '#7cc0c0' }}>此处注册</Text>
             </TouchableOpacity>
           </View>
-          <View style={{width:width}}>
-          {/* <LottieView style={{width:width,height:height*0.25}} source={require('../../../animal/LoginCar.json')} autoPlay loop progress={this.state.progress} /> */}
-          </View>
+
+          {/* <LottieView style={{flex:1,marginTop:-40}} source={require('../../../animal/loginwave.json')} autoPlay loop progress={this.state.progress} /> */}
+          
         </View>
         </View>
         </LinearGradient>

@@ -23,7 +23,7 @@ export default class Dingdan extends Component {
                         <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>订单</Text></View>
                     </View>
                 </View>
-                <View style={{height:height*0.86}}>
+                <View style={{height:height*0.9}}>
                     <ScrollView>
                         <View style={{ marginHorizontal: width * 0.05, backgroundColor: "#fff", padding: 5, elevation: 5, borderRadius: 10,marginBottom:10 }}>
                             <View style={{ flexDirection: "row" }}>
