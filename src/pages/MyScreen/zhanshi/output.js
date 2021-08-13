@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
-import { View, Text, Dimensions, AsyncStorage, Image, StyleSheet, FlatList, TouchableOpacity, DeviceEventEmitter } from 'react-native';
+import { View, Text, Dimensions, AsyncStorage, Image, StyleSheet, FlatList, TouchableOpacity, DeviceEventEmitter,ScrollView } from 'react-native';
 import Timeline from 'react-native-timeline-listview'
 import { NavigationContext } from '@react-navigation/native';
 const { height, width } = Dimensions.get('window');
@@ -178,11 +178,18 @@ renderDetail(rowData, sectionID, rowID) {
 
 
 render() {
-  console.log('aaaa', this.props.route);
   return (
     <View style={styles.container}>
+      <ScrollView
+         style={{height:height -50 }}
+         ref={ref => this.scrollRef = ref}
+         onScroll={(e) =>{
+           if (e.nativeEvent.contentOffset.y === 0 ){
+             DeviceEventEmitter.emit('scrollview',1);
+           }
+           }}>    
       <TouchableOpacity onPress={() => this.select()}>
-        <Text>排序</Text>
+        <Text>{this.state.data.length === 0 ? '' :'排序'}</Text>
       </TouchableOpacity>
       <Timeline
         style={styles.list}
@@ -207,13 +214,14 @@ render() {
         // //  onEventPress={this.onEventPress.bind(this)}
         renderDetail={this.renderDetail.bind(this)}
       />
+      </ScrollView>
     </View>
   );
 }
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width,
     padding: 20,
     marginTop: 10,
     backgroundColor: 'white'

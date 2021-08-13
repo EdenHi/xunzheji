@@ -201,31 +201,6 @@ init() {
       autoClosing={true}         //默认为true 如果为true 一有事件发生抽屉就会关闭
   >
 
-
-      <View style={{ flex: 1 }}>
-        <AwesomeAlert
-          show={showAlert}
-          showProgress={false}
-          title="提          示"
-          message="您还未登录，请登录！"
-          closeOnTouchOutside={true}
-          closeOnHardwareBackPress={false}
-          showCancelButton={true}
-          showConfirmButton={true}
-          confirmText="确认"
-          cancelText="取消"
-
-          confirmButtonColor="#93c9c9"
-          onCancelPressed={() => {
-            this.hideAlert();
-
-          }}
-          onConfirmPressed={() => {
-            this.hideAlert();
-            this.props.navigation.navigate('Login')
-          }}
-        />
-
         <ParallaxScrollView
           headerBackgroundColor="#fff"
           stickyHeaderHeight={STICKY_HEADER_HEIGHT}
@@ -234,7 +209,7 @@ init() {
           scrollEnabled={isScroll}
           ref={ref => this.scrollRef = ref}
           onScroll={(e) => {
-            console.log('e', e.nativeEvent.contentOffset.y);
+           // console.log('e', e.nativeEvent.contentOffset.y);
             console.log('isScro', isScroll)
             if (e.nativeEvent.contentOffset.y >= 195 && e.nativeEvent.contentOffset.y <= 199) {
               this.setState({
@@ -433,7 +408,7 @@ init() {
         >
           <MyRoute2 />
         </ParallaxScrollView>
-      </View>
+
       </SideMenu>
 
     );

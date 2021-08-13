@@ -74,7 +74,7 @@ export default class Swop extends Component {
 
   componentDidMount(){
     this.get_shuju();
-    this.listenter = DeviceEventEmitter.addListener('exchange',this.get_shuju.bind(this))
+    this.listener = DeviceEventEmitter.addListener('exchange', this.get_shuju.bind(this));
   }
 
   //移除监听

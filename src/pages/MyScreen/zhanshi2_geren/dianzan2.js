@@ -91,7 +91,7 @@ get(){
     }
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style={{width}}>
                 <ScrollView
                 style={{height:height -50 - 120}}
                 ref={ref => this.scrollRef = ref}
