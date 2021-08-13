@@ -60,7 +60,7 @@ export default class Homepagebook extends Component {
                 modalVisible: true,
                 data: [
                     {
-                        image: '',
+                        image: '   ',
                         title: '作者：周咏南11',
                         connent: '男，汉族，1960年3月生，浙江舟山人',
                         connent2: '1988年3月加入中国共产党，1982年4月参加工作，大学本科学历',
@@ -127,7 +127,7 @@ export default class Homepagebook extends Component {
         }
     }
     _closeModalWin = () => {
-        this.setState({ modalVisible: false, modalVisible2: false });
+        this.setState({ modalVisible: false });
     }
 
     _openModalWin2(index) {
@@ -140,7 +140,7 @@ export default class Homepagebook extends Component {
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
-            });
+            })
         }
         if (index == 1) {
             this.setState({
@@ -151,7 +151,7 @@ export default class Homepagebook extends Component {
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
-            });
+            })
         }
         if (index == 2) {
             this.setState({
@@ -162,7 +162,7 @@ export default class Homepagebook extends Component {
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
-            });
+            })
         }
         if (index == 3) {
             this.setState({
@@ -173,7 +173,7 @@ export default class Homepagebook extends Component {
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
-            });
+            })
         }
         if (index == 4) {
             this.setState({
@@ -184,11 +184,11 @@ export default class Homepagebook extends Component {
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
-            });
+            })
         }
     }
     _closeModalWin2 = () => {
-        this.setState({ modalVisible: false, modalVisible2: false });
+        this.setState({  modalVisible2: false });
     }
 
 

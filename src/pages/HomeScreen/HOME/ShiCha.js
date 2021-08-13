@@ -1,5 +1,5 @@
-import React, {useRef, useState, useEffect} from 'react';
-import Carousel, {ParallaxImage} from 'react-native-snap-carousel';
+import React, { useRef, useState, useEffect } from 'react';
+import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 import {
   View,
   Text,
@@ -12,30 +12,30 @@ import {
 const ENTRIES1 = [
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
+    illustration: 'http://8.142.11.85:3000/public/images/travel2.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
+    illustration: 'http://8.142.11.85:3000/public/images/travel3.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.imgur.com/MABUbpDl.jpg',
+    illustration: 'http://8.142.11.85:3000/public/images/travel1.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
+    illustration: 'http://8.142.11.85:3000/public/images/zs1.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
+    illustration: 'http://8.142.11.85:3000/public/images/travel2.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fdimg03.c-ctrip.com%2Fimages%2F100f0u000000jh5qyCC3D.jpg&refer=http%3A%2F%2Fdimg03.c-ctrip.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629593494&t=15e6aa5f7ea45225a39714655ad4965e',
+    illustration: 'http://8.142.11.85:3000/public/images/travel1.jpeg',
   },
 ];
-const {width,height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const MyCarousel = props => {
   const [entries, setEntries] = useState([]);
@@ -49,39 +49,37 @@ const MyCarousel = props => {
     setEntries(ENTRIES1);
   }, []);
 
-  const renderItem = ({item, index}, parallaxProps) => {
+  const renderItem = ({ item, index }, parallaxProps) => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{uri:'http://8.142.11.85:3000/public/images/travel1.jpeg'}}
-          source={{uri:'http://8.142.11.85:3000/public/images/travel2.jpeg'}}
+          autoplay={true}
+          autoplayDelay={1}
+          source={{ uri: item.illustration }}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.5}
+          parallaxFactor={0.8}
           {...parallaxProps}
-        />
-        { <Text style={styles.title} numberOfLines={2}>
-          {item.title}
-        </Text>}
-        
+       />
+
       </View>
-      
+
     );
   };
 
   return (
     <View style={styles.container}>
-      {/* { <TouchableOpacity onPress={goForward}>
-        <Text>go to next slide</Text>
-      </TouchableOpacity> } */}
       <Carousel
+        loop={true}
         ref={carouselRef}
         sliderWidth={width}
         sliderHeight={width}
-        itemWidth={width }
+        itemWidth={width}
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
+        autoplay={true}
+        autoplayDelay={1}
       />
     </View>
   );
@@ -91,26 +89,26 @@ export default MyCarousel;
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius:10,
+    borderRadius: 10,
   },
   item: {
-    marginTop:10,
-    height:140,
-    width:width*0.95,
-    justifyContent:"center",
-    alignItems:"center"
+    height: 140,
+    width: width * 0.95,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom:10
     // backgroundColor:"red"
   },
   imageContainer: {
-    width:'100%',
-    height:"100%",
+    width: '100%',
+    height: "100%",
     backgroundColor: 'white',
     borderRadius: 15,
-    alignSelf:'center'
+    alignSelf: 'center'
   },
   image: {
 
-    width:width*0.95,
+    width: width * 0.95,
     ...StyleSheet.absoluteFillObject,
     resizeMode: 'cover',
   },
