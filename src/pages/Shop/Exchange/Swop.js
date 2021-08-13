@@ -9,14 +9,15 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  DeviceEventEmitter
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LottieView from 'lottie-react-native';
-import {SpeedDial } from 'react-native-elements'
+import {SpeedDial } from 'react-native-elements';
 
 const { width, height } = Dimensions.get("window")
 
@@ -31,6 +32,7 @@ export default class Swop extends Component {
     this.state = {
       imgUrl:  'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' ,
       data:[],
+      open:false
     }
   }
  
@@ -59,8 +61,7 @@ export default class Swop extends Component {
     }
   }
 
-
-  componentDidMount(){
+  get_shuju(){
     fetch('http://8.142.11.85:3000/shop/select_exchange2')
            .then((response) => response.json())
             .then((responseJson) => {
@@ -69,6 +70,16 @@ export default class Swop extends Component {
                     data:responseJson,
                 });
             })
+  }
+
+  componentDidMount(){
+    this.get_shuju();
+    this.listener = DeviceEventEmitter.addListener('exchange', this.get_shuju.bind(this));
+  }
+
+  //移除监听
+  componentWillUnmount(){
+    this.listenter.remove();
   }
 
   renderDate({item,index}){
@@ -106,7 +117,7 @@ export default class Swop extends Component {
           <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[2] }} />
           <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
         </View>
-        <TouchableOpacity style={{flexDirection:"row",width:width*0.2,height:50,alignItems:"center",marginTop:15,marginLeft:"70%"}} onPress={()=>this.props.navigation.navigate('Exchange2')} >
+        <TouchableOpacity style={{flexDirection:"row",width:width*0.2,height:50,alignItems:"center",marginTop:15,marginLeft:"70%"}} >
           <View style={{width:50,height:40}}><Text style={{fontWeight:"bold",fontSize:16}}>我想要</Text></View>
           <LottieView style={{width:60,height:40}} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
         </TouchableOpacity>
@@ -131,20 +142,33 @@ export default class Swop extends Component {
           </TouchableOpacity>
           <Text style={{ fontSize: 15, fontWeight: "bold", color: "#7cc0c0", width: width * 0.85, marginLeft: "2%" }}>以物换物</Text>
         </View>
-       
-
         <FlatList
         data={data}
         horizontal
         pagingEnabled={true}
+        keyExtractor={(item, index) => (index + '1')}
         renderItem={this.renderDate.bind(this)}
         ref={ref => this.scrollRef = ref}
           onScroll={(e) => {
             let a =( e.nativeEvent.contentOffset.x + 1) / width
             this.switch(a);
           }}/>
-      
-
+      <SpeedDial
+          buttonStyle={{borderRadius:50}}
+          isOpen={this.state.open}
+          color="#7cc0c0"
+          icon={{ name: 'add', color: '#fff' }}
+          openIcon={{ name: 'close', color: '#fff' }}
+          onOpen={() => this.setState({open:true})}
+          onClose={() =>this.setState({open:false})}
+        >
+          <SpeedDial.Action
+          color="#7cc0c0"
+            buttonStyle={{borderRadius:50}}
+            icon={{ name: 'drive-file-rename-outline', color: '#fff' }}
+            onPress={() => {this.props.navigation.navigate('Exchange2'),this.setState({open:false})}}
+          />
+        </SpeedDial>
       </View>
     )
   }

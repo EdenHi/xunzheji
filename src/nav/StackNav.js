@@ -71,7 +71,7 @@ import {
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
 import Road from '../pages/Road/Road';
-import Chats from '../pages/chat/Chats';
+import Chats from '../pages/chat/demo';
 import articel from '../pages/article/comment/article_detail';
 const Stack = createStackNavigator();
 
