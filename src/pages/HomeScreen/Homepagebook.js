@@ -40,12 +40,12 @@ export default class Homepagebook extends Component {
             ],
             data: [{
                 image: 'https://img2.baidu.com/it/u=1605893453,1786566990&fm=26&fmt=auto&gp=0.jpg',
-                title: '作者：周咏南',
+                title: '作者：周咏南1',
                 connent: 'asdasd',
             }],
             data2: [{
                 image: 'http://t14.baidu.com/it/u=976136269,2791709464&fm=224&app=112&f=JPEG?w=500&h=500&s=3D2C70339B9572DA1B7C04EE01007022',
-                title: '作者：周咏南',
+                title: '作者：周咏南11',
                 connent: 'asdasd',
             }],
             modalVisible: false,
@@ -60,14 +60,14 @@ export default class Homepagebook extends Component {
                 modalVisible: true,
                 data: [
                     {
-                        image: 'https://img2.baidu.com/it/u=1605893453,1786566990&fm=26&fmt=auto&gp=0.jpg',
-                        title: '作者：周咏南',
+                        image: '',
+                        title: '作者：周咏南11',
                         connent: '男，汉族，1960年3月生，浙江舟山人',
                         connent2: '1988年3月加入中国共产党，1982年4月参加工作，大学本科学历',
                         connent3: '现任浙江日报报业集团副总编辑、党委委员，浙报传媒控股集团有限公司董事',
                     }
                 ],
-            });
+            })
         }
         if (index == 1) {
             this.setState({
@@ -75,13 +75,13 @@ export default class Homepagebook extends Component {
                 data: [
                     {
                         image: 'https://img2.baidu.com/it/u=1605893453,1786566990&fm=26&fmt=auto&gp=0.jpg',
-                        title: '作者：周咏南',
+                        title: '作者：周咏南12',
                         connent: '男，汉族，1960年3月生，浙江舟山人',
                         connent2: '1988年3月加入中国共产党，1982年4月参加工作，大学本科学历',
                         connent3: '现任浙江日报报业集团副总编辑、党委委员，浙报传媒控股集团有限公司董事',
                     }
                 ],
-            });
+            })
         }
         if (index == 2) {
             this.setState({
@@ -89,13 +89,13 @@ export default class Homepagebook extends Component {
                 data: [
                     {
                         image: 'https://img2.baidu.com/it/u=1605893453,1786566990&fm=26&fmt=auto&gp=0.jpg',
-                        title: '作者：周咏南',
+                        title: '作者：周咏南13',
                         connent: '男，汉族，1960年3月生，浙江舟山人',
                         connent2: '1988年3月加入中国共产党，1982年4月参加工作，大学本科学历',
                         connent3: '现任浙江日报报业集团副总编辑、党委委员，浙报传媒控股集团有限公司董事',
                     }
                 ],
-            });
+            })
         }
         if (index == 3) {
             this.setState({
@@ -109,7 +109,7 @@ export default class Homepagebook extends Component {
                         connent3: '现任浙江日报报业集团副总编辑、党委委员，浙报传媒控股集团有限公司董事',
                     }
                 ],
-            });
+            })
         }
         if (index == 4) {
             this.setState({
