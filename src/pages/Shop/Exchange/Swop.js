@@ -9,7 +9,8 @@ import {
   ScrollView,
   Dimensions,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  DeviceEventEmitter
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
@@ -60,8 +61,7 @@ export default class Swop extends Component {
     }
   }
 
-
-  componentDidMount(){
+  get_shuju(){
     fetch('http://8.142.11.85:3000/shop/select_exchange2')
            .then((response) => response.json())
             .then((responseJson) => {
@@ -70,6 +70,16 @@ export default class Swop extends Component {
                     data:responseJson,
                 });
             })
+  }
+
+  componentDidMount(){
+    this.get_shuju();
+    this.listenter = DeviceEventEmitter.addListener('exchange',this.get_shuju.bind(this))
+  }
+
+  //移除监听
+  componentWillUnmount(){
+    this.listener.remove();
   }
 
   renderDate({item,index}){
@@ -136,6 +146,7 @@ export default class Swop extends Component {
         data={data}
         horizontal
         pagingEnabled={true}
+        keyExtractor={(item, index) => (index + '1')}
         renderItem={this.renderDate.bind(this)}
         ref={ref => this.scrollRef = ref}
           onScroll={(e) => {
