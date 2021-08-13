@@ -41,7 +41,7 @@ export default class Timer extends Component {
                 scalesPageToFit={false}
                 injectedJavaScript={ INJECTEDJAVASCRIPT }
                     //   style={styles.webView1}
-                      source={{uri: 'file:///android_asset/Timer/index2.html'}}
+                      source={{uri: 'file:///android_asset/oldbank/index.html'}}
                 />
             </View>
         );

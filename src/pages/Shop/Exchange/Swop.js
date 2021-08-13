@@ -79,7 +79,7 @@ export default class Swop extends Component {
 
   //移除监听
   componentWillUnmount(){
-    this.listener.remove();
+    this.listenter.remove();
   }
 
   renderDate({item,index}){

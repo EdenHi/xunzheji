@@ -966,8 +966,8 @@
 
 "@react-native-community/blur@^3.6.0":
   version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@react-native-community/blur/-/blur-3.6.0.tgz#31c9e0f2770519c9b5c4f99418f192246f0d4db8"
-  integrity sha512-GtDBhpX2pQcjl4VopOC8FktrVufrEfYRwVeMQ2WWckqKIv2BdwvlvWvj88L1WmEdBr9UNcm3rtgz+d+YXkmirA==
+  resolved "https://registry.npm.taobao.org/@react-native-community/blur/download/@react-native-community/blur-3.6.0.tgz#31c9e0f2770519c9b5c4f99418f192246f0d4db8"
+  integrity sha1-Mcng8ncFGcm1xPmUGPGSJG8NTbg=
   dependencies:
     prop-types "^15.5.10"
 
@@ -2602,6 +2602,11 @@ emittery@^0.7.1:
   resolved "https://registry.nlark.com/emittery/download/emittery-0.7.2.tgz?cache=0&sync_timestamp=1622640852431&other_urls=https%3A%2F%2Fregistry.nlark.com%2Femittery%2Fdownload%2Femittery-0.7.2.tgz"
   integrity sha1-JVlZCOE68PVnSrQZOW4vs5TN+oI=
 
+emoji-regex@6.4.2:
+  version "6.4.2"
+  resolved "https://registry.nlark.com/emoji-regex/download/emoji-regex-6.4.2.tgz#a30b6fee353d406d96cfb9fa765bdc82897eff6e"
+  integrity sha1-owtv7jU9QG2Wz7n6dlvcgol+/24=
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.nlark.com/emoji-regex/download/emoji-regex-7.0.3.tgz"
@@ -2611,6 +2616,13 @@ emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.nlark.com/emoji-regex/download/emoji-regex-8.0.0.tgz"
   integrity sha1-6Bj9ac5cz8tARZT4QpY79TFkzDc=
+
+emoji-utils@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.nlark.com/emoji-utils/download/emoji-utils-1.0.1.tgz#2de246a2423e2bbd1521476ffdee2e5d468eb4aa"
+  integrity sha1-LeJGokI+K70VIUdv/e4uXUaOtKo=
+  dependencies:
+    emoji-regex "6.4.2"
 
 encodeurl@~1.0.2:
   version "1.0.2"
@@ -6047,6 +6059,11 @@ react-native-typing-animation@^0.1.7:
   version "0.1.7"
   resolved "https://registry.nlark.com/react-native-typing-animation/download/react-native-typing-animation-0.1.7.tgz"
   integrity sha1-jyzwjZQArlQ6EQKS631xUj3aVSg=
+
+react-native-uuid@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.nlark.com/react-native-uuid/download/react-native-uuid-2.0.1.tgz#ed4e2dfb1683eddb66967eb5dca140dfe1abddb9"
+  integrity sha1-7U4t+xaD7dtmln613KFA3+Gr3bk=
 
 react-native-vector-icons@^4.4.2:
   version "4.6.0"

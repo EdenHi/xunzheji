@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Easing, Animated, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Easing, Animated, Image, Dimensions, ImageBackground, BVLinearGradient, RefreshControl, TouchableOpacity, AsyncStorage } from 'react-native';
 import Swiper from 'react-native-swiper';
 import Card from '../../../components/Card';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -23,15 +23,36 @@ export default class Home extends Component {
         super(props)
         this.state = {
             progress: new Animated.Value(0),
+            username: '',
+
         }
+
+
     }
+
+    //获取路线信息
+    get_shuju() {
+        AsyncStorage.getItem('username', (error, result) => {
+            if (!error) {
+                this.setState({
+                    username: result,
+                });
+                console.log('username', this.state.username);
+            }
+        })
+    }
+
     componentDidMount() {
         console.log(this.state.username);
         Animated.timing(this.state.progress, {
             toValue: 1,
             duration: 3500,
             easing: Easing.linear,
+
+
         }).start();
+
+        this.get_shuju();
     }
     render() {
         return (
@@ -42,6 +63,12 @@ export default class Home extends Component {
                             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
                             <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
                         </View>
+
+
+
+
+
+
                     </View>
                     <View style={{ alignItems: 'center', }}>
                         <ScrollView
@@ -53,6 +80,8 @@ export default class Home extends Component {
                                 }
                             }}
                             showsVerticalScrollIndicator={false}>
+
+
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginBottom: -10 }}>
                                     <ShiCha />
@@ -71,6 +100,8 @@ export default class Home extends Component {
                                         </TouchableOpacity>
                                         <ScrollView
                                             horizontal={true} showsHorizontalScrollIndicator={false}
+
+
                                         >
                                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
                                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 10, marginRight: 10, elevation: 5 }}>
@@ -145,13 +176,32 @@ export default class Home extends Component {
                                     <View style={{ flexDirection: 'row', alignItems: 'center', margin: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
                                         <View>
-                                            <Text onPress={() => { this.props.navigation.navigate('Road') }} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>重走鸡毛换糖之路</Text>
+                                            <Text onPress={() => {
+
+                                                this.props.navigation.navigate('Road', {
+                                                    username: this.state.username,
+                                                    road1: this.state.road1,
+                                                    road2: this.state.road2,
+                                                    road3: this.state.road3,
+                                                    road4: this.state.road4,
+                                                    road5: this.state.road5,
+                                                    road6: this.state.road6,
+                                                    road7: this.state.road7,
+                                                    road8: this.state.road8,
+                                                    road9: this.state.road9,
+                                                    road10: this.state.road10
+                                                })
+                                            }} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}
+
+                                            >重走鸡毛换糖之路</Text>
                                             <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity> */}
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Road')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '25%', color: '#7cc0bf' }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Road', {
+                                            username: this.state.username,
+                                        })} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '25%', color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </View>
@@ -229,6 +279,7 @@ export default class Home extends Component {
                                             <Horiz
                                                 ref={(view) => this.childList = view}
                                             />
+
                                         </View>
                                         {/* <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>

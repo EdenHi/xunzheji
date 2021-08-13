@@ -12,7 +12,8 @@ import {
   Easing,
   ImageBackground,
   Modal,
-  Alert
+  Alert,
+  AsyncStorage
 } from 'react-native';
 import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
@@ -24,7 +25,8 @@ import ActionButton from 'react-native-action-button';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import ShiCha from '../HomeScreen/HOME/ShiCha';
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
+import axios from 'axios';
 
 const { width, height } = Dimensions.get('window');
 const images = [{ uri: 'http://8.142.11.85:3000/public/images/5.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/5.jpg' }]
@@ -61,6 +63,7 @@ export default class Store extends Component {
       ]
     };
   }
+
   componentDidMount() {
     Animated.timing(this.state.progress, {
       toValue: 1,
@@ -68,6 +71,7 @@ export default class Store extends Component {
       easing: Easing.linear,
 
     }).start();
+
   }
   renderRow(obj, index) {
     return (

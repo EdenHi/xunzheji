@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, TouchableOpacity, Text, Image, ImageBackground, Animated, Alert } from 'react-native';
+import { View, Dimensions, TouchableOpacity, Text, Image, ImageBackground, Animated, Alert, DeviceEventEmitter } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
@@ -13,25 +13,144 @@ export default class Locked extends Component {
     this.state = {
       isUnlock: this.props.isUnlock,
       showAlert: false,
-      road: 0
+      showAlert_unAbleToUnLock: false,
+      refresh: '',
+      road: this.props.roadNumber,
+      lastStep: 0,
     }
   }
+  //第一次渲染
+  componentDidMount() {
+    this.getThisData();
+  }
 
+  //获取上一条路线信息
+  getLastData() {
+    if (this.props.roadNumber >= 2)
+      fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+        method: 'post',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: this.props.username,
+          road: this.props.roadNumber - 1
+        })
+      }).then((response) => response.json())
+        .then((json) => {
+
+          this.setState({ lastStep: json[0].steps })
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+  }
+
+  //获取当前路线信息
+  getThisData() {
+    this.getLastData()
+    fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: this.props.username,
+        road: this.props.roadNumber
+      })
+    }).then((response) => response.json())
+      .then((json) => {
+
+        this.setState({ isUnlock: json[0].locks })
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+  //前端判断解锁
+  updateThisData() {
+    this.getLastData()
+    fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: this.props.username,
+        road: this.props.roadNumber
+      })
+    }).then((response) => response.json())
+      .then((json) => {
+        if (this.state.lastStep >= 200) {
+          this.unLock();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+  //页面前端解锁并上传
+  unLock() {
+    this.setState({ isUnlock: "false" })
+    this.updateLock();
+    console.log(this.state.isUnlock);
+    console.log('成功解锁');
+  }
+
+  //后台解锁
+  updateLock() {
+
+    fetch('http://8.142.11.85:3000/shouye/update_lock', {
+      method: 'post',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        username: this.props.username,
+        road: this.props.roadNumber
+      })
+
+    }).then((response) => {
+      console.log(this.props.username);
+      console.log(this.props.roadNumber);
+      console.log('成功上传');
+    })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+  //弹框提示{是否解锁？}
   showAlert = () => {
     this.setState({
       showAlert: true
     });
   };
-
   hideAlert = () => {
     this.setState({
       showAlert: false
     });
   };
+  //二级弹框{不能解锁}
+  showAlert_unAbleToUnLock = () => {
+    this.setState({
+      showAlert_unAbleToUnLock: true
+    })
+  }
+  hideAlert_unAbleToUnLock = () => {
+    this.setState({
+      showAlert_unAbleToUnLock: false
+    });
+  };
 
   render() {
     const { showAlert } = this.state;
-    if (this.state.isUnlock == false) {
+    const { showAlert_unAbleToUnLock } = this.state;
+    if (this.state.isUnlock === 'false') {
       return (
         <FlipCard>
           <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.6, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
@@ -56,7 +175,7 @@ export default class Locked extends Component {
             <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: "#000" }}>共2256万+用户参与</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
-              road: this.props.road
+              road: this.props.roadNumber
             })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
               <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
@@ -73,20 +192,17 @@ export default class Locked extends Component {
 
             <Text style={{ marginTop: 10, fontSize: 20, width: '100%', color: "#7cc0bf", textAlign: 'center' }}>共2256万+用户参与</Text>
             <Text style={{ marginTop: 10, width: '80%', marginHorizontal: '10%', fontSize: 15, textAlign: 'center' }}>空蒙山色里住着诗人的一直，潋滟水光映透西子成鱼落雁般的容颜，柔美的线条中透露江南韵味。</Text>
-            <TouchableOpacity onPress={() => {
-              this.props.navigation.navigate('Video', {
-                road: this.state.road
-              })
-            }} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
+              username: this.props.username,
+              road: this.props.road
+            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
               <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
         </FlipCard>
-
       );
     } else
       return (
-
         <View style={{ width: '100%', height: height * 0.165, backgroundColor: '#93c9c9', marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15, elevation: 0.8 }}>
           <Text style={{ marginTop: '7%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>西湖风景线</Text>
           <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得Y25</Text>
@@ -116,11 +232,30 @@ export default class Locked extends Component {
             confirmButtonColor="#93c9c9"
             onCancelPressed={() => {
               this.hideAlert();
-
+              this.showAlert_unAbleToUnLock();
             }}
             onConfirmPressed={() => {
               this.hideAlert();
-              this.setState({ isUnlock: false })
+              this.updateThisData();
+              // this.unLock()
+              // this.setState({ isUnlock: false })
+            }}
+          />
+          <AwesomeAlert
+            show={showAlert_unAbleToUnLock}
+            showProgress={false}
+            title="提示"
+            message="您还没有完成上一条路线，无法解锁!"
+            closeOnTouchOutside={true}
+            closeOnHardwareBackPress={false}
+            showCancelButton={true}
+            showConfirmButton={true}
+            confirmText="确认"
+
+
+            onConfirmPressed={() => {
+              this.hideAlert_unAbleToUnLock();
+              // this.setState({ isUnlock: false })
             }}
           />
         </View>
