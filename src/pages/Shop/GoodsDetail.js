@@ -96,7 +96,7 @@ class GoodsDetail extends Component {
 
 
               </TouchableOpacity>
-              <TouchableOpacity style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
+              <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Dingdan')}} style={{ marginVertical:'4%',height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20,marginLeft:width*0.024 }}>
                 <MaterialCommunityIcons style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="clipboard-text-outline"
                   size={35}

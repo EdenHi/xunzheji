@@ -12,6 +12,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LottieView from 'lottie-react-native';
 
+const tags=[];
 export default class Fabu extends Component {
     constructor(props){
         super(props);
@@ -22,7 +23,7 @@ export default class Fabu extends Component {
             username:'',
             progress: new Animated.Value(0),
             modalVisible: false,
-            tag:this.props.route.params.tag
+            tag:[],
         };
     }
 
@@ -31,9 +32,23 @@ export default class Fabu extends Component {
             toValue: 1,
             duration: 1000,
             easing: Easing.linear,
-            
           }).start();
-    }
+
+         this.listener = DeviceEventEmitter.addListener('tag',this.tag.bind(this))
+        }
+
+        tag(tag){
+            tags.push(tag)
+            this.setState({
+                tag:tags
+            })  
+            console.log('fabu',tags);
+        }
+  
+      componentWillUnmount(){
+      this.listener.remove();
+      }
+
     //加号图片的存放
     tianjia(){
 		if (this.state.arr != null && this.state.arr.length >= 9) {
@@ -50,7 +65,12 @@ export default class Fabu extends Component {
 		}
     }
 
-    
+    //返回清空tags
+    goBack(){
+        this.props.navigation.goBack();
+        let arr = tags.length ;
+        tags.splice(0,arr);
+    }
 
     _fetchImage(image) {
         let url = 'http://8.142.11.85:3000/dongtai/releaseDongtai';
@@ -108,15 +128,19 @@ export default class Fabu extends Component {
                         uuid:this.state.uuid,
                         fabiao_time:currentdate,
                         username:result,
-                        tag:this.props.route.params.tag
+                        tag:this.state.tag,
                     }),
                 });
+                let aa = tags.length ;
+                tags.splice(0,aa);
             } else {
                 console.log('获取数据失败',error);
             }
         });
         
     }
+
+    //发布成功
     _goget(){
         const arr = this.state.arr;
         DeviceEventEmitter.emit('shuaxin',1);
@@ -165,15 +189,13 @@ export default class Fabu extends Component {
     render() {
         const { navigation } = this.props;
         const {arr} = this.state;
-        console.log('tag',this.props.route.params);
         return (
             <View style = {styles.container}>
                  <LinearGradient style={{width:width,height:"100%",alignItems:"center"}} colors={["#7cc0bf","#fff","#fff"]} >
                  <View style = {styles.box}>
                 <TouchableOpacity
-                activeOpacity={1}
-                   onPress = {()=>this.props.navigation.navigate('BtnRoute')} >
-                       <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+                activeOpacity={1}>
+                       <AntDesign onPress={()=>this.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
                     <Text style={{fontSize:15,color:"#fff",fontWeight:"bold"}}>发布动态</Text>
                     <TouchableOpacity
@@ -211,7 +233,7 @@ export default class Fabu extends Component {
                             alignItems:'center',
                             justifyContent:'center'
                             }}>
- <LottieView  source={require('../../../animal/success.json')} autoPlay loop  progress={this.state.progress} />
+                        <LottieView  source={require('../../../animal/success.json')} autoPlay loop  progress={this.state.progress} />
                           </View>
                           <View style={{width:'100%',
                           height:'25%',
@@ -237,12 +259,48 @@ export default class Fabu extends Component {
                 </Modal>
                 </View>
             <View style={{width:width*0.9,height:height,backgroundColor:"#fff",borderRadius:15}}>
-            <TextInput
-                style={styles.tx}
-                multiline={true}
-                placeholder = "这一刻的想法..."
-                onChangeText={(fayan)=>this.setState({fayan:fayan})}
-                />
+                <View style={{height:200,width:"100%"}}>
+                    <TextInput
+                        style={styles.tx}
+                        multiline={true}
+                        placeholder = "这一刻的想法..."
+                        defaultValue={this.state.fayan}
+                        onChangeText={(fayan)=>this.setState({fayan:fayan})}
+                    />
+                </View>
+
+                {/* 选择标签 */}
+                <View style={{// 主轴方向
+                                flexDirection: 'row',
+                                // 一行显示不下,换一行
+                                flexWrap: 'wrap',
+                                // 侧轴方向
+                                alignItems: 'center', // 必须设置,否则换行不起作用
+                            }}>
+                    {
+                        this.state.tag.map((v,k)=>{
+                            return(
+                                <View key={k} style={{alignItems:'flex-end'}}>
+                                    <View style={{marginLeft:10,width:100,justifyContent:'center',alignItems:'center',backgroundColor:'#eee',borderRadius:15,position:'relative'}}
+                                    activeOpacity={1}>
+                                        <Text style={{color:'orange',padding:5}}>{v}</Text>
+                                    </View>
+                                    <AntDesign
+                                    name='closecircle'
+                                    size={15}
+                                    style={{position:'absolute'}}
+                                    onPress={()=>{tags.splice(k,1),this.setState({tag:tags})}}/>
+                                </View>
+                            )
+                        })
+                    }
+                    <TouchableOpacity style={{marginLeft:10,marginBottom:20,width:50,justifyContent:'center',alignItems:'center',backgroundColor:'#eee',borderRadius:15}}
+                    onPress={()=>this.props.navigation.navigate('tag')}>
+                        <Text style={{color:'orange',padding:5}}>#话题</Text>
+                    </TouchableOpacity>
+                </View>
+                
+
                 <View style={{// 主轴方向
                                 flexDirection: 'row',
                                 // 一行显示不下,换一行
@@ -273,21 +331,7 @@ export default class Fabu extends Component {
                 {this.tianjia()}
                 </View>
 
-                {/* 选择标签 */}
-                <TouchableOpacity style={{width:'100%',backgroundColor:'#eee',marginTop:20,flexDirection:'row',alignItems:'center',height:width*0.12,justifyContent:'space-around'}}
-                onPress={()=>this.props.navigation.goBack()}>
-                    <View style={{flexDirection:'row',alignItems:'center'}}>
-                        <View style={{backgroundColor:'orange',height:30,width:30,borderRadius:50,justifyContent:'center',alignItems:'center'}}>
-                        <FontAwesome
-                        name='hashtag'
-                        color='white'
-                        size={16}
-                        />
-                        </View>
-                        <Text style={{marginLeft:10,color:'orange',fontSize:18,fontWeight:'bold'}}>{this.props.route.params.tag}</Text>
-                    </View>
-                    <Text style={{color:'#ccc'}}>选择合适的话题会有更多赞哦~</Text>
-                </TouchableOpacity>
+                
                 
             </View>
                 </LinearGradient>
@@ -326,7 +370,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
     },
     tx:{
-        height:100,
+
         marginLeft:"2%"
        
     },

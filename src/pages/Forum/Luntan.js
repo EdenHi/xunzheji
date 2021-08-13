@@ -175,7 +175,7 @@ onShare = async () => {
                                                  showsHorizontalScrollIndicator={false}
                                                  style={{marginTop:10,marginBottom:10}}>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                                 
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
@@ -193,7 +193,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -210,7 +210,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10,marginLeft:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -227,7 +227,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -244,7 +244,7 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
+                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
                                                             <View style={{alignItems:'center',marginTop:100}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
                                                                 <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
@@ -329,10 +329,10 @@ onShare = async () => {
                                            </View>
                                            
                                             {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
+                                           
                                        </View>
 
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -541,10 +541,10 @@ onShare = async () => {
                                            </View>
 
                                         {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
+                                           
                                        </View>
 
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -660,10 +660,8 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </View>
 
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -777,10 +775,8 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{v.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </View>
 
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -833,7 +829,7 @@ onShare = async () => {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} />
+                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
             </View>
         );

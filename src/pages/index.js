@@ -58,5 +58,15 @@ export { default as tag } from "./Forum/tag"
 export { default as Characters } from "./Shop/MIN/Characters"
 export { default as Shopclassifymore } from "./Shop/shoplist/Shopclassifymore"
 export { default as Swop } from "./Shop/Exchange/Swop"
+<<<<<<< HEAD
 export { default as Chat } from './chat/demo'
+=======
+export { default as Topic1 } from "./HomeScreen/HOME/History/Topic1"
+export { default as Topic2 } from "./HomeScreen/HOME/History/Topic2"
+export { default as Topic3 } from "./HomeScreen/HOME/History/Topic3"
+export { default as Dingdan } from "./Shop/Dingdan"
+export { default as Shoplist } from "./Shop/shoplist/Shoplist"
+export { default as Shopdetails } from "./Shop/shoplist/Shopdetails"
+
+>>>>>>> 0771e7087842b82bc47fdabe1ca083ed10336f78
 

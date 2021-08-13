@@ -849,7 +849,7 @@ export default class Classify extends React.Component {
                          
                         </View>
                     </View>
-                    <Text style={{textAlign:"center",marginTop:20}}>—————————————到底啦—————————————</Text>
+                    <Text style={{textAlign:"center",marginTop:20,marginBottom:10}}>—————————————到底啦—————————————</Text>
                 </ScrollView>
                 </LinearGradient>
             </View>

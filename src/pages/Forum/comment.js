@@ -349,12 +349,10 @@ export default class Comment extends React.Component {
                                 renderItem = {this.renderData.bind(this)}/>
                             </View>
 
-                                {/* tag标签 */}
-                                <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                    <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                    <Text style={{marginLeft:5}}>{data.tag}</Text>
-                                    <Text style={{fontSize:20}}>{'>'}</Text>
-                                </View>
+                                 {/* tag标签 */}
+                                 <View style={data.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
+                                       </View>
 
                             <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                 <TouchableOpacity activeOpacity={1}>
@@ -393,7 +391,7 @@ export default class Comment extends React.Component {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
             </Modal>
                 {/* 评论的渲染 */}
                 <View style={{marginTop:10}}>
@@ -556,10 +554,8 @@ export default class Comment extends React.Component {
                             </View>
 
                                     {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{data.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                       <View style={data.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
                                        </View>
 
                             <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
@@ -599,7 +595,7 @@ export default class Comment extends React.Component {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
             </Modal>
                 {/* 评论的渲染 */}
                 <View style={{marginTop:10}}>
@@ -787,7 +783,7 @@ export default class Comment extends React.Component {
                     transparent={true}
                     visible={modalVisible}
                     onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
                     {/* 评论的渲染 */}
                     <View style={{marginTop:10}}>
@@ -978,7 +974,7 @@ export default class Comment extends React.Component {
                     transparent={true}
                     visible={modalVisible}
                     onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex}/>
+                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
                     {/* 评论的渲染 */}
                     <View style={{marginTop:10}}>

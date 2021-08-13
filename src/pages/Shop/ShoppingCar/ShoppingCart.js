@@ -1,17 +1,18 @@
 
 import React, {Component} from 'react'
-import {View, Text, TouchableOpacity, Image,Dimensions, StyleSheet, SectionList} from 'react-native'
+import {View, Text, TouchableOpacity, Image,Dimensions, StyleSheet, SectionList, AsyncStorage,DeviceEventEmitter} from 'react-native'
 import {commonStyle} from './commonStyle'
 import AntDesign from "react-native-vector-icons/AntDesign"
-const shoppingCartData = require('./ShoppingCartData.json')
+import { SwipeRow } from 'react-native-swipe-list-view';
 let {width,height} = Dimensions.get("window");
 export default class ShoppingCart extends Component {
 
   constructor(props) {
     super(props)
-    this.renderItem = this.renderItem.bind(this)
-    this.renderSectionHeader = this.renderSectionHeader.bind(this)
+
     this.state = {
+      data:[],
+      tempArr:[],
       status: [],
       isSelectedAllItem: false,
       totalNum: 0,
@@ -19,8 +20,27 @@ export default class ShoppingCart extends Component {
     }
   }
 
-  componentWillMount() {
-    let dataArr = shoppingCartData.data
+
+
+  //获取购物车数据
+  get(){
+    AsyncStorage.getItem('username',(err,result)=>{
+      if(!err){
+        fetch('http://8.142.11.85:3000/shop/get_shopcart', {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              username:result,
+          }),
+      }) .then((response) => response.json())
+      .then((json) => {
+          this.setState({
+              data:json,
+          });
+          let dataArr = json;
     let tempStatusArr = []
     for (let i = 0; i < dataArr.length; i++) {
       let items = dataArr[i].shopItems
@@ -37,12 +57,47 @@ export default class ShoppingCart extends Component {
       tempStatusArr.push(shopObj)
     }
     this.state.status = tempStatusArr
-    console.log(this.state.status)
+    console.log('status',this.state.status)
+    //数据源
+    let tempArr = this.state.data.map((item, index) => {
+      let tempData = {}
+      tempData.key = item.key
+      tempData.index = index
+      tempData.data = item.shopItems
+      return tempData
+    })
+    this.setState({
+      tempArr
+    })
+      })
+      }
+    })
+  }
+
+  //删除购物车某一条数据
+  delect_shop(v){
+      fetch('http://8.142.11.85:3000/shop/delect_shopcart', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            id:v,
+        }),
+      })
+      this.get();
   }
 
   componentDidMount() {
     // 网络请求获取购物车数据
+    this.get();
+    this.listener = DeviceEventEmitter.addListener('shop_cart',this.get.bind(this))
   }
+   //移除监听
+   componentWillUnmount(){
+    this.listener.remove();
+    }
 
   checkItem(sectionIndex, index) {
     let tempStatus = this.state.status
@@ -115,6 +170,7 @@ export default class ShoppingCart extends Component {
     this.setState({isSelectedAllItem: tempSelectedAllItem, status: tempStatus})
   }
 
+  //减少购买数量
   minus(sectionIndex, index) {
     let tempStatus = this.state.status
     let shop = tempStatus[sectionIndex]
@@ -132,6 +188,7 @@ export default class ShoppingCart extends Component {
     this.setState({status: tempStatus})
   }
 
+  //增加购买数量
   add(sectionIndex, index) {
     let tempStatus = this.state.status
     let shop = tempStatus[sectionIndex]
@@ -166,58 +223,65 @@ export default class ShoppingCart extends Component {
     this.setState({totalNum: tempTotalNum, totalPrice: tempTotalPrice})
   }
 
-  renderItem = info => {
+  renderItem = (info) => {
     let item = info.item
     let index = info.index
     let sectionIndex = info.section.index
     let shop = this.state.status[sectionIndex]
     let statusItem = shop.items[index]
     return (
-      <View style={styles.cellStyle}>
-        <TouchableOpacity onPress={() => this.checkItem(sectionIndex, index)}>
-          <Image style={styles.checkBox} source={statusItem.checked ? require('../assets/ic_selected.png') : require('../assets/ic_defult.png')} resizeMode={'center'}/>
-        </TouchableOpacity>
-        <Image style={{width: 80, height: 80}} source={require('../../img/5.jpg')}/>
-        <View style={{justifyContent: commonStyle.around, flex: 1, marginHorizontal: 10, height: 50}}>
-          <Text style={{fontSize: 13, color: commonStyle.textBlockColor}}>{item.itemName}</Text>
-          <Text style={{fontSize: 13, color: commonStyle.textBlockColor}}>{`￥${item.itemPrice}`}</Text>
-        </View>
-        <View style={{flexDirection: commonStyle.row, alignItems: commonStyle.center, marginHorizontal: 10}}>
-          <TouchableOpacity onPress={() => this.minus(sectionIndex, index)}>
-            <Image source={require('../assets/Group.png')}/>
-          </TouchableOpacity>
-          <Text style={{width: 30, textAlign: 'center'}}>{statusItem.quantity}</Text>
-          <TouchableOpacity onPress={() => this.add(sectionIndex, index)}>
-            <Image source={require('../assets/Group5.png')}/>
-          </TouchableOpacity>
-        </View>
+      <View>
+          <SwipeRow
+            leftOpenValue={75}
+            rightOpenValue={-75}
+            disableRightSwipe={true} //禁止向右滑动
+            >
+            <TouchableOpacity activeOpacity={1} style={{backgroundColor:'red',flexDirection:'row',justifyContent: 'flex-end',paddingRight:10,flex: 1,alignItems: 'center',paddingRight:20}}
+            onPress={()=>this.delect_shop(item.id)}
+            >
+                <Text allowFontScaling={false} style={{color:'white',fontSize:15}}>删除</Text>
+            </TouchableOpacity>
+            <View style={styles.cellStyle}>
+              <TouchableOpacity onPress={() => this.checkItem(sectionIndex, index)}>
+                <Image style={styles.checkBox} source={statusItem.checked ? require('../assets/ic_selected.png') : require('../assets/ic_defult.png')} resizeMode={'center'}/>
+              </TouchableOpacity>
+              <Image style={{width: 80, height: 80}} source={{uri:item.itemimg}}/>
+              <View style={{justifyContent: commonStyle.around, flex: 1, marginHorizontal: 10, height: 50}}>
+                <Text style={{fontSize: 13, color: commonStyle.textBlockColor}}numberOfLines={2}>{item.itemName}</Text>
+                <Text style={{fontSize: 13, color: commonStyle.textBlockColor,marginTop:30}}>{`￥${item.itemPrice}`}</Text>
+              </View>
+              <View style={{flexDirection: commonStyle.row, alignItems: commonStyle.center, marginHorizontal: 10}}>
+                <TouchableOpacity onPress={() => this.minus(sectionIndex, index)}>
+                  <Image source={require('../assets/Group.png')}/>
+                </TouchableOpacity>
+                <Text style={{width: 30, textAlign: 'center'}}>{statusItem.quantity}</Text>
+                <TouchableOpacity onPress={() => this.add(sectionIndex, index)}>
+                  <Image source={require('../assets/Group5.png')}/>
+                </TouchableOpacity>
+              </View>
+            </View>
+            </SwipeRow>
       </View>
     )
   }
 
-  renderSectionHeader = info => {
-    let section = info.section.key
-    let index = info.section.index
-    let shop = this.state.status[index]
+  renderSectionHeader = (info) => {
+    let section = info.section.key;
+    let index = info.section.index;
+    let shop = this.state.status[index];
     return (
       <View style={styles.sectionHeader}>
         <TouchableOpacity onPress={() => this.checkedShop(index)}>
           <Image style={styles.checkBox} source={shop.checked ? require('../assets/ic_selected.png') : require('../assets/ic_defult.png')} resizeMode={'center'}/>
         </TouchableOpacity>
-        <Text style={{color: commonStyle.gray, fontSize: 12}}>{section}</Text>
+        <Text style={{ fontSize: 14}}>{section}</Text>
       </View>
     )
   }
 
   render() {
     const { navigation } = this.props;
-    let tempArr = shoppingCartData.data.map((item, index) => {
-      let tempData = {}
-      tempData.key = item.shopName
-      tempData.index = index
-      tempData.data = item.shopItems
-      return tempData
-    })
+
     return (
       <View style={styles.container}>
         <View style={{width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",alignItems:"center"}}>
@@ -235,12 +299,10 @@ export default class ShoppingCart extends Component {
           </TouchableOpacity>
         </View>
         <SectionList
-          // renderSectionHeader={this.renderSectionHeader}
-          renderItem={this.renderItem}
-          sections={tempArr}
-          ItemSeparatorComponent={() => <View/>}
-          ListHeaderComponent={() => <View/>}
-          ListFooterComponent={() => <View/>}
+          renderSectionHeader={this.renderSectionHeader.bind(this)}
+          renderItem={this.renderItem.bind(this)}
+          sections={this.state.tempArr}
+          keyExtractor={(item, index) => (index + '1')}
         />
         <View style={styles.toolBar}>
           <View style={{flex: 1, flexDirection: commonStyle.row, alignItems: commonStyle.center}}>
@@ -282,7 +344,8 @@ const styles = StyleSheet.create({
     alignItems: commonStyle.center,
     paddingVertical: 10,
     borderBottomWidth: 1,
-    borderBottomColor: commonStyle.lineColor
+    borderBottomColor: commonStyle.lineColor,
+    backgroundColor:'white'
   },
   sectionHeader: {
     height: 40,
