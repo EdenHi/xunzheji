@@ -22,8 +22,10 @@ this.getCameraPermission()
   render() {
     return (
       <WebView 
-      source={{uri:'https://77dedc49651317.localhost.run/index.html'}}
-      ></WebView>
+      source={{uri:'https://edenzhang.top'}}
+      >
+      </WebView>
+      
     );
   }
 }

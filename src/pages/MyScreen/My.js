@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
-import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, AsyncStorage, DeviceEventEmitter, ImageBackground, Alert } from 'react-native';
+import { View, Text, Image, StyleSheet, Dimensions, TouchableOpacity, Animated, Easing, AsyncStorage, DeviceEventEmitter, ImageBackground, Alert } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import { ImageHeaderScrollView, TriggeringView } from 'react-native-image-header-scroll-view';
@@ -13,13 +13,24 @@ import MyRoute2 from '../../nav/MyRoute2';
 import AwesomeAlert from 'react-native-awesome-alerts';
 import SideMenu from 'react-native-side-menu';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import LottieView from 'lottie-react-native';
+
+
+
+
+
 const { height, width } = Dimensions.get('window');
+
+
+
+
 let _this = this;
 export default class My extends Component {
   static contextType = NavigationContext;
   constructor(props) {
     super(props);
     this.state = {
+      progress: new Animated.Value(0),
       username: '',
       data: [],
       isScroll: true,
@@ -28,6 +39,15 @@ export default class My extends Component {
       showAlert: false,
     }
     // this.SelectMenuItemCallBack = this.SelectMenuItemCallBack.bind(this);
+  }
+  componentDidMount() {
+    Animated.timing(this.state.progress, {
+      toValue: 1,
+      duration: 3500,
+      easing: Easing.linear,
+
+    }).start();
+
   }
   //   SelectMenuItemCallBack() {
   //     this.setState({
@@ -264,78 +284,124 @@ export default class My extends Component {
                   <View
                     style={{
                       width: '100%',
-                      height: '75%',
-                      borderTopLeftRadius: 15,
-                      borderTopRightRadius: 15,
+                      height: '65%',
+                      borderTopLeftRadius: 20,
+                      borderTopRightRadius: 20,
+                      backgroundColor: "#7cc0c0",
+                      flexDirection:"row"
                     }}>
-                    <View
-                      style={{
-                        width: '100%',
-                        height: '50%',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                      }}>
-                      <Image
-                        style={{
-                          width: width * 0.21,
-                          height: width * 0.21,
-                          backgroundColor: '#fff',
-                          borderRadius: 50,
-                          marginLeft: '5%',
-                        }}
-                        source={{ uri: this.state.username == '' ? 'https://pic3.zhimg.com/v2-3552b94e2f2ce79718974bd36d0e7746_1440w.jpg?source=172ae18b' : data.portrait }}
-                      />
+
+                    <View>
+
                       <View
                         style={{
-                          width: '70%',
-                          height: '80%',
-                          marginLeft: '3%',
-                          justifyContent: 'space-around',
+                          width: '100%',
+                          height: '50%',
                         }}>
-                        <Text
-                          style={{ fontSize: 15, color: '#7cc0c0', fontWeight: 'bold', width: width * 0.3 }}>
-                          {this.state.username == '' ? '游客' : data.nickname}
-                        </Text>
-                        <Text ellipsizeMode={'tail'} numberOfLines={2} style={{ fontSize: 13, color: '#7cc0c0', width: width * 0.4, borderWidth: 0 }}>{this.state.username === '' ? '暂无个性签名' : (data.signature === '' ? '暂无个性签名' : data.signature)}</Text>
+                        <Image
+                          style={{
+                            width: width * 0.21,
+                            height: width * 0.21,
+                            backgroundColor: '#fff',
+                            borderRadius: 50,
+                            marginLeft: '7%',
+                            marginTop: "-10%",
+                            borderWidth: 1,
+                            borderColor: "#7cc0c0",
+                            elevation: 5
+                          }}
+                          source={{ uri: this.state.username == '' ? 'https://img0.baidu.com/it/u=2135557883,423992380&fm=26&fmt=auto&gp=0.jpg' : data.portrait }}
+                        />
+                        <View
+                          style={{
+                            width: '80%',
+                            height: '60%',
+                            marginLeft: 30,
+                            marginTop: 10,
+                          }}>
+                          <Text
+                            style={{ fontSize: 16, color: '#fff', fontWeight: 'bold', width: width * 0.6 }}>
+                            {this.state.username == '' ? '游客' : data.nickname}
+                          </Text>
+                          <Text ellipsizeMode={'tail'} numberOfLines={2} style={{ fontSize: 13, color: '#fff', width: width * 0.8, marginTop: 5 }}>{this.state.username === '' ? '暂无个性签名' : (data.signature === '' ? '暂无个性签名' : data.signature)}</Text>
+                        </View>
+                        {showLogin}
+                        <TouchableOpacity
+                          activeOpacity={1}
+                          style={{
+                            width: '25%',
+                            height: '30%',
+                            elevation: 5,
+                            flexDirection: "row",
+                            marginLeft: 30,
+                          }}
+                          onPress={() => {
+                            this.state.username == '' ? this.showAlert() : this.props.navigation.navigate('bianjiziliao', {
+                              username: data.username,
+                              portrait: data.portrait,
+                              nickname: data.nickname,
+                              sex: data.sex,
+                              birthday: data.birthday,
+                              signature: data.signature,
+                              phone: data.phone,
+                              area: data.area,
+                              backpic: data.backpic,
+                            })
+                          }}>
+                          <AntDesign name="form" color='#fff' size={20} />
+                          <Text style={{ fontSize: 15, color: '#fff' }}>编辑资料</Text>
+                          <AntDesign name="right" color='#fff' size={20} />
+                        </TouchableOpacity>
                       </View>
-                      {showLogin}
 
-                    </View>
-                    <View
-                      style={{
-                        width: '100%',
-                        height: '50%',
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                      }}>
-                      <View style={{ flexDirection: 'row', width: '30%', backgroundColor: 'rgba(0,0,0,0.5)', alignItems: 'center', marginTop: '10%', justifyContent: 'center', borderTopRightRadius: 20, borderBottomRightRadius: 20 }}>
+
+
+
+                      <View style={{ flexDirection: 'row', width: '50%', alignItems: 'center', marginTop: '10%', borderTopRightRadius: 20, marginLeft: 20 }}>
                         <TouchableOpacity
                           onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }}
                           activeOpacity={1}
                           style={{
-                            width: '50%',
+                            width: '25%',
                             height: '60%',
                             alignItems: 'center',
                             justifyContent: 'center',
                           }}>
-                          <Text style={{ fontSize: 15, color: '#fff' }}>{this.state.username === '' ? '0' : data.fensi}</Text>
+                          <Text style={{ fontSize: 15, color: '#fff', fontWeight: "bold" }}>{this.state.username === '' ? '0' : data.fensi}</Text>
                           <Text style={{ fontSize: 15, color: '#fff' }}>粉丝</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           onPress={() => { this.state.username === '' ? this.showAlert() : this.context.navigate('Concerns', this.state.username) }}
                           activeOpacity={1}
                           style={{
-                            width: '50%',
+                            width: '25%',
                             height: '70%',
                             alignItems: 'center',
                             justifyContent: 'center',
                           }}>
-                          <Text style={{ fontSize: 15, color: '#fff' }}>{this.state.username === '' ? '0' : data.guanzhu}</Text>
+                          <Text style={{ fontSize: 15, color: '#fff', fontWeight: "bold" }}>{this.state.username === '' ? '0' : data.guanzhu}</Text>
                           <Text style={{ fontSize: 15, color: '#fff' }}>关注</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }}
+                          activeOpacity={1}
+                          style={{
+                            width: '25%',
+                            height: '60%',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                          }}>
+                          <Text style={{ fontSize: 15, color: '#fff', fontWeight: "bold" }}>{this.state.username === '' ? '0' : data.fensi}</Text>
+                          <Text style={{ fontSize: 15, color: '#fff' }}>动态</Text>
+                        </TouchableOpacity>
                       </View>
-
-                      <TouchableOpacity
+                    </View>
+                   <TouchableOpacity  style={{marginLeft:"-10%",marginTop:"28%"}}  onPress={() => this.props.navigation.navigate('JiFen')} >
+                   <View style={{ width: width * 0.2, height: width * 0.2}}>
+                      <LottieView source={require('../../../animal/jinbi.json')} autoPlay loop progress={this.state.progress} />
+                    </View>
+                   </TouchableOpacity>
+                    {/* <TouchableOpacity
                         activeOpacity={1}
                         style={{
                           width: '25%',
@@ -349,55 +415,8 @@ export default class My extends Component {
                         }}
                         onPress={() => this.props.navigation.navigate('JiFen')} >
                         <Text style={{ fontSize: 15, color: '#fff' }}>积分签到</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        activeOpacity={1}
-                        style={{
-                          width: '25%',
-                          height: '30%',
-                          borderRadius: 20,
-                          marginTop: '8%',
-                          backgroundColor: '#7cc0c0',
-                          elevation: 5,
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                        onPress={() => {
-                          this.state.username == '' ? this.showAlert() : this.props.navigation.navigate('bianjiziliao', {
-                            username: data.username,
-                            portrait: data.portrait,
-                            nickname: data.nickname,
-                            sex: data.sex,
-                            birthday: data.birthday,
-                            signature: data.signature,
-                            phone: data.phone,
-                            area: data.area,
-                            backpic: data.backpic,
-                          })
-                        }}>
-                        <Text style={{ fontSize: 15, color: '#fff' }}>编辑资料</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        activeOpacity={1}
-                        style={{
-                          width: '20%',
-                          height: '30%',
-                          borderRadius: 20,
-                          elevation: 5,
-                          marginTop: '8%',
-                          backgroundColor: '#7cc0c0',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                        onPress={() => this.props.navigation.navigate('shezhi', {
-                          username: this.state.username,
-                          callback: () => this.loginOut(),
-                          shuaxing: () => this.get_shuju()
-                        })}
-                      >
-                        <Text style={{ fontSize: 15, color: '#fff' }}>设置</Text>
-                      </TouchableOpacity>
-                    </View>
+                      </TouchableOpacity> */}
+
                   </View>
                 </ImageBackground>
               </View>
@@ -434,14 +453,15 @@ export default class My extends Component {
                   <Feather name="menu" size={25} color="#7cc0c0" />
                 </TouchableOpacity>
                 <TouchableOpacity
+                  style={{ marginTop: 10, marginRight: 10 }}
                   activeOpacity={1}
-                  style={{
-                    height: 40,
-                    width: 40,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}>
-                  <Feather name="external-link" size={25} color="#7cc0c0" />
+                  onPress={() => this.props.navigation.navigate('shezhi', {
+                    username: this.state.username,
+                    callback: () => this.loginOut(),
+                    shuaxing: () => this.get_shuju()
+                  })}
+                >
+                  <AntDesign name='setting' size={30} color='#7cc0c0' />
                 </TouchableOpacity>
               </View>}
           >
@@ -457,7 +477,7 @@ const window = Dimensions.get('window');
 
 const AVATAR_SIZE = 50;
 const ROW_HEIGHT = 50;
-const PARALLAX_HEADER_HEIGHT = 250;
+const PARALLAX_HEADER_HEIGHT = 300;
 const STICKY_HEADER_HEIGHT = 50;
 const SCREEN_WIDTH = window.width;
 
@@ -495,9 +515,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   parallaxHeader: {
-    alignItems: 'center',
     flex: 1,
-    flexDirection: 'column',
   },
   avatar: {
     marginBottom: 10,

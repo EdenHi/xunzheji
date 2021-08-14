@@ -26,7 +26,7 @@ export default class SegmentTabBar extends Component {
         const backgroundColor = isTabActive ? '#fff' : '#9bb8ff';
 
         return <TouchableOpacity  activeOpacity={1}
-            style={{flex: 1, height: 40, backgroundColor:backgroundColor,borderRadius:20,marginHorizontal:20}}
+            style={{flex: 1, height: 40, backgroundColor:backgroundColor,borderRadius:20,marginHorizontal:10}}
             key={name}
             accessible={true}
             accessibilityLabel={name}

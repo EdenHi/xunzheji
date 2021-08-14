@@ -69,6 +69,8 @@ import {
   zhifu_cart,
   JiFen,
   duihuan_jinbi,
+  Story,
+  Story2,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -140,8 +142,6 @@ export default function StackNav() {
       <Stack.Screen name="Video" component={Video} />
       <Stack.Screen name="Zhan" component={Zhan} />
       <Stack.Screen name="JieShao" component={JieShao} />
-
-
       <Stack.Screen name="tag" component={tag} />
       <Stack.Screen name="Shopclassifymore" component={Shopclassifymore} />
       <Stack.Screen name="Swop" component={Swop} />
@@ -151,6 +151,10 @@ export default function StackNav() {
       <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
+
+      <Stack.Screen name="Story" component={Story} />      
+      <Stack.Screen name="Story2" component={Story2} />      
+
       <Stack.Screen name="zhifu_cart" component={zhifu_cart} />
       <Stack.Screen name="JiFen" component={JiFen} />
       <Stack.Screen name="duihuan_jinbi" component={duihuan_jinbi} />

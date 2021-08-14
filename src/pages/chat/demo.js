@@ -1,9 +1,10 @@
 import { GiftedChat } from 'react-native-gifted-chat';
 import React, { Component } from 'react';
-import { View, AsyncStorage } from 'react-native';
+import { View, AsyncStorage,Text,TouchableOpacity } from 'react-native';
 import axios from 'axios';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 import uuid from 'react-native-uuid'
-let Arr= new Array();
+let Arr = new Array();
 export default class chat extends Component {
     constructor(props) {
         super(props);
@@ -14,9 +15,7 @@ export default class chat extends Component {
             avatar: '',
             index: 0,
         };
-
         this.onSend = this.onSend.bind(this);
-
     }
 
     //获取Token
@@ -36,7 +35,6 @@ export default class chat extends Component {
                     this.setState({
                         avatar: json.data[0].portrait
                     });
-
                 });
             } else {
                 console.log('获取数据失败', error);
@@ -61,20 +59,6 @@ export default class chat extends Component {
                         pos = str1.indexOf(':', pos + 1);
                         AA.push(pos)
                     }
-                    // var str2=str1.substring(0,1)+str1.substring(2,5)+str1.substring(6,AA[0]-8)+str1.substring(AA[0]-7,AA[0]-1)+str1.substring(AA[0],AA[3]-10)+str1.substring(AA[3]-9,AA[3]-1)+str1.substring(AA[3],str1.length-1)+str1.substring(str1.length-1,str1.length)
-                    // console.log(':位置',AA);
-                    // console.log('str1',str1);
-                    // console.log('_id',str1.substring(0,1));
-                    // console.log('_id',str1.substring(2,5));
-                    // console.log('id',str1.substring(6,AA[0]-8));
-                    // console.log('avatar',str1.substring(AA[0]-7,AA[0]-1));
-                    // console.log('avatar',str1.substring(AA[0],AA[3]-10));
-                    // console.log('nickname',str1.substring(AA[3]-9,AA[3]-1));
-                    // console.log('nickname',str1.substring(AA[3],str1.length-1));
-                    // console.log('nickname',str1.substring(str1.length-1,str1.length));
-                    // console.log('str2',str2);
-                    // json[i].message.user=str2
-                    // console.log(json[0].message.user);
                     let obj = {
                         _id: str1.substring(9, AA[0] - 11),
                         avatar: str1.substring(AA[0] + 3, AA[3] - 13),
@@ -91,15 +75,17 @@ export default class chat extends Component {
                     // Message.splice(0,Message.length);
                     Message.push(obj1)
                     // console.log(Message);
-                    
+
                 }
+                this.setState({ index: json.length })
             })
             .catch((error) => {
                 console.log(error);
             })
     }
-    freshAll(){
-        setInterval(() => {
+    /* 更新消息 */
+    freshAll() {
+
             fetch('http://8.142.11.85:3000/users/gethistory', {
                 method: 'post',
                 headers: {
@@ -108,8 +94,8 @@ export default class chat extends Component {
                 },
             }).then((response) => response.json())
                 .then((json) => {
-                    Arr.splice(0,Arr.length)
-                    for (let i = 0; i < json.length; i++) {
+                    Arr = [];
+                    for (let i = 0; i < 1; i++) {
                         let AA = new Array()
                         var str1 = json[i].message.user
                         let pos = str1.indexOf(':')
@@ -126,27 +112,27 @@ export default class chat extends Component {
                             _id: json[i].message._id,
                             createdAt: json[i].message.createdAt,
                             text: json[i].message.text,
-                            user: obj
+                            user: obj,
+                            username: json[i].username
                         }
-                        Arr.push(obj1)
+                        Arr = (obj1)
                     }
-                    console.log('Arr',Arr);
-                    this.setState({messages:[]});
-                    console.log('1',this.state.messages);
+
                     let Message = this.state.messages;
-                    for(let i = 0;i<Arr.length;i++){
-                        Message.push(Arr[i])
-                    }
+                    if (json.length > this.state.index && Arr.username != this.state.username) {
+                        Message.unshift(Arr)
+                        // console.log('2',this.state.messages);
+                    } else console.log('没有消息');
 
-                    console.log('2',this.state.messages);
-
+                    this.setState({ index: json.length })
                 })
+
                 .catch((error) => {
                     console.log(error);
                 })
-        }, 3000);
-    }
 
+    }
+    /* 发送消息 */
     onSend(messages = []) {
         // console.log('onsend',this.state.messages);
         fetch('http://8.142.11.85:3000/users/chatinsert', {
@@ -172,34 +158,28 @@ export default class chat extends Component {
 
 
     }
-    getppx() {
-        fetch('http://8.142.11.85:3000/users/getppx', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-        }).then((response) => response.json())
-            .then((json) => {
-                for (let i = 0; i < json.length; i++) {
-                    this.setState({index:i})
-                }
-                console.log(this.state.index);
-            })
+    stopFresh(){
+        window.clearInterval(freshAll)
     }
-
-
     componentDidMount() {
         // this.messageGet();
         this.get_shuju();
         this.init();
-        this.freshAll();
+        this.backInterval = setInterval(()=>{
+            this.freshAll()
+        },3000)
 
     }
 
-
     render() {
         return (
+            <View style={{flex:1}}>
+                <View style={{borderWidth:1,width:'100%',height:'7%',backgroundColor:'#7cc0c0',flexDirection:'row'}}>
+                <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
+                            <AntDesign onPress={() => { this.props.navigation.goBack(),clearInterval(this.backInterval)}} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={25} color="#000000" />
+                        </TouchableOpacity>
+                    <Text style={{height:'100%',width: '20%',marginLeft:'30%',textAlignVertical:'center',textAlign:'center',fontSize:20,fontWeight:'bold',color:'#fff',}}>syt</Text>
+                </View>
             <GiftedChat
                 messages={this.state.messages}
                 onSend={this.onSend}
@@ -214,6 +194,8 @@ export default class chat extends Component {
                 renderUsernameOnMessage={true}
 
             />
+            </View>
+
         );
     }
 }
