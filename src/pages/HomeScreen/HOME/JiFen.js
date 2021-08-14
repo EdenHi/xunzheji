@@ -22,14 +22,11 @@ export default class JiFen extends Component {
         return (
             <View>
                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05}}>
                         <TouchableOpacity activeOpacity={1} >
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>
-                        <TouchableOpacity activeOpacity={1} >
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff", opacity: 0 }} name="sound" size={20} />
-                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>                     
                     </View>
                     <View style={{ height: height * 0.93 }}>
                         <ScrollView>

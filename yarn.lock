@@ -6062,8 +6062,8 @@ react-native-typing-animation@^0.1.7:
 
 react-native-uuid@^2.0.1:
   version "2.0.1"
-  resolved "https://registry.nlark.com/react-native-uuid/download/react-native-uuid-2.0.1.tgz#ed4e2dfb1683eddb66967eb5dca140dfe1abddb9"
-  integrity sha1-7U4t+xaD7dtmln613KFA3+Gr3bk=
+  resolved "https://registry.yarnpkg.com/react-native-uuid/-/react-native-uuid-2.0.1.tgz#ed4e2dfb1683eddb66967eb5dca140dfe1abddb9"
+  integrity sha512-cptnoIbL53GTCrWlb/+jrDC6tvb7ypIyzbXNJcpR3Vab0mkeaaVd5qnB3f0whXYzS+SMoSQLcUUB0gEWqkPC0g==
 
 react-native-vector-icons@^4.4.2:
   version "4.6.0"

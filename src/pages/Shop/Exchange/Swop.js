@@ -8,7 +8,7 @@ import {
   Animated,
   ScrollView,
   Dimensions,
-  TouchableOpacity,
+  TouchableOpacity,    
   FlatList,
   DeviceEventEmitter
 } from 'react-native'

@@ -66,4 +66,5 @@ export { default as Shoplist } from "./Shop/shoplist/Shoplist"
 export { default as Shopdetails } from "./Shop/shoplist/Shopdetails"
 export { default as zhifu_cart } from "./Shop/zhifu_cart"
 
+export { default as JiFen } from "./HomeScreen/HOME/JiFen"
 
