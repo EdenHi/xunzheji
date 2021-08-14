@@ -242,16 +242,14 @@ export default class Store extends Component {
                     marginTop: 9,
                     marginBottom: 9,
                   }} />}
-                  
                 >
                   <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
                   <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1617206691,1514069942&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2352208857,42466241&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2394698553,2065101537&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=2533450422,3807329446&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2297020843,2252372981&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=471631677,3527280070&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=3177392174,4240871380&fm=15&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
                 </Swiper>
-
                 {/* <ShiCha /> */}
                 {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
                 dataSource={images}
@@ -405,7 +403,7 @@ export default class Store extends Component {
               <View style={styles.limit}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                   <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
-                  <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>浙江老字号</Text>
+                  <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>线下旗舰店</Text>
                   {/* <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('OldBankTimer')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "60%" }}>
