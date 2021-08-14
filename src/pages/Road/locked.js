@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { View, Dimensions, TouchableOpacity, Text, Image, ImageBackground, Animated, Alert, DeviceEventEmitter } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Fontisto from 'react-native-vector-icons/Fontisto'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FlipCard from 'react-native-flip-card';
 import AwesomeAlert from 'react-native-awesome-alerts';
 const { height, width } = Dimensions.get('window');
@@ -46,7 +46,6 @@ export default class Locked extends Component {
           console.log(error);
         })
   }
-
   //获取当前路线信息
   getThisData() {
     this.getLastData()
@@ -166,7 +165,7 @@ export default class Locked extends Component {
                 </ImageBackground>
               </View>
             </View>
-            <Text style={{ marginTop: '5%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: "#000" }}>西湖风景线</Text>
+            <Text style={{ marginTop: '5%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: "#000" }}>{this.props.roadname}</Text>
             <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: "#000" }}>可获得 <FontAwesome5
               name='coins'
               size={15}
@@ -204,9 +203,9 @@ export default class Locked extends Component {
     } else
       return (
         <View style={{ width: '100%', height: height * 0.165, backgroundColor: '#93c9c9', marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15, elevation: 0.8 }}>
-          <Text style={{ marginTop: '7%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>西湖风景线</Text>
+          <Text style={{ marginTop: '7%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>{this.props.roadname}</Text>
           <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得Y25</Text>
-          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>共2256万+用户参与</Text>
+          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>共225用户参与</Text>
           <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-21%', borderRadius: 50, backgroundColor: '#729c9c' }}>
             <Fontisto style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', }}
               onPress={() => {
@@ -232,13 +231,12 @@ export default class Locked extends Component {
             confirmButtonColor="#93c9c9"
             onCancelPressed={() => {
               this.hideAlert();
-              this.showAlert_unAbleToUnLock();
+
             }}
             onConfirmPressed={() => {
               this.hideAlert();
               this.updateThisData();
-              // this.unLock()
-              // this.setState({ isUnlock: false })
+              this.showAlert_unAbleToUnLock();
             }}
           />
           <AwesomeAlert
