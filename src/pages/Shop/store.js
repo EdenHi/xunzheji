@@ -13,7 +13,7 @@ import {
   ImageBackground,
   Modal,
   Alert,
-  AsyncStorage
+  AsyncStorage,
 } from 'react-native';
 import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
@@ -27,6 +27,8 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import ShiCha from '../HomeScreen/HOME/ShiCha';
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
+import Swiper from 'react-native-swiper';
+
 
 const { width, height } = Dimensions.get('window');
 const images = [{ uri: 'http://8.142.11.85:3000/public/images/5.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/5.jpg' }]
@@ -211,8 +213,46 @@ export default class Store extends Component {
           </View>
           <ScrollView>
             <View style={{ alignItems: "center", }}>
-              <View style={{ width: width * 0.95, height: width * 0.42 }}  >
-                <ShiCha />
+              <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
+                <Swiper
+                  //样式
+                  //组件高度
+                  loop={true}                    //如果设置为false，那么滑动到最后一张时，再次滑动将不会滑到第一张图片。
+                  autoplay={true}                //自动轮播
+                  autoplayTimeout={10}            //每隔4秒切换
+                  horizontal={true}              //水平方向，为false可设置为竖直方向
+                  paginationStyle={{ bottom: 1 }} //小圆点的位置：距离底部10px
+                  showsButtons={false}           //为false时不显示控制按钮
+                  showsPagination={true}       //为false不显示下方圆点
+                  dot={<View style={{           //未选中的圆点样式
+                    backgroundColor: 'rgba(0,0,0,.2)',
+                    width: 5,
+                    height: 5,
+                    marginLeft: 2,
+                    marginRight: 2,
+                    marginTop: 9,
+                    marginBottom: 9,
+                  }} />}
+                  activeDot={<View style={{    //选中的圆点样式
+                    backgroundColor: '#7cc0c0',
+                    width: 18,
+                    height: 5,
+                    marginLeft: 2,
+                    marginRight: 2,
+                    marginTop: 9,
+                    marginBottom: 9,
+                  }} />}
+                  
+                >
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1617206691,1514069942&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2352208857,42466241&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2394698553,2065101537&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=2533450422,3807329446&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2297020843,2252372981&fm=26&fmt=auto&gp=0.jpg" }} />
+                </Swiper>
+
+                {/* <ShiCha /> */}
                 {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
                 dataSource={images}
                 width={width}
