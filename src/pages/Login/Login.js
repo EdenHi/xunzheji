@@ -67,12 +67,14 @@ export default class Login extends Component {
 }
   render() {
     return (
-      <View style={{ width:width,height:height, }}>
-         <LinearGradient style={{width:width,height:height,}} colors={['#7cc0bf', '#fff',  '#fff', '#fff']} >
-           <View style={{width:width,height:height*0.3}}>
+      <View style={{ width:width,height:height,backgroundColor:"#f1f1f" }}>
+        {/* <View style={{width:width,height:50,backgroundColor:"#B4E0E0"}}></View> */}
+         {/* <LinearGradient style={{width:width,height:height,}} colors={['#7cc0bf', '#fff',  '#fff', '#fff']} > */}
+            <LottieView style={{marginTop:-60}} source={require('../../../animal/loginwave.json')} autoPlay loop progress={this.state.progress} />
+           <View style={{width:width,height:height*0.2,backgroundColor:"#f1f1f"}}>
            {/* <LottieView source={require('../../../animal/welcome.json')} autoPlay loop progress={this.state.progress} /> */}
            </View>
-        <View style={{width:width,height:height*0.7,backgroundColor:"#fff",elevation:10,borderTopLeftRadius:50,borderTopRightRadius:50}}>
+        <View style={{width:width,}}>
         <View style={{ marginTop:height*0.10}}>
             <View style={styles.box}>
               <Feather style={styles.icon}
@@ -129,7 +131,7 @@ export default class Login extends Component {
           
         </View>
         </View>
-        </LinearGradient>
+        {/* </LinearGradient> */}
       </View>
     );
   }
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
     fontSize: 11 * ratio_w,
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#fff',
     color: '#7cc0c0',
   },
   box: {
@@ -163,7 +165,7 @@ const styles = StyleSheet.create({
   icon: {
     width: '20%',
     marginLeft: '15%',
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#fff',
     borderTopLeftRadius: 50,
     borderBottomLeftRadius: 50,
     paddingLeft: '3%',

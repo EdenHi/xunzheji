@@ -168,8 +168,8 @@ onShare = async () => {
                                 if (v.title === ''){
                                     return (
                                         <View>
-                                            <View style={{backgroundColor:"#fff",marginTop:"5%",width:width}}>
-                                                 <Text style={{fontWeight:'bold',marginTop:"2%"}}>官方推荐</Text>
+                                            <View style={{marginTop:"5%",width:width}}>
+                                                 <Text style={{fontWeight:'bold',marginTop:"2%",fontSize:15}}>官方推荐</Text>
                                                  <ScrollView
                                                  horizontal
                                                  showsHorizontalScrollIndicator={false}
@@ -377,18 +377,17 @@ onShare = async () => {
                                 } else {
                                     return (
                                         <View>
-                                            <View style={{backgroundColor:"#fff",marginTop:"5%",width:width}}>
-                                                 <Text style={{fontWeight:'bold',marginTop:"2%"}}>官方推荐</Text>
+                                            <View style={{marginTop:"5%",width:width}}>
+                                                 <Text style={{fontWeight:'bold',marginTop:"2%",marginLeft:10,fontSize:15}}>官方推荐</Text>
                                                  <ScrollView
                                                  horizontal
                                                  showsHorizontalScrollIndicator={false}
                                                  style={{marginTop:10,marginBottom:10}}>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
-                                                                
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
                                                                 <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
                                                                 </LinearGradient>
                                                                 
@@ -402,10 +401,10 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
                                                                 <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
                                                                 </LinearGradient>
                                                                 
@@ -419,10 +418,10 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
                                                                 <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
                                                                 </LinearGradient>
                                                                 
@@ -436,10 +435,10 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
                                                                 <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
                                                                 </LinearGradient>
                                                                 
@@ -453,10 +452,44 @@ onShare = async () => {
                                                         </ImageBackground>
                                                     </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
                                                             <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
+                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
+                                                                </LinearGradient>
+                                                                
+                                                                </View>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                </TouchableOpacity>
+                                                            </View>
+                                                        </ImageBackground>
+                                                    </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1}>
+                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg'}} resizeMode="stretch" style={{height:250,width:180,borderRadius:10,marginLeft:10}}>
+                                                            <View style={{alignItems:'center',marginTop:50}}>
+                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
+                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#7cc0c0","#fff"]} >
                                                                 <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
                                                                 </LinearGradient>
                                                                 

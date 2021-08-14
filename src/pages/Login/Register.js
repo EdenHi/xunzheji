@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 let {height, width} = Dimensions.get('window');
 import Feather from 'react-native-vector-icons/Feather';
+import LottieView from 'lottie-react-native';
 import {
   View,
   StyleSheet,
@@ -13,6 +14,7 @@ import {
   ImageBackground,
   TextInput,
   AsyncStorage,
+  Easing, Animated
 } from 'react-native';
 import axios from 'axios';
 import Textinput from '../../components/textInput';
@@ -51,14 +53,23 @@ export default class Register extends Component {
       password1: '',
       password2: '',
       phone:'',
+      progress: new Animated.Value(0),
     };
   }
+  componentDidMount() {
+    console.log(this.state.username);
+    Animated.timing(this.state.progress, {
+        toValue: 1,
+        duration: 3500,
+        easing: Easing.linear,
+    }).start();
+}
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{ width:width,height:height, }}>
         <View
-          style={{flex: 1, borderWidth: 0, justifyContent: 'space-between'}}>
+          style={{borderWidth: 0, justifyContent: 'space-between'}}>
           <TouchableOpacity
             onPress={() => this.props.navigation.goBack('Login')}
             style={{
@@ -75,30 +86,8 @@ export default class Register extends Component {
             />
           </TouchableOpacity>
 
-          <View style={{marginBottom: height * 0.04}}>
-            <Text
-              style={{
-                fontSize: ratio_w * 30,
-                borderWidth: 0,
-                textAlign: 'center',
-                marginBottom: height * 0.01,
-                color: '#7cc0c0',
-              }}
-              allowFontScaling={false}>
-              让我们开始吧！
-            </Text>
-            <Text
-              style={{
-                fontSize: ratio_w * 20,
-                borderWidth: 0,
-                textAlign: 'center',
-                color: 'grey',
-              }}>
-              注册一个账户以获取所有资讯
-            </Text>
-          </View>
         </View>
-        <View style={{flex: 3}}>
+        <View style={{}}>
           <View style={styles.box}>
               <Feather
                 style={styles.icon}
@@ -209,6 +198,10 @@ export default class Register extends Component {
               </Text>
             </TouchableOpacity>
           </View>
+         
+        </View>
+        <View style={{width:width,height:height*0.4}}>
+        <LottieView style={{width:"100%",height:"100%",marginTop:-55}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
         </View>
       </View>
     );

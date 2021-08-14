@@ -64,7 +64,13 @@ export { default as Topic3 } from "./HomeScreen/HOME/History/Topic3"
 export { default as Dingdan } from "./Shop/Dingdan"
 export { default as Shoplist } from "./Shop/shoplist/Shoplist"
 export { default as Shopdetails } from "./Shop/shoplist/Shopdetails"
+<<<<<<< HEAD
 export {default as Story} from "./Road/story"
 export {default as Story2} from "./Road/story2"
 
+=======
+export { default as zhifu_cart } from "./Shop/zhifu_cart"
+export { default as duihuan_jinbi } from "./HomeScreen/duihuan_jinbi/duihuan_jinbi"
+export { default as JiFen } from "./HomeScreen/HOME/JiFen"
+>>>>>>> 2f364fb8a31e1078cdec7e846fdec022474c318e
 

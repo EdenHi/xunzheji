@@ -4,13 +4,19 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import { ScrollView } from 'react-native-gesture-handler'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import { AsyncStorage } from 'react-native'
 
 const { width, height } = Dimensions.get("window")
 
 export default class JiFen extends Component {
-    state = {
-        modalVisible: false
-    };
+    constructor(props){
+        super(props)
+        this.state = {
+            modalVisible: false,
+            data:[]
+        }
+    }
+
     _openModalWin = () => {
         this.setState({ modalVisible: true });
     }
@@ -18,18 +24,62 @@ export default class JiFen extends Component {
         this.setState({ modalVisible: false });
     }
 
+    get_jinbi(){
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
+                fetch('http://8.142.11.85:3000/index/select_jinbi', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: result,
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        this.setState({
+                            data: json[0]
+                        })
+                    });
+            }
+        })
+    }
+
+    componentDidMount(){
+        this.get_jinbi()
+    }
+
+    qiandao(){
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
+                fetch('http://8.142.11.85:3000/index/update_jinbi', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: result,
+                    })
+                })
+            }
+        })
+        this.get_jinbi()
+    }
+
+
     render() {
+        const {data} =this.state
         return (
             <View>
                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05}}>
                         <TouchableOpacity activeOpacity={1} >
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>
-                        <TouchableOpacity activeOpacity={1} >
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff", opacity: 0 }} name="sound" size={20} />
-                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>                     
                     </View>
                     <View style={{ height: height * 0.93 }}>
                         <ScrollView>
@@ -37,20 +87,23 @@ export default class JiFen extends Component {
                                 <View style={{ alignItems: "center", flexDirection: "row", height: height * 0.15, marginHorizontal: 40 }}>
                                     <View >
                                         <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                            <Text style={{ fontSize: 20, color: "#daa520", marginRight: 5 }}>1000000000</Text>
+                                            <Text style={{ fontSize: 20, color: "#daa520", marginRight: 5 }}>{data.jinbi}</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         </View>
                                         <View style={{ flexDirection: "row", alignItems: "center" }}>
                                             <Text style={{ fontSize: 20, color: "#fff" }}>已经连续签到 </Text>
-                                            <Text style={{ fontSize: 20, color: "#daa520" }}>0</Text>
+                                            <Text style={{ fontSize: 20, color: "#daa520" }}>{data.qiandao}</Text>
                                             <Text style={{ fontSize: 20, color: "#fff" }}> 天</Text>
                                         </View>
                                     </View>
-                                    <View style={{ width: width * 0.3, height: height * 0.05, borderWidth: 1, justifyContent: "center", alignItems: "center", borderRadius: 20, borderColor: "#fff", marginHorizontal: 40 }}>
+                                    <TouchableOpacity style={{ width: width * 0.3, height: height * 0.05, borderWidth: 1, justifyContent: "center", alignItems: "center", borderRadius: 20, borderColor: "#fff", marginHorizontal: 40 }}
+                                    onPress={()=>this.props.navigation.navigate('duihuan_jinbi')}>
                                         <Text style={{ fontSize: 20, color: "#fff" }}>金币兑换</Text>
-                                    </View>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
+
+                            {/* 贴士 */}
                             <View style={{ width: width * 0.9, height: height * 0.45, backgroundColor: "#fff", marginHorizontal: width * 0.05, elevation: 2, marginBottom: 20, borderRadius: 10, padding: 10, marginTop: "-20%" }}>
                                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                                     <Text style={{ fontSize: 20, marginRight: 5 }}>每日签到</Text>
@@ -82,7 +135,7 @@ export default class JiFen extends Component {
                                     <Text style={{ fontSize: 14, color: "#808080", marginTop: 10 }}>每日签到 赢金币换豪礼</Text>
                                 </View>
                                 <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 15 }}>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={data.qiandao > 0 ?{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F02%2F04%2F02%2F599d86f47ded5_610.jpg&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631501276&t=a00f1fd2d7765c15bf62d66005571271'}:{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
@@ -92,10 +145,14 @@ export default class JiFen extends Component {
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
                                     <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
                                 </View>
-                                <View style={{ width: width * 0.8, height: 45, borderRadius: 25, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.025, marginTop: 20 }}>
+                                <TouchableOpacity style={{ width: width * 0.8, height: 45, borderRadius: 25, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.025, marginTop: 20 }}
+                                onPress={()=>this.qiandao()}>
                                     <Text style={{ fontSize: 20, color: "#fff" }}>立即签到</Text>
-                                </View>
+                                </TouchableOpacity>
                             </View>
+                            
+                            
+                            {/* 任务 */}
                             <View>
                                 <Text style={{ fontSize: 18, fontWeight: "bold", marginLeft: 10, marginBottom: 10 }}>新手任务</Text>
                             </View>
