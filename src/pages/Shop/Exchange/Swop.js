@@ -8,7 +8,7 @@ import {
   Animated,
   ScrollView,
   Dimensions,
-  TouchableOpacity,
+  TouchableOpacity,    
   FlatList,
   DeviceEventEmitter
 } from 'react-native'
@@ -79,7 +79,7 @@ export default class Swop extends Component {
 
   //移除监听
   componentWillUnmount(){
-    this.listenter.remove();
+    this.listener.remove();
   }
 
   renderDate({item,index}){
