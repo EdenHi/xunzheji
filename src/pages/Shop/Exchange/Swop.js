@@ -10,7 +10,8 @@ import {
   Dimensions,
   TouchableOpacity,    
   FlatList,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  Easing,
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
@@ -32,8 +33,18 @@ export default class Swop extends Component {
     this.state = {
       imgUrl:  'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' ,
       data:[],
-      open:false
+      open:false,
+      progress: new Animated.Value(0),
     }
+  }
+  componentDidMount() {
+    Animated.timing(this.state.progress, {
+      toValue: 1,
+      duration: 3500,
+      easing: Easing.linear,
+
+    }).start();
+
   }
  
   switch = (index) => {
