@@ -12,6 +12,7 @@ import Demo from './Demo';
 import EZSwiper from 'react-native-ezswiper';
 import Horiz from '../../../components/horiz';
 import LottieView from 'lottie-react-native';
+import Homepagebook from '../Homepagebook'
 
 
 const { width, height } = Dimensions.get('window');
@@ -149,27 +150,25 @@ export default class Home extends Component {
                                         </ScrollView>
                                     </View>
                                 </View>
-                                <View style={{ height: 250, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
+                                <View style={{ height: 250, backgroundColor: 'white', borderRadius: 10, marginTop: 10}} >
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.48 }}>
                                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商必知丛书</Text>
                                             <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                         </View>
-                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
-                                            <AntDesign onPress={() => this.props.navigation.navigate('Book')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
-                                        </TouchableOpacity> */}
                                         <TouchableOpacity onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '31%', color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
-                                    <View style={{ flexDirection: 'row', elevation: 5 }}>
-                                        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                                    <View style={{ flexDirection: 'row'  }}>
+                                        <Homepagebook/>
+                                        {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj1.jpeg' }} /></View>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj2.jpg' }} /></View>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj3.jpeg' }} /></View>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj4.jpeg' }} /></View>
-                                        </ScrollView>
+                                        </ScrollView> */}
                                     </View>
                                 </View>
                                 <View style={{ height: 400, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
