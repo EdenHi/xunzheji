@@ -74,7 +74,7 @@ export default class Login extends Component {
            <Image style={{width:width*0.22,height:width*0.22,marginLeft:width*0.39,marginTop:height*0.09}} source={require("../img/xun.png")}></Image>
            </View>
         <View style={{width:width,height:height*0.7,backgroundColor:"#fff",elevation:10,borderTopLeftRadius:50,borderTopRightRadius:50}}>
-        <View style={{ marginTop:height*0.10}}>
+        <View style={{ marginTop:height*0.05}}>
             <View style={styles.box}>
               <Feather style={styles.icon}
                 name={'user'}
@@ -127,7 +127,7 @@ export default class Login extends Component {
           </View>
 
           <View style={{width:width,height:height*0.5}}>
-        <LottieView style={{width:"100%",height:"100%",marginTop:-80}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
+        <LottieView style={{marginTop:-180}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
         </View>
           
         </View>
