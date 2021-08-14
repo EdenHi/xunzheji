@@ -177,16 +177,16 @@ export default class My extends Component {
       <SideMenu
         menu={menu}                    //抽屉内的组件
         isOpen={this.state.isOpen}     //抽屉打开/关闭
-        openMenuOffset={width * 0.8}     //抽屉的宽度
+        openMenuOffset={width * 0.6}     //抽屉的宽度
         hiddenMenuOffset={0}          //抽屉关闭状态时,显示多少宽度 默认0 抽屉完全隐藏
         edgeHitWidth={100}              //距离屏幕多少距离可以滑出抽屉,默认60
         disableGestures={false}
 
         onChange={                   //抽屉状态变化的监听函数
           (isOpen) => {
-              // isOpen ? console.log('抽屉当前状态为开着')
-              //     :
-              //     console.log('抽屉当前状态为关着')
+            // isOpen ? console.log('抽屉当前状态为开着')
+            //     :
+            //     console.log('抽屉当前状态为关着')
             this.setState({
               isOpen
             })
@@ -334,7 +334,7 @@ export default class My extends Component {
                           <Text style={{ fontSize: 15, color: '#fff' }}>关注</Text>
                         </TouchableOpacity>
                       </View>
-                      
+
                       <TouchableOpacity
                         activeOpacity={1}
                         style={{
