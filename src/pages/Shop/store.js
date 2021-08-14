@@ -401,7 +401,7 @@ export default class Store extends Component {
 
             </View>
             <View style={{ width: "95%", marginHorizontal: '2.5%', }}>
-              <Water />
+              {/* <Water /> */}
             </View>
 
           </ScrollView>

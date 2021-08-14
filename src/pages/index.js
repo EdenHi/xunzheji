@@ -64,5 +64,6 @@ export { default as Topic3 } from "./HomeScreen/HOME/History/Topic3"
 export { default as Dingdan } from "./Shop/Dingdan"
 export { default as Shoplist } from "./Shop/shoplist/Shoplist"
 export { default as Shopdetails } from "./Shop/shoplist/Shopdetails"
+export { default as zhifu_cart } from "./Shop/zhifu_cart"
 
 

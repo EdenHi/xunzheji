@@ -76,7 +76,7 @@ export default class componentName extends Component {
 
           </View>
           <View style={{flex: 1}}>
-            <Water />
+
           </View>
         </ScrollView>
         <SpeedDial

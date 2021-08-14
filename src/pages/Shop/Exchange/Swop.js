@@ -74,12 +74,12 @@ export default class Swop extends Component {
 
   componentDidMount(){
     this.get_shuju();
-    this.listener = DeviceEventEmitter.addListener('exchange', this.get_shuju.bind(this));
+    this.listener = DeviceEventEmitter.addListener('exchange',this.get_shuju.bind(this));
   }
 
   //移除监听
   componentWillUnmount(){
-    this.listenter.remove();
+    this.listener.remove();
   }
 
   renderDate({item,index}){

@@ -66,6 +66,7 @@ import {
   Dingdan,
   Shoplist,
   Shopdetails,
+  zhifu_cart,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -148,6 +149,7 @@ export default function StackNav() {
       <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
+      <Stack.Screen name="zhifu_cart" component={zhifu_cart} />
     </Stack.Navigator>
   );
 }
