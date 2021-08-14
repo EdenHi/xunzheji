@@ -6,6 +6,7 @@ import Swiper from 'react-native-swiper';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import shoplist from './shoplist.json';
 const { width, height } = Dimensions.get('window');
 export default class Shopdetails extends Component {
     constructor(props){
@@ -35,6 +36,59 @@ export default class Shopdetails extends Component {
     this.setState({ modalVisible1: visible });
   }
 
+
+  dianpu(){
+    let newJson = [];
+    let json = eval(shoplist);
+    //先查询最外层的分类
+    for(var i=0; i<json.length; i++){  
+       if(i===1){
+            //因为键值是数组，所以继续循环查询键值里的数据
+            for(var k=0;k<json[1].meishi.length;k++){
+                if((json[1].meishi[k].name).indexOf(this.props.route.params.shops.dianpu)>-1){
+                    for(var j=0;j<json[1].meishi[k].shops.length;j++){
+                        newJson.push(json[1].meishi[k].shops[j]);
+                    }
+                }
+            }
+        }
+        if(i===2){
+            //因为键值是数组，所以继续循环查询键值里的数据
+            for(var k=0;k<json[2].zhizao.length;k++){
+                if((json[2].zhizao[k].name).indexOf(this.props.route.params.shops.dianpu)>-1){
+                    for(var j=0;j<json[2].zhizao[k].shops.length;j++){
+                        newJson.push(json[2].zhizao[k].shops[j]);
+                    }
+                }
+            }
+        }
+        if(i===3){
+            //因为键值是数组，所以继续循环查询键值里的数据
+            for(var k=0;k<json[3].gongmei.length;k++){
+                if((json[3].gongmei[k].name).indexOf(this.props.route.params.shops.dianpu)>-1){
+                    for(var j=0;j<json[3].gongmei[k].shops.length;j++){
+                        newJson.push(json[3].gongmei[k].shops[j]);
+                    }
+                }
+            }
+        }
+        if(i===4){
+            //因为键值是数组，所以继续循环查询键值里的数据
+            for(var k=0;k<json[4].chajiu.length;k++){
+                if((json[4].chajiu[k].name).indexOf(this.props.route.params.shops.dianpu)>-1){
+                    for(var j=0;j<json[4].chajiu[k].shops.length;j++){
+                        newJson.push(json[4].chajiu[k].shops[j]);
+                    }
+                }
+            }
+        }
+    }  
+    console.log('tempJson',newJson);
+    // this.setState({
+    //     data:newJson
+    // })
+    this.props.navigation.push('Shoplist',{shops:newJson})
+}
 
   insert_shopcart(){
     AsyncStorage.getItem('username',(err,result)=>{
@@ -106,7 +160,6 @@ export default class Shopdetails extends Component {
                                 uri: this.state.shops.pic[0],
                             }}
                             />
-                            <Text style={{color:'grey'}}><Text>1</Text>/3</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.handleShowAlbum(1)}>
                             <Image
@@ -147,8 +200,8 @@ export default class Shopdetails extends Component {
                             <Text style={{fontWeight:'bold',fontSize:16}}>{shops.dianpu}</Text>
                         </View>
                         <View style={{marginRight:width*0.025}}>
-                            <TouchableOpacity style={{borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,marginTop:10}} activeOpacity={1}><Text style={{padding:5,fontWeight:'bold',color:'#7cc0c0'}}>进店逛逛</Text></TouchableOpacity>
-                            <TouchableOpacity style={{borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,marginTop:10,marginBottom:10}} activeOpacity={1}><Text style={{padding:5,fontWeight:'bold',color:'#7cc0c0'}}>全部商品</Text></TouchableOpacity>
+                            <TouchableOpacity style={{borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,marginTop:10}} activeOpacity={1}><Text style={{padding:5,fontWeight:'bold',color:'#7cc0c0'}} onPress={()=>this.dianpu()}>进店逛逛</Text></TouchableOpacity>
+                            <TouchableOpacity style={{borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,marginTop:10,marginBottom:10}} activeOpacity={1}><Text style={{padding:5,fontWeight:'bold',color:'#7cc0c0'}} onPress={()=>this.dianpu()}>全部商品</Text></TouchableOpacity>
                         </View>
                     </View>
                     
@@ -169,7 +222,8 @@ export default class Shopdetails extends Component {
                         <AntDesign
                         name="isv"
                         size={25}
-                        color="#7cc0c0"/>
+                        color="#7cc0c0"
+                        onPress={()=>this.dianpu()}/>
                         <Text>店铺</Text>
                     </TouchableOpacity>
                     <View style={{flexDirection:'row'}}>

@@ -38,6 +38,7 @@ export default class Shoplist extends Component {
         )
     }
     render() {
+        console.log('123',this.props.route.params.shops);
         return (
             <View style={{flex:1}}>
                 <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0c0","#fff"]} >

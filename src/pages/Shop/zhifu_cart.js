@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FlatList } from "react-native";
 import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
 // import { Nav } from "../../component";//顶部标签看
 import LinearGradient from 'react-native-linear-gradient';
@@ -7,7 +8,7 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 // import IconFont from "../../iconfont";
 // import global from "../../utils/global";
 const {height,width} = Dimensions.get('window');
-export default class zhifu extends Component {
+export default class zhifu_cart extends Component {
 
     constructor(props) {
         super(props);
@@ -41,13 +42,10 @@ export default class zhifu extends Component {
                 }
             ],
             way: "请选择支付方式",
-            price: this.props.route.params.price,
+            price: this.props.route.params,
             dingdan:'待确认',
-            goodsname:this.props.route.params.name,
-            goods: this.props.route.params.jieshao,
             dizhi:'',
             username:'',
-            total:1,
         }
     }
     static defaultProps = {
@@ -130,8 +128,81 @@ export default class zhifu extends Component {
     componentWillUnmount(){
         this.listener.remove();
         }
+
+
+        renderDate({item,index}){
+            return(
+                <View>
+                     {/* 商品信息 */}
+                     <View style={{ flexDirection: 'row',marginTop: 25 }}>
+                        <View style={{ marginLeft: 15 }}>
+                            <Image style={{ width: 110, height: 110, borderRadius: 10 }} source={{ uri:item.itemimg }} />
+                        </View>
+                        <View style={{ marginLeft: 8,justifyContent:'space-around',marginLeft:20 }}>
+                            {/* 商品名称 */}
+                            <Text style={{ fontSize: 15, fontWeight: "bold",width:width*0.5 }} numberOfLines={3} >{item.itemName}</Text>
+                        </View>
+                    </View>
+                    
+                    <View style={{ backgroundColor: "white", marginTop: 10, borderRadius: 10,margin:5 }}>
+                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
+                            <Text style={{ opacity: 0.6 ,fontSize:15}}>商品价格</Text>
+                            <Text style={{ opacity: 0.6  ,fontSize:15}}>￥{item.itemPrice}</Text>
+                        </View>
+                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
+                            <Text style={{ opacity: 0.6 ,fontSize:15 }}>商品数量</Text>
+                            <View style={{flexDirection:'row',alignItems:'center'}}>
+                               
+                                <Text style={{ fontSize:15,marginLeft:10,marginRight:10 }}>x{item.quantity}</Text>
+   
+                            </View>
+                            
+                        </View>
+                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginTop: 10, marginBottom: 15, marginLeft: 20 }}>
+                            <Text style={{ fontSize: 15 }}>合计</Text>
+                            <Text style={{ fontSize:15, color: "#7cc0c0", fontWeight: "bold" }}>￥{parseFloat(item.itemPrice*item.quantity).toFixed(2)}</Text>
+                        </View>
+                    </View>
+                </View>
+            )
+        }
+
+
+        ListFooterComponent(){
+            return(
+                <View>
+                    <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 }} activeOpacity={0.95}>
+                        <Text style={{ marginLeft: 15 }}>支付方式:</Text>
+                        <Text style={{ marginRight:15 ,}}>{this.state.way}</Text>
+                        {/* <IconFont name="jiantou" size={20}  /> */}
+                    </TouchableOpacity>
+                </View>
+            )
+        }
+
+        ListHeaderComponent(){
+            const {dizhi} = this.state
+            return(
+                <View>
+                    {/* 收货地址 */}
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
+                        <View style={{ marginTop: 20, marginLeft: 20, flexDirection: "row", }}>
+                            <Text style={{ fontSize: 16 }}>{dizhi.name}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi.phone}</Text>
+
+                            {/* <IconFont name="jiantou" size={20} style={{ marginLeft: 130, marginTop: 15 }} /> */}
+                        </View>
+                        <View style={{ marginLeft: 20, marginBottom: 10 ,flexDirection:'row'}}>
+                            <Text style={{ fontSize: 14 }}>{dizhi.dizhi}</Text>
+                            <Text style={{ fontSize: 14,marginLeft:10 }}>{dizhi.xiangxi}</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            )
+        }
+
     render() {
-        const {dizhi} = this.state
+
         return (
             <View style={{flex:1}}>
                 {/* <Nav title="等待买家付款" /> */}
@@ -150,84 +221,21 @@ export default class zhifu extends Component {
                        <View style={{width:width*0.09,height:width*0.09,}}></View>
                    </View>
                 
-                
-                <ScrollView >
-                    {/* 收货地址 */}
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
-                        <View style={{ marginTop: 20, marginLeft: 20, flexDirection: "row", }}>
-                            <Text style={{ fontSize: 16 }}>{dizhi.name}</Text>
-                            <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi.phone}</Text>
-
-                            {/* <IconFont name="jiantou" size={20} style={{ marginLeft: 130, marginTop: 15 }} /> */}
-                        </View>
-                        <View style={{ marginLeft: 20, marginBottom: 10 ,flexDirection:'row'}}>
-                            <Text style={{ fontSize: 14 }}>{dizhi.dizhi}</Text>
-                            <Text style={{ fontSize: 14,marginLeft:10 }}>{dizhi.xiangxi}</Text>
-                        </View>
-                    </TouchableOpacity>
-
-
-                    {/* 商品信息 */}
-                    <View style={{ flexDirection: 'row',marginTop: 25 }}>
-                        <View style={{ marginLeft: 15 }}>
-                            <Image style={{ width: 110, height: 110, borderRadius: 10 }} source={{ uri:this.props.route.params.pic[0] }} />
-                        </View>
-                        <View style={{ marginLeft: 8,justifyContent:'space-around',marginLeft:20 }}>
-                            {/* 商品名称 */}
-                            <Text style={{ fontSize: 15, fontWeight: "bold",width:width*0.5 }} numberOfLines={3} >{this.state.goodsname}</Text>
-                            {/* 对商品的解释或者规格 */}
-                            <Text style={{ fontSize:15,color:'#7cc0c0',width:width*0.5}} numberOfLines={1}>{this.state.goods}</Text>
-                        </View>
-                    </View>
 
 
 
-                    <View style={{ backgroundColor: "white", marginTop: 10, borderRadius: 10,margin:5 }}>
-                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
-                            <Text style={{ opacity: 0.6 ,fontSize:15}}>商品价格</Text>
-                            <Text style={{ opacity: 0.6  ,fontSize:15}}>￥{this.state.price}</Text>
-                        </View>
-                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
-                            <Text style={{ opacity: 0.6 ,fontSize:15 }}>商品数量</Text>
-                            <View style={{flexDirection:'row',alignItems:'center'}}>
-                                <AntDesign
-                                name='minussquareo'
-                                size={15}
-                                onPress={()=>this.jianshao_total()}/>
-                                <Text style={{ fontSize:15,marginLeft:10,marginRight:10 }}>{this.state.total}</Text>
-                                <AntDesign
-                                name='plussquareo'
-                                size={15}
-                                onPress={()=>this.add_total()}/>
-                            </View>
-                            
-                        </View>
-                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginTop: 10, marginBottom: 15, marginLeft: 20 }}>
-                            <Text style={{ fontSize: 15 }}>合计</Text>
-                            <Text style={{ fontSize:15, color: "#7cc0c0", fontWeight: "bold" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
-                        </View>
-                    </View>
-                    <View>
+                    <FlatList
+                    data={this.props.route.params.shops}
+                    renderItem={this.renderDate.bind(this)}
+                    keyExtractor={(item, index) => (index + '1')}
+                    ListFooterComponent={this.ListFooterComponent.bind(this)}
+                    ListHeaderComponent={this.ListHeaderComponent.bind(this)}/>
 
-
-
-
-
-
-                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 }} activeOpacity={0.95}>
-                            <Text style={{ marginLeft: 15 }}>支付方式:</Text>
-                            <Text style={{ marginRight:15 ,}}>{this.state.way}</Text>
-                            {/* <IconFont name="jiantou" size={20}  /> */}
-                        </TouchableOpacity>
-
-                    </View>
-
-                </ScrollView >
 
                 <View style={{ alignItems: "center", justifyContent: "space-between", flexDirection: "row", backgroundColor: "white", height: 70 }}>
                     <View style={{ flexDirection: "row", marginLeft: 15, alignItems: "flex-end" }}>
                         <Text style={{ fontSize: 15 }}>合计金额</Text>
-                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>￥{this.props.route.params.total}</Text>
                     </View>
                   
                         <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
@@ -248,7 +256,6 @@ export default class zhifu extends Component {
                         ))}
                     </View>
                 </RBSheet>
-
             </View >
         );
     }
