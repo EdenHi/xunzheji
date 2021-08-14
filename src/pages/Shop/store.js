@@ -14,6 +14,9 @@ import {
   Modal,
   Alert,
   AsyncStorage,
+  FlatList  ,
+  ToastAndroid,
+  DeviceEventEmitter
 } from 'react-native';
 import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
@@ -62,10 +65,90 @@ export default class Store extends Component {
           title: "Item 5",
           text: "Text 5",
         },
+      ],
+      shops:[
+        {
+          "name":"知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
+          "jieshao":"清香绵软",
+          "price":"12.90",
+          "sales":"8W+",
+          "pic":[
+              "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
+              "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
+              "https://img.alicdn.com/imgextra/i4/2200646689123/O1CN01lTyJzz2HGNwnAeeAu_!!2200646689123.jpg_500x500q90.jpg"
+            ],
+            "dianpu":"知味观",
+            "loge":"https://img2.baidu.com/it/u=2448793404,1008146234&fm=26&fmt=auto&gp=0.jpg",
+            "imag1":"https://img.alicdn.com/imgextra/i1/475325704/O1CN01vYGvQb1s0TldPD9z7_!!475325704.jpg",
+            "imag2":"https://img.alicdn.com/imgextra/i1/475325704/O1CN01HyaZR81s0TlVItdff_!!475325704.jpg",
+            "imag3":"https://img.alicdn.com/imgextra/i1/475325704/O1CN015rX3P21s0TlhMoPOn_!!475325704.jpg",
+            "imag4":"https://gdp.alicdn.com/imgextra/i2/2200646689123/O1CN01fanmSb2HGNx3tUh3H_!!2200646689123.jpg"
+        },
+        {
+          "name":"翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
+          "jieshao":"中华老字号",
+          "price":"24.90",
+          "sales":"200+",
+          "pic":[
+              "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
+              "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01PahoMY1tylb93oDSh_!!2086085971.jpg_500x500q90.jpg",
+              "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg"
+          ],
+          "dianpu":"翠沁斋",
+          "loge":"https://bkimg.cdn.bcebos.com/pic/00e93901213fb80e4b9d12d53ed12f2eb9389467?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
+          "imag1":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01gqfLom1tylb8VBFfy_!!2086085971.jpg",
+          "imag2":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01yK7rmA1tylazo6eiE_!!2086085971.jpg",
+          "imag3":"https://img.alicdn.com/imgextra/i4/2086085971/O1CN01l0gWlg1tylb9rVl1Y_!!2086085971.jpg",
+          "imag4":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01Z1t3zi1tylbBkHeJv_!!2086085971.jpg"
+        },
+        {
+          "name":"陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
+          "jieshao":"",
+          "price":"57.00",
+          "sales":"1K+",
+          "pic":[
+              "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
+              "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
+              "https://cbu01.alicdn.com/img/ibank/2017/153/640/7275046351_1063743152.500x500.jpg"
+          ],
+          "dianpu":"陈源昌",
+          "loge":"https://shangbiaopic.11467.com/15/54/15546473.jpg",
+          "imag1":"https://cbu01.alicdn.com/img/ibank/2018/673/697/9115796376_1063743152.jpg",
+          "imag2":"https://cbu01.alicdn.com/img/ibank/2018/383/144/9097441383_1063743152.jpg",
+          "imag3":"https://cbu01.alicdn.com/img/ibank/2018/225/534/9097435522_1063743152.jpg",
+          "imag4":"https://cbu01.alicdn.com/img/ibank/2018/113/997/9115799311_1063743152.jpg"
+        },
       ]
     };
   }
 
+
+
+  insert_shopcart(item){
+    AsyncStorage.getItem('username',(err,result)=>{
+      if(!err){
+          fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+              method: 'POST',
+              headers: {
+                  Accept: 'application/json',
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  username:result,
+                  shop_name:item.name,
+                  shop_pic:item.pic[0],
+                  price:item.price,
+                  shop_dianpu:item.dianpu,
+              }),
+          })
+      }
+  })
+  ToastAndroid.showWithGravity('加入购物车成功',2000,ToastAndroid.BOTTOM)
+  DeviceEventEmitter.emit('shop_cart',1)
+  }
+
+
+  
   componentDidMount() {
     Animated.timing(this.state.progress, {
       toValue: 1,
@@ -295,126 +378,63 @@ export default class Store extends Component {
                                                 <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
                                                 <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
                                             </View>
-                  {/* <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View> */}
 
-                  {/* <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>上新好物New good things</Text> */}
-                  {/* <TouchableOpacity  activeOpacity={1}
-                  onPress={() => navigation.navigate('NewWorks')}
-                  style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
-                  <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
-                    name="right"
-                    size={20}
-                    color="#7cc0c0"
-                  />
-                </TouchableOpacity> */}
+
                   <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '62%', color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
-                  <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
-                    <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold" }}>姜枣膏</Text>
-                    </View>
-                    <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>姜枣膏是一道美味佳肴，主料是姜，枣。</Text>
-                    </View>
-                    <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text style={{ fontSize: 13, color: "#7cc0c0" }}>￥50</Text>
-                    </View>
-                    <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
-                      <View style={{ width: "70%", height: "100%", }}>
-                        <LottieView source={require('./star5.json')} progress={this.state.progress} />
-                      </View>
-                      <View style={{ width: "26%", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                        <Text style={{ fontSize: 12 }}>5.0</Text>
-                      </View>
-                    </View>
-                    <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                        <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
-                      </TouchableOpacity>
-                      {/* <TouchableOpacity  activeOpacity={1} style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                      <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
-                        name="staro"
-                        size={25}
-                        color="orange"
-                      />
+                
+                
 
-                    </TouchableOpacity> */}
-
-                    </View>
+                <FlatList
+        //   style={{width:width,height:10000}}
+            data = {this.state.shops}
+            renderItem = {({item})=>
+            <View style={{width:width,marginLeft:10}}>
+                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails",{shops:item}) }} activeOpacity={1} style={{width: width*0.9,
+                                                                                                                                                height: height*0.18,
+                                                                                                                                                backgroundColor: "grey",
+                                                                                                                                                marginBottom: "3%",
+                                                                                                                                                borderRadius: 10,
+                                                                                                                                                elevation: 10,
+                                                                                                                                                flexDirection: "row",}}>
+                <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+                  <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
+                    <Text style={{ fontSize: 15, fontWeight: "bold" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
                   </View>
-                  <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/2.jpg' }} >
-
-                  </Image>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
-                  <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
-                    <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold" }}>姜枣膏</Text>
-                    </View>
-                    <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>姜枣膏是一道美味佳肴，主料是姜，枣。</Text>
-                    </View>
-                    <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text style={{ fontSize: 13, color: "#7cc0c0" }}>￥50</Text>
-                    </View>
-                    <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
-                      <View style={{ width: "70%", height: "100%", }}>
-                        <LottieView source={require('./star5.json')} progress={this.state.progress} />
-                      </View>
-                      <View style={{ width: "26%", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                        <Text style={{ fontSize: 12 }}>5.0</Text>
-                      </View>
-                    </View>
-                    <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                        <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
-                      </TouchableOpacity>
-                      {/* <TouchableOpacity  activeOpacity={1} style={{ width: "20%", height: "98%", backgroundColor: "#fff", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                      <AntDesign style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
-                        name="staro"
-                        size={25}
-                        color="orange"
-                      />
-
-                    </TouchableOpacity> */}
-
-                    </View>
+                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>{item.jieshao}</Text>
                   </View>
-                  <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/2.jpg' }} >
-
-                  </Image>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate("GoodsDetail") }} activeOpacity={1} style={styles.suggest}>
-                  <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
-                    <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold" }}>双合成月饼</Text>
-                    </View>
-                    <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>双合成月饼连续十余年被国家评为“中国名饼、名牌月饼”。</Text>
-                    </View>
-                    <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text style={{ fontSize: 13, color: "#7cc0c0" }}>￥30</Text>
-                    </View>
-                    <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
-                      <View style={{ width: "70%", height: "100%", }}>
-                        <LottieView source={require('./star5.json')} progress={this.state.progress} />
-                      </View>
-                      <View style={{ width: "26%", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                        <Text style={{ fontSize: 12 }}>5.0</Text>
-                      </View>
-                    </View>
-                    <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}>
-                        <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
-                      </TouchableOpacity>
-                    </View>
+                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                    <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
                   </View>
-                  <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/3.webp' }} >
-                  </Image>
-                </TouchableOpacity>
+                  
+                  <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
+
+                  </View>
+                  
+                  <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
+                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
+                    onPress={()=>this.insert_shopcart(item)}>
+                      <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
+                    </TouchableOpacity>
+
+
+                  </View>
+                </View>
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} resizeMode='stretch' source={{uri:item.pic[0]}} >
+
+                </Image>
+              </TouchableOpacity>
+        
+            </View>
+        
+        
+        }/>
+
+
+
               </View>
               <View style={styles.limit}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
@@ -529,7 +549,7 @@ const styles = StyleSheet.create({
   },
   old: {
     width: width * 0.95,
-    height: width * 1.3,
+    height:width *1.2,
     backgroundColor: "#fff",
     borderRadius: 15,
     alignItems: "center"
