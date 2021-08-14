@@ -17,7 +17,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient'
 const {height,width} = Dimensions.get('window');
-
+import list from './shoplist/shoplist.json';
 
 export default class Classify extends React.Component {
     constructor(props){
@@ -247,9 +247,9 @@ export default class Classify extends React.Component {
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"越窑"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[1].meishi[0].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -278,9 +278,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"婺州窑"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[1].meishi[1].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -310,9 +310,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"龙泉窑"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[1].meishi[2].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -341,9 +341,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"南宋官窑"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[1].meishi[3].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -399,9 +399,9 @@ export default class Classify extends React.Component {
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"绿茶"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[2].zhizao[0].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -431,9 +431,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"云雾茶"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[2].zhizao[1].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -462,9 +462,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"龙顶茶"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[2].zhizao[2].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -494,9 +494,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"白茶"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[2].zhizao[3].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -551,9 +551,9 @@ export default class Classify extends React.Component {
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"糕点"})
-                            //    }}
+                               onPress={()=>{
+                                   navigation.navigate('Shoplist',{shops:list[3].gongmei[0].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -582,9 +582,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"小食"})
-                            //    }}
+                               onPress={()=>{
+                                    navigation.navigate('Shoplist',{shops:list[3].gongmei[1].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -614,9 +614,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"百味"})
-                            //    }}
+                               onPress={()=>{
+                                 navigation.navigate('Shoplist',{shops:list[3].gongmei[2].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -645,9 +645,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"酒香"})
-                            //    }}
+                               onPress={()=>{
+                                navigation.navigate('Shoplist',{shops:list[3].gongmei[3].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -703,9 +703,9 @@ export default class Classify extends React.Component {
                             </View>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"纸品"})
-                            //    }}
+                               onPress={()=>{
+                                navigation.navigate('Shoplist',{shops:list[4].chajiu[0].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -735,9 +735,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"日用"})
-                            //    }}
+                               onPress={()=>{
+                                navigation.navigate('Shoplist',{shops:list[4].chajiu[1].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -766,9 +766,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"饰品"})
-                            //    }}
+                               onPress={()=>{
+                                navigation.navigate('Shoplist',{shops:list[4].chajiu[2].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",
@@ -798,9 +798,9 @@ export default class Classify extends React.Component {
                             </View></TouchableOpacity>
                             <TouchableOpacity
                                activeOpacity={0.8}
-                            //    onPress={()=>{
-                            //        navigation.navigate('Shoplist',{xiaolei:"文玩"})
-                            //    }}
+                               onPress={()=>{
+                                navigation.navigate('Shoplist',{shops:list[4].chajiu[3].shops})
+                               }}
                                >
                             <View style={{
                                 width: "100%",

@@ -16,11 +16,25 @@ export default class ShoppingCart extends Component {
       status: [],
       isSelectedAllItem: false,
       totalNum: 0,
-      totalPrice: 0.00
+      totalPrice: 0.00,
+      shops:'',
     }
   }
 
-
+//得到需要传的数据
+send(){
+  let arr = [];
+  const {status}=this.state
+  for(var i=0;i<status.length;i++){
+    for(var j=0;j<status[i].items.length;j++){
+      if(status[i].items[j].checked===true){
+        arr.push(status[i].items[j])
+      }
+    }
+  }
+  console.log('arr',arr);
+  this.props.navigation.navigate('zhifu_cart',{shops:arr,total:parseFloat(this.state.totalPrice).toFixed(2)})
+}
 
   //获取购物车数据
   get(){
@@ -315,7 +329,7 @@ export default class ShoppingCart extends Component {
             <Text style={{color:"#7cc0c0"}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
           </Text>
           <View style={{width: 120,backgroundColor:"#7cc0c0", alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>
-            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Zhifu')}>
+            <TouchableOpacity onPress={()=>this.send()}>
             <Text style={{color: "#fff"}}>去结算({this.state.totalNum})</Text>
             </TouchableOpacity>
 
