@@ -179,13 +179,13 @@ export default class Store extends Component {
             </View>
           </Modal>
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => navigation.navigate('Page1')} activeOpacity={1} style={styles.left}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('Page1')} activeOpacity={1} style={styles.left}>
               <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
                 name="clipboard-text-outline"
                 size={25}
                 color="#fff"
               />
-            </TouchableOpacity>
+            </TouchableOpacity> */}
             <TouchableOpacity activeOpacity={1}
               onPress={() => navigation.navigate('search')}
               style={styles.input}>
@@ -242,16 +242,14 @@ export default class Store extends Component {
                     marginTop: 9,
                     marginBottom: 9,
                   }} />}
-                  
                 >
                   <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
                   <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1617206691,1514069942&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2352208857,42466241&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2394698553,2065101537&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=2533450422,3807329446&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2297020843,2252372981&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=471631677,3527280070&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=3177392174,4240871380&fm=15&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
                 </Swiper>
-
                 {/* <ShiCha /> */}
                 {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
                 dataSource={images}
@@ -266,13 +264,23 @@ export default class Store extends Component {
               /> */}
               </View>
               <View style={styles.part}>
-                <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5 }}
+                <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5,backgroundColor:"#fff" }}
                   onPress={() => navigation.navigate('CustomMade')}
                 >
-                  <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://8.142.11.85:3000/public/images/8.jpg' }}></Image>
+                  <View style={{width:"100%",height:"50%",alignItems:"center",justifyContent:"center"}}>
+                  
+             <Text style={{fontSize:18,fontWeight:"bold",color:"#7cc0c0",marginTop:"7%"}}>文化定制</Text>
+                 <Image style={{width:"90%",height:"50%"}} source={require("../img/made2.png")}></Image>
+                    {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
+                  </View>
+                  <View style={{width:"100%",height:"50%"}}>
+                  <LottieView source={require('../../../animal/dingzhi.json')} autoPlay loop progress={this.state.progress} />
+                  </View>
+                  {/* <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://8.142.11.85:3000/public/images/8.jpg' }}></Image> */}
                 </TouchableOpacity>
                 <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%",flexDirection:"row", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                  <View style={{}}></View>
                     <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/9.jpg' }}></Image>
                   </TouchableOpacity>
                   <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
@@ -282,8 +290,14 @@ export default class Store extends Component {
               </View>
               <View style={styles.old}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                  <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
-                  <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>上新好物</Text>
+                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                            <View style={{ marginLeft: 10 }}>
+                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
+                                                <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
+                                            </View>
+                  {/* <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View> */}
+
+                  {/* <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>上新好物New good things</Text> */}
                   {/* <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('NewWorks')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "65%" }}>
@@ -293,7 +307,7 @@ export default class Store extends Component {
                     color="#7cc0c0"
                   />
                 </TouchableOpacity> */}
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '64%', color: '#7cc0bf' }}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '62%', color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
@@ -404,8 +418,13 @@ export default class Store extends Component {
               </View>
               <View style={styles.limit}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                  <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View>
-                  <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>浙江老字号</Text>
+                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                            <View style={{ marginLeft: 10 }}>
+                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
+                                                <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
+                                            </View>
+                  {/* <View style={{ width: 3, height: "70%", marginLeft: "2%", backgroundColor: "#7cc0c0" }}></View> */}
+                  {/* <Text style={{ fontSize: 15, marginLeft: "2%", color: "#7cc0c0", fontWeight: "bold" }}>线下旗舰店</Text> */}
                   {/* <TouchableOpacity  activeOpacity={1}
                   onPress={() => navigation.navigate('OldBankTimer')}
                   style={{ width: width * 0.08, height: width * 0.08, marginLeft: "60%" }}>
@@ -415,7 +434,7 @@ export default class Store extends Component {
                     color="#7cc0c0"
                   />
                 </TouchableOpacity> */}
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '60%', color: '#7cc0bf' }}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '50%', color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
@@ -481,7 +500,7 @@ const styles = StyleSheet.create({
 
   },
   input: {
-    width: width * 0.70,
+    width: width * 0.80,
     height: width * 0.09,
     backgroundColor: "#fff",
     borderRadius: 20,
