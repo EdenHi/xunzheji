@@ -126,7 +126,7 @@ export default class Login extends Component {
             </TouchableOpacity>
           </View>
 
-          <View style={{width:width,height:height*0.5}}>
+          <View style={{width:width,height:height*0.5,backgroundColor:"#fff"}}>
         <LottieView style={{marginTop:-180}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
         </View>
           
