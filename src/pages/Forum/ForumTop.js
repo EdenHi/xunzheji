@@ -14,6 +14,7 @@ import {
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import CustormerBar from './CustormerBar';
 import LunTan from './Luntan';
+import Luntan_guanzhu from './Luntan_guanzhu'
 
 export default class ForumTop extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ export default class ForumTop extends Component {
   render() {
     return (
       <ScrollableTabView initialPage={1} renderTabBar={() => <CustormerBar />}>
-        <LunTan tabLabel="关注" />
+        <Luntan_guanzhu tabLabel="关注" />
         <LunTan tabLabel="推荐" />
       </ScrollableTabView>
     );
