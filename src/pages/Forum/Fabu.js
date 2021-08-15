@@ -130,7 +130,7 @@ export default class Fabu extends Component {
                         uuid: this.state.uuid,
                         fabiao_time: currentdate,
                         username: result,
-                        tag: this.state.tag,
+                        tag: this.state.tag[0],
                     }),
                 });
                 let aa = tags.length;

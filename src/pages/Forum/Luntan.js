@@ -370,7 +370,7 @@ onShare = async () => {
                                            </View>
 
                                         {/* tag标签 */}
-                                       <TouchableOpacity style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
+                                       <TouchableOpacity style={v.tag ==='' ||v.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
@@ -490,7 +490,7 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <TouchableOpacity style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
+                                       <TouchableOpacity style={v.tag ==='' || v.tag === null?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </TouchableOpacity>
