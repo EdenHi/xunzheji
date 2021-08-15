@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-    Text,View,
-    AppRegistry,StyleSheet
+    Text, View,
+    AppRegistry, StyleSheet
 } from 'react-native';
 import { WebView } from 'react-native-webview';
 
@@ -16,7 +16,7 @@ export default class Clothes extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
 
     }
 
@@ -25,8 +25,8 @@ export default class Clothes extends Component {
         return (
             <View style={styles.div}>
                 <WebView
-                      style={styles.webView1}
-                      source={{uri: 'file:///android_asset/clothes/index.html'}}
+                    style={styles.webView1}
+                    source={{ uri: 'file:///android_asset/clothes/index.html' }}
                 />
             </View>
         );
@@ -34,18 +34,17 @@ export default class Clothes extends Component {
 };
 const styles = StyleSheet.create({
 
-    div:{
-        flex:1,
-        flexDirection:'row',
-        backgroundColor:"#F5F5F5"
+    div: {
+        flex: 1,
+        flexDirection: 'row',
+        backgroundColor: "#F5F5F5"
     },
-    webView1:{
-        backgroundColor:'#000001',
+    webView1: {
+        backgroundColor: '#000001',
 
-        flex:1,
-        width:'100%',
-        height:'100%',
+        flex: 1,
+        width: '100%',
+        height: '100%',
     },
 
 });
-AppRegistry.registerComponent('Index', () => Index);

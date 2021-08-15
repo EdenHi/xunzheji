@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   FlatList,
   DeviceEventEmitter,
-  AsyncStorage
+  AsyncStorage,
+  ToastAndroid
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
@@ -86,6 +87,7 @@ export default class goods2 extends Component {
           })
       })
       this.get_shuju();
+      ToastAndroid.showWithGravity('删除成功',2000,ToastAndroid.CENTER)
   }
 
   renderDate({item,index}){
@@ -108,7 +110,7 @@ export default class goods2 extends Component {
             <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.wupin}</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>想换什么：</Text>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchange_wupin}</Text>
+            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchang_wupin}</Text>
           </View>
         </ImageBackground>
         <AntDesign

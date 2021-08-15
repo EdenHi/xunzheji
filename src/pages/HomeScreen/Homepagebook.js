@@ -56,7 +56,8 @@ export default class Homepagebook extends Component {
 
 
     _openModalWin(index) {
-        if (index == 0) {
+        console.log('1:',index)
+        if (index == 3) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -69,7 +70,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 1) {
+        }else if (index == 4) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -82,7 +83,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 2) {
+        }else if (index == 5) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -95,7 +96,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 3) {
+        }else if (index == 6) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -108,7 +109,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 4) {
+        }else if (index == 7) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -226,7 +227,7 @@ export default class Homepagebook extends Component {
                 </View> */}
 
                 <View style={{ justifyContent: "center", justifyContent: "space-around", borderWidth: 1, width: width * 0.35, height: width * 0.4, borderRadius: 10, borderColor: "#7cc0c0", marginLeft: 5 }}>
-                    <TouchableOpacity activeOpacity={1} onPress={() => this._openModalWin(index)} >
+                    <TouchableOpacity onPress={() => {this._openModalWin(index)}} >
                         <View style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
                             <Entypo style={{ marginLeft: 10 }} color='#7cc0c0' name='user' size={25} />
                             <Text style={{ fontSize: 13, color: '#7cc0c0', marginLeft: 10 }}>了解作者</Text>
@@ -258,7 +259,6 @@ export default class Homepagebook extends Component {
                     <Carousel
                         autoplay={true}
                         swiper={true}
-                        loop={true}
                         ref={(c) => { this._carousel = c; }}
                         data={this.state.entries}
                         inactiveSlideScale={0.8}

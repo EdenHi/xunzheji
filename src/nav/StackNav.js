@@ -71,6 +71,7 @@ import {
   duihuan_jinbi,
   Story,
   Story2,
+  huati,
   culture,
   ClothesMade,
   musicPlayer,
@@ -161,6 +162,7 @@ export default function StackNav() {
       <Stack.Screen name="zhifu_cart" component={zhifu_cart} />
       <Stack.Screen name="JiFen" component={JiFen} />
       <Stack.Screen name="duihuan_jinbi" component={duihuan_jinbi} />
+      <Stack.Screen name="huati" component={huati} />
 
       <Stack.Screen name="culture" component={culture} />
       <Stack.Screen name="ClothesMade" component={ClothesMade} />

@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text, TouchableOpacity,Image,Dimensions ,AsyncStorage, TextInput,DeviceEventEmitter} from 'react-native';
+import {View,Text, TouchableOpacity,Image,Dimensions ,AsyncStorage, TextInput,DeviceEventEmitter, ScrollView} from 'react-native';
 import ImagePicker from 'react-native-image-crop-picker';
 import {NavigationContext} from '@react-navigation/native';
 import {Overlay,ListItem} from 'react-native-elements';
@@ -221,6 +221,8 @@ export default class app1 extends Component {
                 });
     }
 
+    componentDidMount(){}
+
     render() {
         const {data,portrait,nickname,shownickname,phone,area,signature,sex,birthday,showsignature,showphone,backpic} = this.state;
         console.log('test',this.props.route.params);
@@ -242,6 +244,7 @@ export default class app1 extends Component {
               <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>编辑资料</Text>
 
             </View> 
+
                 {/* 修改头像 */}
                 <View style={{alignItems:'center',marginTop:width * 0.1}}>
                     <TouchableOpacity activeOpacity={1} style={{borderRadius:50,height:width * 0.3,width:width * 0.3}}
@@ -392,7 +395,7 @@ export default class app1 extends Component {
                                 <ListItem.Content>
                                     <ListItem.Title style={{fontSize:15}}>个性签名</ListItem.Title>
                                 </ListItem.Content>
-                                <ListItem.Subtitle style={{fontSize:15}}>{signature}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={{fontSize:15,width:width*0.5}} numberOfLines={1}>{signature}</ListItem.Subtitle>
                                 <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改个签结束 */}
@@ -408,8 +411,8 @@ export default class app1 extends Component {
                                 <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改背景结束 */}
+
                 </View>
-           
             </View>
         );
     }

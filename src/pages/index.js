@@ -2,6 +2,7 @@ export { default as Home } from './HomeScreen/HOME/Home';//首页
 export { default as My } from './MyScreen/My';
 export { default as Tour } from './Tour/index.js';
 export { default as Forum } from './Forum/Luntan.js';//论坛列表
+export { default as huati } from './Forum/huati.js';//论坛列表
 export { default as Comment } from './Forum/comment.js';//论坛内容
 export { default as Comment_huifu } from './Forum/comment_huifu.js';//论坛回复
 export { default as Fabu } from './Forum/Fabu.js';//论坛发布动态

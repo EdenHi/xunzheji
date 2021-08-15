@@ -308,6 +308,7 @@ export default class Store extends Component {
   }
 
 
+
   renderDate2({item,index}){
     return(
         <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,marginRight:10,marginBottom:width*0.05,elevation:5}} activeOpacity={1}
@@ -365,7 +366,7 @@ export default class Store extends Component {
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
+                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats',{room:'1'}), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
                     <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="customerservice"
                       size={35}
