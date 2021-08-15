@@ -15,7 +15,7 @@ const Button = require('../../node_modules/react-native-scrollable-tab-view/Butt
 
 const WINDOW_WIDTH = Dimensions.get('window').width;
 
-const ScrollableTabBar = createReactClass({
+const scrollableTabBar = createReactClass({
   propTypes: {
     goToPage: PropTypes.func,
     activeTab: PropTypes.number,
@@ -216,7 +216,7 @@ const ScrollableTabBar = createReactClass({
   },
 });
 
-module.exports = ScrollableTabBar;
+module.exports = scrollableTabBar;
 
 const styles = StyleSheet.create({
   tab: {

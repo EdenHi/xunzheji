@@ -288,6 +288,7 @@ export default class Comment extends React.Component {
 
     go_luntan(){
         DeviceEventEmitter.emit('shuaxin',1);
+        DeviceEventEmitter.emit('myfabu',1)
         this.props.navigation.goBack();
     }
     render () {

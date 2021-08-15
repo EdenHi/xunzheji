@@ -11,6 +11,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
+
+
 const Tab = createMaterialTopTabNavigator();
 
 export default function MyRoute2() {
