@@ -204,9 +204,9 @@ export default class JiFen extends Component {
                                         <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 6 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                     <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
-                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{data.qiandao % 7 >= 1 ? '已签到' : '第七天 '}</Text>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{data.qiandao % 7 == 0 ? '已签到' : '第七天 签到赢礼包'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView source={data.qiandao / 7 == 0 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={data.qiandao % 7 == 0 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
                                         <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={data.qiandao / 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
