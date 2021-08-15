@@ -71,7 +71,7 @@ export default class Login extends Component {
          <LinearGradient style={{width:width,height:height,}} colors={['#7cc0bf', '#fff',  '#fff', '#fff']} >
            <View style={{width:width,height:height*0.3}}>
            <LottieView source={require('../../../animal/circle.json')} autoPlay loop progress={this.state.progress} />
-           <Image style={{width:width*0.22,height:width*0.22,marginLeft:width*0.39,marginTop:height*0.09}} source={require("../img/xun.png")}></Image>
+           <Image style={{width:width*0.22,height:width*0.22,marginLeft:width*0.39,marginTop:height*0.1}} source={require("../img/xun.png")}></Image>
            </View>
         <View style={{width:width,height:height*0.7,backgroundColor:"#fff",elevation:10,borderTopLeftRadius:50,borderTopRightRadius:50}}>
         <View style={{ marginTop:height*0.05}}>
