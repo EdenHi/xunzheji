@@ -7,12 +7,13 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
 import Entypo from 'react-native-vector-icons/Entypo'
 import LinearGradient from 'react-native-linear-gradient'
-
+import {NavigationContext} from '@react-navigation/native';
 
 const { width, height } = Dimensions.get("window")
 
 
 export default class Homepagebook extends Component {
+    static contextType = NavigationContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -128,39 +129,6 @@ export default class Homepagebook extends Component {
     }
 
     _openModalWin2(index) {
-        if (index == 0) {
-            this.setState({
-                modalVisible2: true,
-                data2: [
-                    {
-                        title: '内容简介：',
-                        connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
-                    }
-                ]
-            })
-        }
-        if (index == 1) {
-            this.setState({
-                modalVisible2: true,
-                data2: [
-                    {
-                        title: '内容简介：',
-                        connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
-                    }
-                ]
-            })
-        }
-        if (index == 2) {
-            this.setState({
-                modalVisible2: true,
-                data2: [
-                    {
-                        title: '内容简介：',
-                        connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
-                    }
-                ]
-            })
-        }
         if (index == 3) {
             this.setState({
                 modalVisible2: true,
@@ -173,6 +141,39 @@ export default class Homepagebook extends Component {
             })
         }
         if (index == 4) {
+            this.setState({
+                modalVisible2: true,
+                data2: [
+                    {
+                        title: '内容简介：',
+                        connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
+                    }
+                ]
+            })
+        }
+        if (index == 5) {
+            this.setState({
+                modalVisible2: true,
+                data2: [
+                    {
+                        title: '内容简介：',
+                        connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
+                    }
+                ]
+            })
+        }
+        if (index == 6) {
+            this.setState({
+                modalVisible2: true,
+                data2: [
+                    {
+                        title: '内容简介：',
+                        connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
+                    }
+                ]
+            })
+        }
+        if (index == 7) {
             this.setState({
                 modalVisible2: true,
                 data2: [
@@ -214,7 +215,7 @@ export default class Homepagebook extends Component {
 
         return (
             <View style={{ flexDirection: "row", marginLeft: -20, backgroundColor: "#fff", elevation: 5, borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:"#7cc0c0" }} >
-                <TouchableOpacity onPress={() => this.page(index)}>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.page(index)}>
                     <ImageBackground borderRadius={10} style={{ width: width * 0.35, height: width * 0.4, marginLeft: 10 }} resizeMode="stretch" source={{ uri: item.img }}>
                         <Text style={{ flexWrap: "wrap", width: 15, marginLeft: 10, fontWeight: "bold", marginTop: 10 }}>{item.title}</Text>
                     </ImageBackground>
@@ -232,23 +233,21 @@ export default class Homepagebook extends Component {
                             <Text style={{ fontSize: 13, color: '#7cc0c0', marginLeft: 10 }}>了解作者</Text>
                         </View>
                     </TouchableOpacity>
-
-
-                    <TouchableOpacity onPress={() => this._openModalWin2(index)}>
+                    <TouchableOpacity activeOpacity={1} onPress={() => this._openModalWin2(index)}>
                         <View style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
                             <FontAwesome style={{ marginLeft: 10 }} name='bars' color='#7cc0c0' size={25} />
                             <Text style={{ fontSize: 13, color: '#7cc0c0', marginLeft: 10 }}>查看简介</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity activeOpacity={1}
+                   onPress={() => this.context.navigate('musicPlayer')}
+                     >
                         <View style={{ marginBottom: 10, marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
                             <SimpleLineIcons style={{ marginLeft: 10 }} name='earphones' color='#7cc0c0' size={25} />
                             <Text style={{ fontSize: 13, color: '#7cc0c0', marginLeft: 10 }}>聆听书籍</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
-
-
             </View>
         );
     }
@@ -273,11 +272,10 @@ export default class Homepagebook extends Component {
                     animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
                     transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
                     visible={this.state.modalVisible} // 是否显示 modal 窗口
-
                     onRequestClose={() => { this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
                 // onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
                 >
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={1}
                         style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: 'rgba(0,0,0,0.5)', }}
                         onPress={this._closeModalWin}
                     >
@@ -301,7 +299,7 @@ export default class Homepagebook extends Component {
                     onRequestClose={() => { this._closeModalWin2(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
                 // onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
                 >
-                    <TouchableOpacity
+                    <TouchableOpacity activeOpacity={1}
                         style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: 'rgba(0,0,0,0.5)', }}
                         onPress={this._closeModalWin2}
                     >
