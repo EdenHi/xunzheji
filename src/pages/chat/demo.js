@@ -352,7 +352,7 @@ export default class chat extends Component {
                     renderInputToolbar={this.renderInputToolbar}
                     renderActions={this.renderActions}
                 
-                    
+
                 />
 
             </View>
