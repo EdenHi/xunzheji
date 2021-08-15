@@ -256,7 +256,7 @@ export default class My extends Component {
             onScroll={(e) => {
               console.log('e', e.nativeEvent.contentOffset.y);
               console.log('isScro', isScroll)
-              if (e.nativeEvent.contentOffset.y >= 195 && e.nativeEvent.contentOffset.y <= 199) {
+              if (e.nativeEvent.contentOffset.y >= 244 && e.nativeEvent.contentOffset.y <= 251) {
                 this.setState({
                   isScroll: false,
                 });
