@@ -298,6 +298,7 @@ export default class Store extends Component {
   }
 
 
+
   renderDate2({item,index}){
     return(
         <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,marginRight:10,marginBottom:width*0.05,elevation:5}} activeOpacity={1}

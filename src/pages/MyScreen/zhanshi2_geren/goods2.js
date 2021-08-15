@@ -108,7 +108,7 @@ export default class goods2 extends Component {
             <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.wupin}</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>想换什么：</Text>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchange_wupin}</Text>
+            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchang_wupin}</Text>
           </View>
         </ImageBackground>
         <AntDesign
