@@ -17,7 +17,8 @@ export default class JiFen extends Component {
             progress: new Animated.Value(0),
             modalVisible: false,
             modalVisible2: false,
-            data: []
+            data: [],
+            click:false
         }
     }
 
@@ -39,7 +40,7 @@ export default class JiFen extends Component {
     }
 
     _openModalWin2 = () => {
-        this.setState({ modalVisible2: true });
+        this.setState({ modalVisible2: true,click:true });
         this.qiandao()
     }
     _closeModalWin2 = () => {
@@ -161,60 +162,60 @@ export default class JiFen extends Component {
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 1 ? '已签到' : '第1天'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView  source={(data.qiandao + 7) % 7 >= 1 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 1 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={ (data.qiandao + 7) % 7 >= 1 ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 1 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 2 ? '已签到' : '第2天'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView  source={(data.qiandao + 7) % 7 >= 2 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 2 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={ (data.qiandao + 7) % 7 >= 2 ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 2 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 3 ? '已签到' : '第3天'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView  source={(data.qiandao + 7) % 7 >= 3 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 3 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={ (data.qiandao + 7) % 7 >= 3 ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 3 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 4 ? '已签到' : '第4天'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView  source={(data.qiandao + 7) % 7 >= 4 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 4 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={ (data.qiandao + 7) % 7 >= 4 ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 4 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                 </View>
                                 <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 10 }}>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 5 ? '已签到' : '第5天'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView  source={(data.qiandao + 7) % 7 >= 5 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 5 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={(data.qiandao + 7) % 7 >= 5 ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 5 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                     <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 6 ? '已签到' : '第6天'}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
                                             <LottieView source={(data.qiandao + 7) % 7 >= 6 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={ (data.qiandao + 7) % 7 >= 6 ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 6 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                     <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
                                         <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{data.qiandao % 7 >= 1 ? '已签到' : '第七天 '}</Text>
                                         <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
-                                            <LottieView source={data.qiandao / 7 == 0  ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                            <LottieView source={data.qiandao / 7 == 0 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
                                         </View>
-                                        <Image style={{ width: width * 0.15, height: height * 0.07,marginTop:-73}} source={ data.qiandao/ 7 == 0  ? {uri:''} : require("../../HomeScreen/photos/wei.png") } />
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={data.qiandao / 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                     </View>
                                 </View>
 
 
                                 <TouchableOpacity style={{ width: width * 0.8, height: 45, borderRadius: 25, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.025, marginTop: 20 }}
-                                    onPress={() => this._openModalWin2()}     >
-                                    <Text style={{ fontSize: 20, color: "#fff" }}>立即签到</Text>
+                                    onPress={() => {this.state.click === false?this._openModalWin2():{}}}  activeOpacity={this.state.click===false?0.8:1}   >
+                                    <Text style={{ fontSize: 20, color: "#fff" }}>{this.state.click===false?'立即签到':'已签到'}</Text>
                                 </TouchableOpacity>
 
                                 <Modal
