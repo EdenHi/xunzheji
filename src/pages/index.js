@@ -72,4 +72,5 @@ export { default as duihuan_jinbi } from "./HomeScreen/duihuan_jinbi/duihuan_jin
 export { default as JiFen } from "./HomeScreen/HOME/JiFen"
 export { default as culture } from "./Shop/culture.js"
 export { default as ClothesMade } from './Shop/ClothesMade.js'
+export { default as musicPlayer } from './HomeScreen/Read/musicPlayer'
 
