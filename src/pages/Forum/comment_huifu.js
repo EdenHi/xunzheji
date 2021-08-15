@@ -61,7 +61,7 @@ export default class comment_huifu extends Component {
                 'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                id: this.state.data.id,
+                id: this.props.route.params.id,
             })
         })
            .then((response) => response.json())
@@ -123,9 +123,12 @@ export default class comment_huifu extends Component {
                 username:this.state.username,
                 date_huifu:currentdate,
               }),
-        });
-        this.go_select();
-        this.get_comment();
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            this.get_comment();
+            this.go_select();
+        }) 
     }
     render() {
         const {data,huifu} = this.state;
