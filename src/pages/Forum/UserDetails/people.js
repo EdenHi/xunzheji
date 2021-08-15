@@ -218,22 +218,20 @@ dianji_anniu(){
                     </View>
                     <View style={{width:'100%',height:'15%',alignItems:'center',flexDirection:'row'}}>
                         <Text style={{marginLeft:'10%',fontSize:15}}>{data.nickname}</Text>
-                        <View style={{width:'15%',height:'50%',alignItems:'center',justifyContent:'center',marginLeft:'5%',borderRadius:10,backgroundColor:'#7cc0c0'}}>
-                            <Text style={{fontSize:12}}>Lv1</Text>
-                        </View>
+
                     </View>
                     <View style={{width:'100%',height:'10%',justifyContent:'center'}}>
                         <Text style={{marginLeft:'10%',fontSize:13}}>{data.signature === '' ? '暂无个性签名' : data.signature }</Text>
                     </View>
                     <View style={{width:'100%',height:'15%',flexDirection:'row',alignItems:'center'}}>
-                     <View style={{width:'7%',height:'80%',alignItems:'center',justifyContent:'center',backgroundColor:'#f1f1f1',marginLeft:'10%',borderRadius:5}} />
+                     <View style={{width:'0%',height:'80%',alignItems:'center',justifyContent:'center',backgroundColor:'#fff',marginLeft:'10%',borderRadius:5}} />
                      <View style={{height:'80%',justifyContent:'center',backgroundColor:'#f1f1f1',marginLeft:'2%',borderRadius:5}}>
                          <Text style={{fontSize:13,margin:3}}>{data.area}</Text>
                      </View>
                     </View>
                     <View style={{width:'100%',height:'30%',marginTop:'5%',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
                         <View style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}>
-                            <Text style={{fontSize:25}}>101</Text>
+                            <Text style={{fontSize:25}}>101 </Text>
                             <Text style={{fontSize:15}}>获赞</Text>
                         </View>
                         <TouchableOpacity style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}

@@ -17,7 +17,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   RefreshControl,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -53,6 +54,7 @@ export default class Comment extends React.Component {
             isLoding:false,
             isVisible:false,
             counts:this.props.route.params.counts,
+            heart:false
         };
     }
     //底部弹窗
@@ -157,12 +159,15 @@ export default class Comment extends React.Component {
             body: JSON.stringify({
                 comment_id: this.state.data.title_id,
                 content:this.state.content,
-                username:this.state.username,
+                username:this.state.denglu_username,
                 date_zhu:currentdate,
                 }),
-        })
-        this.go_select();
-        this.get_One();
+        }) .then((response) => response.json())
+        .then((responseJson) => {
+            this.go_select();
+            this.get_One();
+        }) 
+
     }
 
     //渲染图片
@@ -224,14 +229,9 @@ export default class Comment extends React.Component {
             }) .catch((error) => {
                 console.error('error',error);
               });
-              AsyncStorage.getItem('username',(error,result)=>{
-                if (!error) {
-                    this.setState({
-                        username:result,
-                    });
-                }
-            });
     }
+
+
     //获取评论信息
     componentDidMount(){
         AsyncStorage.getItem('username',(err,resule)=>{
@@ -295,210 +295,9 @@ export default class Comment extends React.Component {
         const {data,comment_zhu,username} = this.state;
         console.log('data',data);
         console.log('comment_zhu',comment_zhu);
+        console.log('heart',this.state.heart);
         const {modalVisible,imgUrls,currentIndex} = this.state;
         if(data.username === username){
-        if (data.title === ''){
-            return (
-                <View style={{flex:1}}>
-                 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
-              <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
-              </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
-
-            </View> 
-                <ScrollView 
-                 refreshControl={
-                    <RefreshControl
-                        refreshing = {this.state.isLoding} //设置是否在刷新
-                        onRefresh = {this.loding.bind(this)} //下拉刷新结束}
-                    />
-                }>
-                    <BottomSheet
-                    isVisible={this.state.isVisible}
-                    containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}
-                    >
-                    {this.list.map((l, i) => (
-                        <ListItem key={i} containerStyle={l.containerStyle} onPress={l.onPress}>
-                        <ListItem.Content style={{justifyContent:'center',alignItems:'center'}}>
-                            <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
-                        </ListItem.Content>
-                        </ListItem>
-                    ))}
-                    </BottomSheet>
-                    <View style={{backgroundColor:'white'}}>
-                        <View style={{width:width * 0.9,marginLeft:width*0.05}}>
-                            <View style={{flexDirection:'row',marginTop:15,justifyContent:'space-between'}}>
-                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                    <TouchableOpacity activeOpacity={1}>
-                                        <Image source={{uri:data.portrait}} style={styles.touxiang}/>
-                                    </TouchableOpacity>
-                                    <View style={{marginLeft:10}}>
-                                        <Text style={styles.name}>{data.nickname}</Text>  
-                                        <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
-                                    </View>
-                                </View>
-                                <TouchableOpacity onPress={()=>this.setState({isVisible:true})}>
-                                    <Text style={{color:'#ccc'}}>∨</Text>
-                                </TouchableOpacity>     
-                            </View>
-                            <View style={styles.box}>
-                                <FlatList
-                                contentContainerStyle={styles.listViewStyle}
-                                keyExtractor={(item, index) => (index + '1')}
-                                data = {data.pic}
-                                renderItem = {this.renderData.bind(this)}/>
-                            </View>
-
-                                 {/* tag标签 */}
-                                 <View style={data.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
-                                       </View>
-
-                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                <TouchableOpacity activeOpacity={1}>
-                                    <View style={{flexDirection:'row'}}>
-                                        <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
-                                            <Ionicons
-                                            name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
-                                            size={20}
-                                            color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
-                                            />
-                                        </TouchableOpacity> 
-                                        <Text style={{marginLeft:5}}>{data.dianzan}</Text>
-                                    </View>
-                                </TouchableOpacity>
-                                <View style={{flexDirection:'row'}}>
-                                    <Ionicons
-                                    name="chatbubble-ellipses-outline"
-                                    size={15}
-                                    color="black"/>
-                                    <Text style={{marginLeft:5}}>{data.counts}</Text>
-                                </View>
-
-                                <TouchableOpacity activeOpacity={1}>
-                                    <View style={{flexDirection:'row'}}>
-                                        <Ionicons
-                                        name="arrow-redo-outline"
-                                        size={15}
-                                        color="black"/>
-                                    </View>
-                                </TouchableOpacity>
-                            </View>
-                    </View>
-                </View>
-                {/* 放大图片的遮罩层 */}
-                <Modal animationType={'slide'}
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => { this.setState({modalVisible:false});}}>
-                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
-            </Modal>
-                {/* 评论的渲染 */}
-                <View style={{marginTop:10}}>
-                {
-                    comment_zhu.map((v,k)=>{
-                        if (v.counts > 0 ){
-                            return (
-                                <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
-                                <View key={k} style={{backgroundColor:'#fff',borderRadius:15}}>
-                                <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
-                                        <TouchableOpacity activeOpacity={1}>
-                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                        </TouchableOpacity>
-                                        <View style={{marginLeft:10,width:width * 0.8}}>
-                                            <Text style={styles.name}>{v.nickname}</Text>
-                                            <Text>{v.content}</Text>
-                                            <TouchableOpacity activeOpacity={1} onPress={()=>this.goComment(v)}
-                                            style={{marginTop:5,width:width * 0.6,backgroundColor:'#eee',height:width * 0.08,justifyContent:'center',borderRadius:15}}>
-                                                <Text style={{color:'skyblue',paddingLeft:10}}>{'共' + v.counts + '条回复'}</Text>
-                                            </TouchableOpacity>
-                                            <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
-                                                <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <Ionicons
-                                                        name="heart-outline"
-                                                        size={15}
-                                                        color="black"/>
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
-                                                        <Ionicons
-                                                        name="chatbubble-ellipses-outline"
-                                                        size={15}
-                                                        color="black"/>
-                                                    </TouchableOpacity>
-                                                </View>
-                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
-                                            </View>
-                                        </View>
-                                    </View>
-                                </View>
-                                </View>
-                            );
-                        } else {
-                            return (
-                                <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
-                                <View key={k} >
-                                    <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
-                                        <TouchableOpacity activeOpacity={1}>
-                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                        </TouchableOpacity>
-                                        <View style={{marginLeft:10,width:width * 0.8}}>
-                                            <Text style={styles.name}>{v.nickname}</Text>
-                                            <Text>{v.content}</Text>
-                                            <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
-                                                <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity activeOpacity={1}>
-                                                            <Ionicons
-                                                            name="heart-outline"
-                                                            size={15}
-                                                            color="black"/>
-                                                        </TouchableOpacity>
-                                                        <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
-                                                        onPress={()=>this.goComment(v)}>
-                                                            <Ionicons
-                                                            name="chatbubble-ellipses-outline"
-                                                            size={15}
-                                                            color="black"/>
-                                                        </TouchableOpacity>
-                                                </View>
-                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
-                                            </View>
-                                        </View>
-                                    </View>
-                                </View>
-                                </View>
-                            );
-                        }
-                    })
-                }
-                </View>
-                </ScrollView>
-                <View style={styles.box3}>
-                    <TextInput
-                        placeholder="我要评论..."
-                        style={styles.txt2}
-                        multiline = {true}
-                        clearTextOnFocus={true}
-                        onChangeText={(content)=>this.setState({content})}
-                        ref={input => { this.textInput = input }} 
-                    />
-                        
-                    <TouchableOpacity
-                    activeOpacity={1}
-                    onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
-                    style={{marginLeft:width * 0.05,backgroundColor:'#7cc0c0',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
-                        <FontAwesome
-                        name="send-o"
-                        color="#fff"
-                        size={20}/>
-                    </TouchableOpacity>
-                </View>
-
-
-            </View>
-            );
-        } else {
         return (
             <View style={{flex:1}}>
                  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
@@ -543,7 +342,7 @@ export default class Comment extends React.Component {
                                     <Text style={{color:'#ccc'}}>∨</Text>
                                 </TouchableOpacity>     
                             </View>
-                            <Text style={styles.txt}
+                            <Text style={data.title===''?{height:0}:styles.txt}
                             ellipsizeMode="tail"
                             numberOfLines={8}>{data.title}</Text>
                             <View style={styles.box}>
@@ -619,12 +418,12 @@ export default class Comment extends React.Component {
                                             </TouchableOpacity>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <Ionicons
-                                                        name="heart-outline"
-                                                        size={15}
-                                                        color="black"/>
-                                                    </TouchableOpacity>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                            <Ionicons
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            size={15}
+                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                        </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                         <Ionicons
                                                         name="chatbubble-ellipses-outline"
@@ -652,14 +451,14 @@ export default class Comment extends React.Component {
                                             <Text>{v.content}</Text>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity activeOpacity={1}>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
                                                             <Ionicons
-                                                            name="heart-outline"
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color="black"/>
+                                                            color={this.state.heart === false ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
-                                                        onPress={()=>this.goComment(v)}>
+                                                        onPress={()=>this.goComment(v)} >
                                                             <Ionicons
                                                             name="chatbubble-ellipses-outline"
                                                             size={15}
@@ -702,195 +501,8 @@ export default class Comment extends React.Component {
 
             </View>
         );
-            }
+            
         } else {
-            if (data.title === ''){
-                return (
-                    <View style={{flex:1}}>
-                     <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
-                  <TouchableOpacity activeOpacity={1} style={{ }}>
-                      <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
-                  </TouchableOpacity>
-                  <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
-    
-                </View> 
-                    <ScrollView 
-                     refreshControl={
-                        <RefreshControl
-                            refreshing = {this.state.isLoding} //设置是否在刷新
-                            onRefresh = {this.loding.bind(this)} //下拉刷新结束}
-                        />
-                    }>
-                        <View style={{backgroundColor:'white'}}>
-                            <View style={{width:width * 0.9,marginLeft:width*0.05}}>
-                                <View style={{flexDirection:'row',alignItems:'flex-end',marginTop:15}}>
-                                    <TouchableOpacity activeOpacity={1}>
-                                        <Image source={{uri:data.portrait}} style={styles.touxiang}/>
-                                    </TouchableOpacity>
-                                    <View style={{marginLeft:10}}>
-                                        <Text style={styles.name}>{data.nickname}</Text>
-                                        <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
-                                    </View>
-                                </View>
-                                <View style={styles.box}>
-                                    <FlatList
-                                    contentContainerStyle={styles.listViewStyle}
-                                    keyExtractor={(item, index) => (index + '1')}
-                                    data = {data.pic}
-                                    renderItem = {this.renderData.bind(this)}/>
-                                </View>
-
-                                        {/* tag标签 */}
-                                       <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{data.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
-                                       </View>
-
-                                <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                        <TouchableOpacity activeOpacity={1}>
-                                            <View style={{flexDirection:'row'}}>
-                                                <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
-                                                    <Ionicons
-                                                    name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
-                                                    size={20}
-                                                    color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
-                                                    />
-                                                </TouchableOpacity> 
-                                                <Text style={{marginLeft:5}}>{data.dianzan}</Text>
-                                            </View>
-                                        </TouchableOpacity>
-                                    <View style={{flexDirection:'row'}}>
-                                        <Ionicons
-                                        name="chatbubble-ellipses-outline"
-                                        size={15}
-                                        color="black"/>
-                                        <Text style={{marginLeft:5}}>{data.counts}</Text>
-                                    </View>
-    
-                                    <TouchableOpacity activeOpacity={1}>
-                                        <View style={{flexDirection:'row'}}>
-                                            <Ionicons
-                                            name="arrow-redo-outline"
-                                            size={15}
-                                            color="black"/>
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                        </View>
-                    </View>
-                    {/* 放大图片的遮罩层 */}
-                    <Modal animationType={'slide'}
-                    transparent={true}
-                    visible={modalVisible}
-                    onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
-                </Modal>
-                    {/* 评论的渲染 */}
-                    <View style={{marginTop:10}}>
-                    {
-                        comment_zhu.map((v,k)=>{
-                            if (v.counts > 0 ){
-                                return (
-                                    <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
-                                    <View key={k} style={{backgroundColor:'#fff',borderRadius:15}}>
-                                    <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
-                                            <TouchableOpacity activeOpacity={1}>
-                                                <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                            </TouchableOpacity>
-                                            <View style={{marginLeft:10,width:width * 0.8}}>
-                                                <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text>{v.content}</Text>
-                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.goComment(v)}
-                                                style={{marginTop:5,width:width * 0.6,backgroundColor:'#eee',height:width * 0.08,justifyContent:'center',borderRadius:15}}>
-                                                    <Text style={{color:'skyblue',paddingLeft:10}}>{'共' + v.counts + '条回复'}</Text>
-                                                </TouchableOpacity>
-                                                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
-                                                    <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity activeOpacity={1}>
-                                                            <Ionicons
-                                                            name="heart-outline"
-                                                            size={15}
-                                                            color="black"/>
-                                                        </TouchableOpacity>
-                                                        <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
-                                                            <Ionicons
-                                                            name="chatbubble-ellipses-outline"
-                                                            size={15}
-                                                            color="black"/>
-                                                        </TouchableOpacity>
-                                                    </View>
-                                                    <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
-                                                </View>
-                                            </View>
-                                        </View>
-                                    </View>
-                                    </View>
-                                );
-                            } else {
-                                return (
-                                    <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
-                                    <View key={k} >
-                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
-                                            <TouchableOpacity activeOpacity={1}>
-                                                <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                            </TouchableOpacity>
-                                            <View style={{marginLeft:10,width:width * 0.8}}>
-                                                <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text>{v.content}</Text>
-                                                <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
-                                                    <View style={{flexDirection:'row'}}>
-                                                            <TouchableOpacity activeOpacity={1}>
-                                                                <Ionicons
-                                                                name="heart-outline"
-                                                                size={15}
-                                                                color="black"/>
-                                                            </TouchableOpacity>
-                                                            <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
-                                                            onPress={()=>this.goComment(v)}>
-                                                                <Ionicons
-                                                                name="chatbubble-ellipses-outline"
-                                                                size={15}
-                                                                color="black"/>
-                                                            </TouchableOpacity>
-                                                    </View>
-                                                    <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
-                                                </View>
-                                            </View>
-                                        </View>
-                                    </View>
-                                    </View>
-                                );
-                            }
-                        })
-                    }
-                    </View>
-                    </ScrollView>
-                    <View style={styles.box3}>
-                        <TextInput
-                            placeholder="我要评论..."
-                            style={styles.txt2}
-                            multiline = {true}
-                            clearTextOnFocus={true}
-                            onChangeText={(content)=>this.setState({content})}
-                            ref={input => { this.textInput = input }} 
-                        />
-                            
-                        <TouchableOpacity
-                        activeOpacity={1}
-                        onPress={()=>{this.pinglun(),Keyboard.dismiss(),this.textInput.clear()}}
-                        style={{marginLeft:width * 0.05,backgroundColor:'#7cc0c0',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
-                            <FontAwesome
-                            name="send-o"
-                            color="#fff"
-                            size={20}/>
-                        </TouchableOpacity>
-                    </View>
-    
-    
-                </View>
-                );
-            } else {
             return (
                 <View style={{flex:1}}>
                      <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
@@ -918,7 +530,7 @@ export default class Comment extends React.Component {
                                         <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
                                     </View>
                                 </View>
-                                <Text style={styles.txt}
+                                <Text style={data.title===''?{height:0}:styles.txt}
                                 ellipsizeMode="tail"
                                 numberOfLines={8}>{data.title}</Text>
                                 <View style={styles.box}>
@@ -998,11 +610,11 @@ export default class Comment extends React.Component {
                                                 </TouchableOpacity>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity activeOpacity={1}>
+                                                        <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
                                                             <Ionicons
-                                                            name="heart-outline"
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color="black"/>
+                                                            color={this.state.heart === false ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                             <Ionicons
@@ -1031,12 +643,12 @@ export default class Comment extends React.Component {
                                                 <Text>{v.content}</Text>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
-                                                            <TouchableOpacity activeOpacity={1}>
-                                                                <Ionicons
-                                                                name="heart-outline"
-                                                                size={15}
-                                                                color="black"/>
-                                                            </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                            <Ionicons
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            size={15}
+                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                        </TouchableOpacity>
                                                             <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
                                                             onPress={()=>this.goComment(v)}>
                                                                 <Ionicons
@@ -1081,7 +693,7 @@ export default class Comment extends React.Component {
     
                 </View>
             );
-                }
+                
         }
     }
 }

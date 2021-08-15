@@ -3,7 +3,7 @@ import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import shoucang2 from '../pages/MyScreen/zhanshi2_geren/shoucang2';
 import dianzan2 from '../pages/MyScreen/zhanshi2_geren/dianzan2';
-import Output2 from '../pages/MyScreen/zhanshi2_geren/Output2';
+import output2 from '../pages/MyScreen/zhanshi2_geren/output2';
 import goods2 from '../pages/MyScreen/zhanshi2_geren/goods2';
 import { NavigationContainer } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -26,7 +26,7 @@ export default function MyRoute2() {
     }}
     >
       <Tab.Screen
-        name="我的发布" component={Output2}
+        name="我的发布" component={output2}
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name='home' size={28} color={color} />

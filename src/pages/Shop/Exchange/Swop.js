@@ -10,7 +10,8 @@ import {
   Dimensions,
   TouchableOpacity,    
   FlatList,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  Easing,
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
@@ -32,8 +33,18 @@ export default class Swop extends Component {
     this.state = {
       imgUrl:  'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' ,
       data:[],
-      open:false
+      open:false,
+      progress: new Animated.Value(0),
     }
+  }
+  componentDidMount() {
+    Animated.timing(this.state.progress, {
+      toValue: 1,
+      duration: 3500,
+      easing: Easing.linear,
+
+    }).start();
+
   }
  
   switch = (index) => {
@@ -99,7 +110,7 @@ export default class Swop extends Component {
             <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.wupin}</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>想换什么：</Text>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchange_wupin}</Text>
+            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchang_wupin}</Text>
           </View>
         </ImageBackground>
       </View>
@@ -117,7 +128,7 @@ export default class Swop extends Component {
           <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[2] }} />
           <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
         </View>
-        <TouchableOpacity style={{flexDirection:"row",width:width*0.2,height:50,alignItems:"center",marginTop:15,marginLeft:"70%"}} >
+        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats',{room:'2'})}} style={{flexDirection:"row",width:width*0.2,height:50,alignItems:"center",marginTop:15,marginLeft:"70%"}} >
           <View style={{width:50,height:40}}><Text style={{fontWeight:"bold",fontSize:16}}>我想要</Text></View>
           <LottieView style={{width:60,height:40}} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
         </TouchableOpacity>

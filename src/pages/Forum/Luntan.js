@@ -163,218 +163,7 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
-
-                            if(k === 2){
-                                if (v.title === ''){
-                                    return (
-                                        <View>
-                                            <View style={{marginTop:"5%",width:width}}>
-                                                 <Text style={{fontWeight:'bold',marginTop:"2%",fontSize:15}}>官方推荐</Text>
-                                                 <ScrollView
-                                                 horizontal
-                                                 showsHorizontalScrollIndicator={false}
-                                                 style={{marginTop:10,marginBottom:10}}>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img2.baidu.com/it/u=3743808697,1317355772&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
-                                                                
-                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
-                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
-                                                                </LinearGradient>
-                                                                
-                                                                </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        </ImageBackground>
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground imageStyle={{borderRadius:10}} source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
-                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
-                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
-                                                                </LinearGradient>
-                                                                
-                                                                </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        </ImageBackground>
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}} style={{height:280,width:180,borderRadius:10,marginLeft:10,marginLeft:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
-                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
-                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
-                                                                </LinearGradient>
-                                                                
-                                                                </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        </ImageBackground>
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
-                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
-                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
-                                                                </LinearGradient>
-                                                                
-                                                                </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        </ImageBackground>
-                                                    </TouchableOpacity>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <ImageBackground source={{uri:'https://img1.baidu.com/it/u=2152275414,3673602278&fm=26&fmt=auto&gp=0.jpg'}}  style={{height:280,width:180,borderRadius:10,marginLeft:10}}>
-                                                            <View style={{alignItems:'center',marginTop:100}}>
-                                                            <View style={{elevation:5,borderRadius:50,height:35,width:35,justifyContent:'center',alignItems:'center'}}>
-                                                                <LinearGradient style={{width:"100%",height:"100%",alignItems:"center",borderRadius:50}} colors={["#000","#fff"]} >
-                                                                <Text style={{color:'#fff',fontSize:20,fontWeight:'bold'}}>#</Text>
-                                                                </LinearGradient>
-                                                                
-                                                                </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
-                                                                </TouchableOpacity>
-                                                            </View>
-                                                        </ImageBackground>
-                                                    </TouchableOpacity>
-                                                 </ScrollView>
-                                            </View>
-                                        <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
-                                            <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                                <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-                                                    <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                                        <TouchableOpacity
-                                                        onPress={() => {this.context.navigate('people',v.username), 
-                                                        AsyncStorage.setItem('Person',v.username,(error)=>{
-                                                            if (!error){
-                                                                console.log('Person保存成功');
-                                                            } else {
-                                                                console.log('保存失败',err);
-                                                            }
-                                                        });
-                                                    }}
-                                                        >
-                                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                                        </TouchableOpacity> 
-                                                        <View style={{marginLeft:10}}>
-                                                            <Text style={styles.name}>{v.nickname}</Text>
-                                                            <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
-                                                        </View>
-                                                    </View>
-                                                    {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
-                                                </View>
-                                            <View style={styles.box}>
-                                            <FlatList
-                                                contentContainerStyle={styles.listViewStyle}
-                                                keyExtractor={(item, index) => (index + '1')}
-                                                data = {v.pic}
-                                            renderItem={({item,index})=>{
-                                                if (item === null ){
-                                                    return ;
-                                                }  else if (v.pic.length > 1 && v.pic.length < 5){
-                                                    return (
-                                                        <View style={styles.box2}>
-                                                    <TouchableOpacity
-                                                    key = {index}
-                                                    onPress={()=>this.handleShowAlbum(k,index)}>
-                                                        <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
-                                                    </TouchableOpacity>
-                                                    </View>
-                                                    );
-                                            } else if (v.pic.length >= 5 && v.pic.length <= 9){
-                                                return (
-                                                    <View style={styles.box2}>
-                                                    <TouchableOpacity
-                                                    key = {index}
-                                                    onPress={()=>this.handleShowAlbum(k,index)}>
-                                                        <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
-                                                    </TouchableOpacity>
-                                                </View>
-                                            );
-                                        } else {
-                                            return (
-                                                <View style={styles.box2}>
-                                                    <TouchableOpacity
-                                                    key = {index}
-                                                    onPress={()=>this.handleShowAlbum(k,index)}>
-                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
-                                                    </TouchableOpacity>
-                                                </View>
-                                            );
-                                        }
-                                           }}/>
-                                           </View>
-                                           
-                                            {/* tag标签 */}
-                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
-                                           
-                                       </View>
-
-                                           <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                                <TouchableOpacity>
-                                                    <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
-                                                            <Ionicons
-                                                            name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
-                                                            size={20}
-                                                            color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
-                                                            />
-                                                        </TouchableOpacity> 
-                                                        <Text style={{marginLeft:5}}>{v.dianzan}</Text>
-                                                    </View>
-                                                </TouchableOpacity>
-                                                <TouchableOpacity onPress={()=>this.goComment(v)}>
-                                                <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="chatbubble-ellipses-outline"
-                                                    size={20}
-                                                    color="black"/>
-                                                    <Text style={{marginLeft:5}}>{v.counts}</Text>
-                                                    </View>
-                                                </TouchableOpacity>
-                                                <TouchableOpacity
-                                                 onPress={() => {
-                                                    this.onShare();
-                                                  }}
-                                                >
-                                                    <View style={{flexDirection:'row'}}>
-                                                        <Ionicons
-                                                        name="arrow-redo-outline"
-                                                        size={20}
-                                                        color="black"/>
-                                                    </View>
-                                                </TouchableOpacity>
-                                           </View>
-                                           </View>
-                                        </View>
-                                        </View>
-                                      ) 
-                                } else {
+                            if(k === 1){
                                     return (
                                         <View>
                                             <View style={{marginTop:"5%",width:width}}>
@@ -392,7 +181,7 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>圣诞COS</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
                                                                 <LinearGradient style={{width:"40%",height:"20%",alignItems:"center",justifyContent:"center",borderRadius:15,marginTop:10}} colors={["#7cc0c0","#fff"]} >
                                                                 <TouchableOpacity>
@@ -411,7 +200,7 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>猫和老鼠</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
                                                                 <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
                                                                 <Text style={{color:'#fff',fontSize:15,padding:5}}>参与 </Text>
@@ -428,9 +217,10 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>lolita</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#lolita'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
@@ -445,9 +235,10 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>新年祝福姬</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#新年祝福姬'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
@@ -462,9 +253,10 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>动漫嘉年华</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#动漫嘉年华'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
@@ -479,9 +271,10 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>漫展返图</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#漫展返图'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
@@ -496,9 +289,10 @@ onShare = async () => {
                                                                 </LinearGradient>
                                                                 
                                                                 </View>
-                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>八月你好</Text>
+                                                                <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>凉宫春日</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#凉宫春日'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
@@ -530,7 +324,7 @@ onShare = async () => {
                                                     </View>
                                                     {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                                 </View>
-                                          <Text style={styles.txt}
+                                          <Text style={v.title===''?{height:0}:styles.txt}
                                           ellipsizeMode="tail"
                                           numberOfLines={8}>{v.title}</Text>
                                           <View style={styles.box}>
@@ -576,11 +370,12 @@ onShare = async () => {
                                            </View>
 
                                         {/* tag标签 */}
-                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                       <TouchableOpacity style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
+                                       onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                            
-                                       </View>
+                                       </TouchableOpacity>
 
                                            <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                                 <TouchableOpacity>
@@ -622,123 +417,8 @@ onShare = async () => {
                                         </View>
                                         </View>
                                       );
-                                }
+                                
                             }else {
-                            if (v.title === ''){
-                                return (
-                                    <View>
-                                    
-                                    <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
-                                        <View style={{marginLeft:width * 0.05,width:width * 0.90}}>
-                                            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
-                                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
-                                                    <TouchableOpacity
-                                                    onPress={() => {this.context.navigate('people',v.username), 
-                                                    AsyncStorage.setItem('Person',v.username,(error)=>{
-                                                        if (!error){
-                                                            console.log('Person保存成功');
-                                                        } else {
-                                                            console.log('保存失败',err);
-                                                        }
-                                                    });
-                                               }}
-                                                    >
-                                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                                    </TouchableOpacity> 
-                                                    <View style={{marginLeft:10}}>
-                                                        <Text style={styles.name}>{v.nickname}</Text>
-                                                        <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
-                                                    </View>
-                                                </View>
-                                                {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
-                                            </View>
-                                        <View style={styles.box}>
-                                        <FlatList
-                                            contentContainerStyle={styles.listViewStyle}
-                                            keyExtractor={(item, index) => (index + '1')}
-                                            data = {v.pic}
-                                        renderItem={({item,index})=>{
-                                            if (item === null ){
-                                                return ;
-                                            }  else if (v.pic.length > 1 && v.pic.length < 5){
-                                                return (
-                                                    <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
-                                                </TouchableOpacity>
-                                                </View>
-                                                );
-                                        } else if (v.pic.length >= 5 && v.pic.length <= 9){
-                                            return (
-                                                <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
-                                                </TouchableOpacity>
-                                            </View>
-                                        );
-                                    } else {
-                                        return (
-                                            <View style={styles.box2}>
-                                                <TouchableOpacity
-                                                key = {index}
-                                                onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
-                                                </TouchableOpacity>
-                                            </View>
-                                        );
-                                    }
-                                       }}/>
-                                       </View>
-
-                                       {/* tag标签 */}
-                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
-                                       </View>
-
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
-                                            <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
-                                                                <Ionicons
-                                                                name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
-                                                                size={20}
-                                                                color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
-                                                                />
-                                                        </TouchableOpacity> 
-                                                    <Text style={{marginLeft:5}}>{v.dianzan}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity onPress={()=>this.goComment(v)}>
-                                            <View style={{flexDirection:'row'}}>
-                                                <Ionicons
-                                                name="chatbubble-ellipses-outline"
-                                                size={20}
-                                                color="black"/>
-                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
-                                                </View>
-                                            </TouchableOpacity>
-                                            <TouchableOpacity
-                                             onPress={() => {
-                                                this.onShare();
-                                              }}
-                                            >
-                                                <View style={{flexDirection:'row'}}>
-                                                    <Ionicons
-                                                    name="arrow-redo-outline"
-                                                    size={20}
-                                                    color="black"/>
-                                                </View>
-                                            </TouchableOpacity>
-                                       </View>
-                                       </View>
-                                    </View>
-                                    </View>
-                                  ) 
-                            } else {
                                 return (
                                     <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
                                         <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
@@ -764,7 +444,7 @@ onShare = async () => {
                                                 </View>
                                                 {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                             </View>
-                                      <Text style={styles.txt}
+                                      <Text style={v.title===''?{height:0}:styles.txt}
                                       ellipsizeMode="tail"
                                       numberOfLines={8}>{v.title}</Text>
                                       <View style={styles.box}>
@@ -810,9 +490,10 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
+                                       <TouchableOpacity style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
+                                       onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
-                                       </View>
+                                       </TouchableOpacity>
 
                                        <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                             <TouchableOpacity>
@@ -853,7 +534,7 @@ onShare = async () => {
                                        </View>
                                     </View>
                                   );
-                            }
+                            
                         } }
                        
                         )
