@@ -11,7 +11,7 @@ import {View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easin
 import {commonStyle} from './commonStyle'
 import Video from 'react-native-video'
 import {VibrancyView, BlurView} from 'react-native-blur'
-import {Icon} from './icon'
+import {Icon} from './icon/index'
 import AntDesign from "react-native-vector-icons/AntDesign";
 // import Slider from ' @react-native-community/slider';
 

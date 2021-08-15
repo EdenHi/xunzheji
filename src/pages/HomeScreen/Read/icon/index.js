@@ -1,9 +1,9 @@
 /**
  * Created by guangqiang on 2017/9/14.
  */
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import {OIcon} from './oneIconFont'
+import { OIcon } from './oneIconFont'
 import PropTypes from 'prop-types'
 const iconMap = {
   fontAwesome: FontAwesome,
@@ -13,7 +13,7 @@ const iconMap = {
 class Icon extends Component {
 
   render() {
-    const {name, size, color} = this.props
+    const { name, size, color } = this.props
     if (!name.includes('|')) {
       throw new Error('name 解析错误！')
       return null
@@ -24,7 +24,7 @@ class Icon extends Component {
     let CustomIcon = iconMap[fontlib]
     if (!CustomIcon) throw new Error('没有找到匹配的font库，请review代码！')
     return (
-      <CustomIcon name={font} size={size} color={color}/>
+      <CustomIcon name={font} size={size} color={color} />
     )
   }
 }
@@ -35,4 +35,4 @@ Icon.propTypes = {
   color: PropTypes.string.isRequired
 }
 
-export {Icon}
+export { Icon }
