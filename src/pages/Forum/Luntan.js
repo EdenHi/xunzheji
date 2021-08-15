@@ -183,10 +183,11 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>圣诞COS</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
-                                                                onPress={()=>this.context.navigate('huati',{tag:'#圣诞COS'})}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                <LinearGradient style={{width:"40%",height:"20%",alignItems:"center",justifyContent:"center",borderRadius:15,marginTop:10}} colors={["#7cc0c0","#fff"]} >
+                                                                <TouchableOpacity>
+                                                                <Text style={{color:'white',fontSize:15,textAlign:"center"}}>参 与 </Text>
                                                                 </TouchableOpacity>
+                                                                </LinearGradient>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
@@ -201,9 +202,8 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>猫和老鼠</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
-                                                                onPress={()=>this.context.navigate('huati',{tag:'#猫和老鼠'})}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+                                                                <Text style={{color:'#fff',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>
@@ -370,7 +370,7 @@ onShare = async () => {
                                            </View>
 
                                         {/* tag标签 */}
-                                       <TouchableOpacity style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
+                                       <TouchableOpacity style={v.tag ==='' ||v.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
@@ -490,7 +490,7 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <TouchableOpacity style={v.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
+                                       <TouchableOpacity style={v.tag ==='' || v.tag === null?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </TouchableOpacity>

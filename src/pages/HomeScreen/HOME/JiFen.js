@@ -1,20 +1,35 @@
 import React, { Component } from 'react'
-import { Dimensions, View, Text, TouchableOpacity, TextInput, Image, Modal, StyleSheet, Button } from 'react-native'
+import { Dimensions, View, Text, TouchableOpacity, TextInput, Image, Modal, Animated, Easing, StyleSheet, Button, TouchableWithoutFeedbackComponent } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import { ScrollView } from 'react-native-gesture-handler'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { AsyncStorage } from 'react-native'
+import LottieView from 'lottie-react-native';
+import { HeaderTitle } from 'react-navigation-stack'
 
 const { width, height } = Dimensions.get("window")
 
 export default class JiFen extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
+            progress: new Animated.Value(0),
             modalVisible: false,
-            data:[]
+            modalVisible2: false,
+            data: [],
+            click:false
         }
+    }
+
+    componentDidMount() {
+        Animated.timing(this.state.progress, {
+            toValue: 1,
+            duration: 3500,
+            easing: Easing.linear,
+
+        }).start();
+
     }
 
     _openModalWin = () => {
@@ -24,9 +39,17 @@ export default class JiFen extends Component {
         this.setState({ modalVisible: false });
     }
 
-    get_jinbi(){
-        AsyncStorage.getItem('username',(err,result)=>{
-            if(!err){
+    _openModalWin2 = () => {
+        this.setState({ modalVisible2: true,click:true });
+        this.qiandao()
+    }
+    _closeModalWin2 = () => {
+        this.setState({ modalVisible2: false });
+    }
+
+    get_jinbi() {
+        AsyncStorage.getItem('username', (err, result) => {
+            if (!err) {
                 fetch('http://8.142.11.85:3000/index/select_jinbi', {
                     method: 'POST',
                     headers: {
@@ -47,13 +70,13 @@ export default class JiFen extends Component {
         })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.get_jinbi()
     }
 
-    qiandao(){
-        AsyncStorage.getItem('username',(err,result)=>{
-            if(!err){
+    qiandao() {
+        AsyncStorage.getItem('username', (err, result) => {
+            if (!err) {
                 fetch('http://8.142.11.85:3000/index/update_jinbi', {
                     method: 'POST',
                     headers: {
@@ -70,16 +93,17 @@ export default class JiFen extends Component {
     }
 
 
+
     render() {
-        const {data} =this.state
+        const { data } = this.state
         return (
             <View>
                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05}}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }}>
                         <TouchableOpacity activeOpacity={1} >
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>                     
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>
                     </View>
                     <View style={{ height: height * 0.93 }}>
                         <ScrollView>
@@ -97,7 +121,7 @@ export default class JiFen extends Component {
                                         </View>
                                     </View>
                                     <TouchableOpacity style={{ width: width * 0.3, height: height * 0.05, borderWidth: 1, justifyContent: "center", alignItems: "center", borderRadius: 20, borderColor: "#fff", marginHorizontal: 40 }}
-                                    onPress={()=>this.props.navigation.navigate('duihuan_jinbi')}>
+                                        onPress={() => this.props.navigation.navigate('duihuan_jinbi')}>
                                         <Text style={{ fontSize: 20, color: "#fff" }}>金币兑换</Text>
                                     </TouchableOpacity>
                                 </View>
@@ -135,23 +159,93 @@ export default class JiFen extends Component {
                                     <Text style={{ fontSize: 14, color: "#808080", marginTop: 10 }}>每日签到 赢金币换豪礼</Text>
                                 </View>
                                 <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 15 }}>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={data.qiandao > 0 ?{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F02%2F04%2F02%2F599d86f47ded5_610.jpg&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631501276&t=a00f1fd2d7765c15bf62d66005571271'}:{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 1 ? '已签到' : '第1天'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 1 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 1 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 2 ? '已签到' : '第2天'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 2 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 2 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 3 ? '已签到' : '第3天'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 3 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 3 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 4 ? '已签到' : '第4天'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 4 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 4 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
                                 </View>
                                 <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 10 }}>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
-                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
-                                    <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#808080", borderRadius: 5 }}><Image style={{width:width*0.1,height:width*0.1,borderRadius:100}} source={{uri:"https://img2.baidu.com/it/u=2178633626,2868858415&fm=26&fmt=auto&gp=0.jpg"}}/></View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 5 ? '已签到' : '第5天'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 5 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 5 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
+                                    <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 6 ? '已签到' : '第6天'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={(data.qiandao + 7) % 7 >= 6 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 6 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
+                                    <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#7cc0c0", borderRadius: 5, alignItems: "center" }}>
+                                        <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{data.qiandao % 7 == 0 ? '已签到' : '第七天 签到赢礼包'}</Text>
+                                        <View style={{ width: width * 0.12, height: height * 0.12, marginTop: -18 }}>
+                                            <LottieView source={data.qiandao % 7 == 0 ? require('../../../../animal/sign2.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        </View>
+                                        <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={data.qiandao / 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
+                                    </View>
                                 </View>
+
+
                                 <TouchableOpacity style={{ width: width * 0.8, height: 45, borderRadius: 25, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.025, marginTop: 20 }}
-                                onPress={()=>this.qiandao()}>
-                                    <Text style={{ fontSize: 20, color: "#fff" }}>立即签到</Text>
+                                    onPress={() => {this.state.click === false?this._openModalWin2():{}}}  activeOpacity={this.state.click===false?0.8:1}   >
+                                    <Text style={{ fontSize: 20, color: "#fff" }}>{this.state.click===false?'立即签到':'已签到'}</Text>
                                 </TouchableOpacity>
+
+                                <Modal
+                                    animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
+                                    transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
+                                    visible={this.state.modalVisible2} // 是否显示 modal 窗口
+                                    onRequestClose={() => { this._closeModalWin2(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
+                                    onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
+                                >
+                                    <TouchableOpacity
+                                        style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: 'rgba(0,0,0,.5)', }}
+                                        onPress={this._closeModalWin2}
+                                    >
+                                        <View style={{ marginHorizontal: width * 0.05, height: height * 0.3, elevation: 5, backgroundColor: "#fff", width: width * 0.8, borderRadius: 10, alignItems: "center" }}>
+
+                                            <View style={{ width: width * 0.3, height: width * 0.3 }}>
+                                                <LottieView source={require('../../../../animal/gift.json')} autoPlay loop progress={this.state.progress} />
+                                            </View>
+
+                                            <Text style={{ marginTop: 10, fontSize: 20, fontWeight: "bold", color: "#daa520" }} >签到成功</Text>
+                                            <Text style={{ marginTop: 10, fontSize: 14 }}>恭喜你，获得6金币</Text>
+                                            <Text style={{ marginTop: 10, fontSize: 14 }}>明天签到可继续获得金币哦~</Text>
+
+
+                                        </View>
+                                    </TouchableOpacity>
+                                </Modal>
                             </View>
-                            
-                            
+
+
                             {/* 任务 */}
                             <View>
                                 <Text style={{ fontSize: 18, fontWeight: "bold", marginLeft: 10, marginBottom: 10 }}>新手任务</Text>

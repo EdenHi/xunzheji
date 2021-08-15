@@ -288,6 +288,7 @@ export default class Comment extends React.Component {
 
     go_luntan(){
         DeviceEventEmitter.emit('shuaxin',1);
+        DeviceEventEmitter.emit('myfabu',1)
         this.props.navigation.goBack();
     }
     render () {
@@ -353,7 +354,7 @@ export default class Comment extends React.Component {
                             </View>
 
                                     {/* tag标签 */}
-                                       <View style={data.tag ===''?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                       <View style={data.tag ===''||data.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
                                        </View>
 
@@ -541,13 +542,10 @@ export default class Comment extends React.Component {
                                 </View>
 
 
-                                        {/* tag标签 */}
-                                        <View style={{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{color:'orange',fontSize:20}}>#</Text>
-                                           <Text style={{marginLeft:5}}>{data.tag}</Text>
-                                           <Text style={{fontSize:20}}>{'>'}</Text>
+                                         {/* tag标签 */}
+                                       <View style={data.tag ===''||data.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
                                        </View>
-
 
                                 <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
                                     <TouchableOpacity activeOpacity={1}>
