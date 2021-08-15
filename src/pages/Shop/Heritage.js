@@ -32,7 +32,7 @@ export default class Heritage extends Component {
     render() {
               const { navigation } = this.props;
         return (
-            <View >
+            <View  >
                 <LinearGradient colors={['#7cc0c0', '#fff', '#fff']}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
@@ -43,7 +43,7 @@ export default class Heritage extends Component {
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sharealt" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>
-                    <View style={{ marginTop: -5, alignItems: "center", height: height * 0.95 }}>
+                    <View style={{ marginTop: -5, alignItems: "center", height: height * 0.91 }}>
                         <ScrollView>
                             <View style={{ alignItems: "center" }}>
                                 <View style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
@@ -103,13 +103,14 @@ export default class Heritage extends Component {
                             </View>
                         </ScrollView>
                         <View style={{ height: height*0.07, backgroundColor: "#fff", flexDirection: "row", width:width, alignItems: "center",justifyContent:"space-around" }}>
-                            <AntDesign name='customerservice' style={{  }} size={30} color='#7cc0c0' />
-                            <TouchableOpacity activeOpacity={1} style={{ width: width * 0.6, height: height*0.04,marginBottom:10, backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
+                            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Chats',{room:3})} activeOpacity={1} style={{ width: width * 0.6, height: height*0.04,marginBottom:10, backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
                                 <Text style={{ fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
                                 </TouchableOpacity>
                         </View>
                     </View>
+
                 </LinearGradient>
+
             </View>
         )
     }
