@@ -46,24 +46,34 @@ export default class Store extends Component {
       activeIndex: 0,
       carouselItems: [
         {
-          title: "Item 1",
-          text: "Text 1",
+          title: "亨达利",
+          text: "亨达利，英文名hengdali，是广州市信德箱包皮具有限公司旗下的箱包品牌，以经营、设计、生产拉杆箱、旅行包、高端女包、钱包、皮带等箱包皮具中高端产品，以最具性价比的品牌为目标，为顾客创造价值，为社会提供就业，并致力于打造中国国有皮具品牌。",
+          img: "https://img0.baidu.com/it/u=4037245012,4140780654&fm=26&fmt=auto&gp=0.jpg",
         },
         {
-          title: "Item 2",
-          text: "Text 2",
+          title: "邵芝岩",
+          text: "邵芝岩，杭州笔庄，原名粲花室，开建于清朝同治元年（1862），距今已有139年的历史。在杭州的百年老店中，笔庄是唯一精制各类毛笔和经营文房四宝的中华老字号企业。她是浙江省旅游涉外定点商场，又是自营出口的生产企业。",
+          img: "https://img0.baidu.com/it/u=1277136832,1694045219&fm=26&fmt=auto&gp=0.jpg",
         },
         {
-          title: "Item 3",
-          text: "Text 3",
+          title: "西泠印社",
+          text: "西泠印社，创建于清光绪三十年（1904年），由浙派篆刻家丁辅之、王福庵、吴隐、叶为铭等召集同人发起创建，吴昌硕为第一任社长。以“保存金石，研究印学，兼及书画”为宗旨。是海内外研究金石篆刻历史最悠久、成就最高、影响最广国际性的研究印学、书画的民间艺术团体，有“天下第一名社”之誉。",
+          img: "https://img0.baidu.com/it/u=2201631777,1359889989&fm=26&fmt=auto&gp=0.jpg",
         },
         {
-          title: "Item 4",
-          text: "Text 4",
+          title: "朱府铜艺",
+          text: "“朱府铜艺”发源于绍兴，始创于清朝同治末年1875年，距今已有近150年历史。“朱府铜艺”第一代传人，出身书香门弟的朱雨相，和他的三弟——后来名噪江南的书法才子朱庆润，挂出了“朱府义大铜铺”的牌匾。此后，朱家的铜雕技艺代代相传，享誉江南，成就了“朱府铜艺”的金字招牌。",
+          img: "https://img2.baidu.com/it/u=58945123,1870849876&fm=26&fmt=auto&gp=0.jpg",
         },
         {
-          title: "Item 5",
-          text: "Text 5",
+          title: "王星记",
+          text: "杭州是我国制扇名城，自古有“杭州雅扇”之说，南宋以来有不少制扇艺人会集杭州。1875年王星斋在杭城清河坊创建王星记扇庄（后改名王星记扇厂），迄今已有130年历史，他在选材、做工、品种等方面苦下功夫。2008年，“王星记”制扇技艺被列入国家级非物质文化遗产保护名录。",
+          img: "https://img0.baidu.com/it/u=2741521114,3468646386&fm=26&fmt=auto&gp=0.jpg",
+        },
+        {
+          title: "张小泉",
+          text: "张小泉品牌成名于1628年(明朝崇祯元年 [1]  )，是中华老字号，也是刀剪行业中唯一的中国驰名商标。2002年通过了ISO9001质量管理体系认证，同年还获得原产地注册保护。产品包括家庭用剪系列、工农业园林剪系列、服装剪系列、美容美发剪系列、旅游礼品剪系列、刀具系列等共100多个品种，400多个规格。中国国内市场覆盖率和占有率一直居同行之首，同时产品还远销东南亚，欧美等地区。张小泉在国内外享有很高的知名度和美誉度，深受消费者信赖。",
+          img: "https://img1.baidu.com/it/u=2069743543,1338079641&fm=15&fmt=auto&gp=0.jpg",
         },
       ],
       shops:[
@@ -282,10 +292,10 @@ export default class Store extends Component {
         elevation: 5,
         backgroundColor: "#fff"
       }}>
-        <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: 'http://8.142.11.85:3000/public/images/2.jpg' }} >
+        <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: item.img }} >
           <View style={{ width: "100%", height: "30%", backgroundColor: 'rgba(0,0,0,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
-            <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold", marginLeft: "5%", marginTop: "2%" }}>鱼宴馆·家宴老字号</Text>
-            <Text numberOfLines={2} ellipsizeMode='tail' style={{ fontSize: 12, color: "#fff", marginLeft: "5%", marginTop: "2%" }}>一家经典网红餐厅，浓汤鱼头是主打，据说是千岛湖野生鱼头做的，店里的菜品品种丰富多样</Text>
+            <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold", marginLeft: "5%", marginTop: "2%" }}>{item.title}</Text>
+            <Text numberOfLines={2} ellipsizeMode='tail' style={{ fontSize: 12, color: "#fff", marginLeft: "5%", marginTop: "2%" }}>{item.text}</Text>
           </View>
         </ImageBackground>
       </View>
@@ -582,7 +592,7 @@ export default class Store extends Component {
                     // layout={'tinder'} layoutCardOffset={`15`} 
                     ref={ref => this.carousel = ref}
                     data={this.state.carouselItems}
-                    sliderWidth={350}
+                    sliderWidth={400}
                     itemWidth={300}
                     renderItem={this._renderItem}
                     loop={true}

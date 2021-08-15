@@ -72,6 +72,8 @@ import {
   Story,
   Story2,
   huati,
+  culture,
+  ClothesMade
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -160,6 +162,9 @@ export default function StackNav() {
       <Stack.Screen name="JiFen" component={JiFen} />
       <Stack.Screen name="duihuan_jinbi" component={duihuan_jinbi} />
       <Stack.Screen name="huati" component={huati} />
+
+      <Stack.Screen name="culture" component={culture} />
+      <Stack.Screen name="ClothesMade" component={ClothesMade} />
     </Stack.Navigator>
   );
 }
