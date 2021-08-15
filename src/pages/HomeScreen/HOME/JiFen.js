@@ -311,14 +311,14 @@ export default class JiFen extends Component {
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20 }}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20 }}>游玩小游戏</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
                                             <Text style={{ marginLeft: 5 }}>1金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>~~~~~</Text></View>
                                     </View>
                                     <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text>去绑定</Text>
+                                        <Text onPress={()=>this.props.navigation.navigate('MatchGame')}>去游玩</Text>
                                     </View>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
