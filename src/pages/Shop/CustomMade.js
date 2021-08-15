@@ -49,7 +49,7 @@ export default class CustomMade extends React.Component {
   }
   go_papg(index) {
     if (index === 0) {
-      this.props.navigation.navigate('CulturalCreation')
+      this.props.navigation.navigate('culture')
     }
     if (index === 1) {
       this.props.navigation.navigate('dingzhi')

@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
-import {Text, View, Button} from 'react-native';
+import {Text, View, Button ,Animated,
+  Easing,} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import My from '../pages/MyScreen/My';
@@ -14,9 +15,11 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import LottieView from 'lottie-react-native';
 const Tab = createBottomTabNavigator(); //底部导航
 
 export default function BtnRoute() {
+ 
   return (
     <Tab.Navigator
       tabBarOptions={{

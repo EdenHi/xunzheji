@@ -70,4 +70,6 @@ export {default as Story2} from "./Road/story2"
 export { default as zhifu_cart } from "./Shop/zhifu_cart"
 export { default as duihuan_jinbi } from "./HomeScreen/duihuan_jinbi/duihuan_jinbi"
 export { default as JiFen } from "./HomeScreen/HOME/JiFen"
+export { default as culture } from "./Shop/culture.js"
+export { default as ClothesMade } from './Shop/ClothesMade.js'
 

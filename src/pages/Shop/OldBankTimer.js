@@ -24,7 +24,7 @@ export default function OldBankTimer ({navigation}){
               alignItems: "center",
               left: 0
             }}>
-            <FontAwesome name={'angle-left'} size={25} color={'#000'} />
+            {/* <FontAwesome name={'angle-left'} size={25} color={'#000'} /> */}
           </TouchableOpacity>
           <View style={{ width: 200 }}>
             <Text style={{
