@@ -11,7 +11,8 @@ import {
   TouchableOpacity,
   FlatList,
   DeviceEventEmitter,
-  AsyncStorage
+  AsyncStorage,
+  ToastAndroid
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
@@ -86,6 +87,7 @@ export default class goods2 extends Component {
           })
       })
       this.get_shuju();
+      ToastAndroid.showWithGravity('删除成功',2000,ToastAndroid.CENTER)
   }
 
   renderDate({item,index}){

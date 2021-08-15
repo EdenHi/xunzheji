@@ -83,7 +83,7 @@ export default class Concerns extends Component {
                 <View style={{ marginLeft: 15 }}><Image style={{ width: width * 0.15, height: width * 0.15, borderRadius: 100 }} source={{uri:item.portrait}} /></View>
                 <View>
                     <Text style={{ height: 25, marginLeft: 10, textAlign: "auto" }}>{item.nickname}</Text>
-                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12 }}>{item.signature}</Text>
+                    <Text style={{ height: 25, marginLeft: 10, textAlign: "auto",fontSize:12 ,width:width*0.4}} numberOfLines={1}>{item.signature}</Text>
                 </View>  
             </View>
             <TouchableOpacity style={styles.btn1} >

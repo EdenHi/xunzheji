@@ -17,7 +17,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   RefreshControl,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -53,6 +54,7 @@ export default class Comment extends React.Component {
             isLoding:false,
             isVisible:false,
             counts:this.props.route.params.counts,
+            heart:false
         };
     }
     //底部弹窗
@@ -157,12 +159,15 @@ export default class Comment extends React.Component {
             body: JSON.stringify({
                 comment_id: this.state.data.title_id,
                 content:this.state.content,
-                username:this.state.username,
+                username:this.state.denglu_username,
                 date_zhu:currentdate,
                 }),
-        })
-        this.go_select();
-        this.get_One();
+        }) .then((response) => response.json())
+        .then((responseJson) => {
+            this.go_select();
+            this.get_One();
+        }) 
+
     }
 
     //渲染图片
@@ -224,14 +229,9 @@ export default class Comment extends React.Component {
             }) .catch((error) => {
                 console.error('error',error);
               });
-              AsyncStorage.getItem('username',(error,result)=>{
-                if (!error) {
-                    this.setState({
-                        username:result,
-                    });
-                }
-            });
     }
+
+
     //获取评论信息
     componentDidMount(){
         AsyncStorage.getItem('username',(err,resule)=>{
@@ -294,6 +294,7 @@ export default class Comment extends React.Component {
         const {data,comment_zhu,username} = this.state;
         console.log('data',data);
         console.log('comment_zhu',comment_zhu);
+        console.log('heart',this.state.heart);
         const {modalVisible,imgUrls,currentIndex} = this.state;
         if(data.username === username){
         return (
@@ -416,12 +417,12 @@ export default class Comment extends React.Component {
                                             </TouchableOpacity>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                    <TouchableOpacity activeOpacity={1}>
-                                                        <Ionicons
-                                                        name="heart-outline"
-                                                        size={15}
-                                                        color="black"/>
-                                                    </TouchableOpacity>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                            <Ionicons
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            size={15}
+                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                        </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                         <Ionicons
                                                         name="chatbubble-ellipses-outline"
@@ -449,14 +450,14 @@ export default class Comment extends React.Component {
                                             <Text>{v.content}</Text>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity activeOpacity={1}>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
                                                             <Ionicons
-                                                            name="heart-outline"
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color="black"/>
+                                                            color={this.state.heart === false ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
-                                                        onPress={()=>this.goComment(v)}>
+                                                        onPress={()=>this.goComment(v)} >
                                                             <Ionicons
                                                             name="chatbubble-ellipses-outline"
                                                             size={15}
@@ -608,11 +609,11 @@ export default class Comment extends React.Component {
                                                 </TouchableOpacity>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
-                                                        <TouchableOpacity activeOpacity={1}>
+                                                        <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
                                                             <Ionicons
-                                                            name="heart-outline"
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color="black"/>
+                                                            color={this.state.heart === false ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                             <Ionicons
@@ -641,12 +642,12 @@ export default class Comment extends React.Component {
                                                 <Text>{v.content}</Text>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
-                                                            <TouchableOpacity activeOpacity={1}>
-                                                                <Ionicons
-                                                                name="heart-outline"
-                                                                size={15}
-                                                                color="black"/>
-                                                            </TouchableOpacity>
+                                                    <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                            <Ionicons
+                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            size={15}
+                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                        </TouchableOpacity>
                                                             <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
                                                             onPress={()=>this.goComment(v)}>
                                                                 <Ionicons
