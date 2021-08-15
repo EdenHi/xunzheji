@@ -97,19 +97,19 @@ export default class search extends Component {
     const { navigation } = this.props;
     return (
       <View style={{alignItems:"center",backgroundColor:"#fff",flex:1}}>
-          <View style={{width:width,marginTop:"2%",height:height*0.07,backgroundColor:"#FFF",flexDirection:"row",alignItems:"center"}}>
+          <View style={{width:width,marginTop:"2%",height:height*0.07,justifyContent:"space-around",backgroundColor:"#FFF",flexDirection:"row",alignItems:"center"}}>
               <TouchableOpacity style={{marginLeft:'2%'}} onPress={() => navigation.goBack()}><FontAwesome name={'angle-left'} size={25} color={'#000'} /></TouchableOpacity>
-              <View style={{width:"80%",height:"90%",alignItems:"center",elevation:5,backgroundColor:"#fff",marginLeft:"2%",borderRadius:20,flexDirection:"row",alignItems:"center"}}>
+              <View style={{width:"60%",height:"90%",alignItems:"center",elevation:5,backgroundColor:"#fff",marginLeft:"2%",borderRadius:20,flexDirection:"row"}}>
               <SimpleLineIcons style={{textAlign:'center',marginLeft:"5%",textAlignVertical:'center',height:'100%',borderWidth:0,}}
                 name="magnifier"
                 size={18}
                 color="grey"
               />
-              <TextInput placeholder="搜索好物" style={{width:"80%",marginLeft:"2%",height:"100%",}}  onChangeText={(sousuo)=>this.setState({sousuo})}/>
+              <TextInput placeholder="搜索好物" style={{width:"60%",marginLeft:"2%",height:"100%",}}  onChangeText={(sousuo)=>this.setState({sousuo})}/>
               </View>
               <TouchableOpacity
               onPress={()=>this.indexSelect()}
-              style={{width:"10%",height:"70%",alignItems:"center",justifyContent:"center",backgroundColor:'#7cc0c0',marginLeft:"3%",borderRadius:15}}><Text style={{fontSize:15,color:'white'}}>搜索</Text></TouchableOpacity>
+              style={{width:"15%",height:"70%",alignItems:"center",justifyContent:"center",backgroundColor:'#7cc0c0',marginLeft:"3%",borderRadius:15}}><Text style={{fontSize:15,color:'white'}}>搜索</Text></TouchableOpacity>
           </View>
           <View style={{width:width*0.95,height:height*0.1,marginTop:"5%",}}>
               <Text style={{fontSize:15,fontWeight:"bold"}}>推荐搜索</Text>

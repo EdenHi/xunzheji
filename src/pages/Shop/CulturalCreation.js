@@ -31,7 +31,7 @@ export default function CulturalCreation ({navigation}){
               fontSize: 18,
               textAlign: 'center',
               textAlignVertical: 'center',
-            }}>文创定制  </Text>
+            }}>包你满意</Text>
           </View>
         </View>
       <View style={{width:"100%",height:"100%"}}>
