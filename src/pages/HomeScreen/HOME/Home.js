@@ -162,7 +162,7 @@ export default class Home extends Component {
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                     <View style={{ flexDirection: 'row'  }}>
-                                        <Homepagebook/>
+                                        <Homepagebook navigation={this.props.navigation}/>
                                         {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj1.jpeg' }} /></View>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj2.jpg' }} /></View>
