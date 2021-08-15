@@ -240,7 +240,7 @@ export default class componentName extends Component {
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5, flexDirection: 'row' }}>
-                                <Text style={{ width: '30%', height: '100%', color: '#fff', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', }}>金币商城</Text>
+                                <Text onPress={()=>this.props.navigation.navigate('duihuan_jinbi')} style={{ width: '30%', height: '100%', color: '#fff', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', }}>金币商城</Text>
                                 <Text style={{ width: '30%', height: '100%', color: '#fff', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', marginLeft: '5%' }}>领取金币</Text>
                                 <FontAwesome5 style={{ textAlignVertical: 'center', marginLeft: '15%', }}
                                     name='coins'

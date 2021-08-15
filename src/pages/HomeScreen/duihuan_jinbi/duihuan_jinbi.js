@@ -70,22 +70,22 @@ export default class duihuan_jinbi extends Component {
                                 ellipsizeMode='tail'
                                 numberOfLines={1}>优品康麦片水果坚果奇亚籽冲饮料</Text>
                                 <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
-                                    <Text style={{color:'red',}}>价值￥100</Text>
+                                    <Text style={{color:'#7cc0c0',}}>价值￥100</Text>
                                 </View>
                                 <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                         <View style={{flexDirection:'row',alignItems:'center'}}>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                        <Text style={{color:'red',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
+                                        <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
                                         </View>
 
                                     </View>
                                     <View>
-                                        <View style={{width:70,backgroundColor:'red',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                                        <View style={{width:70,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                             <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                                         </View>
-                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'red'}}>
-                                            <Text style={{color:'red',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3}}>已兑595件</Text>
+                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                            <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:70}}>已兑595件</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -99,22 +99,22 @@ export default class duihuan_jinbi extends Component {
                                 ellipsizeMode='tail'
                                 numberOfLines={1}>优品康麦片水果坚果奇亚籽冲饮料</Text>
                                 <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
-                                    <Text style={{color:'red',}}>价值￥100</Text>
+                                    <Text style={{color:'#7cc0c0',}}>价值￥100</Text>
                                 </View>
                                 <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                         <View style={{flexDirection:'row',alignItems:'center'}}>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                        <Text style={{color:'red',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
+                                        <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
                                         </View>
 
                                     </View>
                                     <View>
-                                        <View style={{width:70,backgroundColor:'red',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                                        <View style={{width:70,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                             <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                                         </View>
-                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'red'}}>
-                                            <Text style={{color:'red',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3}}>已兑595件</Text>
+                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                            <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:70}}>已兑595件</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -127,22 +127,22 @@ export default class duihuan_jinbi extends Component {
                                 ellipsizeMode='tail'
                                 numberOfLines={1}>优品康麦片水果坚果奇亚籽冲饮料</Text>
                                 <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
-                                    <Text style={{color:'red',}}>价值￥100</Text>
+                                    <Text style={{color:'#7cc0c0',}}>价值￥100</Text>
                                 </View>
                                 <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                         <View style={{flexDirection:'row',alignItems:'center'}}>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                        <Text style={{color:'red',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
+                                        <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
                                         </View>
 
                                     </View>
                                     <View>
-                                        <View style={{width:70,backgroundColor:'red',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                                        <View style={{width:70,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                             <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                                         </View>
-                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'red'}}>
-                                            <Text style={{color:'red',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3}}>已兑595件</Text>
+                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                            <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:70}}>已兑595件</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -155,22 +155,22 @@ export default class duihuan_jinbi extends Component {
                                 ellipsizeMode='tail'
                                 numberOfLines={1}>优品康麦片水果坚果奇亚籽冲饮料</Text>
                                 <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
-                                    <Text style={{color:'red',}}>价值￥100</Text>
+                                    <Text style={{color:'#7cc0c0',}}>价值￥100</Text>
                                 </View>
                                 <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                         <View style={{flexDirection:'row',alignItems:'center'}}>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                        <Text style={{color:'red',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
+                                        <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
                                         </View>
 
                                     </View>
                                     <View>
-                                        <View style={{width:70,backgroundColor:'red',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                                        <View style={{width:70,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                             <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                                         </View>
-                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'red'}}>
-                                            <Text style={{color:'red',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3}}>已兑595件</Text>
+                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                            <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:70}}>已兑595件</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -183,22 +183,22 @@ export default class duihuan_jinbi extends Component {
                                 ellipsizeMode='tail'
                                 numberOfLines={1}>优品康麦片水果坚果奇亚籽冲饮料</Text>
                                 <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
-                                    <Text style={{color:'red',}}>价值￥100</Text>
+                                    <Text style={{color:'#7cc0c0',}}>价值￥100</Text>
                                 </View>
                                 <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                         <View style={{flexDirection:'row',alignItems:'center'}}>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                        <Text style={{color:'red',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
+                                        <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
                                         </View>
 
                                     </View>
                                     <View>
-                                        <View style={{width:70,backgroundColor:'red',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                                        <View style={{width:70,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                             <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                                         </View>
-                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'red'}}>
-                                            <Text style={{color:'red',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3}}>已兑595件</Text>
+                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                            <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:70}}>已兑595件</Text>
                                         </View>
                                     </View>
                                 </View>
@@ -211,22 +211,22 @@ export default class duihuan_jinbi extends Component {
                                 ellipsizeMode='tail'
                                 numberOfLines={1}>优品康麦片水果坚果奇亚籽冲饮料</Text>
                                 <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
-                                    <Text style={{color:'red',}}>价值￥100</Text>
+                                    <Text style={{color:'#7cc0c0',}}>价值￥100</Text>
                                 </View>
                                 <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                         <View style={{flexDirection:'row',alignItems:'center'}}>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                        <Text style={{color:'red',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
+                                        <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>300 </Text>
                                         </View>
 
                                     </View>
                                     <View>
-                                        <View style={{width:70,backgroundColor:'red',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                                        <View style={{width:70,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                             <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                                         </View>
-                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'red'}}>
-                                            <Text style={{color:'red',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3}}>已兑595件</Text>
+                                        <View style={{width:70,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                            <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:70}}>已兑595件</Text>
                                         </View>
                                     </View>
                                 </View>

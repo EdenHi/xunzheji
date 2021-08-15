@@ -74,4 +74,4 @@ export { default as JiFen } from "./HomeScreen/HOME/JiFen"
 export { default as culture } from "./Shop/culture.js"
 export { default as ClothesMade } from './Shop/ClothesMade.js'
 export { default as musicPlayer } from './HomeScreen/Read/musicPlayer'
-
+export {default as MatchGame} from './MyScreen/MatchGame'

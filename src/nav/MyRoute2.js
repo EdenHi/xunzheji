@@ -18,12 +18,12 @@ const Tab = createMaterialTopTabNavigator();
 export default function MyRoute2() {
   return (
     <Tab.Navigator
-    
-    tabBarOptions={{
-      activeTintColor: '#7196a8',
-      inactiveTintColor: 'gray',
-      
-    }}
+
+      tabBarOptions={{
+        activeTintColor: '#7196a8',
+        inactiveTintColor: 'gray',
+
+      }}
     >
       <Tab.Screen
         name="我的发布" component={Output2}
@@ -34,7 +34,7 @@ export default function MyRoute2() {
         }}
       />
       <Tab.Screen
-      
+
         name="我的商品" component={goods2}
         options={{
           tabBarIcon: ({ color }) => (

@@ -489,7 +489,7 @@ export default class Store extends Component {
                   <View style={{width:"100%",height:"50%",alignItems:"center",justifyContent:"center"}}>
                   
              <Text style={{fontSize:18,fontWeight:"bold",color:"#7cc0c0",marginTop:"7%"}}>文化定制</Text>
-                 <Image style={{width:"90%",height:"50%"}} source={require("../img/made2.png")}></Image>
+
                     {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
                   </View>
                   <View style={{width:"100%",height:"50%"}}>
