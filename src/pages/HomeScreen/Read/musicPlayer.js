@@ -10,8 +10,8 @@ import React, {Component} from 'react'
 import {View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions} from 'react-native'
 import {commonStyle} from './commonStyle'
 import Video from 'react-native-video'
-import {VibrancyView, BlurView} from 'react-native-blur'
-import {Icon} from './icon'
+import { BlurView } from "@react-native-community/blur";
+import {Icon} from './icon/index'
 import AntDesign from "react-native-vector-icons/AntDesign";
 // import Slider from ' @react-native-community/slider';
 
@@ -251,7 +251,7 @@ export default class musicPlayer extends Component {
               onPress={() => alert('分享')}
             >
               {/* <Icon name={'oneIcon|share_o'} size={20} color={commonStyle.white}/> */}
-              <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" />
+              {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" /> */}
             </TouchableOpacity>
           </View>
         </View>

@@ -3,7 +3,7 @@ import { View, ScrollView, Image, Text, Dimensions, StyleSheet, TouchableOpacity
 
 const DATA = [
     {
-        top: '-168%',
+        top: '-185%',
         id: 0,
         img: 'https://img1.baidu.com/it/u=3447401417,1566003888&fm=26&fmt=auto&gp=0.jpg',
         names:'丁鸿敏',
@@ -12,15 +12,15 @@ const DATA = [
     {
         picture: "39%",
         position: '0%',
-        name: '-205%',
-        top: '-151%',
+        name: '-230%',
+        top: '-170%',
         id: 1,
         img: 'https://img0.baidu.com/it/u=2443355349,1915440844&fm=26&fmt=auto&gp=0.jpg',
         names:'丁磊',
         organize:'宁波商帮代表人物'
     },
     {
-        top: '-168%',
+        top: '-185%',
         id: 2,
         img: 'https://img2.baidu.com/it/u=2291125540,2725084226&fm=26&fmt=auto&gp=0.jpg',
         names:'陈建成',
@@ -29,8 +29,8 @@ const DATA = [
     {
         picture: "38%",
         position: '0%',
-        name: '-205%',
-        top: '-151%',
+        name: '-230%',
+        top: '-170%',
         id: 3,
         img: 'https://img0.baidu.com/it/u=1312128531,3485265832&fm=26&fmt=auto&gp=0.jpg',
         names:'余竹云',
@@ -38,7 +38,7 @@ const DATA = [
 
     },
     {
-        top: '-168%',
+        top: '-185%',
         id: 4,
         img: 'https://img0.baidu.com/it/u=3499188640,1709445744&fm=26&fmt=auto&gp=0.jpg',
         names:'郑秀康',
@@ -47,15 +47,15 @@ const DATA = [
     {
         picture: "38%",
         position: '0%',
-        name: '-205%',
-        top: '-151%',
+        name: '-230%',
+        top: '-170%',
         id: 5,
         img: 'https://img1.baidu.com/it/u=1228248987,2703960874&fm=26&fmt=auto&gp=0.jpg',
         names:'陈妙林',
         organize:'萧绍商帮代表人物'
     },
     {
-        top: '-168%',
+        top: '-185%',
         id: 6,
         img: 'https://img0.baidu.com/it/u=536739110,4138105748&fm=26&fmt=auto&gp=0.jpg',
         names:'王莺妹',
@@ -64,15 +64,15 @@ const DATA = [
     {
         picture: "38%",
         position: '0%',
-        name: '-205%',
-        top: '-151%',
+        name: '-230%',
+        top: '-170%',
         id: 7,
         img: 'https://img1.baidu.com/it/u=4138310262,2076958814&fm=26&fmt=auto&gp=0.jpg',
         names:'周晓光',
         organize:'义乌商帮代表人物'
     },
     {
-        top: '-168%',
+        top: '-185%',
         id: 8,
         img: 'https://img1.baidu.com/it/u=3066538619,1551338250&fm=26&fmt=auto&gp=0.jpg',
         names:'冯亚丽',
@@ -81,8 +81,8 @@ const DATA = [
     {
         picture: "38%",
         position: '0%',
-        name: '-205%',
-        top: '-151%',
+        name: '-230%',
+        top: '-170%',
         id: 9,
         img: 'https://img0.baidu.com/it/u=3103019549,4040232266&fm=26&fmt=auto&gp=0.jpg',
         names:'马云',

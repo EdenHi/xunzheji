@@ -57,7 +57,7 @@ export default class Homepagebook extends Component {
 
     _openModalWin(index) {
         console.log('1:',index)
-        if (index == 3) {
+        if (index == 0) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -70,7 +70,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 4) {
+        }else if (index == 1) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -83,7 +83,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 5) {
+        }else if (index == 2) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -96,7 +96,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 6) {
+        }else if (index == 3) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -109,7 +109,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 7) {
+        }else if (index == 4) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -202,10 +202,10 @@ export default class Homepagebook extends Component {
         if (index === 2) {
             this.props.navigation.navigate('Heritage')
         }
-        if (index === 2) {
+        if (index === 3) {
             this.props.navigation.navigate('Heritage')
         }
-        if (index === 2) {
+        if (index === 4) {
             this.props.navigation.navigate('Heritage')
         }
     }

@@ -183,11 +183,10 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>圣诞COS</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <LinearGradient style={{width:"40%",height:"20%",alignItems:"center",justifyContent:"center",borderRadius:15,marginTop:10}} colors={["#7cc0c0","#fff"]} >
-                                                                <TouchableOpacity>
-                                                                <Text style={{color:'white',fontSize:15,textAlign:"center"}}>参 与 </Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#圣诞COS'})}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
-                                                                </LinearGradient>
                                                             </View>
                                                         </ImageBackground>
                                                     </TouchableOpacity>
@@ -202,8 +201,9 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>猫和老鼠</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-                                                                <Text style={{color:'#fff',fontSize:15,padding:5}}>参与 </Text>
+                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                onPress={()=>this.context.navigate('huati',{tag:'#猫和老鼠'})}>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>

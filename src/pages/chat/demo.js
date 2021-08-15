@@ -237,6 +237,21 @@ export default class chat extends Component {
             console.log('add', this.state.images);
         });
     }
+        //打开本地图册
+        _openCamara() {
+
+            ImagePicker.openCamera({  
+                width: 300,  
+                height: 400,  
+                cropping: true  
+              }).then(image => {
+                  
+                this.setState({ images: image.path })
+                this.setState({image:image})
+                console.log('loacl path',this.state.image);
+                console.log('add', this.state.images);
+            });
+        }
     renderSend(props) {
         return (
             <Send
@@ -309,13 +324,16 @@ export default class chat extends Component {
             '从相册中选取': () => {
               this._openPicker()
             },
-            '取消': () => {
-              console.log('Cancel');
+            '打开相机拍照': () => {
+                this._openCamara();
+                  
+
             },
           }}
           optionTintColor="#222B45"
         />
       );
+      
     componentDidMount() {
         // this.messageGet();
         this.get_shuju();
