@@ -53,7 +53,8 @@ const styles = StyleSheet.create({
         flex:1,
 alignItems:'center',
 justifyContent:"center",
-        backgroundColor:"#F5F5F5"
+        backgroundColor:"#fff",
+        marginLeft:"7%"
     },
     webView1:{
 

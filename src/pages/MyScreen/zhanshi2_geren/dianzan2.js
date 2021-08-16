@@ -106,7 +106,7 @@ get(){
                 data = {this.state.data}
                 renderItem = {this.renderData.bind(this)}/>
                 
-                <View style={{alignItems:'center'}}><Text>------------到底了------------</Text></View>
+                <View style={{alignItems:'center',marginBottom:20}}><Text>------------到底了------------</Text></View>
                 </ScrollView>
             </View>
         );

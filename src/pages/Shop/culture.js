@@ -35,7 +35,7 @@ export default class culture extends Component {
             <ImageBackground imageStyle={{borderRadius:15,}} style={{width:"100%",height:"100%"}} resizeMode="stretch" source={require("../img/T2.jpg")}>
               </ImageBackground>
             </TouchableOpacity>
-            {/* <TouchableOpacity activeOpacity={1} style={{width:width*0.9,height:height*0.25,backgroundColor:"#fff",borderRadius:15,marginBottom:"5%",elevation:5}}>
+            <TouchableOpacity activeOpacity={1} style={{width:width*0.9,height:height*0.25,backgroundColor:"#fff",borderRadius:15,marginBottom:"5%",elevation:5}}>
             <ImageBackground imageStyle={{borderRadius:15,}} style={{width:"100%",height:"100%"}} resizeMode="stretch" source={require("../img/pin.jpg")}>
               </ImageBackground>
             </TouchableOpacity>
@@ -43,7 +43,6 @@ export default class culture extends Component {
             <ImageBackground imageStyle={{borderRadius:15,}} style={{width:"100%",height:"100%"}} resizeMode="stretch" source={require("../img/ke.jpg")}>
               </ImageBackground>
             </TouchableOpacity>
-            */}
             </ScrollView>
             </LinearGradient>
             </View>

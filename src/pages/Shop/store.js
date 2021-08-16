@@ -344,7 +344,7 @@ export default class Store extends Component {
           >
             <View>
               <View style={{ borderBottomRightRadius: 10, borderBottomLeftRadius: 10, elevation: 5, height: height * 0.15, width: width, backgroundColor: '#eee', width: "100%" }}>
-                <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row' }}>
+                <View style={{ width: width, height: "90%", borderWidth: 0, flexDirection: 'row' }}>
                   <TouchableOpacity activeOpacity={1} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
 
                     <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setModalVisible(!modalVisible) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
@@ -383,10 +383,10 @@ export default class Store extends Component {
                 </View>
                 <MaterialCommunityIcons onPress={() => {
                   this.setModalVisible(!modalVisible);
-                }} style={{ borderWidth: 0, height: '20%', width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
+                }} style={{ borderWidth: 0, height: '15%', width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
 
                   name="apple-keyboard-control"
-                  size={30}
+                  size={20}
                   color="#7cc0c0"
                 />
               </View>
@@ -428,7 +428,7 @@ export default class Store extends Component {
 
             </TouchableOpacity>
           </View>
-          <ScrollView style={{height:height*0.83}}>
+          <ScrollView style={{height:height*0.83 }}>
             <View style={{ alignItems: "center", }}>
               <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
                 <Swiper
