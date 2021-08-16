@@ -70,12 +70,13 @@ export default class Luntan_guanzhu extends Component {
             })
     }
     componentDidMount() {
-        this.get_xinxi();
+
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({
                     denglu_username:result
                 })
+                this.get_xinxi();
             }
         })
         this.listener = DeviceEventEmitter.addListener('shuaxin',this.get_xinxi.bind(this))

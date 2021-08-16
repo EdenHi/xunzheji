@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl } from 'react-native';
+import { View,Image,Switch,Text,TouchableOpacity, Dimensions,TextInput, FlatList,AsyncStorage,DeviceEventEmitter,StyleSheet, ScrollView,RefreshControl, Touchable } from 'react-native';
 const {width,height} = Dimensions.get('window');
 import { SwipeRow } from 'react-native-swipe-list-view';
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -113,13 +113,14 @@ export default class AddressList2 extends Component {
         console.log('data',data)
         return (
             <View style={{}}>
-                <View style={{height:height * 0.85}}>
-                {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+                 <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+                <View style={{flex:1}}>
+               
                 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>地址管理</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>地址管理</Text>
 
             </View> 
 
@@ -135,19 +136,40 @@ export default class AddressList2 extends Component {
                     data.map((v,k)=>{
                         return (
                             <View style={styles.outView} key = {k} >
-
-                                    <TouchableOpacity
-                                    activeOpacity={1}
-                                    onPress={()=>this.goback(v)}>
-                                    <View style={{flexDirection:'row',justifyContent:'space-between',backgroundColor:'#fff'}}>
+                                    <SwipeRow
+                                    leftOpenValue={55}
+                                    rightOpenValue={-55}
+                                    disableRightSwipe={true} //禁止向右滑动
+                                    >
+                                    <TouchableOpacity activeOpacity={1} style={styles.rowBack}
+                                    onPress={()=>this.handleShowAlbum(k)}>
+                                        <Text allowFontScaling={false} style={{color:'white'}}>删除</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={()=>this.goback(v)} activeOpacity={1}  style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'#fff',borderRadius:15}}>
                                         <View>
                                             <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:15,width:width * 0.2,fontWeight:'bold',marginLeft:"5%"}}>{v.name}</Text><Text>{v.phone}</Text></View>
                                             <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10,marginLeft:"5%"}}>{v.dizhi}</Text><Text style={{marginRight:10,marginLeft:"5%"}}>{v.xiangxi}</Text></View>
-
+                                            <View style={{flexDirection:'row',height:30,alignItems:'center' }}>
+                                                    <Switch
+                                                    onTintColor={'#ffaa11'}
+                                                    tintColor={'#aaaa11'}
+                                                    value={v.dizhi_id === 1 ? true : false}
+                                                    onValueChange={()=> {
+                                                        this.update_moren(k);
+                                                        }}
+                                                        testID={'1'}
+                                                        thumbTintColor={'#ff1111'}/>
+                                                <Text style={{marginLeft:10}}>默认地址</Text>
+                                            </View>
                                         </View>
-                                        <View  style={{width:width * 0.03,height:width * 0.03,borderWidth:1}}/>
-                                    </View>
+                                        <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('updateDizhi',v)}>
+                                            <AntDesign
+                                            name='form'
+                                            size={25}
+                                            style={{marginRight:20}}/>
+                                        </TouchableOpacity>
                                     </TouchableOpacity>
+                                    </SwipeRow>
                                     
                             </View>
                         )
@@ -155,23 +177,34 @@ export default class AddressList2 extends Component {
                 }
                 </ScrollView>
                 {/* </LinearGradient> */}
+                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
+                    <View style={{backgroundColor:'#7cc0c0',height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
+                        <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
+                        </View>
+                </TouchableOpacity>
                 </View>
-                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red"><View style={{backgroundColor:'#fedc61',height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text></View></TouchableOpacity>
-            </View>
+                
+                </LinearGradient>
+                
+   </View>
         );
     }
 }
 const styles = StyleSheet.create({
-    outView: {
-        marginBottom:10,
+      outView: {
+      marginBottom:10,
+      width:width*0.9,
+      marginLeft:width*0.05,
+      borderRadius:15
     },
     rowBack: {
       alignItems: 'center',
-      backgroundColor: 'blue',
+      backgroundColor: 'red',
       flexDirection: 'row',
       justifyContent: 'flex-end',
       paddingRight:10,
       flex: 1,
+      borderRadius:15
     },
     rowFront: {
       alignItems: 'center',

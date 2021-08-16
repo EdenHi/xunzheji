@@ -270,8 +270,6 @@ export default class Store extends Component {
       easing: Easing.linear,
     }).start();
   }
-
-
   renderRow(obj, index) {
     return (
       <View style={styles.cell}>
@@ -687,7 +685,7 @@ const styles = StyleSheet.create({
   },
   old: {
     width: width * 0.95,
-    height:width *1.2,
+    height:width *1.5,
     backgroundColor: "#fff",
     borderRadius: 15,
     alignItems: "center"

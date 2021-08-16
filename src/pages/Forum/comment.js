@@ -292,12 +292,12 @@ export default class Comment extends React.Component {
         this.props.navigation.goBack();
     }
     render () {
-        const {data,comment_zhu,username} = this.state;
+        const {data,comment_zhu,denglu_username} = this.state;
         console.log('data',data);
         console.log('comment_zhu',comment_zhu);
         console.log('heart',this.state.heart);
         const {modalVisible,imgUrls,currentIndex} = this.state;
-        if(data.username === username){
+        if(data.username === denglu_username){
         return (
             <View style={{flex:1}}>
                  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
