@@ -51,34 +51,35 @@ export default class Luntan_guanzhu extends Component {
        }
 
     get_xinxi(){
-        fetch('http://8.142.11.85:3000/dongtai/guanzhu_allDongtai',{
-            method:'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body:JSON.stringify({
-                username:this.state.denglu_username,
-            })
-        })
-           .then((response) => response.json())
-            .then((responseJson) => {
-                console.log(responseJson);
-                this.setState({
-                    data:responseJson,
-                });
-            })
-    }
-    componentDidMount() {
-
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({
                     denglu_username:result
                 })
-                this.get_xinxi();
+                fetch('http://8.142.11.85:3000/dongtai/guanzhu_allDongtai',{
+                    method:'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body:JSON.stringify({
+                        username:result,
+                    })
+                })
+                   .then((response) => response.json())
+                    .then((responseJson) => {
+                        console.log(responseJson);
+                        this.setState({
+                            data:responseJson,
+                        });
+                    })
             }
         })
+        
+    }
+    componentDidMount() {
+
+        this.get_xinxi();
         this.listener = DeviceEventEmitter.addListener('shuaxin',this.get_xinxi.bind(this))
       }
 
