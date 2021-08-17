@@ -344,19 +344,19 @@ export default class Store extends Component {
           >
             <View>
               <View style={{ borderBottomRightRadius: 10, borderBottomLeftRadius: 10, elevation: 5, height: height * 0.15, width: width, backgroundColor: '#eee', width: "100%" }}>
-                <View style={{ width: width, height: "90%", borderWidth: 0, flexDirection: 'row' }}>
-                  <TouchableOpacity activeOpacity={1} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
+                <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row',justifyContent:"space-around" }}>
+                  <TouchableOpacity activeOpacity={1} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20,  }}>
 
                     <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setModalVisible(!modalVisible) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="cart-outline"
                       size={35}
                       color="#7cc0c0"
                     />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" ,color:"#333333"}}>购物车</Text>
 
 
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan') }} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
+                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan') }} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20}}>
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="clipboard-text-outline"
                       size={35}
@@ -364,26 +364,26 @@ export default class Store extends Component {
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats',{room:'1'}), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
+                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats',{room:'1'}), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
                     <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="customerservice"
                       size={35}
                       color="#7cc0c0"
                     />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" ,color:"#333333"}}>客服</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('AddressList'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: "80%", width: width * 0.22, backgroundColor: '#fff', borderRadius: 20, marginLeft: width * 0.024 }}>
+                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('AddressList'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%',  height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20}}>
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="map-marker-radius"
                       size={35}
                       color="#7cc0c0"
                     />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" ,color:"#333333"}}>地址管理</Text>
                   </TouchableOpacity>
                 </View>
                 <MaterialCommunityIcons onPress={() => {
                   this.setModalVisible(!modalVisible);
-                }} style={{ borderWidth: 0, height: '15%', width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
+                }} style={{ height: "10%", width: "100%",textAlignVertical: 'center', textAlign: 'center' }}
 
                   name="apple-keyboard-control"
                   size={20}
@@ -392,7 +392,9 @@ export default class Store extends Component {
               </View>
               <TouchableOpacity activeOpacity={1} onPress={() => {
                 this.setModalVisible(!modalVisible);
-              }} style={{ width: width, height: "85%" }}></TouchableOpacity>
+              }} style={{ width: width, height: "85%" }}>
+
+              </TouchableOpacity>
             </View>
           </Modal>
           <View style={styles.header}>
@@ -449,15 +451,17 @@ export default class Store extends Component {
                     marginRight: 2,
                     marginTop: 9,
                     marginBottom: 9,
+                    borderRadius:50
                   }} />}
                   activeDot={<View style={{    //选中的圆点样式
                     backgroundColor: '#7cc0c0',
-                    width: 18,
+                    width: 15,
                     height: 5,
                     marginLeft: 2,
                     marginRight: 2,
                     marginTop: 9,
                     marginBottom: 9,
+                    borderRadius:15
                   }} />}
                 >
                   <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
@@ -538,7 +542,7 @@ export default class Store extends Component {
                     <Text style={{ fontSize: 15, fontWeight: "bold",color:"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>{item.jieshao}</Text>
+                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13,color:"#333333" }}>{item.jieshao}</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
                     <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
