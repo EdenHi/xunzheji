@@ -50,37 +50,38 @@ export default class Luntan_guanzhu extends Component {
         });
     }
 
-    get_xinxi() {
-        fetch('http://8.142.11.85:3000/dongtai/guanzhu_allDongtai', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                username: this.state.denglu_username,
-            })
-        })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                console.log(responseJson);
-                this.setState({
-                    data: responseJson,
-                });
-            })
-    }
-    componentDidMount() {
-
-        AsyncStorage.getItem('username', (err, result) => {
-            if (!err) {
+    get_xinxi(){
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
                 this.setState({
                     denglu_username: result
                 })
-                this.get_xinxi();
+                fetch('http://8.142.11.85:3000/dongtai/guanzhu_allDongtai',{
+                    method:'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body:JSON.stringify({
+                        username:result,
+                    })
+                })
+                   .then((response) => response.json())
+                    .then((responseJson) => {
+                        console.log(responseJson);
+                        this.setState({
+                            data:responseJson,
+                        });
+                    })
             }
         })
-        this.listener = DeviceEventEmitter.addListener('shuaxin', this.get_xinxi.bind(this))
+        
     }
+    componentDidMount() {
+
+        this.get_xinxi();
+        this.listener = DeviceEventEmitter.addListener('shuaxin',this.get_xinxi.bind(this))
+      }
 
     componentWillUnmount() {
         this.listener.remove();
@@ -172,9 +173,47 @@ export default class Luntan_guanzhu extends Component {
                             />
                         }
                     >
-                        {
-                            this.state.data.map((v, k) => {
-                                if (k === 1) {
+                    {
+                        this.state.data.map((v,k)=>{
+                             //取出年月日
+                             let a = v.fabiao_time.slice(0,10)
+                             //取出时分
+                             let b = v.fabiao_time.slice(11,16)
+                             let time1 = new Date();
+                             let time2 = new Date(v.fabiao_time).getTime()
+                             let sum = a+' '+b
+                             //获得相差的秒
+                             let ss = (time1 -time2)/1000
+                             let day = Math.floor(ss/86400)
+                             let hour = Math.floor(ss/3600)
+                             let min = Math.floor(ss /60)
+                             let time = ''
+                             if(day >=1 && day<4){
+                                 
+                                    time=day+'天前'
+                                 
+                             }
+                             else if(hour>=1 && hour <24){
+                                 
+                                     time=hour+'小时前'
+                                 
+                             }
+                             else if(min>=1 && min < 60){
+                                 
+                                     time=min+'分钟前'
+                                 
+                             }
+                             else if(day >= 4){
+                                
+                                     time=sum
+                                 
+                             }
+                             else{
+                                 
+                                    time='刚刚'
+                                 
+                             }
+                            if(k === 1){
                                     return (
                                         <View>
                                             <View style={{ marginTop: "5%", width: width }}>
@@ -311,28 +350,26 @@ export default class Luntan_guanzhu extends Component {
                                                     </TouchableOpacity>
                                                 </ScrollView>
                                             </View>
-                                            <View key={k} style={{ marginTop: 10, backgroundColor: 'white' }}>
-                                                <View style={{ marginLeft: width * 0.05, width: width * 0.9 }}>
-                                                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-                                                        <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                                            <TouchableOpacity
-                                                                onPress={() => {
-                                                                    this.context.navigate('people', v.username),
-                                                                    AsyncStorage.setItem('Person', v.username, (error) => {
-                                                                        if (!error) {
-                                                                            console.log('Person保存成功');
-                                                                        } else {
-                                                                            console.log('保存失败', err);
-                                                                        }
-                                                                    });
-                                                                }}
-                                                            >
-                                                                <Image source={{ uri: v.portrait }} style={styles.touxiang} />
-                                                            </TouchableOpacity>
-                                                            <View style={{ marginLeft: 10 }}>
-                                                                <Text style={styles.name}>{v.nickname}</Text>
-                                                                <Text style={{ color: '#aaa', fontSize: 12 }}>{v.fabiao_time}</Text>
-                                                            </View>
+                                        <View key={k} style={{marginTop:10,backgroundColor:'white'}}>
+                                            <View style={{marginLeft:width * 0.05,width:width * 0.9}}>
+                                            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
+                                                    <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                                        <TouchableOpacity
+                                                        onPress={() => {this.context.navigate('people',v.username), 
+                                                        AsyncStorage.setItem('Person',v.username,(error)=>{
+                                                            if (!error){
+                                                                console.log('Person保存成功');
+                                                            } else {
+                                                                console.log('保存失败',err);
+                                                            }
+                                                        });
+                                                    }}
+                                                        >
+                                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                        </TouchableOpacity> 
+                                                        <View style={{marginLeft:10}}>
+                                                            <Text style={styles.name}>{v.nickname}</Text>
+                                                            <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                         </View>
                                                         {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                                     </View>
@@ -428,6 +465,7 @@ export default class Luntan_guanzhu extends Component {
                                                 </View>
                                             </View>
                                         </View>
+                                    </View>
                                     );
 
                                 } else {
@@ -447,13 +485,12 @@ export default class Luntan_guanzhu extends Component {
                                                                     }
                                                                 });
                                                             }}
-                                                        >
-                                                            <Image source={{ uri: v.portrait }} style={styles.touxiang} />
-                                                        </TouchableOpacity>
-                                                        <View style={{ marginLeft: 10 }}>
-                                                            <Text style={styles.name}>{v.nickname}</Text>
-                                                            <Text style={{ color: '#aaa', fontSize: 12 }}>{v.fabiao_time}</Text>
-                                                        </View>
+                                                    >
+                                                        <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+                                                    </TouchableOpacity> 
+                                                    <View style={{marginLeft:10}}>
+                                                        <Text style={styles.name}>{v.nickname}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                     </View>
                                                     {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
                                                 </View>
@@ -544,15 +581,17 @@ export default class Luntan_guanzhu extends Component {
                                                         </View>
                                                     </TouchableOpacity>
                                                 </View>
-                                            </View>
-                                        </View>
-                                    );
-
-                                }
-                            }
-
-                            )
-                        }
+                                            
+                                       </View>
+                                       </View>
+                                    </View>
+                                  );
+                            
+                        } }
+                       
+                        )
+                      }
+                      <View style={{alignItems:'center'}}><Text>------------到底了------------</Text></View>
                     </ScrollView>
                 </View>
                 <Modal animationType={'slide'}

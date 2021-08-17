@@ -3,6 +3,7 @@ import { startCounter, stopCounter } from 'react-native-accurate-step-counter';
 import { SafeAreaView, StyleSheet, Text, View,Dimensions } from 'react-native';
 import { Component } from 'react';
 import LottieView from 'lottie-react-native';
+import { color } from 'react-native-elements/dist/helpers';
 
 const { width, height } = Dimensions.get('window');
 
@@ -39,7 +40,8 @@ const styles = StyleSheet.create({
     width: '85%',
     fontSize: 20,
     textAlignVertical:'center',
-    textAlign:'center'
+    textAlign:'center',
+    color:'#333333'
   }
 });
 

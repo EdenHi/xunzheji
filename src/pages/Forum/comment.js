@@ -46,15 +46,16 @@ export default class Comment extends React.Component {
             //放大显示的图片索引
             currentIndex: 0,
             //存放图片的路径
-            imgUrls: [],
-            comment_zhu: [],
-            comment_fu: [],
-            content: '',
-            denglu_username: '',
-            isLoding: false,
-            isVisible: false,
-            counts: this.props.route.params.counts,
-            heart: false
+            imgUrls:[],
+            comment_zhu:[],
+            comment_fu:[],
+            content:'',
+            denglu_username:'',
+            isLoding:false,
+            isVisible:false,
+            counts:this.props.route.params.counts,
+            heart:false,
+            time:'',
         };
     }
     //底部弹窗
@@ -103,10 +104,47 @@ export default class Comment extends React.Component {
                 this.setState({
                     data: responseJson[0],
                 });
-            }).catch((error) => {
-                console.error('error', error);
-            });
-    }
+
+                let a = responseJson[0].fabiao_time.slice(0,10)
+                let b = responseJson[0].fabiao_time.slice(11,16)
+                let time1 = new Date();
+                let time2 = new Date(responseJson[0].fabiao_time).getTime()
+                let sum = a+' '+b
+                //获得相差的秒
+                let ss = (time1 -time2)/1000
+                let day = Math.floor(ss/86400)
+                let hour = Math.floor(ss/3600)
+                let min = Math.floor(ss /60)
+                if(day >=1 && day<4){
+                    this.setState({
+                        time:day+'天前'
+                    })
+                }
+                else if(hour>=1 && hour <24){
+                    this.setState({
+                        time:hour+'小时前'
+                    })
+                }
+                else if(min>=1 && min < 60){
+                    this.setState({
+                        time:min+'分钟前'
+                    })
+                }
+                else if(day >= 4){
+                    this.setState({
+                        time:sum
+                    })
+                }
+                else{
+                    this.setState({
+                        time:'刚刚'
+                    })
+                }
+
+            }) .catch((error) => {
+                console.error('error',error);
+              });
+      }
 
 
     //点击图片方法事件
@@ -135,23 +173,6 @@ export default class Comment extends React.Component {
 
     pinglun() {
         var date = new Date();
-        var seperatorl = '-';
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        var hours = date.getHours();
-        var Minutes = date.getMinutes();
-        var spc = ':';
-        if (strDate >= 0 && strDate <= 9) {
-            strDate = '0' + strDate;
-        }
-        if (hours >= 0 && hours <= 9) {
-            hours = '0' + hours;
-        }
-        if (Minutes >= 0 && Minutes <= 9) {
-            Minutes = '0' + Minutes;
-        }
-        var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
         fetch('http://8.142.11.85:3000/dongtai/insert_comment', {
             method: 'POST',
             headers: {
@@ -160,15 +181,15 @@ export default class Comment extends React.Component {
             },
             body: JSON.stringify({
                 comment_id: this.state.data.title_id,
-                content: this.state.content,
-                username: this.state.denglu_username,
-                date_zhu: currentdate,
-            }),
-        }).then((response) => response.json())
-            .then((responseJson) => {
-                this.go_select();
-                this.get_One();
-            })
+                content:this.state.content,
+                username:this.state.denglu_username,
+                date_zhu:date,
+                }),
+        }) .then((response) => response.json())
+        .then((responseJson) => {
+            this.go_select();
+            this.get_One();
+        }) 
 
     }
 
@@ -228,9 +249,10 @@ export default class Comment extends React.Component {
                 this.setState({
                     comment_zhu: responseJson,
                 });
-            }).catch((error) => {
-                console.error('error', error);
-            });
+            }) .catch((error) => {
+                console.error('error',error);
+              });
+              this.get_One()
     }
 
 
@@ -293,52 +315,56 @@ export default class Comment extends React.Component {
         DeviceEventEmitter.emit('myfabu', 1)
         this.props.navigation.goBack();
     }
-    render() {
-        const { data, comment_zhu, denglu_username } = this.state;
-        console.log('data', data);
-        console.log('comment_zhu', comment_zhu);
-        console.log('heart', this.state.heart);
-        const { modalVisible, imgUrls, currentIndex } = this.state;
-        if (data.username === denglu_username) {
-            return (
-                <View style={{ flex: 1 }}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: "#fff" }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.go_luntan()} style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" />
-                        </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#000", width: width * 0.85, marginLeft: "2%" }}>论坛详情</Text>
+    render () {
+        const {data,comment_zhu,denglu_username,time} = this.state;
+        // console.log('data',data);
+        // console.log('comment_zhu',comment_zhu);
+        // console.log('denglu_username',denglu_username);
+        const {modalVisible,imgUrls,currentIndex} = this.state;
 
-                    </View>
-                    <ScrollView
-                        refreshControl={
-                            <RefreshControl
-                                refreshing={this.state.isLoding} //设置是否在刷新
-                                onRefresh={this.loding.bind(this)} //下拉刷新结束}
-                            />
-                        }>
-                        <BottomSheet
-                            isVisible={this.state.isVisible}
-                            containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}
-                        >
-                            {this.list.map((l, i) => (
-                                <ListItem key={i} containerStyle={l.containerStyle} onPress={l.onPress}>
-                                    <ListItem.Content style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                        <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
-                                    </ListItem.Content>
-                                </ListItem>
-                            ))}
-                        </BottomSheet>
-                        <View style={{ backgroundColor: 'white' }}>
-                            <View style={{ width: width * 0.9, marginLeft: width * 0.05 }}>
-                                <View style={{ flexDirection: 'row', marginTop: 15, justifyContent: 'space-between' }}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-                                        <TouchableOpacity activeOpacity={1}>
-                                            <Image source={{ uri: data.portrait }} style={styles.touxiang} />
-                                        </TouchableOpacity>
-                                        <View style={{ marginLeft: 10 }}>
-                                            <Text style={styles.name}>{data.nickname}</Text>
-                                            <Text style={{ color: '#aaa' }}>{data.fabiao_time}</Text>
-                                        </View>
+        
+       
+
+
+        if(data.username === denglu_username){
+        return (
+            <View style={{flex:1}}>
+                 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
+
+            </View> 
+                <ScrollView 
+                 refreshControl={
+                    <RefreshControl
+                        refreshing = {this.state.isLoding} //设置是否在刷新
+                        onRefresh = {this.loding.bind(this)} //下拉刷新结束}
+                    />
+                }>
+                    <BottomSheet
+                    isVisible={this.state.isVisible}
+                    containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}
+                    >
+                    {this.list.map((l, i) => (
+                        <ListItem key={i} containerStyle={l.containerStyle} onPress={l.onPress}>
+                        <ListItem.Content style={{justifyContent:'center',alignItems:'center'}}>
+                            <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
+                        </ListItem.Content>
+                        </ListItem>
+                    ))}
+                    </BottomSheet>
+                    <View style={{backgroundColor:'white'}}>
+                        <View style={{width:width * 0.9,marginLeft:width*0.05}}>
+                        <View style={{flexDirection:'row',marginTop:15,justifyContent:'space-between'}}>
+                                <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                                    <TouchableOpacity activeOpacity={1}>
+                                        <Image source={{uri:data.portrait}} style={styles.touxiang}/>
+                                    </TouchableOpacity>
+                                    <View style={{marginLeft:10}}>
+                                        <Text style={styles.name}>{data.nickname}</Text>  
+                                        <Text style={{color:'#aaa'}}>{time}</Text>
                                     </View>
                                     <TouchableOpacity onPress={() => this.setState({ isVisible: true })}>
                                         <Text style={{ color: '#ccc' }}>∨</Text>
@@ -391,25 +417,59 @@ export default class Comment extends React.Component {
                                     </TouchableOpacity>
                                 </View>
                             </View>
-                        </View>
-                        {/* 放大图片的遮罩层 */}
-                        <Modal animationType={'slide'}
-                            transparent={true}
-                            visible={modalVisible}
-                            onRequestClose={() => { this.setState({ modalVisible: false }); }}>
-                            <ImageViewer imageUrls={imgUrls} style={{ flex: 1 }} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }} />
-                        </Modal>
-                        {/* 评论的渲染 */}
-                        <View style={{ marginTop: 10 }}>
-                            {
-                                comment_zhu.map((v, k) => {
-                                    if (v.counts > 0) {
-                                        return (
-                                            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15 }}>
-                                                <View key={k} style={{ backgroundColor: '#fff', borderRadius: 15 }}>
-                                                    <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: width * 0.025, width: width * 0.85, }}>
-                                                        <TouchableOpacity activeOpacity={1}>
-                                                            <Image source={{ uri: v.portrait }} style={styles.touxiang} />
+                   
+                </View>
+                {/* 放大图片的遮罩层 */}
+                <Modal animationType={'slide'}
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => { this.setState({modalVisible:false});}}>
+                <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
+            </Modal>
+                {/* 评论的渲染 */}
+                <View style={{marginTop:10}}>
+                {
+                    comment_zhu.map((v,k)=>{
+
+
+                        //取出年月日
+                        let a = v.date_zhu.slice(0,10)
+                        //取出时分
+                        let b = v.date_zhu.slice(11,16)
+                        let time1 = new Date();
+                        let time2 = new Date(v.date_zhu).getTime()
+                        let sum = a+' '+b
+                        //获得相差的秒
+                        let ss = (time1 -time2)/1000
+                        let day = Math.floor(ss/86400)
+                        let hour = Math.floor(ss/3600)
+                        let min = Math.floor(ss /60)
+                        let time = ''
+                        if(day >=1 && day<4){                    
+                            time=day+'天前'                      
+                        }
+                        else if(hour>=1 && hour <24){                         
+                            time=hour+'小时前'                         
+                        }
+                        else if(min>=1 && min < 60){                           
+                            time=min+'分钟前'                           
+                        }
+                        else if(day >= 4){                      
+                            time=sum                           
+                        }
+                        else{                          
+                            time='刚刚'
+                        }
+
+
+                        if (v.counts > 0 ){
+                            return (
+                                <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
+                                <View key={k} style={{backgroundColor:'#fff',borderRadius:15}}>
+                                <View style={{flexDirection:'row',marginTop:10,marginBottom:10,marginLeft:width * 0.025,width:width * 0.85,}}>
+                                        <TouchableOpacity activeOpacity={1}>
+                                            <Image source={{uri:v.portrait}} style={styles.touxiang}/>
+
                                                         </TouchableOpacity>
                                                         <View style={{ marginLeft: 10, width: width * 0.8 }}>
                                                             <Text style={styles.name}>{v.nickname}</Text>
@@ -433,7 +493,7 @@ export default class Comment extends React.Component {
                                                                             color="black" />
                                                                     </TouchableOpacity>
                                                                 </View>
-                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{v.date_zhu}</Text>
+                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
                                                             </View>
                                                         </View>
                                                     </View>
@@ -467,7 +527,7 @@ export default class Comment extends React.Component {
                                                                             color="black" />
                                                                     </TouchableOpacity>
                                                                 </View>
-                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{v.date_zhu}</Text>
+                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
                                                             </View>
                                                         </View>
                                                     </View>
@@ -502,6 +562,7 @@ export default class Comment extends React.Component {
 
 
                 </View>
+            </View>
             );
 
         } else {
@@ -529,7 +590,7 @@ export default class Comment extends React.Component {
                                     </TouchableOpacity>
                                     <View style={{ marginLeft: 10 }}>
                                         <Text style={styles.name}>{data.nickname}</Text>
-                                        <Text style={{ color: '#aaa' }}>{data.fabiao_time}</Text>
+                                        <Text style={{color:'#aaa'}}>{time}</Text>
                                     </View>
                                 </View>
                                 <Text style={data.title === '' ? { height: 0 } : styles.txt}
@@ -622,7 +683,7 @@ export default class Comment extends React.Component {
                                                                             color="black" />
                                                                     </TouchableOpacity>
                                                                 </View>
-                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{v.date_zhu}</Text>
+                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
                                                             </View>
                                                         </View>
                                                     </View>
@@ -656,7 +717,7 @@ export default class Comment extends React.Component {
                                                                             color="black" />
                                                                     </TouchableOpacity>
                                                                 </View>
-                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{v.date_zhu}</Text>
+                                                                <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
                                                             </View>
                                                         </View>
                                                     </View>
@@ -666,8 +727,9 @@ export default class Comment extends React.Component {
                                     }
                                 })
                             }
-                        </View>
+                         </View>
                     </ScrollView>
+
                     <View style={styles.box3}>
                         <TextInput
                             placeholder="我要评论..."
@@ -688,7 +750,7 @@ export default class Comment extends React.Component {
                                 size={20} />
                         </TouchableOpacity>
                     </View>
-
+                   
 
                 </View>
             );

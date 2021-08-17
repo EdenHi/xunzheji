@@ -76,6 +76,7 @@ import {
   ClothesMade,
   musicPlayer,
   MatchGame,
+  book_1,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -169,6 +170,7 @@ export default function StackNav() {
       <Stack.Screen name="ClothesMade" component={ClothesMade} />
       <Stack.Screen name="musicPlayer" component={musicPlayer} />
       <Stack.Screen name="MatchGame" component={MatchGame} />
+      <Stack.Screen name="book_1" component={book_1} />
     </Stack.Navigator>
   );
 }

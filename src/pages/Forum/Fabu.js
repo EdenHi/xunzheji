@@ -96,23 +96,6 @@ export default class Fabu extends Component {
     }
     _fetchText() {
         var date = new Date();
-        var seperatorl = '-';
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        var hours = date.getHours();
-        var Minutes = date.getMinutes();
-        var spc = ':';
-        if (strDate >= 0 && strDate <= 9) {
-            strDate = '0' + strDate;
-        }
-        if (hours >= 0 && hours <= 9) {
-            hours = '0' + hours;
-        }
-        if (Minutes >= 0 && Minutes <= 9) {
-            Minutes = '0' + Minutes;
-        }
-        var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
         AsyncStorage.getItem('username', (error, result) => {
             if (!error) {
                 this.setState({
@@ -128,7 +111,7 @@ export default class Fabu extends Component {
                     body: JSON.stringify({
                         title: this.state.fayan,
                         uuid: this.state.uuid,
-                        fabiao_time: currentdate,
+                        fabiao_time: date,
                         username: result,
                         tag: this.state.tag[0],
                     }),

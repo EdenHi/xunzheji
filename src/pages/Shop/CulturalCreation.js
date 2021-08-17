@@ -26,7 +26,7 @@ export default function CulturalCreation ({navigation}){
             }}>
             <FontAwesome name={'angle-left'} size={25} color={'#000'} />
           </TouchableOpacity>
-          <View style={{ width: 200 }}>
+          <View style={{  }}>
             <Text style={{
               fontSize: 18,
               textAlign: 'center',

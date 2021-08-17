@@ -127,7 +127,7 @@ export default class Login extends Component {
           </View>
 
           <View style={{width:width,height:height*0.5,backgroundColor:"#fff"}}>
-        <LottieView style={{marginTop:-180}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
+        <LottieView style={{marginTop:"-30%"}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
         </View>
           
         </View>

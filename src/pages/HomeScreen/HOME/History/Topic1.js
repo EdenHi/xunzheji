@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, Dimensions, TouchableOpacity, TextInput } from 'react-native'
+import { View, Text, Image, Dimensions, TouchableOpacity, TextInput,AsyncStorage,FlatList } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -9,21 +9,131 @@ import { ScrollView } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get("window")
 
 export default class Topic1 extends Component {
-    render() {
+    constructor(props) {
+        super(props)
+        this.state = {
+            pinglun: [],
+            denglu_username: '',
+        }
+    }
+    get_pinglun() {
+        AsyncStorage.getItem('username', (err, result) => {
+            if (!err) {
+                this.setState({
+                    denglu_username: result,
+                })
+                fetch('http://8.142.11.85:3000/shouye/get_pinglun', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: result,
+                        wenzhang_id: this.props.route.params.wenzhang_id
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        this.setState({
+                            pinglun: json
+                        })
+                    });
+            }
+        })
+    }
+    componentDidMount() {
+        this.get_pinglun();
+    }
+    //更新文章评论点赞
+    update_dianzan(v) {
+        if (v.wenzhang_dianzan === this.state.denglu_username) {
+            fetch('http://8.142.11.85:3000/shouye/update_pldianzan2', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: v.id,
+                }),
+            });
+        } else {
+            fetch('http://8.142.11.85:3000/shouye/update_pldianzan', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: v.id,
+                    username: this.state.denglu_username,
+                }),
+            });
+        }
+        this.get_pinglun();
+    }
+     //Flastlist 中间渲染
+     renderDate({ item, index }) {
+
+        //取出年月日
+        let a = item.pinglun_time.slice(0,10)
+        //取出时分
+        let b = item.pinglun_time.slice(11,16)
+        let time1 = new Date();
+        let time2 = new Date(item.pinglun_time).getTime()
+        let sum = a+' '+b
+        //获得相差的秒
+        let ss = (time1 -time2)/1000
+        let day = Math.floor(ss/86400)
+        let hour = Math.floor(ss/3600)
+        let min = Math.floor(ss /60)
+        let time = ''
+        if(day >=1 && day<4){                    
+            time=day+'天前'                      
+        }
+        else if(hour>=1 && hour <24){                         
+            time=hour+'小时前'                         
+        }
+        else if(min>=1 && min < 60){                           
+            time=min+'分钟前'                           
+        }
+        else if(day >= 4){                      
+            time=sum                           
+        }
+        else{                          
+            time='刚刚'
+        }
+
         return (
-            <View>
-                <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, padding: 5, borderRadius: 15, elevation: 5, marginBottom: 5 }} key={index}>
+                <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: width * 0.025, width: width * 0.85, alignItems: 'center', justifyContent: 'space-between' }}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <TouchableOpacity activeOpacity={1}>
+                            <Image source={{ uri: item.portrait }} style={{ width: width * 0.08, height: width * 0.08, backgroundColor: 'pink', borderRadius: 50 }} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
-                        </TouchableOpacity>
+                        <View style={{ marginLeft: 10 }}>
+                            <Text style={{ fontSize: 14, marginLeft: '2%', fontWeight: 'bold', color: '#6edcf8' }}>{item.nickname}</Text>
+                            <Text style={{ marginTop: 10 }}>{item.pinglun}</Text>
+                            <Text style={{ color: '#aaa', marginRight: width * 0.2, fontSize: 13, marginTop: 10 }}>{time}</Text>
+                        </View>
                     </View>
-                    <View style={{ height: height * 0.865, marginHorizontal: width * 0.05 }}>
-                        <ScrollView showsVerticalScrollIndicator={false}>
+                    <TouchableOpacity activeOpacity={0.5} style={{ marginRight: 10 }}>
+                        <Ionicons
+                            name={item.wenzhang_dianzan === this.state.denglu_username ? 'heart' : 'heart-outline'}
+                            size={20}
+                            color={item.wenzhang_dianzan === this.state.denglu_username ? 'red' : 'black'}
+                            onPress={() => this.update_dianzan(item)}
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+        )
+    }
+
+    header(){
+        return(
+            <View style={{ width, alignItems: "center" }}>
                             <View >
                                 <Image style={{ width: width * 0.9, height: height * 0.2, borderRadius: 10 }} source={{ uri: "https://img0.baidu.com/it/u=3380797457,2869153316&fm=26&fmt=auto&gp=0.jpg" }} />
                             </View>
@@ -69,8 +179,33 @@ export default class Topic1 extends Component {
                             <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
                                 <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 }} >&emsp;&emsp;查济民在这里几十年的苦心经营，赢得了尼日利亚人民的信任和尊敬。正是因为有了查济民这样一位“前浪”，后来的浙商来到尼日利亚，才能够有一帆风顺的开局。浙商们在尼日利亚度过了近十年的“蜜月期”，凡是哪个时候来的，都早早分到了一杯羹，有人更是在这里发家致富，走上了职业投资人的道路。可这样的蜜月终归还是结束了。尼日利亚政府开始意识到光靠卖石油，始终不长久，而且无法解决那么多的就业人口。想要国富民也富，还是要发展制造业。于是开始大力扶持本土制造企业，一旦觉得某种外国商品影响到了本土企业发展，就开始打压，首当其冲的，就是中国商品。从此开始，浙商的“猛人”们为了继续赚钱，与尼日利亚不断修改的规则进行着斗争。</Text>
                             </View>
-                        </ScrollView>
+            </View>
+        )
+    }
+
+
+    render() {
+        console.log(this.state.pinglun);
+        return (
+            <View style={{flex:1}}>
+                <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]} style={{flex:1}}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
+                        </TouchableOpacity>
                     </View>
+
+                    <FlatList
+
+                        data={this.state.pinglun}
+                        renderItem={this.renderDate.bind(this)}
+                        ListHeaderComponent={this.header.bind(this)}
+                    />
+
                     <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center", justifyContent: 'space-around' }} >
                         <View style={{ width: 250, height: 40, backgroundColor: "#808080", opacity: 0.4, marginLeft: 20, borderRadius: 20 }}>
                             <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
