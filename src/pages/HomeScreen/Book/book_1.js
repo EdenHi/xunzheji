@@ -25,8 +25,8 @@ export default class book_1 extends Component {
                     <ScrollView>
                     <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:20}}>
                         <View style={{marginLeft:width*0.05}}>
-                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold'}}>勇立潮头看浙商</Text>
-                            <Text style={{marginTop:20}}>周咏南</Text>
+                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold',color:'#333'}}>勇立潮头看浙商</Text>
+                            <Text style={{marginTop:20,color:'#333'}}>周咏南</Text>
                         </View>
                         <Image source={{uri:'https://img0.baidu.com/it/u=2944285600,2767547880&fm=26&fmt=auto&gp=0.jpg'}} style={{height:150,width:100,marginRight:width*0.05}}/>
                     </View>

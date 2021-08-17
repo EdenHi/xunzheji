@@ -30,6 +30,8 @@ import LinearGradient from 'react-native-linear-gradient'
 import {BottomSheet,ListItem} from 'react-native-elements'
 
 
+
+
 const DismissKeyboard = ({ children }) => (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       {children}
@@ -56,6 +58,7 @@ export default class Comment extends React.Component {
             counts:this.props.route.params.counts,
             heart:false,
             time:'',
+            dianzan:['0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
         };
     }
     //底部弹窗
@@ -314,6 +317,20 @@ export default class Comment extends React.Component {
         DeviceEventEmitter.emit('myfabu',1)
         this.props.navigation.goBack();
     }
+
+
+    putong_dianzan(k){
+        let a = this.state.dianzan
+        if(this.state.dianzan[k]==='0'){
+            a.splice(k,1,'1')
+        }else{
+            a.splice(k,1,'0')
+        }
+        this.setState({dianzan:a})
+    }
+
+
+
     render () {
         const {data,comment_zhu,denglu_username,time} = this.state;
         // console.log('data',data);
@@ -478,11 +495,11 @@ export default class Comment extends React.Component {
                                             </TouchableOpacity>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.putong_dianzan(k)}>
                                                             <Ionicons
-                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            name={this.state.dianzan[k] === '0' ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                            color={this.state.dianzan[k] === '0' ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                         <Ionicons
@@ -511,11 +528,11 @@ export default class Comment extends React.Component {
                                             <Text>{v.content}</Text>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.putong_dianzan(k)}>
                                                             <Ionicons
-                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            name={this.state.dianzan[k] === '0' ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                            color={this.state.dianzan[k] === '0' ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
                                                         onPress={()=>this.goComment(v)} >
