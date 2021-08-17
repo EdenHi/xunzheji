@@ -58,7 +58,7 @@ export default class Comment extends React.Component {
             counts:this.props.route.params.counts,
             heart:false,
             time:'',
-            dianzan :['0','0','0','0','0','0','0'],
+            dianzan:['0','0','0','0','0','0','0','0','0','0','0','0','0','0'],
         };
     }
     //底部弹窗
@@ -320,12 +320,13 @@ export default class Comment extends React.Component {
 
 
     putong_dianzan(k){
+        let a = this.state.dianzan
         if(this.state.dianzan[k]==='0'){
-            this.state.dianzan.splice(k,1,'1')
+            a.splice(k,1,'1')
         }else{
-            this.state.dianzan.splice(k,1,'0')
+            a.splice(k,1,'0')
         }
-        this.setState({dianzan})
+        this.setState({dianzan:a})
     }
 
 
@@ -494,11 +495,11 @@ export default class Comment extends React.Component {
                                             </TouchableOpacity>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
-                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.putong_dianzan(k)}>
                                                             <Ionicons
-                                                            name={this.state.heart === false ? "heart-outline" : "heart"}
+                                                            name={this.state.dianzan[k] === '0' ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                            color={this.state.dianzan[k] === '0' ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                     <TouchableOpacity activeOpacity={1} style={{marginLeft:10}} onPress={()=>this.goComment(v)}>
                                                         <Ionicons
@@ -529,9 +530,9 @@ export default class Comment extends React.Component {
                                                 <View style={{flexDirection:'row'}}>
                                                 <TouchableOpacity activeOpacity={1} onPress={()=>this.putong_dianzan(k)}>
                                                             <Ionicons
-                                                            name={dianzan[k] === '0' ? "heart-outline" : "heart"}
+                                                            name={this.state.dianzan[k] === '0' ? "heart-outline" : "heart"}
                                                             size={15}
-                                                            color={this.state.heart === false ? "black" : "red"}/>
+                                                            color={this.state.dianzan[k] === '0' ? "black" : "red"}/>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1} style={{marginLeft:10}}
                                                         onPress={()=>this.goComment(v)} >
