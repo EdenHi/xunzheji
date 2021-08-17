@@ -179,8 +179,9 @@ export default class NewWorks extends Component {
                     <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
                   </View>
                   
-                  <View style={{ width: "90%", height: "18%", flexDirection: "row" }}>
-
+                  <View style={{ width: "90%", height: "18%", flexDirection: "row" ,alignItems:"center",marginLeft:"2%"}}>
+                  <LottieView style={{width:"50%",height:"100%"}} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
+                  <Text style={{color:"#333333",fontSize:13}}>5.0</Text>
                   </View>
                   
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
