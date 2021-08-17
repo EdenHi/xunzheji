@@ -25,10 +25,10 @@ export default class book_1 extends Component {
                     <ScrollView>
                     <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:20}}>
                         <View style={{marginLeft:width*0.05}}>
-                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold',color:'#333'}}>勇立潮头看浙商</Text>
-                            <Text style={{marginTop:20,color:'#333'}}>周咏南</Text>
+                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold',color:'#333'}}>鲁冠球：聚能向宇宙</Text>
+                            <Text style={{marginTop:20,color:'#333'}}>魏江</Text>
                         </View>
-                        <Image source={{uri:'https://img0.baidu.com/it/u=2944285600,2767547880&fm=26&fmt=auto&gp=0.jpg'}} style={{height:150,width:100,marginRight:width*0.05}}/>
+                        <Image source={{uri:'http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062'}} style={{height:150,width:100,marginRight:width*0.05}}/>
                     </View>
                     
                     <View style={{backgroundColor:'#fff'}}>
@@ -54,7 +54,7 @@ export default class book_1 extends Component {
                             size={30}/>
                             <Text>听书</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center'}}>
+                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center'}}  onPress={()=>this.props.navigation.navigate('book_xiangqing')}>
                             <Text style={{backgroundColor:'#7cc0c0',paddingTop:10,paddingBottom:10,paddingLeft:20,paddingRight:20,borderRadius:20}}>立即免费阅读</Text>
                         </TouchableOpacity>
                     </View>
