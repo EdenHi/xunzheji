@@ -175,6 +175,44 @@ onShare = async () => {
                     >
                     {
                         this.state.data.map((v,k)=>{
+                             //取出年月日
+                             let a = v.fabiao_time.slice(0,10)
+                             //取出时分
+                             let b = v.fabiao_time.slice(11,16)
+                             let time1 = new Date();
+                             let time2 = new Date(v.fabiao_time).getTime()
+                             let sum = a+' '+b
+                             //获得相差的秒
+                             let ss = (time1 -time2)/1000
+                             let day = Math.floor(ss/86400)
+                             let hour = Math.floor(ss/3600)
+                             let min = Math.floor(ss /60)
+                             let time = ''
+                             if(day >=1 && day<4){
+                                 
+                                    time=day+'天前'
+                                 
+                             }
+                             else if(hour>=1 && hour <24){
+                                 
+                                     time=hour+'小时前'
+                                 
+                             }
+                             else if(min>=1 && min < 60){
+                                 
+                                     time=min+'分钟前'
+                                 
+                             }
+                             else if(day >= 4){
+                                
+                                     time=sum
+                                 
+                             }
+                             else{
+                                 
+                                    time='刚刚'
+                                 
+                             }
                             if(k === 1){
                                     return (
                                         <View>
@@ -331,7 +369,7 @@ onShare = async () => {
                                                         </TouchableOpacity> 
                                                         <View style={{marginLeft:10}}>
                                                             <Text style={styles.name}>{v.nickname}</Text>
-                                                            <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                            <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                         </View>
                                                     </View>
                                                     {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
@@ -451,7 +489,7 @@ onShare = async () => {
                                                     </TouchableOpacity> 
                                                     <View style={{marginLeft:10}}>
                                                         <Text style={styles.name}>{v.nickname}</Text>
-                                                        <Text style={{color:'#aaa',fontSize:12}}>{v.fabiao_time}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                     </View>
                                                 </View>
                                                 {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}

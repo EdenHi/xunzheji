@@ -117,7 +117,7 @@ export default class Home extends Component {
                                                 </View>
                                             </TouchableOpacity>
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3608384836,3487578051&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=301' }}>
-                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic1')} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic1', { wenzhang_id: 2 })} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>“浙商人”在非洲</Text></View>
                                                     <View style={{ flex: 1 }}>
@@ -130,7 +130,7 @@ export default class Home extends Component {
                                                 </TouchableOpacity>
                                             </ImageBackground>
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
-                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2')} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 3 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
                                                     <View style={{ flex: 1 }}>

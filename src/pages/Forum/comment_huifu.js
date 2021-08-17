@@ -22,6 +22,7 @@ export default class comment_huifu extends Component {
             content_huifu:'',
             username:'',
             isLoding:false,
+            time:'',
         };
     }
 
@@ -41,11 +42,50 @@ export default class comment_huifu extends Component {
                 this.setState({
                     data:responseJson[0],
                 });
+                this._time(responseJson[0].date_zhu)
             })
+            
     }
 
+        _time(v){
+            let a = v.slice(0,10)
+            let b = v.slice(11,16)
+            let time1 = new Date();
+            let time2 = new Date(v).getTime()
+            let sum = a+' '+b
+            //获得相差的秒
+            let ss = (time1 -time2)/1000
+            let day = Math.floor(ss/86400)
+            let hour = Math.floor(ss/3600)
+            let min = Math.floor(ss /60)
+            if(day >=1 && day<4){
+                this.setState({
+                    time:day+'天前'
+                })
+            }
+            else if(hour>=1 && hour <24){
+                this.setState({
+                    time:hour+'小时前'
+                })
+            }
+            else if(min>=1 && min < 60){
+                this.setState({
+                    time:min+'分钟前'
+                })
+            }
+            else if(day >= 4){
+                this.setState({
+                    time:sum
+                })
+            }
+            else{
+                this.setState({
+                    time:'刚刚'
+                })
+            }
+        }
 
-
+        //获取回复数据
     go_select(){
         AsyncStorage.getItem('username',(error,result)=>{
             if (!error) {
@@ -94,23 +134,7 @@ export default class comment_huifu extends Component {
     }
     fabu(){
         var date = new Date();
-        var seperatorl = '-';
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        var hours = date.getHours();
-        var Minutes = date.getMinutes();
-        var spc = ':';
-        if (strDate >= 0 && strDate <= 9){
-            strDate = '0' + strDate;
-        }
-        if (hours >= 0 && hours <= 9){
-            hours = '0' + hours;
-        }
-        if (Minutes >= 0 && Minutes <= 9){
-            Minutes = '0' + Minutes;
-        }
-        var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
+        
         fetch('http://8.142.11.85:3000/dongtai/insert_huifu', {
             method: 'POST',
             headers: {
@@ -121,7 +145,7 @@ export default class comment_huifu extends Component {
                 parent_id: this.state.data.id,
                 content_huifu:this.state.content_huifu,
                 username:this.state.username,
-                date_huifu:currentdate,
+                date_huifu:date,
               }),
         })
         .then((response) => response.json())
@@ -131,7 +155,7 @@ export default class comment_huifu extends Component {
         }) 
     }
     render() {
-        const {data,huifu} = this.state;
+        const {data,huifu,time} = this.state;
         console.log('huifu',huifu);
         console.log('data',data);
         return (
@@ -161,7 +185,7 @@ export default class comment_huifu extends Component {
                                 
                                 </View>
                                 <Text>{data.content}</Text>
-                                <Text style={{color:'#aaa',fontSize:12}}>{data.date_zhu}</Text>
+                                <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                             </View>
                         </View>
                     </View>
@@ -169,6 +193,34 @@ export default class comment_huifu extends Component {
                     <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
                         {
                             huifu.map((v,k)=>{
+                                        //取出年月日
+                                        let a = v.date_huifu.slice(0,10)
+                                        //取出时分
+                                        let b = v.date_huifu.slice(11,16)
+                                        let time1 = new Date();
+                                        let time2 = new Date(v.date_huifu).getTime()
+                                        let sum = a+' '+b
+                                        //获得相差的秒
+                                        let ss = (time1 -time2)/1000
+                                        let day = Math.floor(ss/86400)
+                                        let hour = Math.floor(ss/3600)
+                                        let min = Math.floor(ss /60)
+                                        let time = ''
+                                        if(day >=1 && day<4){                    
+                                            time=day+'天前'                      
+                                        }
+                                        else if(hour>=1 && hour <24){                         
+                                            time=hour+'小时前'                         
+                                        }
+                                        else if(min>=1 && min < 60){                           
+                                            time=min+'分钟前'                           
+                                        }
+                                        else if(day >= 4){                      
+                                            time=sum                           
+                                        }
+                                        else{                          
+                                            time='刚刚'
+                                        }
                                 return (
                                     <View key={k} >
                                         <View style={{flexDirection:'row',marginTop:10,marginBottom:10,paddingBottom:10,marginLeft:width * 0.025,width:width * 0.85,borderBottomWidth:1/3,borderColor:"#7cc0c0"}}>
@@ -178,7 +230,7 @@ export default class comment_huifu extends Component {
                                             <View style={{marginLeft:10}}>
                                                 <Text style={styles.name}>{v.nickname}</Text>
                                                 <Text>{v.content_huifu}</Text>
-                                                <Text style={{color:'#aaa',fontSize:12}}>{v.date_huifu}</Text>
+                                                <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                             </View>
                                         </View>
                                     </View>
