@@ -74,8 +74,8 @@ export default class Shopclassifymore extends Component {
                             justifyContent:'center',
                             alignItems:"center"
                         }}>
-                            <Text style={{fontSize:21,fontWeight:"bold"}}>{item.name}</Text>
-                            <Text>{item.pinyin}</Text>
+                            <Text style={{fontSize:21,fontWeight:"bold",color:"#333333"}}>{item.name}</Text>
+                            <Text style={{color:"#333333"}}>{item.pinyin}</Text>
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -111,8 +111,8 @@ export default class Shopclassifymore extends Component {
                         justifyContent:'center',
                         alignItems:"center"
                     }}>
-                        <Text style={{fontSize:21,fontWeight:"bold"}}>{item.name}</Text>
-                        <Text>{item.pinyin}</Text>
+                        <Text style={{fontSize:21,fontWeight:"bold",color:"#333333"}}>{item.name}</Text>
+                        <Text style={{color:"#333333"}}>{item.pinyin}</Text>
                     </View>
                 </View>
             </TouchableOpacity>
@@ -141,8 +141,8 @@ export default class Shopclassifymore extends Component {
                             justifyContent:'center',
                             alignItems:"center"
                         }}>
-                            <Text style={{fontSize:21,fontWeight:"bold"}}>{item.name}</Text>
-                            <Text>{item.pinyin}</Text>
+                            <Text style={{fontSize:21,fontWeight:"bold",color:"#333333"}}>{item.name}</Text>
+                            <Text style={{color:"#333333"}}>{item.pinyin}</Text>
                         </View>
                         <Image style={{
                             width: "33%",
@@ -178,8 +178,8 @@ export default class Shopclassifymore extends Component {
                             justifyContent:'center',
                             alignItems:"center"
                         }}>
-                            <Text style={{fontSize:21,fontWeight:"bold"}}>{item.name}</Text>
-                            <Text>{item.pinyin}</Text>
+                            <Text style={{fontSize:21,fontWeight:"bold",color:"#333333"}}>{item.name}</Text>
+                            <Text style={{color:"#333333"}}>{item.pinyin}</Text>
                         </View>
                         <Image style={{
                             width: "33%",
@@ -200,7 +200,7 @@ export default class Shopclassifymore extends Component {
     //底部渲染
     ListFooterComponent(){
         return(
-            <Text style={{textAlign:"center",marginTop:20,marginBottom:10}}>—————————————到底啦—————————————</Text>
+            <Text style={{textAlign:"center",marginTop:20,marginBottom:10,color:"#333333"}}>—————————————到底啦—————————————</Text>
         )
     }
 
@@ -213,31 +213,31 @@ export default class Shopclassifymore extends Component {
                 <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0c0","#fff"]} >
                     {/* 标题 */}
                     <View style={{
-                        height: 45,
+                       height:height*0.07,
+                       width:width*0.9,
+                       marginLeft:width*0.05,
                         alignItems: "center",
-                        justifyContent: "center",
+                    
                         flexDirection: 'row',
                     }}>
                         <TouchableOpacity
                             activeOpacity={0.8}
                             onPress={() => navigation.goBack()}
                             style={{
-                                width: 50,
-                                position: "absolute",
-                                height: "100%",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                left: 0
+                             
                             }}>
-                            <FontAwesome name={'angle-left'} size={25} color={'#000'} />
+                            <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <View style={{ width: 200 }}>
+                       
                             <Text style={{
-                                fontSize: 18,
-                                textAlign: 'center',
-                                textAlignVertical: 'center',
+                                fontSize: 15
+                                ,color:"#fff",
+                                fontWeight:"bold",
+                                marginLeft:"5%"
+                            
+
                             }}>{this.props.route.params.title}</Text>
-                        </View>
+                     
                     </View>
                     <FlatList
                     contentContainerStyle={{ width: "92%",marginLeft:"4%"}}
