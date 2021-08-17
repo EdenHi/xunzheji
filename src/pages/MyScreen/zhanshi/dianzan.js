@@ -85,7 +85,7 @@ export default class dianzan extends Component {
                 keyExtractor={(item, index) => (index + '1')}
                 data = {this.state.data}
                 renderItem = {this.renderData.bind(this)}/>
-                
+                <View style={{alignItems:'center',marginBottom:20}}><Text>------------到底了------------</Text></View>
                 </ScrollView>
             </View>
         );

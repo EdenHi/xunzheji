@@ -69,7 +69,7 @@ export default class Classify extends React.Component {
                                 borderRadius:15
                              
                             }}
-                            source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Felement_origin_min_pic%2F16%2F11%2F15%2Fdd426cf2d279dfe48cf199157b36223b.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630462120&t=54953bb503c9e2d1b7dee0dd6b92247d'}}
+                            source={{uri:'https://img1.baidu.com/it/u=471631677,3527280070&fm=26&fmt=auto&gp=0.jpg'}}
                                >
                             </Image>
                             <Text style={{
