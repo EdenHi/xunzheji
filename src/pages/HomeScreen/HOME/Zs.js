@@ -112,7 +112,7 @@ export default class Zs extends Component {
                     </View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
-                            明代中后期因为全国的交通条件得到了大幅的改善和发展。大规模的远航的商业活动和商品贩卖贩运开始，发展也从而推动了各地的商帮的兴起和发展。尤其是在明代，当时国家统一交通也便利幅员辽阔水路都非常的畅通，也是为大规模的商品的流通提供了非常便利的交通运输条件。我国古代的商帮的诞生，从刚开始的经商风气的形成到最后商品经济的发展一直是一个比较艰难而长久的过程。在封建社会的多种的因素合条件之下，明清时期各地的商帮开始先后形成。
+                        &emsp;&emsp;明代中后期因为全国的交通条件得到了大幅的改善和发展。大规模的远航的商业活动和商品贩卖贩运开始，发展也从而推动了各地的商帮的兴起和发展。尤其是在明代，当时国家统一交通也便利幅员辽阔水路都非常的畅通，也是为大规模的商品的流通提供了非常便利的交通运输条件。我国古代的商帮的诞生，从刚开始的经商风气的形成到最后商品经济的发展一直是一个比较艰难而长久的过程。在封建社会的多种的因素合条件之下，明清时期各地的商帮开始先后形成。
                         </Text>
                     </View>
                     <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
@@ -121,29 +121,29 @@ export default class Zs extends Component {
                     <View><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center" }}>地域化的商帮兴起的背景</Text></View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center" }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
-                            商业想要发展，首先是要有交通的便利条件和经济发展水平。在明代中后期，当时的交通条件开始大为改观，水路的畅通有利于大规模的远距离的商品的贩运，这一变化也是促进着各地的商帮的兴起。当时的明代幅员辽阔，全国统一水路非常的畅通。
+                        &emsp;&emsp;商业想要发展，首先是要有交通的便利条件和经济发展水平。在明代中后期，当时的交通条件开始大为改观，水路的畅通有利于大规模的远距离的商品的贩运，这一变化也是促进着各地的商帮的兴起。当时的明代幅员辽阔，全国统一水路非常的畅通。
                         </Text>
                     </View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginTop: 5, marginBottom: 5 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
-                            明朝更是为了利用贯通南北大运河来转输粮草。在后来的永乐年间，为了对付蒙古的设立，便于军队的往来和粮食的运输，更是修建了很多的道路。是北边与内地的交通更加的便利和畅通。从宿州通向西域的道路也是通过明朝的修筑，也开始变得畅通无阻。到了明朝中后期的时候，全国各地的水陆交通开始有十分大的改观。
+                        &emsp;&emsp;明朝更是为了利用贯通南北大运河来转输粮草。在后来的永乐年间，为了对付蒙古的设立，便于军队的往来和粮食的运输，更是修建了很多的道路。是北边与内地的交通更加的便利和畅通。从宿州通向西域的道路也是通过明朝的修筑，也开始变得畅通无阻。到了明朝中后期的时候，全国各地的水陆交通开始有十分大的改观。
                         </Text>
                     </View>
                     <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
-                            除此之外，当时商品经济生产发展和它的结构也是有利于商人进行群体集团的产生。在明代时期，当时的商业主要经营生产是棉布和丝绸等纺织品的经营。当时的棉花在全国进行种植，南北都是可以的，遍布全国。每年江南要从华北地区输入各种的原材料。当时可以向海内外输入大量丝绸的，只有江南，这就形成了江南丝绸，可以畅销于海内外的单向的一个商品流畅。也就形成了一种垄断垄断的方式。从而促进了商业群体的活动。加之当时的白银货币已经改变了当时的支付手段，提高了结算的效率，从而也就给商业大规模的流通带来了一种便利的条件，有利于商帮群体的产生。
+                        &emsp;&emsp;除此之外，当时商品经济生产发展和它的结构也是有利于商人进行群体集团的产生。在明代时期，当时的商业主要经营生产是棉布和丝绸等纺织品的经营。当时的棉花在全国进行种植，南北都是可以的，遍布全国。每年江南要从华北地区输入各种的原材料。当时可以向海内外输入大量丝绸的，只有江南，这就形成了江南丝绸，可以畅销于海内外的单向的一个商品流畅。也就形成了一种垄断垄断的方式。从而促进了商业群体的活动。加之当时的白银货币已经改变了当时的支付手段，提高了结算的效率，从而也就给商业大规模的流通带来了一种便利的条件，有利于商帮群体的产生。
                         </Text>
                     </View>
                     <View><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center", marginTop: 10 }}>浙东学派经商思想的影响</Text></View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginTop: 5 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
-                            在明清时期由黄宗羲开创的浙东学派。为当时的商品经济和学以致用的文化传统相结合的思想带来了非常成功的思想成果。当时的浙东文化当中的施工使用工商皆本的思想，也是孕育了当时浙江很大一批人强烈的经商意识
+                        &emsp;&emsp; 在明清时期由黄宗羲开创的浙东学派。为当时的商品经济和学以致用的文化传统相结合的思想带来了非常成功的思想成果。当时的浙东文化当中的施工使用工商皆本的思想，也是孕育了当时浙江很大一批人强烈的经商意识
                         </Text>
                     </View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
-                            传统的根深蒂固的重商思想开始慢慢的在这江浙地区延伸开来。也是成为了江浙地区有很多商帮兴起的原因之一。因为深厚的思想是民间经商的基础大大加深也使庞大的商人群体开始产生。当时在江浙地区经世致用思想已经成为了当时江浙人的一种集体无意识的人文精神。他强调个人个体能力公立还是注重实际成为了他们的主导思想。
+                        &emsp;&emsp;  传统的根深蒂固的重商思想开始慢慢的在这江浙地区延伸开来。也是成为了江浙地区有很多商帮兴起的原因之一。因为深厚的思想是民间经商的基础大大加深也使庞大的商人群体开始产生。当时在江浙地区经世致用思想已经成为了当时江浙人的一种集体无意识的人文精神。他强调个人个体能力公立还是注重实际成为了他们的主导思想。
                         </Text>
                     </View>
                     <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} />

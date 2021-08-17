@@ -14,7 +14,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import SideMenu from 'react-native-side-menu';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import LottieView from 'lottie-react-native';
-
+import MyTop from '../MyScreen/MyTop'
 
 
 
@@ -173,7 +173,7 @@ export default class My extends Component {
           </TouchableOpacity>
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
-          <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats',{room:'1'}) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: '1' }) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="customerservice"
               size={35}
@@ -274,8 +274,7 @@ export default class My extends Component {
                 <ImageBackground
                   style={{
                     width: width,
-                    height: '100%',
-                    flexDirection: 'column-reverse',
+                    height: '80%',
                   }}
                   source={{
 
@@ -284,49 +283,85 @@ export default class My extends Component {
                   <View
                     style={{
                       width: '100%',
-                      height: '65%',
+                      height: '60%',
+                      marginTop:"40%",
                       borderTopLeftRadius: 20,
                       borderTopRightRadius: 20,
                       backgroundColor: "#7cc0c0",
-                      flexDirection:"row"
+                      flexDirection: "row",
+                      opacity:0.9
                     }}>
 
-                    <View>
+                    <View
+                    style={{
+                      width:width*0.8
+                    }}
+                    >
 
                       <View
                         style={{
                           width: '100%',
                           height: '50%',
                         }}>
-                        <Image
+                        <TouchableOpacity
+                          activeOpacity={1}
                           style={{
                             width: width * 0.21,
                             height: width * 0.21,
                             backgroundColor: '#fff',
                             borderRadius: 50,
                             marginLeft: '7%',
-                            marginTop: "-10%",
+                            marginTop: "-20%",
                             borderWidth: 1,
                             borderColor: "#7cc0c0",
                             elevation: 5
                           }}
+                          onPress={() => {
+                            this.state.username == '' ? this.showAlert() : this.props.navigation.navigate('bianjiziliao', {
+                              username: data.username,
+                              portrait: data.portrait,
+                              nickname: data.nickname,
+                              sex: data.sex,
+                              birthday: data.birthday,
+                              signature: data.signature,
+                              phone: data.phone,
+                              area: data.area,
+                              backpic: data.backpic,
+                            })
+                          }}>
+                              <Image
+                          style={{
+                            width: width * 0.21,
+                            height: width * 0.21,
+                            backgroundColor: '#fff',
+                            borderRadius: 50,
+                            borderWidth: 1,
+                            borderColor: "#7cc0c0",
+                            elevation: 5
+                          }}
+                         
                           source={{ uri: this.state.username == '' ? 'https://img0.baidu.com/it/u=2135557883,423992380&fm=26&fmt=auto&gp=0.jpg' : data.portrait }}
                         />
+                          {/* <AntDesign name="form" color='#fff' size={20} />
+                          <Text style={{ fontSize: 15, color: '#fff' }}>编辑资料</Text> */}
+                          {/* <AntDesign name="right" color='#fff' size={20} /> */}
+                        </TouchableOpacity>
+                      
                         <View
                           style={{
-                            width: '80%',
-                            height: '60%',
+                            width: '100%',
+                            height: '90%',
                             marginLeft: 30,
-                            marginTop: 10,
+                            marginTop: 5,
                           }}>
                           <Text
-                            style={{ fontSize: 16, color: '#fff', fontWeight: 'bold', width: width * 0.6 }}>
+                            style={{ fontSize: 16, color: '#fff', fontWeight: 'bold', width: width * 0.6,marginBottom:5 }}>
                             {this.state.username == '' ? '游客' : data.nickname}
                           </Text>
-                          <Text ellipsizeMode={'tail'} numberOfLines={2} style={{ fontSize: 13, color: '#fff', width: width * 0.8, marginTop: 5 }}>{this.state.username === '' ? '暂无个性签名' : (data.signature === '' ? '暂无个性签名' : data.signature)}</Text>
+                          <Text ellipsizeMode={'tail'} numberOfLines={2}  style={{ fontSize: 13, color: '#fff', width: width * 0.6,flexWrap:"wrap"}}>{this.state.username === '' ? '暂无个性签名' : (data.signature === '' ? '暂无个性签名' : data.signature)}</Text>
                         </View>
                         {showLogin}
-                        <TouchableOpacity
+                        {/* <TouchableOpacity
                           activeOpacity={1}
                           style={{
                             width: '25%',
@@ -351,13 +386,13 @@ export default class My extends Component {
                           <AntDesign name="form" color='#fff' size={20} />
                           <Text style={{ fontSize: 15, color: '#fff' }}>编辑资料</Text>
                           <AntDesign name="right" color='#fff' size={20} />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                       </View>
 
 
 
 
-                      <View style={{ flexDirection: 'row', width: '50%', alignItems: 'center', marginTop: '10%', borderTopRightRadius: 20, marginLeft: 20 }}>
+                      <View style={{ flexDirection: 'row', width: '50%', alignItems: 'center', marginTop: '6%', borderTopRightRadius: 20, marginLeft: 20 }}>
                         <TouchableOpacity
                           onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }}
                           activeOpacity={1}
@@ -396,11 +431,11 @@ export default class My extends Component {
                         </TouchableOpacity>
                       </View>
                     </View>
-                   <TouchableOpacity  style={{marginLeft:"-10%",marginTop:"28%"}}  onPress={() => this.props.navigation.navigate('JiFen')} >
-                   <View style={{ width: width * 0.2, height: width * 0.2}}>
-                      <LottieView source={require('../../../animal/jinbi.json')} autoPlay loop progress={this.state.progress} />
-                    </View>
-                   </TouchableOpacity>
+                    <TouchableOpacity style={{ marginLeft: "-1%", marginTop: "15%" }} onPress={() => this.props.navigation.navigate('JiFen')} >
+                      <View style={{ width: width * 0.2, height: width * 0.2 }}>
+                        <LottieView source={require('../../../animal/jinbi.json')} autoPlay loop progress={this.state.progress} />
+                      </View>
+                    </TouchableOpacity>
                     {/* <TouchableOpacity
                         activeOpacity={1}
                         style={{
@@ -465,7 +500,8 @@ export default class My extends Component {
                 </TouchableOpacity>
               </View>}
           >
-            <MyRoute2 />
+            <MyTop/>
+            {/* <MyRoute2 /> */}
           </ParallaxScrollView>
         </View>
       </SideMenu>
