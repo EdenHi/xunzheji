@@ -163,17 +163,17 @@ export default class NewWorks extends Component {
             </View> 
         <View style={styles.list}>
           <FlatList
-        //   style={{width:width,height:10000}}
+          // style={{width:width,height:height*0.93}}
             data = {this.state.shops}
             renderItem = {({item})=>
             <View style={{width:width,alignItems:"center"}}>
                  <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails",{shops:item}) }} activeOpacity={1} style={styles.suggest}>
                 <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                   <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold",color:"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13 }}>{item.jieshao}</Text>
+                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13,color:"#333333"  }}>{item.jieshao}</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
                     <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
@@ -219,10 +219,11 @@ const styles = StyleSheet.create({
   },
 
   list: {
-flex:1,
+// width:width*0.9,
+height:height*0.93,
     alignItems:"center",
     marginBottom:20,
-    marginTop:10
+
   },
   suggest: {
     width: width*0.9,
