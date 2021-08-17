@@ -11,7 +11,6 @@ import {NavigationContext} from '@react-navigation/native';
 
 const { width, height } = Dimensions.get("window")
 
-
 export default class Homepagebook extends Component {
     static contextType = NavigationContext;
     constructor(props) {
@@ -57,12 +56,12 @@ export default class Homepagebook extends Component {
 
     _openModalWin(index) {
         console.log('1:',index)
-        if (index == 0) {
+        if (index == 3) {
             this.setState({
                 modalVisible: true,
                 data: [
                     {
-                        image: '   ',
+                        image: 'https://img2.baidu.com/it/u=1605893453,1786566990&fm=26&fmt=auto&gp=0.jpg',
                         title: '作者：周咏南11',
                         connent: '男，汉族，1960年3月生，浙江舟山人',
                         connent2: '1988年3月加入中国共产党，1982年4月参加工作，大学本科学历',
@@ -70,7 +69,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 1) {
+        }else if (index == 4) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -83,7 +82,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 2) {
+        }else if (index == 5) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -96,7 +95,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 3) {
+        }else if (index == 6) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -109,7 +108,7 @@ export default class Homepagebook extends Component {
                     }
                 ],
             })
-        }else if (index == 4) {
+        }else if (index == 7) {
             this.setState({
                 modalVisible: true,
                 data: [
@@ -145,7 +144,7 @@ export default class Homepagebook extends Component {
                 modalVisible2: true,
                 data2: [
                     {
-                        title: '内容简介：',
+                        title: '内容简介1：',
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
@@ -156,7 +155,7 @@ export default class Homepagebook extends Component {
                 modalVisible2: true,
                 data2: [
                     {
-                        title: '内容简介：',
+                        title: '内容简介2：',
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
@@ -167,7 +166,7 @@ export default class Homepagebook extends Component {
                 modalVisible2: true,
                 data2: [
                     {
-                        title: '内容简介：',
+                        title: '内容简介3：',
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
@@ -178,7 +177,7 @@ export default class Homepagebook extends Component {
                 modalVisible2: true,
                 data2: [
                     {
-                        title: '内容简介：',
+                        title: '内容简介4：',
                         connent: '本书结合改革开放40年来中国市场经济发展变化的大背景，以40位不同职业、不同生活背景、不同阶层的普通人口吻，用见证者的视角再现普通人与中国社会变迁同呼吸、共命运的奋斗历程，展示改革开放40年的社会变迁及个人命运际遇的交汇。',
                     }
                 ]
@@ -190,17 +189,18 @@ export default class Homepagebook extends Component {
     }
 
 
+     
 
     page(index) {
         console.log(index)
         if (index === 0) {
-            this.props.navigation.navigate('book_1')
+            this.props.navigation.navigate('Heritage')
         }
         if (index === 1) {
             this.props.navigation.navigate('Heritage')
         }
         if (index === 2) {
-            this.props.navigation.navigate('Heritage')
+            this.props.navigation.navigate('book_1')
         }
         if (index === 3) {
             this.props.navigation.navigate('Heritage')
@@ -212,7 +212,6 @@ export default class Homepagebook extends Component {
 
 
     _renderItem({ item, index }) {
-
         return (
             <View style={{ flexDirection: "row", marginLeft: -20, backgroundColor: "#fff", elevation: 5, borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:"#7cc0c0" }} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.page(index)}>
@@ -223,9 +222,7 @@ export default class Homepagebook extends Component {
                 {/* <View style={{width:width*0.3,marginLeft:10}}>
                     <View><Text style={{fontSize:13}}>作者：周咏南</Text></View>
                     <View><Text style={{fontSize:13}}>一部浙江改革开放史，就是一部浙江民营企业家历尽艰辛、书写传奇的创业史，就是一部浙江民营经济风起云涌、波澜壮阔的崛起史，就是一部浙商精神接续传承、丰富升华的发展史。</Text></View>
-
                 </View> */}
-
                 <View style={{ justifyContent: "center", justifyContent: "space-around", borderWidth: 1, width: width * 0.35, height: width * 0.4, borderRadius: 10, borderColor: "#7cc0c0", marginLeft: 5 }}>
                     <TouchableOpacity onPress={() => {this._openModalWin(index)}} >
                         <View style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
@@ -258,6 +255,7 @@ export default class Homepagebook extends Component {
                 <View >
                     <Carousel
                         autoplay={true}
+                        loop={true}
                         swiper={true}
                         ref={(c) => { this._carousel = c; }}
                         data={this.state.entries}

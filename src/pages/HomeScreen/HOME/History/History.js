@@ -42,7 +42,7 @@ export default class History extends Component {
                                         <View style={{ flexDirection: 'row' }}>
                                             <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江商人</Text></View></TouchableOpacity>
                                             <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>尼日利亚</Text></View></TouchableOpacity>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
@@ -53,8 +53,8 @@ export default class History extends Component {
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
                                     <View style={{ flex: 1 }}>
                                         <View style={{ flexDirection: 'row' }}>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 75, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙商观察</Text></View></TouchableOpacity>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙商观察</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江</Text></View></TouchableOpacity>
                                             {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
                                         </View>
                                     </View>
@@ -66,8 +66,8 @@ export default class History extends Component {
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>向世界一流强港攀登</Text></View>
                                     <View style={{ flex: 1 }}>
                                         <View style={{ flexDirection: 'row' }}>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 75, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>宁波日报</Text></View></TouchableOpacity>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>舟山</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>宁波日报</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>舟山</Text></View></TouchableOpacity>
                                             {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
                                         </View>
                                     </View>
@@ -80,8 +80,8 @@ export default class History extends Component {
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>从“天堂之城”到“双创”热土</Text></View>
                                     <View style={{ flex: 1 }}>
                                         <View style={{ flexDirection: 'row' }}>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>新华社</Text></View></TouchableOpacity>
-                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>杭州</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 50, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>新华社</Text></View></TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>杭州</Text></View></TouchableOpacity>
                                             {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
                                         </View>
                                     </View>
