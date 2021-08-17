@@ -165,13 +165,13 @@ export default class Locked extends Component {
                 </ImageBackground>
               </View>
             </View>
-            <Text style={{ marginTop: '5%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: "#000" }}>{this.props.roadname}</Text>
-            <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: "#000" }}>可获得 <FontAwesome5
+            <Text style={{ marginTop: '5%', fontSize: 25, paddingLeft: '7.5%', width: '70%', color: "#333" }}>{this.props.roadname}</Text>
+            <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: "#333" }}>可获得 <FontAwesome5
               name='coins'
               size={15}
               color='gold'
             /> 25</Text>
-            <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: "#000" }}>共2256万+用户参与</Text>
+            <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: "#333" }}>共225用户参与</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.roadNumber
@@ -189,7 +189,7 @@ export default class Locked extends Component {
               </View>
             </View>
 
-            <Text style={{ marginTop: 10, fontSize: 20, width: '100%', color: "#7cc0bf", textAlign: 'center' }}>共2256万+用户参与</Text>
+            <Text style={{ marginTop: 10, fontSize: 20, width: '100%', color: "#7cc0bf", textAlign: 'center' }}>共225用户参与</Text>
             <Text style={{ marginTop: 10, width: '80%', marginHorizontal: '10%', fontSize: 15, textAlign: 'center' }}>空蒙山色里住着诗人的一直，潋滟水光映透西子成鱼落雁般的容颜，柔美的线条中透露江南韵味。</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
@@ -203,8 +203,12 @@ export default class Locked extends Component {
     } else
       return (
         <View style={{ width: '100%', height: height * 0.165, backgroundColor: '#93c9c9', marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15, elevation: 0.8 }}>
-          <Text style={{ marginTop: '7%', fontSize: 30, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>{this.props.roadname}</Text>
-          <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得Y25</Text>
+          <Text style={{ marginTop: '7%', fontSize: 25, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>{this.props.roadname}</Text>
+          <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得 <FontAwesome5
+              name='coins'
+              size={15}
+              color='gold'
+            /> 25</Text>
           <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>共225用户参与</Text>
           <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-21%', borderRadius: 50, backgroundColor: '#729c9c' }}>
             <Fontisto style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', }}

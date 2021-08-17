@@ -14,55 +14,11 @@ export default class Road extends Component {
         super(props)
         this.state = {
             username: this.props.route.params.username,
-            // road1: false,
-            // road2: true,
-            // road3: true,
-            // road4: true,
-            // road5: true,
-            // road6: true,
-            // road7: true,
-            // road8: true,
-            // road9: true,
-            // road10: true,
+
         }
     }
 
-    // //获取token
-    // get_shuju() {
-    //     fetch('http://8.142.11.85:3000/shouye/get_map', {
-    //         method: 'post',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({
-    //             username: this.props.route.params.username
-    //         })
 
-    //     }).then((response) => response.json())
-    //         .then((json) => {
-    //             console.log(json);
-    //             this.setState({ road1: json[0].locks },)
-    //             this.setState({ road2: json[2].locks },)
-    //             this.setState({ road3: json[3].locks },)
-    //             this.setState({ road4: json[4].locks },)
-    //             this.setState({ road5: json[5].locks },)
-    //             this.setState({ road6: json[6].locks },)
-    //             this.setState({ road7: json[7].locks },)
-    //             this.setState({ road8: json[8].locks },)
-    //             this.setState({ road9: json[9].locks },)
-    //             this.setState({ road10: json[2].locks },)
-    //         })
-    //         .catch((error) => {
-    //             console.log(error);
-    //         })
-    // }
-    //获取个人信息数据
-
-    // componentDidMount() {
-    //     console.log(this.state.username);
-    //     this.getData();
-    // }
     componentDidMount() {
         // this.get_shuju()
     }
@@ -83,9 +39,9 @@ export default class Road extends Component {
                     <ScrollableTabView renderTabBar={() => <TabBar />}>
                         <ScrollView tabLabel='鸡毛换糖之路' style={{ width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.9, marginLeft: width * 0.05 }}>
-                                <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road1} roadNumber={1} roadname="南路" />
-                                <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road2} roadNumber={2} roadname="中路"/>
-                                <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road3} roadNumber={3} roadname="北路"/>
+                                <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road1} roadNumber={1} roadname="鸡毛换糖-南路" />
+                                <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road2} roadNumber={2} roadname="鸡毛换糖-中路"/>
+                                <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road3} roadNumber={3} roadname="鸡毛换糖-北路"/>
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road4} roadNumber={4} />
 
                             </View>
