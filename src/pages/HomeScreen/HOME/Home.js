@@ -63,7 +63,7 @@ export default class Home extends Component {
                             <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
                         </View>
                    
-                        <LottieView style={{marginLeft:"15%"}}  source={require('../../../../animal/71338-welcomegolden.json')} autoPlay loop={false} progress={this.state.progress} />
+                        {/* <LottieView style={{marginLeft:"15%"}}  source={require('../../../../animal/71338-welcomegolden.json')} autoPlay loop={false} progress={this.state.progress} /> */}
                       
                     </View>
                     <View style={{ alignItems: 'center', }}>
