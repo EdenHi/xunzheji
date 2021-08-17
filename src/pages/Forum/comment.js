@@ -54,7 +54,8 @@ export default class Comment extends React.Component {
             isLoding:false,
             isVisible:false,
             counts:this.props.route.params.counts,
-            heart:false
+            heart:false,
+            time:'',
         };
     }
     //底部弹窗
@@ -101,6 +102,43 @@ export default class Comment extends React.Component {
                 this.setState({
                     data:responseJson[0],
                 });
+
+                let a = responseJson[0].fabiao_time.slice(0,10)
+                let b = responseJson[0].fabiao_time.slice(11,16)
+                let time1 = new Date();
+                let time2 = new Date(responseJson[0].fabiao_time).getTime()
+                let sum = a+' '+b
+                //获得相差的秒
+                let ss = (time1 -time2)/1000
+                let day = Math.floor(ss/86400)
+                let hour = Math.floor(ss/3600)
+                let min = Math.floor(ss /60)
+                if(day >=1 && day<4){
+                    this.setState({
+                        time:day+'天前'
+                    })
+                }
+                else if(hour>=1 && hour <24){
+                    this.setState({
+                        time:hour+'小时前'
+                    })
+                }
+                else if(min>=1 && min < 60){
+                    this.setState({
+                        time:min+'分钟前'
+                    })
+                }
+                else if(day >= 4){
+                    this.setState({
+                        time:sum
+                    })
+                }
+                else{
+                    this.setState({
+                        time:'刚刚'
+                    })
+                }
+
             }) .catch((error) => {
                 console.error('error',error);
               });
@@ -133,23 +171,7 @@ export default class Comment extends React.Component {
 
     pinglun(){
         var date = new Date();
-        var seperatorl = '-';
-        var year = date.getFullYear();
-        var month = date.getMonth() + 1;
-        var strDate = date.getDate();
-        var hours = date.getHours();
-        var Minutes = date.getMinutes();
-        var spc = ':';
-        if (strDate >= 0 && strDate <= 9){
-            strDate = '0' + strDate;
-        }
-        if (hours >= 0 && hours <= 9){
-            hours = '0' + hours;
-        }
-        if (Minutes >= 0 && Minutes <= 9){
-            Minutes = '0' + Minutes;
-        }
-        var currentdate = year + seperatorl + month + seperatorl + strDate + ' ' + hours + spc + Minutes;
+
         fetch('http://8.142.11.85:3000/dongtai/insert_comment', {
             method: 'POST',
             headers: {
@@ -160,7 +182,7 @@ export default class Comment extends React.Component {
                 comment_id: this.state.data.title_id,
                 content:this.state.content,
                 username:this.state.denglu_username,
-                date_zhu:currentdate,
+                date_zhu:date,
                 }),
         }) .then((response) => response.json())
         .then((responseJson) => {
@@ -229,6 +251,7 @@ export default class Comment extends React.Component {
             }) .catch((error) => {
                 console.error('error',error);
               });
+              this.get_One()
     }
 
 
@@ -292,11 +315,16 @@ export default class Comment extends React.Component {
         this.props.navigation.goBack();
     }
     render () {
-        const {data,comment_zhu,denglu_username} = this.state;
-        console.log('data',data);
-        console.log('comment_zhu',comment_zhu);
-        console.log('heart',this.state.heart);
+        const {data,comment_zhu,denglu_username,time} = this.state;
+        // console.log('data',data);
+        // console.log('comment_zhu',comment_zhu);
+        // console.log('denglu_username',denglu_username);
         const {modalVisible,imgUrls,currentIndex} = this.state;
+
+        
+       
+
+
         if(data.username === denglu_username){
         return (
             <View style={{flex:1}}>
@@ -335,7 +363,7 @@ export default class Comment extends React.Component {
                                     </TouchableOpacity>
                                     <View style={{marginLeft:10}}>
                                         <Text style={styles.name}>{data.nickname}</Text>  
-                                        <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
+                                        <Text style={{color:'#aaa'}}>{time}</Text>
                                     </View>
                                 </View>
                                 <TouchableOpacity onPress={()=>this.setState({isVisible:true})}>
@@ -401,6 +429,38 @@ export default class Comment extends React.Component {
                 <View style={{marginTop:10}}>
                 {
                     comment_zhu.map((v,k)=>{
+
+
+                        //取出年月日
+                        let a = v.date_zhu.slice(0,10)
+                        //取出时分
+                        let b = v.date_zhu.slice(11,16)
+                        let time1 = new Date();
+                        let time2 = new Date(v.date_zhu).getTime()
+                        let sum = a+' '+b
+                        //获得相差的秒
+                        let ss = (time1 -time2)/1000
+                        let day = Math.floor(ss/86400)
+                        let hour = Math.floor(ss/3600)
+                        let min = Math.floor(ss /60)
+                        let time = ''
+                        if(day >=1 && day<4){                    
+                            time=day+'天前'                      
+                        }
+                        else if(hour>=1 && hour <24){                         
+                            time=hour+'小时前'                         
+                        }
+                        else if(min>=1 && min < 60){                           
+                            time=min+'分钟前'                           
+                        }
+                        else if(day >= 4){                      
+                            time=sum                           
+                        }
+                        else{                          
+                            time='刚刚'
+                        }
+
+
                         if (v.counts > 0 ){
                             return (
                                 <View style={{marginTop:10,width:width*0.9,backgroundColor:"#fff",marginLeft:width*0.05,borderRadius:15}}>
@@ -431,7 +491,7 @@ export default class Comment extends React.Component {
                                                         color="black"/>
                                                     </TouchableOpacity>
                                                 </View>
-                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
+                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{time}</Text>
                                             </View>
                                         </View>
                                     </View>
@@ -465,7 +525,7 @@ export default class Comment extends React.Component {
                                                             color="black"/>
                                                         </TouchableOpacity>
                                                 </View>
-                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
+                                                <Text style={{color:'#aaa',marginRight:width*0.2}}>{time}</Text>
                                             </View>
                                         </View>
                                     </View>
@@ -527,7 +587,7 @@ export default class Comment extends React.Component {
                                     </TouchableOpacity>
                                     <View style={{marginLeft:10}}>
                                         <Text style={styles.name}>{data.nickname}</Text>
-                                        <Text style={{color:'#aaa'}}>{data.fabiao_time}</Text>
+                                        <Text style={{color:'#aaa'}}>{time}</Text>
                                     </View>
                                 </View>
                                 <Text style={data.title===''?{height:0}:styles.txt}
@@ -620,7 +680,7 @@ export default class Comment extends React.Component {
                                                             color="black"/>
                                                         </TouchableOpacity>
                                                     </View>
-                                                    <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
+                                                    <Text style={{color:'#aaa',marginRight:width*0.2}}>{time}</Text>
                                                 </View>
                                             </View>
                                         </View>
@@ -654,7 +714,7 @@ export default class Comment extends React.Component {
                                                                 color="black"/>
                                                             </TouchableOpacity>
                                                     </View>
-                                                    <Text style={{color:'#aaa',marginRight:width*0.2}}>{v.date_zhu}</Text>
+                                                    <Text style={{color:'#aaa',marginRight:width*0.2}}>{time}</Text>
                                                 </View>
                                             </View>
                                         </View>

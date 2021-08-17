@@ -75,3 +75,4 @@ export { default as culture } from "./Shop/culture.js"
 export { default as ClothesMade } from './Shop/ClothesMade.js'
 export { default as musicPlayer } from './HomeScreen/Read/musicPlayer'
 export {default as MatchGame} from './MyScreen/MatchGame'
+export {default as book_1} from './HomeScreen/Book/book_1'

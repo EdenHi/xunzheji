@@ -45,13 +45,13 @@ export default class Business extends Component {
                             tabBarUnderlineStyle={{ backgroundColor: '#00A9F2' }}
                         >
                             <ScrollView tabLabel='湖州商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={0} />
                             </ScrollView>
                             <ScrollView tabLabel='宁波商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={1} />
                             </ScrollView>
                             <ScrollView tabLabel='龙游商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={2} />
                             </ScrollView>
                             <ScrollView tabLabel='萧绍商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
                                 <HuZhou navigation={this.props.navigation} />
