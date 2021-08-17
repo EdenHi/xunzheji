@@ -63,7 +63,7 @@ go(){
 更因为他在48年的企业经营史上，精准“踩点”，使企业的每一个重要发展节点都与时代机遇完美结合。
 他是一个时代的“标杆”，而这背后的商学逻辑正是本书所希望探寻的：一个创业家、战略家、创新家、哲学家四大特质的集合体。`}</Text>
                     <View style={{borderWidth:0.5,borderColor:'#333',marginTop:20}}/>
-                    <TouchableOpacity style={{flexDirection:'row',marginTop:10,justifyContent:'space-between'}}
+                    <TouchableOpacity style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',marginBottom:10}}
                     onPress={()=>this.setState({isVisible:true})}>
                         <View style={{flexDirection:'row',alignItems:'baseline'}}>
                             <Text style={{fontSize:18,fontWeight:'bold'}}>目录</Text>

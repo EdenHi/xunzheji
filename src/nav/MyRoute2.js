@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Shoucang2 from '../pages/MyScreen/zhanshi2_geren/Shoucang2';
-import Dianzan2 from '../pages/MyScreen/zhanshi2_geren/Dianzan2';
-import Output2 from '../pages/MyScreen/zhanshi2_geren/Output2';
-import Goods2 from '../pages/MyScreen/zhanshi2_geren/Goods2';
+import shoucang2 from '../pages/MyScreen/zhanshi2_geren/shoucang2';
+import dianzan2 from '../pages/MyScreen/zhanshi2_geren/dianzan2';
+import output2 from '../pages/MyScreen/zhanshi2_geren/output2';
+import goods2 from '../pages/MyScreen/zhanshi2_geren/goods2';
 import { NavigationContainer } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
