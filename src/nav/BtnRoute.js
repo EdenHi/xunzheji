@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 import {Text, View, Button ,Animated,
+  Image,
   Easing,} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -16,6 +17,8 @@ import Feather from 'react-native-vector-icons/Feather';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import LottieView from 'lottie-react-native';
+import {CustomAnimation} from 'react-native-tabbar-animated';
+
 const Tab = createBottomTabNavigator(); //底部导航
 
 export default function BtnRoute() {
@@ -33,6 +36,13 @@ export default function BtnRoute() {
           tabBarIcon: ({color}) => (
             <AntDesign name={'home'} size={28} color={color} />
           ),
+          // tabBarIcon: ({ tintColor,focused }) =>
+          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
+          // :
+          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
+          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
+          // />
+          // )
         }}
       />
       <Tab.Screen
@@ -42,6 +52,13 @@ export default function BtnRoute() {
           tabBarIcon: ({color}) => (
             <Ionicons name={'planet-outline'} size={28} color={color} />
           ),
+          // tabBarIcon: ({ tintColor,focused }) =>
+          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
+          // :
+          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
+          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
+          // />
+          // )
         }}
       />
       <Tab.Screen
@@ -51,6 +68,13 @@ export default function BtnRoute() {
           tabBarIcon: ({color}) => (
             <Feather name={'shopping-bag'} size={26} color={color} />
           ),
+          // tabBarIcon: ({ tintColor,focused }) =>
+          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
+          // :
+          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
+          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
+          // />
+          // )
         }}
       />
       <Tab.Screen
@@ -60,6 +84,13 @@ export default function BtnRoute() {
           tabBarIcon: ({color}) => (
             <SimpleLineIcons name={'ghost'} size={24} color={color} />
           ),
+          // tabBarIcon: ({ tintColor,focused }) =>
+          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
+          // :
+          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
+          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
+          // />
+          // )
         }}
       />
     </Tab.Navigator>

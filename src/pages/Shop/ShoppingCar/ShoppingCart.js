@@ -261,14 +261,14 @@ send(){
               </TouchableOpacity>
               <Image style={{width: 80, height: 80}} source={{uri:item.itemimg}}/>
               <View style={{justifyContent: commonStyle.around, flex: 1, marginHorizontal: 10, height: 50}}>
-                <Text style={{fontSize: 13, color: commonStyle.textBlockColor}}numberOfLines={2}>{item.itemName}</Text>
-                <Text style={{fontSize: 13, color: commonStyle.textBlockColor,marginTop:30}}>{`￥${item.itemPrice}`}</Text>
+                <Text style={{fontSize: 13, color:"#333333"}}numberOfLines={2}>{item.itemName}</Text>
+                <Text style={{fontSize: 13,color:"#7cc0c0",marginTop:30}}>{`￥${item.itemPrice}`}</Text>
               </View>
               <View style={{flexDirection: commonStyle.row, alignItems: commonStyle.center, marginHorizontal: 10}}>
                 <TouchableOpacity onPress={() => this.minus(sectionIndex, index)}>
                   <Image source={require('../assets/Group.png')}/>
                 </TouchableOpacity>
-                <Text style={{width: 30, textAlign: 'center'}}>{statusItem.quantity}</Text>
+                <Text style={{width: 30, textAlign: 'center',color:"#333333"}}>{statusItem.quantity}</Text>
                 <TouchableOpacity onPress={() => this.add(sectionIndex, index)}>
                   <Image source={require('../assets/Group5.png')}/>
                 </TouchableOpacity>
@@ -288,7 +288,7 @@ send(){
         <TouchableOpacity onPress={() => this.checkedShop(index)}>
           <Image style={styles.checkBox} source={shop.checked ? require('../assets/ic_selected.png') : require('../assets/ic_defult.png')} resizeMode={'center'}/>
         </TouchableOpacity>
-        <Text style={{ fontSize: 14}}>{section}</Text>
+        <Text style={{ fontSize: 14,color:"#333333"}}>{section}</Text>
       </View>
     )
   }
@@ -308,7 +308,7 @@ send(){
               color="black"
             />
           </TouchableOpacity>
-          <Text style={{fontSize:15,marginLeft:"2%"}}>购物车</Text>
+          <Text style={{fontSize:15,marginLeft:"2%",color:"#333333"}}>购物车</Text>
           <TouchableOpacity style={{width:width*0.09,height:width*0.09,}}>
           </TouchableOpacity>
         </View>
@@ -323,9 +323,9 @@ send(){
             <TouchableOpacity onPress={() => this.checkAllShop()}>
               <Image style={styles.checkBox} source={this.state.isSelectedAllItem ? require('../assets/ic_selected.png') : require('../assets/ic_defult.png')} resizeMode={'center'}/>
             </TouchableOpacity>
-            <Text>全选</Text>
+            <Text style={{color:"#333333"}}>全选</Text>
           </View>
-          <Text style={{marginHorizontal: 10}}>合计:
+          <Text style={{marginHorizontal: 10,color:"#333333"}}>合计:
             <Text style={{color:"#7cc0c0"}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
           </Text>
           <View style={{width: 120,backgroundColor:"#7cc0c0", alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>

@@ -17,16 +17,16 @@ export default class Shoplist extends Component {
 
     renderDate({item,index}){
         return(
-            <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,marginLeft:width*0.05,borderRadius:10,marginBottom:width*0.05}} activeOpacity={1}
+            <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,marginLeft:width*0.05,borderRadius:10,marginBottom:width*0.05,elevation:5}} activeOpacity={1}
             onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
                 <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
-                <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2}} numberOfLines={2}>{item.name}</Text>
+                <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
                 <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
                     <View style={{flexDirection:'row',alignItems:'baseline'}}>
-                        <Text>￥</Text>
-                        <Text style={{color:'#7cc0c0',fontSize:18}}>{item.price}</Text>
+                        <Text style={{color:"#7cc0c0",fontSize:15}}>￥</Text>
+                        <Text style={{color:'#7cc0c0',fontSize:15}}>{item.price}</Text>
                     </View>
-                    <Text>{item.sales}人付款</Text>
+                    <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
                 </View>
             </TouchableOpacity>
         )
@@ -46,29 +46,27 @@ export default class Shoplist extends Component {
                     <View style={{
                         height: 45,
                         alignItems: "center",
-                        justifyContent: "center",
+                        width:width*0.9,
                         flexDirection: 'row',
+                        marginLeft:width*0.05
                     }}>
                         <TouchableOpacity
                             activeOpacity={0.8}
                             onPress={() => this.props.navigation.goBack()}
                             style={{
-                                width: 50,
-                                position: "absolute",
-                                height: "100%",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                left: 0
+                            
                             }}>
-                            <FontAwesome name={'angle-left'} size={25} color={'#000'} />
+                            <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <View style={{ width: 200 }}>
+                       
                             <Text style={{
-                                fontSize: 18,
-                                textAlign: 'center',
-                                textAlignVertical: 'center',
+                                fontSize: 15,
+                                fontWeight:"bold",
+                                color:"#fff",
+                                marginLeft:"5%"
+                              
                             }}>商品列表</Text>
-                        </View>
+                       
                     </View>
 
                         <FlatList

@@ -31,27 +31,26 @@ export default class Classify extends React.Component {
                 <View style={{
                     height: 45,
                     alignItems: "center",
-                    justifyContent: "center",
+             width:width*0.9,
+             marginLeft:width*0.05,
                     flexDirection: 'row',
                 }}>
                     <TouchableOpacity
                         activeOpacity={0.8}
                         onPress={() => navigation.goBack()}
                         style={{
-                            width: 50,
-                            position: "absolute",
-                            height: "100%",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            left: 0
+                           
                         }}>
-                        <FontAwesome name={'angle-left'} size={25} color={'#000'} />
+                        <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
                     </TouchableOpacity>
-                    <View style={{ width: 200 }}>
+                    <View style={{  }}>
                         <Text style={{
-                            fontSize: 18,
+                            fontSize: 15,
+                            fontWeight:"bold",
                             textAlign: 'center',
                             textAlignVertical: 'center',
+                            color:"#fff",
+                            marginLeft:"5%"
                         }}>老字号</Text>
                     </View>
                 </View>
@@ -75,18 +74,20 @@ export default class Classify extends React.Component {
                             <Text style={{
                                 fontSize: 15,
                                 marginBottom: 5,
-                                fontWeight: "bold"
+                                fontWeight: "bold",
+                                color:"#333333"
                             }}>找寻记忆中的痕迹</Text>
                             <Text style={{
                                 fontSize: 12,
-                                marginBottom: 10
+                                marginBottom: 10,
+                                color:"#333333"
                             }}>时间沉淀的美</Text>
-                            <Text style={{textAlign:"center"}}>——————————————————————————————</Text>
+                            <Text style={{textAlign:"center", color:"#333333"}}>——————————————————————————————</Text>
                         </View>
                         
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30}}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>美食</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" , color:"#333333"}}>美食</Text>
                                 <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>MEISHI</Text>
                             </View>
                             <TouchableOpacity
@@ -107,8 +108,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>知味观</Text>
-                                    <Text>ZHIWEIGUAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>知味观</Text>
+                                    <Text style={{ color:"#333333"}}>ZHIWEIGUAN</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -139,8 +140,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>翠沁斋</Text>
-                                    <Text>CUIXINZHAI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>翠沁斋</Text>
+                                    <Text style={{ color:"#333333"}}>CUIXINZHAI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -170,8 +171,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>陈源昌</Text>
-                                    <Text>CHENYUANCHANG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold" ,color:"#333333"}}>陈源昌</Text>
+                                    <Text style={{ color:"#333333"}}>CHENYUANCHANG</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -202,8 +203,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>朱一堂</Text>
-                                    <Text>ZHUYITANG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold",color:"#333333"}}>朱一堂</Text>
+                                    <Text style={{ color:"#333333"}}>ZHUYITANG</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -231,14 +232,14 @@ export default class Classify extends React.Component {
                             alignItems:"center",
                             flexDirection:"row"
                             }}>
-                                <Text style={{letterSpacing:2}}>查看更多</Text>
+                                <Text style={{letterSpacing:2, color:"#333333"}}>查看更多</Text>
                                 <AntDesign name={'caretright'} size={10} color={'#000'} />
                             </View></TouchableOpacity>
-                            <Text style={{textAlign:"center",marginTop:30}}>——————————————————————————————</Text>
+                            <Text style={{textAlign:"center",marginTop:30, color:"#333333"}}>——————————————————————————————</Text>
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30, width: 130 }}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>制造</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" , color:"#333333"}}>制造</Text>
                                 <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>ZHIZAO</Text>
                             </View>
                             <TouchableOpacity
@@ -269,8 +270,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>张小泉</Text>
-                                    <Text>ZHANGXIAOQUAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>张小泉</Text>
+                                    <Text style={{ color:"#333333"}}>ZHANGXIAOQUAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -300,8 +301,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>毛源昌</Text>
-                                    <Text>MAOYUANCHANG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>毛源昌</Text>
+                                    <Text style={{ color:"#333333"}}>MAOYUANCHANG</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -332,8 +333,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>邵芝岩</Text>
-                                    <Text>SHAOZHIYAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>邵芝岩</Text>
+                                    <Text style={{ color:"#333333"}}>SHAOZHIYAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -363,8 +364,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>龙泉宝剑</Text>
-                                    <Text>LONGQUANBAOJIAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>龙泉宝剑</Text>
+                                    <Text style={{ color:"#333333"}}>LONGQUANBAOJIAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -383,14 +384,14 @@ export default class Classify extends React.Component {
                             alignItems:"center",
                             flexDirection:"row"
                             }}>
-                                <Text style={{letterSpacing:2}}>查看更多</Text>
+                                <Text style={{letterSpacing:2, color:"#333333"}}>查看更多</Text>
                                 <AntDesign name={'caretright'} size={10} color={'#000'} />
                             </View></TouchableOpacity>
-                            <Text style={{textAlign:"center",marginTop:30}}>——————————————————————————————</Text>
+                            <Text style={{textAlign:"center",marginTop:30, color:"#333333"}}>——————————————————————————————</Text>
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30}}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>工美</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" , color:"#333333"}}>工美</Text>
                                 <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>GONGMEI</Text>
                             </View>
                             <TouchableOpacity
@@ -411,8 +412,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>王星记</Text>
-                                    <Text>WANGXINGJI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>王星记</Text>
+                                    <Text style={{ color:"#333333"}}>WANGXINGJI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -443,8 +444,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>朱府铜艺</Text>
-                                    <Text>ZHUFUTONGYI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>朱府铜艺</Text>
+                                    <Text style={{ color:"#333333"}}>ZHUFUTONGYI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -474,8 +475,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>善琏湖笔</Text>
-                                    <Text>SHANLIANHUBI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>善琏湖笔</Text>
+                                    <Text style={{ color:"#333333"}}>SHANLIANHUBI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -506,8 +507,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>大竹元宣纸</Text>
-                                    <Text>DAZHUYUANXUANZHI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>大竹元宣纸</Text>
+                                    <Text style={{ color:"#333333"}}>DAZHUYUANXUANZHI</Text>
                                 </View>
                                 <Image style={{
                                     width: "33%",
@@ -535,14 +536,14 @@ export default class Classify extends React.Component {
                             alignItems:"center",
                             flexDirection:"row"
                             }}>
-                                <Text style={{letterSpacing:2}}>查看更多</Text>
+                                <Text style={{letterSpacing:2, color:"#333333"}}>查看更多</Text>
                                 <AntDesign name={'caretright'} size={10} color={'#000'} />
                             </View></TouchableOpacity>
-                            <Text style={{textAlign:"center",marginTop:30}}>——————————————————————————————</Text>
+                            <Text style={{textAlign:"center",marginTop:30, color:"#333333"}}>——————————————————————————————</Text>
                         </View>
                         <View style={{ width: "92%" }}>
                             <View style={{ marginTop: 30, width: 130 }}>
-                                <Text style={{ fontSize: 15, textAlign: "right" }}>茶酒</Text>
+                                <Text style={{ fontSize: 15, textAlign: "right" , color:"#333333"}}>茶酒</Text>
                                 <Text style={{ fontSize: 30, color: "#cfcfcf", textAlign: "right" }}>CHAJIU</Text>
                             </View>
                             <TouchableOpacity
@@ -573,8 +574,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>益龙芳</Text>
-                                    <Text>YILONGFANG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>益龙芳</Text>
+                                    <Text style={{ color:"#333333"}}>YILONGFANG</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -604,8 +605,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>会稽山</Text>
-                                    <Text>KUAIJISHAN</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>会稽山</Text>
+                                    <Text style={{ color:"#333333"}}>KUAIJISHAN</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -636,8 +637,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>福茂和记</Text>
-                                    <Text>FUMAOHEJI</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>福茂和记</Text>
+                                    <Text style={{ color:"#333333"}}>FUMAOHEJI</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -667,8 +668,8 @@ export default class Classify extends React.Component {
                                     justifyContent:'center',
                                     alignItems:"center"
                                 }}>
-                                    <Text style={{fontSize:21,fontWeight:"bold"}}>女儿红</Text>
-                                    <Text>NVERHONG</Text>
+                                    <Text style={{fontSize:21,fontWeight:"bold", color:"#333333"}}>女儿红</Text>
+                                    <Text style={{ color:"#333333"}}>NVERHONG</Text>
                                 </View>
                             </View></TouchableOpacity>
                             <TouchableOpacity
@@ -687,13 +688,13 @@ export default class Classify extends React.Component {
                             alignItems:"center",
                             flexDirection:"row"
                             }}>
-                                <Text style={{letterSpacing:2}}>查看更多</Text>
+                                <Text style={{letterSpacing:2, color:"#333333"}}>查看更多</Text>
                                 <AntDesign name={'caretright'} size={10} color={'#000'} />
                             </View></TouchableOpacity>
                          
                         </View>
                     </View>
-                    <Text style={{textAlign:"center",marginTop:20,marginBottom:10}}>—————————————到底啦—————————————</Text>
+                    <Text style={{textAlign:"center",marginTop:20,marginBottom:10, color:"#333333"}}>—————————————到底啦—————————————</Text>
                 </ScrollView>
                 </LinearGradient>
             </View>

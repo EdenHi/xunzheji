@@ -93,23 +93,23 @@ export default class updateDizhi extends Component {
 
             </View> 
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
-                    <Text style={{fontSize:16,width:width * 0.2}}>收货人</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:"#333333"}}>收货人</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="请使用真实姓名" onChangeText={(name)=>this.setState({name})} defaultValue={this.state.name}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
-                    <Text style={{fontSizeppx:16,width:width * 0.2}}>联系电话</Text>
+                    <Text style={{fontSizeppx:16,width:width * 0.2,color:"#333333"}}>联系电话</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="收件人电话号码" onChangeText={(phone)=>this.setState({phone})} defaultValue={this.state.phone}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
-                    <Text style={{fontSize:16,width:width * 0.2}}>所在地区</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:"#333333"}}>所在地区</Text>
                     <View style={{height:50}} ><TouchableOpacity onPress={()=>this.go_area()} style={{height:50,width,justifyContent:'center'}}><Text>{this.state.dizhi}</Text></TouchableOpacity></View>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
-                    <Text style={{fontSize:16,width:width * 0.2}}>详细地址</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:"#333333"}}>详细地址</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="请输入" onChangeText={(xiangxi)=>this.setState({xiangxi})} defaultValue={this.state.xiangxi}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center',borderBottomWidth:0.5,borderBottomColor:'#808080'}}>
-                    <Text style={{fontSize:16,width:width * 0.2}}>默认地址</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:"#333333"}}>默认地址</Text>
                     <Switch style={{}}
                             onTintColor={'#ffaa11'}
                             tintColor={'#aaaa11'}

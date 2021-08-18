@@ -7,6 +7,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import shoplist from './shoplist.json';
+import { color } from 'react-native-elements/dist/helpers';
 const { width, height } = Dimensions.get('window');
 export default class Shopdetails extends Component {
     constructor(props){
@@ -120,31 +121,31 @@ export default class Shopdetails extends Component {
             <View style={{flex:1}}>
                 {/* 标题 */}
                 <View style={{
-                    height: 45,
+ width:width*0.9,
+ marginLeft:width*0.05,
+
+                    height:height*0.07,
                     alignItems: "center",
-                    justifyContent: "center",
+               
                     flexDirection: 'row',
                 }}>
                     <TouchableOpacity
                         activeOpacity={0.8}
                         onPress={() => this.props.navigation.goBack()}
                         style={{
-                            width: 50,
-                            position: "absolute",
-                            height: "100%",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            left: 0
+                           
                         }}>
                         <FontAwesome name={'angle-left'} size={25} color={'#000'} />
                     </TouchableOpacity>
-                    <View style={{ width: 200 }}>
+                   
                         <Text style={{
-                            fontSize: 18,
-                            textAlign: 'center',
-                            textAlignVertical: 'center',
+                            fontSize: 15,
+                            fontWeight:"bold",
+                            marginLeft:"5%",
+                            color:"#333333"
+                        
                         }}>商品详情</Text>
-                    </View>
+               
                 </View>
                 
                 <ScrollView
@@ -185,7 +186,7 @@ export default class Shopdetails extends Component {
                     
                     {/* 介绍 */}
                     <View style={{width:width*0.95,marginLeft:width*0.025,borderRadius:10,marginTop:10,backgroundColor:'white'}}>
-                        <Text style={{margin:10,fontSize:18,fontWeight:'bold'}}>{shops.name}</Text>
+                        <Text style={{margin:10,fontSize:18,fontWeight:'bold',  color:"#333333"}}>{shops.name}</Text>
                         <Text style={shops.jieshao === '' ? {color:'#7cc0c0',marginLeft:10,height:0}:{color:'#7cc0c0',marginLeft:10,marginBottom:10}}>{shops.jieshao}</Text>
                         <View style={{flexDirection:'row',alignItems:'baseline',justifyContent:'space-between',marginBottom:10}}>
                             <Text style={{color:'#7cc0c0',fontSize:16,marginLeft:10}}>￥<Text style={{fontSize:25}}>{shops.price}</Text></Text>
@@ -197,7 +198,7 @@ export default class Shopdetails extends Component {
                     <View style={{width:width*0.95,marginLeft:width*0.025,borderRadius:10,marginTop:10,backgroundColor:'white',flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                         <View style={{flexDirection:'row',alignItems:'center'}}>
                             <Image source={{uri:shops.loge}} style={{height:40,width:40,borderRadius:50,margin:10}}/>
-                            <Text style={{fontWeight:'bold',fontSize:16}}>{shops.dianpu}</Text>
+                            <Text style={{fontWeight:'bold',fontSize:16  ,color:"#333333"}}>{shops.dianpu}</Text>
                         </View>
                         <View style={{marginRight:width*0.025}}>
                             <TouchableOpacity style={{borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,marginTop:10}} activeOpacity={1}><Text style={{padding:5,fontWeight:'bold',color:'#7cc0c0'}} onPress={()=>this.dianpu()}>进店逛逛</Text></TouchableOpacity>
@@ -207,7 +208,7 @@ export default class Shopdetails extends Component {
                     
                     {/* 商品详情 */}
                     <View style={{alignItems:'center',marginTop:10}}>
-                        <Text>———— 商品详情 ————</Text>
+                        <Text style={{  color:"#333333"}}>———— 商品详情 ————</Text>
                         <Image source={{uri:shops.imag1}} style={{marginTop:10,height:800,width:width*0.95}} resizeMode='stretch'/>
                         <Image source={{uri:shops.imag2}} style={shops.imag2===''?{}:{height:800,width:width*0.95}} resizeMode='stretch'/>
                         <Image source={{uri:shops.imag3}} style={shops.imag3===''?{}:{height:800,width:width*0.95}} resizeMode='stretch'/>
@@ -224,16 +225,16 @@ export default class Shopdetails extends Component {
                         size={25}
                         color="#7cc0c0"
                         onPress={()=>this.dianpu()}/>
-                        <Text>店铺</Text>
+                        <Text style={{fontSize:12}}>店铺</Text>
                     </TouchableOpacity>
                     <View style={{flexDirection:'row'}}>
-                        <TouchableOpacity activeOpacity={1}  style={{backgroundColor:'#66f1ed',borderTopLeftRadius:20,borderBottomLeftRadius:20,marginTop:5,marginBottom:5,width:100,justifyContent:'center',alignItems:'center'}}
+                        <TouchableOpacity activeOpacity={1}  style={{backgroundColor:'#7cc0c0',borderTopLeftRadius:20,borderBottomLeftRadius:20,marginTop:5,marginBottom:5,width:100,justifyContent:'center',alignItems:'center'}}
                         onPress={()=>this.insert_shopcart()}>
-                            <Text style={{fontSize:16,color:'white',fontWeight:'bold',padding:5}}>加入购物车</Text>
+                            <Text style={{fontSize:15,color:'white',fontWeight:'bold',padding:5}}>加入购物车</Text>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} style={{backgroundColor:'#7cc0c0',borderTopRightRadius:20,borderBottomRightRadius:20,marginTop:5,marginBottom:5,width:100,justifyContent:'center',alignItems:'center'}}
                         onPress={()=>this.props.navigation.navigate('Zhifu',this.state.shops)}>
-                            <Text style={{fontSize:16,color:'white',fontWeight:'bold',padding:5}}>立即购买</Text>
+                            <Text style={{fontSize:15,color:'white',fontWeight:'bold',padding:5}}>立即购买</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
