@@ -194,13 +194,13 @@ export default class Homepagebook extends Component {
     page(index) {
         console.log(index)
         if (index === 0) {
-            this.props.navigation.navigate('book_1')
+            this.props.navigation.navigate('Heritage')
         }
         if (index === 1) {
             this.props.navigation.navigate('Heritage')
         }
         if (index === 2) {
-            this.props.navigation.navigate('Heritage')
+            this.props.navigation.navigate('book_1')
         }
         if (index === 3) {
             this.props.navigation.navigate('Heritage')
