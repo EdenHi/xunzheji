@@ -113,11 +113,12 @@ export default class Home extends Component {
                                                 <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                             </TouchableOpacity>
                                         </TouchableOpacity>
+                                        <View style={{width:width*0.9,marginLeft:width*0.025}}>
                                         <ScrollView
-                                            horizontal={true} showsHorizontalScrollIndicator={false}
+                                            horizontal={true} showsHorizontalScrollIndicator={false} 
                                         >
                                             <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
-                                                < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 10, marginRight: 10, elevation: 5 }}>
+                                                < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 5, marginRight: 10, elevation: 5 }}>
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
                                                             <View style={{ flex: 3 }} />
@@ -160,6 +161,7 @@ export default class Home extends Component {
                                                 </TouchableOpacity>
                                             </ImageBackground>
                                         </ScrollView>
+                                        </View>
                                     </View>
                                 </View>
                                 <View style={{ height: 250, backgroundColor: 'white', borderRadius: 10, marginTop: 10 }} >
