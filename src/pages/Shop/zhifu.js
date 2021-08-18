@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ToastAndroid } from "react-native";
 import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
 // import { Nav } from "../../component";//顶部标签看
 import LinearGradient from 'react-native-linear-gradient';
@@ -130,6 +131,32 @@ export default class zhifu extends Component {
     componentWillUnmount(){
         this.listener.remove();
         }
+
+    buy(){
+        fetch('http://8.142.11.85:3000/shop/insert_dingdan', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                dianpu: this.props.route.params.dianpu,
+                shop_name: this.props.route.params.name,
+                price: parseFloat(this.state.price*this.state.total).toFixed(2),
+                num: this.state.total,
+                img: this.props.route.params.pic[0],
+                username:this.state.username,
+                time:new Date(),
+                dianpu_img:this.props.route.params.pic
+            }),
+        });
+
+        this.props.navigation.goBack();
+        ToastAndroid.show('提交订单成功',2000)
+    }
+
+
+
     render() {
         const {dizhi} = this.state
         return (
@@ -230,7 +257,8 @@ export default class zhifu extends Component {
                         <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
                     </View>
                   
-                        <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
+                        <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}
+                        onPress={()=>this.buy()}>
 
                             <Text  style={{fontSize:15,color:"#fff"}}>提交订单</Text>
                        
