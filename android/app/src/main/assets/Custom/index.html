@@ -83,7 +83,7 @@
         $('.ioc').click(function () {
             var html = ['<div class="set-box">',
                 '   <img src="' + $(this).attr('src') + '" class="set-img" draggable="false" ondragstart="return false;">',
-                '   <img src="img/close-icon2.png" class="set-close">',
+                // '   <img src="img/close-icon2.png" class="set-close">',
                 '</div>'].join("");
 
             $('.ioc-main-box').append(html);
@@ -91,9 +91,9 @@
         });
 
         //删除贴纸
-        $(document).on('click', '.set-close', function (e) {
-            $(this).parent().remove();
-        });
+        // $(document).on('click', '.set-close', function (e) {
+        //     $(this).parent().remove();
+        // });
 
         //将操作的贴纸置于最上层
         $(document).on('mousedown touchstart', '.set-box', function (e) {

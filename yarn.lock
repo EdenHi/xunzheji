@@ -5732,7 +5732,7 @@ prompts@^2.0.1, prompts@^2.4.0:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.7.2, prop-types@^15.7.x:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.7.x:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -5840,6 +5840,13 @@ react-native-animated-carousel@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/react-native-animated-carousel/-/react-native-animated-carousel-1.0.3.tgz"
   integrity sha512-XM2fOGrIwyw/w9qOEs5byNGN37QTBy8zgPzHTDsNUYkJaPffhSlvXdW6ZXvZW79bBcu/JQDzf3coPd1bv2tRLQ==
+
+react-native-animated-loader@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.nlark.com/react-native-animated-loader/download/react-native-animated-loader-0.0.9.tgz#8a55d5050c70d3577b5388bf257c1059b7135d19"
+  integrity sha1-ilXVBQxw01d7U4i/JXwQWbcTXRk=
+  dependencies:
+    prop-types "^15.6.2"
 
 react-native-awesome-alerts@^1.5.2:
   version "1.5.2"
@@ -5987,6 +5994,13 @@ react-native-linear-gradient@^2.5.6:
   version "2.5.6"
   resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.5.6.tgz"
   integrity sha512-HDwEaXcQIuXXCV70O+bK1rizFong3wj+5Q/jSyifKFLg0VWF95xh8XQgfzXwtq0NggL9vNjPKXa016KuFu+VFg==
+
+react-native-loading-spinner-overlay@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.nlark.com/react-native-loading-spinner-overlay/download/react-native-loading-spinner-overlay-2.0.0.tgz#30934b6f07cb39711020d6b422a02a2a56763a73"
+  integrity sha1-MJNLbwfLOXEQINa0IqAqKlZ2OnM=
+  dependencies:
+    prop-types "^15.6.2"
 
 react-native-page-control@^1.1.2:
   version "1.1.2"
