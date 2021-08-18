@@ -5,7 +5,7 @@ import React, {Component} from 'react';
 import {View,Text, ScrollView, FlatList,AsyncStorage,Dimensions,ImageBackground,TouchableOpacity,DeviceEventEmitter} from 'react-native';
 
 const {height,width} = Dimensions.get('window');
-export default class shhoucang2 extends Component {
+export default class Shhoucang2 extends Component {
     constructor(props){
         super(props);
         this.state = {
