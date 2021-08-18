@@ -5853,13 +5853,6 @@ react-native-baidu-asr@^1.3.0:
   resolved "https://registry.nlark.com/react-native-baidu-asr/download/react-native-baidu-asr-1.3.0.tgz#974e4cfee31587bf2ec631e56af7cdc517b3d525"
   integrity sha1-l05M/uMVh78uxjHlavfNxRez1SU=
 
-react-native-blur@^3.2.2:
-  version "3.2.2"
-  resolved "https://registry.nlark.com/react-native-blur/download/react-native-blur-3.2.2.tgz#5bfb50638d148982c9560436554ed01d77d6d07d"
-  integrity sha1-W/tQY40UiYLJVgQ2VU7QHXfW0H0=
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npm.taobao.org/react-native-codegen/download/react-native-codegen-0.0.6.tgz"
@@ -6077,6 +6070,11 @@ react-native-scrollable-tab-view@^1.0.0:
     create-react-class "^15.6.2"
     prop-types "^15.6.0"
     react-timer-mixin "^0.13.3"
+
+react-native-scrolltotop@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-scrolltotop/-/react-native-scrolltotop-0.0.6.tgz#f1589e23aa2754c1405cd9807c0cbc5f466efbdd"
+  integrity sha1-8VieI6onVMFAXNmAfAy8X0Zu+90=
 
 react-native-searchbar@^1.16.0:
   version "1.16.0"

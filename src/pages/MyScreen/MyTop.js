@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { View, TouchableOpacity, Text, Dimensions, ScrollView } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
-import shoucang2 from './zhanshi2_geren/shoucang2';
-import dianzan2 from './zhanshi2_geren/dianzan2';
-import output2 from './zhanshi2_geren/output2';
-import goods2 from './zhanshi2_geren/goods2';
+import Shoucang2 from './zhanshi2_geren/Shoucang2';
+import Dianzan2 from './zhanshi2_geren/Dianzan2';
+import Output2 from './zhanshi2_geren/Output2';
+import Goods2 from './zhanshi2_geren/Goods2';
 import SegmentTabBar1 from './SegmentTabBar1'
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LottieView from 'lottie-react-native';
