@@ -167,7 +167,7 @@ export default class zhifu extends Component {
                 img: this.props.route.params.pic[0],
                 username:this.state.username,
                 time:new Date(),
-                dianpu_img:this.props.route.params.pic
+                dianpu_img:this.props.route.params.loge
             }),
         });
 
@@ -319,7 +319,7 @@ export default class zhifu extends Component {
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {
                                                     this._closeModalWin()
-                                                   this.context.navigate('Dingdan')
+                                                   this.buy();
                                                 }}
 
                                             >
