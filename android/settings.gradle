@@ -1,4 +1,8 @@
 rootProject.name = 'zheshang'
+include ':react-native-screenshot-notifier'
+project(':react-native-screenshot-notifier').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-screenshot-notifier/android')
+include ':react-native-screenshot-notifier'
+project(':react-native-screenshot-notifier').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-screenshot-notifier/android')
 include ':react-native-webview'
 project(':react-native-webview').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-webview/android')
 include ':react-native-vector-icons'

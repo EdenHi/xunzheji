@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { View, Dimensions, Text, TouchableOpacity, ImageBackground, Image, Modal, ScrollView, ToastAndroid, } from 'react-native';
 import Video from 'react-native-video';
@@ -10,6 +9,7 @@ import { Animated } from 'react-native';
 import axios from 'axios';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { captureScreen } from '@sishuguojixuefu/react-native-screenshot'
 
 export default class componentName extends Component {
     constructor(props) {
@@ -19,6 +19,7 @@ export default class componentName extends Component {
             poused: true,
             modalVisible: false,
             modalVisible2: false,
+            modalVisible3: false,
             progress: new Animated.Value(0),
             play: true,
             step: 0,
@@ -28,10 +29,12 @@ export default class componentName extends Component {
             mission1: false,
             mission2: false,
             mission3: false,
+            shotImage: ''
         }
     }
 
     componentDidMount() {
+
         Animated.timing(this.state.progress, {
             toValue: 1,
             duration: 0,
@@ -58,6 +61,7 @@ export default class componentName extends Component {
             .catch((error) => {
                 console.log(error);
             })
+
     }
 
 
@@ -73,6 +77,9 @@ export default class componentName extends Component {
     }
     setModalVisible2 = (visible) => {
         this.setState({ modalVisible2: visible });
+    }
+    setModalVisible3 = (visible) => {
+        this.setState({ modalVisible3: visible });
     }
     //控制播放进度
     onProgress = (data) => {
@@ -127,44 +134,9 @@ export default class componentName extends Component {
         console.log(this.state.mission2);
         console.log(this.state.mission3);
     }
-    onPhotosFetchedSuccess(data) {
-        const photos = data.edges.map((asset) => {
-          return asset.node.image;
-        });
-        console.log(photos);
-        /**
-        On Android, this should log something like:
-        [
-          {
-            "uri": "file:/storage/emulated/0/DCIM/Camera/IMG_20160120_172426830.jpg",
-            "width":3006,
-            "height":5344,
-            "orientation": 90
-          },
-          {
-            "uri": "file:/storage/emulated/0/DCIM/Camera/IMG_20160116_153526816_TOP.jpg",
-            "width": 5344,
-            "height": 3006,
-            "orientation": 0
-          }
-          ...
-        ]
-        **/
-      }
-      onPhotosFetchError(err) {
-        // Handle error here
-      }
-      
-      fetchPhotos(count = 10, after) {
-        CameraRoll.getPhotos({
-          // take the first n photos after given photo uri
-          first: count,
-          // after
-          after: "file:/storage/emulated/0/DCIM/Camera/IMG_20151126_115520477.jpg",
-        }, this.onPhotosFetchedSuccess.bind(this), this.onPhotosFetchError.bind(this));
-      }
+
     render() {
-        const { modalVisible, modalVisible2 } = this.state;
+        const { modalVisible, modalVisible2, modalVisible3 } = this.state;
         return (
             <View style={{ backgroundColor: 'rgb(249,200,159)', flex: 1 }}>
 
@@ -377,6 +349,22 @@ export default class componentName extends Component {
 
                         </View>
                     </Modal>
+                    <Modal
+                        animationType='slide'
+                        transparent={true}
+                        visible={modalVisible3}
+                        hardwareAccelerated={true}
+                        onRequestClose={() => {
+                            this.setModalVisible3(!modalVisible3);
+                        }}
+                    >
+                        <View style={{ flex: 1 }}>
+
+                            <Image source={require('')}></Image>
+
+
+                        </View>
+                    </Modal>
                     {/* 顶部 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
                         <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
@@ -388,9 +376,17 @@ export default class componentName extends Component {
                     </View>
                     <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
                     <View style={{ zIndex: 10, backgroundColor: 'rgba(255,255,255,255,0.5)', width: '15%', height: width * 0.15, marginTop: -height * 0.7, marginBottom: height * 0.65, marginLeft: width * 0.875, borderRadius: 10, }}>
-                        <TouchableOpacity style={{}} onPress={() => this.refs.viewShot.capture().then(uri => {
-                            console.log(uri);
-                        })}>
+                        <TouchableOpacity style={{}} onPress={() => {captureScreen(
+                            ({ path, uri }) => {
+                                // path: /xxx/yyy
+                                // uri: file:///xxx/yyy
+                                console.log('screenshotPatah', uri, path)
+                            },
+                            {
+                                format: 'jpg',
+                                quality: 0.8,
+                            }
+                        )},this.setModalVisible3(!modalVisible3)} >
                             {/* <Text style={{ fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center' }}>Ar</Text> */}
                             <MaterialCommunityIcons
                                 name="augmented-reality"
@@ -399,18 +395,17 @@ export default class componentName extends Component {
                             />
                         </TouchableOpacity>
                     </View>
-                    <ViewShot ref="viewShot" options={{ format: 'jpg', quality: 1 }}>
-                        <View>
-                            <Video
-                                source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
-                                paused={this.state.poused}
-                                resizeMode="stretch"
-                                posterResizeMode='contain'
-                                style={{ zIndex: 0, height: height * 0.8, width: width, marginTop: -height * 0.8 }}
-                                onProgress={this.onProgress}
-                            />
-                        </View>
-                    </ViewShot>
+                    <View>
+                        <Video
+                            source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
+                            paused={this.state.poused}
+                            resizeMode="stretch"
+                            posterResizeMode='contain'
+                            style={{ zIndex: 0, height: height * 0.8, width: width, marginTop: -height * 0.8 }}
+                            onProgress={this.onProgress}
+                        />
+                    </View>
+
 
                     {/* 底部 */}
                     <View style={{ height: height * 0.2, flexDirection: 'row', justifyContent: 'space-around', marginTop: -height * 0.075 }}>
