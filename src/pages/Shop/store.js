@@ -31,7 +31,7 @@ import ShiCha from '../HomeScreen/HOME/ShiCha';
 import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import Swiper from 'react-native-swiper';
-
+import ScrollTopView from 'react-native-scrolltotop';
 
 const { width, height } = Dimensions.get('window');
 const images = [{ uri: 'http://8.142.11.85:3000/public/images/5.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/5.jpg' }]
@@ -40,6 +40,7 @@ export default class Store extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      isShowToTop: false,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
@@ -262,6 +263,19 @@ export default class Store extends Component {
   }
 
 
+  _onScroll(e) {
+    const offsetY = e.nativeEvent.contentOffset.y;
+
+    if (offsetY > 100) {
+        this.setState({
+            isShowToTop: true
+        })
+    } else {
+        this.setState({
+            isShowToTop: false
+        })
+    }
+}
   
   componentDidMount() {
     Animated.timing(this.state.progress, {
@@ -430,7 +444,10 @@ export default class Store extends Component {
 
             </TouchableOpacity>
           </View>
-          <ScrollView style={{height:height*0.87 }}>
+          <ScrollView
+           onScroll={(e)=>this._onScroll(e)} 
+           ref='listview'
+          style={{height:height*0.87 }}>
             <View style={{ alignItems: "center", }}>
               <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
                 <Swiper
@@ -634,6 +651,7 @@ export default class Store extends Component {
         /> */}
         
         </LinearGradient>
+        {this.state.isShowToTop ? <ScrollTopView  style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff"}} root={this} ></ScrollTopView> : null}
       </View>
     );
   }
