@@ -38,12 +38,12 @@ export default class Heritage extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>人物介绍</Text>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", color:"#333333"}}>人物介绍</Text>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sharealt" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>
-                    <View style={{ marginTop: -5, alignItems: "center", height: height * 0.91 }}>
+                    <View style={{ marginTop: -5, alignItems: "center", height: height * 0.93}}>
                         <ScrollView>
                             <View style={{ alignItems: "center" }}>
                                 <View style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
@@ -54,8 +54,8 @@ export default class Heritage extends Component {
                                     <View style={{ flexDirection: "row", borderRadius: 5, backgroundColor: "#fff", alignItems: "center", height: 120, width: width * 0.95 }}>
                                         <Image style={{ width: width * 0.25, marginLeft: 10, height: width * 0.25, borderRadius: 5 }} source={{ uri: "https://img2.baidu.com/it/u=360064306,3967606391&fm=15&fmt=auto&gp=0.jpg" }} />
                                         <View style={{ marginLeft: 10 }}>
-                                            <View><Text style={{ fontSize: 15 }}>陆小华</Text></View>
-                                            <View tyle={{ marginTop: 10 }}><Text style={{ fontSize: 13 }}>市级非遗传承人</Text></View>
+                                            <View><Text style={{ fontSize: 15 ,color:"#333333"}}>陆小华</Text></View>
+                                            <View tyle={{ marginTop: 10 }}><Text style={{ fontSize: 13 ,color:"#333333"}}>市级非遗传承人</Text></View>
                                             <View style={{ flexDirection: "row", marginTop: 25 }}>
                                                 <View style={{ width: 70, height: 20, backgroundColor: "#7cc0c0", borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }}><Text style={{ fontSize: 13 }}>五彩梁弄</Text></View>
                                                 <View style={{ width: 70, height: 20, backgroundColor: "#7cc0c0", borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }}><Text style={{ fontSize: 13 }}>梁弄大糕</Text></View>
@@ -63,10 +63,10 @@ export default class Heritage extends Component {
                                         </View>
                                     </View>
                                     <View style={{ width: width * 0.95, height: 120, backgroundColor: "#fff",  justifyContent: "center" }}>
-                                        <Text style={{ marginLeft: 15 }}>我国非物质文化遗产研究领域的领军人物，民俗学博士，中国艺术研究院研究员、博士生导师。原国际亚细亚民俗学会副会长，中国分会会长，中国民间文艺家协会副主席、中国农业历史学会副理事长、中国人类学民族学学会民族遗产专业委员会主任。</Text>
+                                        <Text style={{ marginLeft: 15 ,color:"#333333"}}>我国非物质文化遗产研究领域的领军人物，民俗学博士，中国艺术研究院研究员、博士生导师。原国际亚细亚民俗学会副会长，中国分会会长，中国民间文艺家协会副主席、中国农业历史学会副理事长、中国人类学民族学学会民族遗产专业委员会主任。</Text>
                                     </View>
                                 </View>
-                                <View style={{ width: width * 0.95, height: 40 }}><Text style={{ fontSize: 15, fontWeight: "bold", margin: 10, }}>可定制项目</Text></View>
+                                <View style={{ width: width * 0.95, height: 40 }}><Text style={{ fontSize: 15, fontWeight: "bold", margin: 10,color:"#333333" }}>可定制项目</Text></View>
                                 <View style={{ marginTop: 10 }}>
                                     <Heritages />
                                     {/* <View style={{ alignItems: "center" }}>
@@ -103,7 +103,14 @@ export default class Heritage extends Component {
                             </View>
                         </ScrollView>
                         <View style={{ height: height*0.07, backgroundColor: "#fff", flexDirection: "row", width:width, alignItems: "center",justifyContent:"space-around" }}>
-                            <TouchableOpacity onPress={()=>this.props.navigation.navigate('Chats',{room:3})} activeOpacity={1} style={{ width: width * 0.6, height: height*0.04,marginBottom:10, backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('Chats',{room:3})}>
+                            <AntDesign style={{ textAlign: 'center',  height: '100%', textAlignVertical: 'center' }}
+                      name="customerservice"
+                      size={35}
+                      color="#7cc0c0"
+                    />
+                            </TouchableOpacity>
+                            <TouchableOpacity  activeOpacity={1} style={{ width: width * 0.6, height: height*0.05,backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
                                 <Text style={{ fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
                                 </TouchableOpacity>
                         </View>
