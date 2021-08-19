@@ -208,7 +208,7 @@ componentWillUnmount(){
               
               <Text style={{color:'#333333',marginTop:10,marginRight:5}} numberOfLines={5}>{item.pingjia}</Text>
 
-            <View style={{ flexDirection: 'row',
+            {item.img > 0 ?<View style={{ flexDirection: 'row',
                             // 一行显示不下,换一行
                             flexWrap: 'wrap',
                             // 侧轴方向
@@ -226,6 +226,7 @@ componentWillUnmount(){
                     })
                 }
             </View>
+            :null}
               
           </View>
       )
@@ -255,7 +256,7 @@ componentWillUnmount(){
 
     render() {
         const { modalVisible, imgUrls, currentIndex,shops } = this.state;
-        console.log(this.props.route.params.shops);
+       // console.log(this.props.route.params.shops);
         return (
             <View style={{flex:1}}>
                 {/* 标题 */}
