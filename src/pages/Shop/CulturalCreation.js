@@ -111,7 +111,16 @@ class Draggable extends Component {
                         </ImageBackground>
                         <View style={{ backgroundColor: '#fff', width, flex: 1, marginBottom: height * 0 }}>
                             <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
-
+                                <View style={{ flexDirection: 'row' }}>
+                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                                        onPress={() => this.insert_shopcart()}>
+                                        <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>加入购物车</Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                                        onPress={() => this.props.navigation.navigate('Zhifu', this.state.shops)}>
+                                        <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>立即购买</Text>
+                                    </TouchableOpacity>
+                                </View>
 
                             </View>
 
@@ -119,56 +128,64 @@ class Draggable extends Component {
                     </TouchableOpacity>
 
                 </Modal>
-                <View style={{ flexDirection: "row", backgroundColor: "#fff", width: width, alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
-                    <TouchableOpacity
-                        activeOpacity={1} style={{}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
-                    </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333", width: width * 0.85, marginLeft: "2%" }}>定制</Text>
+                <View style={{ flexDirection: "row", backgroundColor: "#fff", width: width, alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
+                    <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333", width: width * 0.1, marginHorizontal: width * 0.3 }}>定制</Text>
+
+                    <AntDesign onPress={() => {
+                        captureRef(viewRef, {
+                            format: "jpg",
+                            quality: 0.8
+                        }).then(
+                            uri => {
+                                console.log("Image saved to", uri),
+                                    this.setState({ shoturi: uri })
+                            },
+                            error => console.error("Oops, snapshot failed", error)
+                        ), this.setModalVisible4(!modalVisible4)
+                    }} style={{ color: "#333333" }} name="check" size={20} color="#000000" />
                 </View>
-                <View style={{ width: width, height: height * 0.65, backgroundColor: "#fff" }}  ref={viewRef} collapsable={false}>
+                <View style={{ width: width, height: height * 0.65, backgroundColor: "#fff" }} ref={viewRef} collapsable={false}>
                     <ImageBackground source={require('../img/134880490.png')} style={{ width: '100%', height: '100%' }}>
                         {ShowPic1}
                     </ImageBackground>
-                    <ScrollableTabView
-                          
-                            style={{ width:width,height:height*0.3,  }}
 
-                        >
-                            <View tabLabel='湖州商帮' style={{ backgroundColor: '#7cc0c0',width: width, height: height*0.5, borderTopLeftRadius: 10, }}>
-                                
-                            </View>
-                            <View tabLabel='萧绍商帮' style={{ width: width * 1, height: '100%', borderTopLeftRadius: 10, }} >
-                                
-                            </View>
-                        </ScrollableTabView>
+
+
+
                     {/* <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
                         <Image style={{ width: 50, height: 50 }} source={require('../img/T.jpg')} />
                     </Animated.View> */}
                 </View>
-                {/* <View style={{ width: width, height: height * 0.35, backgroundColor: "#fff", borderTopRightRadius: 20, elevation: 20, position: "absolute", bottom: 0, borderTopLeftRadius: 20 }}>
-                    <LinearGradient style={{ width: width, height: "100%", alignItems: "center", borderTopRightRadius: 20, borderTopLeftRadius: 20, elevation: 20, }} colors={["#7cc0bf", "#fff"]} >
-                        <View style={{ width: "100%", height: "50%", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
-                            <TouchableOpacity onPress={() => this.setState({ pic1: !this.state.pic1 })} style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
-                            <TouchableOpacity onPress={() => {captureRef(viewRef, {
-                                format: "jpg",
-                                quality: 0.8
-                            }).then(
-                                uri => {
-                                    console.log("Image saved to", uri),
-                                        this.setState({ shoturi: uri })
-                                },
-                                error => console.error("Oops, snapshot failed", error)
-                            ), this.setModalVisible4(!modalVisible4)}} style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
-                            <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+
+                <View style={{ width: width, height: height * 0.35, backgroundColor: "#fff", borderTopRightRadius: 20, elevation: 20, position: "absolute", bottom: 0, borderTopLeftRadius: 20 }}>
+                    {/* <LinearGradient style={{ width: width, height: "100%", alignItems: "center", borderTopRightRadius: 20, borderTopLeftRadius: 20, elevation: 20, }} colors={["#7cc0bf", "#fff"]} >
+
+                    </LinearGradient> */}
+                    <ScrollableTabView
+                        initialPage={0}
+
+                        locked={true}
+                        renderTabBar={() => <ScrollableTabBar />}
+                        tabBarActiveTextColor='#FF0000'>
+                        <View tabLabel="推荐样式" style={{ borderWidth: 1, width: width }}>
+                            <View style={{ width: "100%", height: "50%", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
+                                <TouchableOpacity onPress={() => this.setState({ pic1: !this.state.pic1 })} style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+
+                                <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+                            </View>
+                            <View style={{ width: "100%", height: "50%", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
+                                <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+                                <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+                                <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+                            </View>
                         </View>
-                        <View style={{ width: "100%", height: "50%", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
-                            <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
-                            <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
-                            <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
+                        <View tabLabel="自定义" style={{ borderWidth: 1, width: width }}>
+
                         </View>
-                    </LinearGradient>
-                </View> */}
+
+                    </ScrollableTabView>
+                </View>
 
             </View>
         )
