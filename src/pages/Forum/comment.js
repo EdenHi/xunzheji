@@ -624,9 +624,9 @@ export default class Comment extends React.Component {
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
                                        </View>
 
-                                <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
                                     <TouchableOpacity activeOpacity={1}>
-                                        <View style={{flexDirection:'row'}}>
+                                        <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                             <TouchableOpacity onPress={()=>{this.update_dianzan(),DeviceEventEmitter.emit('dianzan',1)}}>
                                                 <Ionicons
                                                 name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
@@ -640,16 +640,16 @@ export default class Comment extends React.Component {
                                     <View style={{flexDirection:'row'}}>
                                         <Ionicons
                                         name="chatbubble-ellipses-outline"
-                                        size={15}
+                                        size={20}
                                         color="black"/>
                                         <Text style={{marginLeft:5}}>{data.counts}</Text>
                                     </View>
     
                                     <TouchableOpacity activeOpacity={1}>
-                                        <View style={{flexDirection:'row'}}>
+                                        <View style={{flexDirection:'row',marginLeft:"20%"}}>
                                             <Ionicons
                                             name="arrow-redo-outline"
-                                            size={15}
+                                            size={20}
                                             color="black"/>
                                         </View>
                                     </TouchableOpacity>
