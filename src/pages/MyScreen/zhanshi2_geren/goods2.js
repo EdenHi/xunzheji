@@ -93,6 +93,7 @@ export default class Goods2 extends Component {
   renderDate({item,index}){
 
     return(
+      
       <FlipCard
       friction={6}
       perspective={2000}
@@ -104,8 +105,8 @@ export default class Goods2 extends Component {
     >
 
 
-      <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15,alignItems:'flex-end' }} key={index}>
-        <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center",position:'relative'  }} source={{ uri:this.state.imgUrl }} >
+      <View style={{ marginHorizontal: width * 0.05, marginVertical: height * 0.15,alignItems:'flex-end', }} key={index}>
+        <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.9, height: height * 0.6, alignItems: "center", justifyContent: "center",position:'relative'  }} source={{ uri:this.state.imgUrl }} >
           <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center"}}>
             <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
             <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.wupin}</Text>
@@ -115,14 +116,14 @@ export default class Goods2 extends Component {
         </ImageBackground>
         <AntDesign
           name='closecircle'
-          size={25}
+          size={30}
           style={{position:'absolute',right:-10,top:-10}}
           onPress={()=>this.setState({visible:true,arr:item})}/>
           
       </View>
 
 
-      <View style={{ backgroundColor: '#7cc0c0', marginHorizontal: width * 0.05, height: '80%', width: width * 0.9, borderRadius: 10, marginTop: 40, opacity: 0.8, padding: 10 }}>
+      <View style={{ backgroundColor: '#fff', marginHorizontal: width * 0.05, height: height * 0.6, width: width * 0.9, borderRadius: 10,marginTop:height*0.15,padding: 10,marginVertical: height * 0.15, }}>
         <View style={{}}>
           <Text style={{ fontSize: 14 }}>
               {item.liyou}
@@ -137,7 +138,7 @@ export default class Goods2 extends Component {
           <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
         </View>
         <TouchableOpacity style={{flexDirection:"row",width:width*0.2,height:50,alignItems:"center",marginTop:15,marginLeft:"70%"}} >
-          <View style={{width:50,height:40}}><Text style={{fontWeight:"bold",fontSize:16}}>我想要</Text></View>
+          <View style={{width:50,height:40}}><Text style={{fontWeight:"bold",fontSize:15,color:"#333333"}}>我想要</Text></View>
           <LottieView style={{width:60,height:40}} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
         </TouchableOpacity>
       </View>
@@ -151,11 +152,19 @@ export default class Goods2 extends Component {
     console.log('data',this.state.data);
     const {data,visible,arr} = this.state;
     return (
-      <View style={{ width }}>
+      <View style={{ width:width,height:height }}>
+         
+                   
         <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%'}}>
           <Animated.Image source={{uri:this.state.imgUrl}} resizeMode="stretch" style={{ opacity: 0.5}} />
         </BlurView>
-        
+        <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
+                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>我的商店</Text>
+                    </View>
+        <View style={{width:width,height:height*0.93}}>
         {/* 消息弹窗 */}
         <AwesomeAlert
             show={visible}
@@ -168,7 +177,6 @@ export default class Goods2 extends Component {
             showConfirmButton={true}
             confirmText="确认"
             cancelText="取消"
-
             confirmButtonColor="#93c9c9"
             onConfirmPressed={() => {
               this.setState({ visible: false })
@@ -178,10 +186,8 @@ export default class Goods2 extends Component {
               this.setState({ visible: false })
             }}
           />
-
-
         <ScrollView
-         style={{height:height -50 - 120}}
+         style={{}}
          ref={ref => this.scrollRef = ref}
          onScroll={(e) =>{
            if (e.nativeEvent.contentOffset.y === 0 ){
@@ -194,16 +200,14 @@ export default class Goods2 extends Component {
         //pagingEnabled={true}
         keyExtractor={(item, index) => (index + '1')}
         renderItem={this.renderDate.bind(this)}
-       
         />
       </ScrollView>
+      </View>
       </View>
     )
   }
 };
-
 const styles = StyleSheet.create({
-
   image: {
     width: '80%',
     height: '70%',
