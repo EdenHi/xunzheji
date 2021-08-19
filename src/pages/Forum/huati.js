@@ -267,9 +267,9 @@ ListEmptyComponent(){
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{item.tag}</Text>
                                        </View>
 
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                       <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
                                             <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
+                                                <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                     <TouchableOpacity onPress={()=>{this.update_dianzan(item),DeviceEventEmitter.emit('dianzan',1)}}
                                                     >
                                                         <Ionicons
@@ -282,7 +282,7 @@ ListEmptyComponent(){
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity onPress={()=>this.context.navigate('Comment',item)}>
-                                            <View style={{flexDirection:'row'}}>
+                                            <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                 <Ionicons
                                                 name="chatbubble-ellipses-outline"
                                                 size={20}
@@ -296,7 +296,7 @@ ListEmptyComponent(){
                                                 this.onShare();
                                               }}
                                             >
-                                                <View style={{flexDirection:'row'}}>
+                                                <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}

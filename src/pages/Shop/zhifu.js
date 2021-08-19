@@ -1,17 +1,23 @@
 import React, { Component } from "react";
-import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
+import { View, Text, Image,Dimensions,Animated, Modal,
+    Easing, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
+    import { ToastAndroid } from "react-native";
 // import { Nav } from "../../component";//顶部标签看
 import LinearGradient from 'react-native-linear-gradient';
 import RBSheet from "react-native-raw-bottom-sheet";
-import AntDesign from "react-native-vector-icons/AntDesign"
+import AntDesign from "react-native-vector-icons/AntDesign";
+import {NavigationContext} from '@react-navigation/native';
+import LottieView from 'lottie-react-native';
 // import IconFont from "../../iconfont";
 // import global from "../../utils/global";
 const {height,width} = Dimensions.get('window');
 export default class zhifu extends Component {
-
+    static contextType = NavigationContext;
     constructor(props) {
         super(props);
         this.state = {
+            progress: new Animated.Value(0),
+            modalVisible: false,
             paidway: [
                 {
                     id: 1,
@@ -54,6 +60,21 @@ export default class zhifu extends Component {
         style: {},
         textStyle: {},
         cisabled: false
+    }
+    componentDidMount() {
+        Animated.timing(this.state.progress, {
+            toValue: 1,
+            duration: 1000,
+            easing: Easing.linear,
+        }).start();
+
+    }
+    _openModalWin = () => {
+        this.setState({ modalVisible: true });
+    }
+
+    _closeModalWin = () => {
+        this.setState({ modalVisible: false });
     }
     changeTab = (index) => {
         this.setState({ activeTab: index })
@@ -130,14 +151,41 @@ export default class zhifu extends Component {
     componentWillUnmount(){
         this.listener.remove();
         }
+
+    buy(){
+        fetch('http://8.142.11.85:3000/shop/insert_dingdan', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                dianpu: this.props.route.params.dianpu,
+                shop_name: this.props.route.params.name,
+                price: parseFloat(this.state.price*this.state.total).toFixed(2),
+                num: this.state.total,
+                img: this.props.route.params.pic[0],
+                username:this.state.username,
+                time:new Date(),
+                dianpu_img:this.props.route.params.loge
+            }),
+        });
+
+        this.props.navigation.goBack();
+        ToastAndroid.show('提交订单成功',2000)
+    }
+
+
+
     render() {
         const {dizhi} = this.state
         return (
             <View style={{flex:1}}>
+                <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
                 {/* <Nav title="等待买家付款" /> */}
-                <View style={{ width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
+                <View style={{ width:width*0.9,height:height*0.07,flexDirection:"row",alignItems:"center"}}>
                        
-                       <TouchableOpacity style={{marginLeft:"2%"}}
+                       <TouchableOpacity style={{marginLeft:width*0.05}}
                        onPress={() => this.props.navigation.goBack()}
                            >
                            <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
@@ -146,55 +194,49 @@ export default class zhifu extends Component {
                                color="black"
                                />
                        </TouchableOpacity>
-                       <Text style={{fontSize:15}}>确认订单</Text>
-                       <View style={{width:width*0.09,height:width*0.09,}}></View>
+                       <Text style={{fontSize:15,fontWeight:"bold",marginLeft:"2%",color:"#333333"}}>确认订单</Text>
                    </View>
-                
-                
                 <ScrollView >
                     {/* 收货地址 */}
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
-                        <View style={{ marginTop: 20, marginLeft: 20, flexDirection: "row", }}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 5, borderRadius:10, margin: 5, backgroundColor: "#fff",width:width*0.9,marginLeft:width*0.05,borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={1}>
+                        <View style={{ marginTop: 5, marginLeft: 20, flexDirection: "row", }}>
                             <Text style={{ fontSize: 16 }}>{dizhi.name}</Text>
                             <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi.phone}</Text>
 
                             {/* <IconFont name="jiantou" size={20} style={{ marginLeft: 130, marginTop: 15 }} /> */}
                         </View>
                         <View style={{ marginLeft: 20, marginBottom: 10 ,flexDirection:'row'}}>
-                            <Text style={{ fontSize: 14 }}>{dizhi.dizhi}</Text>
-                            <Text style={{ fontSize: 14,marginLeft:10 }}>{dizhi.xiangxi}</Text>
+                            <Text style={{ fontSize: 14,color:"#333333" }}>{dizhi.dizhi}</Text>
+                            <Text style={{ fontSize: 14,marginLeft:10,color:"#333333" }}>{dizhi.xiangxi}</Text>
                         </View>
                     </TouchableOpacity>
 
 
                     {/* 商品信息 */}
-                    <View style={{ flexDirection: 'row',marginTop: 25 }}>
+                    <View style={{ flexDirection: 'row',marginTop: 5,backgroundColor:"#fff",width:width*0.90,borderRadius:10 ,marginLeft:width*0.05,elevation:5}}>
                         <View style={{ marginLeft: 15 }}>
                             <Image style={{ width: 110, height: 110, borderRadius: 10 }} source={{ uri:this.props.route.params.pic[0] }} />
                         </View>
                         <View style={{ marginLeft: 8,justifyContent:'space-around',marginLeft:20 }}>
                             {/* 商品名称 */}
-                            <Text style={{ fontSize: 15, fontWeight: "bold",width:width*0.5 }} numberOfLines={3} >{this.state.goodsname}</Text>
+                            <Text style={{ fontSize: 15, fontWeight: "bold",width:width*0.45,color:"#333333" }} numberOfLines={3} >{this.state.goodsname}</Text>
                             {/* 对商品的解释或者规格 */}
-                            <Text style={{ fontSize:15,color:'#7cc0c0',width:width*0.5}} numberOfLines={1}>{this.state.goods}</Text>
+                            <Text style={{ fontSize:15,color:'#7cc0c0',width:width*0.5,}} numberOfLines={1}>{this.state.goods}</Text>
                         </View>
                     </View>
-
-
-
-                    <View style={{ backgroundColor: "white", marginTop: 10, borderRadius: 10,margin:5 }}>
+                    <View style={{ backgroundColor: "white", marginTop: 10, borderRadius: 10,margin:5,width:width*0.9,marginLeft:width*0.05,elevation:5 }}>
                         <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
-                            <Text style={{ opacity: 0.6 ,fontSize:15}}>商品价格</Text>
-                            <Text style={{ opacity: 0.6  ,fontSize:15}}>￥{this.state.price}</Text>
+                            <Text style={{ opacity: 0.6 ,fontSize:15,color:"#333333"}}>商品价格</Text>
+                            <Text style={{ opacity: 0.6  ,fontSize:15,color:"#333333"}}>￥{this.state.price}</Text>
                         </View>
                         <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
-                            <Text style={{ opacity: 0.6 ,fontSize:15 }}>商品数量</Text>
+                            <Text style={{ opacity: 0.6 ,fontSize:15 ,color:"#333333"}}>商品数量</Text>
                             <View style={{flexDirection:'row',alignItems:'center'}}>
                                 <AntDesign
                                 name='minussquareo'
                                 size={15}
                                 onPress={()=>this.jianshao_total()}/>
-                                <Text style={{ fontSize:15,marginLeft:10,marginRight:10 }}>{this.state.total}</Text>
+                                <Text style={{ fontSize:15,marginLeft:10,marginRight:10,color:"#333333" }}>{this.state.total}</Text>
                                 <AntDesign
                                 name='plussquareo'
                                 size={15}
@@ -203,7 +245,7 @@ export default class zhifu extends Component {
                             
                         </View>
                         <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginTop: 10, marginBottom: 15, marginLeft: 20 }}>
-                            <Text style={{ fontSize: 15 }}>合计</Text>
+                            <Text style={{ fontSize: 15 ,color:"#333333"}}>合计</Text>
                             <Text style={{ fontSize:15, color: "#7cc0c0", fontWeight: "bold" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
                         </View>
                     </View>
@@ -214,41 +256,91 @@ export default class zhifu extends Component {
 
 
 
-                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 }} activeOpacity={0.95}>
-                            <Text style={{ marginLeft: 15 }}>支付方式:</Text>
-                            <Text style={{ marginRight:15 ,}}>{this.state.way}</Text>
+                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 ,elevation:5}} activeOpacity={0.95}>
+                            <Text style={{ marginLeft: 15,color:"#333333" }}>支付方式:</Text>
+                            <Text style={{ marginRight:15 ,color:"#333333"}}>{this.state.way}</Text>
                             {/* <IconFont name="jiantou" size={20}  /> */}
                         </TouchableOpacity>
-
                     </View>
-
                 </ScrollView >
 
                 <View style={{ alignItems: "center", justifyContent: "space-between", flexDirection: "row", backgroundColor: "white", height: 70 }}>
                     <View style={{ flexDirection: "row", marginLeft: 15, alignItems: "flex-end" }}>
-                        <Text style={{ fontSize: 15 }}>合计金额</Text>
+                        <Text style={{ fontSize: 15,color:"#333333" }}>合计金额</Text>
                         <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
                     </View>
                   
-                        <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
+                        <TouchableOpacity  onPress={this._openModalWin} activeOpacity={1} style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
 
                             <Text  style={{fontSize:15,color:"#fff"}}>提交订单</Text>
                        
                         </TouchableOpacity>
+                        <Modal
+                            animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
+                            transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
+                            visible={this.state.modalVisible} // 是否显示 modal 窗口
+                            onRequestClose={() => { this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
+                            onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
+                        >
+                            <TouchableOpacity
+
+                                style={{ height: '100%', width: '100%', position: "absolute", top: 0, left: 0 }}
+                            // onPress={this._closeModalWin}
+                            >
+                                <View style={styles.modalLayer}>
+
+                                    <TouchableOpacity
+                                        activeOpacity={1}
+                                        onPress={() => {
+
+                                        }}
+                                    >
+                                        <View style={styles.modalContainer}>
+                                            <View style={{
+                                                width: 150,
+                                                height: '45%',
+                                                alignItems: 'center',
+                                                justifyContent: 'center'
+                                            }}>
+                                                <LottieView source={require('../../../animal/success.json')} autoPlay loop progress={this.state.progress} />
+                                            </View>
+                                            <View style={{
+                                                width: '100%',
+                                                height: '25%',
+                                                alignItems: 'center',
+
+                                            }}>
+                                                <Text style={{ fontSize: 20, color: "#7cc0c0" }}>提交成功</Text>
+                                            </View>
+                                            <TouchableOpacity style={styles.modalButtonStyle}
+                                                onPress={() => {
+                                                    this._closeModalWin()
+                                                   this.buy();
+                                                }}
+
+                                            >
+                                                <Text style={{ fontSize: 15 }}>确定</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </TouchableOpacity>
+                                </View>
+                            </TouchableOpacity>
+                        </Modal>
                     
                 </View>
                 <RBSheet ref={ref => { this.Scrollable = ref; }} height={200} closeOnDragDowncustomStyles={{ container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 } }}>
                     <View>
-                        <Text style={{ marginLeft: 25, fontSize:15, marginTop: 10 }}>支付方式</Text>
+                        <Text style={{ marginLeft: 25, fontSize:15, marginTop: 10 ,color:"#333333"}}>支付方式</Text>
                         {this.state.paidway.map((item, index) => (
                             <TouchableOpacity key={item.id} onPress={() => {this.changeTab(index),this.Scrollable.close()}} style={{ alignItems: 'center', flexDirection: "row", marginTop: 15, marginLeft: 20 }}>
                                 <Image style={{ width: 30, height: 30 }} source={{uri:item.image}} />
-                                <Text style={{ marginLeft: 10 }}>{item.text}</Text>
+                                <Text style={{ marginLeft: 10,color:"#333333" }}>{item.text}</Text>
                             </TouchableOpacity>
+                            
                         ))}
                     </View>
                 </RBSheet>
-
+                </LinearGradient>
             </View >
         );
     }
@@ -272,5 +364,24 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: '#ffffff',
         backgroundColor: 'transparent',
+    },
+    modalLayer: {
+        backgroundColor: 'rgba(0, 0, 0, 0.45)',
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+
+    },
+    modalContainer: {
+        width: 250,
+        height: 150,
+        backgroundColor: '#fff',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10
+    },
+    modalTitleStyle: {
+        textAlign: 'center',
+        fontSize: 15
     },
 });

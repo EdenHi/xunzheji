@@ -6,6 +6,15 @@ const {width,height} = Dimensions.get('window');
 import { SwipeRow } from 'react-native-swipe-list-view';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
+// import Spinner from 'react-native-loading-spinner-overlay';
+// const instructions = Platform.select({
+//     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+//     android:
+//       'Double tap R on your keyboard to reload,\n' +
+//       'Shake or press menu button for dev menu'
+//   });
+  
+// import AnimatedLoader from "react-native-animated-loader";
 
 export default class AddressList2 extends Component {
     constructor(props){
@@ -14,8 +23,12 @@ export default class AddressList2 extends Component {
             data:[],
             username:'',
             isLoding:false,
+            // spinner: false
+            // visible: false
         };
     }
+  
+    
 
     //获取地址的方法
     get_list(){
@@ -61,6 +74,16 @@ export default class AddressList2 extends Component {
     componentDidMount(){
         this.get_list();
         this.listener = DeviceEventEmitter.addListener('test',this.loding.bind(this))
+        // setInterval(() => {
+        //     this.setState({
+        //       spinner: !this.state.spinner
+        //     });
+        //   }, 3000);
+        // setInterval(() => {
+        //     this.setState({
+        //       visible: !this.state.visible
+        //     });
+        //   }, 1000);
     }
     componentWillUnmount(){
         this.listener.remove();
@@ -111,8 +134,11 @@ export default class AddressList2 extends Component {
     render() {
         const {data} = this.state;
         console.log('data',data)
+        const { visible } = this.state;
         return (
+          
             <View style={{}}>
+               
                  <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
                 <View style={{flex:1}}>
                
@@ -147,8 +173,8 @@ export default class AddressList2 extends Component {
                                     </TouchableOpacity>
                                     <TouchableOpacity onPress={()=>this.goback(v)} activeOpacity={1}  style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',backgroundColor:'#fff',borderRadius:15}}>
                                         <View>
-                                            <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:15,width:width * 0.2,fontWeight:'bold',marginLeft:"5%"}}>{v.name}</Text><Text>{v.phone}</Text></View>
-                                            <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10,marginLeft:"5%"}}>{v.dizhi}</Text><Text style={{marginRight:10,marginLeft:"5%"}}>{v.xiangxi}</Text></View>
+                                            <View style={{flexDirection:'row',height:30 }}><Text style={{fontSize:15,width:width * 0.2,fontWeight:'bold',marginLeft:"5%",}}>{v.name}</Text><Text>{v.phone}</Text></View>
+                                            <View style={{flexDirection:'row',height:30 }}><Text style={{marginRight:10,marginLeft:"5%",color:"#333333"}}>{v.dizhi}</Text><Text style={{marginRight:10,marginLeft:"5%",color:"#333333"}}>{v.xiangxi}</Text></View>
                                             <View style={{flexDirection:'row',height:30,alignItems:'center' }}>
                                                     <Switch
                                                     onTintColor={'#ffaa11'}
@@ -159,13 +185,14 @@ export default class AddressList2 extends Component {
                                                         }}
                                                         testID={'1'}
                                                         thumbTintColor={'#ff1111'}/>
-                                                <Text style={{marginLeft:10}}>默认地址</Text>
+                                                <Text style={{marginLeft:10,color:"#333333"}}>默认地址</Text>
                                             </View>
                                         </View>
                                         <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('updateDizhi',v)}>
                                             <AntDesign
                                             name='form'
                                             size={25}
+                                            color="#333333"
                                             style={{marginRight:20}}/>
                                         </TouchableOpacity>
                                     </TouchableOpacity>
@@ -177,16 +204,26 @@ export default class AddressList2 extends Component {
                 }
                 </ScrollView>
                 {/* </LinearGradient> */}
-                <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
-                    <View style={{backgroundColor:'#7cc0c0',height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}}>
+                <TouchableOpacity style={{backgroundColor:'#7cc0c0',bottom:height*0.1,height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}} activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
+            
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
-                        </View>
+                   
                 </TouchableOpacity>
+                {/* <AnimatedLoader
+            visible={visible}
+            overlayColor="rgba(255,255,255,0.75)"
+            source={require("../../../../animal/book.json")}
+            animationStyle={styles.lottie}
+            speed={1}
+              
+          > */}
+            {/* <Text>Doing something...</Text>
+            </AnimatedLoader> */}
                 </View>
-                
                 </LinearGradient>
                 
    </View>
+ 
         );
     }
 }
@@ -221,5 +258,9 @@ const styles = StyleSheet.create({
       height: 50,
       justifyContent: 'center',
     },
+    lottie: {
+        width: 100,
+        height: 100
+      }
   });
   

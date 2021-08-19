@@ -48,8 +48,8 @@ export default class Heritages extends Component {
 
                     <Image style={{ width: width * 0.5, height: width * 0.5, borderRadius: 5 }} source={{ uri: SECTIONS[index].img }} />
                     <View style={{ width: width * 0.32, marginLeft: 10, height: width * 0.5, justifyContent: "center" }}>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center" }}>{section.title}</Text>
-                        <Text style={{ fontSize: 13, flexWrap: "wrap", marginTop: 10 }}>{section.title2}</Text>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center",color:"#333333" }}>{section.title}</Text>
+                        <Text style={{ fontSize: 13, flexWrap: "wrap", marginTop: 10,color:"#333333" }}>{section.title2}</Text>
                     </View>
                 </View>
             </Animatable.View>
@@ -66,7 +66,7 @@ export default class Heritages extends Component {
                     duration={300}
                     easing="ease-out"
                     animation={isActive ? 'zoomIn' : false}
-                    style={{textAlign:"left",fontSize:15,marginLeft:width*0.7,fontWeight:"bold"}}>
+                    style={{textAlign:"left",fontSize:15,marginLeft:width*0.7,fontWeight:"bold",color:"#333333"}}>
                     {section.content}
                 </Animatable.Text>
             </Animatable.View>

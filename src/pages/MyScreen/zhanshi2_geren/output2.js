@@ -6,7 +6,7 @@ import Timeline from 'react-native-timeline-listview'
 import { NavigationContext } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 const { height, width } = Dimensions.get('window');
-export default class output2 extends Component {
+export default class Output2 extends Component {
   static contextType = NavigationContext;
   constructor(props) {
     super(props);

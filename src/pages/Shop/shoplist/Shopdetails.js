@@ -8,11 +8,17 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import shoplist from './shoplist.json';
 import { color } from 'react-native-elements/dist/helpers';
+import ScrollTopView from 'react-native-scrolltotop';
+
+
 const { width, height } = Dimensions.get('window');
+
+
 export default class Shopdetails extends Component {
     constructor(props){
         super(props)
         this.state = {
+            isShowToTop: false,
             shops:this.props.route.params.shops,
             modalVisible1: false,
             modalVisible: false,
@@ -37,6 +43,19 @@ export default class Shopdetails extends Component {
     this.setState({ modalVisible1: visible });
   }
 
+  _onScroll(e) {
+    const offsetY = e.nativeEvent.contentOffset.y;
+
+    if (offsetY > 100) {
+        this.setState({
+            isShowToTop: true
+        })
+    } else {
+        this.setState({
+            isShowToTop: false
+        })
+    }
+}
 
   dianpu(){
     let newJson = [];
@@ -149,6 +168,8 @@ export default class Shopdetails extends Component {
                 </View>
                 
                 <ScrollView
+                onScroll={(e)=>this._onScroll(e)} 
+                ref='listview'
                 showsVerticalScrollIndicator={false}>
                     {/* 轮播 */}
                     <View style={{height: height * 0.4,width: '100%'}}>
@@ -247,6 +268,7 @@ export default class Shopdetails extends Component {
                     onRequestClose={() => { this.setState({ modalVisible: false }); }}>
                     <ImageViewer imageUrls={imgUrls} index={currentIndex} enableImageZoom={true} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
+                {this.state.isShowToTop ? <ScrollTopView  style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#7cc0c0"}} root={this} ></ScrollTopView> : null}
             </View>
         );
     }

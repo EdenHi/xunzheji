@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import shoucang2 from '../pages/MyScreen/zhanshi2_geren/shoucang2';
-import dianzan2 from '../pages/MyScreen/zhanshi2_geren/dianzan2';
-import output2 from '../pages/MyScreen/zhanshi2_geren/output2';
-import goods2 from '../pages/MyScreen/zhanshi2_geren/goods2';
+import Shoucang2 from '../pages/MyScreen/zhanshi2_geren/Shoucang2';
+import Dianzan2 from '../pages/MyScreen/zhanshi2_geren/Dianzan2';
+import Output2 from '../pages/MyScreen/zhanshi2_geren/Output2';
+import Goods2 from '../pages/MyScreen/zhanshi2_geren/Goods2';
 import { NavigationContainer } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
@@ -26,7 +26,7 @@ export default function MyRoute2() {
       }}
     >
       <Tab.Screen
-        name="我的发布" component={output2}
+        name="我的发布" component={Output2}
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name='home' size={28} color={color} />
@@ -35,7 +35,7 @@ export default function MyRoute2() {
       />
       <Tab.Screen
 
-        name="我的商品" component={goods2}
+        name="我的商品" component={Goods2}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name={'planet-outline'} size={28} color={color} />
@@ -43,7 +43,7 @@ export default function MyRoute2() {
         }}
       />
       <Tab.Screen
-        name="点赞" component={dianzan2}
+        name="点赞" component={Dianzan2}
         options={{
           tabBarIcon: ({ color }) => (
             <Feather name={'shopping-bag'} size={26} color={color} />
@@ -51,7 +51,7 @@ export default function MyRoute2() {
         }}
       />
       <Tab.Screen
-        name="收藏" component={shoucang2}
+        name="收藏" component={Shoucang2}
         options={{
           tabBarIcon: ({ color }) => (
             <SimpleLineIcons name={'ghost'} size={24} color={color} />

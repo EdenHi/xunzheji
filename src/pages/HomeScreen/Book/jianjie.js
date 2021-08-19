@@ -15,23 +15,24 @@ export default class jianjie extends Component {
 //底部弹窗
 list = [
     { title: '丛书推荐序 四十不惑立潮头',
-    onPress: () => this.go() },
+    onPress: () => this.go(2) },
     { title: '总序 记录一段重要历史',
-    onPress: () => this.go() },
-    { title: '前言 他是一个时代的“标杆”',
-    onPress: () => this.go() },
+    onPress: () => this.go(7) },
+    { title: '前言 他是一个时代的“标杆',
+    onPress: () => this.go(8) },
     { title: '第一篇 创业家',
-    onPress: () => this.go() },
+    onPress: () => this.go(10) },
     { title: '第二篇 战略家',
-    onPress: () => this.go() },
+    onPress: () => this.go(0) },
     { title: '第三篇 创新家',
-    onPress: () => this.go() },
+    onPress: () => this.go(0) },
     { title: '第四篇 哲学家',
-    onPress: () => this.go() },
+    onPress: () => this.go(0) },
   ];
 
-go(){
+go(kk){
     this.setState({isVisible:false})
+    this.props.navigation.navigate('book_xiangqing',{k:kk})
 }
     render() {
         return (

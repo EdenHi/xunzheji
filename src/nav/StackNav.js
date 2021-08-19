@@ -78,6 +78,8 @@ import {
   MatchGame,
   book_1,
   book_xiangqing,
+  discuss,
+  drawpic
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -158,6 +160,7 @@ export default function StackNav() {
       <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
+      <Stack.Screen name="drawpic" component={drawpic} />
 
       <Stack.Screen name="Story" component={Story} />      
       <Stack.Screen name="Story2" component={Story2} />      
@@ -173,6 +176,7 @@ export default function StackNav() {
       <Stack.Screen name="MatchGame" component={MatchGame} />
       <Stack.Screen name="book_1" component={book_1} />
       <Stack.Screen name="book_xiangqing" component={book_xiangqing} />
+      <Stack.Screen name="discuss" component={discuss} />
     </Stack.Navigator>
   );
 }

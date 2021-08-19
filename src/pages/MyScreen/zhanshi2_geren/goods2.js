@@ -26,7 +26,7 @@ const { width, height } = Dimensions.get("window")
 
 
 
-export default class goods2 extends Component {
+export default class Goods2 extends Component {
   UNSAFE_componentWillMount = () => {
     this.state.fadeAnim = new Animated.Value(0)
   }
