@@ -138,9 +138,8 @@ export default class componentName extends Component {
         console.log(this.state.mission2);
         console.log(this.state.mission3);
     }
-
-
     render() {
+
         const viewRef = createRef();
         const { modalVisible, modalVisible2, modalVisible3, modalVisible4 } = this.state;
         return (
@@ -354,7 +353,7 @@ export default class componentName extends Component {
                         </View>
                     </Modal>
                     <Modal
-                        animationType='fade'
+                        animationType='slide'
                         transparent={true}
                         visible={modalVisible3}
                         hardwareAccelerated={true}
@@ -366,7 +365,7 @@ export default class componentName extends Component {
                         <View style={{ flex: 1 }} collapsable={false} >
 
                             <ImageBackground ref={viewRef} resizeMode={'stretch'} style={{ height: '100%', width: '100%' }} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
-                                <TouchableOpacity style={{ borderWidth: 1, height: '100%', width: '100%', }} onPress={() => {
+                                <TouchableOpacity activeOpacity={1} style={{ borderWidth: 1, height: '100%', width: '100%', }} onPress={() => {
                                     this.setModalVisible3(!modalVisible3), captureRef(viewRef, {
                                         format: "jpg",
                                         quality: 0.8
@@ -376,10 +375,10 @@ export default class componentName extends Component {
                                             this.setState({ shoturi: uri })
                                         },
                                         error => console.error("Oops, snapshot failed", error)
-                                    ); this.setModalVisible4(!modalVisible4)
+                                    );this.setModalVisible4(!modalVisible4)
                                 }}>
                                     <View style={{ marginTop: height * 0.69, height: height * 0.08, width: '90%', marginLeft: '4.7%' }}>
-                                        <Text style={{ color: '#fff', fontSize: 25, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>恭喜你抵达{ }，累计走过{ }00公里</Text>
+                                        <Text style={{ color: '#fff', fontSize: 25, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>恭喜你抵达孝顺镇{ }，累计走过{ }00公里</Text>
                                     </View>
                                 </TouchableOpacity>
                             </ImageBackground>
@@ -394,25 +393,45 @@ export default class componentName extends Component {
                             this.setModalVisible4(!modalVisible4);
                         }}
                     >
-                        <View style={{ width: width, height: height, backgroundColor: 'rgba(0,0,0,0.4)' }}>
-                            <ImageBackground ref={viewRef} resizeMode={'stretch'} style={{ height: '70%', width: '70%', marginLeft: '15%' }} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
-                                <TouchableOpacity activeOpacity={1} style={{ borderWidth: 1, height: '100%', width: '100%', }} onPress={() => {
-
-                                }}>
-                                    <View style={{ borderWidth: 1, height: height * 0.08, width: '90%', marginLeft: '4.7%' }}>
-                                        <Text style={{ color: '#fff', fontSize: 25, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>恭喜你抵达{ }，累计走过{ }00公里</Text>
-                                    </View>
-                                </TouchableOpacity>
+                        <TouchableOpacity activeOpacity={1}  onPress={()=>{this.setModalVisible4(!modalVisible4)}} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                            <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%',height:height*0.6, marginLeft: '10%', marginTop: height*0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
+                                <View style={{ height: height * 0.05, width: '90%', marginLeft: '4.7%', borderColor: 'red', marginTop: height*0.433, borderWidth: 0 }}>
+                                    <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>已抵达孝顺镇{ }，累计走过{ }00公里</Text>
+                                </View>
                             </ImageBackground>
-                            <View style={{ backgroundColor: '#fff', width, height: '30%' }}>
-                                <View>
+                            <View style={{ backgroundColor: '#fff', width, flex: 1, marginBottom: height * 0 }}>
+                                <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
 
-                                </View>
-                                <View>
+                                <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4),this.props.navigation.navigate('Fabu',{shoturi:this.state.shoturi})}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                            <Image style={{width:'100%',height: '100%',}} source={require('../img/朋友圈.png')}></Image>
+                                        </TouchableOpacity>
+                                        <Text style={{ marginTop:height*0.01,width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
+                                            论坛发布
+                                        </Text>
+                                    </View>
+                                    <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4)}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                        <Image style={{width:'100%',height: '100%',}} source={require('../img/微信.png')}></Image>
 
+                                        </TouchableOpacity>
+                                        <Text style={{ marginTop:height*0.01, width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
+                                            微信好友
+                                        </Text>
+                                    </View>
+                                    <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4),ToastAndroid.showWithGravity('保存成功', 1000, ToastAndroid.BOTTOM)}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                        <Image style={{width:'100%',height: '100%',}} source={require('../img/保存.png')}></Image>
+
+                                        </TouchableOpacity>
+                                        <Text style={{ marginTop:height*0.01, width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
+                                            保存海报
+                                        </Text>
+                                    </View>
                                 </View>
+                              
                             </View>
-                        </View>
+                        </TouchableOpacity>
 
                     </Modal>
                     {/* 顶部 */}
@@ -446,15 +465,18 @@ export default class componentName extends Component {
                         />
                     </View>
                     {/* 底部 */}
-                    <View style={{ height: height * 0.2, flexDirection: 'row', justifyContent: 'space-around', marginTop: -height * 0.075 }}>
+                    <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075 }}>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/28-plantrips.png' }}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff' }}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff',marginLeft:width*0.06 }}>
                             <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '30%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '20%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/16-travel.png' }}></Image>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.setModalVisible3(!modalVisible3) }} style={{ height: '100%', width: '20%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/打卡.png')}></Image>
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>
