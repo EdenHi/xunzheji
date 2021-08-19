@@ -18,7 +18,7 @@ list = [
     onPress: () => this.go() },
     { title: '总序 记录一段重要历史',
     onPress: () => this.go() },
-    { title: '前言 他是一个时代的“标杆”',
+    { title: '前言 他是一个时代的“标杆',
     onPress: () => this.go() },
     { title: '第一篇 创业家',
     onPress: () => this.go() },

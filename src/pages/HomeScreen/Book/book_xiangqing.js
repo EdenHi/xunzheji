@@ -2,24 +2,104 @@
 import React, {Component} from 'react';
 import { ScrollView } from 'react-native';
 import { TouchableOpacity } from 'react-native';
-import { Image } from 'react-native';
-
+import { Image,Modal } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 import {View,Text ,Dimensions} from 'react-native';
-import WebView from 'react-native-webview';
+import SideMenu from 'react-native-side-menu';
+import Ionicons from 'react-native-vector-icons/Ionicons'
 const {width,height} = Dimensions.get('window')
 export default class book_xiangqing extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            num:1,
+            isVisible:false,
+            isOpen:false
+        }
+    }
 
+    go_page(e){
+        let scrollview = this.refs.scrollview;
+        if(e){
+            if(e.nativeEvent.pageX>266){
+                scrollview.scrollTo({x:this.state.num * width,y:0})
+                this.setState({
+                    num:this.state.num+1
+                })
+            }else if (e.nativeEvent.pageX<133){
+                if(this.state.num>1){
+                    scrollview.scrollTo({x:(this.state.num-2) * width,y:0})
+                    this.setState({
+                        num:this.state.num-1
+                    })
+                }
+            }else if(e.nativeEvent.pageX>134&&e.nativeEvent.pageX<266){
+                this.setState({
+                    isVisible:true
+                })
+            }
+        }
+        
+    }
 
+    go_mulu(index){
+        let scrollview = this.refs.scrollview;
+        scrollview.scrollTo({x:index * width,y:0})
+        this.setState({isVisible:false})
+    }
+
+    menu(){
+        return(
+            <View style={{backgroundColor:'#fff',flex:1}}>
+                <View style={{alignItems:'center',marginTop:10}}>
+                    <Text>目录</Text>
+                </View>
+                
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}
+                onPress={()=>this.go_mulu(2)}>
+                    <Text style={{color:'#333333'}}>{`序 四十不惑立潮头`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}
+                onPress={()=>this.go_mulu(5)}>
+                    <Text style={{color:'#333333'}}>{`总序 记录一段重要历史`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}>
+                    <Text style={{color:'#333333'}}>{`前言 他是一个时代的“标杆`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}>
+                    <Text style={{color:'#333333'}}>{`第一篇 创业家`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}>
+                    <Text style={{color:'#333333'}}>{`第二篇 战略家`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}>
+                    <Text style={{color:'#333333'}}>{`第三篇 创新家`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+                <TouchableOpacity style={{marginTop:10,marginLeft:10,marginRight:10}} activeOpacity={1}>
+                    <Text style={{color:'#333333'}}>{`第四篇 哲学家`}</Text>
+                    <View style={{borderWidth:1,borderColor:'#eee',marginTop:5}}/>
+                </TouchableOpacity>
+            </View>
+        )
+    }
 
     render() {
+
+
         return (
             <View style={{flex:1,backgroundColor:'rgb(251,250,248)'}} ref="mycomponent">
                 <ScrollView horizontal pagingEnabled={true} showsHorizontalScrollIndicator={false}
-                ref={ref => this.scrollRef = ref}
+                ref='scrollview'
                 // onScroll={(e) => {
                 //   console.log('e', e.nativeEvent.contentOffset.x);
                 // }}
-                onTouchStart={()=>console.log('123')}>
+                onTouchEnd={(e)=>this.go_page(e)}>
                     
                     
                     
@@ -60,10 +140,89 @@ ISBN：978-7-111-61734-1
                         <Text style={{marginTop:20,fontSize:20}}>{`民本经济`}</Text>
                         <Text style={{marginTop:20}}>{`\t\t\t\t1956年，我在《人民日报》发表了署名文章《企业要有一定的自主权》。当时，我还在第一机械工业部（以下简称“一机部”）工作，部里的招待所长期人满为患，其源头在于企业缺乏自主权，只能“跑部钱进”。我经常到各地调研，看到了一些经验，也看到了很多问题。我经常讲一个故事，沈阳有两个相邻的工厂，一个变压器厂（隶属一机部），一个冶炼厂（隶属冶金部），都是政府行政主导的企业，变压器厂需要大量的铜，由一机部从云南等地调到沈阳，而冶炼厂生产的铜则由冶金部从沈阳调往全国各地。一墙之隔的两个厂由于行政主导，没有市场机制，造成资源的极大浪费。现在听起来挺可笑，但当时就是那样。
 
-\t\t\t\t浙江为什么有今天？当时浙江的工业经济基础比较薄弱，但后来发展得很快，老百姓很富裕，社会很稳定，因为老百姓都在创业。这就是市场经济的本质。对浙江经验调研多次后，我提出了“民本经济”的概念，即政府作为创造环境的主体，老百姓和企业才是创造财富的主体。对民营经济来说，创业是基础，创新是关键。政府正确转变职能，百姓就有更多、更大的创新创业空间，浙江的实践是在中国特色社会主义道路上迈出的一大步。我`}</Text>
+\t\t\t\t浙江为什么有今天？当时浙江的工业经济基础比较薄弱，但后来发展得很快，老百姓很富裕，社会很稳定，因为老百姓都在创业。这就是市场经济的本质。对浙江经验调研多次后，我提出了“民本经济”的概念，即政府作为创造环境的主体，老百姓和企业才是创造财富的主体。对民营经济来说，创业是基础，创新是关键。政府正确转变职能，百姓就有更多、更大的创新创业空间，浙江的实践是在中国特色社会主义道路上迈出的一大步。我们过去搞计划经济，政府是创造财富的主体，纳税人的钱集中到政府，政府再把这个钱分到各个部门。所以，我认为民本经济是市场经济的基础。我给十八大提出了三条建议，第一条就讲这个。`}</Text>
                     </View>
 
+                    <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05}}>
+                        <Text style={{marginTop:20}}>{`\t\t\t\t改革已经进入深水区，剩下的都是硬骨头。如何将“市场在资源配置中起决定性作用”这句话落到实处，如何实现产权保护，如何发挥企业家精神，都需要大胆探索。其中，政府需要坚持三个创新：一是坚持人民群众是创造财富的主体的理念；二是坚持“非禁即入”的理念，法律不禁止的，企业都可以干；三是坚持依法行政的理念，政府按照法律授权干好应当做的事情，不能有随意性。`}</Text>
+                        <Text style={{marginTop:20}}>{`\t\t\t\t了解过去，才能更好地把握未来。40年来，几乎所有重要改革的决议进程，我都不同程度地参与，提出建言，因此对改革的整个历程，我了解得相对多一些。改革开放以后最大的变化是什么？最大的财富是什么？我认为概括起来就是实现四个方面的转变：从以阶级斗争为纲转向以经济建设为中心；从计划经济转向市场经济；从封闭转向全面开放；从人治转向法治。这个转变过程是长期的，不能说一下子就转变完成。党的十八大以来，我国的改革事业肯定会在过去的难点基础上有更大突破和更大作为。`}</Text>
+                        <Text style={{marginTop:20,fontSize:20}}>{`进无止境`}</Text>
+                        <Text style={{marginTop:20}}>{`\t\t\t\t改革推动开放，开放倒逼改革。市场经济催生了企业家群体，企业家也在促进市场经济发展。“广大非公有制经济人士要准确把握我国经济发展大势，提升自身综合素质，完善企业经营管理制度，激发企业家精神，发挥企业家才能，增强企业内在活力和创造力，推动企业不断取得更新更好发展。”“保护企业家精神，支持企业家专心创新创业。”“我们全面深化改革，就要激发市场蕴藏的活力。市场活力来自于人，特别是来自于企业家，来自于企业家精神。”习近平总书记多次在公开讲话中谈及企业家精神。`}</Text>
+                    </View>
+                    <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05}}>
+                        <Text style={{marginTop:20}}>2</Text>
+                    </View>
+                    <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05}}>
+                        <Text>3</Text>
+                    </View>
+                    <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05}}>
+                        <Text>4</Text>
+                    </View>
+                    <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05}}>
+                        <Text>5</Text>
+                    </View>
+                    <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05}}>
+                        <Text>6</Text>
+                    </View>
                 </ScrollView>
+                
+                
+                <Modal
+                // animationType='slide'
+                 transparent={true}
+                 visible={this.state.isVisible}
+                 hardwareAccelerated={true}
+                 onRequestClose={() => {
+                     this.setState({isVisible:false});
+                 }}
+                 >
+
+                     
+                     <SideMenu
+                        menu={this.state.isOpen===false?null:this.menu()}                    //抽屉内的组件
+                        isOpen={this.state.isOpen}     //抽屉打开/关闭
+                        openMenuOffset={width * 0.4}     //抽屉的宽度
+                        hiddenMenuOffset={0}          //抽屉关闭状态时,显示多少宽度 默认0 抽屉完全隐藏
+                        disableGestures={false}
+
+                        onChange={                   //抽屉状态变化的监听函数
+                        (isOpen) => {
+                            // isOpen ? console.log('抽屉当前状态为开着')
+                            //     :
+                            //     console.log('抽屉当前状态为关着')
+                            this.setState({
+                            isOpen
+                            })
+                        }}
+
+
+                        menuPosition={'left'}     //抽屉在左侧还是右侧
+                    >
+
+                    <View style={{flex:1}}>
+                        <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,justifyContent: 'space-between',backgroundColor:'#fff' }}>
+                            <TouchableOpacity activeOpacity={1} style={{marginLeft:5}}>
+                                <AntDesign onPress={() => {this.props.navigation.goBack(),this.setState({isVisible:false})}} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#fff" />
+                            </TouchableOpacity>
+                            <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333", }}>{`鲁冠球：聚能向宇宙`}</Text>                            
+                            <TouchableOpacity style={{marginRight:5}}
+                            activeOpacity={1} onPress={()=>this.setState({isOpen:true})}>
+                                <Ionicons
+                                name='menu'
+                                size={20} color="#000"/>
+                            </TouchableOpacity>
+
+                        </View>
+                        <View style={{flex:1}}>   
+                            <TouchableOpacity onPress={()=>this.setState({isVisible:false})} style={{height:'100%'}}/>
+                        </View>
+                        
+                     </View>
+
+          
+      </SideMenu>
+                     
+                </Modal>
             </View>
         );
     }
