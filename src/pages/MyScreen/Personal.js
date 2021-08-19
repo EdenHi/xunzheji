@@ -219,7 +219,7 @@ export default class Personal extends Component {
                 <View style={{ width: width * 0.9, height: height * 0.25, backgroundColor: "#fff", marginHorizontal: width * 0.05 }}>
                 </View>
               </View>
-              <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Output2')} style={{ width: width * 1, height: height * 0.4, alignItems: "center", flexDirection: "row" }}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.4, alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: width * 0.3 }}>
                   <View style={{ flexDirection: "row" ,alignItems:"center"}}>
                   <Text style={{ marginLeft: "15%", marginTop: "45%", fontSize: 15, color: "#7cc0c0" }}>我的发布</Text>
@@ -231,16 +231,16 @@ export default class Personal extends Component {
                     <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff" }}>MY MERCHANDISE</Text>
                   </View>
                 </View>
-                <View style={{ width: width * 0.7, height: height * 0.25, borderStyle: "dashed", borderWidth: 1, borderColor: "#7cc0c0", borderBottomLeftRadius: 10, borderTopLeftRadius: 10 }}>
-                  <Image source={{ uri: "https://img0.baidu.com/it/u=3375610131,3721866325&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.7, height: height * 0.25, borderBottomLeftRadius: 10, borderTopLeftRadius: 10, elevation: 1 }} />
+                <View style={{ width: width * 0.702, height: height * 0.252, borderStyle: "dashed", borderWidth: 1, borderColor: "#7cc0c0", borderBottomLeftRadius: 10, borderTopLeftRadius: 10,justifyContent:"center",alignItems:"center" }}>
+                  <Image source={{ uri: "https://img1.baidu.com/it/u=1157957035,1350047874&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.7, height: height * 0.25, borderBottomLeftRadius: 10, borderTopLeftRadius: 10, elevation: 1 }} />
                 </View>
               </TouchableOpacity>
               <View style={{ width: width * 1, height: height * 0.4, alignItems: "center", flexDirection: "row" }}>
-                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Goods2')} style={{ width: width * 0.45, height: height * 0.35, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderTopRightRadius: 10, borderBottomRightRadius: 10 }}>
-                  <ImageBackground style={{ width: width * 0.45, height: height * 0.35, borderRadius: 10 }}>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Goods2')} style={{ width: width * 0.452, height: height * 0.352, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderTopRightRadius: 10, borderBottomRightRadius: 10 ,alignItems:"center",justifyContent:"center"}}>
+                  <ImageBackground resizeMode="stretch" source={{uri:"https://img1.baidu.com/it/u=1868037487,4029559003&fm=26&fmt=auto&gp=0.jpg"}} style={{ width: width * 0.45, height: height * 0.35,  }}  borderTopRightRadius={10} borderBottomRightRadius={10}>
                     <View style={{ flexDirection: "row", alignItems: "center", marginTop: "100%", justifyContent: "space-between", marginHorizontal: width * 0.05, width: width * 0.25 }}>
-                      <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold" }}>我的商店</Text>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#fff" }}>0</Text>
+                      <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>我的商店</Text>
+                      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>0</Text>
                     </View>
                     <View style={{ width: width * 0.25, height: height * 0.05, backgroundColor: "#7cc0c0", justifyContent: "center", alignItems: "center", marginHorizontal: width * 0.05, elevation: 5 }}><Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>MY STORE</Text></View>
                   </ImageBackground>
@@ -250,16 +250,16 @@ export default class Personal extends Component {
                     <Text style={{ fontSize: 15, color: "#7cc0c0" }}>我的收藏</Text>
                     <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{data.guanzhu}</Text>
                   </View>
-                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Shoucang2')} style={{ width: width * 0.4, height: height * 0.15, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderRadius: 10 }}>
-                    <ImageBackground style={{ width: width * 0.4, height: height * 0.15, borderRadius: 10 }} >
+                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Shoucang2')} style={{ width: width * 0.402, height: height * 0.152, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderRadius: 10 ,alignItems:"center",justifyContent:"center"}}>
+                    <ImageBackground source={{uri:"https://img1.baidu.com/it/u=1097602216,1708759335&fm=26&fmt=auto&gp=0.jpg"}} style={{ width: width * 0.4, height: height * 0.15 }} borderRadius={10} >
                     </ImageBackground>
                   </TouchableOpacity>
                   <View style={{ width: width * 0.4, height: height * 0.05, flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
                     <Text style={{ fontSize: 15, color: "#7cc0c0" }}>我的点赞</Text>
                     <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{data.fensi}</Text>
                   </View>
-                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Dianzan2')} style={{ width: width * 0.4, height: height * 0.15, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderRadius: 10 }}>
-                    <ImageBackground style={{ width: width * 0.4, height: height * 0.15, borderRadius: 10 }} >
+                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Dianzan2')} style={{ width: width * 0.402, height: height * 0.152, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderRadius: 10 ,alignItems:"center",justifyContent:"center"}}>
+                    <ImageBackground source={{uri:"https://img0.baidu.com/it/u=1107750492,2231488047&fm=26&fmt=auto&gp=0.jpg"}} style={{ width: width * 0.4, height: height * 0.15 }} borderRadius={10} >
                     </ImageBackground>
                   </TouchableOpacity>
                 </View>

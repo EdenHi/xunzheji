@@ -15,7 +15,8 @@ import {
   DeviceEventEmitter,
   AsyncStorage,
   Share,
-  ImageBackground
+  ImageBackground,
+  ActivityIndicator
 } from 'react-native';
 const {height,width} = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -148,7 +149,7 @@ onShare = async () => {
        // const { navigation } = this.props;
        let long = this.state.data.length;
     //    let mathrom = Math.round(Math.random() * long);
-
+        if(this.state.data.length >0){
         return (
             <View>
                 <View>
@@ -587,7 +588,24 @@ onShare = async () => {
                     <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
             </View>
-        );
+        );}else{
+            return(
+                <View style={styles.LoadingPage}>
+                    <View style={{
+                        width: 100,
+                        height: 100,
+                        backgroundColor: "rgba(0,0,0,0.6)",
+                        opacity: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                        borderRadius:7
+                    }}>
+                        <ActivityIndicator size="large" color="#FFF" />
+                        <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text>
+                    </View>
+                </View>
+            )
+        }
     }
 }
 
@@ -633,4 +651,15 @@ const styles = StyleSheet.create({
         marginTop:10,
         fontSize:15,
     },
+    LoadingPage: {
+        position: "absolute",
+        left: 0,
+        top: 0,
+        backgroundColor: "rgba(0,0,0,0)",
+        width: width,
+        height: height,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
 });
