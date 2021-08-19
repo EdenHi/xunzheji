@@ -18,6 +18,14 @@ export default class book_xiangqing extends Component {
         }
     }
 
+    componentDidMount(){
+        let scrollview = this.refs.scrollview;
+        if(this.props.route.params.k){
+            scrollview.scrollTo({x:this.props.route.params.k * width,y:0})
+            this.setState({isVisible:false,num:this.props.route.params.k+1})
+        }
+    }
+
     go_page(e){
         let scrollview = this.refs.scrollview;
         if(e){
