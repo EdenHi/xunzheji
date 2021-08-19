@@ -50,7 +50,6 @@ export default class app1 extends Component {
         ImagePicker.openPicker({
             width:width * 0.3,
             height:width * 0.3,
-            cropping: true,
             cropperCircleOverlay:true,
             quality:1
         }).then(image => {
