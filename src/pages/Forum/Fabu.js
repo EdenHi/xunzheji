@@ -35,7 +35,12 @@ export default class Fabu extends Component {
             duration: 1000,
             easing: Easing.linear,
         }).start();
-
+        if(this.props.route.params){
+            console.log('shoturi',this.props.route.params);
+            let {arr} = this.state
+            arr.push(this.props.route.params)
+            this.setState({arr})
+        }
         this.listener = DeviceEventEmitter.addListener('tag', this.tag.bind(this))
     }
 

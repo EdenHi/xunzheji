@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity,StyleSheet, Dimensions, Image,TextInput,Animated, Modal,
-    Easing } from 'react-native'
+import { View, Text, TouchableOpacity,StyleSheet, Dimensions, Image,TextInput,Animated, Modal,AsyncStorage,
+    Easing,DeviceEventEmitter } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -10,7 +10,7 @@ import {NavigationContext} from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import StarRating from 'react-native-star-rating';
 import ImagePicker from 'react-native-image-crop-picker';
-
+import randId from '../../components/comment/randId';
 
 const { width, height } = Dimensions.get("window")
 
@@ -24,11 +24,10 @@ export default class discuss extends Component {
             generalStarCount: 0,
             arr: [],
             // customStarCount: 2.5,
-        
+            pingjia:'',
+            uuid: randId.uuid(8),
         }
-            
-        
-        }
+    }
         tianjia() {
             if (this.state.arr != null && this.state.arr.length >= 9) {
                 //这里的判断根据所传图片张数定
@@ -93,16 +92,74 @@ export default class discuss extends Component {
         _closeModalWin = () => {
             this.setState({ modalVisible: false });
         }
+        //上传评价文本
+        pingjia_txt(){
+            AsyncStorage.getItem('username',(err,result)=>{
+                if(!err){
+                    fetch('http://8.142.11.85:3000/shop/insert_pingjia_txt', {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            username:result,
+                            pingjia:this.state.pingjia,
+                            time:new Date(),
+                            pingfen:this.state.generalStarCount,
+                            parent_id:this.props.route.params.id,
+                            uuid:this.state.uuid,
+                            shop_name:this.props.route.params.shop_name
+                        }),
+                    })
+                }
+            })
+        }
+        //上传评价图片
+        _fetchImage(image) {
+            let url = 'http://8.142.11.85:3000/shop/insert_pingjia_img';
+            let head = { uri: image.path, type: image.mime, name: image.path.split('/').pop() };
+            let formData = new FormData();
+            formData.append('files', head); // 这里的 file 要与后台名字对应。
+            formData.append('uuid', this.state.uuid);
+            //   formData.append('title',this.state.fayan);
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                body: formData,
+            })
+        }
+
+        //发布成功
+        _goget() {
+            const arr = this.state.arr;
+            DeviceEventEmitter.emit('Shopdetails', 1);
+            if (arr.length > 0) {
+                for (var i = 0; i < arr.length; i++) { this._fetchImage(arr[i]); }
+                this.pingjia_txt();
+                this.props.navigation.goBack()
+                DeviceEventEmitter.emit('pingjia', 1)
+            } else {
+                this.pingjia_txt();
+                this.props.navigation.goBack()
+                DeviceEventEmitter.emit('pingjia', 1)
+            }
+        }
+
     render() {
+        console.log('11',this.props.route.params);
+        const data=this.props.route.params
         return (
             <View>
                 <LinearGradient colors={["#7CC0C0","#fff","#fff"]}>
                 
                     <View style={{ flexDirection: "row", justifyContent:"space-between",alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() =>this.context.navigate('Shopdetails')} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                            <AntDesign onPress={() =>this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <View style={{}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>评论</Text></View>
+                        <View style={{}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>评价</Text></View>
                         <TouchableOpacity
                         onPress={this._openModalWin}
                         activeOpacity={1} style={{}}>
@@ -151,7 +208,7 @@ export default class discuss extends Component {
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {
                                                     this._closeModalWin()
-                                                   this.context.navigate('Shopdetails')
+                                                    this._goget()
                                                 }}
 
                                             >
@@ -163,20 +220,21 @@ export default class discuss extends Component {
                             </TouchableOpacity>
                         </Modal>
                     </View>
+                
                 <View style={{height:height*0.93,width:width}}>
                     <View style={{width:width*0.9,marginLeft:width*0.05,backgroundColor:"#fff",height:height*0.9,borderRadius:15,elevation:5}}>
                         < View style={{ flexDirection: "row", marginTop: 10,backgroundColor:"#fff",width:"90%",marginLeft:"5%"}}>
                                 <View>
-                                    <Image style={{ width: width * 0.25, height: width * 0.25, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=4139270903,2443656479&fm=26&fmt=auto&gp=0.jpg" }} />
+                                    <Image style={{ width: width * 0.25, height: width * 0.25, borderRadius: 10 }} resizeMode="stretch" source={{ uri: data.img }} />
                                 </View>
                                 <View>
                                     <View style={{ flexDirection: "row" }}>
-                                        <View style={{ marginLeft: 10 }}><Text style={{ fontWeight: "bold" ,color:"#333333"}}>手工竹雕定制</Text></View>
-                                        <View style={{ marginLeft: width*0.2 }}><Text style={{color:"#7CC0C0"}}>¥ 249</Text></View>
+                                        <View style={{ marginLeft: 10 }}><Text style={{ fontWeight: "bold" ,color:"#333333",width:width*0.4}} numberOfLines={1}>{data.shop_name}</Text></View>
+                                        <View style={{ marginLeft: width*0.2 }}><Text style={{color:"#7CC0C0"}}>¥ {data.price}</Text></View>
                                     </View>
                                     <View style={{ flexDirection: "row" }}>
-                                        <View style={{ marginLeft: 10 }}><Text style={{ color: "#808080" ,fontSize:12}}>小号</Text></View>
-                                        <View style={{ marginLeft: "65%" }}><Text style={{ color: "#808080" }}>x1</Text></View>
+                                        <View style={{ marginLeft: 10 }}><Text style={{ color: "#808080" ,fontSize:12}}></Text></View>
+                                        <View style={{ marginLeft: "65%" }}><Text style={{ color: "#808080" }}>x{data.num}</Text></View>
                                     </View>
                                 </View>
                             </View>
@@ -184,17 +242,17 @@ export default class discuss extends Component {
                                 <Text style={{fontSize:18,fontWeight:"bold",color:"#333333"}}>评分</Text>
                                 <View style={{width:"70%"}}>
                                 <StarRating
-          disabled={false}
-          maxStars={5}
-          rating={this.state.generalStarCount}
-        //   reversed
-          starSize={30}
-          emptyStarColor="grey"
-          fullStarColor="yellow"
-          starPadding={10}
-          selectedStar={rating => this.onGeneralStarRatingPress(rating)}
-        />
-        </View>
+                                    disabled={false}
+                                    maxStars={5}
+                                    rating={this.state.generalStarCount}
+                                    //   reversed
+                                    starSize={30}
+                                    emptyStarColor="grey"
+                                    fullStarColor="yellow"
+                                    starPadding={10}
+                                    selectedStar={rating => this.onGeneralStarRatingPress(rating)}
+                                />
+                            </View>
         
         <Text style={styles.instructions}>
           {`${this.state.generalStarCount}.0`}
@@ -205,7 +263,7 @@ export default class discuss extends Component {
                                 style={{marginLeft:"2%",}}
                                 multiline={true}
                                 placeholder="推荐给大家..."
-                               
+                               onChangeText={(pingjia)=>this.setState({pingjia})}
                             />
                             <View style={{// 主轴方向
                             flexDirection: 'row',

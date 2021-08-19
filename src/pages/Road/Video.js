@@ -403,7 +403,7 @@ export default class componentName extends Component {
                                 <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
 
                                 <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
-                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4),this.props.navigation.navigate('Fabu',{shoturi:this.state.shoturi})}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4),this.props.navigation.navigate('Fabu',{path:this.state.shoturi,mime:'image/jpeg'})}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
                                             <Image style={{width:'100%',height: '100%',}} source={require('../img/朋友圈.png')}></Image>
                                         </TouchableOpacity>
                                         <Text style={{ marginTop:height*0.01,width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
