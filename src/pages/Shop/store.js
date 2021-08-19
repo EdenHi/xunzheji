@@ -529,13 +529,13 @@ export default class Store extends Component {
               <View style={styles.old}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
-                                            <View style={{ marginLeft: 10 }}>
+                                            <View style={{ marginLeft: 10 ,width:width*0.75 }}>
                                                 <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
                                                 <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
                                             </View>
 
 
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '62%', color: '#7cc0bf' }}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
@@ -595,13 +595,13 @@ export default class Store extends Component {
               <View style={styles.limit}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
                 <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
-                    <View style={{ marginLeft: 10 }}>
+                    <View style={{ marginLeft: 10 ,width:width*0.75 }}>
                         <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
                         <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
                     </View>
 
 
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '50%', color: '#7cc0bf' }}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,  color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
@@ -619,11 +619,9 @@ export default class Store extends Component {
                     onSnapToItem={index => this.setState({ activeIndex: index })} />
                 </View>
               </View>
-
               <View style={{ width: "95%", alignItems: "center",backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
                 <Text style={{ height: 20, fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
                 <View style={{ width: "25%",borderWidth:1, borderColor: "#7cc0c0", marginTop: 10 }}></View>
-
                 <FlatList
                 style={{marginTop:20}}
                   numColumns={2}
@@ -631,16 +629,9 @@ export default class Store extends Component {
                   data={this.state.shops2}
                   renderItem={this.renderDate2.bind(this)}
                   />  
-
               </View>
-
-
-
-
             </View>
-
           </ScrollView>
-          
           {/* <ActionButton
           hideLabelShadow={true}
           activeOpacity={1}
