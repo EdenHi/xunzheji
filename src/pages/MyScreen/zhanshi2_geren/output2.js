@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-
 import { View, Text, Dimensions, AsyncStorage, Image, StyleSheet, FlatList, TouchableOpacity, DeviceEventEmitter, ScrollView } from 'react-native';
 import Timeline from 'react-native-timeline-listview'
 import { NavigationContext } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 const { height, width } = Dimensions.get('window');
 export default class Output2 extends Component {
   static contextType = NavigationContext;
@@ -196,6 +196,15 @@ export default class Output2 extends Component {
     console.log('我的发布', this.props.route);
     return (
       <View style={styles.container}>
+         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,justifyContent: "space-between" ,backgroundColor:"#7cc0c0"}}>
+                    <TouchableOpacity activeOpacity={1} style={{}}>
+                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                    </TouchableOpacity>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>我的发布</Text>
+                    <TouchableOpacity activeOpacity={1} style={{}}>
+                        <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
+                    </TouchableOpacity>
+                </View>
         <LinearGradient style={{padding:20}} colors={["#7cc0c0","#fff","#fff"]}>
           <ScrollView
             style={{ height: height - 50 - 120 }}
