@@ -416,9 +416,9 @@ onShare = async () => {
                                            
                                        </TouchableOpacity>
 
-                                           <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                           <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
                                                 <TouchableOpacity>
-                                                    <View style={{flexDirection:'row'}}>
+                                                    <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                         <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
@@ -430,7 +430,7 @@ onShare = async () => {
                                                     </View>
                                                 </TouchableOpacity>
                                                 <TouchableOpacity onPress={()=>this.goComment(v)}>
-                                                <View style={{flexDirection:'row'}}>
+                                                <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                     <Ionicons
                                                     name="chatbubble-ellipses-outline"
                                                     size={20}
@@ -444,7 +444,7 @@ onShare = async () => {
                                                     this.onShare();
                                                   }}
                                                 >
-                                                    <View style={{flexDirection:'row'}}>
+                                                    <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                         <Ionicons
                                                         name="arrow-redo-outline"
                                                         size={20}
@@ -534,9 +534,9 @@ onShare = async () => {
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
                                        </TouchableOpacity>
 
-                                       <View style={{flexDirection:'row',marginTop:10,justifyContent:'space-around',marginBottom:10}}>
+                                       <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
                                             <TouchableOpacity>
-                                                <View style={{flexDirection:'row'}}>
+                                                <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                     <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                         <Ionicons
                                                         name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
@@ -548,7 +548,7 @@ onShare = async () => {
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity onPress={()=>this.goComment(v)}>
-                                            <View style={{flexDirection:'row'}}>
+                                            <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                 <Ionicons
                                                 name="chatbubble-ellipses-outline"
                                                 size={20}
@@ -562,7 +562,7 @@ onShare = async () => {
                                                 this.onShare();
                                               }}
                                             >
-                                                <View style={{flexDirection:'row'}}>
+                                                <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}

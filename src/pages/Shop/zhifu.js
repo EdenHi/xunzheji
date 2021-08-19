@@ -181,6 +181,7 @@ export default class zhifu extends Component {
         const {dizhi} = this.state
         return (
             <View style={{flex:1}}>
+                <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
                 {/* <Nav title="等待买家付款" /> */}
                 <View style={{ width:width*0.9,height:height*0.07,flexDirection:"row",alignItems:"center"}}>
                        
@@ -194,10 +195,7 @@ export default class zhifu extends Component {
                                />
                        </TouchableOpacity>
                        <Text style={{fontSize:15,fontWeight:"bold",marginLeft:"2%",color:"#333333"}}>确认订单</Text>
-                     
                    </View>
-                
-                
                 <ScrollView >
                     {/* 收货地址 */}
                     <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 5, borderRadius:10, margin: 5, backgroundColor: "#fff",width:width*0.9,marginLeft:width*0.05,borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={1}>
@@ -258,14 +256,12 @@ export default class zhifu extends Component {
 
 
 
-                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 }} activeOpacity={0.95}>
+                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 ,elevation:5}} activeOpacity={0.95}>
                             <Text style={{ marginLeft: 15,color:"#333333" }}>支付方式:</Text>
                             <Text style={{ marginRight:15 ,color:"#333333"}}>{this.state.way}</Text>
                             {/* <IconFont name="jiantou" size={20}  /> */}
                         </TouchableOpacity>
-
                     </View>
-
                 </ScrollView >
 
                 <View style={{ alignItems: "center", justifyContent: "space-between", flexDirection: "row", backgroundColor: "white", height: 70 }}>
@@ -344,7 +340,7 @@ export default class zhifu extends Component {
                         ))}
                     </View>
                 </RBSheet>
-
+                </LinearGradient>
             </View >
         );
     }

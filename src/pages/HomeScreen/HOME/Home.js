@@ -13,7 +13,8 @@ import EZSwiper from 'react-native-ezswiper';
 import Horiz from '../../../components/horiz';
 import LottieView from 'lottie-react-native';
 import Homepagebook from '../Homepagebook'
-
+import ScrollTopView from 'react-native-scrolltotop';
+import { Button } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
@@ -25,10 +26,9 @@ export default class Home extends Component {
         this.state = {
             progress: new Animated.Value(0),
             username: '',
+            isShowToTop: true,
 
         }
-
-
     }
 
     //获取路线信息
@@ -53,6 +53,21 @@ export default class Home extends Component {
 
         this.get_shuju();
     }
+
+    _onScroll(e) {
+        const offsetY = e.nativeEvent.contentOffset.y;
+
+        if (offsetY > 100) {
+            this.setState({
+                isShowToTop: true
+            })
+        } else {
+            this.setState({
+                isShowToTop: false
+            })
+        }
+    }
+
     render() {
         return (
             <View style={{ alignItems: 'center', }}>
@@ -62,12 +77,13 @@ export default class Home extends Component {
                             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
                             <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
                         </View>
-                   
+
                         {/* <LottieView style={{marginLeft:"15%"}}  source={require('../../../../animal/71338-welcomegolden.json')} autoPlay loop={false} progress={this.state.progress} /> */}
-                      
+
                     </View>
                     <View style={{ alignItems: 'center', }}>
                         <ScrollView
+                            ref={component => this._scrollView = component}
                             onScroll={(e) => {
                                 console.log(Math.ceil(e.nativeEvent.contentOffset.y)); if (Math.ceil(e.nativeEvent.contentOffset.y) == 800) {
                                     this.childList.move()
@@ -75,9 +91,12 @@ export default class Home extends Component {
                                     this.childList.stopSlide()
                                 }
                             }}
+                            renderScrollComponent={(props) => {
+                                return <ScrollView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }}  {...props} />
+                            }}
                             showsVerticalScrollIndicator={false}>
 
-
+                         
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginBottom: -10 }}>
                                     <ShiCha />
@@ -145,7 +164,7 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                                <View style={{ height: 250, backgroundColor: 'white', borderRadius: 10, marginTop: 10}} >
+                                <View style={{ height: 250, backgroundColor: 'white', borderRadius: 10, marginTop: 10 }} >
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.48 }}>
@@ -156,8 +175,8 @@ export default class Home extends Component {
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
-                                    <View style={{ flexDirection: 'row'  }}>
-                                        <Homepagebook navigation={this.props.navigation}/>
+                                    <View style={{ flexDirection: 'row' }}>
+                                        <Homepagebook navigation={this.props.navigation} />
                                         {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj1.jpeg' }} /></View>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj2.jpg' }} /></View>
@@ -208,7 +227,7 @@ export default class Home extends Component {
                                                     <Text style={{ color: '#000000', fontSize: 12, marginLeft: 7, flexWrap: 'wrap', width: width * 0.52 }}>&emsp;&emsp;鸡毛换糖最著名的是义乌，义乌市场形成的历史就是鸡毛换糖的历史，是鸡毛换糖慢慢形成的！</Text>
                                                 </View>
                                             </View>
-                                            <View ><Text style={{ width: width * 0.88, flexWrap: 'wrap',fontSize:12 }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
+                                            <View ><Text style={{ width: width * 0.88, flexWrap: 'wrap', fontSize: 12 }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
                                         </View>
                                     </TouchableOpacity>
                                     <View style={{ height: 120, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center', margin: 10, borderRadius: 10, elevation: 5, paddingTop: 10 }}>
@@ -326,10 +345,12 @@ export default class Home extends Component {
                                     </View>
                                 </View>
                             </View>
+                            
                         </ScrollView>
 
                     </View>
                 </LinearGradient>
+             
             </View>
         );
     }
