@@ -10,18 +10,13 @@ export default class shezhi extends Component {
     constructor(props){
         super(props);
         this.state={
-        data:this.props.route.params,
-        username:this.props.route.params.username,
+        
     }}
 
-    componentDidMount(){
-        console.log(this.props.route.params);
-    }
+
     go_back(){
         AsyncStorage.removeItem('username');
-        this.props.navigation.goBack();
-        this.props.route.params.callback('')
-        // this.props.route.params.shuaxing()
+        this.props.navigation.navigate('Login');
     }
     render() {
         return (
@@ -114,7 +109,7 @@ export default class shezhi extends Component {
                     </ListItem>
                 </View>
                 <TouchableOpacity activeOpacity={1} style={{marginTop:15,width:width * 0.9,backgroundColor:'#7cc0c0',height:width * 0.1,alignItems:'center',justifyContent:'center',marginLeft:width * 0.05,borderRadius:30,marginBottom:15}}
-                onPress={()=>{this.go_back(),DeviceEventEmitter.emit('test2',1)}}>
+                onPress={()=>this.go_back()}>
                     <Text style={{fontSize:17,color:"#fff"}}>退出登录</Text>
                 </TouchableOpacity>
                 </ScrollView>

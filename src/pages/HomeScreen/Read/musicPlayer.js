@@ -236,11 +236,9 @@ export default class musicPlayer extends Component {
         <View style={styles.navBarStyle}>
           <View style={styles.navBarContent}>
             <TouchableOpacity
-              style={{marginTop: 5}}
-       
             >
               {/* <Icon name={'oneIcon|nav_back_o'} size={20} color={commonStyle.white}/> */}
-              <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" />
+              <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center',marginLeft:width*0.05, height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
             </TouchableOpacity>
             <View style={{alignItems: 'center'}}>
               <Text style={styles.title}>{musicInfo.title}</Text>
@@ -259,7 +257,7 @@ export default class musicPlayer extends Component {
           style={styles.djCard}>
         </View>
         <Image
-          style={{width: 260, height: 260, alignSelf: 'center', position: 'absolute', top: 190}}
+          style={{width: 260, height: 260, alignSelf: 'center', position: 'absolute', top: 120}}
           source={require('./bgCD.png')}
         />
         <Animated.Image
@@ -268,7 +266,8 @@ export default class musicPlayer extends Component {
             height: 170,
             borderRadius: 85,
             alignSelf: 'center',
-            position: 'absolute', top: 235,
+            
+            position: 'absolute', top: 165,
             transform: [{rotate: this.state.spinValue.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '360deg']
@@ -276,12 +275,7 @@ export default class musicPlayer extends Component {
           }}
           source={{uri: musicInfo.cover}}/>
         <View style={{flex: 1}}>
-          {/* <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 50, justifyContent: 'space-around', bottom: -60}}>
-            <Icon name={'oneIcon|love_o'} size={20} color={commonStyle.white}/>
-            <Icon name={'oneIcon|downLoad_o'} size={20} color={commonStyle.white}/>
-            <Icon name={'oneIcon|comment_o'} size={20} color={commonStyle.white}/>
-            <Icon name={'oneIcon|more_v_o'} size={20} color={commonStyle.white}/>
-          </View> */}
+          <View style={{width:width,height:height*0.3,backgroundColor:"purple"}}></View>
           <View style={styles.progressStyle}>
             <Text style={{width: 35, fontSize: 11, color: commonStyle.white, marginLeft: 5}}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
             <Slider
@@ -414,15 +408,17 @@ const styles = StyleSheet.create({
     borderColor: commonStyle.lineColor
   },
   navBarContent: {
-    marginTop: 25,
+    width:width,
+    height:height*0.07,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginHorizontal: 10
+  
   },
   title: {
-    color:"#7cc0c0",
-    fontSize: 14
+    color:"#333333",
+    fontSize: 15,
+    fontWeight:"bold",
+    marginLeft:"2%"
   },
   subTitle: {
     color: "#7cc0c0",
@@ -432,7 +428,7 @@ const styles = StyleSheet.create({
   djCard: {
     width: 270,
     height: 270,
-    marginTop: 185,
+    marginTop: 115,
     borderColor: commonStyle.gray,
     borderWidth: 10,
     borderRadius: 190,
