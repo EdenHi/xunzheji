@@ -7,12 +7,15 @@
  */
 
 import React, {Component} from 'react'
-import {View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions} from 'react-native'
+import {View, Text, TouchableOpacity, StyleSheet, 
+  Keyboard,  TouchableWithoutFeedback,
+  Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions} from 'react-native'
 import {commonStyle} from './commonStyle'
 import Video from 'react-native-video'
 import { BlurView } from "@react-native-community/blur";
 import {Icon} from './icon/index'
 import AntDesign from "react-native-vector-icons/AntDesign";
+import BarrageMoveView from './BarrageMoveView';
 // import Slider from ' @react-native-community/slider';
 
 const mockData = require('./musicList.json')
@@ -49,12 +52,31 @@ export default class musicPlayer extends Component {
       playIcon: 'music_paused_o',
       playModeIcon: 'music_cycle_o',
       musicInfo: {},
+      data: [],
+      icon: [],
+      txt:''
     }
     this.spinAnimated = Animated.timing(this.state.spinValue, {
       toValue: 1,
       duration: 6000,
       easing: Easing.inOut(Easing.linear)
     })
+    this.id = 0;
+    this.data = [
+      '道家讲究和谐，儒家讲究规矩，佛家讲究包容',
+      '事情并没有好与坏，关键是看你怎么看。',
+      '未来不是所有的企业都要转型，但所有的企业都必须升级。',
+      '所谓信仰，信就是感恩，仰就是敬畏。',
+      '敢为人先、勇立潮头',
+      '所谓信仰，信就是感恩，仰就是敬畏。',
+      '敢为人先、勇立潮头',
+      '道家讲究和谐，儒家讲究规矩，佛家讲究包容',
+      '事情并没有好与坏，关键是看你怎么看。',
+      '未来不是所有的企业都要转型，但所有的企业都必须升级。',
+      '所谓信仰，信就是感恩，仰就是敬畏。',
+      '敢为人先、勇立潮头',
+
+    ];
   }
 
   formatMediaTime(duration) {
@@ -99,6 +121,7 @@ export default class musicPlayer extends Component {
   componentDidMount() {
     this.spin()
     this.setState({musicInfo: mockData.list[this.state.currentIndex]})
+    this.addBarrageWithInterval();
     // fetch(musicListUrl, {
     //   method: 'GET',
     //   headers: header
@@ -115,6 +138,35 @@ export default class musicPlayer extends Component {
     //   })
     //   .done()
   }
+  componentWillUnmount() {
+    this.interval && clearInterval(this.interval);
+    this.interval1 && clearInterval(this.interval1);
+}
+
+addBarrageWithInterval = () => {
+    this.interval = setInterval(() => {
+        this.id = this.id + 1;
+        const text = this.getText();
+        const newData = [{ title: text, id: this.id }];
+        this.setState({ data: newData });
+    }, 100);
+}
+
+onButtonPress = (text) => {
+    this.id = this.id + 1;
+    const newData = [{ title: text, id: this.id }];
+    this.setState({ data: newData });
+}
+
+getText = () => {
+    const number = this.getRundomNumber(this.data.length - 1);
+    return this.data[number];
+}
+
+getRundomNumber = (max) => {
+    return Math.floor(Math.random() * (max + 1));
+}
+
 
   // getxiamiMusic(musicId) {
   //   fetch(`${musicDetail}${musicId}`, {
@@ -231,16 +283,15 @@ export default class musicPlayer extends Component {
   renderPlayer() {
     // let musicInfo = this.state.musicInfo
     let musicInfo = mockData.list[this.state.currentIndex]
+    console.debug('Barrage');
     return (
       <View style={styles.bgContainer}>
         <View style={styles.navBarStyle}>
           <View style={styles.navBarContent}>
             <TouchableOpacity
-              style={{marginTop: 5}}
-       
             >
               {/* <Icon name={'oneIcon|nav_back_o'} size={20} color={commonStyle.white}/> */}
-              <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" />
+              <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center',marginLeft:width*0.05, height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
             </TouchableOpacity>
             <View style={{alignItems: 'center'}}>
               <Text style={styles.title}>{musicInfo.title}</Text>
@@ -259,7 +310,7 @@ export default class musicPlayer extends Component {
           style={styles.djCard}>
         </View>
         <Image
-          style={{width: 260, height: 260, alignSelf: 'center', position: 'absolute', top: 190}}
+          style={{width: 260, height: 260, alignSelf: 'center', position: 'absolute', top: 95}}
           source={require('./bgCD.png')}
         />
         <Animated.Image
@@ -268,7 +319,8 @@ export default class musicPlayer extends Component {
             height: 170,
             borderRadius: 85,
             alignSelf: 'center',
-            position: 'absolute', top: 235,
+            
+            position: 'absolute', top: 140,
             transform: [{rotate: this.state.spinValue.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '360deg']
@@ -276,12 +328,9 @@ export default class musicPlayer extends Component {
           }}
           source={{uri: musicInfo.cover}}/>
         <View style={{flex: 1}}>
-          {/* <View style={{flexDirection: 'row', alignItems: 'center', marginHorizontal: 50, justifyContent: 'space-around', bottom: -60}}>
-            <Icon name={'oneIcon|love_o'} size={20} color={commonStyle.white}/>
-            <Icon name={'oneIcon|downLoad_o'} size={20} color={commonStyle.white}/>
-            <Icon name={'oneIcon|comment_o'} size={20} color={commonStyle.white}/>
-            <Icon name={'oneIcon|more_v_o'} size={20} color={commonStyle.white}/>
-          </View> */}
+          <View style={{width:width,height:height*0.3,marginTop:"5%"}}>
+          <BarrageMoveView newMessages={this.state.data} numberOfLines={4} speed={0.8} />
+          </View>
           <View style={styles.progressStyle}>
             <Text style={{width: 35, fontSize: 11, color: commonStyle.white, marginLeft: 5}}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
             <Slider
@@ -414,15 +463,17 @@ const styles = StyleSheet.create({
     borderColor: commonStyle.lineColor
   },
   navBarContent: {
-    marginTop: 25,
+    width:width,
+    height:height*0.07,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    marginHorizontal: 10
+  
   },
   title: {
-    color:"#7cc0c0",
-    fontSize: 14
+    color:"#333333",
+    fontSize: 15,
+    fontWeight:"bold",
+    marginLeft:"2%"
   },
   subTitle: {
     color: "#7cc0c0",
@@ -432,7 +483,7 @@ const styles = StyleSheet.create({
   djCard: {
     width: 270,
     height: 270,
-    marginTop: 185,
+    marginTop: 90,
     borderColor: commonStyle.gray,
     borderWidth: 10,
     borderRadius: 190,

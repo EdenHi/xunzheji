@@ -16,6 +16,8 @@ target 'zheshang' do
 
   pod 'react-native-webview', :path => '../node_modules/react-native-webview'
 
+  pod 'react-native-view-shot', :path => '../node_modules/react-native-view-shot'
+
   target 'zheshangTests' do
     inherit! :complete
     # Pods for testing

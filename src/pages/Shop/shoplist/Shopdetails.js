@@ -9,7 +9,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import shoplist from './shoplist.json';
 import { color } from 'react-native-elements/dist/helpers';
 import ScrollTopView from 'react-native-scrolltotop';
-
+import { FlatList } from 'react-native';
+import StarRating from 'react-native-star-rating';
 
 const { width, height } = Dimensions.get('window');
 
@@ -27,13 +28,14 @@ export default class Shopdetails extends Component {
             //存放图片的路径
             imgUrls:[],
             biao:1,
+            data:[],
         }
     }
 
     //点击图片方法事件
-  handleShowAlbum = (index) => {
+  handleShowAlbum = (ii) => {
     const imgUrls = this.state.shops.pic.map(v=>({url:v}));
-    const currentIndex = index;
+    const currentIndex = ii;
     const modalVisible = true;
     this.setState({
       imgUrls, currentIndex, modalVisible,
@@ -56,6 +58,35 @@ export default class Shopdetails extends Component {
         })
     }
 }
+
+get_pingjia(){
+    fetch('http://8.142.11.85:3000/shop/select_pingjia', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            shop_name:this.props.route.params.shops.name,
+        }),
+        }) .then((response) => response.json())
+        .then((responseJson) => {
+            console.log(responseJson);
+            this.setState({
+                data:responseJson,
+            });
+        })
+}
+
+componentDidMount(){
+    this.get_pingjia();
+    this.listener = DeviceEventEmitter.addListener('Shopdetails',this.get_pingjia.bind(this))
+      }
+
+componentWillUnmount(){
+   this.listener.remove();
+}
+
 
   dianpu(){
     let newJson = [];
@@ -133,9 +164,99 @@ export default class Shopdetails extends Component {
     DeviceEventEmitter.emit('shop_cart',1)
   }
 
+  renderDate({item,index}){
+      //取出年月日
+      let a = item.time.slice(0,10)
+      //取出时分
+      let b = item.time.slice(11,16)
+      let time1 = new Date();
+      let time2 = new Date(item.time).getTime()
+      let sum = a+' '+b
+      //获得相差的秒
+      let ss = (time1 -time2)/1000
+      let day = Math.floor(ss/86400)
+      let hour = Math.floor(ss/3600)
+      let min = Math.floor(ss /60)
+      let time = ''
+      if(day >=1 && day<4){time=day+'天前'}
+      else if(hour>=1 && hour <24){time=hour+'小时前'}
+      else if(min>=1 && min < 60){time=min+'分钟前'}
+      else if(day >= 4){time=sum}
+      else{time='刚刚'}
+      
+      return(
+          <View key={index} style={{marginTop:10,marginLeft:10,marginBottom:10}}>
+              <View style={{flexDirection:'row'}}>
+                    <Image source={{uri:item.portrait}} style={{width:width*0.1,height:width*0.1,borderRadius:50}}/>
+                    <View style={{marginLeft:5,justifyContent:'space-between'}}>
+                        <Text>{item.nickname}</Text>
+                        <Text style={{fontSize:12,color:'#ccc'}}>{time}</Text>
+                    </View>
+              </View>
+              <View style={{flexDirection:'row',marginTop:10}}>
+                <StarRating
+                    disabled={false}
+                    maxStars={5}
+                    rating={item.pingfen}
+                    starSize={20}
+                    emptyStarColor="grey"
+                    fullStarColor="yellow"
+                    containerStyle={{width:100}}
+                />
+                <Text style={{marginLeft:10}}>{item.pingfen}.0</Text>
+              </View>
+              
+              <Text style={{color:'#333333',marginTop:10,marginRight:5}} numberOfLines={5}>{item.pingjia}</Text>
+
+            {item.img > 0 ?<View style={{ flexDirection: 'row',
+                            // 一行显示不下,换一行
+                            flexWrap: 'wrap',
+                            // 侧轴方向
+                            alignItems: 'center', // 必须设置,否则换行不起作用
+                            marginTop:10
+                        }}>
+
+                {
+                    item.img.map((v,k)=>{
+                        return(
+                            <View key={k}>
+                                <Image source={{uri:v}} style={{width:width*0.3,height:width*0.3,marginRight:3,marginBottom:3}}/>
+                            </View>    
+                        )
+                    })
+                }
+            </View>
+            :null}
+              
+          </View>
+      )
+  }
+
+  ListHeaderComponent(){
+      return(
+        <View style={{alignItems:'center',marginTop:10}}>
+            <Text style={{  color:"#333333"}}>———— 用户评价 ————</Text>
+        </View>
+      )
+  }
+
+  ListEmptyComponent(){
+      return(
+          <View style={{marginTop:10,alignItems:'center'}}>
+              <Text>暂无评价</Text>
+          </View>
+      )
+  }
+
+  ItemSeparatorComponent(){
+      return(
+          <View style={{borderWidth:0.5,width:'80%',marginLeft:'10%',borderColor:'#ccc'}}/>
+      )
+  }
+
     render() {
         const { modalVisible, imgUrls, currentIndex,shops } = this.state;
-        console.log(this.props.route.params.shops);
+       // console.log(this.props.route.params.shops);
         return (
             <View style={{flex:1}}>
                 {/* 标题 */}
@@ -226,6 +347,24 @@ export default class Shopdetails extends Component {
                             <TouchableOpacity style={{borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,marginTop:10,marginBottom:10}} activeOpacity={1}><Text style={{padding:5,fontWeight:'bold',color:'#7cc0c0'}} onPress={()=>this.dianpu()}>全部商品</Text></TouchableOpacity>
                         </View>
                     </View>
+
+                    {/* 用户评价 */}
+                    
+                    
+                    
+                    
+                         <FlatList
+                            keyExtractor={(item,index)=>(index+'1')}
+                            data={this.state.data}
+                            contentContainerStyle={{backgroundColor:'#fff',borderRadius:10, width:width*0.95,marginLeft:width*0.025,marginTop:10}}
+                            renderItem={this.renderDate.bind(this)}
+                            ListHeaderComponent={this.ListHeaderComponent.bind(this)}
+                            ListEmptyComponent={this.ListEmptyComponent.bind(this)}
+                            ItemSeparatorComponent={this.ItemSeparatorComponent.bind(this)}/>
+                   
+                   
+
+
                     
                     {/* 商品详情 */}
                     <View style={{alignItems:'center',marginTop:10}}>

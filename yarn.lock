@@ -6082,6 +6082,16 @@ react-native-screens@^3.4.0:
   dependencies:
     warn-once "^0.1.0"
 
+react-native-screenshot-notifier@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.nlark.com/react-native-screenshot-notifier/download/react-native-screenshot-notifier-1.0.5.tgz#07ad7a590c19d20a533dc602b3dec08e395c86a4"
+  integrity sha1-B616WQwZ0gpTPcYCs97AjjlchqQ=
+
+react-native-screenshot-observer@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.nlark.com/react-native-screenshot-observer/download/react-native-screenshot-observer-0.2.1.tgz#51a09199492f8ff1b3b9e281f4506874c1386ab0"
+  integrity sha1-UaCRmUkvj/GzueKB9FBodME4arA=
+
 react-native-scrollable-tab-view@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/react-native-scrollable-tab-view/download/react-native-scrollable-tab-view-1.0.0.tgz"
@@ -6225,6 +6235,11 @@ react-native-video@^5.1.1:
     keymirror "^0.1.1"
     prop-types "^15.7.2"
     shaka-player "^2.5.9"
+
+react-native-view-shot@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.npm.taobao.org/react-native-view-shot/download/react-native-view-shot-3.1.2.tgz#8c8e84c67a4bc8b603e697dbbd59dbc9b4f84825"
+  integrity sha1-jI6ExnpLyLYD5pfbvVnbybT4SCU=
 
 react-native-waterfall@0.0.8:
   version "0.0.8"

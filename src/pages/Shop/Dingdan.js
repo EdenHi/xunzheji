@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, TouchableOpacity,StyleSheet, Dimensions, Image,TextInput,Animated, Modal,
-    Easing } from 'react-native'
+    Easing,DeviceEventEmitter } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -20,7 +20,9 @@ export default class Dingdan extends Component {
             progress: new Animated.Value(0),
             modalVisible: false,
             data:[],
-            username:''
+            username:'',
+            vv:'',
+            kk:'',
         }
     }
         
@@ -32,10 +34,13 @@ export default class Dingdan extends Component {
             }).start();
             
            this.get_dingdan()
+           this.listener = DeviceEventEmitter.addListener('pingjia',this.get_dingdan.bind(this))
         }
-        _openModalWin = () => {
-            this.setState({ modalVisible: true });
-        }
+  
+      componentWillUnmount(){
+        this.listener.remove();
+      }
+
     
         _closeModalWin = () => {
             this.setState({ modalVisible: false });
@@ -66,7 +71,7 @@ export default class Dingdan extends Component {
             })
         }
 
-        update_dingdan(v){
+        update_dingdan(){
             fetch('http://8.142.11.85:3000/shop/update_dingdan', {
                     method: 'POST',
                     headers: {
@@ -74,7 +79,7 @@ export default class Dingdan extends Component {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
-                        id:v,
+                        id:this.state.vv,
                     }),
                     })
             this.get_dingdan()
@@ -82,7 +87,7 @@ export default class Dingdan extends Component {
 
         renderDate({item,index}){
             return(
-                <View style={{ marginHorizontal: width * 0.05, backgroundColor: "#fff", padding: 5, elevation: 5, borderRadius: 10,marginBottom:10 }}>
+                <View style={{ marginHorizontal: width * 0.05, backgroundColor: "#fff", padding: 5, elevation: 5, borderRadius: 10,marginBottom:10 }} key={index}>
                     <View style={{ flexDirection: "row" }}>
                         <Image style={{ width: width * 0.05, height: width * 0.05, marginRight: 5 }} source={{ uri: item.dianpu_img }} resizeMode='stretch' />
                         <Text style={{ fontWeight: "bold", fontSize: 15 ,color:"#333333"}}>
@@ -109,16 +114,50 @@ export default class Dingdan extends Component {
                     </View>
                    {item.fahuo ==='未发货' ?<View style={{ flexDirection: "row", flexDirection:"row-reverse" }}>
                         {/* <View style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20 }}><Text style={{ fontSize: 14,color:"#333333" }}>申请退款</Text></View> */}
-                        <TouchableOpacity  onPress={this._openModalWin} style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20, marginLeft: 10, borderColor: "#7cc0c0" }}><Text style={{ fontSize: 14, color: "#7cc0c0" }}>确认收货</Text></TouchableOpacity>
+                        <TouchableOpacity  onPress={()=>this.setState({vv:item.id,modalVisible: true,kk:item})} style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20, marginLeft: 10, borderColor: "#7cc0c0" }}><Text style={{ fontSize: 14, color: "#7cc0c0" }}>确认收货</Text></TouchableOpacity>
                         <TouchableOpacity  style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20 }}><Text style={{ fontSize: 14,color:"#333333" }}>申请退款</Text></TouchableOpacity>
                     </View>
                     :
+                    item.pingjia ==='未评价'?
                     <View style={{ flexDirection: "row", flexDirection:"row-reverse" }}>
-                        <TouchableOpacity onPress={()=>this.context.navigate('discuss')}  style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20,marginRight:20 }}><Text style={{ fontSize: 14,color:"#333333" }}>评论</Text></TouchableOpacity>
+                        <TouchableOpacity onPress={()=>this.context.navigate('discuss',item)}  style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20,marginRight:20 }}><Text style={{ fontSize: 14,color:"#333333" }}>未评价</Text></TouchableOpacity>
+                    </View>
+                    :
+                    <View style={{ flexDirection: "row", flexDirection:"row-reverse" }}>
+                        <TouchableOpacity activeOpacity={1} style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20,marginRight:20 }}><Text style={{ fontSize: 14,color:"#333333" }}>已评价</Text></TouchableOpacity>
                     </View>}
 
 
-                    <Modal
+
+
+
+
+                </View>
+            )
+        }
+    render() {
+        return (
+            <View style={{flex:1}}>
+                <LinearGradient colors={["#7CC0C0","#fff","#fff"]} style={{flex:1}}>
+                
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }}>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign   onPress={() => {
+                                                   this.props.navigation.goBack()
+                                                }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        </TouchableOpacity>
+                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>订单</Text></View>
+                    </View>
+           
+
+
+                        <FlatList
+                        data={this.state.data}
+                        keyExtractor={(item, index) => (index + '1')}
+                        renderItem={this.renderDate.bind(this)}/>
+                       
+
+                       <Modal
                             animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
                             transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
                             visible={this.state.modalVisible} // 是否显示 modal 窗口
@@ -159,7 +198,7 @@ export default class Dingdan extends Component {
                                             <TouchableOpacity style={{}}
                                                 onPress={() => {
                                                     this._closeModalWin()
-                                                    this.update_dingdan(item.id);
+                                                    this.update_dingdan();
                                                 }}
 
                                             >
@@ -168,8 +207,8 @@ export default class Dingdan extends Component {
                                             <TouchableOpacity style={{}}
                                                 onPress={() => {
                                                     this._closeModalWin()
-                                                    this.update_dingdan(item.id);
-                                                    this.context.navigate('discuss')
+                                                    this.update_dingdan();
+                                                    this.context.navigate('discuss',this.state.kk)
                                                 }}
 
                                             >
@@ -181,35 +220,6 @@ export default class Dingdan extends Component {
                                 </View>
                             </TouchableOpacity>
                         </Modal>
-
-
-
-
-                </View>
-            )
-        }
-    render() {
-        return (
-            <View style={{flex:1}}>
-                <LinearGradient colors={["#7CC0C0","#fff","#fff"]} style={{flex:1}}>
-                
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign   onPress={() => {
-                                                   this.props.navigation.goBack()
-                                                }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
-                        </TouchableOpacity>
-                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>订单</Text></View>
-                    </View>
-           
-
-
-                        <FlatList
-                        data={this.state.data}
-                        keyExtractor={(item, index) => (index + '1')}
-                        renderItem={this.renderDate.bind(this)}/>
-                       
-
 
 
                 </LinearGradient>
