@@ -1,6 +1,5 @@
-
 import React, { Component } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, ImageBackground, Image, Modal, ScrollView,ToastAndroid, } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, ImageBackground, Image, Modal, ScrollView, ToastAndroid, } from 'react-native';
 import Video from 'react-native-video';
 const { width, height } = Dimensions.get('window');
 import LinearGradient from 'react-native-linear-gradient'
@@ -10,6 +9,9 @@ import { Animated } from 'react-native';
 import axios from 'axios';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import { captureRef } from "react-native-view-shot";
+import { createRef } from 'react';
+
 export default class componentName extends Component {
     constructor(props) {
         super(props)
@@ -18,19 +20,23 @@ export default class componentName extends Component {
             poused: true,
             modalVisible: false,
             modalVisible2: false,
+            modalVisible3: false,
+            modalVisible4: false,
             progress: new Animated.Value(0),
             play: true,
             step: 0,
             road: 0,
             prevSteps: 0,
-            gold:0,
-            mission1:false,
-            mission2:false,
-            mission3:false,
+            gold: 0,
+            mission1: false,
+            mission2: false,
+            mission3: false,
+            shoturi: ''
         }
     }
 
     componentDidMount() {
+
         Animated.timing(this.state.progress, {
             toValue: 1,
             duration: 0,
@@ -57,9 +63,9 @@ export default class componentName extends Component {
             .catch((error) => {
                 console.log(error);
             })
+
+
     }
-
-
     //继续播放
     continuePlay() {
         this.setState({
@@ -72,6 +78,12 @@ export default class componentName extends Component {
     }
     setModalVisible2 = (visible) => {
         this.setState({ modalVisible2: visible });
+    }
+    setModalVisible3 = (visible) => {
+        this.setState({ modalVisible3: visible });
+    }
+    setModalVisible4 = (visible) => {
+        this.setState({ modalVisible4: visible });
     }
     //控制播放进度
     onProgress = (data) => {
@@ -107,27 +119,29 @@ export default class componentName extends Component {
         })
     }
     //更新金币数
-    getAllGold(gold1){
+    getAllGold(gold1) {
         console.log(gold1);
-        var oldgold =this.state.gold;
-        oldgold+=gold1;
-        this.setState({gold:oldgold})
+        var oldgold = this.state.gold;
+        oldgold += gold1;
+        this.setState({ gold: oldgold })
     }
     /* 更新任务完成情况 */
-    isFinished(mission){
-        if(mission=='mission1'){
-            this.setState({mission1:true})
-        }else if(mission=='mission2'){
-            this.setState({mission2:true})
-        }else if(mission=='mission3'){
-            this.setState({mission3:true})
+    isFinished(mission) {
+        if (mission == 'mission1') {
+            this.setState({ mission1: true })
+        } else if (mission == 'mission2') {
+            this.setState({ mission2: true })
+        } else if (mission == 'mission3') {
+            this.setState({ mission3: true })
         }
         console.log(this.state.mission1);
         console.log(this.state.mission2);
         console.log(this.state.mission3);
     }
     render() {
-        const { modalVisible, modalVisible2 } = this.state;
+
+        const viewRef = createRef();
+        const { modalVisible, modalVisible2, modalVisible3, modalVisible4 } = this.state;
         return (
             <View style={{ backgroundColor: 'rgb(249,200,159)', flex: 1 }}>
 
@@ -318,8 +332,8 @@ export default class componentName extends Component {
                             </View>
                             <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
                                 <View style={{ height: height * 0.1, width, flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.25)', marginVertical: '0.25%' }}>
-                                    <Text style={{ marginLeft: '4%', width: '20%', height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold',color:'#333' }}>签到有奖:</Text>
-                                    <Text style={{ width: '40%', height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold',color:'#333' }}>每日签到可获得 5 <FontAwesome5
+                                    <Text style={{ marginLeft: '4%', width: '20%', height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', color: '#333' }}>签到有奖:</Text>
+                                    <Text style={{ width: '40%', height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', color: '#333' }}>每日签到可获得 5 <FontAwesome5
                                         name='coins'
                                         size={15}
                                         color='gold'
@@ -330,15 +344,95 @@ export default class componentName extends Component {
                                     </TouchableOpacity>
                                 </View>
 
-                                <ThisMission target="孝顺镇" progress="1" gold={5} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission1} isFinished={this.isFinished.bind(this)}/>
-                                <ThisMission target="龙游" progress="2"  gold={10} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission2} isFinished={this.isFinished.bind(this)}/>
-                                <ThisMission target="上饶" progress="3"  gold={10} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission3} isFinished={this.isFinished.bind(this)}/>
-
-
+                                <ThisMission target="孝顺镇" progress="1" gold={5} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission1} isFinished={this.isFinished.bind(this)} />
+                                <ThisMission target="龙游" progress="2" gold={10} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission2} isFinished={this.isFinished.bind(this)} />
+                                <ThisMission target="上饶" progress="3" gold={10} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission3} isFinished={this.isFinished.bind(this)} />
 
                             </View>
 
                         </View>
+                    </Modal>
+                    <Modal
+                        animationType='slide'
+                        transparent={true}
+                        visible={modalVisible3}
+                        hardwareAccelerated={true}
+                        onRequestClose={() => {
+                            this.setModalVisible3(!modalVisible3);
+                        }}
+                    >
+
+                        <View style={{ flex: 1 }} collapsable={false} >
+
+                            <ImageBackground ref={viewRef} resizeMode={'stretch'} style={{ height: '100%', width: '100%' }} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
+                                <TouchableOpacity activeOpacity={1} style={{ borderWidth: 1, height: '100%', width: '100%', }} onPress={() => {
+                                    this.setModalVisible3(!modalVisible3), captureRef(viewRef, {
+                                        format: "jpg",
+                                        quality: 0.8
+                                    }).then(
+                                        uri => {
+                                            console.log("Image saved to", uri),
+                                            this.setState({ shoturi: uri })
+                                        },
+                                        error => console.error("Oops, snapshot failed", error)
+                                    );this.setModalVisible4(!modalVisible4)
+                                }}>
+                                    <View style={{ marginTop: height * 0.69, height: height * 0.08, width: '90%', marginLeft: '4.7%' }}>
+                                        <Text style={{ color: '#fff', fontSize: 25, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>恭喜你抵达孝顺镇{ }，累计走过{ }00公里</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </ImageBackground>
+                        </View>
+                    </Modal>
+                    <Modal
+                        animationType='fade'
+                        transparent={true}
+                        visible={modalVisible4}
+                        hardwareAccelerated={true}
+                        onRequestClose={() => {
+                            this.setModalVisible4(!modalVisible4);
+                        }}
+                    >
+                        <TouchableOpacity activeOpacity={1}  onPress={()=>{this.setModalVisible4(!modalVisible4)}} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                            <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%',height:height*0.6, marginLeft: '10%', marginTop: height*0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
+                                <View style={{ height: height * 0.05, width: '90%', marginLeft: '4.7%', borderColor: 'red', marginTop: height*0.433, borderWidth: 0 }}>
+                                    <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>已抵达孝顺镇{ }，累计走过{ }00公里</Text>
+                                </View>
+                            </ImageBackground>
+                            <View style={{ backgroundColor: '#fff', width, flex: 1, marginBottom: height * 0 }}>
+                                <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
+
+                                <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4),this.props.navigation.navigate('Fabu',{shoturi:this.state.shoturi})}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                            <Image style={{width:'100%',height: '100%',}} source={require('../img/朋友圈.png')}></Image>
+                                        </TouchableOpacity>
+                                        <Text style={{ marginTop:height*0.01,width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
+                                            论坛发布
+                                        </Text>
+                                    </View>
+                                    <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4)}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                        <Image style={{width:'100%',height: '100%',}} source={require('../img/微信.png')}></Image>
+
+                                        </TouchableOpacity>
+                                        <Text style={{ marginTop:height*0.01, width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
+                                            微信好友
+                                        </Text>
+                                    </View>
+                                    <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
+                                        <TouchableOpacity onPress={()=>{this.setModalVisible4(!modalVisible4),ToastAndroid.showWithGravity('保存成功', 1000, ToastAndroid.BOTTOM)}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100 ,backgroundColor:'#333333'}}>
+                                        <Image style={{width:'100%',height: '100%',}} source={require('../img/保存.png')}></Image>
+
+                                        </TouchableOpacity>
+                                        <Text style={{ marginTop:height*0.01, width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center' ,fontSize:17,color:'#333'}}>
+                                            保存海报
+                                        </Text>
+                                    </View>
+                                </View>
+                              
+                            </View>
+                        </TouchableOpacity>
+
                     </Modal>
                     {/* 顶部 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
@@ -351,7 +445,7 @@ export default class componentName extends Component {
                     </View>
                     <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
                     <View style={{ zIndex: 10, backgroundColor: 'rgba(255,255,255,255,0.5)', width: '15%', height: width * 0.15, marginTop: -height * 0.7, marginBottom: height * 0.65, marginLeft: width * 0.875, borderRadius: 10, }}>
-                        <TouchableOpacity style={{}} onPress={() => this.props.navigation.navigate('AR')}>
+                        <TouchableOpacity style={{}} onPress={() => { this.setModalVisible3(!modalVisible3) }} >
                             {/* <Text style={{ fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center' }}>Ar</Text> */}
                             <MaterialCommunityIcons
                                 name="augmented-reality"
@@ -360,72 +454,73 @@ export default class componentName extends Component {
                             />
                         </TouchableOpacity>
                     </View>
-                    <Video
-                        source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
-                        paused={this.state.poused}
-                        resizeMode="stretch"
-                        posterResizeMode='contain'
-                        style={{ zIndex: 0, height: height * 0.8, width: width, marginTop: -height * 0.8 }}
-                        onProgress={this.onProgress}
-                    />
+                    <View>
+                        <Video
+                            source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
+                            paused={this.state.poused}
+                            resizeMode="stretch"
+                            posterResizeMode='contain'
+                            style={{ zIndex: 0, height: height * 0.8, width: width, marginTop: -height * 0.8 }}
+                            onProgress={this.onProgress}
+                        />
+                    </View>
                     {/* 底部 */}
-                    <View style={{ height: height * 0.2, flexDirection: 'row', justifyContent: 'space-around', marginTop: -height * 0.075 }}>
+                    <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075 }}>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/28-plantrips.png' }}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff' }}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff',marginLeft:width*0.06 }}>
                             <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => {this.setModalVisible2(!modalVisible2)}} style={{ height: '100%', width: '30%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '20%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/16-travel.png' }}></Image>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.setModalVisible3(!modalVisible3) }} style={{ height: '100%', width: '20%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/打卡.png')}></Image>
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>
-            </View>
+            </View >
         );
     }
 }
 
 
 class ThisMission extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={
-            isGet:this.props.isGet,
-            goldNum:0
+        this.state = {
+            isGet: this.props.isGet,
+            goldNum: 0
         }
-    }        
-    getGold(){
-            if(this.state.isGet==false&&this.props.step>((this.props.progress*200)/3)){
-                this.setState({isGet:true})
-                this.sendGold()
-                this.sendMission()
-                ToastAndroid.showWithGravity('领取成功',1000,ToastAndroid.BOTTOM)
-            }else if(this.state.isGet==true){
-                ToastAndroid.showWithGravity('请不要重复领取',1000,ToastAndroid.BOTTOM) 
-            }else{
-                ToastAndroid.showWithGravity('任务未完成，加油',500,ToastAndroid.BOTTOM) 
-            }
-
-
     }
-    sendGold(){
+    getGold() {
+        if (this.state.isGet == false && this.props.step > ((this.props.progress * 200) / 3)) {
+            this.setState({ isGet: true })
+            this.sendGold()
+            this.sendMission()
+            ToastAndroid.showWithGravity('领取成功', 1000, ToastAndroid.BOTTOM)
+        } else if (this.state.isGet == true) {
+            ToastAndroid.showWithGravity('请不要重复领取', 1000, ToastAndroid.BOTTOM)
+        } else {
+            ToastAndroid.showWithGravity('任务未完成，加油', 500, ToastAndroid.BOTTOM)
+        }
+    }
+    sendGold() {
         this.props.sendGold(this.props.gold)
     }
-    sendMission(){
-        this.props.isFinished("mission"+this.props.progress)
-        console.log("mission"+this.props.progress);
+    sendMission() {
+        this.props.isFinished("mission" + this.props.progress)
+        console.log("mission" + this.props.progress);
     }
-
     render() {
-        let Lingqu=this.state.isGet? <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff' ,}}>已领取</Text>:<Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff' ,backgroundColor:'orange',borderRadius:20}}>领取</Text>
-
+        let Lingqu = this.state.isGet ? <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff', }}>已领取</Text> : <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff', backgroundColor: 'orange', borderRadius: 20 }}>领取</Text>
         return (
             <View style={{ height: height * 0.1, width, flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.25)', marginVertical: '0.25%' }}>
                 <View style={{ flexDirection: 'column', justifyContent: 'space-around' }}>
                     <View style={{ flexDirection: 'row', width: '70%', borderWidth: 0 }}>
-                        <Text style={{ marginLeft: '7.5%', width: 0.2 * width, height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold',color:'#333333' }}>任务目标:</Text>
-                        <Text style={{ width: 0.5 * width, height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' ,color:'#333'}}>{this.props.target}( {this.props.gold} <FontAwesome5
+                        <Text style={{ marginLeft: '7.5%', width: 0.2 * width, height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', color: '#333333' }}>任务目标:</Text>
+                        <Text style={{ width: 0.5 * width, height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', color: '#333' }}>{this.props.target}( {this.props.gold} <FontAwesome5
                             name='coins'
                             size={15}
                             color='gold'
@@ -435,7 +530,7 @@ class ThisMission extends Component {
                         <Text style={{ marginLeft: '5%', borderWidth: 0, color: '#333333' }}>大约走过{this.props.progress}00公里，进度为{this.props.progress}/3</Text>
                     </View>
                 </View>
-                <TouchableOpacity onPress={()=>{this.getGold()}} activeOpacity={1} style={{ borderWidth: 0, width: width * 0.2, height: '50%', backgroundColor: 'rgb(249,200,159)', marginVertical: '6%', borderRadius: 20, marginHorizontal: '0%', }}>
+                <TouchableOpacity onPress={() => { this.getGold() }} activeOpacity={1} style={{ borderWidth: 0, width: width * 0.2, height: '50%', backgroundColor: 'rgb(249,200,159)', marginVertical: '6%', borderRadius: 20, marginHorizontal: '0%', }}>
                     {Lingqu}
                 </TouchableOpacity>
             </View>
