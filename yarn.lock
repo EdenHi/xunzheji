@@ -6094,7 +6094,7 @@ react-native-scrollable-tab-view@^1.0.0:
 
 react-native-scrolltotop@^0.0.6:
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/react-native-scrolltotop/-/react-native-scrolltotop-0.0.6.tgz#f1589e23aa2754c1405cd9807c0cbc5f466efbdd"
+  resolved "https://registry.nlark.com/react-native-scrolltotop/download/react-native-scrolltotop-0.0.6.tgz#f1589e23aa2754c1405cd9807c0cbc5f466efbdd"
   integrity sha1-8VieI6onVMFAXNmAfAy8X0Zu+90=
 
 react-native-searchbar@^1.16.0:
