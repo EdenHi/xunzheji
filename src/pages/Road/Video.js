@@ -9,7 +9,8 @@ import { Animated } from 'react-native';
 import axios from 'axios';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { captureScreen } from '@sishuguojixuefu/react-native-screenshot'
+import { captureRef } from "react-native-view-shot";
+import { createRef } from 'react';
 
 export default class componentName extends Component {
     constructor(props) {
@@ -20,6 +21,7 @@ export default class componentName extends Component {
             modalVisible: false,
             modalVisible2: false,
             modalVisible3: false,
+            modalVisible4: false,
             progress: new Animated.Value(0),
             play: true,
             step: 0,
@@ -29,7 +31,7 @@ export default class componentName extends Component {
             mission1: false,
             mission2: false,
             mission3: false,
-            shotImage: ''
+            shoturi: ''
         }
     }
 
@@ -62,9 +64,8 @@ export default class componentName extends Component {
                 console.log(error);
             })
 
+
     }
-
-
     //继续播放
     continuePlay() {
         this.setState({
@@ -80,6 +81,9 @@ export default class componentName extends Component {
     }
     setModalVisible3 = (visible) => {
         this.setState({ modalVisible3: visible });
+    }
+    setModalVisible4 = (visible) => {
+        this.setState({ modalVisible4: visible });
     }
     //控制播放进度
     onProgress = (data) => {
@@ -135,8 +139,10 @@ export default class componentName extends Component {
         console.log(this.state.mission3);
     }
 
+
     render() {
-        const { modalVisible, modalVisible2, modalVisible3 } = this.state;
+        const viewRef = createRef();
+        const { modalVisible, modalVisible2, modalVisible3, modalVisible4 } = this.state;
         return (
             <View style={{ backgroundColor: 'rgb(249,200,159)', flex: 1 }}>
 
@@ -343,14 +349,12 @@ export default class componentName extends Component {
                                 <ThisMission target="龙游" progress="2" gold={10} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission2} isFinished={this.isFinished.bind(this)} />
                                 <ThisMission target="上饶" progress="3" gold={10} sendGold={this.getAllGold.bind(this)} step={this.state.step} isGet={this.state.mission3} isFinished={this.isFinished.bind(this)} />
 
-
-
                             </View>
 
                         </View>
                     </Modal>
                     <Modal
-                        animationType='slide'
+                        animationType='fade'
                         transparent={true}
                         visible={modalVisible3}
                         hardwareAccelerated={true}
@@ -358,12 +362,58 @@ export default class componentName extends Component {
                             this.setModalVisible3(!modalVisible3);
                         }}
                     >
-                        <View style={{ flex: 1 }}>
 
-                            <Image source={require('')}></Image>
+                        <View style={{ flex: 1 }} collapsable={false} >
 
-
+                            <ImageBackground ref={viewRef} resizeMode={'stretch'} style={{ height: '100%', width: '100%' }} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
+                                <TouchableOpacity style={{ borderWidth: 1, height: '100%', width: '100%', }} onPress={() => {
+                                    this.setModalVisible3(!modalVisible3), captureRef(viewRef, {
+                                        format: "jpg",
+                                        quality: 0.8
+                                    }).then(
+                                        uri => {
+                                            console.log("Image saved to", uri),
+                                            this.setState({ shoturi: uri })
+                                        },
+                                        error => console.error("Oops, snapshot failed", error)
+                                    ); this.setModalVisible4(!modalVisible4)
+                                }}>
+                                    <View style={{ marginTop: height * 0.69, height: height * 0.08, width: '90%', marginLeft: '4.7%' }}>
+                                        <Text style={{ color: '#fff', fontSize: 25, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>恭喜你抵达{ }，累计走过{ }00公里</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </ImageBackground>
                         </View>
+                    </Modal>
+                    <Modal
+                        animationType='fade'
+                        transparent={true}
+                        visible={modalVisible4}
+                        hardwareAccelerated={true}
+                        onRequestClose={() => {
+                            this.setModalVisible4(!modalVisible4);
+                        }}
+                    >
+                        <View style={{ width: width, height: height, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                            <ImageBackground ref={viewRef} resizeMode={'stretch'} style={{ height: '70%', width: '70%', marginLeft: '15%' }} source={{ uri: 'http:8.142.11.85:3000/public/images/haibao.png' }}>
+                                <TouchableOpacity activeOpacity={1} style={{ borderWidth: 1, height: '100%', width: '100%', }} onPress={() => {
+
+                                }}>
+                                    <View style={{ borderWidth: 1, height: height * 0.08, width: '90%', marginLeft: '4.7%' }}>
+                                        <Text style={{ color: '#fff', fontSize: 25, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>恭喜你抵达{ }，累计走过{ }00公里</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </ImageBackground>
+                            <View style={{ backgroundColor: '#fff', width, height: '30%' }}>
+                                <View>
+
+                                </View>
+                                <View>
+
+                                </View>
+                            </View>
+                        </View>
+
                     </Modal>
                     {/* 顶部 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-around' }}>
@@ -376,17 +426,7 @@ export default class componentName extends Component {
                     </View>
                     <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
                     <View style={{ zIndex: 10, backgroundColor: 'rgba(255,255,255,255,0.5)', width: '15%', height: width * 0.15, marginTop: -height * 0.7, marginBottom: height * 0.65, marginLeft: width * 0.875, borderRadius: 10, }}>
-                        <TouchableOpacity style={{}} onPress={() => {captureScreen(
-                            ({ path, uri }) => {
-                                // path: /xxx/yyy
-                                // uri: file:///xxx/yyy
-                                console.log('screenshotPatah', uri, path)
-                            },
-                            {
-                                format: 'jpg',
-                                quality: 0.8,
-                            }
-                        )},this.setModalVisible3(!modalVisible3)} >
+                        <TouchableOpacity style={{}} onPress={() => { this.setModalVisible3(!modalVisible3) }} >
                             {/* <Text style={{ fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center' }}>Ar</Text> */}
                             <MaterialCommunityIcons
                                 name="augmented-reality"
@@ -405,8 +445,6 @@ export default class componentName extends Component {
                             onProgress={this.onProgress}
                         />
                     </View>
-
-
                     {/* 底部 */}
                     <View style={{ height: height * 0.2, flexDirection: 'row', justifyContent: 'space-around', marginTop: -height * 0.075 }}>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
@@ -445,8 +483,6 @@ class ThisMission extends Component {
         } else {
             ToastAndroid.showWithGravity('任务未完成，加油', 500, ToastAndroid.BOTTOM)
         }
-
-
     }
     sendGold() {
         this.props.sendGold(this.props.gold)
@@ -455,10 +491,8 @@ class ThisMission extends Component {
         this.props.isFinished("mission" + this.props.progress)
         console.log("mission" + this.props.progress);
     }
-
     render() {
         let Lingqu = this.state.isGet ? <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff', }}>已领取</Text> : <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff', backgroundColor: 'orange', borderRadius: 20 }}>领取</Text>
-
         return (
             <View style={{ height: height * 0.1, width, flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.25)', marginVertical: '0.25%' }}>
                 <View style={{ flexDirection: 'column', justifyContent: 'space-around' }}>

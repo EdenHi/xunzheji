@@ -1258,11 +1258,6 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@sishuguojixuefu/react-native-screenshot@^1.5.1":
-  version "1.5.1"
-  resolved "https://registry.nlark.com/@sishuguojixuefu/react-native-screenshot/download/@sishuguojixuefu/react-native-screenshot-1.5.1.tgz#a33535327513fda60b3dd0b42d7aef70472abcac"
-  integrity sha1-ozU1MnUT/aYLPdC0LXrvcEcqvKw=
-
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.npm.taobao.org/@tootallnate/once/download/@tootallnate/once-1.1.2.tgz"
