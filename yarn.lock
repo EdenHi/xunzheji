@@ -5860,8 +5860,6 @@ react-native-baidu-asr@^1.3.0:
   resolved "https://registry.nlark.com/react-native-baidu-asr/download/react-native-baidu-asr-1.3.0.tgz#974e4cfee31587bf2ec631e56af7cdc517b3d525"
   integrity sha1-l05M/uMVh78uxjHlavfNxRez1SU=
 
-<<<<<<< HEAD
-=======
 react-native-button@^2.3.0:
   version "2.4.0"
   resolved "https://registry.npm.taobao.org/react-native-button/download/react-native-button-2.4.0.tgz#42b487073a7ce7c54ab503f77c6ced1ab95742bf"
@@ -5869,7 +5867,6 @@ react-native-button@^2.3.0:
   dependencies:
     prop-types "^15.5.10"
 
->>>>>>> fbc9a3c6ed385d45c8492e56d4eb699115c8eff9
 react-native-codegen@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npm.taobao.org/react-native-codegen/download/react-native-codegen-0.0.6.tgz"
