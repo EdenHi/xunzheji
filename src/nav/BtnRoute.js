@@ -26,71 +26,63 @@ export default function BtnRoute() {
   return (
     <Tab.Navigator
       tabBarOptions={{
-        activeTintColor: '#7196a8',
+        activeTintColor: '#7cc0c0',
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen
         name="首页"
         component={Home}
         options={{
-          tabBarIcon: ({color}) => (
-            <AntDesign name={'home'} size={28} color={color} />
-          ),
-          // tabBarIcon: ({ tintColor,focused }) =>
-          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
-          // :
-          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
-          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
-          // />
-          // )
+          tabBarIcon: ({ tintColor,focused }) =>
+          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/homeafter.png')} />//
+          :
+          <Image source={ require('./tabpic/homebefore.png') }
+          style={{width:30,height:30} }//前面是未被选中的图
+          />
+          )
         }}
       />
       <Tab.Screen
         name="社区"
         component={ForumTop}
         options={{
-          tabBarIcon: ({color}) => (
-            <Ionicons name={'planet-outline'} size={28} color={color} />
-          ),
-          // tabBarIcon: ({ tintColor,focused }) =>
-          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
-          // :
-          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
-          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
-          // />
-          // )
+          tabBarIcon: ({ tintColor,focused }) =>
+          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/forumafter.png')} />//
+          :
+          <Image source={ require('./tabpic/forumbefore.png') }
+          style={{width:30,height:30} }//前面是未被选中的图
+          />
+          )
         }}
       />
       <Tab.Screen
         name="商城"
         component={Store}
         options={{
-          tabBarIcon: ({color}) => (
-            <Feather name={'shopping-bag'} size={26} color={color} />
-          ),
-          // tabBarIcon: ({ tintColor,focused }) =>
-          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
-          // :
-          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
-          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
-          // />
-          // )
+          tabBarIcon: ({ tintColor,focused }) =>
+          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/storeafter.png')} />//
+          :
+          <Image source={ require('./tabpic/storebefore.png') }
+          style={{width:30,height:30} }//前面是未被选中的图
+          />
+          )
+         
         }}
       />
       <Tab.Screen
         name="我的"
         component={Personal}
         options={{
-          tabBarIcon: ({color}) => (
-            <SimpleLineIcons name={'ghost'} size={24} color={color} />
-          ),
-          // tabBarIcon: ({ tintColor,focused }) =>
-          // ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:50,height:50,borderRadius:50,marginBottom:30}}  imageAddress={require('../pages/HomeScreen/photos/sj2.jpg')} />//
-          // :
-          // <Image source={ require('../pages/HomeScreen/photos/zs1.jpeg') }
-          // style={{width:30,height:30,borderRadius:50} }//前面是未被选中的图
-          // />
-          // )
+          // tabBarIcon: ({color}) => (
+          //   <SimpleLineIcons name={'ghost'} size={24} color={color} />
+          // ),
+          tabBarIcon: ({ tintColor,focused }) =>
+          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/myafter.png')} />//
+          :
+          <Image source={ require('./tabpic/mybefore.png') }
+          style={{width:30,height:30} }//前面是未被选中的图
+          />
+          )
         }}
       />
     </Tab.Navigator>

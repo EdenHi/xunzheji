@@ -22,11 +22,11 @@ export default class SegmentTabBar extends Component {
         };
     }
     renderTab(name, page, isTabActive, onPressHandler) {
-        const textColor = isTabActive ? '#0086E5' : '#fff';
-        const backgroundColor = isTabActive ? '#fff' : '#9bb8ff';
+        const textColor = isTabActive ? '#7cc0c0' : '#fff';
+        const backgroundColor = isTabActive ? '#fff' : '#7cc0c0';
 
         return <TouchableOpacity  activeOpacity={1}
-            style={{flex: 1, height: 40, backgroundColor:backgroundColor,borderRadius:20,marginHorizontal:10}}
+            style={{flex: 1, height: 35, backgroundColor:backgroundColor,borderRadius:20,marginHorizontal:10,elevation:5}}
             key={name}
             accessible={true}
             accessibilityLabel={name}

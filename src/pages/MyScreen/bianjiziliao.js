@@ -236,24 +236,25 @@ export default class app1 extends Component {
         var currentdate = year + seperatorl + month + seperatorl + strDate;
         return (
             <View style={{backgroundColor:'white'}}>
+                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.go_back()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={15} color="#000000" />
+                  <AntDesign onPress={()=>this.go_back()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={15} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>编辑资料</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>编辑资料</Text>
 
             </View> 
 
                 {/* 修改头像 */}
                 <View style={{alignItems:'center',marginTop:width * 0.1}}>
-                    <TouchableOpacity activeOpacity={1} style={{borderRadius:50,height:width * 0.3,width:width * 0.3}}
+                    <TouchableOpacity activeOpacity={1} style={{borderRadius:50,height:height * 0.14,width:width * 0.3,elevation:10}}
                     onPress={()=>this._openPicker()}>
-                        <Image source={{uri:portrait}} style={{height:width * 0.3,width:width * 0.3,borderRadius:50}}/>
+                        <Image source={{uri:portrait}} style={{height:"100%",width:"100%",borderRadius:50}}/>
                     </TouchableOpacity>
                 </View>
                 {/* 修改头像结束 */}
 
-                <View style={{marginTop:width * 0.1}}>
+                <View style={{marginTop:width * 0.1,height:height*0.79}}>
                     {/* 修改昵称 */}
                         <Overlay
                             visible={shownickname}
@@ -266,11 +267,11 @@ export default class app1 extends Component {
                             <View style={{flexDirection:'row',justifyContent:'space-around'}}>
                                 <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.setState({shownickname:false})}>
-                                    <Text style={{fontSize:15}}>取消</Text>
+                                    <Text style={{fontSize:15,color:"#333333"}}>取消</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.go_nickname()}>
-                                    <Text style={{fontSize:15}}>确认</Text>
+                                    <Text style={{fontSize:15,color:"#333333"}}>确认</Text>
                                 </TouchableOpacity>
                             </View>
                         </Overlay>
@@ -310,11 +311,11 @@ export default class app1 extends Component {
                             <View style={{flexDirection:'row',justifyContent:'space-around'}}>
                                 <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.setState({showphone:false})}>
-                                    <Text style={{fontSize:15}}>取消</Text>
+                                    <Text style={{fontSize:15,color:"#333333"}}>取消</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.go_phone()}>
-                                    <Text style={{fontSize:15}}>确认</Text>
+                                    <Text style={{fontSize:15,color:"#333333"}}>确认</Text>
                                 </TouchableOpacity>
                             </View>
                         </Overlay>
@@ -380,11 +381,11 @@ export default class app1 extends Component {
                             <View style={{flexDirection:'row',justifyContent:'space-around'}}>
                                 <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.setState({showsignature:false})}>
-                                    <Text style={{fontSize:15}}>取消</Text>
+                                    <Text style={{fontSize:15,color:"#333333"}}>取消</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity activeOpacity={1} style={{justifyContent:'center',alignItems:'center'}}
                                 onPress={()=>this.go_signature()}>
-                                    <Text style={{fontSize:15}}>确认</Text>
+                                    <Text style={{fontSize:15,color:"#333333"}}>确认</Text>
                                 </TouchableOpacity>
                             </View>
                         </Overlay>
@@ -412,6 +413,7 @@ export default class app1 extends Component {
                     {/* 修改背景结束 */}
 
                 </View>
+                </LinearGradient>
             </View>
         );
     }

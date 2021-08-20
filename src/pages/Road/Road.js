@@ -43,7 +43,6 @@ export default class Road extends Component {
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road2} roadNumber={2} roadname="鸡毛换糖-中路"/>
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road3} roadNumber={3} roadname="鸡毛换糖-北路"/>
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road4} roadNumber={4} />
-
                             </View>
                         </ScrollView>
                         <ScrollView tabLabel='常规路线' style={{ width: width, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
@@ -51,7 +50,6 @@ export default class Road extends Component {
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road5} roadNumber={5} />
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road6} roadNumber={6} />
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road7} roadNumber={7} />
-
                             </View>
                         </ScrollView>
                         <ScrollView tabLabel='亚运路线' style={{ width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>

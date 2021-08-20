@@ -12,12 +12,12 @@ const size = {
 }
 
 const fontSize = {
-    regular: 60,
-    lineHeight: 60,
+    regular: 16,
+    lineHeight: 20,
 }
 
 const lineHeight = {
-    regular: 40,
+    regular: 20,
 }
 
 export default {
