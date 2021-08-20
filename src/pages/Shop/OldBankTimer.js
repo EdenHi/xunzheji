@@ -12,6 +12,7 @@ export default function OldBankTimer ({navigation}){
           alignItems: "center",
           justifyContent: "center",
           flexDirection: 'row',
+          backgroundColor:"#7cc0c0",
         }}>
           <TouchableOpacity
             activeOpacity={0.8}
@@ -30,6 +31,7 @@ export default function OldBankTimer ({navigation}){
             <Text style={{
               fontSize: 18,
               textAlign: 'center',
+              color:'#fff',
               textAlignVertical: 'center',
             }}>浙江老字号  </Text>
           </View>

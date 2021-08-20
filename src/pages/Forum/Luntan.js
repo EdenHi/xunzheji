@@ -207,7 +207,7 @@ onShare = async () => {
                                     return (
                                         <View>
                                             <View style={{marginTop:"5%",width:width}}>
-                                                 <Text style={{fontWeight:'bold',marginTop:"2%",marginLeft:10,fontSize:15}}>官方推荐</Text>
+                                                 <Text style={{fontWeight:'bold',marginTop:"2%",marginLeft:10,fontSize:15,color:"#333"}}>官方推荐</Text>
                                                  <ScrollView
                                                  horizontal
                                                  showsHorizontalScrollIndicator={false}
@@ -532,7 +532,7 @@ onShare = async () => {
                                        {/* tag标签 */}
                                        <TouchableOpacity style={v.tag ==='' || v.tag === null?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5,color:"#333"}}>{v.tag}</Text>
                                        </TouchableOpacity>
 
                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
@@ -542,10 +542,10 @@ onShare = async () => {
                                                         <Ionicons
                                                         name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}
-                                                        color={v.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                        color={v.dianzan_username === this.state.denglu_username ? 'red' : '#333'}
                                                         />
                                                     </TouchableOpacity> 
-                                                    <Text style={{marginLeft:5}}>{v.dianzan}</Text>
+                                                    <Text style={{marginLeft:5,color:"#333"}}>{v.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity onPress={()=>this.goComment(v)}>
@@ -553,8 +553,8 @@ onShare = async () => {
                                                 <Ionicons
                                                 name="chatbubble-ellipses-outline"
                                                 size={20}
-                                                color="black"/>
-                                                <Text style={{marginLeft:5}}>{v.counts}</Text>
+                                                color="#333"/>
+                                                <Text style={{marginLeft:5,color:"#333"}}>{v.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
@@ -567,7 +567,7 @@ onShare = async () => {
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}
-                                                    color="#000"/>
+                                                    color="#333"/>
                                                 </View>
                                             </TouchableOpacity>
                                        </View>
@@ -646,10 +646,12 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         marginBottom:5,
+        color:"#333"
     },
     txt:{
         marginTop:10,
         fontSize:15,
+        color:"#333"
     },
     LoadingPage: {
         position: "absolute",

@@ -34,14 +34,11 @@ export default class Heritage extends Component {
         return (
             <View  >
                 <LinearGradient colors={['#7cc0c0', '#fff', '#fff']}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05}}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", color:"#333333"}}>人物介绍</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sharealt" size={20} color="#000000" />
-                        </TouchableOpacity>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff"}}>人物介绍</Text>
                     </View>
                     <View style={{ marginTop: -5, alignItems: "center", height: height * 0.93}}>
                         <ScrollView>

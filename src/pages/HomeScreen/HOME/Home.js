@@ -227,7 +227,7 @@ export default class Home extends Component {
                                                     <Text style={{ fontSize: 12, marginLeft: 7, flexWrap: 'wrap', width: width * 0.52,color:"#333"  }}>&emsp;&emsp;鸡毛换糖最著名的是义乌，义乌市场形成的历史就是鸡毛换糖的历史，是鸡毛换糖慢慢形成的！</Text>
                                                 </View>
                                             </View>
-                                            <View ><Text style={{ width: width * 0.88, flexWrap: 'wrap', fontSize: 12,color:"#333"  }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
+                                            <View ><Text style={{  flexWrap: 'wrap', fontSize: 12,color:"#333"  }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
                                         </View>
                                     </TouchableOpacity>
                                     <View style={{ height: 120, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center', margin: 10, borderRadius: 10, elevation: 5, paddingTop: 10 }}>
