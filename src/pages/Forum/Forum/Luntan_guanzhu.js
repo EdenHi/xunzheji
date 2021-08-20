@@ -235,7 +235,7 @@ onShare = async () => {
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
                                                                 <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#圣诞COS'})}>
-                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
+                                                                <Text style={{color:'white',fontSize:15,padding:5}}>参与</Text>
                                                                 </TouchableOpacity>
                                                             </View>
                                                         </ImageBackground>

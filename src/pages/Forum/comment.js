@@ -349,7 +349,7 @@ export default class Comment extends React.Component {
               <TouchableOpacity activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#333",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
 
             </View> 
                 <ScrollView 
@@ -400,7 +400,7 @@ export default class Comment extends React.Component {
 
                                     {/* tag标签 */}
                                        <View style={data.tag ===''||data.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5,color:"#333"}}>{data.tag}</Text>
                                        </View>
 
                             <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
@@ -410,18 +410,18 @@ export default class Comment extends React.Component {
                                             <Ionicons
                                             name={data.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                             size={20}
-                                            color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                            color={data.dianzan_username === this.state.denglu_username ? 'red' : '#333'}
                                             />
                                         </TouchableOpacity> 
-                                        <Text style={{marginLeft:5}}>{data.dianzan}</Text>
+                                        <Text style={{marginLeft:5,color:"#333"}}>{data.dianzan}</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <View style={{flexDirection:'row'}}>
                                     <Ionicons
                                     name="chatbubble-ellipses-outline"
                                     size={20}
-                                    color="black"/>
-                                    <Text style={{marginLeft:5}}>{data.counts}</Text>
+                                    color="#333"/>
+                                    <Text style={{marginLeft:5,color:"#333"}}>{data.counts}</Text>
                                 </View>
 
                                 <TouchableOpacity activeOpacity={1}>
@@ -429,7 +429,7 @@ export default class Comment extends React.Component {
                                         <Ionicons
                                         name="arrow-redo-outline"
                                         size={20}
-                                        color="black"/>
+                                        color="#333"/>
                                     </View>
                                 </TouchableOpacity>
                             </View>
@@ -488,7 +488,7 @@ export default class Comment extends React.Component {
                                         </TouchableOpacity>
                                         <View style={{marginLeft:10,width:width * 0.8}}>
                                             <Text style={styles.name}>{v.nickname}</Text>
-                                            <Text>{v.content}</Text>
+                                            <Text style={{color:"#333"}}>{v.content}</Text>
                                             <TouchableOpacity activeOpacity={1} onPress={()=>this.goComment(v)}
                                             style={{marginTop:5,width:width * 0.6,backgroundColor:'#eee',height:width * 0.08,justifyContent:'center',borderRadius:15}}>
                                                 <Text style={{color:'skyblue',paddingLeft:10}}>{'共' + v.counts + '条回复'}</Text>
@@ -525,7 +525,7 @@ export default class Comment extends React.Component {
                                         </TouchableOpacity>
                                         <View style={{marginLeft:10,width:width * 0.8}}>
                                             <Text style={styles.name}>{v.nickname}</Text>
-                                            <Text>{v.content}</Text>
+                                            <Text style={{color:"#333"}}> {v.content}</Text>
                                             <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                 <View style={{flexDirection:'row'}}>
                                                 <TouchableOpacity activeOpacity={1} onPress={()=>this.putong_dianzan(k)}>
@@ -586,7 +586,7 @@ export default class Comment extends React.Component {
                   <TouchableOpacity activeOpacity={1} style={{ }}>
                       <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
                   </TouchableOpacity>
-                  <Text style={{fontSize:15,fontWeight:"bold",color:"#000",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
+                  <Text style={{fontSize:15,fontWeight:"bold",color:"#333",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
     
                 </View> 
                     <ScrollView 
@@ -621,7 +621,7 @@ export default class Comment extends React.Component {
 
                                          {/* tag标签 */}
                                        <View style={data.tag ===''||data.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{data.tag}</Text>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5,color:"#333"}}>{data.tag}</Text>
                                        </View>
 
                                 <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
@@ -634,7 +634,7 @@ export default class Comment extends React.Component {
                                                 color={data.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
                                                 />
                                             </TouchableOpacity> 
-                                            <Text style={{marginLeft:5}}>{data.dianzan}</Text>
+                                            <Text style={{marginLeft:5,color:"#333"}}>{data.dianzan}</Text>
                                         </View>
                                     </TouchableOpacity>
                                     <View style={{flexDirection:'row'}}>
@@ -642,7 +642,7 @@ export default class Comment extends React.Component {
                                         name="chatbubble-ellipses-outline"
                                         size={20}
                                         color="black"/>
-                                        <Text style={{marginLeft:5}}>{data.counts}</Text>
+                                        <Text style={{marginLeft:5,color:"#333"}}>{data.counts}</Text>
                                     </View>
     
                                     <TouchableOpacity activeOpacity={1}>
@@ -714,7 +714,7 @@ export default class Comment extends React.Component {
                                             </TouchableOpacity>
                                             <View style={{marginLeft:10,width:width * 0.8}}>
                                                 <Text style={styles.name}>{v.nickname}</Text>
-                                                <Text>{v.content}</Text>
+                                                <Text style={{color:"#333"}}>{v.content}</Text>
                                                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:8}}>
                                                     <View style={{flexDirection:'row'}}>
                                                     <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({heart:!this.state.heart})}>
@@ -808,10 +808,12 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         marginBottom:5,
+        color:"#333"
     },
     txt:{
         marginTop:10,
         fontSize:15,
+        color:"#333"
     },
     box3: {
         flexDirection: 'row',

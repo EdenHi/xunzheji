@@ -153,7 +153,7 @@ onShare = async () => {
 ListEmptyComponent(){
     return(
         <View style={{width,height:height*0.9,justifyContent:'center',alignItems:'center'}}>
-            <Text>暂无讨论</Text>
+            <Text style={{color:"#333"}}>暂无讨论</Text>
         </View>
     )
 }
@@ -195,6 +195,7 @@ ListEmptyComponent(){
                                         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                     <TouchableOpacity
+                                                    activeOpacity={1}
                                                     onPress={() => {this.context.navigate('people',item.username), 
                                                                 AsyncStorage.setItem('Person',item.username,(error)=>{
                                                                     if (!error){
@@ -209,7 +210,7 @@ ListEmptyComponent(){
                                                     </TouchableOpacity> 
                                                     <View style={{marginLeft:10}}>
                                                         <Text style={styles.name}>{item.nickname}</Text>
-                                                        <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
+                                                        <Text style={{color:'#aaa',fontSize:12,color:"#333"}}>{time}</Text>
                                                     </View>
                                                 </View>
                                                 
@@ -238,7 +239,7 @@ ListEmptyComponent(){
                                                return (
                                                    <View style={styles.box2} key = {k}>
                                                    <TouchableOpacity
-                                                   
+                                                         activeOpacity={1}
                                                    onPress={()=>this.handleShowAlbum(index,k)}
                                                   >
                                                        <Image source={{uri:v}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
@@ -249,7 +250,7 @@ ListEmptyComponent(){
                                                return (
                                                    <View style={styles.box2} key = {k}>
                                                        <TouchableOpacity
-                                                       
+                                                             activeOpacity={1}
                                                        onPress={()=>this.handleShowAlbum(index,k)}
                                                        >
                                                            <Image source={{uri:v}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
@@ -264,35 +265,36 @@ ListEmptyComponent(){
 
                                        {/* tag标签 */}
                                        <View style={item.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{item.tag}</Text>
+                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5,color:"#333"}}>{item.tag}</Text>
                                        </View>
 
                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity       activeOpacity={1}>
                                                 <View style={{flexDirection:'row',marginLeft:"10%"}}>
-                                                    <TouchableOpacity onPress={()=>{this.update_dianzan(item),DeviceEventEmitter.emit('dianzan',1)}}
+                                                    <TouchableOpacity  activeOpacity={1} onPress={()=>{this.update_dianzan(item),DeviceEventEmitter.emit('dianzan',1)}}
                                                     >
                                                         <Ionicons
                                                         name={item.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}
-                                                        color={item.dianzan_username === this.state.denglu_username ? 'red' : 'black'}
+                                                        color={item.dianzan_username === this.state.denglu_username ? 'red' : '#333'}
                                                         />
                                                     </TouchableOpacity> 
-                                                    <Text style={{marginLeft:5}}>{item.dianzan}</Text>
+                                                    <Text style={{marginLeft:5,color:"#333"}}>{item.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>
-                                            <TouchableOpacity onPress={()=>this.context.navigate('Comment',item)}>
+                                            <TouchableOpacity       activeOpacity={1} onPress={()=>this.context.navigate('Comment',item)}>
                                             <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                 <Ionicons
                                                 name="chatbubble-ellipses-outline"
                                                 size={20}
-                                                color="black"/>
-                                                <Text style={{marginLeft:5}}>{item.counts}</Text>
+                                                color="#333"/>
+                                                <Text style={{marginLeft:5,color:"#333"}}>{item.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
+                                                  activeOpacity={1}
                                              onPress={() => {
-                                                
+                                              
                                                 this.onShare();
                                               }}
                                             >
@@ -300,7 +302,7 @@ ListEmptyComponent(){
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}
-                                                    color="#000"/>
+                                                    color="#333"/>
                                                 </View>
                                             </TouchableOpacity>
                                        </View>
@@ -317,11 +319,11 @@ ListEmptyComponent(){
                  {/* 顶部标题栏 */}
                  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,backgroundColor:"#fff"}}> 
                     <TouchableOpacity activeOpacity={1} style={{ }}>
-                        <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+                        <AntDesign onPress={()=>this.props.navigation.goBack()} style={{marginLeft:width*0.05,textAlignVertical:'center',height:"100%",color:"#333" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
-                    <View style={{width:width*0.85,marginLeft:"2%",alignItems:'center'}}>
-                        <Text style={{fontSize:15,fontWeight:"bold",color:"#000"}}>{this.props.route.params.tag}</Text>
-                    </View>
+                 
+                        <Text style={{fontSize:15,fontWeight:"bold",color:"#333",fontWeight:"bold",marginLeft:"2%"}}>{this.props.route.params.tag}</Text>
+                   
                 </View> 
 
                 <FlatList
@@ -379,9 +381,11 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         marginBottom:5,
+        color:"#333"
     },
     txt:{
         marginTop:10,
         fontSize:15,
+        color:"#333"
     },
 });
