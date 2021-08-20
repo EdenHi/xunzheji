@@ -186,11 +186,8 @@ export default function StackNav() {
       <Stack.Screen name="Shoucang2" component={Shoucang2} />
       <Stack.Screen name="Output2" component={Output2} />
       <Stack.Screen name="Goods2" component={Goods2} />
-<<<<<<< HEAD
       <Stack.Screen name="drawpic" component={drawpic} />
-=======
       <Stack.Screen name="dingzhi_xuqiu" component={dingzhi_xuqiu} />
->>>>>>> 1530b788771ae8f24ddffc32889f59715de1e20b
     </Stack.Navigator>
   );
 }
