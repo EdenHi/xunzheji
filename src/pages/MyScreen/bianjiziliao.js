@@ -295,7 +295,7 @@ export default class app1 extends Component {
                             <ListItem.Subtitle style={{fontSize:15}}>{sex}</ListItem.Subtitle>
                             <ListItem.Chevron size={30}/>
                         </ListItem>
-                    {/* 修改昵称结束 */}
+                    {/* 修改性别结束 */}
 
 
                     {/* 修改手机号 */}
