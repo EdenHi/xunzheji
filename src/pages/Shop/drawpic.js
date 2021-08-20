@@ -9,28 +9,79 @@ import {
   TouchableHighlight,
   StyleSheet,
   ImageBackground,
-  FlatList,Dimensions
+  FlatList,Dimensions,
+  DeviceEventEmitter,
+
 } from 'react-native';
+import { WebView } from 'react-native-webview';
 import AntDesign from "react-native-vector-icons/AntDesign"
-import Draw from './draw/index'
+
+import { captureRef } from "react-native-view-shot";
+import { createRef } from 'react';
+
 const {width, height} = Dimensions.get('window');
-export default function drawpic() {
-  return (
-    <View style={{ width:width,height:height ,alignItems:"center"}}>
-         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,width:width, justifyContent: "center" ,backgroundColor:"#fff"}}>
-                <TouchableOpacity
-                 activeOpacity={1} style={{}}>
-                    <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
-                </TouchableOpacity>
-                <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333", width: width * 0.85, marginLeft: "2%" }}>灵魂画手定制专区</Text>
+export default class Drawpic extends Component{
+  constructor(props){
+    super(props)
+      this.state={
+        shoturi:''
+
+    }
+  }
+
+
+  render(){
+    const viewRef = createRef();
+    return (
+      <View style={{ width:width,height:height ,alignItems:"center"}}>
+           <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,width:width, justifyContent: "center" ,backgroundColor:"#fff"}}>
+                  <TouchableOpacity
+                   activeOpacity={1} style={{}}>
+                      <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
+                  </TouchableOpacity>
+                  <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333", width: width * 0.85, marginLeft: "2%" }}>灵魂画手定制专区</Text>
+                  <AntDesign onPress={() => {
+                        captureRef(viewRef, {
+                            format: "jpg",
+                            quality: 0.8
+                        }).then(
+                            uri => {
+                                console.log("Image saved to", uri),
+                                    this.setState({ shoturi: uri })
+                            },
+                            error => console.error("Oops, snapshot failed", error)
+                        ),DeviceEventEmitter.emit('Draw', {drawpic:this.state.shoturi,pic3:true})
+                    }} style={{ color: "#333333" }} name="check" size={20} color="#000000" />
+              </View>
+          <View style={{width:width,height:height*0.93}}>
+         
+
+            <View style={styles.div} >
+                <WebView ref={viewRef} collapsable={false}
+                    style={styles.webView1}
+                    source={ {uri:'file:///android_asset/draw/index.html'}}
+                />
             </View>
-        <View style={{width:width,height:height*0.93}}>
-      <Draw  >
-      </Draw>
-      </View>  
-      <TouchableOpacity style={{width:width*0.5,height:height*0.05,borderRadius:20,elevation:5,backgroundColor:"#7cc0c0",position:"absolute",marginTop:height*0.8,alignItems:"center",justifyContent:"center"}}>
-          <Text style={{fontSize:20,fontWeight:"bold",color:"#fff"}}>去定制</Text>
-      </TouchableOpacity>
-    </View>
-  );
+        </View>  
+  
+      </View>
+    );
+  }
+
 }
+const styles = StyleSheet.create({
+
+  div: {
+      flex: 1,
+      flexDirection: 'row',
+      backgroundColor: "#F5F5F5"
+  },
+  webView1: {
+      backgroundColor: '#000001',
+
+      flex: 1,
+      width: '100%',
+      height: '100%',
+  },
+
+});

@@ -164,7 +164,7 @@ export default function StackNav() {
       <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
-      <Stack.Screen name="drawpic" component={drawpic} />
+
 
       <Stack.Screen name="Story" component={Story} />      
       <Stack.Screen name="Story2" component={Story2} />      
@@ -185,6 +185,7 @@ export default function StackNav() {
       <Stack.Screen name="Shoucang2" component={Shoucang2} />
       <Stack.Screen name="Output2" component={Output2} />
       <Stack.Screen name="Goods2" component={Goods2} />
+      <Stack.Screen name="drawpic" component={drawpic} />
     </Stack.Navigator>
   );
 }

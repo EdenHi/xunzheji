@@ -10,6 +10,8 @@ import {
     TouchableOpacity,
     Text,
     Modal,
+    FlatList,
+    DeviceEventEmitter
 } from 'react-native';
 import { View } from 'react-native-animatable';
 import AntDesign from "react-native-vector-icons/AntDesign"
@@ -18,6 +20,7 @@ import { ImageBackground } from 'react-native';
 import { captureRef } from "react-native-view-shot";
 import { createRef } from 'react';
 import ScrollableTabView, { DefaultTabBar, ScrollableTabBar } from 'react-native-scrollable-tab-view';
+import ImagePicker from 'react-native-image-crop-picker';
 const { width, height } = Dimensions.get('window');
 
 class Draggable extends Component {
@@ -25,11 +28,15 @@ class Draggable extends Component {
         super(props);
         this.state = {
             pic1: false,
+            pic2: false,
+            pic3: false,
             pan: new Animated.ValueXY(),
             scale: new Animated.Value(1),
             rotate: new Animated.Value(0),
             shoturi: '',
             modalVisible4: false,
+            CustomPic: '',
+            drawPic: '',
         };
     }
     setModalVisible4 = (visible) => {
@@ -73,12 +80,44 @@ class Draggable extends Component {
             }
         });
     }
+    //打开本地图册
+    _openPicker() {
 
+        ImagePicker.openPicker({
+            width: 400,
+            height: 400,
+            cropping: true,
+            multiple: true,
+            maxFiles: 9,
+        }).then(image => {
+            console.log(image[0]);
+            this.setState({ CustomPic: image[0].path })
+            // console.log('add', this.state.images);
+        });
+    }
+    CustomShow() {
+        if (this.state.pic2 === false) {
+            this.setState({ pic2: !this.state.pic2 })
+        } else {
+            this.setState({ CustomPic: '' })
+        }
+    }
+    componentDidMount() {
+        this.listener = DeviceEventEmitter.addListener('Draw', (param)=>{
+            this.setState({drawPic:param.drawPic})
+            this.setState({pic3:!this.state.pic3})
+            console.log('666',param);
+            //  use param do something
+        });
+    }
+    componentWillUnmount(){
+        this.listener.remove();
+    }
+  
     render() {
 
         const viewRef = createRef();
         // 从state中取出pan
-
         const { pan, scale } = this.state;
         // 从pan里计算出偏移量
         const [translateX, translateY] = [pan.x, pan.y];
@@ -91,6 +130,12 @@ class Draggable extends Component {
         const imageStyle = { transform: [{ translateX }, { translateY }, { scale }, { rotate }] };
         const ShowPic1 = this.state.pic1 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
             <Image style={{ width: width * 0.4, height: width * 0.4 }} source={require('../img/T.jpg')} />
+        </Animated.View> : null;
+        const CustomPic = this.state.pic2 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
+            <Image style={{ width: width * 0.4, height: width * 0.4 }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
+        </Animated.View> : null;
+        const DrawPic = this.state.pic3 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
+            <Image style={{ width: width * 0.4, height: width * 0.4,borderWidth:1 }} resizeMode={'contain'} source={{uri:this.state.drawPic}} />
         </Animated.View> : null;
         const { modalVisible4 } = this.state;
         return (
@@ -148,6 +193,8 @@ class Draggable extends Component {
                 <View style={{ width: width, height: height * 0.65, backgroundColor: "#fff" }} ref={viewRef} collapsable={false}>
                     <ImageBackground source={require('../img/134880490.png')} style={{ width: '100%', height: '100%' }}>
                         {ShowPic1}
+                        {CustomPic}
+                        {DrawPic}
                     </ImageBackground>
 
 
@@ -180,8 +227,23 @@ class Draggable extends Component {
                                 <TouchableOpacity style={{ width: width * 0.25, height: width * 0.25 }}><Image style={{ width: "100%", height: "100%" }} source={require("../img/T.jpg")}></Image></TouchableOpacity>
                             </View>
                         </View>
-                        <View tabLabel="自定义" style={{ borderWidth: 1, width: width }}>
+                        <View tabLabel="自定义" style={{ width: width * 0.8, marginLeft: width * 0.1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker(), this.CustomShow() }} style={{ borderWidth: 0, width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
+                                <Image style={{ width: '100%', height: '80%' }} source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }}>
 
+                                </Image>
+                                <Text style={{ width: '100%', height: '20%', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, color: '#333' }}>
+                                    上传图片
+                                </Text>
+                            </TouchableOpacity>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic') }} style={{ borderWidth: 0, width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
+                                <Image style={{ width: '100%', height: '80%' }} source={require('../img/drawimg.png')}>
+
+                                </Image>
+                                <Text style={{ width: '100%', height: '20%', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, color: '#333' }}>
+                                    绘制图片
+                                </Text>
+                            </TouchableOpacity>
                         </View>
 
                     </ScrollableTabView>
