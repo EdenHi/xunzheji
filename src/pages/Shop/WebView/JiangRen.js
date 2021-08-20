@@ -10,7 +10,7 @@ export default class JiangRen extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <View style={{ flex: 1 }}>
+            <View>
                 <ImageBackground style={{ width: width * 0.9, height: width * 0.9, marginHorizontal: width * 0.05 ,marginTop:10}} borderRadius={10} source={{ uri: "https://img0.baidu.com/it/u=891597252,2888416509&fm=26&fmt=auto&gp=0.jpg" }}>
                     <View style={{ margin: 15,backgroundColor:"rgba(255,255,255,0.5)",width:width*0.3,height:60,justifyContent:"center",alignItems:"center",borderRadius:10}}>
                         <View style={{ }}><Text style={{ fontSize: 25, fontWeight: "bold" }}>洪建华</Text></View>
