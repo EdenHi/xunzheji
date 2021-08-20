@@ -196,18 +196,17 @@ export default class Output2 extends Component {
     console.log('我的发布', this.props.route);
     return (
       <View style={styles.container}>
-         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,justifyContent: "space-between" ,backgroundColor:"#7cc0c0"}}>
-                    <TouchableOpacity activeOpacity={1} style={{}}>
+         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
+                    <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05}}>
                         <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>我的发布</Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>我的发布</Text>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
                     </TouchableOpacity>
                 </View>
-        <LinearGradient style={{padding:20}} colors={["#7cc0c0","#fff","#fff"]}>
           <ScrollView
-            style={{ height: height - 50 - 120 }}
+            style={{ height: height - 50 - 120 ,width:width*0.9,marginLeft:width*0.05,marginTop:"2%"}}
             ref={ref => this.scrollRef = ref}
             onScroll={(e) => {
               if (e.nativeEvent.contentOffset.y === 0) {
@@ -235,7 +234,6 @@ export default class Output2 extends Component {
               renderDetail={this.renderDetail.bind(this)}
             />
           </ScrollView>
-        </LinearGradient>
       </View>
     );
   }

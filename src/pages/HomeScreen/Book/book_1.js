@@ -54,7 +54,7 @@ export default class book_1 extends Component {
                             size={30}/>
                             <Text>听书</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center'}}  onPress={()=>this.props.navigation.navigate('book_xiangqing')}>
+                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center'}}  onPress={()=>this.props.navigation.navigate('book_xiangqing',{k:0})}>
                             <Text style={{backgroundColor:'#7cc0c0',paddingTop:10,paddingBottom:10,paddingLeft:20,paddingRight:20,borderRadius:20}}>立即免费阅读</Text>
                         </TouchableOpacity>
                     </View>

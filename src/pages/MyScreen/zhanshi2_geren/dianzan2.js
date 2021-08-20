@@ -93,14 +93,11 @@ export default class Dianzan2 extends Component {
     render() {
         return (
             <View style={{ width }}>
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,justifyContent: "space-between" ,backgroundColor:"#7cc0c0"}}>
-                    <TouchableOpacity activeOpacity={1} style={{}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0"}}>
+                    <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05}}>
+                        <AntDesign onPress={() => this.props.navigation.goBack()} name="left" size={20} color="#fff" />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>我的点赞</Text>
-                    <TouchableOpacity activeOpacity={1} style={{}}>
-                        <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
-                    </TouchableOpacity>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>我的点赞</Text>
                 </View>
                 <ScrollView
                     style={{ height: height - 50 - 120 }}

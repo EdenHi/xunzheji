@@ -103,7 +103,7 @@ export default class JiFen extends Component {
                         <TouchableOpacity activeOpacity={1} >
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>金币福利</Text>
+                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>金币福利</Text>
                     </View>
                     <View style={{ height: height * 0.93 }}>
                         <ScrollView>

@@ -104,19 +104,23 @@ export default class Swop extends Component {
       clickable={true}
       onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
     >
-      <View style={{ marginHorizontal: width * 0.1, marginVertical: height * 0.15 }} key={index}>
-        <ImageBackground style={{ width: width * 0.8, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri:this.state.imgUrl }} >
-          <View style={{ backgroundColor: "#fff", opacity: 0.7, width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
-            <Text style={{ fontSize: 16, fontWeight: "bold" }}>交换的物品：</Text>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.wupin}</Text>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>想换什么：</Text>
-            <Text style={{ fontSize: 14, fontWeight: "bold" }}>{item.exchang_wupin}</Text>
+      <View style={{ marginHorizontal: width * 0.05, marginVertical: height * 0.15 }} key={index}>
+      <View style={{width:50,height:50,zIndex:5,marginLeft:width*0.7,position:"absolute",marginTop:height*0.03}}>
+      <LottieView style={{width:60,height:40}} source={require('../../../../animal/change.json')} autoPlay loop progress={this.state.progress} />
+      </View>
+        <ImageBackground imageStyle={{borderRadius:15}} style={{ width: width * 0.9, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri:this.state.imgUrl }} >
+        
+          <View style={{ backgroundColor:"rgba(255,255,255,0.7)", width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
+            <Text style={{ fontSize: 16, fontWeight: "bold" ,color:"#333333"}}>交换的物品：</Text>
+            <Text style={{ fontSize: 14, fontWeight: "bold" ,color:"#333333"}}>{item.wupin}</Text>
+            <Text style={{ fontSize: 14, fontWeight: "bold",color:"#333333" }}>想换什么：</Text>
+            <Text style={{ fontSize: 14, fontWeight: "bold" ,color:"#333333"}}>{item.exchang_wupin}</Text>
           </View>
         </ImageBackground>
       </View>
-      <View style={{ backgroundColor: '#7cc0c0', marginHorizontal: width * 0.05, height: '80%', width: width * 0.9, borderRadius: 10, marginTop: 40, opacity: 0.8, padding: 10 }}>
+      <View style={{ backgroundColor: 'rgba(255,255,255,0.8)', marginHorizontal: width * 0.05, height: height*0.6, width: width * 0.9, borderRadius: 10, marginTop: height*0.15, padding: 10 }}>
         <View style={{}}>
-          <Text style={{ fontSize: 14 }}>
+          <Text style={{ fontSize: 15,fontWeight:"bold",color:"#333333" }}>
               {item.liyou}
           </Text>
         </View>
@@ -129,7 +133,7 @@ export default class Swop extends Component {
           <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
         </View>
         <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats',{room:'2'})}} style={{flexDirection:"row",width:width*0.2,height:50,alignItems:"center",marginTop:15,marginLeft:"70%"}} >
-          <View style={{width:50,height:40}}><Text style={{fontWeight:"bold",fontSize:16}}>我想要</Text></View>
+          <View style={{width:50,height:40}}><Text style={{fontWeight:"bold",fontSize:15,color:"#7cc0c0"}}>我想要</Text></View>
           <LottieView style={{width:60,height:40}} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
         </TouchableOpacity>
       </View>
@@ -149,9 +153,9 @@ export default class Swop extends Component {
         </BlurView>
         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
           <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#7cc0c0" }} name="left" size={20} color="#000000" />
+            <AntDesign  name="left" size={20} color="#fff" />
           </TouchableOpacity>
-          <Text style={{ fontSize: 15, fontWeight: "bold", color: "#7cc0c0", width: width * 0.85, marginLeft: "2%" }}>以物换物</Text>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>以物换物</Text>
         </View>
         <FlatList
         data={data}

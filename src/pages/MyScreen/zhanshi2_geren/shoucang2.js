@@ -84,19 +84,19 @@ export default class Shhoucang2 extends Component {
         const {data} = this.state;
         return (
             <View style={{width:width * 1}}>
-                 <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,justifyContent: "space-between" ,backgroundColor:"#7cc0c0"}}>
+                 <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0"}}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center',marginLeft:width*0.05, height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>我的收藏</Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff",marginLeft:"2%" }}>我的收藏</Text>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
                     </TouchableOpacity>
                 </View>
-                <View style={{marginHorizontal:width*0.05}}>
+                <View style={{marginHorizontal:width*0.05,height:height*0.93}}>
                 <ScrollView
                 showsVerticalScrollIndicator={false}
-                style={{height}}
+                style={{}}
                 ref={ref => this.scrollRef = ref}
                 onScroll={(e) =>{
                   console.log('e22',e.nativeEvent.contentOffset.y);
@@ -225,7 +225,7 @@ export default class Shhoucang2 extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
+                <ImageBackground style={{height:150,marginTop:10,marginBottom:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
