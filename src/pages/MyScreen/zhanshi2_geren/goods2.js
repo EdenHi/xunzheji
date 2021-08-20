@@ -33,7 +33,7 @@ export default class Goods2 extends Component {
   constructor(props){
     super(props)
     this.state = {
-      imgUrl:  'https://img0.baidu.com/it/u=3712013035,1473651045&fm=15&fmt=auto&gp=0.jpg' ,
+      imgUrl:  'https://img2.baidu.com/it/u=1117600195,1203371203&fm=26&fmt=auto&gp=0.jpg' ,
       data:[],
       open:false,
       visible:false,

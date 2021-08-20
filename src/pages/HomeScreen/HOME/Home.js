@@ -103,13 +103,13 @@ export default class Home extends Component {
                                 </View>
                                 <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
                                     <View>
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
+                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
                                             <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                             <View style={{ marginLeft: 10,width:width*0.75 }}>
                                                 <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商历史推荐</Text>
                                                 <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
                                             </View>
-                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                                                 <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                             </TouchableOpacity>
                                         </TouchableOpacity>
@@ -117,7 +117,7 @@ export default class Home extends Component {
                                         <ScrollView
                                             horizontal={true} showsHorizontalScrollIndicator={false} 
                                         >
-                                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
                                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.8, marginLeft: 5, marginRight: 10, elevation: 5 }}>
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
@@ -135,7 +135,7 @@ export default class Home extends Component {
                                                 </View>
                                             </TouchableOpacity>
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3608384836,3487578051&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=301' }}>
-                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic1', { wenzhang_id: 2 })} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Topic1', { wenzhang_id: 2 })} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>“浙商人”在非洲</Text></View>
                                                     <View style={{ flex: 1 }}>
@@ -148,7 +148,7 @@ export default class Home extends Component {
                                                 </TouchableOpacity>
                                             </ImageBackground>
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
-                                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 3 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                                <TouchableOpacity activeOpacity={1}  onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 3 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
                                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
                                                     <View style={{ flex: 1 }}>
@@ -164,18 +164,18 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                                <View style={{ height: 250, backgroundColor: 'white', borderRadius: 10, marginTop: 10 }} >
-                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
+                                <View style={{ height: 230, backgroundColor: 'white', borderRadius: 10, marginTop: 10 }} >
+                                    <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75 }}>
                                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商必知丛书</Text>
                                             <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                         </View>
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
-                                    <View style={{ flexDirection: 'row' }}>
+                                    <View style={{ flexDirection: 'row' ,width:width*0.9,marginLeft:width*0.025}}>
                                         <Homepagebook navigation={this.props.navigation} />
                                         {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
                                             <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://8.142.11.85:3000/public/images/sj1.jpeg' }} /></View>
@@ -212,7 +212,7 @@ export default class Home extends Component {
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity> */}
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Road', {
+                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Road', {
                                             username: this.state.username,
                                         })} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
@@ -224,10 +224,10 @@ export default class Home extends Component {
                                                 <View><Image style={{ height: 80, width: width * 0.3, borderRadius: 10, marginLeft: 5, alignItems: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/jm2.jpeg' }} /></View>
                                                 <View style={{}}>
                                                     <Text style={{ color: '#f4a460', fontSize: 13, fontWeight: 'bold', marginLeft: 10 }}>鸡毛换糖</Text>
-                                                    <Text style={{ color: '#000000', fontSize: 12, marginLeft: 7, flexWrap: 'wrap', width: width * 0.52 }}>&emsp;&emsp;鸡毛换糖最著名的是义乌，义乌市场形成的历史就是鸡毛换糖的历史，是鸡毛换糖慢慢形成的！</Text>
+                                                    <Text style={{ fontSize: 12, marginLeft: 7, flexWrap: 'wrap', width: width * 0.52,color:"#333"  }}>&emsp;&emsp;鸡毛换糖最著名的是义乌，义乌市场形成的历史就是鸡毛换糖的历史，是鸡毛换糖慢慢形成的！</Text>
                                                 </View>
                                             </View>
-                                            <View ><Text style={{ width: width * 0.88, flexWrap: 'wrap', fontSize: 12 }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
+                                            <View ><Text style={{ width: width * 0.88, flexWrap: 'wrap', fontSize: 12,color:"#333"  }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
                                         </View>
                                     </TouchableOpacity>
                                     <View style={{ height: 120, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center', margin: 10, borderRadius: 10, elevation: 5, paddingTop: 10 }}>
@@ -237,7 +237,7 @@ export default class Home extends Component {
                                                     <View><Image style={{ height: 100, width: width * 0.3, borderRadius: 10, marginLeft: 5, alignItems: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/jm1.jpeg' }} /></View>
                                                     <View >
                                                         <Text style={{ color: '#f4a460', fontSize: 13, fontWeight: 'bold', marginLeft: 10 }}>敲糖帮</Text>
-                                                        <Text style={{ color: '#000000', fontSize: 12, marginLeft: 10, flexWrap: 'wrap', width: width * 0.52 }} >&emsp;&emsp;鸡毛换糖的人又被称为敲糖帮。从事鸡毛换糖的人多了久而久之就形成了一个群体，人们习惯于称他们“敲糖帮”，是从事鸡毛换糖的人的一个组织。</Text>
+                                                        <Text style={{  fontSize: 12,color:"#333" , marginLeft: 10, flexWrap: 'wrap', width: width * 0.52 }} >&emsp;&emsp;鸡毛换糖的人又被称为敲糖帮。从事鸡毛换糖的人多了久而久之就形成了一个群体，人们习惯于称他们“敲糖帮”，是从事鸡毛换糖的人的一个组织。</Text>
                                                     </View>
                                                 </View>
                                             </TouchableOpacity>
@@ -246,7 +246,7 @@ export default class Home extends Component {
                                                     <View><Image style={{ height: 100, width: width * 0.3, borderRadius: 10, marginLeft: 5, alignItems: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/jm5.jpeg' }} /></View>
                                                     <View style={{}}>
                                                         <Text style={{ color: '#f4a460', fontSize: 13, fontWeight: 'bold', marginLeft: 10 }}>鸡毛换糖的路线</Text>
-                                                        <Text style={{ color: '#000000', fontSize: 12, marginLeft: 10, flexWrap: 'wrap', width: width * 0.52 }} >&emsp;&emsp;最早的鸡毛换糖，形成于我国的浙江省义乌地区，而义乌最初的鸡毛换糖是从廿三里镇开始的...</Text>
+                                                        <Text style={{  fontSize: 12,color:"#333" , marginLeft: 10, flexWrap: 'wrap', width: width * 0.52 }} >&emsp;&emsp;最早的鸡毛换糖，形成于我国的浙江省义乌地区，而义乌最初的鸡毛换糖是从廿三里镇开始的...</Text>
                                                     </View>
                                                 </View>
                                             </TouchableOpacity>
@@ -255,7 +255,7 @@ export default class Home extends Component {
                                                     <View><Image style={{ height: 100, width: width * 0.3, borderRadius: 10, marginLeft: 5, alignItems: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/jm4.jpeg' }} /></View>
                                                     <View style={{}}>
                                                         <Text style={{ color: '#f4a460', fontSize: 13, fontWeight: 'bold', marginLeft: 10 }}>鸡毛换糖的故事</Text>
-                                                        <Text style={{ color: '#000000', fontSize: 12, marginLeft: 10, flexWrap: 'wrap', width: width * 0.52 }} numberOfLines={5}>&emsp;&emsp;听妈妈说，她儿时在家玩耍的时候，每次听到“拨浪鼓”的声音，都要高兴地往外跑。只见一个叔叔手摇着“拨浪鼓”，肩上挑着货郎担，嘴里大声吆喝着“鸡毛换糖喽……”</Text>
+                                                        <Text style={{  fontSize: 12,color:"#333" , marginLeft: 10, flexWrap: 'wrap', width: width * 0.52 }} numberOfLines={5}>&emsp;&emsp;听妈妈说，她儿时在家玩耍的时候，每次听到“拨浪鼓”的声音，都要高兴地往外跑。只见一个叔叔手摇着“拨浪鼓”，肩上挑着货郎担，嘴里大声吆喝着“鸡毛换糖喽……”</Text>
                                                     </View>
                                                 </View>
                                             </TouchableOpacity>

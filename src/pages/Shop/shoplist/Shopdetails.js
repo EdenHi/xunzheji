@@ -45,7 +45,7 @@ export default class Shopdetails extends Component {
     this.setState({ modalVisible1: visible });
   }
 
-  _onScroll(e) {
+  _onScroll(e) {  
     const offsetY = e.nativeEvent.contentOffset.y;
 
     if (offsetY > 100) {

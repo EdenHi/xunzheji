@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 import {
     StyleSheet,
@@ -8,7 +9,7 @@ import {
     Alert
 } from 'react-native';
 import PropTypes from 'prop-types';
-import UI from './UI';
+import UI from '../UI';
 
 export default class BarrageInputView extends Component {
     constructor(props) {
@@ -59,16 +60,16 @@ const styles = StyleSheet.create({
     },
     barrageView: {
         height: UI.size.screenHeight / 9,
-        backgroundColor:'black'
     },
     textInputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        backgroundColor: 'red',
         paddingLeft: 24,
     },
     textInput: {
         backgroundColor: 'gray',
-        height: 50,
+        height: 40,
         width: 200,
     },
     button: {

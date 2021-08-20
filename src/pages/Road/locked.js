@@ -152,8 +152,8 @@ export default class Locked extends Component {
     if (this.state.isUnlock === 'false') {
       return (
         <FlipCard>
-          <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.6, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
-            <View style={{ width: '90%', marginHorizontal: '5%', borderColor: 'green', height: '60%', borderRadius: 60, marginTop: "5%" }}>
+          <View style={{ width: '100%', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, backgroundColor:"#fff",elevation:5 }}>
+            <View style={{ width: '85%', marginHorizontal: '7%', height: '60%', borderRadius: 60, marginTop: "5%" }}>
               <Image style={{ width: '100%', height: '100%', }} borderRadius={60} source={{ uri: 'https://img.zcool.cn/community/01e7bf58c8c065a801219c77f23072.jpg@1280w_1l_2o_100sh.jpg' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
                 <ImageBackground style={{ width: '100%', height: '100%', }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}>
@@ -165,8 +165,8 @@ export default class Locked extends Component {
                 </ImageBackground>
               </View>
             </View>
-            <Text style={{ marginTop: '5%', fontSize: 25, paddingLeft: '7.5%', width: '70%', color: "#333" }}>{this.props.roadname}</Text>
-            <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: "#333" }}>可获得 <FontAwesome5
+            <Text style={{ marginTop: '5%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: "#333" }}>{this.props.roadname}</Text>
+            <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: "#333" }}>可获得 <FontAwesome5
               name='coins'
               size={15}
               color='gold'
@@ -175,26 +175,23 @@ export default class Locked extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.roadNumber
-            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
+            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%',elevation:5 }}>
               <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.6, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
-            <View style={{ width: '90%', marginHorizontal: '5%', borderColor: 'green', height: '60%', borderRadius: 60, marginTop: "5%" }}>
+          <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
+            <View style={{ width: '85%', marginHorizontal: '7%', borderColor: 'green', height: '60%', borderRadius: 60, marginTop: "5%" }}>
               <Image style={{ width: '100%', height: '100%', }} borderRadius={60} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
-
-
-
               </View>
             </View>
 
-            <Text style={{ marginTop: 10, fontSize: 20, width: '100%', color: "#7cc0bf", textAlign: 'center' }}>共225用户参与</Text>
-            <Text style={{ marginTop: 10, width: '80%', marginHorizontal: '10%', fontSize: 15, textAlign: 'center' }}>空蒙山色里住着诗人的一直，潋滟水光映透西子成鱼落雁般的容颜，柔美的线条中透露江南韵味。</Text>
+            <Text style={{ marginTop: 10, fontSize: 15, width: '100%', color: "#7cc0bf", textAlign: 'center' }}>共225用户参与</Text>
+            <Text style={{ marginTop: 10, width: '80%', color: "#333", marginHorizontal: '10%', fontSize: 12, textAlign: 'center' }}>空蒙山色里住着诗人的一直，潋滟水光映透西子成鱼落雁般的容颜，柔美的线条中透露江南韵味。</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.road
-            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' }}>
+            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' ,elevation:5}}>
               <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
@@ -202,15 +199,15 @@ export default class Locked extends Component {
       );
     } else
       return (
-        <View style={{ width: '100%', height: height * 0.165, backgroundColor: '#93c9c9', marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15, elevation: 0.8 }}>
-          <Text style={{ marginTop: '7%', fontSize: 25, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>{this.props.roadname}</Text>
-          <Text style={{ fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得 <FontAwesome5
+        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#7cc0c0', elevation:5 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
+          <Text style={{ marginTop: '7%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>{this.props.roadname}</Text>
+          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得 <FontAwesome5
               name='coins'
               size={15}
               color='gold'
             /> 25</Text>
           <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>共225用户参与</Text>
-          <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-21%', borderRadius: 50, backgroundColor: '#729c9c' }}>
+          <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-19%', borderRadius: 50, backgroundColor: '#729c9c' ,elevation:5}}>
             <Fontisto style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', }}
               onPress={() => {
                 this.showAlert()
@@ -232,7 +229,7 @@ export default class Locked extends Component {
             confirmText="确认"
             cancelText="取消"
 
-            confirmButtonColor="#93c9c9"
+            confirmButtonColor="#7cc0c0"
             onCancelPressed={() => {
               this.hideAlert();
 
