@@ -83,7 +83,8 @@ import {
   Dianzan2,
   Output2,
   Goods2,
-  drawpic
+  drawpic,
+  dingzhi_xuqiu
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -185,6 +186,7 @@ export default function StackNav() {
       <Stack.Screen name="Shoucang2" component={Shoucang2} />
       <Stack.Screen name="Output2" component={Output2} />
       <Stack.Screen name="Goods2" component={Goods2} />
+      <Stack.Screen name="dingzhi_xuqiu" component={dingzhi_xuqiu} />
     </Stack.Navigator>
   );
 }

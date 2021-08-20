@@ -107,7 +107,7 @@ export default class Heritage extends Component {
                       color="#7cc0c0"
                     />
                             </TouchableOpacity>
-                            <TouchableOpacity  activeOpacity={1} style={{ width: width * 0.6, height: height*0.05,backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
+                            <TouchableOpacity onPress={()=>this.props.navigation.navigate('dingzhi_xuqiu')} activeOpacity={1} style={{ width: width * 0.6, height: height*0.05,backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
                                 <Text style={{ fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
                                 </TouchableOpacity>
                         </View>
