@@ -1,8 +1,14 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
 import React, { Component } from 'react';
 import { StyleSheet, View, DeviceEventEmitter } from 'react-native';
 import PropTypes from 'prop-types';
 import BarrageItem from './BarrageItem';
-import UI from './UI';
+import UI from '../UI';
 
 export default class BarrageMoveView extends Component {
     constructor(props) {
@@ -84,7 +90,7 @@ export default class BarrageMoveView extends Component {
                     })
                 }
             }
-        }, 10);
+        }, 30);
     }
 
     // 添加数据
@@ -157,13 +163,13 @@ export default class BarrageMoveView extends Component {
             barrragesOfLine.forEach((b, innerIndex) => {
                 const barrageItem = (
                     <BarrageItem
-                
                         ref={(a) => this.setRefs(a, index,innerIndex)}
                         line={b.indexOfLine}
                         key={b.id}
                         data={b}
-                        speed={3}
-                        heightOfLine={50}
+                        speed={2}
+                        type={2}
+                        heightOfLine={45}
                     />
                 )
                 views.push(barrageItem);
@@ -171,6 +177,7 @@ export default class BarrageMoveView extends Component {
         }
         return views;
     }
+
     render() {
         console.debug('[BarrageView]')
         const barrageItems = this.getBarrageItems();

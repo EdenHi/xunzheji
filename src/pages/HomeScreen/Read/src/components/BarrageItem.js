@@ -1,18 +1,18 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
 import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
     View,
     Image,
-    FlatList,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import UI from './UI';
-
-var https = "http://121.196.191.45";
-// var http = "http://192.168.50.91:3000";
-var http = "http://121.196.191.45:3000";
-var URL1 = http + "/luntan/message1";
+import UI from '../UI';
 
 const imageWidth = 20;
 
@@ -22,13 +22,6 @@ export default class BarrageItem extends Component {
         this.position = UI.size.screenWidth;
         this.isFreeState = false; // 是否空闲
         this.width = 0; // 弹幕本身的宽度
-        this.state = {
-            docs: [],
-          };
-        this.icon = [
-            '../img/HomeScreen/pic13.png'
-         
-        ]
     }
 
     static propTypes = {
@@ -61,12 +54,11 @@ export default class BarrageItem extends Component {
         const top = this.getTop();
         return (
             <View
-                style={[styles.view, { top, height:32,alignItems:"center",padding:5,justifyContent:"center",borderRadius:15,left: this.position,backgroundColor:"#fff",elevation:5 }]}
+                style={[styles.view, {  top, height:32,alignItems:"center",padding:5,justifyContent:"center",borderRadius:15,left: this.position,backgroundColor:"#fff",elevation:5 }]}
                 removeClippedSubviews={true}
                 ref={a => this.view = a}
             >
-                <Text style={{fontSize:15}}>{title}</Text>
-                
+                <Text>{title}</Text>
             </View>
         )
     }
@@ -76,29 +68,21 @@ export default class BarrageItem extends Component {
         const { title } = data;
         this.width = UI.fontSize.regular * title.length + imageWidth;
         const top = this.getTop();
-        const icon = this.icon;
-        console.log(data)
         return (
             <View
-                style={[styles.imageView, { top, width: this.width, left: this.position }]}
+                style={[styles.imageView, {  top, height:32,alignItems:"center",padding:5,justifyContent:"center",borderRadius:15,left: this.position,backgroundColor:"#fff",elevation:5  }]}
                 removeClippedSubviews={true}
                 ref={a => this.view = a}
             >
-                {/* <View style={{ flexDirection: 'row', alignItems: 'center',backgroundColor:"red" }}>
-                
-                    <Image style={styles.image} 
-                    source={require("../../pages/img/T.jpg")}
-                    />
-                    <Text>{title}</Text> 
-                </View> */}
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Image style={styles.image} source={require("../../../../img/打卡.png")} />
+                    <Text>{title}</Text>
+                </View>
             </View>
-        );
-}
-
-   
+        )
+    }
 
     render() {
-        
         console.debug('[BarrageItem]')
         const { type } = this.props;
         switch (type) {
@@ -123,7 +107,7 @@ const styles = StyleSheet.create({
     },
     text: {
         backgroundColor: 'red',
-        fontSize: 100,
+        fontSize: UI.fontSize.regular,
         lineHeight: UI.lineHeight.regular,
     },
     imageView: {
@@ -141,7 +125,7 @@ const styles = StyleSheet.create({
     welcome: {
         fontSize: 20,
         textAlign: 'center',
-        margin: 50,
+        margin: 10,
     },
     instructions: {
         textAlign: 'center',
