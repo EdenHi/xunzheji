@@ -11,6 +11,8 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  Animated,
+  Easing,
   RefreshControl,
   DeviceEventEmitter,
   AsyncStorage,
@@ -29,6 +31,7 @@ export default class LunTan extends Component {
     constructor(props){
         super(props);
         this.state = {
+            progress: new Animated.Value(0),
             data:[],
             modalVisible:false,
             pic:[],
@@ -62,6 +65,12 @@ export default class LunTan extends Component {
     }
     componentDidMount() {
         this.get_xinxi();
+        Animated.timing(this.state.progress, {
+            toValue: 1,
+            duration: 3500,
+            easing: Easing.linear,
+          }).start();
+        
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({
@@ -594,13 +603,13 @@ onShare = async () => {
                     <View style={{
                         width: 100,
                         height: 100,
-                        backgroundColor: "rgba(0,0,0,0.6)",
                         opacity: 1,
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius:7
                     }}>
-                        <ActivityIndicator size="large" color="#FFF" />
+                        <LottieView source={require('../../../animal/gift.json')} autoPlay loop progress={this.state.progress} />
+                        {/* <ActivityIndicator size="large" color="#FFF" /> */}
                         <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text>
                     </View>
                 </View>
@@ -654,9 +663,10 @@ const styles = StyleSheet.create({
         color:"#333"
     },
     LoadingPage: {
-        position: "absolute",
-        left: 0,
-        top: 0,
+        // position: "absolute",
+        // left: 0,
+        // top: 0,
+        top:-100,
         backgroundColor: "rgba(0,0,0,0)",
         width: width,
         height: height,

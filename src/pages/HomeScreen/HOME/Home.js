@@ -185,8 +185,8 @@ export default class Home extends Component {
                                         </ScrollView> */}
                                     </View>
                                 </View>
-                                <View style={{ height: 400, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', margin: 10 }}>
+                                <View style={{ height: height*0.35, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
                                         <View style={{width:width*0.75 }}>
                                             <Text onPress={() => {
@@ -230,8 +230,8 @@ export default class Home extends Component {
                                             <View ><Text style={{  flexWrap: 'wrap', fontSize: 12,color:"#333"  }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
                                         </View>
                                     </TouchableOpacity>
-                                    <View style={{ height: 120, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center', margin: 10, borderRadius: 10, elevation: 5, paddingTop: 10 }}>
-                                        <Swiper paginationStyle={{ bottom: -1 }} horizontal={true} autoplay autoplayTimeout={3} >
+                                    {/* <View style={{ height: 120, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center', margin: 10, borderRadius: 10, elevation: 5, paddingTop: 10 }}> */}
+                                        {/* <Swiper paginationStyle={{ bottom: -1 }} horizontal={true} autoplay autoplayTimeout={3} >
                                             <TouchableOpacity activeOpacity={1}>
                                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', justifyContent: 'center' }}>
                                                     <View><Image style={{ height: 100, width: width * 0.3, borderRadius: 10, marginLeft: 5, alignItems: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/jm1.jpeg' }} /></View>
@@ -259,8 +259,23 @@ export default class Home extends Component {
                                                     </View>
                                                 </View>
                                             </TouchableOpacity>
-                                        </Swiper>
-                                    </View>
+                                        </Swiper> */}
+                                    {/* </View> */}
+                                </View>
+                                <View style={{ height: height*0.3, backgroundColor: 'white', borderRadius: 10, marginTop: 10,marginBottom:15 }} >
+                                    <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
+                                        <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                        <View style={{ marginLeft: 10,width:width*0.75 }}>
+                                            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>云游浙商</Text>
+                                            <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TRAVELING ZHEJIANG ERCHANTS</Text>
+                                        </View>
+                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+                                            <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+                                        </TouchableOpacity>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity activeOpacity={1}  onPress={() => this.props.navigation.navigate('vr')}>
+                                    <Image style={{width:width*0.90,marginLeft:width*0.025,height:height*0.2,borderRadius:15}} source={require("../../img/vr.png")}></Image>
+                                    </TouchableOpacity>
                                 </View>
                                 {/* <ScrollView horizontal={true} style={{height:width*0.5}} showsHorizontalScrollIndicator={false}>
                         <Card navigation={this.props.navigation} />
@@ -273,7 +288,7 @@ export default class Home extends Component {
                         <Card navigation={this.props.navigation} />
                         <Card navigation={this.props.navigation} />
                     </ScrollView> */}
-                                <View style={{ height: 800, backgroundColor: '#fff', borderRadius: 10 }}>
+                                <View style={{ height: height*0.9, backgroundColor: '#fff', borderRadius: 10 }}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75  }}>
