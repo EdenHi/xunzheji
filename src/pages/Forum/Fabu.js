@@ -165,6 +165,7 @@ export default class Fabu extends Component {
             }
             this.setState({ arr })
             //     console.log('arr',arr[1])
+            
         });
     }
     _openModalWin = () => {
