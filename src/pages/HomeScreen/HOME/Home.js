@@ -186,9 +186,9 @@ export default class Home extends Component {
                                     </View>
                                 </View>
                                 <View style={{ height: height*0.33, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom:10}}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom:10,marginLeft:10}}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
-                                        <View style={{width:width*0.75 }}>
+                                        <View style={{width:width*0.75,marginRight:10 }}>
                                             <Text onPress={() => {
 
                                                 this.props.navigation.navigate('Road', {
@@ -209,6 +209,7 @@ export default class Home extends Component {
                                             >重走鸡毛换糖之路</Text>
                                             <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
+
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity> */}
