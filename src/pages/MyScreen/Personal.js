@@ -172,10 +172,12 @@ export default class Personal extends Component {
           <View style={{ width: width * 1, height: height * 0.87 }}>
             <ScrollView>
               <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
-                <View activeOpacity={1} style={{ width: width * 0.75, height: height * 0.35, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", backgroundColor: "#000", opacity: 0.8, borderRadius: 10, elevation: 1 }}>
+                <View activeOpacity={1} style={{ width: width * 0.75, height: height * 0.35, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10, elevation: 1 }}>
                   <ImageBackground source={{ uri: data.portrait }} style={{ width: width * 0.75, height: height * 0.35, alignItems: "center" }} borderRadius={10}>
+                    <View style={{width:"100%",height:"100%",borderRadius:10,backgroundColor:"rgba(0,0,0,0.1)"}}>
                     <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
                     <View style={{ marginTop: 10, width: width * 0.65 }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", textAlign: "right" }}>{data.signature}</Text></View>
+                    </View>
                   </ImageBackground>
                 </View>
                 <View>
