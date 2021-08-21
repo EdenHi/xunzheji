@@ -47,17 +47,17 @@ export default class Drawpic extends Component{
                         }).then(
                             uri => {
                                 console.log("Image saved to", uri),
-                                    this.setState({ shoturi: uri })
+                                    DeviceEventEmitter.emit('Draw', {drawpic:uri})
                             },
                             error => console.error("Oops, snapshot failed", error)
-                        ),DeviceEventEmitter.emit('Draw', {drawpic:this.state.shoturi,pic3:true})
+                        )
                     }} style={{ color: "#333333" }} name="check" size={20} color="#000000" />
               </View>
           <View style={{width:width,height:height*0.93}}>
          
 
             <View style={styles.div} >
-                <WebView ref={viewRef} collapsable={false}
+                <WebView androidHardwareAccelerationDisabled={true} ref={viewRef} collapsable={false}
                     style={styles.webView1}
                     source={ {uri:'file:///android_asset/draw/index.html'}}
                 />

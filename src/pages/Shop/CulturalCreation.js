@@ -29,7 +29,7 @@ class Draggable extends Component {
         this.state = {
             pic1: false,
             pic2: false,
-            pic3: false,
+            pic3: true,
             pan: new Animated.ValueXY(),
             scale: new Animated.Value(1),
             rotate: new Animated.Value(0),
@@ -42,7 +42,7 @@ class Draggable extends Component {
     setModalVisible4 = (visible) => {
         this.setState({ modalVisible4: visible });
     }
-    componentWillMount() {
+    componentWillMount(){
         this._panResponder = PanResponder.create({
             onMoveShouldSetResponderCapture: () => true,
             onMoveShouldSetPanResponderCapture: () => true,
@@ -103,10 +103,11 @@ class Draggable extends Component {
         }
     }
     componentDidMount() {
-        this.listener = DeviceEventEmitter.addListener('Draw', (param)=>{
-            this.setState({drawPic:param.drawPic})
-            this.setState({pic3:!this.state.pic3})
-            console.log('666',param);
+        this.listener = DeviceEventEmitter.addListener('Draw', (shoturi)=>{
+
+            console.log(shoturi.drawpic);
+            this.setState({drawPic:shoturi.drawpic})
+            console.log('666',this.state.drawPic,this.state.pic3);
             //  use param do something
         });
     }
@@ -135,7 +136,7 @@ class Draggable extends Component {
             <Image style={{ width: width * 0.4, height: width * 0.4 }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
         </Animated.View> : null;
         const DrawPic = this.state.pic3 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
-            <Image style={{ width: width * 0.4, height: width * 0.4,borderWidth:1 }} resizeMode={'contain'} source={{uri:this.state.drawPic}} />
+            <Image style={{ width: width * 0.4, height: width * 0.4,borderWidth:10 }} resizeMode={'cover'} source={{uri:this.state.drawPic}} />
         </Animated.View> : null;
         const { modalVisible4 } = this.state;
         return (
@@ -245,10 +246,8 @@ class Draggable extends Component {
                                 </Text>
                             </TouchableOpacity>
                         </View>
-
                     </ScrollableTabView>
                 </View>
-
             </View>
         )
     }
