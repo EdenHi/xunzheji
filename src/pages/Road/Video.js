@@ -31,7 +31,7 @@ export default class componentName extends Component {
             mission1: false,
             mission2: false,
             mission3: false,
-            shoturi: ''
+            shoturi: 'http://8.142.11.85:3000/public/images/initimg.jpg'
         }
     }
 
@@ -364,26 +364,29 @@ export default class componentName extends Component {
                             this.setModalVisible4(!modalVisible4);
                         }}
                     >
-                        <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
-                            <ImageBackground collapsable={false} resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={require('../img/haibao.png')}>
+                        <TouchableOpacity  activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                            <View collapsable={false} ref={viewRef} style={{borderWidth:1,height:height*0.83}}>
+                            <ImageBackground  resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={require('../img/haibao.png')}>
                                 <View style={{ height: height * 0.05, width: '90%', marginLeft: '4.7%', borderColor: 'red', marginTop: height * 0.433, borderWidth: 0 }}>
                                     <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>已抵达孝顺镇{ }，累计走过{ }00公里</Text>
                                 </View>
                             </ImageBackground>
+                            </View>
+                            
                             <View style={{ backgroundColor: '#fff', width, flex: 1, marginBottom: height * 0 }}>
                                 <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
 
                                     <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
-                                        <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4),captureRef(viewRef, {
+                                        <TouchableOpacity onPress={() => { captureRef(viewRef, {
                                         format: "jpg",
                                         quality: 0.8
                                     }).then(
                                         uri => {
-                                            console.log("Image saved to", uri),
-                                                this.setState({ shoturi: uri })
-                                        },
-                                        error => console.error("Oops, snapshot failed", error)
-                                    );this.props.navigation.navigate('Fabu', { path: this.state.shoturi, mime: 'image/jpeg' }) }} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
+                                            this.setState({ shoturi: uri })
+                                            console.log("Image saved to", uri)
+                                            this.props.navigation.navigate('Fabu', { path:uri, mime: 'image/jpeg' }) }
+
+                                    );console.log(this.state.shoturi),this.setModalVisible4(!modalVisible4)}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
                                             <Image style={{ width: '100%', height: '100%', }} source={require('../img/pyq.png')}></Image>
                                         </TouchableOpacity>
                                         <Text style={{ marginTop: height * 0.01, width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center', fontSize: 17, color: '#333' }}>
