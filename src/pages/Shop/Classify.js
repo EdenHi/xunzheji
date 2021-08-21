@@ -115,7 +115,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://gd4.alicdn.com/imgextra/i4/2209861795974/O1CN01oQxYo61u08jlpRxZR_!!2209861795974.png_150x150.jpg_.webp' }}
+                                        source={{ uri: 'https://img0.baidu.com/it/u=2771862817,827489450&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                 </View></TouchableOpacity>
@@ -147,7 +147,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://i.loli.net/2021/08/09/Jkbdoh3DIyeT9Lt.jpg' }}
+                                        source={{ uri: 'https://img1.baidu.com/it/u=2744198785,555913146&fm=15&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                 </View></TouchableOpacity>
@@ -164,7 +164,7 @@ export default class Classify extends React.Component {
                                     marginTop: 40
                                 }}>
                                     <View style={{
-                                        width: "33%",
+                                        width: "35%",
                                         height: "100%",
                                         justifyContent: 'center',
                                         alignItems: "center"
@@ -178,7 +178,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://5b0988e595225.cdn.sohucs.com/images/20170927/2e0458795d5447f894722b23dbec8934.png' }}
+                                        source={{ uri: 'https://img1.baidu.com/it/u=4291292563,390012538&fm=15&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                 </View></TouchableOpacity>
@@ -210,7 +210,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://img.alicdn.com/imgextra/i4/2206713410364/O1CN01FQyJjF1EYkrhmdzei_!!2206713410364.jpg_150x150q90.jpg' }}
+                                        source={{ uri: 'https://img1.baidu.com/it/u=4166172718,1436369128&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                 </View></TouchableOpacity>
@@ -260,7 +260,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://img.alicdn.com/imgextra/https://img.alicdn.com/bao/uploaded/i1/2824527807/TB2fx64qr1YBuNjSszhXXcUsFXa_!!2824527807.jpg_150x150q90.jpg' }}
+                                        source={{ uri: 'https://img2.baidu.com/it/u=1659885032,1606410504&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                     <View style={{
@@ -291,7 +291,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://img.alicdn.com/imgextra/i2/1963505180/O1CN01Jody7q1o8UI4P01pc_!!1963505180.jpg_150x150q90.jpg' }}
+                                        source={{ uri: 'https://img2.baidu.com/it/u=1168555010,2693026371&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                     <View style={{
@@ -323,7 +323,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/54fbb2fb43166d224da409d84b2309f79152d2ae?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto' }}
+                                        source={{ uri: 'https://img2.baidu.com/it/u=3475901486,700515096&fm=224&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                     <View style={{
@@ -358,7 +358,7 @@ export default class Classify extends React.Component {
                                     >
                                     </Image>
                                     <View style={{
-                                        width: "33%",
+                                        width: "40%",
                                         height: "100%",
                                         justifyContent: 'center',
                                         alignItems: "center"
@@ -484,7 +484,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2928866662,1560677089&fm=199&app=68&f=JPEG?w=750&h=750&s=C1C09A464A67BADC54DDB59E03005082' }}
+                                        source={{ uri: 'https://img1.baidu.com/it/u=387739303,4073643355&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                 </View></TouchableOpacity>
@@ -566,7 +566,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://img.alicdn.com/imgextra/i3/1665326773/O1CN01NyzYBR1zu54pkOOEX_!!0-item_pic.jpg_160x160q90.jpg' }}
+                                        source={{ uri: 'https://img0.baidu.com/it/u=3800688749,1973575253&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                     <View style={{
@@ -597,7 +597,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'http://cdn.tjkximg.com/2020-03/20/11/32341423408.jpg' }}
+                                        source={{ uri: 'http://t15.baidu.com/it/u=3783287515,616337126&fm=224&app=112&f=JPEG?w=500&h=500&s=51B22D77414572EE55E811670300F060' }}
                                     >
                                     </Image>
                                     <View style={{
@@ -629,7 +629,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://img11.360buyimg.com/n5/jfs/t1/122547/30/8206/772301/5f20e443E97c05633/ff633060c6add9c0.png' }}
+                                        source={{ uri: 'https://img0.baidu.com/it/u=3570631131,1894223410&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                     <View style={{
@@ -660,7 +660,7 @@ export default class Classify extends React.Component {
                                         resizeMode: "stretch",
 
                                     }}
-                                        source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/a9d3fd1f4134970a304e02dde081c6c8a786c817f7a4?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto' }}
+                                        source={{ uri: 'https://img2.baidu.com/it/u=457761160,2218826170&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
                                     <View style={{
