@@ -186,7 +186,7 @@ export default class Home extends Component {
                                     </View>
                                 </View>
                                 <View style={{ height: height*0.35, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
-                                    <View style={{ flexDirection: 'row', alignItems: 'center', }}>
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom:10}}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
                                         <View style={{width:width*0.75 }}>
                                             <Text onPress={() => {
@@ -263,13 +263,13 @@ export default class Home extends Component {
                                     {/* </View> */}
                                 </View>
                                 <View style={{ height: height*0.3, backgroundColor: 'white', borderRadius: 10, marginTop: 10,marginBottom:15 }} >
-                                    <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
+                                    <TouchableOpacity activeOpacity={1}  onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75 }}>
                                             <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>云游浙商</Text>
                                             <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TRAVELING ZHEJIANG ERCHANTS</Text>
                                         </View>
-                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+                                        <TouchableOpacity  onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
