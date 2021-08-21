@@ -347,7 +347,7 @@ export default class Comment extends React.Component {
             <View style={{flex:1}}>
                  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center",backgroundColor:"#fff"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+                  <AntDesign onPress={()=>this.go_luntan()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#333",width:width*0.85,marginLeft:"2%"}}>论坛详情</Text>
 

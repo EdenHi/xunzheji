@@ -138,11 +138,11 @@ class GoodsDetail extends Component {
           
         </Modal>
         {/* 头部 */}
-        <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"#fff",height:height*0.07,justifyContent:"space-around"}}> 
+        <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"#7cc0c0",height:height*0.07,justifyContent:"space-around"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={20} color="#000000" />
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#000",marginLeft:"25%",marginRight:"25%"}}>商品详情</Text>
+              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",marginLeft:"25%",marginRight:"25%"}}>商品详情</Text>
               <Entypo onPress={() => {
               this.setModalVisible(!modalVisible);
             }} name="dots-three-vertical"  color="#000"  size={20} />
