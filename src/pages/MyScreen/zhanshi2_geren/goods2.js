@@ -16,15 +16,13 @@ import {
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
-import Swiper from 'react-native-swiper'
-import AntDesign from 'react-native-vector-icons/AntDesign'
+import Swiper from 'react-native-swiper';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import LottieView from 'lottie-react-native';
 import { Button, Overlay } from 'react-native-elements';
 import AwesomeAlert from 'react-native-awesome-alerts';
 
 const { width, height } = Dimensions.get("window")
-
-
 
 export default class Goods2 extends Component {
   UNSAFE_componentWillMount = () => {
@@ -33,14 +31,14 @@ export default class Goods2 extends Component {
   constructor(props){
     super(props)
     this.state = {
-      imgUrl:  'https://img2.baidu.com/it/u=1117600195,1203371203&fm=26&fmt=auto&gp=0.jpg' ,
+      imgUrl:  'https://img2.baidu.com/it/u=1117600195,1203371203&fm=26&fmt=auto&gp=0.jpg',
       data:[],
       open:false,
       visible:false,
       arr:'',
     }
   }
- 
+
 
   get_shuju(){
     AsyncStorage.getItem('username',(err,result)=>{
