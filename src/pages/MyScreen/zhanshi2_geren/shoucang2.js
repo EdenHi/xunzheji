@@ -55,27 +55,46 @@ export default class Shhoucang2 extends Component {
     this.get();
     this.listener = DeviceEventEmitter.addListener('test',this.get.bind(this))
     this.listener = DeviceEventEmitter.addListener('test2',this.delect.bind(this))
+    this.listener = DeviceEventEmitter.addListener('wenzhang',this.get.bind(this))
   }
 
   componentWillUnmount(){
     this.listener.remove();
     }
 
+    go_wenzhang(item){
+        if(item===1){
+            this.props.navigation.navigate('Zs',{wenzhang_id:1})
+        }
+        if(item===2){
+            this.props.navigation.navigate('Topic1',{wenzhang_id:2})
+        }
+        if(item===3){
+            this.props.navigation.navigate('Topic2',{wenzhang_id:3})
+        }
+        if(item===4){
+            this.props.navigation.navigate('Topic3',{wenzhang_id:4})
+        }
+        if(item===5){
+            this.props.navigation.navigate('Topic2',{wenzhang_id:5})
+        }
+    }
+
     renderData({item,index}){
         return (
             <View key={index}>
-                <ImageBackground style={{height:150,marginBottom:10,width:width * 0.8,marginRight:20}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
+                <ImageBackground style={{ height: 150, marginTop: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: item.img }}>
+                    <TouchableOpacity onPress={() => this.go_wenzhang(item.id)} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                        <View style={{ flex: 3 }} />
+                        <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>{item.title}</Text></View>
+                        <View style={{ flex: 1 }}>
+                            <View style={{ flexDirection: 'row' }}>
+                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>{item.tag1}</Text></View></TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>{item.tag2}</Text></View></TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>{item.tag3}</Text></View></TouchableOpacity>
                             </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </ImageBackground>
             </View>
         )
@@ -94,151 +113,16 @@ export default class Shhoucang2 extends Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{marginHorizontal:width*0.05,height:height*0.93}}>
-                <ScrollView
-                showsVerticalScrollIndicator={false}
-                style={{}}
-                ref={ref => this.scrollRef = ref}
-                onScroll={(e) =>{
-                  console.log('e22',e.nativeEvent.contentOffset.y);
-                  if (e.nativeEvent.contentOffset.y === 0 ){
-                    DeviceEventEmitter.emit('scrollview',1);
-                  }
-                  }}>
-                {/* <FlatList
+
+                
+                
+                <FlatList
                  keyExtractor={(item, index) => (index + '1')}
                  data = {data}
-                 renderItem = {this.renderData.bind(this)}/> */}
-                 <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10,marginBottom:10}} borderRadius={10} source={require('../../HomeScreen/photos/zs1.jpeg')}>
-                    <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
-                        <View style={{flex:3}} />
-                        <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
-                        <View style={{flex:1}}>
-                            <View style={{flexDirection:'row'}}>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>宁波商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>龙游商帮</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{borderRadius:5, marginRight:5,backgroundColor:'#ffffff',width:55,alignItems:'center'}}><Text style={{fontSize:12}}>南浔商帮</Text></View></TouchableOpacity>
-                            </View>
-                        </View>
-                    </View>
-                </ImageBackground>
-                </ScrollView>
+                 renderItem = {this.renderData.bind(this)}/>
+
+                <View style={{marginBottom:10}}/>
+
                 </View>
             </View>
         );
