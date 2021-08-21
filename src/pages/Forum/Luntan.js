@@ -601,16 +601,16 @@ onShare = async () => {
             return(
                 <View style={styles.LoadingPage}>
                     <View style={{
-                        width: 100,
-                        height: 100,
+                        width: 150,
+                        height: 150,
                         opacity: 1,
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius:7
                     }}>
-                        <LottieView source={require('../../../animal/gift.json')} autoPlay loop progress={this.state.progress} />
+                        <LottieView source={require('../../../animal/mail.json')} autoPlay loop progress={this.state.progress} />
                         {/* <ActivityIndicator size="large" color="#FFF" /> */}
-                        <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text>
+                        {/* <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text> */}
                     </View>
                 </View>
             )

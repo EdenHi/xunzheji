@@ -54,7 +54,6 @@ export default class Login extends Component {
       progress: new Animated.Value(0),
       username: '',
       password: '',
-
     };
   }
   componentDidMount() {
@@ -125,11 +124,9 @@ export default class Login extends Component {
               <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: '#7cc0c0' }}>此处注册</Text>
             </TouchableOpacity>
           </View>
-
           <View style={{width:width,height:height*0.5,backgroundColor:"#fff"}}>
         <LottieView style={{marginTop:"-30%"}}  source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
         </View>
-          
         </View>
         </View>
         </LinearGradient>

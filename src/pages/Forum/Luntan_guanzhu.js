@@ -606,16 +606,15 @@ onShare = async () => {
             return(
                 <View style={styles.LoadingPage}>
                     <View style={{
-                        width: 100,
-                        height: 100,
-                        backgroundColor: "rgba(0,0,0,0.6)",
+                        width: 150,
+                        height: 150,
+                        // backgroundColor: "rgba(0,0,0,0.6)",
                         opacity: 1,
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius:7
                     }}>
-                        <ActivityIndicator size="large" color="#FFF" />
-                        <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text>
+                        <LottieView source={require('../../../animal/mail.json')} autoPlay loop progress={this.state.progress} />
                     </View>
                 </View>
             )
@@ -668,9 +667,7 @@ const styles = StyleSheet.create({
         color:"#333"
     },
     LoadingPage: {
-        position: "absolute",
-        left: 0,
-        top: 0,
+        top:-100,
         backgroundColor: "rgba(0,0,0,0)",
         width: width,
         height: height,
