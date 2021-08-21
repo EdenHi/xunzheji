@@ -155,15 +155,17 @@ class Draggable extends Component {
                         <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: this.state.shoturi }}>
 
                         </ImageBackground>
-                        <View style={{ backgroundColor: '#fff', width, flex: 1, marginBottom: height * 0 }}>
-                            <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
+                        <View style={{ backgroundColor: '#fff', width, flex: 1,  }}>
+                            <Text style={{fontSize:20,fontWeight:'bold',textAlign:'center',color:'#333',marginTop:height*0.01}}>价格：39 元</Text>
+                            <Text style={{fontSize:13,fontWeight:'bold',textAlign:'center',color:'#333'}}>预计3-4天制作完成</Text>
+                            <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', justifyContent:'center',marginLeft:'5%',marginTop:height*0.015,borderWidth:0}}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center',height:height*0.05 }}
                                         onPress={() => this.insert_shopcart()}>
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>加入购物车</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
-                                        onPress={() => this.props.navigation.navigate('Zhifu', this.state.shops)}>
+                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center',height:height*0.05 }}
+                                        onPress={() => this.props.navigation.navigate('Zhifu', {price:39,name:"定制物品",jieshao:'......'})}>
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>立即购买</Text>
                                     </TouchableOpacity>
                                 </View>
