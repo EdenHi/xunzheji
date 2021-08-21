@@ -154,9 +154,9 @@ export default class Store extends Component {
             "price":"24.90",
             "sales":"200+",
             "pic":[
-                "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
+                "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg",
                 "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01PahoMY1tylb93oDSh_!!2086085971.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg"
+                "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg"
             ],
             "dianpu":"翠沁斋",
             "loge":"https://bkimg.cdn.bcebos.com/pic/00e93901213fb80e4b9d12d53ed12f2eb9389467?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
@@ -171,8 +171,8 @@ export default class Store extends Component {
             "price":"57.00",
             "sales":"1K+",
             "pic":[
-                "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
                 "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
+                "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
                 "https://cbu01.alicdn.com/img/ibank/2017/153/640/7275046351_1063743152.500x500.jpg"
             ],
             "dianpu":"陈源昌",
@@ -188,8 +188,8 @@ export default class Store extends Component {
             "price":"420.00",
             "sales":"15",
             "pic":[
-                "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01n6VD311QS8W12an5M_!!0-item_pic.jpg_500x500q90.jpg",
                 "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01n3K7km1QS8Vu08yFy_!!2211562091974.jpg_500x500q90.jpg",
+                "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01n6VD311QS8W12an5M_!!0-item_pic.jpg_500x500q90.jpg",
                 "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01kD3tGT1QS8W1irDTM_!!2211562091974.jpg_500x500q90.jpg"
             ],
             "dianpu":"朱府铜艺",
