@@ -43,6 +43,7 @@ export default class Store extends Component {
     this.state = {
       isShowToTop: false,
       isLoding:false,
+      showpage:0,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
@@ -342,6 +343,11 @@ export default class Store extends Component {
 
 
 yangshi(){
+  if(this.state.showpage>2){
+    return(
+      <View style={{justifyContent:'center',alignItems:'center'}}><Text>加载完毕</Text></View>
+    )
+  }else{
   return (
       <View>
           <ActivityIndicator
@@ -350,11 +356,14 @@ yangshi(){
               color = "green"
               />
       </View>
-  );
+  );}
 }
 
 loadData(){
-  this.setState({
+  if(this.state.showpage > 2){
+    return;
+  }else{
+    this.setState({
       isLoding : true,
   });
   setTimeout(() => {
@@ -363,8 +372,10 @@ loadData(){
       this.setState({
           isLoding : false,
           shops2 : arrData,
+          showpage:this.state.showpage+1,
       });
   }, 2000);
+  }
 }
 
 
@@ -373,6 +384,7 @@ loadData(){
   render() {
     const { modalVisible } = this.state;
     const { navigation } = this.props;
+    console.log('showpage',this.state.showpage);
     return (
       <View style={styles.container}>
         <LinearGradient style={{ width }} colors={["#7cc0bf", "#fff", "#fff"]} >
@@ -476,7 +488,7 @@ loadData(){
           <ScrollView
            onScroll={(e)=>this._onScroll(e)} 
            ref='listview'
-          style={{height:height*0.87 }}>
+          style={{height:height*0.83 }}>
             <View style={{ alignItems: "center", }}>
               <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
                 <Swiper
@@ -658,8 +670,9 @@ loadData(){
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
                   renderItem={this.renderDate2.bind(this)}
-                  ListFooterComponent = {this.yangshi} //确定刷新的样式
+                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
                   onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  onEndReachedThreshold={0.1}
                   />  
               </View>
             </View>
