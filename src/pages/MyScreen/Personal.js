@@ -70,6 +70,8 @@ export default class Personal extends Component {
     this.get_shuju();
 
     this.listener = DeviceEventEmitter.addListener('denglu', this.get_shuju.bind(this));
+    this.listener = DeviceEventEmitter.addListener('wenzhang', this.get_shuju.bind(this));
+    this.listener = DeviceEventEmitter.addListener('dianzan_1', this.get_shuju.bind(this));
   }
 
 
