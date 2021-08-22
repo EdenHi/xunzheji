@@ -163,14 +163,18 @@ export default class My extends Component {
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
+
+        </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
           <TouchableOpacity style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-            <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
-              name="clipboard-text-outline"
+            <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart') }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+              name="cart-outline"
               size={35}
               color="#7cc0c0"
             />
-            <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
+            <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
+
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
           <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: '1' }) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>

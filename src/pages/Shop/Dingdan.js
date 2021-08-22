@@ -40,7 +40,7 @@ export default class Dingdan extends Component {
       componentWillUnmount(){
         this.listener.remove();
       }
-
+    
     
         _closeModalWin = () => {
             this.setState({ modalVisible: false });
@@ -126,12 +126,6 @@ export default class Dingdan extends Component {
                     <View style={{ flexDirection: "row", flexDirection:"row-reverse" }}>
                         <TouchableOpacity activeOpacity={1} style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20,marginRight:20 }}><Text style={{ fontSize: 14,color:"#333333" }}>已评价</Text></TouchableOpacity>
                     </View>}
-
-
-
-
-
-
                 </View>
             )
         }
