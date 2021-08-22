@@ -16,7 +16,8 @@ import {
   AsyncStorage,
   FlatList  ,
   ToastAndroid,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  ActivityIndicator
 } from 'react-native';
 import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
@@ -41,6 +42,7 @@ export default class Store extends Component {
     super(props)
     this.state = {
       isShowToTop: false,
+      isLoding:false,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
@@ -339,6 +341,33 @@ export default class Store extends Component {
 }
 
 
+yangshi(){
+  return (
+      <View>
+          <ActivityIndicator
+              size="large"
+              animating = {true} //动画效果
+              color = "green"
+              />
+      </View>
+  );
+}
+
+loadData(){
+  this.setState({
+      isLoding : true,
+  });
+  setTimeout(() => {
+
+      let arrData = this.state.shops2.concat(this.state.shops2);
+      this.setState({
+          isLoding : false,
+          shops2 : arrData,
+      });
+  }, 2000);
+}
+
+
 
 
   render() {
@@ -629,6 +658,8 @@ export default class Store extends Component {
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
                   renderItem={this.renderDate2.bind(this)}
+                  ListFooterComponent = {this.yangshi} //确定刷新的样式
+                  onEndReached = {this.loadData.bind(this)}//上拉刷新
                   />  
               </View>
             </View>
