@@ -16,7 +16,8 @@ import {
   AsyncStorage,
   FlatList  ,
   ToastAndroid,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  ActivityIndicator
 } from 'react-native';
 import Water from "../water"
 import EZSwiper from 'react-native-ezswiper';
@@ -41,6 +42,8 @@ export default class Store extends Component {
     super(props)
     this.state = {
       isShowToTop: false,
+      isLoding:false,
+      showpage:0,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
@@ -339,11 +342,49 @@ export default class Store extends Component {
 }
 
 
+yangshi(){
+  if(this.state.showpage>2){
+    return(
+      <View style={{justifyContent:'center',alignItems:'center'}}><Text>加载完毕</Text></View>
+    )
+  }else{
+  return (
+      <View>
+          <ActivityIndicator
+              size="large"
+              animating = {true} //动画效果
+              color = "green"
+              />
+      </View>
+  );}
+}
+
+loadData(){
+  if(this.state.showpage > 2){
+    return;
+  }else{
+    this.setState({
+      isLoding : true,
+  });
+  setTimeout(() => {
+
+      let arrData = this.state.shops2.concat(this.state.shops2);
+      this.setState({
+          isLoding : false,
+          shops2 : arrData,
+          showpage:this.state.showpage+1,
+      });
+  }, 2000);
+  }
+}
+
+
 
 
   render() {
     const { modalVisible } = this.state;
     const { navigation } = this.props;
+    console.log('showpage',this.state.showpage);
     return (
       <View style={styles.container}>
         <LinearGradient style={{ width }} colors={["#7cc0bf", "#fff", "#fff"]} >
@@ -447,7 +488,7 @@ export default class Store extends Component {
           <ScrollView
            onScroll={(e)=>this._onScroll(e)} 
            ref='listview'
-          style={{height:height*0.87 }}>
+          style={{height:height*0.83 }}>
             <View style={{ alignItems: "center", }}>
               <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
                 <Swiper
@@ -607,13 +648,14 @@ export default class Store extends Component {
                 </TouchableOpacity>
                 <View style={styles.oldname}>
                   <Carousel
+                  
                     // layout={"default"}
                     layout={'stack'} layoutCardOffset={`10`}
                     // layout={'tinder'} layoutCardOffset={`15`} 
                     ref={ref => this.carousel = ref}
                     data={this.state.carouselItems}
                     sliderWidth={400}
-                    itemWidth={300}
+                    itemWidth={350}
                     renderItem={this._renderItem}
                     loop={true}
                     onSnapToItem={index => this.setState({ activeIndex: index })} />
@@ -628,6 +670,9 @@ export default class Store extends Component {
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
                   renderItem={this.renderDate2.bind(this)}
+                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
+                  onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  onEndReachedThreshold={0.1}
                   />  
               </View>
             </View>
@@ -725,12 +770,13 @@ const styles = StyleSheet.create({
   },
   oldname: {
     width: "95%",
-    height: height*0.5,
+    // height: height*0.5,
     // backgroundColor:"grey",
     marginTop: "2%",
+   marginRight:35,
     borderRadius: 15,
-    // elevation:10,
-    flexDirection: "row",
+
+   
   },
   waterfall: {
     width: width * 0.95,

@@ -31,7 +31,7 @@ export default class Swop extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      imgUrl: 'https://img2.baidu.com/it/u=1117600195,1203371203&fm=26&fmt=auto&gp=0.jpg',
+      imgUrl: 'https://img2.baidu.com/it/u=133347796,434139622&fm=26&fmt=auto&gp=0.jpg',
       data: [],
       open: false,
       progress: new Animated.Value(0),
@@ -56,19 +56,19 @@ export default class Swop extends Component {
       opacity: this.state.fadeAnim
     }).start()
     if (index % 5 >= 0 && index % 5 < 1) {
-      this.setState({ imgUrl: 'https://img2.baidu.com/it/u=1117600195,1203371203&fm=26&fmt=auto&gp=0.jpg' })
+      this.setState({ imgUrl: 'https://img2.baidu.com/it/u=133347796,434139622&fm=26&fmt=auto&gp=0.jpg' })
     }
     if (index % 5 >= 1 && index % 5 < 2) {
       this.setState({ imgUrl: 'https://img0.baidu.com/it/u=3857011018,2401665306&fm=26&fmt=auto&gp=0.jpg' })
     }
     if (index % 5 >= 2 && index % 5 < 3) {
-      this.setState({ imgUrl: 'https://img1.baidu.com/it/u=1964378599,974921070&fm=15&fmt=auto&gp=0.jpg' })
+      this.setState({ imgUrl: 'https://img1.baidu.com/it/u=2950161631,1547424886&fm=26&fmt=auto&gp=0.jpg' })
     }
     if (index % 5 >= 3 && index % 5 < 4) {
       this.setState({ imgUrl: 'https://img1.baidu.com/it/u=255308796,3200634604&fm=26&fmt=auto&gp=0.jpg' })
     }
     if (index % 5 >= 4 && index % 5 < 5) {
-      this.setState({ imgUrl: 'https://img0.baidu.com/it/u=1995376824,408656907&fm=26&fmt=auto&gp=0.jpg' })
+      this.setState({ imgUrl: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Ffe3c884f7062f393d3007b882743ceb1b4f0ba3c.jpg&refer=http%3A%2F%2Fi0.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632188158&t=395f209f9e09e58b1a3eded8216115e3' })
     }
   }
 
