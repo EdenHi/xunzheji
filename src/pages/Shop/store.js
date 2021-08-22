@@ -762,9 +762,7 @@ const styles = StyleSheet.create({
     marginTop: "2%",
    marginRight:35,
     borderRadius: 15,
-    // elevation:10,
 
-    // backgroundColor:"red",
    
   },
   waterfall: {
