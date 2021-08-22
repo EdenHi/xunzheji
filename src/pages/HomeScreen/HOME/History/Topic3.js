@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, Dimensions, TouchableOpacity, TextInput,AsyncStorage,FlatList } from 'react-native'
+import { View, Text, Image, Dimensions, TouchableOpacity, TextInput,AsyncStorage,FlatList,DeviceEventEmitter } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -14,6 +14,7 @@ export default class Topic1 extends Component {
         this.state = {
             pinglun: [],
             denglu_username: '',
+            data:''
         }
     }
 
@@ -45,7 +46,69 @@ export default class Topic1 extends Component {
     }
     componentDidMount() {
         this.get_pinglun();
+        this.get_shuju();
     }
+
+//获取点赞数据
+get_shuju(){
+    fetch('http://8.142.11.85:3000/shouye/selectShoucang', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            wenzhang_id:this.props.route.params.wenzhang_id,
+            }),
+    }).then((response) => response.json())
+    .then((responseJson) => {
+        this.setState({
+            data:responseJson[0]
+        })
+    })
+    
+}
+
+
+
+
+shoucang(){
+    if(this.state.data.username===this.state.denglu_username)
+    {
+        fetch('http://8.142.11.85:3000/shouye/update_shoucang2', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                wenzhang_id: this.props.route.params.wenzhang_id,
+            }),
+        });
+    }else{
+        {
+            fetch('http://8.142.11.85:3000/shouye/update_shoucang', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    wenzhang_id: this.props.route.params.wenzhang_id,
+                    username: this.state.denglu_username,
+                }),
+            });
+        }
+    }
+        this.get_shuju()
+        DeviceEventEmitter.emit('wenzhang',1)
+}
+
+
+
+
+
+
     //更新文章评论点赞
     update_dianzan(v) {
         if (v.wenzhang_dianzan === this.state.denglu_username) {
@@ -214,7 +277,8 @@ export default class Topic1 extends Component {
                             <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
                         </View>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5, alignItems: 'center', justifyContent: 'center' }}>
-                            <AntDesign name="staro" size={25} color="#7cc0bf" />
+                            <AntDesign name={this.state.data.username===this.state.denglu_username?"star":"staro"} size={25} color={this.state.data.username===this.state.denglu_username?'yellow':"#7cc0bf"} 
+                                onPress={()=>this.shoucang()}/>
                         </TouchableOpacity>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf" }}>
                             <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="export" size={25} color="#000000" />

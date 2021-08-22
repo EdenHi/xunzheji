@@ -232,7 +232,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>圣诞COS</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#圣诞COS'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -250,7 +250,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>猫和老鼠</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#猫和老鼠'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -268,7 +268,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>lolita</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#lolita'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -286,7 +286,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>新年祝福姬</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#新年祝福姬'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -304,7 +304,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>动漫嘉年华</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#动漫嘉年华'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -322,7 +322,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>漫展返图</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#漫展返图'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -340,7 +340,7 @@ onShare = async () => {
                                                                 </View>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:18,fontWeight:'bold'}}>凉宫春日</Text>
                                                                 <Text style={{color:'white',marginTop:20,fontSize:12}}>朝气蓬勃</Text>
-                                                                <TouchableOpacity style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
+                                                                <TouchableOpacity activeOpacity={1} style={{marginTop:10,width:"40%",height:"20%",elevation:5,backgroundColor:"#7cc0c0",borderRadius:15,alignItems:"center",justifyContent:"center"}}
                                                                 onPress={()=>this.context.navigate('huati',{tag:'#凉宫春日'})}>
                                                                 <Text style={{color:'white',fontSize:15,padding:5}}>参与 </Text>
                                                                 </TouchableOpacity>
@@ -354,6 +354,7 @@ onShare = async () => {
                                             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                     <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                         <TouchableOpacity
+                                                        activeOpacity={1}
                                                         onPress={() => {this.context.navigate('people',v.username), 
                                                         AsyncStorage.setItem('Person',v.username,(error)=>{
                                                             if (!error){
@@ -388,6 +389,7 @@ onShare = async () => {
                                                 return (
                                                     <View style={styles.box2}>
                                                 <TouchableOpacity
+                                                activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
                                                     <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
@@ -398,6 +400,7 @@ onShare = async () => {
                                             return (
                                                 <View style={styles.box2}>
                                                 <TouchableOpacity
+                                                activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
                                                     <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
@@ -408,6 +411,7 @@ onShare = async () => {
                                             return (
                                                 <View style={styles.box2}>
                                                     <TouchableOpacity
+                                                    activeOpacity={1}
                                                     key = {index}
                                                     onPress={()=>this.handleShowAlbum(k,index)}>
                                                         <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
@@ -419,7 +423,9 @@ onShare = async () => {
                                            </View>
 
                                         {/* tag标签 */}
-                                       <TouchableOpacity style={v.tag ==='' ||v.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
+                                       <TouchableOpacity
+                                       activeOpacity={1}
+                                       style={v.tag ==='' ||v.tag===null?{height:0,width:0}:{flexDirection:'row',alignItems:'center',marginTop:10,backgroundColor:'#FFE6CC',borderRadius:10,width:width*0.25,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5}}>{v.tag}</Text>
@@ -427,9 +433,10 @@ onShare = async () => {
                                        </TouchableOpacity>
 
                                            <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
-                                                <TouchableOpacity>
+                                                <TouchableOpacity activeOpacity={1}>
+
                                                     <View style={{flexDirection:'row',marginLeft:"10%"}}>
-                                                        <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
+                                                        <TouchableOpacity activeOpacity={1} onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                             <Ionicons
                                                             name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                             size={20}
@@ -439,7 +446,7 @@ onShare = async () => {
                                                         <Text style={{marginLeft:5}}>{v.dianzan}</Text>
                                                     </View>
                                                 </TouchableOpacity>
-                                                <TouchableOpacity onPress={()=>this.goComment(v)}>
+                                                <TouchableOpacity activeOpacity={1} onPress={()=>this.goComment(v)}>
                                                 <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                     <Ionicons
                                                     name="chatbubble-ellipses-outline"
@@ -449,6 +456,7 @@ onShare = async () => {
                                                     </View>
                                                 </TouchableOpacity>
                                                 <TouchableOpacity
+                                                activeOpacity={1}
                                                  onPress={() => {
                                                     
                                                     this.onShare();
@@ -474,6 +482,7 @@ onShare = async () => {
                                         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between'}}>
                                                 <View style={{flexDirection:'row',alignItems:'flex-end'}}>
                                                     <TouchableOpacity
+                                                    activeOpacity={1}
                                                     onPress={() => {this.context.navigate('people',v.username), 
                                                                 AsyncStorage.setItem('Person',v.username,(error)=>{
                                                                     if (!error){
@@ -485,7 +494,7 @@ onShare = async () => {
                                                             }}
                                                     >
                                                         <Image source={{uri:v.portrait}} style={styles.touxiang}/>
-                                                    </TouchableOpacity> 
+                                                    </TouchableOpacity > 
                                                     <View style={{marginLeft:10}}>
                                                         <Text style={styles.name}>{v.nickname}</Text>
                                                         <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
@@ -508,6 +517,7 @@ onShare = async () => {
                                             return (
                                                 <View style={styles.box2}>
                                             <TouchableOpacity
+                                            activeOpacity={1}
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
                                                 <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
@@ -518,6 +528,7 @@ onShare = async () => {
                                         return (
                                             <View style={styles.box2}>
                                             <TouchableOpacity
+                                            activeOpacity={1}
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
                                                 <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
@@ -528,6 +539,7 @@ onShare = async () => {
                                         return (
                                             <View style={styles.box2}>
                                                 <TouchableOpacity
+                                                activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
                                                     <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
@@ -539,15 +551,15 @@ onShare = async () => {
                                        </View>
 
                                        {/* tag标签 */}
-                                       <TouchableOpacity style={v.tag ==='' || v.tag === null?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
+                                       <TouchableOpacity activeOpacity={1} style={v.tag ==='' || v.tag === null?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}
                                        onPress={()=>this.context.navigate('huati',{tag:v.tag})}>
                                            <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5,color:"#333"}}>{v.tag}</Text>
                                        </TouchableOpacity>
 
                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
-                                            <TouchableOpacity>
+                                            <TouchableOpacity activeOpacity={1}>
                                                 <View style={{flexDirection:'row',marginLeft:"10%"}}>
-                                                    <TouchableOpacity onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
+                                                    <TouchableOpacity activeOpacity={1} onPress={()=>{this.update_dianzan(v),DeviceEventEmitter.emit('dianzan',1)}}>
                                                         <Ionicons
                                                         name={v.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}
@@ -557,7 +569,7 @@ onShare = async () => {
                                                     <Text style={{marginLeft:5,color:"#333"}}>{v.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>
-                                            <TouchableOpacity onPress={()=>this.goComment(v)}>
+                                            <TouchableOpacity activeOpacity={1} onPress={()=>this.goComment(v)}>
                                             <View style={{flexDirection:'row',marginLeft:"10%"}}>
                                                 <Ionicons
                                                 name="chatbubble-ellipses-outline"
@@ -567,6 +579,7 @@ onShare = async () => {
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
+                                            activeOpacity={1}
                                              onPress={() => {
                                                 
                                                 this.onShare();
@@ -601,16 +614,16 @@ onShare = async () => {
             return(
                 <View style={styles.LoadingPage}>
                     <View style={{
-                        width: 100,
-                        height: 100,
+                        width: 150,
+                        height: 150,
                         opacity: 1,
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius:7
                     }}>
-                        <LottieView source={require('../../../animal/gift.json')} autoPlay loop progress={this.state.progress} />
+                        <LottieView source={require('../../../animal/mail.json')} autoPlay loop progress={this.state.progress} />
                         {/* <ActivityIndicator size="large" color="#FFF" /> */}
-                        <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text>
+                        {/* <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text> */}
                     </View>
                 </View>
             )

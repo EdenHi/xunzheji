@@ -95,8 +95,6 @@ export default class Home extends Component {
                                 return <ScrollView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }}  {...props} />
                             }}
                             showsVerticalScrollIndicator={false}>
-
-                         
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginBottom: -10 }}>
                                     <ShiCha />

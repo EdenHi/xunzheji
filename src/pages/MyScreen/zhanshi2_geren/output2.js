@@ -19,7 +19,14 @@ export default class Output2 extends Component {
       aa: 1,
     }
   }
-
+//   ListEmptyComponent(){
+//     return(
+//         <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",marginTop:-height*0.1,backgroundColor:"#fff"}}>
+//             <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+//             <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无讨论</Text>
+//         </View>
+//     )
+// }
   get_shuju(v) {
     fetch('http://8.142.11.85:3000/index/select_Dongtai', {
       method: 'POST',
@@ -122,7 +129,7 @@ export default class Output2 extends Component {
     console.log('rowdata', rowData)
     if (rowData.title && rowData.pic[0] === null) {
       return (
-        <TouchableOpacity onPress={() => this.go_comment(rowData)}>
+        <TouchableOpacity activeOpacity={1} onPress={() => this.go_comment(rowData)}>
           <View style={styles.descriptionContainer}>
             <Text style={{ color: 'gray', backgroundColor: '#eee', width: width }}>{rowData.title}</Text>
           </View>
@@ -130,7 +137,7 @@ export default class Output2 extends Component {
       )
     } else {
       return (
-        <TouchableOpacity onPress={() => this.go_comment(rowData)}>
+        <TouchableOpacity activeOpacity={1} onPress={() => this.go_comment(rowData)}>
           <View style={styles.descriptionContainer}>
 
             <View>
@@ -206,6 +213,7 @@ export default class Output2 extends Component {
                     </TouchableOpacity>
                 </View>
           <ScrollView
+          //  ListEmptyComponent={this.ListEmptyComponent.bind(this)}
             style={{ height: height - 50 - 120 ,width:width*0.9,marginLeft:width*0.05,marginTop:"2%"}}
             ref={ref => this.scrollRef = ref}
             onScroll={(e) => {
@@ -213,17 +221,17 @@ export default class Output2 extends Component {
                 DeviceEventEmitter.emit('scrollview', 1);
               }
             }}>
-            <TouchableOpacity onPress={() => this.select()}>
+            <TouchableOpacity activeOpacity={1} onPress={() => this.select()}>
               <Text>{this.state.data.length === 0 ? '' : '排序'}</Text>
             </TouchableOpacity>
             <Timeline
               style={styles.list}
               data={this.state.data}
               circleSize={20}
-              //   circleColor='rgba(45,156,219)'
-              lineColor='rgb(45,156,219)'
+                circleColor='#fedc61'
+              lineColor='#fedc61'
               timeContainerStyle={{ minWidth: 52 }}
-              timeStyle={{ textAlign: 'center', backgroundColor: '#ff9797', color: 'white', padding: 5, borderRadius: 13 }}
+              timeStyle={{ textAlign: 'center', backgroundColor: '#7cc0c0', color: 'white', padding: 5, borderRadius: 13 }}
               descriptionStyle={{ color: 'gray' }}
               options={{
                 style: { paddingTop: 5 }
@@ -245,6 +253,7 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
     marginTop: 20,
+    elevation:5
   },
   title: {
     fontSize: 16,
@@ -259,7 +268,7 @@ const styles = StyleSheet.create({
 
   textDescription: {
     marginLeft: 10,
-    color: 'gray',
+    color: '#333',
     //   backgroundColor:'blue'
   },
   listViewStyle: {
