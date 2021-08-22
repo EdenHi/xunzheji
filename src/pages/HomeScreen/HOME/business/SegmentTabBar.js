@@ -44,7 +44,7 @@ export default class SegmentTabBar extends Component {
     render() {
         return (
             <View style={styles.tabBarBox}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                <ScrollView onScroll={(e)=>console.log(e.nativeEvent.contentOffset.x)} horizontal={true} showsHorizontalScrollIndicator={false}>
                     <View style={{ flexDirection: 'row' }}>
                         {this.props.tabs.map((name, page) => {
                             const isTabActive = this.props.activeTab === page;

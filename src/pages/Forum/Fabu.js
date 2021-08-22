@@ -165,7 +165,6 @@ export default class Fabu extends Component {
             }
             this.setState({ arr })
             //     console.log('arr',arr[1])
-            
         });
     }
     _openModalWin = () => {
@@ -229,7 +228,6 @@ export default class Fabu extends Component {
                                                 width: '100%',
                                                 height: '25%',
                                                 alignItems: 'center',
-
                                             }}>
                                                 <Text style={{ fontSize: 20, color: "#7cc0c0" }}>发布成功</Text>
                                             </View>

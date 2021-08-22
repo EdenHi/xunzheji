@@ -45,13 +45,13 @@ export default class duihuan_jinbi extends Component {
 
     renderDate({item,index}){
         return(
-            <TouchableOpacity style={{width:width*0.9,backgroundColor:'white',marginTop:10,borderRadius:10,flexDirection:'row'}} activeOpacity={1}>
+            <TouchableOpacity style={{marginLeft:width*0.05,width:width*0.9,elevation:5,backgroundColor:'white',marginTop:10,borderRadius:10,flexDirection:'row'}} activeOpacity={1}>
                 <Image source={{uri:item.img}} resizeMode='stretch' style={{height:width*0.25,width:width*0.25,margin:10,borderRadius:10}}/>
                 <View style={{marginTop:10}}>
-                    <Text style={{fontWeight:'bold',fontSize:18,width:width*0.55}}
+                    <Text style={{fontWeight:'bold',fontSize:18,width:width*0.55,color:"#333"}}
                     ellipsizeMode='tail'
                     numberOfLines={1}>{item.name}</Text>
-                    <View style={{backgroundColor:'#ccc',width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
+                    <View style={{backgroundColor:'#f1f1f1',elevation:1,width:width*0.25,alignItems:'center',marginTop:10,borderRadius:10}}>
                         <Text style={{color:'#7cc0c0',}}>价值￥{item.price}</Text>
                     </View>
                     <View style={{flexDirection:'row',height:width*0.12,alignItems:'flex-end',justifyContent:'space-between'}}>
@@ -61,14 +61,13 @@ export default class duihuan_jinbi extends Component {
                             <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>{item.jinbi}  </Text>
                             <Text>{item.jinbi>this.state.data.jinbi?'(金币不足)':null}</Text>
                             </View>
-
                         </View>
-                        <View>
-                            <View style={{width:80,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                        <View style={{position:"absolute",marginLeft:width*0.37}}>
+                            <View style={{width:75,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                 <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                             </View>
-                            <View style={{width:80,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
-                                <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,width:80}}>已兑{item.duihuan}件</Text>
+                            <View style={{width:75,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
+                                <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,textAlign:"center",paddingRight:10,paddingTop:3,paddingBottom:3,width:80}}>已兑{item.duihuan}件</Text>
                             </View>
                         </View>
                     </View>
@@ -96,10 +95,11 @@ export default class duihuan_jinbi extends Component {
                 </View>
 
                    <FlatList
-                   contentContainerStyle={{width:width*0.9,marginLeft:width*0.05}}
+                   contentContainerStyle={{}}
                    data={shop}
                    renderItem={this.renderDate.bind(this)}/>
-                   <View style={{marginBottom:10}}/>
+                   
+
             </View>
         );
     }

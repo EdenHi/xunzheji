@@ -26,6 +26,9 @@ import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import LottieView from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {BottomSheet} from 'react-native-elements'
+import MaterialCommunityIcons from  'react-native-vector-icons/MaterialCommunityIcons'
+
 export default class LunTan extends Component {
     static contextType = NavigationContext;
     constructor(props){
@@ -42,6 +45,7 @@ export default class LunTan extends Component {
             imgUrls:[],
             isLoding:false,
             denglu_username:'',
+            isVisible:false,
         };
     }
     //图片点击放大
@@ -132,6 +136,7 @@ export default class LunTan extends Component {
                 });
         }
         this.get_xinxi();
+        DeviceEventEmitter.emit('dianzan_1',1)
     }
 
 onShare = async () => {
@@ -372,7 +377,7 @@ onShare = async () => {
                                                             <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                         </View>
                                                     </View>
-                                                    {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
+                                                    <MaterialCommunityIcons name='dots-vertical' size={20} color='#ccc' onPress={()=>this.setState({isVisible:true})}/>
                                                 </View>
                                           <Text style={v.title===''?{height:0}:styles.txt}
                                           ellipsizeMode="tail"
@@ -500,7 +505,7 @@ onShare = async () => {
                                                         <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                     </View>
                                                 </View>
-                                                {/* <TouchableOpacity onPress={()=>this.setState({showtf:true,kk:k})}><Text style={{fontSize:15,color:'skyblue'}}>删除</Text></TouchableOpacity> */}
+                                                <MaterialCommunityIcons name='dots-vertical' size={20} color='#ccc' onPress={()=>this.setState({isVisible:true})}/>
                                             </View>
                                       <Text style={v.title===''?{height:0}:styles.txt}
                                       ellipsizeMode="tail"
@@ -609,21 +614,39 @@ onShare = async () => {
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
                     <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
+
+                <BottomSheet
+                    isVisible={this.state.isVisible}
+                    containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'}}
+                    >
+
+                    <View style={{backgroundColor:'#eee',borderTopRightRadius:10,borderTopLeftRadius:10}}>
+                        <TouchableOpacity style={{backgroundColor:'#fff',height:50,justifyContent:'center',alignItems:'center',borderTopRightRadius:10,borderTopLeftRadius:10}}>
+                            <Text style={{fontSize:18}}>举报</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{backgroundColor:'#fff',marginTop:10,height:50,justifyContent:'center',alignItems:'center'}} onPress={()=>this.setState({isVisible:false})}>
+                            <Text style={{fontSize:18}}>取消</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                </BottomSheet>
+
+
             </View>
         );}else{
             return(
                 <View style={styles.LoadingPage}>
                     <View style={{
-                        width: 100,
-                        height: 100,
+                        width: 150,
+                        height: 150,
                         opacity: 1,
                         justifyContent: "center",
                         alignItems: "center",
                         borderRadius:7
                     }}>
-                        <LottieView source={require('../../../animal/gift.json')} autoPlay loop progress={this.state.progress} />
+                        <LottieView source={require('../../../animal/mail.json')} autoPlay loop progress={this.state.progress} />
                         {/* <ActivityIndicator size="large" color="#FFF" /> */}
-                        <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text>
+                        {/* <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text> */}
                     </View>
                 </View>
             )

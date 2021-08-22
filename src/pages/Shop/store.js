@@ -607,13 +607,14 @@ export default class Store extends Component {
                 </TouchableOpacity>
                 <View style={styles.oldname}>
                   <Carousel
+                  
                     // layout={"default"}
                     layout={'stack'} layoutCardOffset={`10`}
                     // layout={'tinder'} layoutCardOffset={`15`} 
                     ref={ref => this.carousel = ref}
                     data={this.state.carouselItems}
                     sliderWidth={400}
-                    itemWidth={300}
+                    itemWidth={350}
                     renderItem={this._renderItem}
                     loop={true}
                     onSnapToItem={index => this.setState({ activeIndex: index })} />
@@ -725,12 +726,13 @@ const styles = StyleSheet.create({
   },
   oldname: {
     width: "95%",
-    height: height*0.5,
+    // height: height*0.5,
     // backgroundColor:"grey",
     marginTop: "2%",
+   marginRight:35,
     borderRadius: 15,
-    // elevation:10,
-    flexDirection: "row",
+
+   
   },
   waterfall: {
     width: width * 0.95,

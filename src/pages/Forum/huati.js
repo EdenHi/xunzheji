@@ -152,8 +152,9 @@ onShare = async () => {
 
 ListEmptyComponent(){
     return(
-        <View style={{width,height:height*0.9,justifyContent:'center',alignItems:'center'}}>
-            <Text style={{color:"#333"}}>暂无讨论</Text>
+        <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",marginTop:-height*0.1,backgroundColor:"#fff"}}>
+            <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
+            <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无讨论</Text>
         </View>
     )
 }
@@ -315,7 +316,7 @@ ListEmptyComponent(){
         const {modalVisible,imgUrls,currentIndex} = this.state;
         console.log(this.state.data);
         return (
-            <View>
+            <View style={{backgroundColor:"#fff"}}>
                  {/* 顶部标题栏 */}
                  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,backgroundColor:"#fff"}}> 
                     <TouchableOpacity activeOpacity={1} style={{ }}>
@@ -327,11 +328,12 @@ ListEmptyComponent(){
                 </View> 
 
                 <FlatList
-                style={{height:height*0.9}}
+                style={{height:height*0.93}}
                 keyExtractor={(item, index) => (index + '1')}
                 data={this.state.data}
                 renderItem={this.renderDate.bind(this)}
-                ListEmptyComponent={this.ListEmptyComponent.bind(this)}/>
+                ListEmptyComponent={this.ListEmptyComponent.bind(this)}
+                />
 
                 <Modal animationType={'slide'}
                 transparent={true}
