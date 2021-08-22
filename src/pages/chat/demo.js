@@ -11,7 +11,7 @@ export default class chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: [],
+            messages: this.props.route.params.introduce===undefined?[]:[this.props.route.params.introduce],
             username: '',
             username2:'',
             nickname: '',
@@ -23,6 +23,7 @@ export default class chat extends Component {
         };
         this.onSend = this.onSend.bind(this);
     }
+
 
     //获取Token
     get_shuju() {

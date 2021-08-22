@@ -20,7 +20,7 @@ export default class culture extends Component {
             </View>
             <ScrollView showsVerticalScrollIndicator={false}>
             <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('CulturalCreation')}
+                    
              activeOpacity={1} style={{width:width*0.9,height:height*0.25,backgroundColor:"#fff",borderRadius:15,marginBottom:"5%",elevation:5}}>
               <ImageBackground imageStyle={{borderRadius:15,}} style={{width:"100%",height:"100%"}} resizeMode="stretch" source={require("../img/bao.jpg")}>
               </ImageBackground>
