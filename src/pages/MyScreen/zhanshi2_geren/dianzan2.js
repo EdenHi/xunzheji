@@ -66,6 +66,7 @@ export default class Dianzan2 extends Component {
         this.listener = DeviceEventEmitter.addListener('dianzan', this.get.bind(this))
         this.listener = DeviceEventEmitter.addListener('test2', this.delect.bind(this))
         this.listener = DeviceEventEmitter.addListener('dianzan', this.delect.bind(this))
+        this.listener = DeviceEventEmitter.addListener('dianzan_1', this.get.bind(this))
     }
 
     componentWillUnmount() {
