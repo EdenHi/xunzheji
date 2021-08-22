@@ -37,7 +37,7 @@ export default class JieShao extends Component {
                                         <Text style={{ fontSize: 13, lineHeight: 25, marginTop: 10 }}>何士扬在他的作品中展开了都市生活空间里年轻族群的形态、状态和姿态，用他的眼光带着我们迸入阳光灿烂的地带，看到新鲜的图景，也感受到都市的脉动。他的画在视觉反应上是直接的，在情调上是明快的，在心理上是健康的，这些看上去不复杂的特点集合在一起，就拉开了在都市主题上他与其他画家不同的面貌。在日下普遍沉郁、晦涩、萎靡的都市图像中，他的画是一种发拨。</Text>
                                     </View>
                                 </View>
-                                <ZuoPin />
+                                <ZuoPin navigation={this.props.navigation} />
                             </ScrollView>
                         </View>
                     </View>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { TouchableOpacity } from 'react-native'
 import { Dimensions, Image, View, Text } from 'react-native'
 
 const { width, heigth } = Dimensions.get("window")
@@ -8,60 +9,36 @@ export default class ZuoPin extends Component {
         return (
             <View >
                 <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 10 }}>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
+                <TouchableOpacity activeOpacity={1} style={{ width: width * 0.4, height: width * 0.66 }}>
                         <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
                         <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
+                            <Text style={{ marginTop: '10%' ,color:'#333',}}>《高士品茗图》</Text>
+                            <Text style={{color:'#333',width: '100%',textAlign:'center',marginTop:'10%'}}>￥8890</Text>
                         </View>
-                    </View>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zhifu', {price:8890,name:"定制物品",jieshao:'......',pic:['https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg']})}   activeOpacity={1}  style={{ width: width * 0.4, height: width * 0.66 }}>
                         <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
                         <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
+                            <Text style={{ marginTop: '10%' ,color:'#333',}}>《高士品茗图》</Text>
+                            <Text style={{color:'#333',width: '100%',textAlign:'center',marginTop:'10%'}}>￥8890</Text>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 10 }}>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
+                <TouchableOpacity activeOpacity={1} style={{ width: width * 0.4, height: width * 0.66 }}>
                         <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
                         <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
+                            <Text style={{ marginTop: '10%' ,color:'#333',}}>《高士品茗图》</Text>
+                            <Text style={{color:'#333',width: '100%',textAlign:'center',marginTop:'10%'}}>￥8890</Text>
                         </View>
-                    </View>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Zhifu', {price:8890,name:"定制物品",jieshao:'......',pic:['https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg']})}   activeOpacity={1}  style={{ width: width * 0.4, height: width * 0.66 }}>
                         <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
                         <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
+                            <Text style={{ marginTop: '10%' ,color:'#333',}}>《高士品茗图》</Text>
+                            <Text style={{color:'#333',width: '100%',textAlign:'center',marginTop:'10%'}}>￥8890</Text>
                         </View>
-                    </View>
-                </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 10 }}>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
-                        <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
-                        <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
-                        </View>
-                    </View>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
-                        <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
-                        <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
-                        </View>
-                    </View>
-                </View>
-                <View style={{ flexDirection: "row", justifyContent: "space-around", marginTop: 10 }}>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
-                        <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
-                        <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
-                        </View>
-                    </View>
-                    <View style={{ width: width * 0.4, height: width * 0.66 }}>
-                        <Image style={{ width: width * 0.4, height: width * 0.45, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=678895359,1528526055&fm=26&fmt=auto&gp=0.jpg" }} />
-                        <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: "#fff", alignItems: "center", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
-                            <Text style={{ marginTop: 10 }}>《高士品茗图》</Text>
-                        </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
             </View>
         )

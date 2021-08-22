@@ -29,8 +29,8 @@ export default class Personal extends Component {
       isScroll: true,
       isOpen: false,
       aa: 1,
-      shoucang:'',
-      dianzan:'',
+      shoucang: '',
+      dianzan: '',
     }
   }
 
@@ -49,8 +49,8 @@ export default class Personal extends Component {
         }).then((json) => {
           this.setState({
             data: json.data[0][0],
-            shoucang:json.data[1][0],
-            dianzan:json.data[2][0],
+            shoucang: json.data[1][0],
+            dianzan: json.data[2][0],
           });
         });
       } else {
@@ -98,7 +98,7 @@ export default class Personal extends Component {
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={1} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Dingdan') }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="clipboard-text-outline"
               size={35}
@@ -131,7 +131,7 @@ export default class Personal extends Component {
 
 
   render() {
-    const { data, shoucang,dianzan } = this.state;
+    const { data, shoucang, dianzan } = this.state;
     console.log('data', data);
     let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
       <View >
@@ -180,9 +180,9 @@ export default class Personal extends Component {
               <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
                 <View activeOpacity={1} style={{ width: width * 0.75, height: height * 0.35, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10, elevation: 1 }}>
                   <ImageBackground source={{ uri: data.portrait }} style={{ width: width * 0.75, height: height * 0.35, alignItems: "center" }} borderRadius={10}>
-                    <View style={{width:"100%",height:"100%",borderRadius:10,backgroundColor:"rgba(0,0,0,0.1)"}}>
-                    <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
-                    <View style={{ marginTop: 10, width: width * 0.65 }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", textAlign: "right" }}>{data.signature}</Text></View>
+                    <View style={{ width: "100%", height: "100%", borderRadius: 10, backgroundColor: "rgba(0,0,0,0.1)" }}>
+                      <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
+                      <View style={{ marginTop: 10, width: width * 0.65 }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", textAlign: "right" }}>{data.signature}</Text></View>
                     </View>
                   </ImageBackground>
                 </View>
@@ -214,13 +214,13 @@ export default class Personal extends Component {
                   <TouchableOpacity activeOpacity={1}
                     onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }}
                     style={{ marginHorizontal: width * 0.075, marginTop: 20, flexDirection: "row" }}>
-                    <Text style={{ fontSize: 18, color: '#7cc0c0' ,marginLeft:-width*0.03}}>粉丝</Text>
+                    <Text style={{ fontSize: 18, color: '#7cc0c0', marginLeft: -width * 0.03 }}>粉丝</Text>
                     <Text style={{ fontSize: 18, color: '#7cc0c0', fontWeight: "bold", marginLeft: 10 }}>{this.state.username === '' ? '0' : data.fensi}</Text>
                   </TouchableOpacity>
                   <TouchableOpacity activeOpacity={1}
                     onPress={() => { this.state.username === '' ? this.showAlert() : this.context.navigate('Concerns', this.state.username) }}
                     style={{ marginHorizontal: width * 0.075, marginTop: 10, flexDirection: "row" }}>
-                    <Text style={{ fontSize: 18, color: '#7cc0c0',marginLeft:-width*0.03 }}>关注</Text>
+                    <Text style={{ fontSize: 18, color: '#7cc0c0', marginLeft: -width * 0.03 }}>关注</Text>
                     <Text style={{ fontSize: 18, color: '#7cc0c0', fontWeight: "bold", marginLeft: 10 }}>{this.state.username === '' ? '0' : data.guanzhu}</Text>
                   </TouchableOpacity>
                 </View>
@@ -230,7 +230,7 @@ export default class Personal extends Component {
               <TouchableOpacity onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.4, alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: width * 0.3 }}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <Text style={{ marginLeft: "15%", marginTop: "45%", fontSize: 15, color: "#7cc0c0",fontWeight:"bold" }}>我的发布</Text>
+                    <Text style={{ marginLeft: "15%", marginTop: "45%", fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>我的发布</Text>
                     <View style={{ width: width * 0.1, height: width * 0.1, marginBottom: "-30%" }}>
                       <LottieView source={require('../../../animal/publish.json')} autoPlay loop progress={this.state.progress} />
                     </View>
