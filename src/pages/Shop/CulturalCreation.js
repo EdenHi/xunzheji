@@ -165,7 +165,7 @@ class Draggable extends Component {
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>加入购物车</Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center',height:height*0.05 }}
-                                        onPress={() => this.props.navigation.navigate('Zhifu', {price:39,name:"定制物品",jieshao:'......'})}>
+                                        onPress={() => this.props.navigation.navigate('Zhifu', {price:39,name:"定制物品",jieshao:'......',pic:[this.state.shoturi]})}>
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>立即购买</Text>
                                     </TouchableOpacity>
                                 </View>

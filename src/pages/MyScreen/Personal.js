@@ -29,6 +29,8 @@ export default class Personal extends Component {
       isScroll: true,
       isOpen: false,
       aa: 1,
+      shoucang:'',
+      dianzan:'',
     }
   }
 
@@ -46,7 +48,9 @@ export default class Personal extends Component {
           username: result,
         }).then((json) => {
           this.setState({
-            data: json.data[0],
+            data: json.data[0][0],
+            shoucang:json.data[1][0],
+            dianzan:json.data[2][0],
           });
         });
       } else {
@@ -125,9 +129,7 @@ export default class Personal extends Component {
 
 
   render() {
-    const { showAlert } = this.state;
-    const { navigation } = this.props;
-    const { data, isScroll } = this.state;
+    const { data, shoucang,dianzan } = this.state;
     console.log('data', data);
     let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
       <View >
@@ -251,16 +253,16 @@ export default class Personal extends Component {
                 </TouchableOpacity>
                 <View style={{ width: width * 0.4, marginLeft: "5%" }}>
                   <View style={{ width: width * 0.4, height: height * 0.05, flexDirection: "row", justifyContent: "space-around", marginTop: "-25%", alignItems: "center" }}>
-                    <Text style={{ fontSize: 15, color: "#7cc0c0",fontWeight:"bold"  }}>我的收藏</Text>
-                    <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{data.guanzhu}</Text>
+                    <Text style={{ fontSize: 15, color: "#7cc0c0" }}>我的收藏</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{shoucang.shoucang}</Text>
                   </View>
                   <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Shoucang2')} style={{ width: width * 0.402, height: height * 0.152, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderRadius: 10, alignItems: "center", justifyContent: "center" }}>
                     <ImageBackground source={{ uri: "https://img1.baidu.com/it/u=1097602216,1708759335&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.4, height: height * 0.15 }} borderRadius={10} >
                     </ImageBackground>
                   </TouchableOpacity>
                   <View style={{ width: width * 0.4, height: height * 0.05, flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
-                    <Text style={{ fontSize: 15, color: "#7cc0c0",fontWeight:"bold"  }}>我的点赞</Text>
-                    <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{data.fensi}</Text>
+                    <Text style={{ fontSize: 15, color: "#7cc0c0" }}>我的点赞</Text>
+                    <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{dianzan.dianzan}</Text>
                   </View>
                   <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Dianzan2')} style={{ width: width * 0.402, height: height * 0.152, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: "#7cc0c0", borderRadius: 10, alignItems: "center", justifyContent: "center" }}>
                     <ImageBackground source={{ uri: "https://img0.baidu.com/it/u=1107750492,2231488047&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.4, height: height * 0.15 }} borderRadius={10} >
