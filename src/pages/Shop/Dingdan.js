@@ -91,7 +91,7 @@ export default class Dingdan extends Component {
                     <View style={{ flexDirection: "row" }}>
                         <Image style={{ width: width * 0.05, height: width * 0.05, marginRight: 5 }} source={{ uri: item.dianpu_img }} resizeMode='stretch' />
                         <Text style={{ fontWeight: "bold", fontSize: 15 ,color:"#333333"}}>
-                            {item.dianpu}
+                            {item.dianpu!==undefined?'官方店铺':item.dianpu}
                         </Text>
                         <Text style={{ marginLeft: "52%", color: "#7cc0c0" }}>
                             {item.fahuo}
