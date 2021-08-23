@@ -105,17 +105,32 @@ export default class Swop extends Component {
         onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
       >
         <View style={{ marginHorizontal: width * 0.05, marginVertical: height * 0.15 }} key={index}>
-          <View style={{ width: 50, height: 50, zIndex: 5, marginLeft: width * 0.7, position: "absolute", marginTop: height * 0.03 }}>
-            <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/change.json')} autoPlay loop progress={this.state.progress} />
+          <View style={{  zIndex: 5, position: "absolute", marginTop: height * 0.03,flexDirection:'row' }}>
+              <Text style={{marginLeft:'10%',fontSize:18,fontWeight:'bold'}}>{item.tag}</Text>
+            <LottieView style={{ width: 60, height: 40, marginLeft: '55%' }} source={require('../../../../animal/change.json')} autoPlay loop progress={this.state.progress} />
           </View>
-          <ImageBackground imageStyle={{ borderRadius: 15 }} style={{ width: width * 0.9, height: height * 0.6, alignItems: "center", justifyContent: "center" }} source={{ uri: this.state.imgUrl }} >
+          
+          <ImageBackground imageStyle={{ borderRadius: 15 }} style={{ width: width * 0.9, height: height * 0.6,alignItems: "center", justifyContent: "center" }} source={{ uri: this.state.imgUrl }} >
 
-            <View style={{ backgroundColor: "rgba(255,255,255,0.7)", width: width * 0.7, height: height * 0.2, alignItems: "center", justifyContent: "center" }}>
-              <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333333" }}>交换的物品：</Text>
-              <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.wupin}</Text>
-              <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>想换什么：</Text>
-              <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.exchang_wupin}</Text>
+            <View style={{ backgroundColor: "rgba(255,255,255,0.7)", width: width * 0.7, height: height * 0.2 }}>
+              <View style={{flexDirection:'row',top:-width*0.05,left:10}}>
+                <Image source={{uri:item.portrait}} style={{width:width*0.1,height:width*0.1,borderRadius:50}}/>
+                <View style={{marginLeft:5,justifyContent:'space-between'}}>
+                  <Text>{item.nickname}</Text>
+                  <Text>{item.renzheng}</Text>
+                </View>
+              </View>
+              
+              <View style={{ alignItems: "center", justifyContent: "center"}}>
+                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333333" }}>交换的物品：</Text>
+                <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.wupin}</Text>
+                <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>想换什么：</Text>
+                <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.exchang_wupin}</Text>
+              </View>
+              
             </View>
+
+            
           </ImageBackground>
         </View>
         <View style={{ backgroundColor: 'rgba(255,255,255,0.8)', marginHorizontal: width * 0.05, height: height * 0.6, width: width * 0.9, borderRadius: 10, marginTop: height * 0.15, padding: 10 }}>
@@ -132,10 +147,14 @@ export default class Swop extends Component {
             <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[2] }} />
             <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
           </View>
-          <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: '2' }) }} style={{ flexDirection: "row", width: width * 0.2, height: 50, alignItems: "center", marginTop: 15, marginLeft: "70%" }} >
-            <View style={{ width: 50, height: 40 }}><Text style={{ fontWeight: "bold", fontSize: 15, color: "#7cc0c0" }}>我想要</Text></View>
-            <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
-          </TouchableOpacity>
+          <View style={{flexDirection:'row', marginTop: 15}}>
+            <Text onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{marginLeft:'10%',fontWeight: "bold", fontSize: 15, color: "#7cc0c0",marginTop:5}}>聊天</Text>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Exchange_want')} style={{ flexDirection: "row", width: width * 0.2, height: 50, alignItems: "center", marginLeft: "55%" }} >
+              <View style={{ width: 50, height: 40 }}><Text style={{ fontWeight: "bold", fontSize: 15, color: "#7cc0c0" }}>我想要</Text></View>
+              <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+            </TouchableOpacity>
+          </View>
+          
         </View>
 
       </FlipCard>
