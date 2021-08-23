@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity, Dimensions, Image, TextInput, ScrollView, ImageBackground } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, Image, TextInput, ScrollView, ImageBackground,DeviceEventEmitter } from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
 import Picker from 'react-native-picker';
