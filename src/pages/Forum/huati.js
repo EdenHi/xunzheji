@@ -18,6 +18,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import {NavigationContext} from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Fontisto from "react-native-vector-icons/Fontisto";
 const {height,width} = Dimensions.get('window')
 export default class huati extends Component {
     static contextType = NavigationContext;
@@ -265,8 +266,9 @@ ListEmptyComponent(){
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={item.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#FFE6CC',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
-                                           <Text style={{marginLeft:5,paddingTop:5,paddingBottom:5,color:"#333"}}>{item.tag}</Text>
+                                       <View style={item.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#7cc0c0',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
+                                       <Fontisto name='hashtag' color='#fff' />
+                                           <Text style={{paddingTop:5,paddingBottom:5,color:"#fff"}}>{item.tag}</Text>
                                        </View>
 
                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10}}>
@@ -277,10 +279,10 @@ ListEmptyComponent(){
                                                         <Ionicons
                                                         name={item.dianzan_username === this.state.denglu_username ? 'heart' : 'heart-outline'}
                                                         size={20}
-                                                        color={item.dianzan_username === this.state.denglu_username ? 'red' : '#333'}
+                                                        color={item.dianzan_username === this.state.denglu_username ? 'red' : '#999'}
                                                         />
                                                     </TouchableOpacity> 
-                                                    <Text style={{marginLeft:5,color:"#333"}}>{item.dianzan}</Text>
+                                                    <Text style={{marginLeft:5,color:"#999"}}>{item.dianzan}</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity       activeOpacity={1} onPress={()=>this.context.navigate('Comment',item)}>
@@ -288,8 +290,8 @@ ListEmptyComponent(){
                                                 <Ionicons
                                                 name="chatbubble-ellipses-outline"
                                                 size={20}
-                                                color="#333"/>
-                                                <Text style={{marginLeft:5,color:"#333"}}>{item.counts}</Text>
+                                                color="#999"/>
+                                                <Text style={{marginLeft:5,color:"#999"}}>{item.counts}</Text>
                                                 </View>
                                             </TouchableOpacity>
                                             <TouchableOpacity
@@ -303,7 +305,7 @@ ListEmptyComponent(){
                                                     <Ionicons
                                                     name="arrow-redo-outline"
                                                     size={20}
-                                                    color="#333"/>
+                                                    color="#999"/>
                                                 </View>
                                             </TouchableOpacity>
                                        </View>

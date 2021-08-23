@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
         
     },
     txt2: {
-        backgroundColor: '#ccc',
+        backgroundColor: '#dcdcdc',
         paddingLeft: 15,
         paddingRight:15,
         width: '70%',

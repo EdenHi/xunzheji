@@ -167,7 +167,7 @@ export default class Personal extends Component {
       >
         <LottieView source={require('../../../animal/background')} autoPlay loop progress={this.state.progress} />
         <View>
-          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between", flexDirection: "row", backgroundColor: "#7cc0c0" }}>
+          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.08, justifyContent: "space-between", flexDirection: "row", backgroundColor: "#7cc0c0" }}>
             <Feather name="menu" size={25} color="#fff" style={{ marginLeft: 10 }} onPress={() => this.setState({ isOpen: true, })} />
             <View style={{ width: width * 0.6, alignContent: "center", justifyContent: "center", flexDirection: "row" }}>
               <Text style={{ fontSize: 15, color: "#fff" }}>{data.nickname}</Text>

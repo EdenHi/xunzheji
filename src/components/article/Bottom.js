@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
         justifyContent:"space-between"
     },
     txt: {
-        backgroundColor: '#ccc',
+        backgroundColor: '#dcdcdc',
         marginLeft: 0 ,
         width: "55%",
         height: 40 ,

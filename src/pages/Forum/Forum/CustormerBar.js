@@ -58,6 +58,7 @@ class CustormerBar extends Component {
               }}>
               <Text
                 style={{
+                  fontWeight:'bold',
                   color: activeTab === i ? 'black' : 'grey',
                   fontSize: activeTab === i ? pxToDp(20) : pxToDp(20),
                 }}>

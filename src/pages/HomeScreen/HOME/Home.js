@@ -72,7 +72,7 @@ export default class Home extends Component {
         return (
             <View style={{ alignItems: 'center', }}>
                 <LinearGradient style={{ width }} colors={['#7cc0bf', '#fff', '#fff']} >
-                    <View style={{ height: height * 0.1, flexDirection: "row", alignItems: "center" }}>
+                    <View style={{ height: height * 0.08, flexDirection: "row", alignItems: "center" }}>
                         <View style={{ marginLeft: "5%" }}>
                             <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
                             <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
