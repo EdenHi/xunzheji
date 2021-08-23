@@ -125,9 +125,11 @@ console.log(this.props.route.params);
                     }),
                     }) .then((response) => response.json())
                     .then((responseJson) => {
-                        this.setState({
-                            dizhi:responseJson[0],
-                        });
+                        if(responseJson.length>0){
+                            this.setState({
+                                dizhi:responseJson[0],
+                            });
+                        }
                         console.log('dizhi',responseJson);
                     })
             } else {
@@ -200,14 +202,14 @@ console.log(this.props.route.params);
                     {/* 收货地址 */}
                     <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 5, borderRadius:10, margin: 5, backgroundColor: "#fff",width:width*0.9,marginLeft:width*0.05,borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={1}>
                         <View style={{ marginTop: 5, marginLeft: 20, flexDirection: "row", }}>
-                            <Text style={{ fontSize: 16 }}>{dizhi.name}</Text>
-                            <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi.phone}</Text>
+                            <Text style={{ fontSize: 16 }}>{dizhi===''?'':dizhi.name}</Text>
+                            <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi===''?'':dizhi.phone}</Text>
 
                             {/* <IconFont name="jiantou" size={20} style={{ marginLeft: 130, marginTop: 15 }} /> */}
                         </View>
                         <View style={{ marginLeft: 20, marginBottom: 10 ,flexDirection:'row'}}>
-                            <Text style={{ fontSize: 14,color:"#333333" }}>{dizhi.dizhi}</Text>
-                            <Text style={{ fontSize: 14,marginLeft:10,color:"#333333" }}>{dizhi.xiangxi}</Text>
+                            <Text style={{ fontSize: 14,color:"#333333" }}>{dizhi===''?'':dizhi.dizhi}</Text>
+                            <Text style={{ fontSize: 14,marginLeft:10,color:"#333333" }}>{dizhi===''?'':dizhi.xiangxi}</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -256,7 +258,7 @@ console.log(this.props.route.params);
 
 
 
-                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{ justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 ,elevation:5}} activeOpacity={0.95}>
+                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{width:width*0.90,marginLeft:width*0.05, justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 ,elevation:5}} activeOpacity={0.95}>
                             <Text style={{ marginLeft: 15,color:"#333333" }}>支付方式:</Text>
                             <Text style={{ marginRight:15 ,color:"#333333"}}>{this.state.way}</Text>
                             {/* <IconFont name="jiantou" size={20}  /> */}

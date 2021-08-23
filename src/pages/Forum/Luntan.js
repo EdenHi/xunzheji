@@ -399,7 +399,7 @@ onShare = async () => {
                                                 activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}} resizeMode='stretch'/>
                                                 </TouchableOpacity>
                                                 </View>
                                                 );
@@ -410,7 +410,7 @@ onShare = async () => {
                                                 activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}} resizeMode='stretch'/>
                                                 </TouchableOpacity>
                                             </View>
                                             );
@@ -421,7 +421,7 @@ onShare = async () => {
                                                     activeOpacity={1}
                                                     key = {index}
                                                     onPress={()=>this.handleShowAlbum(k,index)}>
-                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}} resizeMode='stretch'/>
                                                     </TouchableOpacity>
                                                 </View>
                                             );
@@ -507,7 +507,7 @@ onShare = async () => {
                                                         <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                                                     </View>
                                                 </View>
-                                                <MaterialCommunityIcons name='dots-vertical' size={20} color='#ccc' onPress={()=>this.setState({isVisible:true})}/>
+                                                <MaterialCommunityIcons name='dots-vertical' size={20} color='#ccc' onPress={()=>this.setState({isVisible:true})} />
                                             </View>
                                       <Text style={v.title===''?{height:0}:styles.txt}
                                       ellipsizeMode="tail"
@@ -527,7 +527,7 @@ onShare = async () => {
                                             activeOpacity={1}
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}} resizeMode='stretch'/>
                                             </TouchableOpacity>
                                             </View>
                                             );
@@ -538,7 +538,7 @@ onShare = async () => {
                                             activeOpacity={1}
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}} resizeMode='stretch'/>
                                             </TouchableOpacity>
                                         </View>
                                         );
@@ -549,7 +549,7 @@ onShare = async () => {
                                                 activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}} resizeMode='stretch'/>
                                                 </TouchableOpacity>
                                             </View>
                                         );
@@ -615,7 +615,7 @@ onShare = async () => {
                 transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => { this.setState({modalVisible:false});}}>
-                    <ImageViewer imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
+                    <ImageViewer   imageUrls={imgUrls} style = {{flex:1}} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }}/>
                 </Modal>
 
                 <BottomSheet

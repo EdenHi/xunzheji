@@ -324,20 +324,20 @@ export default class Store extends Component {
 
 
 
-  renderDate2({ item, index }) {
-    return (
-      <TouchableOpacity key={index} style={{ backgroundColor: 'white', width: width * 0.425, borderRadius: 10, margin: width * 0.025, marginBottom: width * 0.025, elevation: 5 }} activeOpacity={1}
-        onPress={() => this.props.navigation.navigate('Shopdetails', { shops: item })}>
-        <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.425, height: width * 0.425, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-        <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: "#333333", fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
-        <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
-          <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
-            <Text style={{ color: "#7cc0c0", fontSize: 15 }}>￥</Text>
-            <Text style={{ color: '#7cc0c0', fontSize: 15 }}>{item.price}</Text>
-          </View>
-          <Text style={{ color: "#333333", fontSize: 10 }}>{item.sales}人付款</Text>
-        </View>
-      </TouchableOpacity>
+  renderDate2({item,index}){
+    return(
+        <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,elevation:5}} activeOpacity={1}
+        onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
+            <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
+            <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
+            <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
+                <View style={{flexDirection:'row',alignItems:'baseline'}}>
+                    <Text style={{color:"#7cc0c0",fontSize:15}}>￥</Text>
+                    <Text style={{color:'#7cc0c0',fontSize:15}}>{item.price}</Text>
+                </View>
+                <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
+            </View>
+        </TouchableOpacity>
     )
   }
 
@@ -379,119 +379,12 @@ export default class Store extends Component {
     }
   }
 
-
-
-
-  render() {
-    const { modalVisible } = this.state;
-    const { navigation } = this.props;
-    console.log('showpage', this.state.showpage);
-    return (
-      <View style={styles.container}>
-        <LinearGradient style={{ width }} colors={["#7cc0bf", "#fff", "#fff"]} >
-          <Modal
-            animationType="fade"
-            transparent={true}
-            visible={modalVisible}
-            hardwareAccelerated={true}
-            onRequestClose={() => {
-              this.setModalVisible(!modalVisible);
-            }}
-          >
-            <View>
-              <View style={{ borderBottomRightRadius: 10, borderBottomLeftRadius: 10, elevation: 5, height: height * 0.15, width: width, backgroundColor: '#eee', width: "100%" }}>
-                <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row', justifyContent: "space-around" }}>
-                  <TouchableOpacity activeOpacity={1} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20, }}>
-
-                    <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setModalVisible(!modalVisible) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
-                      name="cart-outline"
-                      size={35}
-                      color="#7cc0c0"
-                    />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>购物车</Text>
-
-
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
-                    <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
-                      name="clipboard-text-outline"
-                      size={35}
-                      color="#7cc0c0"
-                    />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats', { room: '1' }), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
-                    <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
-                      name="customerservice"
-                      size={35}
-                      color="#7cc0c0"
-                    />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>客服</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('AddressList'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
-                    <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
-                      name="map-marker-radius"
-                      size={35}
-                      color="#7cc0c0"
-                    />
-                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>地址管理</Text>
-                  </TouchableOpacity>
-                </View>
-                <MaterialCommunityIcons onPress={() => {
-                  this.setModalVisible(!modalVisible);
-                }} style={{ height: "10%", width: "100%", textAlignVertical: 'center', textAlign: 'center' }}
-
-                  name="apple-keyboard-control"
-                  size={20}
-                  color="#7cc0c0"
-                />
-              </View>
-              <TouchableOpacity activeOpacity={1} onPress={() => {
-                this.setModalVisible(!modalVisible);
-              }} style={{ width: width, height: "85%" }}>
-
-              </TouchableOpacity>
-            </View>
-          </Modal>
-          <View style={styles.header}>
-            {/* <TouchableOpacity onPress={() => navigation.navigate('Page1')} activeOpacity={1} style={styles.left}>
-              <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
-                name="clipboard-text-outline"
-                size={25}
-                color="#fff"
-              />
-            </TouchableOpacity> */}
-            <TouchableOpacity activeOpacity={1}
-              onPress={() => navigation.navigate('search')}
-              style={styles.input}>
-              <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.08, }}>
-                <SimpleLineIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', borderWidth: 0, }}
-                  name="magnifier"
-                  size={18}
-                  color="grey"
-                />
-              </View>
-              <Text style={{ fontSize: 15, marginLeft: "3%", color: "#7cc0c0" }}>搜索好物</Text>
-            </TouchableOpacity>
-            <TouchableOpacity activeOpacity={1} style={styles.left}
-              onPress={() => {
-                this.setModalVisible(true);
-              }}
-            >
-              <MaterialCommunityIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
-                name="dots-vertical"
-                size={25}
-                color="#fff"
-              />
-
-            </TouchableOpacity>
-          </View>
-          <ScrollView
-            onScroll={(e) => this._onScroll(e)}
-            ref='listview'
-            style={{ height: height * 0.87 }}>
-            <View style={{ alignItems: "center", }}>
-              <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
+ListHeaderComponent(){
+  const { modalVisible } = this.state;
+  const { navigation } = this.props;
+  return(
+    <View style={{alignItems:'center'}}>
+       <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
                 <Swiper
                   //样式
                   //组件高度
@@ -664,32 +557,139 @@ export default class Store extends Component {
                     onSnapToItem={index => this.setState({ activeIndex: index })} />
                 </View>
               </View>
-              <View style={{ width: "95%", alignItems: "center", backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-                <Text style={{ height: 20, fontSize: 15, color: "#7cc0c0", fontWeight: "bold", fontWeight: "bold", marginTop: 5 }}>今日推荐</Text>
-                <Text style={{ height: 10, fontSize: 7, color: "#7cc0c0", fontWeight: "bold", fontWeight: "bold" }}>DAILY RECOMMENDATION</Text>
-                <View style={{ width: "25%", borderWidth: 1, borderColor: "#7cc0c0", marginTop: 5 }}></View>
+              <View style={{ width: "95%", alignItems: "center",backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
+                <Text style={{ height: 20, fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
+                <View style={{ width: "25%",borderWidth:1, borderColor: "#7cc0c0", marginTop: 10 }}></View>
+              </View>
+    </View>
+  )
+}
+
+
+  render() {
+    const { modalVisible } = this.state;
+    const { navigation } = this.props;
+    console.log('showpage',this.state.showpage);
+    return (
+      <View style={styles.container}>
+        <LinearGradient style={{ width }} colors={["#7cc0bf", "#fff", "#fff"]} >
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={modalVisible}
+            hardwareAccelerated={true}
+            onRequestClose={() => {
+              this.setModalVisible(!modalVisible);
+            }}
+          >
+            <View>
+              <View style={{ borderBottomRightRadius: 10, borderBottomLeftRadius: 10, elevation: 5, height: height * 0.15, width: width, backgroundColor: '#eee', width: "100%" }}>
+                <View style={{ width: width, height: "80%", borderWidth: 0, flexDirection: 'row',justifyContent:"space-around" }}>
+                  <TouchableOpacity activeOpacity={1} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20,  }}>
+
+                    <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setModalVisible(!modalVisible) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+                      name="cart-outline"
+                      size={35}
+                      color="#7cc0c0"
+                    />
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" ,color:"#333333"}}>购物车</Text>
+
+
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan'),this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20}}>
+                    <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+                      name="clipboard-text-outline"
+                      size={35}
+                      color="#7cc0c0"
+                    />
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats',{room:'1'}), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
+                    <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+                      name="customerservice"
+                      size={35}
+                      color="#7cc0c0"
+                    />
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" ,color:"#333333"}}>客服</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('AddressList'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%',  height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20}}>
+                    <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+                      name="map-marker-radius"
+                      size={35}
+                      color="#7cc0c0"
+                    />
+                    <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" ,color:"#333333"}}>地址管理</Text>
+                  </TouchableOpacity>
+                </View>
+                <MaterialCommunityIcons onPress={() => {
+                  this.setModalVisible(!modalVisible);
+                }} style={{ height: "10%", width: "100%",textAlignVertical: 'center', textAlign: 'center' }}
+
+                  name="apple-keyboard-control"
+                  size={20}
+                  color="#7cc0c0"
+                />
+              </View>
+              <TouchableOpacity activeOpacity={1} onPress={() => {
+                this.setModalVisible(!modalVisible);
+              }} style={{ width: width, height: "85%" }}>
+
+              </TouchableOpacity>
+            </View>
+          </Modal>
+          <View style={styles.header}>
+            {/* <TouchableOpacity onPress={() => navigation.navigate('Page1')} activeOpacity={1} style={styles.left}>
+              <MaterialCommunityIcons style={{ textAlign: 'center', borderWidth: 0, height: '100%', textAlignVertical: 'center' }}
+                name="clipboard-text-outline"
+                size={25}
+                color="#fff"
+              />
+            </TouchableOpacity> */}
+            <TouchableOpacity activeOpacity={1}
+              onPress={() => navigation.navigate('search')}
+              style={styles.input}>
+              <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07, }}>
+                <SimpleLineIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', borderWidth: 0, }}
+                  name="magnifier"
+                  size={18}
+                  color="grey"
+                />
+              </View>
+              <Text style={{ fontSize: 15, marginLeft: "3%", color: "#7cc0c0" }}>搜索好物</Text>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} style={styles.left}
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+            >
+              <MaterialCommunityIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%" }}
+                name="dots-vertical"
+                size={25}
+                color="#fff"
+              />
+
+            </TouchableOpacity>
+          </View>
+          
+
+             
                 <FlatList
-                  style={{ marginTop: 20 }}
+                style={{paddingTop:20,height:height*0.825}}
+               
                   numColumns={2}
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
+                  columnWrapperStyle={{backgroundColor:'#fff',width:width*0.95,marginLeft:width*0.025}}
                   renderItem={this.renderDate2.bind(this)}
-                  ListFooterComponent={this.yangshi.bind(this)} //确定刷新的样式
-                  onEndReached={this.loadData.bind(this)}//上拉刷新
-                  onEndReachedThreshold={0.1}
-                />
-              </View>
-            </View>
-          </ScrollView>
-          {/* <ActionButton
-          hideLabelShadow={true}
-          activeOpacity={1}
-          elevation={100}
-          size={60}
-          buttonColor="rgba(231,76,60,1)"
-          onPress={() => { alert('你点了我！') }}
-        /> */}
+                  ListHeaderComponent={this.ListHeaderComponent.bind(this)}
+                ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
+                onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  onEndReachedThreshold={1}
+                  />  
+              
 
+
+        
         </LinearGradient>
         {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }} root={this} ></ScrollTopView> : null}
       </View>
