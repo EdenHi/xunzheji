@@ -403,7 +403,7 @@ onShare = async () => {
                                                 <TouchableOpacity activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}} resizeMode='stretch'/>
                                                 </TouchableOpacity>
                                                 </View>
                                                 );
@@ -413,7 +413,7 @@ onShare = async () => {
                                                 <TouchableOpacity activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                    <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}} resizeMode='stretch'/>
                                                 </TouchableOpacity>
                                             </View>
                                             );
@@ -423,7 +423,7 @@ onShare = async () => {
                                                     <TouchableOpacity activeOpacity={1}
                                                     key = {index}
                                                     onPress={()=>this.handleShowAlbum(k,index)}>
-                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                        <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}} resizeMode='stretch'/>
                                                     </TouchableOpacity>
                                                 </View>
                                             );
@@ -523,7 +523,7 @@ onShare = async () => {
                                             <TouchableOpacity activeOpacity={1}
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 4) / 2,width:(width * 0.9 - 4) / 2}} resizeMode='stretch'/>
                                             </TouchableOpacity>
                                             </View>
                                             );
@@ -534,7 +534,7 @@ onShare = async () => {
                                             activeOpacity={1}
                                             key = {index}
                                             onPress={()=>this.handleShowAlbum(k,index)}>
-                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}}/>
+                                                <Image source={{uri:item}} style={{height:(width * 0.9 - 7) / 3,width:(width * 0.9 - 7) / 3}} resizeMode='stretch'/>
                                             </TouchableOpacity>
                                         </View>
                                         );
@@ -544,7 +544,7 @@ onShare = async () => {
                                                 <TouchableOpacity activeOpacity={1}
                                                 key = {index}
                                                 onPress={()=>this.handleShowAlbum(k,index)}>
-                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}}/>
+                                                    <Image source={{uri:item}} style={{height:width * 0.9 - 2,width:width * 0.9 - 2}} resizeMode='stretch'/>
                                                 </TouchableOpacity>
                                             </View>
                                         );

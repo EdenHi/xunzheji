@@ -84,7 +84,7 @@ export default class Dianzan2 extends Component {
                         <Text style={{ marginLeft: 10, fontSize: 18 }}>{item.nickname}</Text>
                     </View>
                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }} activeOpacity={1} onPress={() => this.props.navigation.navigate('Comment', this.state.data[index])}>
-                        <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.2, height: width * 0.2, marginTop: 15 }} />
+                        <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.2, height: width * 0.2, marginTop: 15 }} resizeMode='stretch'/>
                         <Text style={{ marginLeft: 15, fontWeight: 'bold', fontSize: 15 }}>{item.title}</Text>
                     </TouchableOpacity>
                 </View>
