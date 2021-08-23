@@ -326,7 +326,7 @@ export default class Store extends Component {
 
   renderDate2({item,index}){
     return(
-        <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,marginBottom:width*0.025,elevation:5}} activeOpacity={1}
+        <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,elevation:5}} activeOpacity={1}
         onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
             <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
             <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
@@ -378,7 +378,190 @@ loadData(){
   }
 }
 
+ListHeaderComponent(){
+  const { modalVisible } = this.state;
+  const { navigation } = this.props;
+  return(
+    <View style={{alignItems:'center'}}>
+       <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
+                <Swiper
+                  //样式
+                  //组件高度
+                  loop={true}                    //如果设置为false，那么滑动到最后一张时，再次滑动将不会滑到第一张图片。
+                  autoplay={true}                //自动轮播
+                  autoplayTimeout={10}            //每隔4秒切换
+                  horizontal={true}              //水平方向，为false可设置为竖直方向
+                  paginationStyle={{ bottom: 1 }} //小圆点的位置：距离底部10px
+                  showsButtons={false}           //为false时不显示控制按钮
+                  showsPagination={true}       //为false不显示下方圆点
+                  dot={<View style={{           //未选中的圆点样式
+                    backgroundColor: 'rgba(0,0,0,.2)',
+                    width: 5,
+                    height: 5,
+                    marginLeft: 2,
+                    marginRight: 2,
+                    marginTop: 9,
+                    marginBottom: 9,
+                    borderRadius:50
+                  }} />}
+                  activeDot={<View style={{    //选中的圆点样式
+                    backgroundColor: '#7cc0c0',
+                    width: 15,
+                    height: 5,
+                    marginLeft: 2,
+                    marginRight: 2,
+                    marginTop: 9,
+                    marginBottom: 9,
+                    borderRadius:15
+                  }} />}
+                >
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1617206691,1514069942&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=471631677,3527280070&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=3177392174,4240871380&fm=15&fmt=auto&gp=0.jpg" }} />
+                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
+                </Swiper>
+                {/* <ShiCha /> */}
+                {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
+                dataSource={images}
+                width={width}
+                height={160}
+                renderRow={this.renderRow}
+                ratio={0.6}
+                index={5}
+                horizontal={true}
+                loop={true}
+                autoplayTimeout={2}
+              /> */}
+              </View>
+              <View style={styles.part}>
+                <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5,backgroundColor:"#fff" }}
+                  onPress={() => navigation.navigate('CustomMade')}
+                >
+                  <View style={{width:"100%",height:"50%",alignItems:"center",justifyContent:"center"}}>
+                  
+             <Text style={{fontSize:18,fontWeight:"bold",color:"#7cc0c0",marginTop:"7%"}}>文化定制</Text>
 
+                    {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
+                  </View>
+                  <View style={{width:"100%",height:"50%"}}>
+                  <LottieView source={require('../../../animal/dingzhi.json')} autoPlay loop progress={this.state.progress} />
+                  </View>
+                  {/* <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://8.142.11.85:3000/public/images/8.jpg' }}></Image> */}
+                </TouchableOpacity>
+                <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
+                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%",flexDirection:"row", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                  <View style={{}}></View>
+                    <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/9.jpg' }}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                    <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/10.jpg' }}></Image>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <View style={styles.old}>
+                <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
+                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                            <View style={{ marginLeft: 10 ,width:width*0.75 }}>
+                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
+                                                <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
+                                            </View>
+
+
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+                    <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+                  </TouchableOpacity>
+                </TouchableOpacity>
+                
+                
+
+                <FlatList
+        //   style={{width:width,height:10000}}
+            data = {this.state.shops}
+            keyExtractor={(item, index) => (index + '1')}
+            renderItem = {({item})=>
+            <View style={{width:width,alignItems:'center'}}>
+                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails",{shops:item}) }} activeOpacity={1} style={{width: width*0.9,
+                                                                                                                                                height: height*0.18,
+                                                                                                                                                backgroundColor: "grey",
+                                                                                                                                                marginBottom: "3%",
+                                                                                                                                                borderRadius: 10,
+                                                                                                                                                elevation: 5,
+                                                                                                                                                flexDirection: "row",}}>
+                <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+                  <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
+                    <Text style={{ fontSize: 15, fontWeight: "bold",color:"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
+                  </View>
+                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13,color:"#333333" }}>{item.jieshao}</Text>
+                  </View>
+                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                    <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
+                  </View>
+                  
+                  <View style={{ width: "90%", height: "18%", flexDirection: "row" ,alignItems:"center",marginLeft:"2%"}}>
+                  <LottieView style={{width:"50%",height:"100%"}} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
+                  <Text style={{color:"#333333",fontSize:13}}>5.0</Text>
+                  </View>
+                  
+                  <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
+                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
+                    onPress={()=>this.insert_shopcart(item)}>
+                      <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
+                    </TouchableOpacity>
+
+
+                  </View>
+                </View>
+                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} resizeMode='stretch' source={{uri:item.pic[1]}} >
+
+                </Image>
+              </TouchableOpacity>
+        
+            </View>
+        
+        
+        }/>
+
+
+
+              </View>
+              <View style={styles.limit}>
+                <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
+                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                    <View style={{ marginLeft: 10 ,width:width*0.75 }}>
+                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
+                        <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
+                    </View>
+
+
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,  color: '#7cc0bf' }}>
+                    <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+                  </TouchableOpacity>
+                </TouchableOpacity>
+                <View style={styles.oldname}>
+                  <Carousel
+                  
+                    // layout={"default"}
+                    layout={'stack'} layoutCardOffset={`10`}
+                    // layout={'tinder'} layoutCardOffset={`15`} 
+                    ref={ref => this.carousel = ref}
+                    data={this.state.carouselItems}
+                    sliderWidth={400}
+                    itemWidth={350}
+                    renderItem={this._renderItem}
+                    loop={true}
+                    onSnapToItem={index => this.setState({ activeIndex: index })} />
+                </View>
+              </View>
+              <View style={{ width: "95%", alignItems: "center",backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
+                <Text style={{ height: 20, fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
+                <View style={{ width: "25%",borderWidth:1, borderColor: "#7cc0c0", marginTop: 10 }}></View>
+              </View>
+    </View>
+  )
+}
 
 
   render() {
@@ -485,206 +668,25 @@ loadData(){
 
             </TouchableOpacity>
           </View>
-          <ScrollView
-           onScroll={(e)=>this._onScroll(e)} 
-           ref='listview'
-          style={{height:height*0.87 }}>
-            <View style={{ alignItems: "center", }}>
-              <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
-                <Swiper
-                  //样式
-                  //组件高度
-                  loop={true}                    //如果设置为false，那么滑动到最后一张时，再次滑动将不会滑到第一张图片。
-                  autoplay={true}                //自动轮播
-                  autoplayTimeout={10}            //每隔4秒切换
-                  horizontal={true}              //水平方向，为false可设置为竖直方向
-                  paginationStyle={{ bottom: 1 }} //小圆点的位置：距离底部10px
-                  showsButtons={false}           //为false时不显示控制按钮
-                  showsPagination={true}       //为false不显示下方圆点
-                  dot={<View style={{           //未选中的圆点样式
-                    backgroundColor: 'rgba(0,0,0,.2)',
-                    width: 5,
-                    height: 5,
-                    marginLeft: 2,
-                    marginRight: 2,
-                    marginTop: 9,
-                    marginBottom: 9,
-                    borderRadius:50
-                  }} />}
-                  activeDot={<View style={{    //选中的圆点样式
-                    backgroundColor: '#7cc0c0',
-                    width: 15,
-                    height: 5,
-                    marginLeft: 2,
-                    marginRight: 2,
-                    marginTop: 9,
-                    marginBottom: 9,
-                    borderRadius:15
-                  }} />}
-                >
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1617206691,1514069942&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=471631677,3527280070&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=3177392174,4240871380&fm=15&fmt=auto&gp=0.jpg" }} />
-                  <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
-                </Swiper>
-                {/* <ShiCha /> */}
-                {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
-                dataSource={images}
-                width={width}
-                height={160}
-                renderRow={this.renderRow}
-                ratio={0.6}
-                index={5}
-                horizontal={true}
-                loop={true}
-                autoplayTimeout={2}
-              /> */}
-              </View>
-              <View style={styles.part}>
-                <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5,backgroundColor:"#fff" }}
-                  onPress={() => navigation.navigate('CustomMade')}
-                >
-                  <View style={{width:"100%",height:"50%",alignItems:"center",justifyContent:"center"}}>
-                  
-             <Text style={{fontSize:18,fontWeight:"bold",color:"#7cc0c0",marginTop:"7%"}}>文化定制</Text>
+          
 
-                    {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
-                  </View>
-                  <View style={{width:"100%",height:"50%"}}>
-                  <LottieView source={require('../../../animal/dingzhi.json')} autoPlay loop progress={this.state.progress} />
-                  </View>
-                  {/* <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://8.142.11.85:3000/public/images/8.jpg' }}></Image> */}
-                </TouchableOpacity>
-                <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%",flexDirection:"row", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-                  <View style={{}}></View>
-                    <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/9.jpg' }}></Image>
-                  </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-                    <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/10.jpg' }}></Image>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.old}>
-                <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
-                                            <View style={{ marginLeft: 10 ,width:width*0.75 }}>
-                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
-                                                <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
-                                            </View>
-
-
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
-                    <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
-                  </TouchableOpacity>
-                </TouchableOpacity>
-                
-                
-
+             
                 <FlatList
-        //   style={{width:width,height:10000}}
-            data = {this.state.shops}
-            renderItem = {({item})=>
-            <View style={{width:width,marginLeft:10}}>
-                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails",{shops:item}) }} activeOpacity={1} style={{width: width*0.9,
-                                                                                                                                                height: height*0.18,
-                                                                                                                                                backgroundColor: "grey",
-                                                                                                                                                marginBottom: "3%",
-                                                                                                                                                borderRadius: 10,
-                                                                                                                                                elevation: 5,
-                                                                                                                                                flexDirection: "row",}}>
-                <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
-                  <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold",color:"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
-                  </View>
-                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13,color:"#333333" }}>{item.jieshao}</Text>
-                  </View>
-                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
-                  </View>
-                  
-                  <View style={{ width: "90%", height: "18%", flexDirection: "row" ,alignItems:"center",marginLeft:"2%"}}>
-                  <LottieView style={{width:"50%",height:"100%"}} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
-                  <Text style={{color:"#333333",fontSize:13}}>5.0</Text>
-                  </View>
-                  
-                  <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
-                    onPress={()=>this.insert_shopcart(item)}>
-                      <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
-                    </TouchableOpacity>
-
-
-                  </View>
-                </View>
-                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} resizeMode='stretch' source={{uri:item.pic[1]}} >
-
-                </Image>
-              </TouchableOpacity>
-        
-            </View>
-        
-        
-        }/>
-
-
-
-              </View>
-              <View style={styles.limit}>
-                <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
-                    <View style={{ marginLeft: 10 ,width:width*0.75 }}>
-                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
-                        <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
-                    </View>
-
-
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,  color: '#7cc0bf' }}>
-                    <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
-                  </TouchableOpacity>
-                </TouchableOpacity>
-                <View style={styles.oldname}>
-                  <Carousel
-                  
-                    // layout={"default"}
-                    layout={'stack'} layoutCardOffset={`10`}
-                    // layout={'tinder'} layoutCardOffset={`15`} 
-                    ref={ref => this.carousel = ref}
-                    data={this.state.carouselItems}
-                    sliderWidth={400}
-                    itemWidth={350}
-                    renderItem={this._renderItem}
-                    loop={true}
-                    onSnapToItem={index => this.setState({ activeIndex: index })} />
-                </View>
-              </View>
-              <View style={{ width: "95%", alignItems: "center",backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-                <Text style={{ height: 20, fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
-                <View style={{ width: "25%",borderWidth:1, borderColor: "#7cc0c0", marginTop: 10 }}></View>
-                <FlatList
-                style={{marginTop:20}}
+                style={{paddingTop:20,height:height*0.825}}
+               
                   numColumns={2}
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
+                  columnWrapperStyle={{backgroundColor:'#fff',width:width*0.95,marginLeft:width*0.025}}
                   renderItem={this.renderDate2.bind(this)}
-                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
-                  onEndReached = {this.loadData.bind(this)}//上拉刷新
-                  onEndReachedThreshold={0.1}
+                  ListHeaderComponent={this.ListHeaderComponent.bind(this)}
+                ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
+                onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  onEndReachedThreshold={1}
                   />  
-              </View>
-            </View>
-          </ScrollView>
-          {/* <ActionButton
-          hideLabelShadow={true}
-          activeOpacity={1}
-          elevation={100}
-          size={60}
-          buttonColor="rgba(231,76,60,1)"
-          onPress={() => { alert('你点了我！') }}
-        /> */}
+              
+
+
         
         </LinearGradient>
         {this.state.isShowToTop ? <ScrollTopView  style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff"}} root={this} ></ScrollTopView> : null}
