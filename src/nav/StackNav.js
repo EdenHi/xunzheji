@@ -85,7 +85,8 @@ import {
   Goods2,
   drawpic,
   dingzhi_xuqiu,
-  vr
+  vr,
+  dingzhi_tupian,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -190,6 +191,7 @@ export default function StackNav() {
       <Stack.Screen name="drawpic" component={drawpic} />
       <Stack.Screen name="dingzhi_xuqiu" component={dingzhi_xuqiu} />
       <Stack.Screen name="vr" component={vr} />
+      <Stack.Screen name="dingzhi_tupian" component={dingzhi_tupian} />
     </Stack.Navigator>
   );
 }

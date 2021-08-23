@@ -1,10 +1,11 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,TouchableOpacity,Dimensions,Image,TextInput,ScrollView, ImageBackground } from 'react-native';
+import {View,Text,TouchableOpacity,Dimensions,Image,TextInput,ScrollView, ImageBackground,DeviceEventEmitter } from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
 import Picker from 'react-native-picker';
+
 const {width,height} = Dimensions.get('window')
 const year = ["2024年","2023年","2022年","2021年"]
 const month = ["01月","02月","03月","04月","05月","06月","07月","08月","09月","10月","11月","12月"]
@@ -24,8 +25,26 @@ export default class dingzhi_xuqiu extends Component {
             year:'',
             month:'',
             day:'',
+            arr:[],
         }
     }
+
+    componentDidMount() {
+
+        this.listener = DeviceEventEmitter.addListener('update_arr',this.update_arr.bind(this))
+	//'test'是一个键，可以随便取名字，但是要和B页面的键对应，后面跟方法。
+ }
+    //刷新事件
+    update_arr(arr){
+        this.setState({
+            arr
+        });
+    }
+    //移除监听
+    componentWillUnmount(){
+        this.listener.remove();
+    }
+
 
     //判断可定制项目是否被选中
     isXiangmu(k){
@@ -139,9 +158,29 @@ export default class dingzhi_xuqiu extends Component {
         Picker.show();
     }
 
+    //加号图片的存放
+    tianjia() {
+        if (this.state.arr != null && this.state.arr.length >= 1) {
+            //这里的判断根据所传图片张数定
+            return;
+        } else {
+            return (
+                <TouchableOpacity
+                    activeOpacity={1}
+                    style={{width:width*0.25,height:width*0.25,margin:15,borderRadius:10,justifyContent:'center',alignItems:'center'}}
+                    onPress={() => this.props.navigation.navigate('dingzhi_tupian')}
+                  >
+                    <Image source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }} style={{ width: 100, height: 100, marginLeft: "10%" }} />
+                </TouchableOpacity>
+            );
+        }
+    }
+
+
 
 
     render() {
+        const {arr} = this.state
         return (
             <View style={{flex:1}}>
                 <LinearGradient style={{ width: width, height: "100%" }} colors={["#7cc0bf", "#fff", "#fff"]} >
@@ -210,19 +249,31 @@ export default class dingzhi_xuqiu extends Component {
 
                             {/* 定制图案 */}
                             <Text style={{marginTop:20,fontSize:18,fontWeight:'bold'}}>定制图案</Text>
-                            <View style={{backgroundColor:'#fff',borderRadius:10,marginTop:10,flexDirection:'row',justifyContent:'space-between'}}>
-                                <TouchableOpacity style={{width:width*0.25,height:width*0.25,backgroundColor:'#eee',margin:15,borderRadius:10,justifyContent:'center',alignItems:'center'}}>
-                                    <Text style={{fontSize:16,color:'orange'}}>选择</Text>
-                                    <Text>官方图库</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={{width:width*0.25,height:width*0.25,backgroundColor:'#eee',marginTop:15,marginBottom:15,borderRadius:10,justifyContent:'center',alignItems:'center'}}>
-                                    <Text style={{fontSize:16,color:'orange'}}>上传</Text>
-                                    <Text>参考图片</Text>
-                                </TouchableOpacity>
-                                <TouchableOpacity style={{width:width*0.25,height:width*0.25,backgroundColor:'#eee',margin:15,borderRadius:10,justifyContent:'center',alignItems:'center'}}>
-                                    <Text style={{fontSize:16,color:'orange'}}>预约</Text>
-                                    <Text>设计服务</Text>
-                                </TouchableOpacity>
+                            <View style={{backgroundColor:'#fff',borderRadius:10,marginTop:10,flexDirection:'row'}}>
+                                    {
+                                        arr.map((v,k)=>{
+                                            if(k<3){
+                                            return(
+                                                <View key={k} style={{width:width*0.25,height:width*0.25,backgroundColor:'#eee',marginTop:15,marginBottom:15,marginLeft:15,borderRadius:10,alignItems:'flex-end'}}>
+                                                    <Image source={{uri:v}} style={{width:width*0.25,height:width*0.25,position:'relative'}} borderRadius={10}/>
+                                                    <TouchableOpacity
+                                                        activeOpacity={0.5}
+                                                        onPress={() => { arr.splice(k, 1), this.setState({ arr }) }}
+                                                        style={{ position: 'absolute'}}
+                                                    >
+                                                        <AntDesign
+                                                            name='closecircle'
+                                                            size={20} />
+                                                    </TouchableOpacity>
+                                                </View>
+                                            )
+                                            }
+                                        })
+                                    }
+                                
+                                    {this.tianjia()}
+
+                                
                             </View>
                     
                             {/* 包装要求 */}
