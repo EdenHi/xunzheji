@@ -118,7 +118,20 @@ export default class Output2 extends Component {
     this.listener.remove();
   }
 
-
+  Sure(){
+ 
+      captureRef(viewRef, {
+          format: "jpg",
+          quality: 0.8
+      }).then(
+          uri => {
+              console.log("Image saved to", uri),
+                  this.setState({ shoturi: uri })
+          },
+          error => console.error("Oops, snapshot failed", error)
+      ), this.setModalVisible4(!modalVisible4)
+  
+  }
 
   go_comment(v) {
     this.context.navigate('Comment', v)
