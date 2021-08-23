@@ -155,10 +155,6 @@ tuijian(x){
           }
         }
     }  
-    console.log('tempJson',newJson);
-    // this.setState({
-    //     data:newJson
-    // })
     this.props.navigation.navigate('Shoplist',{shops:newJson})
 }
 

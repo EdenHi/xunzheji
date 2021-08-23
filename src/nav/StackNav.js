@@ -86,6 +86,7 @@ import {
   drawpic,
   dingzhi_xuqiu,
   vr,
+  dingzhi_tupian,
   JuBao
 } from '../pages/index';
 import Ranking from '../Ranking';
@@ -191,6 +192,7 @@ export default function StackNav() {
       <Stack.Screen name="drawpic" component={drawpic} />
       <Stack.Screen name="dingzhi_xuqiu" component={dingzhi_xuqiu} />
       <Stack.Screen name="vr" component={vr} />
+      <Stack.Screen name="dingzhi_tupian" component={dingzhi_tupian} />
       <Stack.Screen name="JuBao" component={JuBao} />
     </Stack.Navigator>
   );
