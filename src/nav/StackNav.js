@@ -86,11 +86,8 @@ import {
   drawpic,
   dingzhi_xuqiu,
   vr,
-<<<<<<< HEAD
   dingzhi_tupian,
-=======
   JuBao
->>>>>>> 608e55f608c0c9f16f1b90591db8ec1354bc73bb
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
