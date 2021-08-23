@@ -353,7 +353,7 @@ yangshi(){
           <ActivityIndicator
               size="large"
               animating = {true} //动画效果
-              color = "green"
+              color = "#7cc0c0"
               />
       </View>
   );}
@@ -411,7 +411,7 @@ loadData(){
 
 
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan') }} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20}}>
+                  <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan'),this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height:width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20}}>
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="clipboard-text-outline"
                       size={35}
@@ -488,7 +488,7 @@ loadData(){
           <ScrollView
            onScroll={(e)=>this._onScroll(e)} 
            ref='listview'
-          style={{height:height*0.83 }}>
+          style={{height:height*0.87 }}>
             <View style={{ alignItems: "center", }}>
               <View style={{ width: width * 0.95, height: 180, marginBottom: 10 }}  >
                 <Swiper

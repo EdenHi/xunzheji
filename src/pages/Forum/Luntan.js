@@ -621,7 +621,7 @@ onShare = async () => {
                     >
 
                     <View style={{backgroundColor:'#eee',borderTopRightRadius:10,borderTopLeftRadius:10}}>
-                        <TouchableOpacity style={{backgroundColor:'#fff',height:50,justifyContent:'center',alignItems:'center',borderTopRightRadius:10,borderTopLeftRadius:10}}>
+                        <TouchableOpacity onPress={()=>this.context.navigate('JuBao')} style={{backgroundColor:'#fff',height:50,justifyContent:'center',alignItems:'center',borderTopRightRadius:10,borderTopLeftRadius:10}}>
                             <Text style={{fontSize:18}}>举报</Text>
                         </TouchableOpacity>
                         <TouchableOpacity style={{backgroundColor:'#fff',marginTop:10,height:50,justifyContent:'center',alignItems:'center'}} onPress={()=>this.setState({isVisible:false})}>

@@ -86,7 +86,11 @@ import {
   drawpic,
   dingzhi_xuqiu,
   vr,
+<<<<<<< HEAD
   dingzhi_tupian,
+=======
+  JuBao
+>>>>>>> 608e55f608c0c9f16f1b90591db8ec1354bc73bb
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -169,8 +173,8 @@ export default function StackNav() {
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
 
 
-      <Stack.Screen name="Story" component={Story} />      
-      <Stack.Screen name="Story2" component={Story2} />      
+      <Stack.Screen name="Story" component={Story} />
+      <Stack.Screen name="Story2" component={Story2} />
 
       <Stack.Screen name="zhifu_cart" component={zhifu_cart} />
       <Stack.Screen name="JiFen" component={JiFen} />
@@ -192,6 +196,7 @@ export default function StackNav() {
       <Stack.Screen name="dingzhi_xuqiu" component={dingzhi_xuqiu} />
       <Stack.Screen name="vr" component={vr} />
       <Stack.Screen name="dingzhi_tupian" component={dingzhi_tupian} />
+      <Stack.Screen name="JuBao" component={JuBao} />
     </Stack.Navigator>
   );
 }

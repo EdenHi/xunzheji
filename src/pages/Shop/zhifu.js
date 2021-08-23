@@ -67,7 +67,7 @@ export default class zhifu extends Component {
             duration: 1000,
             easing: Easing.linear,
         }).start();
-
+console.log(this.props.route.params);
     }
     _openModalWin = () => {
         this.setState({ modalVisible: true });
