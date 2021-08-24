@@ -245,7 +245,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>圣诞COS</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '圣诞COS' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -263,7 +263,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>猫和老鼠</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '猫和老鼠' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -281,7 +281,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>lolita</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: 'lolita' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -299,7 +299,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>新年祝福姬</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '新年祝福姬' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -317,7 +317,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>动漫嘉年华</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '动漫嘉年华' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -335,7 +335,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>漫展返图</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '漫展返图' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -353,7 +353,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>凉宫春日</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 15, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '凉宫春日' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -434,10 +434,10 @@ export default class Luntan_guanzhu extends Component {
                                                         </View>
 
                                                         {/* tag标签 */}
-                                                        <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 10, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
+                                                        <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
                                                             onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                             <Fontisto name='hashtag' color='#fff' />
-                                                            <Text style={{paddingTop: 5, paddingBottom: 5,color:'#fff' }}>{v.tag}</Text>
+                                                            <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
 
                                                         </TouchableOpacity>
 
@@ -451,7 +451,7 @@ export default class Luntan_guanzhu extends Component {
                                                                             color={v.dianzan_username === this.state.denglu_username ? 'red' : '#999'}
                                                                         />
                                                                     </TouchableOpacity>
-                                                                    <Text style={{ marginLeft: 5 ,color:'#999'}}>{v.dianzan}</Text>
+                                                                    <Text style={{ marginLeft: 5, color: '#999' }}>{v.dianzan}</Text>
                                                                 </View>
                                                             </TouchableOpacity>
                                                             <TouchableOpacity activeOpacity={1} onPress={() => this.goComment(v)}>
@@ -460,7 +460,7 @@ export default class Luntan_guanzhu extends Component {
                                                                         name="chatbubble-ellipses-outline"
                                                                         size={20}
                                                                         color="#999" />
-                                                                    <Text style={{ marginLeft: 5 ,color:'#999'}}>{v.counts}</Text>
+                                                                    <Text style={{ marginLeft: 5, color: '#999' }}>{v.counts}</Text>
                                                                 </View>
                                                             </TouchableOpacity>
                                                             <TouchableOpacity activeOpacity={1}
@@ -682,7 +682,7 @@ const styles = StyleSheet.create({
     box: {
         // backgroundColor:'blue',
         overflow: 'hidden',
-        borderRadius: 15,
+        borderRadius: 20,
         marginTop: 10,
     },
     touxiang: {
