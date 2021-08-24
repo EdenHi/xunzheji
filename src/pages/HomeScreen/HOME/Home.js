@@ -120,12 +120,12 @@ export default class Home extends Component {
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
                                                             <View style={{ flex: 3 }} />
-                                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' }}>浙江商帮的崛起</Text></View>
+                                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>浙江商帮的崛起</Text></View>
                                                             <View style={{ flex: 1 }}>
                                                                 <View style={{ flexDirection: 'row' }}>
-                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center',elevation:5 }}><Text style={{ fontSize: 12 }}>宁波商帮</Text></View></TouchableOpacity>
-                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' ,elevation:5}}><Text style={{ fontSize: 12 }}>龙游商帮</Text></View></TouchableOpacity>
-                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center',elevation:5 }}><Text style={{ fontSize: 12 }}>南浔商帮</Text></View></TouchableOpacity>
+                                                                    <TouchableOpacity activeOpacity={1}><View style={ styles.Comment}><Text style={{ fontSize: 12,color:"#fff" }}>宁波商帮</Text></View></TouchableOpacity>
+                                                                    <TouchableOpacity activeOpacity={1}><View style={  styles.Comment}><Text style={{ fontSize: 12 ,color:"#fff"}}>龙游商帮</Text></View></TouchableOpacity>
+                                                                    <TouchableOpacity activeOpacity={1}><View style={ styles.Comment}><Text style={{ fontSize: 12,color:"#fff" }}>南浔商帮</Text></View></TouchableOpacity>
                                                                 </View>
                                                             </View>
                                                         </View>
@@ -135,12 +135,12 @@ export default class Home extends Component {
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3608384836,3487578051&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=301' }}>
                                                 <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Topic1', { wenzhang_id: 2 })} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
-                                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>“浙商人”在非洲</Text></View>
+                                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>“浙商人”在非洲</Text></View>
                                                     <View style={{ flex: 1 }}>
                                                         <View style={{ flexDirection: 'row' }}>
-                                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江商人</Text></View></TouchableOpacity>
-                                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>尼日利亚</Text></View></TouchableOpacity>
-                                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity>
+                                                            <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12 ,color:"#fff" }}>浙江商人</Text></View></TouchableOpacity>
+                                                            <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12 ,color:"#fff" }}>尼日利亚</Text></View></TouchableOpacity>
+                                                            <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12,color:"#fff"  }}>非洲</Text></View></TouchableOpacity>
                                                         </View>
                                                     </View>
                                                 </TouchableOpacity>
@@ -148,11 +148,11 @@ export default class Home extends Component {
                                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 10 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
                                                 <TouchableOpacity activeOpacity={1}  onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 3 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                                     <View style={{ flex: 3 }} />
-                                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江“优秀建设者”</Text></View>
+                                                    <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' ,marginTop:height*0.015 }}>浙江“优秀建设者”</Text></View>
                                                     <View style={{ flex: 1 }}>
                                                         <View style={{ flexDirection: 'row' }}>
-                                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙商观察</Text></View></TouchableOpacity>
-                                                            <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 40, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>浙江</Text></View></TouchableOpacity>
+                                                            <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12,color:"#fff" }}>浙商观察</Text></View></TouchableOpacity>
+                                                            <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12 ,color:"#fff"}}>浙江</Text></View></TouchableOpacity>
                                                             {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
                                                         </View>
                                                     </View>
@@ -441,4 +441,14 @@ const styles = StyleSheet.create({
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'cover',
     },
+    Comment:{
+        borderRadius: 5,
+         marginRight: 5,
+        backgroundColor: '#7cc0c0',
+         width: 55,
+        alignItems: 'center',
+        elevation:5,
+        justifyContent:"center",
+        padding:1 
+    }
 });
