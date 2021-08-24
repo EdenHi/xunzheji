@@ -125,6 +125,24 @@ export default class Personal extends Component {
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
           </TouchableOpacity>
         </View>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShiMin') }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+            <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+              name="adduser"
+              size={35}
+              color="#7cc0c0"
+            />
+            <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>实名认证</Text>
+          </TouchableOpacity>
+          <TouchableOpacity activeOpacity={1} style={{ opacity: 0, width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+            <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+              name="map-marker-radius"
+              size={35}
+              color="#7cc0c0"
+            />
+            <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }
@@ -178,7 +196,7 @@ export default class Personal extends Component {
           <View style={{ width: width * 1, height: height * 0.87 }}>
             <ScrollView>
               <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
-                <View activeOpacity={1} style={{ width: width * 0.75, height: height * 0.35, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10, elevation: 1 }}>
+                <View activeOpacity={1} style={{ width: width * 0.754, height: height * 0.354, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10, elevation: 5, justifyContent: "center", alignItems: "center" }}>
                   <ImageBackground source={{ uri: data.portrait }} style={{ width: width * 0.75, height: height * 0.35, alignItems: "center" }} borderRadius={10}>
                     <View style={{ width: "100%", height: "100%", borderRadius: 10, backgroundColor: "rgba(0,0,0,0.1)" }}>
                       <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
