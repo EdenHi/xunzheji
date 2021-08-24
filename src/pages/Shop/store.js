@@ -14,7 +14,7 @@ import {
   Modal,
   Alert,
   AsyncStorage,
-  FlatList  ,
+  FlatList,
   ToastAndroid,
   DeviceEventEmitter,
   ActivityIndicator
@@ -42,8 +42,8 @@ export default class Store extends Component {
     super(props)
     this.state = {
       isShowToTop: false,
-      isLoding:false,
-      showpage:0,
+      isLoding: false,
+      showpage: 0,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
@@ -80,189 +80,189 @@ export default class Store extends Component {
           img: "https://img1.baidu.com/it/u=2069743543,1338079641&fm=15&fmt=auto&gp=0.jpg",
         },
       ],
-      shops:[
+      shops: [
         {
-          "name":"绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
-          "jieshao":"知味观",
-          "price":"12.90",
-          "sales":"8W+",
-          "pic":[
-              "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
-              "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
-              "https://img.alicdn.com/imgextra/i4/2200646689123/O1CN01lTyJzz2HGNwnAeeAu_!!2200646689123.jpg_500x500q90.jpg"
-            ],
-            "dianpu":"知味观",
-            "loge":"https://img2.baidu.com/it/u=2448793404,1008146234&fm=26&fmt=auto&gp=0.jpg",
-            "imag1":"https://img.alicdn.com/imgextra/i1/475325704/O1CN01vYGvQb1s0TldPD9z7_!!475325704.jpg",
-            "imag2":"https://img.alicdn.com/imgextra/i1/475325704/O1CN01HyaZR81s0TlVItdff_!!475325704.jpg",
-            "imag3":"https://img.alicdn.com/imgextra/i1/475325704/O1CN015rX3P21s0TlhMoPOn_!!475325704.jpg",
-            "imag4":"https://gdp.alicdn.com/imgextra/i2/2200646689123/O1CN01fanmSb2HGNx3tUh3H_!!2200646689123.jpg"
+          "name": "绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
+          "jieshao": "知味观",
+          "price": "12.90",
+          "sales": "8W+",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i4/2200646689123/O1CN01lTyJzz2HGNwnAeeAu_!!2200646689123.jpg_500x500q90.jpg"
+          ],
+          "dianpu": "知味观",
+          "loge": "https://img2.baidu.com/it/u=2448793404,1008146234&fm=26&fmt=auto&gp=0.jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i1/475325704/O1CN01vYGvQb1s0TldPD9z7_!!475325704.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i1/475325704/O1CN01HyaZR81s0TlVItdff_!!475325704.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i1/475325704/O1CN015rX3P21s0TlhMoPOn_!!475325704.jpg",
+          "imag4": "https://gdp.alicdn.com/imgextra/i2/2200646689123/O1CN01fanmSb2HGNx3tUh3H_!!2200646689123.jpg"
         },
         {
-          "name":"翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
-          "jieshao":"中华老字号",
-          "price":"24.90",
-          "sales":"200+",
-          "pic":[
-              "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
-              "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01PahoMY1tylb93oDSh_!!2086085971.jpg_500x500q90.jpg",
-              "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg"
+          "name": "翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
+          "jieshao": "中华老字号",
+          "price": "24.90",
+          "sales": "200+",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01PahoMY1tylb93oDSh_!!2086085971.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg"
           ],
-          "dianpu":"翠沁斋",
-          "loge":"https://bkimg.cdn.bcebos.com/pic/00e93901213fb80e4b9d12d53ed12f2eb9389467?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
-          "imag1":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01gqfLom1tylb8VBFfy_!!2086085971.jpg",
-          "imag2":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01yK7rmA1tylazo6eiE_!!2086085971.jpg",
-          "imag3":"https://img.alicdn.com/imgextra/i4/2086085971/O1CN01l0gWlg1tylb9rVl1Y_!!2086085971.jpg",
-          "imag4":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01Z1t3zi1tylbBkHeJv_!!2086085971.jpg"
+          "dianpu": "翠沁斋",
+          "loge": "https://bkimg.cdn.bcebos.com/pic/00e93901213fb80e4b9d12d53ed12f2eb9389467?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01gqfLom1tylb8VBFfy_!!2086085971.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01yK7rmA1tylazo6eiE_!!2086085971.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i4/2086085971/O1CN01l0gWlg1tylb9rVl1Y_!!2086085971.jpg",
+          "imag4": "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01Z1t3zi1tylbBkHeJv_!!2086085971.jpg"
         },
         {
-          "name":"陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
-          "jieshao":"",
-          "price":"57.00",
-          "sales":"1K+",
-          "pic":[
-              "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
-              "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
-              "https://cbu01.alicdn.com/img/ibank/2017/153/640/7275046351_1063743152.500x500.jpg"
+          "name": "陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
+          "jieshao": "",
+          "price": "57.00",
+          "sales": "1K+",
+          "pic": [
+            "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
+            "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
+            "https://cbu01.alicdn.com/img/ibank/2017/153/640/7275046351_1063743152.500x500.jpg"
           ],
-          "dianpu":"陈源昌",
-          "loge":"https://shangbiaopic.11467.com/15/54/15546473.jpg",
-          "imag1":"https://cbu01.alicdn.com/img/ibank/2018/673/697/9115796376_1063743152.jpg",
-          "imag2":"https://cbu01.alicdn.com/img/ibank/2018/383/144/9097441383_1063743152.jpg",
-          "imag3":"https://cbu01.alicdn.com/img/ibank/2018/225/534/9097435522_1063743152.jpg",
-          "imag4":"https://cbu01.alicdn.com/img/ibank/2018/113/997/9115799311_1063743152.jpg"
+          "dianpu": "陈源昌",
+          "loge": "https://shangbiaopic.11467.com/15/54/15546473.jpg",
+          "imag1": "https://cbu01.alicdn.com/img/ibank/2018/673/697/9115796376_1063743152.jpg",
+          "imag2": "https://cbu01.alicdn.com/img/ibank/2018/383/144/9097441383_1063743152.jpg",
+          "imag3": "https://cbu01.alicdn.com/img/ibank/2018/225/534/9097435522_1063743152.jpg",
+          "imag4": "https://cbu01.alicdn.com/img/ibank/2018/113/997/9115799311_1063743152.jpg"
         },
       ],
-      shops2:[
-          {
-            "name":"知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
-            "jieshao":"清香绵软",
-            "price":"12.90",
-            "sales":"8W+",
-            "pic":[
-                "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i4/2200646689123/O1CN01lTyJzz2HGNwnAeeAu_!!2200646689123.jpg_500x500q90.jpg"
-              ],
-              "dianpu":"知味观",
-              "loge":"https://img2.baidu.com/it/u=2448793404,1008146234&fm=26&fmt=auto&gp=0.jpg",
-              "imag1":"https://img.alicdn.com/imgextra/i1/475325704/O1CN01vYGvQb1s0TldPD9z7_!!475325704.jpg",
-              "imag2":"https://img.alicdn.com/imgextra/i1/475325704/O1CN01HyaZR81s0TlVItdff_!!475325704.jpg",
-              "imag3":"https://img.alicdn.com/imgextra/i1/475325704/O1CN015rX3P21s0TlhMoPOn_!!475325704.jpg",
-              "imag4":"https://gdp.alicdn.com/imgextra/i2/2200646689123/O1CN01fanmSb2HGNx3tUh3H_!!2200646689123.jpg"
-          },
-          {
-            "name":"翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
-            "jieshao":"中华老字号",
-            "price":"24.90",
-            "sales":"200+",
-            "pic":[
-                "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01PahoMY1tylb93oDSh_!!2086085971.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg"
-            ],
-            "dianpu":"翠沁斋",
-            "loge":"https://bkimg.cdn.bcebos.com/pic/00e93901213fb80e4b9d12d53ed12f2eb9389467?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
-            "imag1":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01gqfLom1tylb8VBFfy_!!2086085971.jpg",
-            "imag2":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01yK7rmA1tylazo6eiE_!!2086085971.jpg",
-            "imag3":"https://img.alicdn.com/imgextra/i4/2086085971/O1CN01l0gWlg1tylb9rVl1Y_!!2086085971.jpg",
-            "imag4":"https://img.alicdn.com/imgextra/i2/2086085971/O1CN01Z1t3zi1tylbBkHeJv_!!2086085971.jpg"
-          },
-          {
-            "name":"陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
-            "jieshao":"",
-            "price":"57.00",
-            "sales":"1K+",
-            "pic":[
-                "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
-                "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
-                "https://cbu01.alicdn.com/img/ibank/2017/153/640/7275046351_1063743152.500x500.jpg"
-            ],
-            "dianpu":"陈源昌",
-            "loge":"https://shangbiaopic.11467.com/15/54/15546473.jpg",
-            "imag1":"https://cbu01.alicdn.com/img/ibank/2018/673/697/9115796376_1063743152.jpg",
-            "imag2":"https://cbu01.alicdn.com/img/ibank/2018/383/144/9097441383_1063743152.jpg",
-            "imag3":"https://cbu01.alicdn.com/img/ibank/2018/225/534/9097435522_1063743152.jpg",
-            "imag4":"https://cbu01.alicdn.com/img/ibank/2018/113/997/9115799311_1063743152.jpg"
-          },
-          {
-            "name":"朱府铜艺 全铜香炉《古檀香炉》家用盘香炉香薰书房茶桌摆件",
-            "jieshao":"",
-            "price":"420.00",
-            "sales":"15",
-            "pic":[
-                "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01n3K7km1QS8Vu08yFy_!!2211562091974.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01n6VD311QS8W12an5M_!!0-item_pic.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01kD3tGT1QS8W1irDTM_!!2211562091974.jpg_500x500q90.jpg"
-            ],
-            "dianpu":"朱府铜艺",
-            "loge":"https://img1.baidu.com/it/u=2357527845,3079209392&fm=26&fmt=auto&gp=0.jpg",
-            "imag1":"https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01NkDLUO1QS8VwWr4gm_!!2211562091974.jpg",
-            "imag2":"https://img.alicdn.com/imgextra/i3/2211562091974/O1CN013p9irH1QS8VtTXgdH_!!2211562091974.jpg",
-            "imag3":"https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01HjcqHA1QS8Vw127Z7_!!2211562091974.jpg",
-            "imag4":"https://img.alicdn.com/imgextra/i3/2211562091974/O1CN01xYL32I1QS8WBiasMO_!!2211562091974.jpg"
-          },
-          {
-            "name":"朱府铜艺 全铜香炉《莲花香炉》铜工艺品香炉",
-            "jieshao":"",
-            "price":"1080.00",
-            "sales":"7",
-            "pic":[
-                "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01ABGPtP1QS8VzUuFxN_!!0-item_pic.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01BYCPda1QS8W1hKf4M_!!2211562091974.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i2/2211562091974/O1CN01PmNW0D1QS8W11bhUn_!!2211562091974.jpg_500x500q90.jpg"
-            ],
-            "dianpu":"朱府铜艺",
-            "loge":"https://img1.baidu.com/it/u=2357527845,3079209392&fm=26&fmt=auto&gp=0.jpg",
-            "imag1":"https://img.alicdn.com/imgextra/i2/2211562091974/O1CN01YCb2wo1QS8VtSi3l4_!!2211562091974.jpg",
-            "imag2":"https://img.alicdn.com/imgextra/i3/2211562091974/O1CN013Fq38B1QS8Vs2jefh_!!2211562091974.jpg",
-            "imag3":"https://img.alicdn.com/imgextra/i3/2211562091974/O1CN015n6MHj1QS8W2WdcmC_!!2211562091974.jpg",
-            "imag4":"https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01sH8WRt1QS8VxVQe9V_!!2211562091974.jpg"
-          },
-          {
-            "name":"2021年益龙芳茶叶开化龙顶高山土茶春茶250g袋装茶叶绿茶野茶",
-            "jieshao":"茶客挚爱口粮茶，醇厚耐泡。",
-            "price":"138.00",
-            "sales":"100+",
-            "pic":[
-                "https://img.alicdn.com/imgextra/i4/1665326773/TB2b8ZlnnJYBeNjy1zeXXahzVXa_!!1665326773.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i2/1665326773/TB209zNXyb.BuNjt_jDXXbOzpXa_!!1665326773.jpg_500x500q90.jpg",
-                "https://img.alicdn.com/imgextra/i2/1665326773/TB29yPEXxUaBuNjt_iGXXXlkFXa_!!1665326773.jpg_500x500q90.jpg"
-            ],
-            "dianpu":"益龙芳",
-            "loge":"https://img1.baidu.com/it/u=2603973728,1089830249&fm=26&fmt=auto&gp=0.jpg",
-            "imag1":"https://img.alicdn.com/imgextra/i4/1665326773/TB2fengdRnTBKNjSZPfXXbf1XXa_!!1665326773.jpg",
-            "imag2":"https://img.alicdn.com/imgextra/i4/1665326773/TB2e9WTdOjQBKNjSZFnXXa_DpXa_!!1665326773.jpg",
-            "imag3":"https://img.alicdn.com/imgextra/i3/1665326773/TB2rRTZdRjTBKNjSZFDXXbVgVXa_!!1665326773.jpg",
-            "imag4":"https://img.alicdn.com/imgextra/i1/1665326773/TB2YZTXdSYTBKNjSZKbXXXJ8pXa_!!1665326773.jpg"
-          },
+      shops2: [
+        {
+          "name": "知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
+          "jieshao": "清香绵软",
+          "price": "12.90",
+          "sales": "8W+",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i4/2200646689123/O1CN01lTyJzz2HGNwnAeeAu_!!2200646689123.jpg_500x500q90.jpg"
+          ],
+          "dianpu": "知味观",
+          "loge": "https://img2.baidu.com/it/u=2448793404,1008146234&fm=26&fmt=auto&gp=0.jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i1/475325704/O1CN01vYGvQb1s0TldPD9z7_!!475325704.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i1/475325704/O1CN01HyaZR81s0TlVItdff_!!475325704.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i1/475325704/O1CN015rX3P21s0TlhMoPOn_!!475325704.jpg",
+          "imag4": "https://gdp.alicdn.com/imgextra/i2/2200646689123/O1CN01fanmSb2HGNx3tUh3H_!!2200646689123.jpg"
+        },
+        {
+          "name": "翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
+          "jieshao": "中华老字号",
+          "price": "24.90",
+          "sales": "200+",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01PahoMY1tylb93oDSh_!!2086085971.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg"
+          ],
+          "dianpu": "翠沁斋",
+          "loge": "https://bkimg.cdn.bcebos.com/pic/00e93901213fb80e4b9d12d53ed12f2eb9389467?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01gqfLom1tylb8VBFfy_!!2086085971.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01yK7rmA1tylazo6eiE_!!2086085971.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i4/2086085971/O1CN01l0gWlg1tylb9rVl1Y_!!2086085971.jpg",
+          "imag4": "https://img.alicdn.com/imgextra/i2/2086085971/O1CN01Z1t3zi1tylbBkHeJv_!!2086085971.jpg"
+        },
+        {
+          "name": "陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
+          "jieshao": "",
+          "price": "57.00",
+          "sales": "1K+",
+          "pic": [
+            "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
+            "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
+            "https://cbu01.alicdn.com/img/ibank/2017/153/640/7275046351_1063743152.500x500.jpg"
+          ],
+          "dianpu": "陈源昌",
+          "loge": "https://shangbiaopic.11467.com/15/54/15546473.jpg",
+          "imag1": "https://cbu01.alicdn.com/img/ibank/2018/673/697/9115796376_1063743152.jpg",
+          "imag2": "https://cbu01.alicdn.com/img/ibank/2018/383/144/9097441383_1063743152.jpg",
+          "imag3": "https://cbu01.alicdn.com/img/ibank/2018/225/534/9097435522_1063743152.jpg",
+          "imag4": "https://cbu01.alicdn.com/img/ibank/2018/113/997/9115799311_1063743152.jpg"
+        },
+        {
+          "name": "朱府铜艺 全铜香炉《古檀香炉》家用盘香炉香薰书房茶桌摆件",
+          "jieshao": "",
+          "price": "420.00",
+          "sales": "15",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01n3K7km1QS8Vu08yFy_!!2211562091974.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01n6VD311QS8W12an5M_!!0-item_pic.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01kD3tGT1QS8W1irDTM_!!2211562091974.jpg_500x500q90.jpg"
+          ],
+          "dianpu": "朱府铜艺",
+          "loge": "https://img1.baidu.com/it/u=2357527845,3079209392&fm=26&fmt=auto&gp=0.jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01NkDLUO1QS8VwWr4gm_!!2211562091974.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i3/2211562091974/O1CN013p9irH1QS8VtTXgdH_!!2211562091974.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01HjcqHA1QS8Vw127Z7_!!2211562091974.jpg",
+          "imag4": "https://img.alicdn.com/imgextra/i3/2211562091974/O1CN01xYL32I1QS8WBiasMO_!!2211562091974.jpg"
+        },
+        {
+          "name": "朱府铜艺 全铜香炉《莲花香炉》铜工艺品香炉",
+          "jieshao": "",
+          "price": "1080.00",
+          "sales": "7",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01ABGPtP1QS8VzUuFxN_!!0-item_pic.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01BYCPda1QS8W1hKf4M_!!2211562091974.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i2/2211562091974/O1CN01PmNW0D1QS8W11bhUn_!!2211562091974.jpg_500x500q90.jpg"
+          ],
+          "dianpu": "朱府铜艺",
+          "loge": "https://img1.baidu.com/it/u=2357527845,3079209392&fm=26&fmt=auto&gp=0.jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i2/2211562091974/O1CN01YCb2wo1QS8VtSi3l4_!!2211562091974.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i3/2211562091974/O1CN013Fq38B1QS8Vs2jefh_!!2211562091974.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i3/2211562091974/O1CN015n6MHj1QS8W2WdcmC_!!2211562091974.jpg",
+          "imag4": "https://img.alicdn.com/imgextra/i1/2211562091974/O1CN01sH8WRt1QS8VxVQe9V_!!2211562091974.jpg"
+        },
+        {
+          "name": "2021年益龙芳茶叶开化龙顶高山土茶春茶250g袋装茶叶绿茶野茶",
+          "jieshao": "茶客挚爱口粮茶，醇厚耐泡。",
+          "price": "138.00",
+          "sales": "100+",
+          "pic": [
+            "https://img.alicdn.com/imgextra/i4/1665326773/TB2b8ZlnnJYBeNjy1zeXXahzVXa_!!1665326773.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i2/1665326773/TB209zNXyb.BuNjt_jDXXbOzpXa_!!1665326773.jpg_500x500q90.jpg",
+            "https://img.alicdn.com/imgextra/i2/1665326773/TB29yPEXxUaBuNjt_iGXXXlkFXa_!!1665326773.jpg_500x500q90.jpg"
+          ],
+          "dianpu": "益龙芳",
+          "loge": "https://img1.baidu.com/it/u=2603973728,1089830249&fm=26&fmt=auto&gp=0.jpg",
+          "imag1": "https://img.alicdn.com/imgextra/i4/1665326773/TB2fengdRnTBKNjSZPfXXbf1XXa_!!1665326773.jpg",
+          "imag2": "https://img.alicdn.com/imgextra/i4/1665326773/TB2e9WTdOjQBKNjSZFnXXa_DpXa_!!1665326773.jpg",
+          "imag3": "https://img.alicdn.com/imgextra/i3/1665326773/TB2rRTZdRjTBKNjSZFDXXbVgVXa_!!1665326773.jpg",
+          "imag4": "https://img.alicdn.com/imgextra/i1/1665326773/TB2YZTXdSYTBKNjSZKbXXXJ8pXa_!!1665326773.jpg"
+        },
       ]
     };
   }
 
 
 
-  insert_shopcart(item){
-    AsyncStorage.getItem('username',(err,result)=>{
-      if(!err){
-          fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
-              method: 'POST',
-              headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                  username:result,
-                  shop_name:item.name,
-                  shop_pic:item.pic[0],
-                  price:item.price,
-                  shop_dianpu:item.dianpu,
-              }),
-          })
+  insert_shopcart(item) {
+    AsyncStorage.getItem('username', (err, result) => {
+      if (!err) {
+        fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: result,
+            shop_name: item.name,
+            shop_pic: item.pic[0],
+            price: item.price,
+            shop_dianpu: item.dianpu,
+          }),
+        })
       }
-  })
-  ToastAndroid.showWithGravity('加入购物车成功',2000,ToastAndroid.BOTTOM)
-  DeviceEventEmitter.emit('shop_cart',1)
+    })
+    ToastAndroid.showWithGravity('加入购物车成功', 2000, ToastAndroid.BOTTOM)
+    DeviceEventEmitter.emit('shop_cart', 1)
   }
 
 
@@ -270,16 +270,16 @@ export default class Store extends Component {
     const offsetY = e.nativeEvent.contentOffset.y;
 
     if (offsetY > 100) {
-        this.setState({
-            isShowToTop: true
-        })
+      this.setState({
+        isShowToTop: true
+      })
     } else {
-        this.setState({
-            isShowToTop: false
-        })
+      this.setState({
+        isShowToTop: false
+      })
     }
-}
-  
+  }
+
   componentDidMount() {
     Animated.timing(this.state.progress, {
       toValue: 1,
@@ -339,44 +339,45 @@ export default class Store extends Component {
             </View>
         </TouchableOpacity>
     )
-}
-
-
-yangshi(){
-  if(this.state.showpage>2){
-    return(
-      <View style={{justifyContent:'center',alignItems:'center'}}><Text>加载完毕</Text></View>
-    )
-  }else{
-  return (
-      <View>
-          <ActivityIndicator
-              size="large"
-              animating = {true} //动画效果
-              color = "#7cc0c0"
-              />
-      </View>
-  );}
-}
-
-loadData(){
-  if(this.state.showpage > 2){
-    return;
-  }else{
-    this.setState({
-      isLoding : true,
-  });
-  setTimeout(() => {
-
-      let arrData = this.state.shops2.concat(this.state.shops2);
-      this.setState({
-          isLoding : false,
-          shops2 : arrData,
-          showpage:this.state.showpage+1,
-      });
-  }, 2000);
   }
-}
+
+
+  yangshi() {
+    if (this.state.showpage > 2) {
+      return (
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}><Text>加载完毕</Text></View>
+      )
+    } else {
+      return (
+        <View>
+          <ActivityIndicator
+            size="large"
+            animating={true} //动画效果
+            color="#7cc0c0"
+          />
+        </View>
+      );
+    }
+  }
+
+  loadData() {
+    if (this.state.showpage > 2) {
+      return;
+    } else {
+      this.setState({
+        isLoding: true,
+      });
+      setTimeout(() => {
+
+        let arrData = this.state.shops2.concat(this.state.shops2);
+        this.setState({
+          isLoding: false,
+          shops2: arrData,
+          showpage: this.state.showpage + 1,
+        });
+      }, 2000);
+    }
+  }
 
 ListHeaderComponent(){
   const { modalVisible } = this.state;
@@ -402,7 +403,7 @@ ListHeaderComponent(){
                     marginRight: 2,
                     marginTop: 9,
                     marginBottom: 9,
-                    borderRadius:50
+                    borderRadius: 50
                   }} />}
                   activeDot={<View style={{    //选中的圆点样式
                     backgroundColor: '#7cc0c0',
@@ -412,7 +413,7 @@ ListHeaderComponent(){
                     marginRight: 2,
                     marginTop: 9,
                     marginBottom: 9,
-                    borderRadius:15
+                    borderRadius: 15
                   }} />}
                 >
                   <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
@@ -436,23 +437,23 @@ ListHeaderComponent(){
               /> */}
               </View>
               <View style={styles.part}>
-                <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5,backgroundColor:"#fff" }}
+                <TouchableOpacity activeOpacity={1} style={{ width: "39%", height: "100%", borderRadius: 15, marginRight: "1%", elevation: 5, backgroundColor: "#fff" }}
                   onPress={() => navigation.navigate('CustomMade')}
                 >
-                  <View style={{width:"100%",height:"50%",alignItems:"center",justifyContent:"center"}}>
-                  
-             <Text style={{fontSize:18,fontWeight:"bold",color:"#7cc0c0",marginTop:"7%"}}>文化定制</Text>
+                  <View style={{ width: "100%", height: "50%", alignItems: "center", justifyContent: "center" }}>
+
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#7cc0c0", marginTop: "7%" }}>文化定制</Text>
 
                     {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
                   </View>
-                  <View style={{width:"100%",height:"50%"}}>
-                  <LottieView source={require('../../../animal/dingzhi.json')} autoPlay loop progress={this.state.progress} />
+                  <View style={{ width: "100%", height: "50%" }}>
+                    <LottieView source={require('../../../animal/dingzhi.json')} autoPlay loop progress={this.state.progress} />
                   </View>
                   {/* <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://8.142.11.85:3000/public/images/8.jpg' }}></Image> */}
                 </TouchableOpacity>
                 <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
-                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%",flexDirection:"row", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-                  <View style={{}}></View>
+                  <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%", flexDirection: "row", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+                    <View style={{}}></View>
                     <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/9.jpg' }}></Image>
                   </TouchableOpacity>
                   <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
@@ -462,87 +463,88 @@ ListHeaderComponent(){
               </View>
               <View style={styles.old}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
-                                            <View style={{ marginLeft: 10 ,width:width*0.75 }}>
-                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
-                                                <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
-                                            </View>
+                  <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                  <View style={{ marginLeft: 10, width: width * 0.75 }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
+                    <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
+                  </View>
 
 
                   <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
-                
-                
+
+
 
                 <FlatList
-        //   style={{width:width,height:10000}}
-            data = {this.state.shops}
-            keyExtractor={(item, index) => (index + '1')}
-            renderItem = {({item})=>
-            <View style={{width:width,alignItems:'center'}}>
-                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails",{shops:item}) }} activeOpacity={1} style={{width: width*0.9,
-                                                                                                                                                height: height*0.18,
-                                                                                                                                                backgroundColor: "grey",
-                                                                                                                                                marginBottom: "3%",
-                                                                                                                                                borderRadius: 10,
-                                                                                                                                                elevation: 5,
-                                                                                                                                                flexDirection: "row",}}>
-                <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
-                  <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold",color:"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
-                  </View>
-                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13,color:"#333333" }}>{item.jieshao}</Text>
-                  </View>
-                  <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text style={{  color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
-                  </View>
-                  
-                  <View style={{ width: "90%", height: "18%", flexDirection: "row" ,alignItems:"center",marginLeft:"2%"}}>
-                  <LottieView style={{width:"50%",height:"100%"}} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
-                  <Text style={{color:"#333333",fontSize:13}}>5.0</Text>
-                  </View>
-                  
-                  <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
-                    onPress={()=>this.insert_shopcart(item)}>
-                      <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
-                    </TouchableOpacity>
+                  //   style={{width:width,height:10000}}
+                  data={this.state.shops}
+                  renderItem={({ item }) =>
+                    <View style={{ width: width, marginLeft: 10 }}>
+                      <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
+                        width: width * 0.9,
+                        height: height * 0.18,
+                        backgroundColor: "grey",
+                        marginBottom: "3%",
+                        borderRadius: 10,
+                        elevation: 5,
+                        flexDirection: "row",
+                      }}>
+                        <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+                          <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
+                            <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
+                          </View>
+                          <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                            <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: "#333333" }}>{item.jieshao}</Text>
+                          </View>
+                          <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
+                            <Text style={{ color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
+                          </View>
+
+                          <View style={{ width: "90%", height: "18%", flexDirection: "row", alignItems: "center", marginLeft: "2%" }}>
+                            <LottieView style={{ width: "50%", height: "100%" }} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
+                            <Text style={{ color: "#333333", fontSize: 13 }}>5.0</Text>
+                          </View>
+
+                          <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
+                            <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
+                              onPress={() => this.insert_shopcart(item)}>
+                              <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
+                            </TouchableOpacity>
 
 
-                  </View>
-                </View>
-                <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} resizeMode='stretch' source={{uri:item.pic[1]}} >
+                          </View>
+                        </View>
+                        <Image style={{ width: "40%", height: "100%", borderTopRightRadius: 10, borderBottomRightRadius: 10 }} resizeMode='stretch' source={{ uri: item.pic[1] }} >
 
-                </Image>
-              </TouchableOpacity>
-        
-            </View>
-        
-        
-        }/>
+                        </Image>
+                      </TouchableOpacity>
+
+                    </View>
+
+
+                  } />
 
 
 
               </View>
               <View style={styles.limit}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
-                    <View style={{ marginLeft: 10 ,width:width*0.75 }}>
-                        <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
-                        <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
-                    </View>
+                  <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                  <View style={{ marginLeft: 10, width: width * 0.75 }}>
+                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
+                    <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
+                  </View>
 
 
-                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1,  color: '#7cc0bf' }}>
+                  <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                     <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                   </TouchableOpacity>
                 </TouchableOpacity>
                 <View style={styles.oldname}>
                   <Carousel
-                  
+
                     // layout={"default"}
                     layout={'stack'} layoutCardOffset={`10`}
                     // layout={'tinder'} layoutCardOffset={`15`} 
@@ -689,7 +691,7 @@ ListHeaderComponent(){
 
         
         </LinearGradient>
-        {this.state.isShowToTop ? <ScrollTopView  style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff"}} root={this} ></ScrollTopView> : null}
+        {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }} root={this} ></ScrollTopView> : null}
       </View>
     );
   }
@@ -705,7 +707,7 @@ const styles = StyleSheet.create({
   },
   header: {
     width: width,
-    height: height * 0.07,
+    height: height * 0.08,
     // backgroundColor: "#f1f1f1",
     flexDirection: "row",
     alignItems: "center",
@@ -746,7 +748,7 @@ const styles = StyleSheet.create({
   },
   old: {
     width: width * 0.95,
-    height:width *1.4,
+    height: width * 1.4,
     backgroundColor: "#fff",
     borderRadius: 15,
     alignItems: "center"
@@ -775,10 +777,10 @@ const styles = StyleSheet.create({
     // height: height*0.5,
     // backgroundColor:"grey",
     marginTop: "2%",
-   marginRight:35,
+    marginRight: 35,
     borderRadius: 15,
 
-   
+
   },
   waterfall: {
     width: width * 0.95,

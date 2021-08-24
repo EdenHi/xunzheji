@@ -145,7 +145,7 @@ class GoodsDetail extends Component {
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",marginLeft:"25%",marginRight:"25%"}}>商品详情</Text>
               <Entypo onPress={() => {
               this.setModalVisible(!modalVisible);
-            }} name="dots-three-vertical"  color="#000"  size={20} />
+            }} name="dots-three-vertical"  color="#7cc0c0"  size={20} />
             </View> 
         {/* <View style={styles.Head}>
           <Entypo

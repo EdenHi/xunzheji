@@ -13,7 +13,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LottieView from 'lottie-react-native';
-
+import Fontisto from 'react-native-vector-icons/Fontisto'
 const tags = [];
 export default class Fabu extends Component {
     constructor(props) {
@@ -35,11 +35,11 @@ export default class Fabu extends Component {
             duration: 1000,
             easing: Easing.linear,
         }).start();
-        if(this.props.route.params){
-            console.log('shoturi',this.props.route.params);
-            let {arr} = this.state
+        if (this.props.route.params) {
+            console.log('shoturi', this.props.route.params);
+            let { arr } = this.state
             arr.push(this.props.route.params)
-            this.setState({arr})
+            this.setState({ arr })
         }
         this.listener = DeviceEventEmitter.addListener('tag', this.tag.bind(this))
     }
@@ -183,7 +183,7 @@ export default class Fabu extends Component {
                     <View style={styles.box}>
                         <TouchableOpacity
                             activeOpacity={1}>
-                            <AntDesign onPress={() => this.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                            <AntDesign onPress={() => this.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold" }}>发布动态</Text>
                         <TouchableOpacity
@@ -283,9 +283,10 @@ export default class Fabu extends Component {
                                     )
                                 })
                             }
-                            <TouchableOpacity style={{ marginLeft: 10, marginBottom: 20, width: 50, justifyContent: 'center', alignItems: 'center', backgroundColor: '#eee', borderRadius: 15 }}
+                            <TouchableOpacity style={{ flexDirection:"row",marginLeft: 10, marginBottom: 20, width: 70, justifyContent: 'center', alignItems: 'center', backgroundColor: '#eee', borderRadius: 15 }}
                                 onPress={() => this.props.navigation.navigate('tag')}>
-                                <Text style={{ color: 'orange', padding: 5 }}>#话题</Text>
+                                <Fontisto name='hashtag' color='#7cc0c0' />
+                                <Text style={{ color: 'orange', padding: 5,color:"#7cc0c0"}}>话题</Text>
                             </TouchableOpacity>
                         </View>
 

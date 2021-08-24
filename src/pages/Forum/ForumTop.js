@@ -33,8 +33,8 @@ export default class ForumTop extends Component {
   render() {
     return (
       <ScrollableTabView initialPage={1} renderTabBar={() => <CustormerBar />}>
-        <Luntan_guanzhu tabLabel="关注" />
-        <LunTan tabLabel="推荐" />
+        <Luntan_guanzhu tabLabel="关 注"  />
+        <LunTan tabLabel="推 荐" />
       </ScrollableTabView>
     );
   }
