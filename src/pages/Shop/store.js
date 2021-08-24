@@ -485,7 +485,7 @@ ListHeaderComponent(){
                       <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
                         width: width * 0.9,
                         height: height * 0.18,
-                      marginLeft:width*0.05,
+                      // marginLeft:width*0.05,
                         backgroundColor: "grey",
                         marginBottom: "3%",
                         borderRadius: 10,
