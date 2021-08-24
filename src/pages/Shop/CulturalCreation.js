@@ -57,11 +57,11 @@ export default class Select extends Component {
     render() {
 
 
-        const Z= this.state.course==="T恤"?<Clothe navigation={this.props.navigation} ref={(view) => this.childList = view}  index={'http://8.142.11.85:3000/public/images/134880490.png'} />:null
-        const H= this.state.course==="帆布包"?<Clothe navigation={this.props.navigation} ref={(view) => this.childList = view}  index={'http://8.142.11.85:3000/public/images/bao.png'} />:null
-        const A= this.state.course==="手机壳"?<Clothe navigation={this.props.navigation} ref={(view) => this.childList = view}  index={'http://8.142.11.85:3000/public/images/ke.jpg'} />:null
-        const N= this.state.course==="拉拉"?<Clothe navigation={this.props.navigation} ref={(view) => this.childList = view}  index={'http://8.142.11.85:3000/public/images/134880490.png'} />:null
-        const G= this.state.course==="夫夫"?<Clothe navigation={this.props.navigation} ref={(view) => this.childList = view}  index={'http://8.142.11.85:3000/public/images/134880490.png'} />:null
+        const Z = this.state.course === "T恤" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://8.142.11.85:3000/public/images/134880490.png'} /> : null
+        const H = this.state.course === "帆布包" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://8.142.11.85:3000/public/images/bao.png'} /> : null
+        const A = this.state.course === "手机壳" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://8.142.11.85:3000/public/images/ke.png'} /> : null
+        const N = this.state.course === "拉拉" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://8.142.11.85:3000/public/images/134880490.png'} /> : null
+        const G = this.state.course === "夫夫" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://8.142.11.85:3000/public/images/134880490.png'} /> : null
 
         return (
             <View style={styles.container1}>
@@ -110,14 +110,14 @@ export default class Select extends Component {
                                         <CourseItem course="帆布包" onPress={() => { this.selCourse('帆布包') }} />
                                         <CourseItem course="手机壳" onPress={() => { this.selCourse('手机壳') }} />
                                     </View>
-    
+
                                 </View>
                             </TouchableWithoutFeedback>
                         </View>
                     </TouchableWithoutFeedback>
                 </Modal>
                 {Z}{H}{A}{N}{G}
-                
+
             </View>
         );
     }

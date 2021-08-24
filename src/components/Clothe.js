@@ -179,7 +179,7 @@ export default class Clothe extends Component {
             <Image style={{ width: width * 0.4, height: width * 0.4 }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
         </Animated.View> : null;
         const DrawPic = this.state.pic3 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
-            <Image style={{ width: width * 0.4, height: width * 0.4, borderWidth: 10 }} resizeMode={'contain'} source={{ uri: this.state.drawPic }} />
+            <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'cover'} source={{ uri: this.state.drawPic }} />
         </Animated.View> : null;
         const { modalVisible4 } = this.state;
         return (
@@ -194,12 +194,12 @@ export default class Clothe extends Component {
                     }}
                 >
                     <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
-                        <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: this.state.shoturi }}>
+                        <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15,  }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: this.state.shoturi }}>
                         </ImageBackground>
-                        <View style={{ backgroundColor: '#fff', width, flex: 1, }}>
+                        <View style={{ backgroundColor: '#7cc0c0', width, flex: 1, }}>
                             <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: '#333', marginTop: height * 0.01 }}>价格：39 元</Text>
                             <Text style={{ fontSize: 13, fontWeight: 'bold', textAlign: 'center', color: '#333' }}>预计3-4天制作完成</Text>
-                            <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', justifyContent: 'center', marginLeft: '5%', marginTop: height * 0.015, borderWidth: 0 }}>
+                            <View style={{flex: 1, flexDirection: 'row', width: '90%', justifyContent: 'center', marginLeft: '5%', marginTop: height * 0.015, }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center', height: height * 0.05 }}
                                         onPress={() => this.insert_shopcart()}>
@@ -219,8 +219,8 @@ export default class Clothe extends Component {
 
                 </Modal>
 
-                <View style={{ width: width, height: height * 0.65, backgroundColor: "#fff" }}>
-                    <ImageBackground ref={viewRef} collapsable={false} source={{ uri: this.state.backImg }} resizeMode={'contain'} style={{ borderWidth:1,width: '100%', height: '100%', zIndex: 1, backgroundColor: '#fff' }}>
+                <View style={{ width: width, height: height * 0.65, }}>
+                    <ImageBackground ref={viewRef} collapsable={false} source={{ uri: this.state.backImg }} resizeMode={'contain'} style={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: '#5A849F' }}>
                         {ShowPic1}
                         {CustomPic}
                         {DrawPic}
@@ -234,7 +234,7 @@ export default class Clothe extends Component {
                         locked={true}
                         renderTabBar={() => <SegmentTabBar />}
                         tabBarActiveTextColor='#FF0000'>
-                        <View tabLabel="推荐样式" style={{ borderWidth: 1, width: width }}>
+                        <View tabLabel="推荐样式" style={{ width: width }}>
                             <FlatList
                                 data={data}
                                 renderItem={this._renderItem}
@@ -244,7 +244,7 @@ export default class Clothe extends Component {
 
                         </View>
                         <View tabLabel="自定义" style={{ width: width * 0.8, marginLeft: width * 0.1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker(), this.CustomShow() }} style={{ borderWidth: 0, width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker(), this.CustomShow() }} style={{  width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
                                 <Image style={{ width: '100%', height: '80%' }} source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }}>
 
                                 </Image>
@@ -252,7 +252,7 @@ export default class Clothe extends Component {
                                     上传图片
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic'),this.setState({pic3:true}) }} style={{ borderWidth: 0, width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic'),this.setState({pic3:true}) }} style={{  width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
                                 <Image style={{ width: '100%', height: '80%' }} source={require('../pages/img/drawimg.png')}>
 
                                 </Image>
