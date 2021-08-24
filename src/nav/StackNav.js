@@ -88,7 +88,8 @@ import {
   vr,
   dingzhi_tupian,
   JuBao,
-  Exchange_want
+  Exchange_want,
+  ShiMin,
 } from '../pages/index';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
@@ -196,6 +197,7 @@ export default function StackNav() {
       <Stack.Screen name="dingzhi_tupian" component={dingzhi_tupian} />
       <Stack.Screen name="JuBao" component={JuBao} />
       <Stack.Screen name="Exchange_want" component={Exchange_want} />
+      <Stack.Screen name="ShiMin" component={ShiMin} />
     </Stack.Navigator>
   );
 }
