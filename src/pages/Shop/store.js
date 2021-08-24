@@ -49,7 +49,7 @@ export default class Store extends Component {
       currentPage: 0,
       progress: new Animated.Value(0),
       activeIndex: 0,
-      zuobiao: '查询中',
+      zuobiao: '查询',
       carouselItems: [
         {
           title: "亨达利",
@@ -241,9 +241,6 @@ export default class Store extends Component {
       ]
     };
   }
-
-
-
   insert_shopcart(item) {
     AsyncStorage.getItem('username', (err, result) => {
       if (!err) {
@@ -306,7 +303,8 @@ export default class Store extends Component {
           .then((jsonData) => {
             try {
               console.log('dizhi', jsonData.regeocode.addressComponent.district)
-              this.setState({ zuobiao: jsonData.regeocode.addressComponent.district })
+              var str=jsonData.regeocode.addressComponent.district;
+              this.setState({ zuobiao: str.slice(0,2) })
             } catch (e) {
 
             }
@@ -327,6 +325,10 @@ export default class Store extends Component {
       duration: 3500,
       easing: Easing.linear,
     }).start();
+    this.subscription=DeviceEventEmitter.addListener('dizhi',(msg)=>{
+      console.log(msg);
+      this.setState({zuobiao:msg})
+    })
   }
   renderRow(obj, index) {
     return (
@@ -689,7 +691,7 @@ export default class Store extends Component {
                 color="#fff"
               />
             </TouchableOpacity> */}
-            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 18, width: width * 0.15, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.03}}>{this.state.zuobiao}</Text>
+            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 18, width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.0}}>{this.state.zuobiao}</Text><AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/>
             <TouchableOpacity activeOpacity={1}
               onPress={() => navigation.navigate('search')}
               style={styles.input}>
@@ -769,14 +771,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     elevation: 5,
-    marginLeft:width*0.02
+    marginLeft:width*0.04
   },
   icon: {
     width: "100%",
     height: "100%"
   },
   cell: {
-    // backgroundColor: 'red',
     width: "95%",
     height: 150,
     alignItems: 'center',
