@@ -209,8 +209,6 @@ export default class Homepagebook extends Component {
             this.props.navigation.navigate('book_1')
         }
     }
-
-
     _renderItem({ item, index }) {
         return (
             <View style={{ width:width*0.8,flexDirection: "row", marginLeft: -20, backgroundColor: "#fff", elevation: 5,bottom:5,borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:"#7cc0c0" }} >
@@ -223,7 +221,7 @@ export default class Homepagebook extends Component {
                     <View><Text style={{fontSize:13}}>作者：周咏南</Text></View>
                     <View><Text style={{fontSize:13}}>一部浙江改革开放史，就是一部浙江民营企业家历尽艰辛、书写传奇的创业史，就是一部浙江民营经济风起云涌、波澜壮阔的崛起史，就是一部浙商精神接续传承、丰富升华的发展史。</Text></View>
                 </View> */}
-                <View style={{ justifyContent: "center", justifyContent: "space-around", borderWidth: 1, width: width * 0.35, height: width * 0.4, borderRadius: 10, borderColor: "#7cc0c0", marginLeft: 5 }}>
+                <View style={{ justifyContent: "center", justifyContent: "space-around", borderWidth: 1, width: width * 0.38, height: width * 0.38, borderRadius: 10, borderColor: "#7cc0c0", marginLeft: 5 }}>
                     <TouchableOpacity activeOpacity={1} onPress={() => {this._openModalWin(index)}} >
                         <View style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
                             <Entypo style={{ marginLeft: 10 }} color='#7cc0c0' name='user' size={25} />

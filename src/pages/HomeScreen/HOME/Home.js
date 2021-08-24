@@ -102,10 +102,10 @@ export default class Home extends Component {
                                 <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
                                     <View>
                                         <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
-                                            <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                            <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                                             <View style={{ marginLeft: 10,width:width*0.75 }}>
-                                                <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商历史推荐</Text>
-                                                <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
+                                                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>浙商历史推荐</Text>
+                                                <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
                                             </View>
                                             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                                                 <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
@@ -120,12 +120,12 @@ export default class Home extends Component {
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
                                                             <View style={{ flex: 3 }} />
-                                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>浙江商帮的崛起</Text></View>
+                                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' }}>浙江商帮的崛起</Text></View>
                                                             <View style={{ flex: 1 }}>
                                                                 <View style={{ flexDirection: 'row' }}>
-                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>宁波商帮</Text></View></TouchableOpacity>
-                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>龙游商帮</Text></View></TouchableOpacity>
-                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>南浔商帮</Text></View></TouchableOpacity>
+                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center',elevation:5 }}><Text style={{ fontSize: 12 }}>宁波商帮</Text></View></TouchableOpacity>
+                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' ,elevation:5}}><Text style={{ fontSize: 12 }}>龙游商帮</Text></View></TouchableOpacity>
+                                                                    <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center',elevation:5 }}><Text style={{ fontSize: 12 }}>南浔商帮</Text></View></TouchableOpacity>
                                                                 </View>
                                                             </View>
                                                         </View>
@@ -164,10 +164,10 @@ export default class Home extends Component {
                                 </View>
                                 <View style={{ height: 230, backgroundColor: 'white', borderRadius: 10, marginTop: 10 }} >
                                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
-                                        <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                        <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75 }}>
-                                            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商必知丛书</Text>
-                                            <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>浙商必知丛书</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                         </View>
                                         <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
@@ -185,7 +185,7 @@ export default class Home extends Component {
                                 </View>
                                 <View style={{ height: height*0.33, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom:10,marginLeft:10}}>
-                                        <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28 }} />
+                                        <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29 }} />
                                         <View style={{width:width*0.75,marginRight:10 }}>
                                             <Text onPress={() => {
 
@@ -202,10 +202,10 @@ export default class Home extends Component {
                                                     road9: this.state.road9,
                                                     road10: this.state.road10
                                                 })
-                                            }} style={{ marginLeft: 10, fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}
+                                            }} style={{ marginLeft: 10, fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}
 
                                             >重走鸡毛换糖之路</Text>
-                                            <Text style={{ marginLeft: 10, fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
+                                            <Text style={{ marginLeft: 10, fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
 
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: '#7cc0bf' }}>
@@ -263,10 +263,10 @@ export default class Home extends Component {
                                 </View>
                                 <View style={{ height: height*0.3, backgroundColor: 'white', borderRadius: 10, marginTop: 10,marginBottom:15 }} >
                                     <TouchableOpacity activeOpacity={1}  onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
-                                        <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                        <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75 }}>
-                                            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>云游浙商</Text>
-                                            <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>TRAVELING ZHEJIANG ERCHANTS</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>云游浙商</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>TRAVELING ZHEJIANG ERCHANTS</Text>
                                         </View>
                                         <TouchableOpacity  onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
@@ -289,10 +289,10 @@ export default class Home extends Component {
                     </ScrollView> */}
                                 <View style={{ height: height*0.9, backgroundColor: '#fff', borderRadius: 10 }}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
-                                        <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                                        <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75  }}>
-                                            <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>浙商人物介绍</Text>
-                                            <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>INTRODUCTION TO ZHEJIANG BUSINESSMEN</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>浙商人物介绍</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>INTRODUCTION TO ZHEJIANG BUSINESSMEN</Text>
                                         </View>
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={() => this.props.navigation.navigate('Business')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />

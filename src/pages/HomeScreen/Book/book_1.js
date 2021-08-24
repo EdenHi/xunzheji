@@ -25,8 +25,8 @@ export default class book_1 extends Component {
                     <ScrollView>
                     <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:20}}>
                         <View style={{marginLeft:width*0.05}}>
-                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold',color:'#333'}}>鲁冠球：聚能向宇宙</Text>
-                            <Text style={{marginTop:20,color:'#333'}}>魏江</Text>
+                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold',color:'#fff'}}>鲁冠球：聚能向宇宙</Text>
+                            <Text style={{marginTop:20,color:'#fff',fontSize:13}}>魏江</Text>
                         </View>
                         <Image source={{uri:'http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062'}} style={{height:150,width:100,marginRight:width*0.05}}/>
                     </View>
@@ -41,21 +41,23 @@ export default class book_1 extends Component {
                     
                     
                     
-                    <View style={{flexDirection:'row',backgroundColor:'#eee',justifyContent:'space-around'}}>
+                    <View style={{flexDirection:'row',alignItems:"center",backgroundColor:'#fff',elevation:5,justifyContent:'space-around'}}>
                         <TouchableOpacity activeOpacity={1} style={{alignItems:'center',marginTop:5,marginBottom:5}}>
                             <MaterialCommunityIcons
                             name='book-plus-multiple'
+                            color="#333"
                             size={30}/>
-                            <Text>加书架</Text>
+                            <Text style={{color:"#333",fontSize:13}}>加书架</Text>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} style={{alignItems:'center',marginTop:5,marginBottom:5}}>
                             <MaterialCommunityIcons
                             name='headphones'
+                            color="#333"
                             size={30}/>
-                            <Text>听书</Text>
+                            <Text style={{color:"#333",fontSize:13}}>听书</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{justifyContent:'center'}}  onPress={()=>this.props.navigation.navigate('book_xiangqing',{k:0})}>
-                            <Text style={{backgroundColor:'#7cc0c0',paddingTop:10,paddingBottom:10,paddingLeft:20,paddingRight:20,borderRadius:20}}>立即免费阅读</Text>
+                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundColor:'#7cc0c0',borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate('book_xiangqing',{k:0})}>
+                            <Text style={{fontSize:15,color:"#fff"}}>立即阅读</Text>
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>
