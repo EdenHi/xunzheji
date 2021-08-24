@@ -90,6 +90,7 @@ import {
   JuBao,
   Exchange_want
 } from '../pages/index';
+import CityList from '../components/CityList';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
 import Road from '../pages/Road/Road';
@@ -169,7 +170,7 @@ export default function StackNav() {
       <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
-
+      <Stack.Screen name="CityList" component={CityList} />
 
       <Stack.Screen name="Story" component={Story} />
       <Stack.Screen name="Story2" component={Story2} />

@@ -18,6 +18,8 @@ target 'zheshang' do
 
   pod 'react-native-view-shot', :path => '../node_modules/react-native-view-shot'
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'zheshangTests' do
     inherit! :complete
     # Pods for testing
