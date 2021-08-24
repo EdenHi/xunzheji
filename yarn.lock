@@ -1119,6 +1119,11 @@
   resolved "https://registry.nlark.com/@react-native-community/eslint-plugin/download/@react-native-community/eslint-plugin-1.1.0.tgz"
   integrity sha1-5Csb7xLSQVQRUZ/VKOZLWTsTY9w=
 
+"@react-native-community/geolocation@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.npm.taobao.org/@react-native-community/geolocation/download/@react-native-community/geolocation-2.0.2.tgz#ba8b40f560ead8d014740d1cdea970b33f19312e"
+  integrity sha1-uotA9WDq2NAUdA0c3qlwsz8ZMS4=
+
 "@react-native-community/masked-view@^0.1.11":
   version "0.1.11"
   resolved "https://registry.nlark.com/@react-native-community/masked-view/download/@react-native-community/masked-view-0.1.11.tgz?cache=0&sync_timestamp=1619440061429&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40react-native-community%2Fmasked-view%2Fdownload%2F%40react-native-community%2Fmasked-view-0.1.11.tgz"

@@ -124,7 +124,7 @@ export default class Swop extends Component {
               <View style={{ alignItems: "center", justifyContent: "center"}}>
                 <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333333" }}>交换的物品：</Text>
                 <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.wupin}</Text>
-                <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>想换什么：</Text>
+                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333333" }}>想换什么：</Text>
                 <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.exchang_wupin}</Text>
               </View>
               
@@ -149,7 +149,7 @@ export default class Swop extends Component {
           </View>
           <View style={{flexDirection:'row', marginTop: 15}}>
             <Text onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{marginLeft:'10%',fontWeight: "bold", fontSize: 15, color: "#7cc0c0",marginTop:5}}>聊天</Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Exchange_want')} style={{ flexDirection: "row", width: width * 0.2, height: 50, alignItems: "center", marginLeft: "55%" }} >
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Exchange_want',item)} style={{ flexDirection: "row", width: width * 0.2, height: 50, alignItems: "center", marginLeft: "55%" }} >
               <View style={{ width: 50, height: 40 }}><Text style={{ fontWeight: "bold", fontSize: 15, color: "#7cc0c0" }}>我想要</Text></View>
               <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>

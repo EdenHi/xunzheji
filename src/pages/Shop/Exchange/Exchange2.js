@@ -82,7 +82,8 @@ export default class Exchange2 extends Component {
                     exchang_wupin:this.state.exchang_wupin,
                     username: this.state.username,
                     liyou:this.state.liyou,
-                    uuid:this.state.uuid
+                    uuid:this.state.uuid,
+                    tag:'物品'
                 }),
             });
     }
