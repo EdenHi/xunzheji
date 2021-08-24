@@ -279,8 +279,43 @@ export default class Store extends Component {
       })
     }
   }
+// 获取位置并逆地理转换
+handleGetLocation=()=>{
+  // 当前定位经纬度
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      const initialPosition = position
+      console.log(initialPosition)
+      const { longitude } = initialPosition.coords
+      const { latitude } = initialPosition.coords
+      console.log(`${longitude},${latitude}`)
+      //通过调用高德地图逆地理接口，传入经纬度获取位置信息
+      fetch(`http://restapi.amap.com/v3/geocode/regeo?key=你得高德KEY&location=${longitude},${latitude}&radius=1000&extensions=all&batch=false&roadlevel=0`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: ``
+      })
+        .then((response) => response.json())
+        .then((jsonData) => {
+          try {
+            console.log(jsonData)
+          }catch (e) {
+
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        })
+    },
+    (error) => console.log(error),
+    {  timeout: 20000, maximumAge: 1000 },
+  )
+}
 
   componentDidMount() {
+    this.handleGetLocation();
     Animated.timing(this.state.progress, {
       toValue: 1,
       duration: 3500,
