@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, Dimensions, TouchableOpacity, TextInput,AsyncStorage,FlatList,DeviceEventEmitter } from 'react-native'
+import { View, Text, Image, Dimensions, TouchableOpacity, TextInput,AsyncStorage,FlatList,DeviceEventEmitter,Keyboard } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -14,7 +14,9 @@ export default class Topic1 extends Component {
         this.state = {
             pinglun: [],
             denglu_username: '',
-            data:''
+            data:'',
+            send_pinglun:'',
+            time:'',
         }
     }
 
@@ -104,6 +106,23 @@ shoucang(){
         DeviceEventEmitter.emit('wenzhang',1)
 }
 
+//对文章进行评论
+insert_pinglun(){
+    fetch('http://8.142.11.85:3000/shouye/insert_wenzhang', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            pinglun:this.state.send_pinglun,
+            wenzhang_id:this.props.route.params.wenzhang_id,
+            username:this.state.denglu_username,
+            pinglun_time:new Date()
+        }),
+    });
+    this.get_pinglun();
+}
 
 
 
@@ -274,7 +293,8 @@ shoucang(){
 
                     <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center", justifyContent: 'space-around' }} >
                         <View style={{ width: 250, height: 40, backgroundColor: "#808080", opacity: 0.4, marginLeft: 20, borderRadius: 20 }}>
-                            <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" />
+                            <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" onEndEditing={()=>{this.insert_pinglun(),Keyboard.dismiss(),this.textInput.clear()}} onChangeText={(send_pinglun)=>this.setState({send_pinglun})} 
+                            ref={input => { this.textInput = input }} />
                         </View>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5, alignItems: 'center', justifyContent: 'center' }}>
                             <AntDesign name={this.state.data.username===this.state.denglu_username?"star":"staro"} size={25} color={this.state.data.username===this.state.denglu_username?'yellow':"#7cc0bf"} 
