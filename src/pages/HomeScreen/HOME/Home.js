@@ -120,7 +120,7 @@ export default class Home extends Component {
                                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.8, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
                                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
                                                             <View style={{ flex: 3 }} />
-                                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' ,marginTop:height*0.1}}>浙江商帮的崛起</Text></View>
+                                                            <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff' }}>浙江商帮的崛起</Text></View>
                                                             <View style={{ flex: 1 }}>
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center',elevation:5 }}><Text style={{ fontSize: 12 }}>宁波商帮</Text></View></TouchableOpacity>
