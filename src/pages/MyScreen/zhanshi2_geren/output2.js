@@ -10,7 +10,6 @@ export default class Output2 extends Component {
   static contextType = NavigationContext;
   constructor(props) {
     super(props);
-
     this.state = {
       data: [],
       username: '',
