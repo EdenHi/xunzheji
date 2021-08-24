@@ -17,7 +17,7 @@ export default class book_1 extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", }}>书籍详情</Text>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="export" size={20} color="#000000" />
                         </TouchableOpacity>
@@ -25,7 +25,7 @@ export default class book_1 extends Component {
                     <ScrollView>
                     <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:20}}>
                         <View style={{marginLeft:width*0.05}}>
-                            <Text style={{marginTop:20,fontSize:20,fontWeight:'bold',color:'#fff'}}>鲁冠球：聚能向宇宙</Text>
+                            <Text style={{marginTop:20,fontSize:18,color:'#fff'}}>鲁冠球：聚能向宇宙</Text>
                             <Text style={{marginTop:20,color:'#fff',fontSize:13}}>魏江</Text>
                         </View>
                         <Image source={{uri:'http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062'}} style={{height:150,width:100,marginRight:width*0.05}}/>

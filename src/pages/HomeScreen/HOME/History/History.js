@@ -17,7 +17,7 @@ export default class History extends Component {
                     </View>
                     <ScrollView>
                         <View style={{ width: width, alignItems: "center" }}>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.9, marginLeft: 10, marginRight: 10, elevation: 5 }}>
                                     <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
@@ -35,7 +35,7 @@ export default class History extends Component {
                                 </View>
                             </TouchableOpacity>
                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3608384836,3487578051&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=301' }}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic1', { wenzhang_id: 2 })} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Topic1', { wenzhang_id: 2 })} activeOpacity={1} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                     <View style={{ flex: 3 }} />
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>“浙商人”在非洲</Text></View>
                                     <View style={{ flex: 1 }}>
@@ -48,7 +48,7 @@ export default class History extends Component {
                                 </TouchableOpacity>
                             </ImageBackground>
                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 3 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 3 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                     <View style={{ flex: 3 }} />
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>浙江“优秀建设者”</Text></View>
                                     <View style={{ flex: 1 }}>
@@ -61,7 +61,7 @@ export default class History extends Component {
                                 </TouchableOpacity>
                             </ImageBackground>
                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'http://img.zjol.com.cn/mlf/dzw/zsw/zjjjbd/gdxw/202104/W020210401537899975626.jpg' }}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic3', { wenzhang_id: 4 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Topic3', { wenzhang_id: 4 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                     <View style={{ flex: 3 }} />
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>向世界一流强港攀登</Text></View>
                                     <View style={{ flex: 1 }}>
@@ -75,7 +75,7 @@ export default class History extends Component {
                             </ImageBackground>
 
                             <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9 }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3947839322,680992620&fm=26&fmt=auto&gp=0.jpg' }}>
-                                <TouchableOpacity onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 5 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
+                                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Topic2', { wenzhang_id: 5 })} style={{ height: 150, borderRadius: 10, padding: 15, width: width * 0.8 }}>
                                     <View style={{ flex: 3 }} />
                                     <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>从“天堂之城”到“双创”热土</Text></View>
                                     <View style={{ flex: 1 }}>
