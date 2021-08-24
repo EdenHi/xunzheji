@@ -463,10 +463,10 @@ ListHeaderComponent(){
               </View>
               <View style={styles.old}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                  <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                  <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                   <View style={{ marginLeft: 10, width: width * 0.75 }}>
-                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
-                    <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
+                    <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
                   </View>
 
 
@@ -532,10 +532,10 @@ ListHeaderComponent(){
               </View>
               <View style={styles.limit}>
                 <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-                  <View style={{ backgroundColor: '#7cc0bf', width: 2, height: 28, marginLeft: 10 }} />
+                  <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                   <View style={{ marginLeft: 10, width: width * 0.75 }}>
-                    <Text style={{ fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
-                    <Text style={{ fontSize: 7, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
+                    <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
+                    <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
                   </View>
 
 
@@ -558,9 +558,11 @@ ListHeaderComponent(){
                     onSnapToItem={index => this.setState({ activeIndex: index })} />
                 </View>
               </View>
-              <View style={{ width: "95%", alignItems: "center",backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-                <Text style={{ height: 20, fontSize: 15, color: "#7cc0c0", fontWeight: "bold", marginTop: "2%", fontWeight: "bold" }}>今日推荐</Text>
-                <View style={{ width: "25%",borderWidth:1, borderColor: "#7cc0c0", marginTop: 10 }}></View>
+              <View style={{ width: "95%", alignItems: "center",backgroundColor: '#fff', marginTop: 10,marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
+                <Text style={{ height: 20, fontSize: 16, color: "#7cc0c0", fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
+                <Text style={{ height: 20, fontSize: 9, color: "#7cc0c0", fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
+
+                <View style={{ width: "25%",borderWidth:2, borderColor: "#7cc0c0", marginTop: "0.5%"}}></View>
               </View>
     </View>
   )
