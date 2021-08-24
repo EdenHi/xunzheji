@@ -481,7 +481,7 @@ ListHeaderComponent(){
                   //   style={{width:width,height:10000}}
                   data={this.state.shops}
                   renderItem={({ item }) =>
-                    <View style={{ width: width, }}>
+                    <View style={{ width: width, alignItems:'center' }}>
                       <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
                         width: width * 0.9,
                         height: height * 0.18,
@@ -695,9 +695,10 @@ ListHeaderComponent(){
         {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }} root={this} ></ScrollTopView> : null}
       </View>
     );
-  }
-
+            }
 }
+
+
 const styles = StyleSheet.create({
   container: {
     width: width,
