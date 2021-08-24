@@ -401,7 +401,7 @@ ListHeaderComponent(){
                     height: 5,
                     marginLeft: 2,
                     marginRight: 2,
-                    marginTop: 9,
+
                     marginBottom: 9,
                     borderRadius: 50
                   }} />}
@@ -481,10 +481,11 @@ ListHeaderComponent(){
                   //   style={{width:width,height:10000}}
                   data={this.state.shops}
                   renderItem={({ item }) =>
-                    <View style={{ width: width, marginLeft: 10 }}>
+                    <View style={{ width: width, alignItems:'center' }}>
                       <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
                         width: width * 0.9,
                         height: height * 0.18,
+                      marginLeft:width*0.05,
                         backgroundColor: "grey",
                         marginBottom: "3%",
                         borderRadius: 10,
@@ -648,7 +649,7 @@ ListHeaderComponent(){
             <TouchableOpacity activeOpacity={1}
               onPress={() => navigation.navigate('search')}
               style={styles.input}>
-              <View style={{ width: width * 0.07, marginLeft: "5%", height: width * 0.07, }}>
+              <View style={{ width: width * 0.07, marginLeft: "5%", height: height * 0.08, }}>
                 <SimpleLineIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', borderWidth: 0, }}
                   name="magnifier"
                   size={18}
@@ -674,7 +675,7 @@ ListHeaderComponent(){
 
              
                 <FlatList
-                style={{paddingTop:20,height:height*0.825}}
+                style={{height:height*0.9}}
                
                   numColumns={2}
                   keyExtractor={(item, index) => (index + '1')}
@@ -694,9 +695,10 @@ ListHeaderComponent(){
         {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }} root={this} ></ScrollTopView> : null}
       </View>
     );
-  }
-
+            }
 }
+
+
 const styles = StyleSheet.create({
   container: {
     width: width,

@@ -401,13 +401,15 @@ export default class Comment extends React.Component {
                                 </View>
 
                                 {/* tag标签 */}
-                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 10, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}>
                                     <Fontisto name='hashtag' color='#fff' />
                                     <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{data.tag}</Text>
                                 </View>
 
                                 <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10 }}>
                                     <TouchableOpacity activeOpacity={1}>
+
+
                                         <View style={{ flexDirection: 'row', marginLeft: "10%" }}>
                                             <TouchableOpacity onPress={() => { this.update_dianzan(), DeviceEventEmitter.emit('dianzan', 1) }}>
                                                 <Ionicons
@@ -623,7 +625,7 @@ export default class Comment extends React.Component {
 
 
                                 {/* tag标签 */}
-                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 10, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}>
                                     <Fontisto name='hashtag' color='#fff' />
                                     <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{data.tag}</Text>
                                 </View>

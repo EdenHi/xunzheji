@@ -263,7 +263,7 @@ ListEmptyComponent(){
                                        </View>
 
                                        {/* tag标签 */}
-                                       <View style={item.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#7cc0c0',borderRadius:10,width:100,justifyContent:'center',alignItems:'center'}}>
+                                       <View style={item.tag ===''?{height:0,width:0}:{flexDirection:'row',marginTop:10,alignItems:'center',backgroundColor:'#7cc0c0',borderRadius:20,width:100,justifyContent:'center',alignItems:'center'}}>
                                        <Fontisto name='hashtag' color='#fff' />
                                            <Text style={{ paddingTop:5,paddingBottom:5,color:"#fff"}}>{item.tag}</Text>
                                        </View>
