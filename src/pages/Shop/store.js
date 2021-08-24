@@ -481,7 +481,7 @@ ListHeaderComponent(){
                   //   style={{width:width,height:10000}}
                   data={this.state.shops}
                   renderItem={({ item }) =>
-                    <View style={{ width: width, marginLeft: 10 }}>
+                    <View style={{ width: width, alignItems:'center' }}>
                       <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
                         width: width * 0.9,
                         height: height * 0.18,
