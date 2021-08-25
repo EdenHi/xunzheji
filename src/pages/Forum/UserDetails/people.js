@@ -36,7 +36,6 @@ export default class people extends Component {
     static contextType = NavigationContext;
   constructor(props) {
     super(props);
-    this.aboutCommon = new AboutComponent(props, null, null, null);
     this.state = {
         username:this.props.route.params,
         data:[],
@@ -52,7 +51,7 @@ export default class people extends Component {
                     username:this.props.route.params,
             }).then((json)=>{
                 this.setState({
-                    data:json.data[0],
+                    data:json.data[0][0],
                 });
             });
   }

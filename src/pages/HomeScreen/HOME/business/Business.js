@@ -88,10 +88,10 @@ export default class Business extends Component {
                                 <HuZhou page={0} />
                             </ScrollView>
                             <ScrollView tabLabel='萧绍商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={3} />
                             </ScrollView>
                             <ScrollView tabLabel='绍兴商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={4} />
                             </ScrollView>
                             <ScrollView tabLabel='宁波商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
                                 <HuZhou page={1} />
