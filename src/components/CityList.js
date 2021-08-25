@@ -248,7 +248,7 @@ class CitySelect extends Component {
      * @param item
      */
     _itemClick(item) {
-        console.log(item.city)
+
     DeviceEventEmitter.emit('dizhi',item.city)  
     }
 
