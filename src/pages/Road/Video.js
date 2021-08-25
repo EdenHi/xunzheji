@@ -427,16 +427,7 @@ export default class componentName extends Component {
                         <Step prevStep={this.state.prevSteps} getSteps={this.getSteps.bind(this)} />
                     </View>
                     <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
-                    <View style={{ zIndex: 10, backgroundColor: 'rgba(255,255,255,255,0.5)', width: '15%', height: width * 0.15, marginTop: -height * 0.7, marginBottom: height * 0.65, marginLeft: width * 0.875, borderRadius: 10, }}>
-                        <TouchableOpacity style={{}} onPress={() => { this.props.navigation.navigate('AR') }} >
-                            {/* <Text style={{ fontSize: 20, fontWeight: 'bold', width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center' }}>Ar</Text> */}
-                            <MaterialCommunityIcons
-                                name="augmented-reality"
-                                size={50}
-                                color="orange"
-                            />
-                        </TouchableOpacity>
-                    </View>
+
                     <View>
                         <Video
                             source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
@@ -448,17 +439,21 @@ export default class componentName extends Component {
                         />
                     </View>
                     {/* 底部 */}
-                    <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075 }}>
-                        <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '30%', justifyContent: 'space-around' }}>
+                    <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075 ,justifyContent:'center'}}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '18%', justifyContent: 'space-around' }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/28-plantrips.png' }}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.25, height: width * 0.25, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff', marginLeft: width * 0.06 }}>
-                            <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '20%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                    
+                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2), this.props.navigation.navigate('AR')}} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/16-travel.png' }}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ height: '100%', width: '20%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.18, height: width * 0.18, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff', marginLeft: width * 0.06 }}>
+                            <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/16-travel.png' }}></Image>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/打卡.png')}></Image>
                         </TouchableOpacity>
                     </View>

@@ -10,20 +10,51 @@ import ImagePicker from 'react-native-image-crop-picker';
 import SegmentTabBar from './ClotheBar';
 const { width, height } = Dimensions.get('window');
 
-const data = [{ key: 0 },
+const data = [{
+    key: 0,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/1.png'
+},
+
 {
-    key: 1
+    key: 1,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/2.png'
 },
 {
-    key: 2
+    key: 2,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/3.png'
 }, {
-    key: 3
+    key: 3,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/4.png'
 }, {
-    key: 4
+    key: 4,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/5.png'
 }, {
-    key: 5
+    key: 5,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/6.png'
 }, {
-    key: 6
+    key: 6,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/7.png'
+}, {
+    key: 7,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/8.png'
+}, {
+    key: 8,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/9.png'
+}, {
+    key: 9,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/10.png'
+}, {
+    key: 10,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/11.png'
+}, {
+    key: 11,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/12.png'
+}, {
+    key: 12,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/13.png'
+}, {
+    key: 13,
+    img: 'http://8.142.11.85:3000/public/images/dingzhi/14.png'
 },
 ]
 const viewRef = createRef();
@@ -56,7 +87,8 @@ export default class Clothe extends Component {
             modalVisible4: false,
             CustomPic: '',
             drawPic: '',
-            backImg: props.index
+            backImg: props.index,
+            img: ''
         };
     }
 
@@ -143,8 +175,14 @@ export default class Clothe extends Component {
             this.setState({})
         }
     }
+    changePic(item) {
+        const { img } = this.state;
+        this.setState({ img: item.img })
+        console.log(this.state.img);
+    }
     _renderItem = ({ item }) => (
-        <TouchableOpacity onPress={() => this.setState({ pic1: !this.state.pic1 })} style={{ width: width * 0.25, height: width * 0.25, margin: width * 0.04 }}><Image style={{ width: "100%", height: "100%" }} source={require("../pages/img/T.jpg")}></Image></TouchableOpacity>
+
+        <TouchableOpacity onPress={this.recomment(), () => this.changePic(item)} style={{ width: width * 0.25, height: width * 0.25, margin: width * 0.04 }}><Image style={{ width: "100%", height: "100%" }} source={{ uri: item.img }}></Image></TouchableOpacity>
     );
 
     Sure() {
@@ -173,7 +211,7 @@ export default class Clothe extends Component {
         // 设置transform为偏移量
         const imageStyle = { transform: [{ translateX }, { translateY }, { scale }, { rotate }] };
         const ShowPic1 = this.state.pic1 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
-            <Image style={{ width: width * 0.4, height: width * 0.4 }} source={require('../pages/img/T.jpg')} />
+            <Image style={{ width: width * 0.4, height: width * 0.4 }} resizeMode={'contain'} source={{ uri: this.state.img }} />
         </Animated.View> : null;
         const CustomPic = this.state.pic2 ? <Animated.View style={[styles.container, imageStyle]} {...this._panResponder.panHandlers}>
             <Image style={{ width: width * 0.4, height: width * 0.4 }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
@@ -194,12 +232,12 @@ export default class Clothe extends Component {
                     }}
                 >
                     <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
-                        <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15,  }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: this.state.shoturi }}>
+                        <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: width * 0.9, height: height * 0.6, marginLeft: width * 0.05, marginTop: height * 0.15, }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: this.state.shoturi }}>
                         </ImageBackground>
-                        <View style={{ backgroundColor: '#7cc0c0', width, flex: 1, }}>
+                        <View style={{ backgroundColor: '#fff', width, flex: 1, }}>
                             <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center', color: '#333', marginTop: height * 0.01 }}>价格：39 元</Text>
                             <Text style={{ fontSize: 13, fontWeight: 'bold', textAlign: 'center', color: '#333' }}>预计3-4天制作完成</Text>
-                            <View style={{flex: 1, flexDirection: 'row', width: '90%', justifyContent: 'center', marginLeft: '5%', marginTop: height * 0.015, }}>
+                            <View style={{ flex: 1, flexDirection: 'row', width: '90%', justifyContent: 'center', marginLeft: '5%', marginTop: height * 0.015, }}>
                                 <View style={{ flexDirection: 'row' }}>
                                     <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center', height: height * 0.05 }}
                                         onPress={() => this.insert_shopcart()}>
@@ -238,13 +276,15 @@ export default class Clothe extends Component {
                             <FlatList
                                 data={data}
                                 renderItem={this._renderItem}
-                                numColumns={3}
+                                // numColumns={3}
+                                horizontal={true}
                                 showsVerticalScrollIndicator={false}
+                                showsHorizontalScrollIndicator={false}
                             />
 
                         </View>
                         <View tabLabel="自定义" style={{ width: width * 0.8, marginLeft: width * 0.1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker(), this.CustomShow() }} style={{  width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker(), this.CustomShow() }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
                                 <Image style={{ width: '100%', height: '80%' }} source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }}>
 
                                 </Image>
@@ -252,7 +292,7 @@ export default class Clothe extends Component {
                                     上传图片
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic'),this.setState({pic3:true}) }} style={{  width: width * 0.3, height: width * 0.38, marginTop: height * 0.05 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic'), this.setState({ pic3: true }) }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
                                 <Image style={{ width: '100%', height: '80%' }} source={require('../pages/img/drawimg.png')}>
 
                                 </Image>

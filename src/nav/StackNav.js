@@ -91,7 +91,9 @@ import {
   Exchange_want,
   Register2,
   Register_tuijian,
+  ShiMin,
 } from '../pages/index';
+import CityList from '../components/CityList';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
 import Road from '../pages/Road/Road';
@@ -171,7 +173,7 @@ export default function StackNav() {
       <Stack.Screen name="Dingdan" component={Dingdan} />
       <Stack.Screen name="Shoplist" component={Shoplist} />
       <Stack.Screen name="Shopdetails" component={Shopdetails} />
-
+      <Stack.Screen name="CityList" component={CityList} />
 
       <Stack.Screen name="Story" component={Story} />
       <Stack.Screen name="Story2" component={Story2} />
@@ -200,6 +202,7 @@ export default function StackNav() {
       <Stack.Screen name="Exchange_want" component={Exchange_want} />
       <Stack.Screen name="Register2" component={Register2} />
       <Stack.Screen name="Register_tuijian" component={Register_tuijian} />
+      <Stack.Screen name="ShiMin" component={ShiMin} />
     </Stack.Navigator>
   );
 }
