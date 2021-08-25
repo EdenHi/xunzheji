@@ -33,6 +33,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import Swiper from 'react-native-swiper';
 import ScrollTopView from 'react-native-scrolltotop';
+import shoplist from './shoplist/shoplist.json';
 import Geolocation from '@react-native-community/geolocation';
 
 const { width, height } = Dimensions.get('window');
@@ -44,12 +45,12 @@ export default class Store extends Component {
     this.state = {
       isShowToTop: false,
       isLoding: false,
-      showpage: 0,
+      showpage: 5,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
       activeIndex: 0,
-      zuobiao: '查询中',
+      zuobiao: '查询',
       carouselItems: [
         {
           title: "亨达利",
@@ -241,9 +242,6 @@ export default class Store extends Component {
       ]
     };
   }
-
-
-
   insert_shopcart(item) {
     AsyncStorage.getItem('username', (err, result) => {
       if (!err) {
@@ -306,7 +304,8 @@ export default class Store extends Component {
           .then((jsonData) => {
             try {
               console.log('dizhi', jsonData.regeocode.addressComponent.district)
-              this.setState({ zuobiao: jsonData.regeocode.addressComponent.district })
+              var str=jsonData.regeocode.addressComponent.district;
+              this.setState({ zuobiao: str.slice(0,2) })
             } catch (e) {
 
             }
@@ -327,7 +326,121 @@ export default class Store extends Component {
       duration: 3500,
       easing: Easing.linear,
     }).start();
+
+   this.tuijian();
+    this.subscription=DeviceEventEmitter.addListener('dizhi',(msg)=>{
+      console.log(msg);
+      this.setState({zuobiao:msg})
+    })
   }
+
+//移除监听
+componentWillUnmount(){
+  this.subscription.remove();
+  }
+
+
+  tuijian(){
+    AsyncStorage.getItem('username',(err,result)=>{
+      if(!err){
+        fetch('http://8.142.11.85:3000/index/selectTuijian', {
+      method: 'POST',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+          username: result,
+      })
+  })
+      .then((response) => response.json())
+      .then((ress) => {
+
+        let x = ress.tuijian
+        console.log('x',x);
+        let newJson = [];
+        let json = eval(shoplist);
+         //先查询最外层的分类  
+         if(x==='meishi'){
+          //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+          for(var k=0;k<json[1].meishi.length;k++){
+              //这里是商品的查询
+              for(var j=0;j<json[1].meishi[k].shops.length;j++){
+                  //查询商品中，含有知味的商品数据
+                  if((json[1].meishi[k].shops[j].name).indexOf('')>-1){
+                      var tempJson = {
+                          "shops":json[1].meishi[k].shops[j],
+                      }
+                      newJson.push(tempJson.shops);
+                  }
+              }
+            }
+            this.setState({shops2:newJson})
+        }
+        if(x==='zhizao'){
+        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+        for(var k=0;k<json[2].zhizao.length;k++){
+            //这里是商品的查询
+            for(var j=0;j<json[2].zhizao[k].shops.length;j++){
+                //查询商品中，含有知味的商品数据
+                if((json[2].zhizao[k].shops[j].name).indexOf('')>-1){
+                    var tempJson = {
+                        "shops":json[2].zhizao[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
+                    }
+                }
+            }
+            this.setState({shops2:newJson})
+        }
+        if(x==='gongmei'){
+        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+        for(var k=0;k<json[3].gongmei.length;k++){
+            //这里是商品的查询
+            for(var j=0;j<json[3].gongmei[k].shops.length;j++){
+                //查询商品中，含有知味的商品数据
+                if((json[3].gongmei[k].shops[j].name).indexOf('')>-1){
+                    var tempJson = {
+                        "shops":json[3].gongmei[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
+                    }
+                }
+            }
+            this.setState({shops2:newJson})
+        }
+        if(x==='chajiu'){
+        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+        for(var k=0;k<json[4].chajiu.length;k++){
+            //这里是商品的查询
+            for(var j=0;j<json[4].chajiu[k].shops.length;j++){
+                //查询商品中，含有知味的商品数据
+                if((json[4].chajiu[k].shops[j].name).indexOf('')>-1){
+                    var tempJson = {
+                        "shops":json[4].chajiu[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
+                    }
+                }
+            }
+            this.setState({shops2:newJson})
+        }
+
+        
+    
+      })
+      }
+    })
+
+
+         
+
+    
+}
+
+
+
+
   renderRow(obj, index) {
     return (
       <View style={styles.cell}>
@@ -365,26 +478,29 @@ export default class Store extends Component {
 
 
 
-  renderDate2({ item, index }) {
-    return (
-      <TouchableOpacity key={index} style={{ backgroundColor: 'white', width: width * 0.425, borderRadius: 10, margin: width * 0.025, elevation: 5 }} activeOpacity={1}
-        onPress={() => this.props.navigation.navigate('Shopdetails', { shops: item })}>
-        <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.425, height: width * 0.425, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-        <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: "#333333", fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
-        <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
-          <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
-            <Text style={{ color: "#7cc0c0", fontSize: 15 }}>￥</Text>
-            <Text style={{ color: '#7cc0c0', fontSize: 15 }}>{item.price}</Text>
-          </View>
-          <Text style={{ color: "#333333", fontSize: 10 }}>{item.sales}人付款</Text>
-        </View>
-      </TouchableOpacity>
-    )
+  renderDate2({item,index}){
+    if(index > this.state.showpage){
+      return ;
+    }else{
+    return(
+        <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,elevation:5}} activeOpacity={1}
+        onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
+            <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
+            <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
+            <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
+                <View style={{flexDirection:'row',alignItems:'baseline'}}>
+                    <Text style={{color:"#7cc0c0",fontSize:15}}>￥</Text>
+                    <Text style={{color:'#7cc0c0',fontSize:15}}>{item.price}</Text>
+                </View>
+                <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
+            </View>
+        </TouchableOpacity>
+    )}
   }
 
 
   yangshi() {
-    if (this.state.showpage > 2) {
+    if (this.state.showpage >= this.state.shops2.length) {
       return (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}><Text>加载完毕</Text></View>
       )
@@ -402,7 +518,7 @@ export default class Store extends Component {
   }
 
   loadData() {
-    if (this.state.showpage > 2) {
+    if (this.state.showpage >= this.state.shops2.length) {
       return;
     } else {
       this.setState({
@@ -410,11 +526,11 @@ export default class Store extends Component {
       });
       setTimeout(() => {
 
-        let arrData = this.state.shops2.concat(this.state.shops2);
+
         this.setState({
           isLoding: false,
-          shops2: arrData,
-          showpage: this.state.showpage + 1,
+
+          showpage: this.state.showpage + 6,
         });
       }, 2000);
     }
@@ -689,7 +805,7 @@ export default class Store extends Component {
                 color="#fff"
               />
             </TouchableOpacity> */}
-            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 18, width: width * 0.15, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.03}}>{this.state.zuobiao}</Text>
+            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 18, width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.0}}>{this.state.zuobiao}</Text><AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/>
             <TouchableOpacity activeOpacity={1}
               onPress={() => navigation.navigate('search')}
               style={styles.input}>
@@ -712,26 +828,26 @@ export default class Store extends Component {
             />
 
           </View>
+          
+
+             
+                <FlatList
+                style={{height:height*0.9}}
+               
+                  numColumns={2}
+                  keyExtractor={(item, index) => (index + '1')}
+                  data={this.state.shops2}
+                  columnWrapperStyle={{backgroundColor:'#fff',width:width*0.95,marginLeft:width*0.025}}
+                  renderItem={this.renderDate2.bind(this)}
+                  ListHeaderComponent={this.ListHeaderComponent.bind(this)}
+                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
+                  onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  onEndReachedThreshold={1}
+                  />  
+              
 
 
-
-          <FlatList
-            style={{ height: height * 0.9 }}
-
-            numColumns={2}
-            keyExtractor={(item, index) => (index + '1')}
-            data={this.state.shops2}
-            columnWrapperStyle={{ backgroundColor: '#fff', width: width * 0.95, marginLeft: width * 0.025 }}
-            renderItem={this.renderDate2.bind(this)}
-            ListHeaderComponent={this.ListHeaderComponent.bind(this)}
-            ListFooterComponent={this.yangshi.bind(this)} //确定刷新的样式
-            onEndReached={this.loadData.bind(this)}//上拉刷新
-            onEndReachedThreshold={1}
-          />
-
-
-
-
+        
         </LinearGradient>
         {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }} root={this} ></ScrollTopView> : null}
       </View>
@@ -769,14 +885,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     elevation: 5,
-    marginLeft:width*0.02
+    marginLeft:width*0.04
   },
   icon: {
     width: "100%",
     height: "100%"
   },
   cell: {
-    // backgroundColor: 'red',
     width: "95%",
     height: 150,
     alignItems: 'center',

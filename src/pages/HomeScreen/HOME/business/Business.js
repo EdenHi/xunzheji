@@ -39,7 +39,7 @@ export default class Business extends Component {
                         <TouchableOpacity activeOpacity={1} style={{}} onPress={() => this.props.navigation.goBack()}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商人物介绍</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商人物介绍</Text>
                     </View>
                     <View style={{ maxHeight: '20%', width: '90%', height: height * 0.2 }}>
                         <ScrollView ref={ref => this.scrollRef = ref} onScroll={(e)=>console.log(e.nativeEvent.contentOffset.y)} style={{ width: '100%', height: '100%' }} showsVerticalScrollIndicator={false}>
@@ -88,10 +88,10 @@ export default class Business extends Component {
                                 <HuZhou page={0} />
                             </ScrollView>
                             <ScrollView tabLabel='萧绍商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={3} />
                             </ScrollView>
                             <ScrollView tabLabel='绍兴商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
-                                <HuZhou navigation={this.props.navigation} />
+                                <HuZhou page={4} />
                             </ScrollView>
                             <ScrollView tabLabel='宁波商帮' style={{ width: width * 1, height: 50, borderTopLeftRadius: 10, }} showsVerticalScrollIndicator={false}>
                                 <HuZhou page={1} />

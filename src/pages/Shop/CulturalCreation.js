@@ -44,8 +44,6 @@ export default class Select extends Component {
 
         };
     }
-
-
     selCourse(course) {
         this.setState({
             showModal: false,
@@ -53,7 +51,6 @@ export default class Select extends Component {
         });
 
     }
-
     render() {
 
 
@@ -66,14 +63,14 @@ export default class Select extends Component {
         return (
             <View style={styles.container1}>
                 <View style={styles.headStyle}>
-                    <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
+                    <AntDesign onPress={() => this.props.navigation.goBack()} style={{ marginLeft:width*0.025,textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#fff" />
                     <TouchableOpacity style={{ width: width * 0.3 }}
                         onPress={() => { this.setState({ showModal: true }) }}
                         hitSlop={{ top: 15, left: 15, bottom: 15, right: 15 }}>
-                        <Text style={{ width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center', fontSize: 20 }}>{this.state.course}<Entypo name="select-arrows" size={20} Color="#333" /></Text>
+                        <Text style={{ width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center', fontSize: 18,color:"#fff"}}>{this.state.course}<Entypo name="select-arrows" size={20} Color="#fff" /></Text>
                     </TouchableOpacity>
 
-                    <AntDesign onPress={() => this.childList.Sure()} style={{ color: "#333333" }} name="check" size={20} color="#000000" />
+                    <AntDesign onPress={() => this.childList.Sure()} style={{ color: "#fff" ,marginRight:width*0.025}} name="check" size={20} color="#fff" />
                 </View>
                 <Modal
                     visible={this.state.showModal}
@@ -95,18 +92,18 @@ export default class Select extends Component {
 
                                 >
                                     <View style={styles.headStyle}>
-                                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#333333" }} name="left" size={20} color="#000000" />
+                                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff",marginLeft:width*0.025 }} name="left" size={20} color="#fff" />
 
                                         <TouchableOpacity style={{ width: width * 0.3 }}
                                             onPress={() => { this.setState({ showModal: false }) }}
                                             hitSlop={{ top: 15, left: 15, bottom: 15, right: 15 }}>
-                                            <Text style={{ width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center', fontSize: 20 }}>{this.state.course}<Entypo name="select-arrows" size={20} Color="#333" /></Text>
+                                            <Text style={{ width: '100%', textAlign: 'center', height: '100%', textAlignVertical: 'center', fontSize: 18 ,color:"#fff"}}>{this.state.course}<Entypo name="select-arrows" size={20} Color="#fff" /></Text>
                                         </TouchableOpacity>
 
-                                        <AntDesign onPress={() => this.childList.Sure()} style={{ color: "#333333" }} name="check" size={20} color="#000000" />
+                                        <AntDesign onPress={() => this.childList.Sure()} style={{ color: "#fff",marginRight:width*0.025 }} name="check" size={20} color="#fff" />
                                     </View>
                                     <View style={styles.courseWrap}>
-                                        <CourseItem course="T恤" onPress={() => { this.selCourse('T恤') }} />
+                                        <CourseItem course="T恤" onPress={() => { this.selCourse('T恤') }}  />
                                         <CourseItem course="帆布包" onPress={() => { this.selCourse('帆布包') }} />
                                         <CourseItem course="手机壳" onPress={() => { this.selCourse('手机壳') }} />
                                     </View>
@@ -127,7 +124,7 @@ class CourseItem extends Component {
         return (
             <TouchableOpacity style={styles.boxView} onPress={this.props.onPress}>
                 <View style={{ padding: 10 }}>
-                    <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{this.props.course}</Text>
+                    <Text style={{ fontSize: 15, }}>{this.props.course}</Text>
 
                 </View>
             </TouchableOpacity>
@@ -150,7 +147,8 @@ const styles = StyleSheet.create({
         width: boxW,
         height: boxW,
         marginLeft: vMargin,
-        marginTop: hMargin,
+        marginTop: hMargin/2,
+        marginBottom: hMargin/2,
         borderWidth: StyleSheet.hairlineWidth,
         borderColor: '#999',
         borderRadius: 5,
@@ -184,7 +182,7 @@ const styles = StyleSheet.create({
     headStyle: {
         flexDirection: 'row',
         width: width,
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#7cc0c0',
         paddingTop: 15,

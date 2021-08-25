@@ -89,6 +89,8 @@ import {
   dingzhi_tupian,
   JuBao,
   Exchange_want,
+  Register2,
+  Register_tuijian,
   ShiMin,
   XiaoXi
 } from '../pages/index';
@@ -199,6 +201,8 @@ export default function StackNav() {
       <Stack.Screen name="dingzhi_tupian" component={dingzhi_tupian} />
       <Stack.Screen name="JuBao" component={JuBao} />
       <Stack.Screen name="Exchange_want" component={Exchange_want} />
+      <Stack.Screen name="Register2" component={Register2} />
+      <Stack.Screen name="Register_tuijian" component={Register_tuijian} />
       <Stack.Screen name="ShiMin" component={ShiMin} />
       <Stack.Screen name="XiaoXi" component={XiaoXi} />
     </Stack.Navigator>

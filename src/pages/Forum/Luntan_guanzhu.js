@@ -228,13 +228,13 @@ export default class Luntan_guanzhu extends Component {
                                         return (
                                             <View>
                                                 <View style={{ marginTop: "5%", width: width }}>
-                                                    <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 15, color: "#7cc0c0" }}>官方推荐</Text>
-                                                    <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 7, color: "#7cc0c0" }}>THE OFFICIAL RECOMMENDATION</Text>
+                                                    <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 18, color: "#7cc0c0" }}>官方推荐</Text>
+                                                    <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 9, color: "#7cc0c0" }}>THE OFFICIAL RECOMMENDATION</Text>
                                                     <ScrollView
                                                         horizontal
                                                         showsHorizontalScrollIndicator={false}
                                                         style={{ marginTop: 10, marginBottom: 10 }}>
-                                                        <TouchableOpacity activeOpacity={1}>
+                                                        <TouchableOpacity activeOpacity={1} style={{elevation:5}}>
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>

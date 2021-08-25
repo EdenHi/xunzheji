@@ -12,7 +12,7 @@ import {
     ScrollView,
 } from "react-native"
 import cityData from './city-data.json'
-
+import { DeviceEventEmitter, Vibration } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 const { width, height } = Dimensions.get('window');
 const touchDownBGColor = '#999999';
@@ -44,7 +44,7 @@ class CitySelect extends Component {
 
     componentDidMount() {
 
-        this.setCurrentLocation('深圳');
+        this.setCurrentLocation(this.props.route.params.zuobiao);
         setTimeout(() => {
             this.setState({
                 sections: cityData,
@@ -85,8 +85,8 @@ class CitySelect extends Component {
             <View >
                 <View style={{ height: height * 0.07, borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,0.5)',backgroundColor:'#7cc0c0' }}>
                     <View style={{ alignSelf: 'center' }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff', height: '50%', textAlignVertical: 'bottom' }}>{this.props.route.params.zuobiao}</Text>
-                        <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff', height: '50%', textAlignVertical: 'top', marginLeft: width * 0.04, }}>Area</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff', height: '50%', textAlignVertical: 'bottom' }}>地区</Text>
+                        <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff', height: '50%', textAlignVertical: 'top', marginLeft: width * 0.01, }}>Area</Text>
                     </View>
                     </View>
                     <View style={{ height: height * 0.93 }}>
@@ -249,6 +249,7 @@ class CitySelect extends Component {
      */
     _itemClick(item) {
         console.log(item.city)
+    DeviceEventEmitter.emit('dizhi',item.city)  
     }
 
 }
