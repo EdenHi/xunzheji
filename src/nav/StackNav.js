@@ -92,6 +92,7 @@ import {
   Register2,
   Register_tuijian,
   ShiMin,
+  XiaoXi
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -203,6 +204,7 @@ export default function StackNav() {
       <Stack.Screen name="Register2" component={Register2} />
       <Stack.Screen name="Register_tuijian" component={Register_tuijian} />
       <Stack.Screen name="ShiMin" component={ShiMin} />
+      <Stack.Screen name="XiaoXi" component={XiaoXi} />
     </Stack.Navigator>
   );
 }
