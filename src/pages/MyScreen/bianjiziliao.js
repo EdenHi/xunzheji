@@ -395,7 +395,7 @@ export default class app1 extends Component {
                                 <ListItem.Content>
                                     <ListItem.Title style={{fontSize:15}}>个性签名</ListItem.Title>
                                 </ListItem.Content>
-                                <ListItem.Subtitle style={{fontSize:15,width:width*0.5}} numberOfLines={1}>{signature}</ListItem.Subtitle>
+                                <ListItem.Subtitle style={{fontSize:15}} numberOfLines={1}>{signature}</ListItem.Subtitle>
                                 <ListItem.Chevron size={30}/>
                         </ListItem>
                     {/* 修改个签结束 */}
