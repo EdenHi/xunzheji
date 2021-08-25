@@ -14,6 +14,7 @@ export default class Heritages extends Component {
     constructor(props){
         super(props)
         this.state={
+
             data:[
                 {
                     id:0,
