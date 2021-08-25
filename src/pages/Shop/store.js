@@ -33,6 +33,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import axios from 'axios';
 import Swiper from 'react-native-swiper';
 import ScrollTopView from 'react-native-scrolltotop';
+import shoplist from './shoplist/shoplist.json';
 
 const { width, height } = Dimensions.get('window');
 const images = [{ uri: 'http://8.142.11.85:3000/public/images/5.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/5.jpg' }]
@@ -43,7 +44,7 @@ export default class Store extends Component {
     this.state = {
       isShowToTop: false,
       isLoding: false,
-      showpage: 0,
+      showpage: 5,
       modalVisible: false,
       currentPage: 0,
       progress: new Animated.Value(0),
@@ -286,7 +287,117 @@ export default class Store extends Component {
       duration: 3500,
       easing: Easing.linear,
     }).start();
+
+   this.tuijian();
   }
+
+
+
+  tuijian(){
+
+
+
+   
+    AsyncStorage.getItem('username',(err,result)=>{
+      if(!err){
+        fetch('http://8.142.11.85:3000/index/selectTuijian', {
+      method: 'POST',
+      headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+          username: result,
+      })
+  })
+      .then((response) => response.json())
+      .then((ress) => {
+
+        let x = ress.tuijian
+        console.log('x',x);
+        let newJson = [];
+        let json = eval(shoplist);
+         //先查询最外层的分类  
+         if(x==='meishi'){
+          //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+          for(var k=0;k<json[1].meishi.length;k++){
+              //这里是商品的查询
+              for(var j=0;j<json[1].meishi[k].shops.length;j++){
+                  //查询商品中，含有知味的商品数据
+                  if((json[1].meishi[k].shops[j].name).indexOf('')>-1){
+                      var tempJson = {
+                          "shops":json[1].meishi[k].shops[j],
+                      }
+                      newJson.push(tempJson.shops);
+                  }
+              }
+            }
+            this.setState({shops2:newJson})
+        }
+        if(x==='zhizao'){
+        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+        for(var k=0;k<json[2].zhizao.length;k++){
+            //这里是商品的查询
+            for(var j=0;j<json[2].zhizao[k].shops.length;j++){
+                //查询商品中，含有知味的商品数据
+                if((json[2].zhizao[k].shops[j].name).indexOf('')>-1){
+                    var tempJson = {
+                        "shops":json[2].zhizao[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
+                    }
+                }
+            }
+            this.setState({shops2:newJson})
+        }
+        if(x==='gongmei'){
+        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+        for(var k=0;k<json[3].gongmei.length;k++){
+            //这里是商品的查询
+            for(var j=0;j<json[3].gongmei[k].shops.length;j++){
+                //查询商品中，含有知味的商品数据
+                if((json[3].gongmei[k].shops[j].name).indexOf('')>-1){
+                    var tempJson = {
+                        "shops":json[3].gongmei[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
+                    }
+                }
+            }
+            this.setState({shops2:newJson})
+        }
+        if(x==='chajiu'){
+        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+        for(var k=0;k<json[4].chajiu.length;k++){
+            //这里是商品的查询
+            for(var j=0;j<json[4].chajiu[k].shops.length;j++){
+                //查询商品中，含有知味的商品数据
+                if((json[4].chajiu[k].shops[j].name).indexOf('')>-1){
+                    var tempJson = {
+                        "shops":json[4].chajiu[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
+                    }
+                }
+            }
+            this.setState({shops2:newJson})
+        }
+
+        
+    
+      })
+      }
+    })
+
+
+         
+
+    
+}
+
+
+
+
   renderRow(obj, index) {
     return (
       <View style={styles.cell}>
@@ -325,6 +436,9 @@ export default class Store extends Component {
 
 
   renderDate2({item,index}){
+    if(index > this.state.showpage){
+      return ;
+    }else{
     return(
         <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,elevation:5}} activeOpacity={1}
         onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
@@ -338,12 +452,12 @@ export default class Store extends Component {
                 <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
             </View>
         </TouchableOpacity>
-    )
+    )}
   }
 
 
   yangshi() {
-    if (this.state.showpage > 2) {
+    if (this.state.showpage >= this.state.shops2.length) {
       return (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}><Text>加载完毕</Text></View>
       )
@@ -361,7 +475,7 @@ export default class Store extends Component {
   }
 
   loadData() {
-    if (this.state.showpage > 2) {
+    if (this.state.showpage >= this.state.shops2.length) {
       return;
     } else {
       this.setState({
@@ -369,11 +483,11 @@ export default class Store extends Component {
       });
       setTimeout(() => {
 
-        let arrData = this.state.shops2.concat(this.state.shops2);
+
         this.setState({
           isLoding: false,
-          shops2: arrData,
-          showpage: this.state.showpage + 1,
+
+          showpage: this.state.showpage + 6,
         });
       }, 2000);
     }
@@ -480,6 +594,7 @@ ListHeaderComponent(){
                 <FlatList
                   //   style={{width:width,height:10000}}
                   data={this.state.shops}
+                  keyExtractor={(item, index) => (index + '1')}
                   renderItem={({ item }) =>
                     <View style={{ width: width, alignItems:'center' }}>
                       <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
@@ -685,8 +800,8 @@ ListHeaderComponent(){
                   columnWrapperStyle={{backgroundColor:'#fff',width:width*0.95,marginLeft:width*0.025}}
                   renderItem={this.renderDate2.bind(this)}
                   ListHeaderComponent={this.ListHeaderComponent.bind(this)}
-                ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
-                onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
+                  onEndReached = {this.loadData.bind(this)}//上拉刷新
                   onEndReachedThreshold={1}
                   />  
               
