@@ -441,20 +441,19 @@ export default class componentName extends Component {
                     {/* 底部 */}
                     <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075 ,justifyContent:'center'}}>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '18%', justifyContent: 'space-around' }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/28-plantrips.png' }}></Image>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../img/指南.png")}></Image>
                         </TouchableOpacity>
-                    
                         <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2), this.props.navigation.navigate('AR')}} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/16-travel.png' }}></Image>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../img/足迹.png")}></Image>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.18, height: width * 0.18, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff', marginLeft: width * 0.06 }}>
                             <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/16-travel.png' }}></Image>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../img/奖章.png")}></Image>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
-                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/打卡.png')}></Image>
+                            <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../img/动态.png')}></Image>
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>
