@@ -38,7 +38,7 @@ export default class Register extends Component {
                 console.log('保存失败');
             }
         });
-          this.props.navigation.navigate('BtnRoute');
+          this.props.navigation.navigate('Register2');
         } else {
           alert(resp.data);
         }

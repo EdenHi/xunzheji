@@ -4,8 +4,8 @@
  */
 
 import {AppRegistry, LogBox} from 'react-native';
-//  import App from '../xunzheji/src/pages/vr';
- import App from './App';
+//import App from './src/pages/Login/Register_tuijian';
+import App from './App';
 import {name as appName} from './app.json';
 LogBox.ignoreAllLogs(true); 
 
