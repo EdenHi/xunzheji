@@ -90,6 +90,7 @@ import {
   JuBao,
   Exchange_want,
   ShiMin,
+  XiaoXi
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -199,6 +200,7 @@ export default function StackNav() {
       <Stack.Screen name="JuBao" component={JuBao} />
       <Stack.Screen name="Exchange_want" component={Exchange_want} />
       <Stack.Screen name="ShiMin" component={ShiMin} />
+      <Stack.Screen name="XiaoXi" component={XiaoXi} />
     </Stack.Navigator>
   );
 }
