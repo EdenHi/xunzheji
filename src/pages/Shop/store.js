@@ -702,7 +702,6 @@ componentWillUnmount(){
           </TouchableOpacity>
           <View style={styles.oldname}>
             <Carousel
-
               // layout={"default"}
               layout={'stack'} layoutCardOffset={`10`}
               // layout={'tinder'} layoutCardOffset={`15`} 
@@ -712,7 +711,8 @@ componentWillUnmount(){
               itemWidth={350}
               renderItem={this._renderItem}
               loop={true}
-              onSnapToItem={index => this.setState({ activeIndex: index })} />
+              //onSnapToItem={index => this.setState({ activeIndex: index })} 
+              />
           </View>
         </View>
         <View style={{ width: "95%", alignItems: "center", backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
@@ -842,7 +842,7 @@ componentWillUnmount(){
                   renderItem={this.renderDate2.bind(this)}
                   ListHeaderComponent={this.ListHeaderComponent.bind(this)}
                   ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
-                  onEndReached = {this.loadData.bind(this)}//上拉刷新
+                 onEndReached = {this.loadData.bind(this)}//上拉刷新
                   onEndReachedThreshold={0}
                   />  
               

@@ -46,6 +46,21 @@ export default class HuZhou extends Component {
                 data:renwu[4]
             })
         }
+        if(this.props.page === 5){
+            this.setState({
+                data:renwu[5]
+            })
+        }
+        if(this.props.page === 6){
+            this.setState({
+                data:renwu[6]
+            })
+        }
+        if(this.props.page === 7){
+            this.setState({
+                data:renwu[7]
+            })
+        }
     }
 
     renderDate({item,index}){

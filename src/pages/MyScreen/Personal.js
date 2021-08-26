@@ -191,7 +191,7 @@ export default class Personal extends Component {
               <Text style={{ fontSize: 15, color: "#fff" }}>{data.nickname}</Text>
               <Text style={{ fontSize: 15, color: "#fff" }}>的个人中心</Text>
             </View>
-            <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi")} />
+            <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username})} />
           </View>
           <View style={{ width: width * 1, height: height * 0.87 }}>
             <ScrollView>
