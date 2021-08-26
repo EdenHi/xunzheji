@@ -286,21 +286,8 @@ export default class chat extends Component {
         );
     };
     jump() {
-        fetch('http://8.142.11.85:3000/users/chatinsert', {
-            method: 'post',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                _id: msg._id,
-                text: msg.text,
-                createdAt: new Date,
-                username: this.state.username,
-                room: this.state.room,
-            })
-        })
-        this.props.navigation.navigate('people', this.state.username);
+
+        this.props.navigation.navigate('people', this.props.route.params.username);
     }
     renderInputToolbar(props) {
         return (
@@ -347,8 +334,6 @@ export default class chat extends Component {
                 },
                 '打开相机拍照': () => {
                     this._openCamara();
-
-
                 },
             }}
             optionTintColor="#222B45"
@@ -370,7 +355,7 @@ export default class chat extends Component {
                     <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
                         <AntDesign onPress={() => { this. go_back(); clearInterval(this.backInterval) }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={25} color="#000000" />
                     </TouchableOpacity>
-                    <Text style={{ height: '100%', width: '20%', marginLeft: '30%', textAlignVertical: 'center', textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', }}>{this.state.room}</Text>
+                    <Text style={{ height: '100%', width: '30%', marginLeft: '30%', textAlignVertical: 'center', textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', }}>{this.props.route.params.nickname}</Text>
                 </View>
                 <GiftedChat
                     placeholder="请 输 入 消 息  .  .  . "

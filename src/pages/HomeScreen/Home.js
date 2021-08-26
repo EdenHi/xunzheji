@@ -21,7 +21,6 @@ export default class Home extends Component {
                     <Card navigation={this.props.navigation} />
                     <Card navigation={this.props.navigation} />
                 </ScrollView>
-
             </View>
         )
     }
