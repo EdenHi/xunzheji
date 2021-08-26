@@ -133,7 +133,7 @@ export default class Register2 extends Component {
         }
         var currentdate = year + seperatorl + month + seperatorl + strDate;
         return (
-            <View>
+            <View style={{flex:1,backgroundColor:'#fff'}}>
                 {/* 标题 */}
                 <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width, paddingLeft: width * 0.05,backgroundColor:'#7cc0c0' }}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
@@ -149,29 +149,35 @@ export default class Register2 extends Component {
                 
                 {/* 选择性别 */}
                 <View style={{flexDirection:'row',justifyContent:'center',marginBottom:20}}>
-                    <TouchableOpacity style={{marginRight:30,alignItems:'center'}} activeOpacity={1} onPress={()=>this.setState({sex:'男'})}>
-                        <FontAwesome name='venus' size={30} color='blue'/>
-                        <View style={{width:10,height:10,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.sex==='男'?'lightgreen':null}}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({sex:'女'})}>
-                        <FontAwesome name='mars' size={30} color='pink'/>
-                        <View style={{width:10,height:10,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.sex==='女'?'lightgreen':null}}/>
-                    </TouchableOpacity>
+                    <View style={{marginRight:30,alignItems:'center'}}>
+                        <TouchableOpacity style={{alignItems:'center',backgroundColor:this.state.sex==='男'?'lightgreen':'rgb(246,246,246)',width:60,height:60,justifyContent:'center',borderRadius:50}} activeOpacity={1} onPress={()=>this.setState({sex:'男'})}>
+                            <FontAwesome name='mars' size={30}  color='blue'/>
+                        </TouchableOpacity>
+                        <Text style={{marginTop:10,color:'blue',fontWeight:'bold'}}>男生</Text>
+                    </View>
+                   
+                    <View style={{alignItems:'center'}}>
+                        <TouchableOpacity activeOpacity={1} style={{alignItems:'center',backgroundColor:this.state.sex==='女'?'lightgreen':'rgb(246,246,246)',width:60,height:60,justifyContent:'center',borderRadius:50}} onPress={()=>this.setState({sex:'女'})}>
+                            <FontAwesome name='venus' size={30} color='pink'/>
+                        </TouchableOpacity>
+                        <Text style={{marginTop:10,color:'pink',fontWeight:'bold'}}>女生</Text>
+                    </View>
+                    
                 </View>
                 
                 {/* 注册用户名 */}
                 <View style={styles.box}>
-                    <TextInput placeholder='请输入昵称' onChangeText={(nickname)=>this.setState({nickname})}/>
+                    <TextInput style={{paddingLeft:15}} placeholder='请输入昵称' onChangeText={(nickname)=>this.setState({nickname})}/>
                 </View>
 
                  {/* 注册地区 */}
                  <TouchableOpacity style={styles.box}  onPress={()=>this.go_area()}>
-                    <Text style={{fontSize:14,paddingLeft:5,lineHeight:50,color:this.state.area===''?'#999':'#333'}}>{this.state.area===''?'请输入地区':this.state.area}</Text>
+                    <Text style={{fontSize:14,paddingLeft:15,lineHeight:50,color:this.state.area===''?'#999':'#333'}}>{this.state.area===''?'请输入地区':this.state.area}</Text>
                 </TouchableOpacity>
 
                  {/* 注册生日 */}
                  <TouchableOpacity style={styles.box}>
-                    <Text style={{position:'relative',fontSize:14,paddingLeft:5,lineHeight:50,color:this.state.birthday===''?'#999':'#333'}}>{this.state.birthday===''?'请输入生日':this.state.birthday}</Text>
+                    <Text style={{position:'relative',fontSize:14,paddingLeft:15,lineHeight:50,color:this.state.birthday===''?'#999':'#333'}}>{this.state.birthday===''?'请输入生日':this.state.birthday}</Text>
                     <DatePicker
                             style={{position:'absolute',width:'100%',height:'100%',opacity:0}}
                             date={this.state.birthday}
@@ -196,6 +202,6 @@ export default class Register2 extends Component {
 }
 const styles = StyleSheet.create({
     box:{
-        borderWidth:0.5,width:width*0.7,marginHorizontal:width*0.15,marginBottom:20
+        borderWidth:0.5,width:width*0.7,marginHorizontal:width*0.15,marginBottom:20,borderRadius:30
     }
 })
