@@ -4,7 +4,6 @@ import { View, TouchableOpacity, Image, Share, Dimensions, Text, ImageBackground
 import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
-import Heritages from './WebView/Heritages'
 import { DeviceEventEmitter } from 'react-native'
 
 const { width, height } = Dimensions.get("window")
