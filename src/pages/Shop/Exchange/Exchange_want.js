@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
-
 import {View,TouchableOpacity,Text,Dimensions,ImageBackground,Image, TextInput,ScrollView,AsyncStorage} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
@@ -102,7 +101,7 @@ export default class Exchange_want extends Component {
                         </View>
                     
                         {/* 自己的物品信息 */}
-                        <View style={{width:width*0.9,height:height*0.2,marginLeft:width*0.05,borderRadius:15,backgroundColor:'#fff',alignItems:'center',flexDirection:'row'}}>
+                        <View style={{width:width*0.9,height:height*0.15,marginLeft:width*0.05,borderRadius:15,backgroundColor:'#fff',alignItems:'center',flexDirection:'row'}}>
                             <TouchableOpacity activeOpacity={1} onPress={()=>this._openPicker()}>
                                 <Image source={{uri:this.state.img}} style={{height:width*0.2,width:width*0.2,marginLeft:20}}/>
                             </TouchableOpacity>
@@ -113,7 +112,7 @@ export default class Exchange_want extends Component {
                         </View>
 
                         {/* 给对方留言 */}
-                        <View style={{width:width*0.9,marginLeft:width*0.05,height:height*0.4,borderRadius:15,backgroundColor:'#fff',marginVertical: 20}}>
+                        <View style={{width:width*0.9,marginLeft:width*0.05,height:height*0.3,borderRadius:15,backgroundColor:'#fff',marginVertical: 20}}>
                             <TextInput placeholder='请输入你的留言...' multiline={true} style={{width:'100%',paddingHorizontal:'5%',fontSize:14}} onChangeText={(liuyan)=>this.setState({liuyan})} />
                         </View>
 

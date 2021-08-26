@@ -15,6 +15,7 @@ import LottieView from 'lottie-react-native';
 import Homepagebook from '../Homepagebook'
 import ScrollTopView from 'react-native-scrolltotop';
 import { Button } from 'react-native';
+import ShangBang from './ShangBang';
 
 const { width, height } = Dimensions.get('window');
 
@@ -303,9 +304,10 @@ export default class Home extends Component {
                                     </TouchableOpacity>
                                     <View style={{ alignItems: 'center' }}>
                                         <View>
-                                            <Horiz
+                                            <ShangBang></ShangBang>
+                                            {/* <Horiz
                                                 ref={(view) => this.childList = view}
-                                            />
+                                            /> */}
 
                                         </View>
                                         {/* <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>

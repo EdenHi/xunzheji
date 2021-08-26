@@ -1,19 +1,25 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Dimensions, Image,FlatList } from 'react-native'
+import { DeviceEventEmitter } from 'react-native'
+import { View, Text, TouchableOpacity, Dimensions, Image, FlatList } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-
+import axios from 'axios'
+import { Obj } from 'prelude-ls'
 const { width, height } = Dimensions.get("window")
 
 export default class XiaoXi extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: 'ppx',
-            data:[]
+            username: this.props.route.params.username,
+            data: [],
+            // newmessage:[{text:'',senduser:''}]
+            text: '',
+            senduser: '',
+            userdata: [],
+            update: 0
         }
     }
-
-    componentDidMount() {
+    getData() {
         fetch('http://8.142.11.85:3000/users/getchatuser', {
             method: 'post',
             headers: {
@@ -25,32 +31,49 @@ export default class XiaoXi extends Component {
             })
         }).then((response) => response.json())
             .then((json) => {
-                var Arr=new Array();
-                Arr=json
-                for(let i=0;i<Arr.length;i++){
-                    if(Arr[i].user_1!==this.state.username){
-                        let temp=Arr[i].user_1;
-                        Arr[i].user_1=this.state.username;
-                        Arr[i].user_2=temp;
+                var Arr = new Array();
+                Arr = json
+                for (let i = 0; i < Arr.length; i++) {
+                    if (Arr[i].user_1 !== this.state.username) {
+                        let temp = Arr[i].user_1;
+                        Arr[i].user_1 = this.state.username;
+                        Arr[i].user_2 = temp;
+
                     }
+
+
                 }
-                this.setState({data:Arr})
-                console.log('data',this.state.data);
+                this.setState({ data: Arr })
+                console.log('state', this.state.data[0]);
+
             })
             .catch((error) => {
                 console.log(error);
             })
+        console.log(this.state.data);
+
     }
-    
-    renderItem=({item})=>{  
-        return(
-            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats', { room: item.room })}} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
-            <Image source={{ uri: "https://img1.baidu.com/it/u=2034495355,3217564887&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
-            <View style={{ marginLeft: 20 }}>
-                <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{item.user_2}</Text>
-                <Text style={{ fontSize: 13 }}>是寻商迹啊:阿巴阿巴阿布阿巴阿巴阿布</Text>
-            </View>
-        </TouchableOpacity>
+    componentDidMount() {
+        this.getData();
+
+        this.listerner = DeviceEventEmitter.addListener('updatemessage',this.getData.bind(this))
+
+    }
+
+    componentWillUnmount() {
+        this.listerner.remove();
+
+    }
+    renderItem = ({ item, index }) => {
+
+        return (
+            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: item.room }) }} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
+                <Image source={{ uri: item.avatar }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
+                <View style={{ marginLeft: 20 }}>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{item.nickname}</Text>
+                    <Text style={{ fontSize: 13 }}>{item.lastmessagesender}:{item.lastmessage}</Text>
+                </View>
+            </TouchableOpacity>
         )
     }
     render() {
@@ -69,16 +92,17 @@ export default class XiaoXi extends Component {
                         <Image source={require('../HomeScreen/photos/e.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>评论和@</Text>
                     </View>
-                    <View style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("Want")} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
                         <Image source={require('../HomeScreen/photos/r.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>我想要</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View>
-    <FlatList
-    data={this.state.data}
-    renderItem={this.renderItem}
-    />
+                    <FlatList
+                        handleMethod={({ viewableItems }) => this.handleViewableItemsChanged(viewableItems)}
+                        data={this.state.data}
+                        renderItem={this.renderItem}
+                    />
 
                 </View>
             </View>
