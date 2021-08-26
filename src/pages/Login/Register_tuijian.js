@@ -166,7 +166,7 @@ export default class Register_tuijian extends Component {
 
     render() {
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,backgroundColor:'#fff'}}>
                 {/* 标题 */}
                 <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width, paddingLeft: width * 0.05,backgroundColor:'#7cc0c0' }}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
@@ -179,8 +179,11 @@ export default class Register_tuijian extends Component {
 
                     <View style={{height:height*0.8}}>
                         <TouchableOpacity style={{marginHorizontal:width * 0.05,alignItems:'center',flexDirection:'row',flex:1}} activeOpacity={1} onPress={()=>this.setState({tuijian:'meishi'})}>
-                            <View style={{width:20,height:20,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.tuijian==='meishi'?'lightgreen':null}}/>
-                            <Text>美食</Text>
+                            <View style={{width:20,height:20,borderRadius:50,justifyContent:'center',alignItems:'center',borderWidth:1}}>
+                                {this.state.tuijian==='meishi'?<AntDesign name='checkcircle' size={20} color='green' style={{borderRadius:50,width:20,height:20}}  />:null}
+                            </View>
+                            
+                            <Text style={{marginHorizontal:5}}>美食</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs1===false?this.pingyi1_open():this.pingyi1_close()}} activeOpacity={1}>
                                 <View style={{elevation:5,borderWidth:1}} >
                                     <Image resizeMode='stretch' source={{uri:'https://gd4.alicdn.com/imgextra/i4/2209861795974/O1CN01oQxYo61u08jlpRxZR_!!2209861795974.png_150x150.jpg_.webp'}} style={{height:100,width:100,}}/>
@@ -197,8 +200,10 @@ export default class Register_tuijian extends Component {
                         </TouchableOpacity>
                         
                         <TouchableOpacity style={{marginHorizontal:width * 0.05,alignItems:'center',flexDirection:'row',flex:1}} activeOpacity={1} onPress={()=>this.setState({tuijian:'zhizao'})}>
-                            <View style={{width:20,height:20,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.tuijian==='zhizao'?'lightgreen':null}}/>
-                            <Text>制造</Text>
+                            <View style={{width:20,height:20,borderRadius:50,justifyContent:'center',alignItems:'center',borderWidth:1}}>
+                                {this.state.tuijian==='zhizao'?<AntDesign name='checkcircle' size={20} color='green' style={{borderRadius:50,width:20,height:20}}  />:null}
+                            </View>
+                            <Text style={{marginHorizontal:5}}>制造</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs2===false?this.pingyi2_open():this.pingyi2_close()}} activeOpacity={1}>
                                 <View style={{elevation:10,borderWidth:1}} >
                                     <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i2/1963505180/O1CN01Jody7q1o8UI4P01pc_!!1963505180.jpg_150x150q90.jpg'}} style={{height:100,width:100,}}/>
@@ -213,8 +218,10 @@ export default class Register_tuijian extends Component {
                         </TouchableOpacity>
                         
                         <TouchableOpacity style={{marginHorizontal:width * 0.05,alignItems:'center',flexDirection:'row',flex:1}} activeOpacity={1} onPress={()=>this.setState({tuijian:'gongmei'})}>
-                            <View style={{width:20,height:20,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.tuijian==='gongmei'?'lightgreen':null}}/>
-                            <Text>工美</Text>
+                            <View style={{width:20,height:20,borderRadius:50,justifyContent:'center',alignItems:'center',borderWidth:1}}>
+                                {this.state.tuijian==='gongmei'?<AntDesign name='checkcircle' size={20} color='green' style={{borderRadius:50,width:20,height:20}}  />:null}
+                            </View>
+                            <Text style={{marginHorizontal:5}}>工美</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs3===false?this.pingyi3_open():this.pingyi3_close()}} activeOpacity={1}>
                                 <View style={{elevation:10,borderWidth:1}} >
                                     <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i4/2013831043/O1CN01mIGIni1JZjm48Xh9F_!!2013831043.jpg_150x150q90.jpg'}} style={{height:100,width:100,}}/>
@@ -229,8 +236,10 @@ export default class Register_tuijian extends Component {
                         </TouchableOpacity>
                         
                         <TouchableOpacity style={{marginHorizontal:width * 0.05,alignItems:'center',flexDirection:'row',flex:1}} activeOpacity={1} onPress={()=>this.setState({tuijian:'chajiu'})}>
-                            <View style={{width:20,height:20,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.tuijian==='chajiu'?'lightgreen':null}}/>
-                            <Text>茶酒</Text>
+                            <View style={{width:20,height:20,borderRadius:50,justifyContent:'center',alignItems:'center',borderWidth:1}}>
+                                {this.state.tuijian==='chajiu'?<AntDesign name='checkcircle' size={20} color='green' style={{borderRadius:50,width:20,height:20}}  />:null}
+                            </View>
+                            <Text style={{marginHorizontal:5}}>茶酒</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs4===false?this.pingyi4_open():this.pingyi4_close()}} activeOpacity={1}>
                                 <View style={{elevation:10,borderWidth:1}} >
                                     <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i3/1665326773/O1CN01NyzYBR1zu54pkOOEX_!!0-item_pic.jpg_160x160q90.jpg'}} style={{height:100,width:100,}}/>
