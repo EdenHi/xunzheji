@@ -13,9 +13,9 @@ const fontSize=  50;
 const COLORS = ['coral', 'mediumturquoise', 'palevioletred', 'papayawhip', 'tomato']
 const ITEMS = [
   'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',
-  'https://s-media-cache-ak0.pinimg.com/564x/53/9d/bb/539dbb7cc07c677925627c6e91585ef5.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/3d/0b/a6/3d0ba6600a33f3e4b3bac737e024d720.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/d9/b8/27/d9b8276db7cd24443bc4a937f853914b.jpg',
+  'http://8.142.11.85:3000/public/images/xiaoshao1.png',
+  'http://8.142.11.85:3000/public/images/xiaoxing1.png',
+  'http://8.142.11.85:3000/public/images/taizhou1.png',
   'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',
   ''
 ]

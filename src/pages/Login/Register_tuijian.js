@@ -182,11 +182,11 @@ export default class Register_tuijian extends Component {
                             <View style={{width:20,height:20,borderWidth:0.5,borderRadius:50,marginTop:3,backgroundColor:this.state.tuijian==='meishi'?'lightgreen':null}}/>
                             <Text>美食</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs1===false?this.pingyi1_open():this.pingyi1_close()}} activeOpacity={1}>
-                                <View style={{elevation:5,borderRadius:10,backgroundColor:'red'}} >
+                                <View style={{elevation:5,borderWidth:1}} >
                                     <Image resizeMode='stretch' source={{uri:'https://gd4.alicdn.com/imgextra/i4/2209861795974/O1CN01oQxYo61u08jlpRxZR_!!2209861795974.png_150x150.jpg_.webp'}} style={{height:100,width:100,}}/>
                                 </View>
-                                <Animated.View style={{elevation:10,borderRadius:10,borderWidth:1,left:this.state.donghua1_1}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://i.loli.net/2021/08/09/Jkbdoh3DIyeT9Lt.jpg'}} borderRadius={10} style={{height:100,width:100,}}/>
+                                <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua1_1}}>
+                                    <Image resizeMode='stretch' source={{uri:'https://i.loli.net/2021/08/09/Jkbdoh3DIyeT9Lt.jpg'}} style={{height:100,width:100,}}/>
                                 </Animated.View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua1_2}}>
                                     <Image resizeMode='stretch' source={{uri:'https://5b0988e595225.cdn.sohucs.com/images/20170927/2e0458795d5447f894722b23dbec8934.png'}} style={{height:100,width:100,}}/>
