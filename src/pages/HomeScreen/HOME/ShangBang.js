@@ -2,7 +2,7 @@ import { LayoutAnimation, Animated, Dimensions, Text, View, StyleSheet, ScrollVi
 import React, { Component } from 'react';
 import { Constants } from 'expo';
 import { ImageBackground } from 'react-native';
-var {height, width} = Dimensions.get('window');
+var { height, width } = Dimensions.get('window');
 
 const smallSize = width / 5;
 const itemWidth = width * 0.7;
@@ -41,7 +41,15 @@ export default class ShangBang extends Component {
 
     this.state = {
       scrollX: new Animated.Value(0),
-      indicator: new Animated.Value(1)
+      indicator: new Animated.Value(1),
+      data:[
+       { text1:'湖州商帮'},
+       { text1:'绍兴商帮'},
+       { text1:'台州商帮'},
+       { text1:'湖州商帮'},
+       { text1:'湖州商帮'},
+       { text1:'湖州商帮'},
+      ]
     }
   }
 
@@ -52,7 +60,7 @@ export default class ShangBang extends Component {
     return (
       <View style={styles.container}>
         {/* <View style={{height: 20 + height / 2}}> */}
-          {this.renderScroll()}
+        {this.renderScroll()}
         {/* </View> */}
       </View>
     );
@@ -61,8 +69,8 @@ export default class ShangBang extends Component {
   renderScroll() {
     return <Animated.ScrollView
       horizontal={true}
-      style={{flex: 1}}
-      contentContainerStyle={{alignItems: 'center', flexGrow: 1}}
+      style={{ flex: 1 }}
+      contentContainerStyle={{ alignItems: 'center', flexGrow: 1 }}
       decelerationRate={0}
       snapToInterval={itemWidth}
       scrollEventThrottle={20}
@@ -125,7 +133,7 @@ export default class ShangBang extends Component {
               height: itemHeight,
               opacity: this.state.scrollX.interpolate({
                 inputRange,
-                outputRange: [0.4,1, 1, 1]
+                outputRange: [0.4, 1, 1, 1]
               }),
               transform: [{
                 scale: this.state.scrollX.interpolate({
@@ -144,7 +152,7 @@ export default class ShangBang extends Component {
               {/* <Text style={{fontSize: fontSize,color: '#7cc0c0'}}>商帮</Text> */}
             </View>
           </Animated.View>
-          </ImageBackground>
+        </ImageBackground>
       </Animated.View>
     );
   }
@@ -156,7 +164,7 @@ const styles = StyleSheet.create({
     width:width*0.9,
     // marginLeft:-20
     // backgroundColor:"red",
- 
+
   },
   emptyItem: {
     overflow: 'hidden',
