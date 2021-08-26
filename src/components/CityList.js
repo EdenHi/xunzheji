@@ -250,6 +250,7 @@ class CitySelect extends Component {
     _itemClick(item) {
 
     DeviceEventEmitter.emit('dizhi',item.city)  
+    this.props.navigation.goBack();
     }
 
 }
