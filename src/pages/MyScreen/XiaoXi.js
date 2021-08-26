@@ -64,7 +64,7 @@ export default class XiaoXi extends Component {
     renderItem = ({ item, index }) => {
 
         return (
-            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: item.room }) }} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
+            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: item.room, nickname:this.props.route.params.nickname==item.nickname1?item.nickname2:item.nickname1,username:item.user_2}) }} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
                 <Image source={{ uri:this.props.route.params.avatar==item.avatar1?item.avatar2:item.avatar1 }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
                 <View style={{ marginLeft: 20 }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{this.props.route.params.nickname==item.nickname1?item.nickname2:item.nickname1}</Text>
