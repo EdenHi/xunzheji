@@ -702,7 +702,6 @@ componentWillUnmount(){
           </TouchableOpacity>
           <View style={styles.oldname}>
             <Carousel
-
               // layout={"default"}
               layout={'stack'} layoutCardOffset={`10`}
               // layout={'tinder'} layoutCardOffset={`15`} 
