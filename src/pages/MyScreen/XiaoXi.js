@@ -69,10 +69,10 @@ export default class XiaoXi extends Component {
                         <Image source={require('../HomeScreen/photos/e.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>评论和@</Text>
                     </View>
-                    <View style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate("Want")} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
                         <Image source={require('../HomeScreen/photos/r.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>我想要</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View>
     <FlatList
