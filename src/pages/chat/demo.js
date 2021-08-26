@@ -1,25 +1,26 @@
-import { GiftedChat, Send, Bubble ,InputToolbar,Actions,Time} from 'react-native-gifted-chat';
+import { GiftedChat, Send, Bubble, InputToolbar, Actions, Time } from 'react-native-gifted-chat';
 import React, { Component } from 'react';
 import { View, AsyncStorage, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Octicons from "react-native-vector-icons/Octicons"
 import ImagePicker from 'react-native-image-crop-picker';
+import { DeviceEventEmitter } from 'react-native';
 let Arr = new Array();
 
 export default class chat extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: this.props.route.params.introduce===undefined?[]:[this.props.route.params.introduce],
+            messages: this.props.route.params.introduce === undefined ? [] : [this.props.route.params.introduce],
             username: '',
-            username2:'',
+            username2: '',
             nickname: '',
             avatar: '',
             index: 0,
             room: this.props.route.params.room,
             images: '',
-            image:''
+            image: ''
         };
         this.onSend = this.onSend.bind(this);
     }
@@ -79,9 +80,9 @@ export default class chat extends Component {
                         _id: json[i].message._id,
                         createdAt: json[i].message.createdAt,
                         text: json[i].message.text,
-                        image:json[i].image,
+                        image: json[i].image,
                         user: obj,
-                        
+
 
                     }
 
@@ -131,7 +132,7 @@ export default class chat extends Component {
                         text: json[i].message.text,
                         user: obj,
                         username: json[i].username,
-                        image:json[i].image
+                        image: json[i].image
                     }
                     Arr = (obj1)
                 }
@@ -150,6 +151,10 @@ export default class chat extends Component {
             })
 
     }
+    go_back(){
+        DeviceEventEmitter.emit('updatemessage',1);
+        this.props.navigation.goBack();
+    }
     /* 发送消息 */
     onSend(messages = []) {
         console.log('onsend', this.state.messages);
@@ -158,7 +163,7 @@ export default class chat extends Component {
             ...messages[0],
             image: this.state.images,
         };
-        this.setState({images:""})
+        this.setState({ images: "" })
         console.log('msg', msg);
         this.setState((previousState) => {
             return {
@@ -179,7 +184,7 @@ export default class chat extends Component {
                 room: this.state.room,
             })
         })
-        if(this.state.image!==''){
+        if (this.state.image !== '') {
             let head = { uri: this.state.image.path, type: this.state.image.mime, name: this.state.image.path.split('/').pop() };
             let formData = new FormData();
             formData.append('files', head); // 这里的 file 要与后台名字对应。
@@ -199,9 +204,24 @@ export default class chat extends Component {
                 });
         }
 
-            this.setState({image:''})
-    }
+        this.setState({ image: '' })
+        fetch('http://8.142.11.85:3000/users/updatemessage', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                text: msg.text,
+                username: this.state.username,
+                room: this.state.room,
+            })
+        })
 
+    }
+    componentWillUnmount() {
+
+    }
     renderBubble(props) {
         return (
             <Bubble
@@ -213,7 +233,7 @@ export default class chat extends Component {
                 }}
                 wrapperStyle={{
                     left: {
-                        
+
                         backgroundColor: '#fff',
                     },
                     right: {
@@ -234,25 +254,25 @@ export default class chat extends Component {
             maxFiles: 9,
         }).then(image => {
             this.setState({ images: image[0].path })
-            this.setState({image:image[0]})
+            this.setState({ image: image[0] })
             console.log('add', this.state.images);
         });
     }
-        //打开本地图册
-        _openCamara() {
+    //打开本地图册
+    _openCamara() {
 
-            ImagePicker.openCamera({  
-                width: 300,  
-                height: 400,  
-                cropping: true  
-              }).then(image => {
-                  
-                this.setState({ images: image.path })
-                this.setState({image:image})
-                console.log('loacl path',this.state.image);
-                console.log('add', this.state.images);
-            });
-        }
+        ImagePicker.openCamera({
+            width: 300,
+            height: 400,
+            cropping: true
+        }).then(image => {
+
+            this.setState({ images: image.path })
+            this.setState({ image: image })
+            console.log('loacl path', this.state.image);
+            console.log('add', this.state.images);
+        });
+    }
     renderSend(props) {
         return (
             <Send
@@ -265,7 +285,7 @@ export default class chat extends Component {
             </Send>
         );
     };
-    jump(){
+    jump() {
         fetch('http://8.142.11.85:3000/users/chatinsert', {
             method: 'post',
             headers: {
@@ -280,61 +300,61 @@ export default class chat extends Component {
                 room: this.state.room,
             })
         })
-        this.props.navigation.navigate('people',this.state.username);
+        this.props.navigation.navigate('people', this.state.username);
     }
-    renderInputToolbar(props){
-        return(
+    renderInputToolbar(props) {
+        return (
             <InputToolbar
-            
-            {...props}
-            containerStyle={{
-              backgroundColor: '#fff',
-              paddingTop: 6,
-            }}
-            primaryStyle={{ alignItems: 'center' }}
 
-          >
+                {...props}
+                containerStyle={{
+                    backgroundColor: '#fff',
+                    paddingTop: 6,
+                }}
+                primaryStyle={{ alignItems: 'center' }}
+
+            >
             </InputToolbar>
         )
     }
-    renderTime(props){
+    renderTime(props) {
         <Time
-        
+
         />
     }
     renderActions = (props) => (
         <Actions
-          {...props}
-          containerStyle={{
-            width: 50,
-            height: 50,
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginLeft: -10,
-            marginRight: 0,
-            marginBottom: 0,
-          }}
-          icon={() => (
-            <Octicons style={{ marginTop: 0, marginLeft: 20 }}
-            name="diff-added"
-            size={30}
-            color="#7cc0c0"
-        />
-          )}
-          options={{
-            '从相册中选取': () => {
-              this._openPicker()
-            },
-            '打开相机拍照': () => {
-                this._openCamara();
-                  
+            {...props}
+            containerStyle={{
+                width: 50,
+                height: 50,
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: -10,
+                marginRight: 0,
+                marginBottom: 0,
+            }}
+            icon={() => (
+                <Octicons style={{ marginTop: 0, marginLeft: 20 }}
+                    name="diff-added"
+                    size={30}
+                    color="#7cc0c0"
+                />
+            )}
+            options={{
+                '从相册中选取': () => {
+                    this._openPicker()
+                },
+                '打开相机拍照': () => {
+                    this._openCamara();
 
-            },
-          }}
-          optionTintColor="#222B45"
+
+                },
+            }}
+            optionTintColor="#222B45"
         />
-      );
-      
+    );
+
     componentDidMount() {
         console.log(this.props.route.params.room)
         this.get_shuju();
@@ -348,12 +368,12 @@ export default class chat extends Component {
             <View style={{ flex: 1 }}>
                 <View style={{ borderWidth: 0, width: '100%', height: '7%', backgroundColor: '#7cc0c0', flexDirection: 'row' }}>
                     <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
-                        <AntDesign onPress={() => { this.props.navigation.goBack(), clearInterval(this.backInterval) }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={25} color="#000000" />
+                        <AntDesign onPress={() => { this. go_back(); clearInterval(this.backInterval) }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={25} color="#000000" />
                     </TouchableOpacity>
                     <Text style={{ height: '100%', width: '20%', marginLeft: '30%', textAlignVertical: 'center', textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', }}>{this.state.room}</Text>
                 </View>
                 <GiftedChat
-                placeholder="请 输 入 消 息  .  .  . "
+                    placeholder="请 输 入 消 息  .  .  . "
                     messages={this.state.messages}
                     onSend={this.onSend}
                     user={{
@@ -367,10 +387,10 @@ export default class chat extends Component {
                     showAvatarForEveryMessage={true}
                     renderUsernameOnMessage={false}
                     renderAvatarOnTop={true}
-                    onPressAvatar={()=>this.jump()}
+                    onPressAvatar={() => this.jump()}
                     renderInputToolbar={this.renderInputToolbar}
                     renderActions={this.renderActions}
-                
+
 
                 />
 
