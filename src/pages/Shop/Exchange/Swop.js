@@ -107,7 +107,7 @@ export default class Swop extends Component {
         <View style={{ marginHorizontal: width * 0.05, marginVertical: height * 0.15 }} key={index}>
           <View style={{  zIndex: 5, position: "absolute", marginTop: height * 0.03,flexDirection:'row' }}>
               <Text style={{marginLeft:'10%',fontSize:18,fontWeight:'bold'}}>{item.tag}</Text>
-            <LottieView style={{ width: 60, height: 40, marginLeft: '55%' }} source={require('../../../../animal/change.json')} autoPlay loop progress={this.state.progress} />
+            <LottieView style={{ width: 60, height: 40, marginLeft: '55%' }} source={require('../../../../animal/qwe.json')} autoPlay loop progress={this.state.progress} />
           </View>
           
           <ImageBackground imageStyle={{ borderRadius: 15 }} style={{ width: width * 0.9, height: height * 0.6,alignItems: "center", justifyContent: "center" }} source={{ uri: this.state.imgUrl }} >

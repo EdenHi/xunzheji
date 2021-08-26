@@ -222,8 +222,8 @@ insert_pinglun(){
                 </View>
                 <View style={{ marginTop: 10, width: width * 0.9 }} ><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center", flexWrap: "wrap" }}>向世界一流强港攀登 探寻宁波舟山港的“硬核”力量</Text></View>
                 <View style={{ flexDirection: "row", marginTop: 5 }}>
-                    <Text style={{ fontSize: 10, marginLeft: "2%" }}>#浙商话题</Text>
-                    <Text style={{ fontSize: 10 }}>|2021-8-30</Text>
+                    <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙商话题</Text>
+                    <Text style={{ fontSize: 10 }}>|2021-7-11</Text>
                 </View>
 
                 <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
