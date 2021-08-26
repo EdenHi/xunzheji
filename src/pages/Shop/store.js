@@ -43,7 +43,7 @@ export default class Store extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isShowToTop: false,
+      isShowToTop: true,
       isLoding: false,
       showpage: 5,
       modalVisible: false,
@@ -834,7 +834,7 @@ componentWillUnmount(){
                 <FlatList
                 style={{height:height*0.9}}
                   ref={(flatList)=>this._flatList = flatList}
-                  onScroll={(e)=>this._onScroll(e)}
+                  //onScroll={(e)=>this._onScroll(e)}
                   numColumns={2}
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
