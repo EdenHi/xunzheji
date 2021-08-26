@@ -2,12 +2,12 @@ import { LayoutAnimation, Animated, Dimensions, Text, View, StyleSheet, ScrollVi
 import React, { Component } from 'react';
 import { Constants } from 'expo';
 import { ImageBackground } from 'react-native';
-var {height, width} = Dimensions.get('window');
+var { height, width } = Dimensions.get('window');
 
 const smallSize = width / 5;
 const itemWidth = width * .67;
-const itemHeight = height / 2 -50;
-const fontSize=  50;
+const itemHeight = height / 2 - 50;
+const fontSize = 50;
 
 
 const COLORS = ['coral', 'mediumturquoise', 'palevioletred', 'papayawhip', 'tomato']
@@ -16,7 +16,7 @@ const ITEMS = [
   'http://8.142.11.85:3000/public/images/xiaoshao1.png',
   'http://8.142.11.85:3000/public/images/xiaoxing1.png',
   'http://8.142.11.85:3000/public/images/taizhou1.png',
-  'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',
+  'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',
   ''
 ]
 
@@ -37,7 +37,15 @@ export default class ShangBang extends Component {
 
     this.state = {
       scrollX: new Animated.Value(0),
-      indicator: new Animated.Value(1)
+      indicator: new Animated.Value(1),
+      data:[
+       { text1:'湖州商帮'},
+       { text1:'绍兴商帮'},
+       { text1:'台州商帮'},
+       { text1:'湖州商帮'},
+       { text1:'湖州商帮'},
+       { text1:'湖州商帮'},
+      ]
     }
   }
 
@@ -48,7 +56,7 @@ export default class ShangBang extends Component {
     return (
       <View style={styles.container}>
         {/* <View style={{height: 20 + height / 2}}> */}
-          {this.renderScroll()}
+        {this.renderScroll()}
         {/* </View> */}
       </View>
     );
@@ -57,8 +65,8 @@ export default class ShangBang extends Component {
   renderScroll() {
     return <Animated.ScrollView
       horizontal={true}
-      style={{flex: 1}}
-      contentContainerStyle={{alignItems: 'center', flexGrow: 1}}
+      style={{ flex: 1 }}
+      contentContainerStyle={{ alignItems: 'center', flexGrow: 1 }}
       decelerationRate={0}
       snapToInterval={itemWidth}
       scrollEventThrottle={16}
@@ -68,7 +76,7 @@ export default class ShangBang extends Component {
         [{ nativeEvent: { contentOffset: { x: this.state.scrollX } } }]
       )}
     >
-      {ITEMS.map((image,i) => {
+      {ITEMS.map((image, i) => {
         return this.renderRow(image, i)
       })}
     </Animated.ScrollView>
@@ -95,7 +103,7 @@ export default class ShangBang extends Component {
 
     // Ensure that we're leaving space for latest item.
     if (image === '') {
-      return <View key={i} style={[styles.emptyItem, {width: width * .33}]}></View>
+      return <View key={i} style={[styles.emptyItem, { width: width * .33 }]}></View>
     }
 
     return (
@@ -109,9 +117,9 @@ export default class ShangBang extends Component {
           outputRange: [itemHeight * .8, itemHeight, itemHeight],
         })
       }]}>
-        <ImageBackground key={i} source={{uri: image}} style={[StyleSheet.AbsoluteFill, {height: itemHeight, width: itemWidth,borderRadius:20, opacity: 1, resizeMode: 'cover'}]}>
-        <View style={[StyleSheet.AbsoluteFill, {opacity: 0.4, backgroundColor: COLORS[i], width: itemWidth, height: itemHeight}]}></View>
-        <Animated.View
+        <ImageBackground  key={i} source={{ uri: image }} style={[StyleSheet.AbsoluteFill, { height: itemHeight, width: itemWidth, borderRadius: 20, opacity: 1, resizeMode: 'cover' }]}>
+          <View style={[StyleSheet.AbsoluteFill, { opacity: 0.4, backgroundColor: COLORS[i], width: itemWidth, height: itemHeight }]}></View>
+          <Animated.View
             style={[{
               width: itemWidth,
               alignItems: 'flex-end',
@@ -121,7 +129,7 @@ export default class ShangBang extends Component {
               height: itemHeight,
               opacity: this.state.scrollX.interpolate({
                 inputRange,
-                outputRange: [0.4,1, 1, 1]
+                outputRange: [0.4, 1, 1, 1]
               }),
               transform: [{
                 scale: this.state.scrollX.interpolate({
@@ -130,14 +138,14 @@ export default class ShangBang extends Component {
                 })
               }]
             }]}>
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: itemWidth, height: itemHeight, position: 'absolute', bottom: -itemHeight / 3, }}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: itemWidth, height: itemHeight, position: 'absolute', bottom: -itemHeight / 3, }}>
               {/* <Text style={{fontSize: fontSize,color: 'rgba(0,0,0,0.4)'}}>{i + 1}</Text> */}
-              <Text style={{fontSize: fontSize,color: '#7cc0c0',opacity:0.8}}>湖州商帮</Text>
+              <Text style={{ fontSize: fontSize, color: '#7cc0c0', opacity: 0.8 }}>湖州商帮</Text>
               {/* <Text style={{fontSize: fontSize,color: '#7cc0c0'}}>商帮</Text> */}
 
             </View>
           </Animated.View>
-          </ImageBackground>
+        </ImageBackground>
       </Animated.View>
     );
   }
@@ -145,11 +153,11 @@ export default class ShangBang extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height:height*0.45,
-    width:width*0.9,
-    marginLeft:-20
+    height: height * 0.45,
+    width: width * 0.9,
+    marginLeft: -20
     // backgroundColor:"red",
- 
+
   },
   emptyItem: {
     overflow: 'hidden',
@@ -160,7 +168,7 @@ const styles = StyleSheet.create({
     borderLeftWidth: 20,
     borderColor: 'white',
     width: itemWidth,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
   // heading: {
   //   fontSize: 22,
