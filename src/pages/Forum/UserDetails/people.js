@@ -20,7 +20,7 @@ import axios from 'axios';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import Feather from 'react-native-vector-icons/Feather';
 import {NavigationContext} from '@react-navigation/native';
-
+import uuid from 'react-native-uuid'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -42,6 +42,7 @@ export default class people extends Component {
         denglu_username:'',
         panduan_guanzhu:'',
         isScroll:true,
+        chatroom:0
     }
   }
 
@@ -55,7 +56,29 @@ export default class people extends Component {
                 });
             });
   }
+  //查询聊天室
+  SelcetChatRoom(x){
+    fetch('http://8.142.11.85:3000/users/getchatroom', {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_1: x,
+            user_2: this.state.username
+        })
+    }).then((response) => response.json())
+        .then((json) => {
+            if(json!==[]){
 
+                this.setState({chatroom:json[0].room})
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+  }
   //判断是否关注该用户
   panduan_guanzhu(v){
     axios.post('http://8.142.11.85:3000/index/panduan_guanzhu',{
@@ -75,11 +98,14 @@ export default class people extends Component {
             this.setState({
                 denglu_username:result,
             });
+            this.SelcetChatRoom(result);
             this.panduan_guanzhu(result);
         }
     })
+
     this.get_shuju();
     this.listener = DeviceEventEmitter.addListener('scrollview',this.scrollview.bind(this));
+    
 }
 
         //打开ScrollView的移动
@@ -165,7 +191,25 @@ dianji_anniu(){
     }
 }
 
-
+//创建聊天室
+CreateChatRoom(){
+    let uid=uuid.v4();
+    this.setState({chatroom:uid})
+    console.log('name',this.state.chatroom);
+    fetch('http://8.142.11.85:3000/users/creatchatroom', {
+        method: 'post',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user_1: this.state.denglu_username,
+            user_2: this.state.username,
+            room:uid
+        })
+    })
+    this.props.navigation.navigate('Chats',{room:uid})
+  }
   render() {
     const { navigation } = this.props;
     const {data,isScroll} = this.state;
@@ -198,7 +242,13 @@ dianji_anniu(){
                 <ImageBackground style={{ width: width, height: '100%',flexDirection:'column-reverse'}} source={{ uri:data.backpic }}>
                 <View style={{width:'100%',height:'60%',backgroundColor:'#fff',borderTopLeftRadius:15,borderTopRightRadius:15}}>
                     <View style={{width:'100%',height:'20%',flexDirection:'row-reverse',alignItems:'center'}}>
-                        <TouchableOpacity style={{width:'15%',height:'85%',borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,margin:'5%',alignItems:'center',justifyContent:'center'}}>
+                        <TouchableOpacity onPress={()=>{if (this.state.chatroom==0) {
+                            this.CreateChatRoom()
+
+                            
+                        }else{console.log('chat',this.state.chatroom);
+                            this.props.navigation.navigate('Chats',{room:this.state.chatroom})
+                        }}} style={{width:'15%',height:'85%',borderWidth:1,borderColor:'#7cc0c0',borderRadius:20,margin:'5%',alignItems:'center',justifyContent:'center'}}>
                             <Feather style={styles.icon}
                                     name="mail"
                                     size={30}
