@@ -712,7 +712,8 @@ componentWillUnmount(){
               itemWidth={350}
               renderItem={this._renderItem}
               loop={true}
-              onSnapToItem={index => this.setState({ activeIndex: index })} />
+              //onSnapToItem={index => this.setState({ activeIndex: index })} 
+              />
           </View>
         </View>
         <View style={{ width: "95%", alignItems: "center", backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
@@ -834,15 +835,15 @@ componentWillUnmount(){
                 <FlatList
                 style={{height:height*0.9}}
                   ref={(flatList)=>this._flatList = flatList}
-                  onScroll={(e)=>this._onScroll(e)}
+                 // onScroll={(e)=>this._onScroll(e)}
                   numColumns={2}
                   keyExtractor={(item, index) => (index + '1')}
                   data={this.state.shops2}
                   columnWrapperStyle={{backgroundColor:'#fff',width:width*0.95,marginLeft:width*0.025}}
                   renderItem={this.renderDate2.bind(this)}
                   ListHeaderComponent={this.ListHeaderComponent.bind(this)}
-                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
-                  onEndReached = {this.loadData.bind(this)}//上拉刷新
+                  //ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
+                 // onEndReached = {this.loadData.bind(this)}//上拉刷新
                   onEndReachedThreshold={0}
                   />  
               
