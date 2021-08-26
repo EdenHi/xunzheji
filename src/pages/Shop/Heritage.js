@@ -5,11 +5,24 @@ import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import Heritages from './WebView/Heritages'
-
+import { DeviceEventEmitter } from 'react-native'
 
 const { width, height } = Dimensions.get("window")
 
 export default class Heritage extends Component {
+    constructor(props){
+        super(props)
+        this.state={
+            emitMsg:''
+        }
+    }
+    componentDidMount(){
+        this.subscription=DeviceEventEmitter.addListener('choiceDingZhi',(msg)=>{this.setState({emitMsg:msg})})
+    };
+    
+    componentWillUnmount(){
+        this.subscription.remove();
+    };
     onShare = async () => {
         try {
             const result = await Share.share({
@@ -66,36 +79,7 @@ export default class Heritage extends Component {
                                 <View style={{ width: width * 0.95, height: 40 }}><Text style={{ fontSize: 15, fontWeight: "bold", margin: 10,color:"#333333" }}>可定制项目</Text></View>
                                 <View style={{ marginTop: 10 }}>
                                     <Heritages />
-                                    {/* <View style={{ alignItems: "center" }}>
-                                        <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs4.jpeg'}} />
-                                            <View style={{ marginLeft: 10 }}>
-                                                <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
-                                                <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
-                                            </View>
-                                        </View>
-                                        <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs1.jpeg'}} />
-                                            <View style={{ marginLeft: 10 }}>
-                                                <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
-                                                <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
-                                            </View>
-                                        </View>
-                                        <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs3.jpg"'} />
-                                            <View style={{ marginLeft: 10 }}>
-                                                <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
-                                                <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
-                                            </View>
-                                        </View>
-                                        <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 10, alignItems: "center", height: 150, elevation: 10, marginBottom: 10 }}>
-                                            <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5, marginLeft: 5 }} source={{uri:'http://8.142.11.85:3000/public/images/customs2.jpeg'}} />
-                                            <View style={{ marginLeft: 10 }}>
-                                                <Text style={{ width: width * 0.3, height: width * 0.05, fontSize: 15, fontWeight: "bold", marginTop: 15 }}>梁弄大糕</Text>
-                                                <Text style={{ width: width * 0.6, height: width * 0.3, flexWrap: "wrap" }}>梁弄大糕，余姚市梁弄镇的传统糕点、香甜柔糯、百尝不厌。其外形方正，上面有可食用红粉印的”恭喜发财”“吉祥如意”“福禄寿喜”等不同的字样，色彩鲜艳，既增添了美感，又增加了食欲。</Text>
-                                            </View>
-                                        </View>
-                                    </View> */}
+
                                 </View>
                             </View>
                         </ScrollView>
@@ -107,7 +91,7 @@ export default class Heritage extends Component {
                       color="#7cc0c0"
                     />
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={()=>this.props.navigation.navigate('dingzhi_xuqiu')} activeOpacity={1} style={{ width: width * 0.6, height: height*0.05,backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
+                            <TouchableOpacity onPress={()=>this.props.navigation.navigate('dingzhi_xuqiu',{msg:this.state.emitMsg})} activeOpacity={1} style={{ width: width * 0.6, height: height*0.05,backgroundColor: "#7cc0c0",  justifyContent: "center", alignItems: "center", borderRadius: 20 }}>
                                 <Text style={{ fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
                                 </TouchableOpacity>
                         </View>

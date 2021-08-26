@@ -29,8 +29,9 @@ export default class dingzhi_xuqiu extends Component {
     }
 
     componentDidMount() {
-
+    
         this.listener = DeviceEventEmitter.addListener('update_arr',this.update_arr.bind(this))
+        console.log(this.props.route);
 	//'test'是一个键，可以随便取名字，但是要和B页面的键对应，后面跟方法。
  }
     //刷新事件
@@ -203,9 +204,9 @@ export default class dingzhi_xuqiu extends Component {
                                 style={{ marginTop: 10 }}>
                                 <View>
                                     <TouchableOpacity activeOpacity={1} style={{ borderRadius: 10, borderColor: this.state.isXiangmu0 ? 'orange' : 'rgba(0,0,0,0)', borderWidth: 1 }} onPress={() => this.isXiangmu(0)}>
-                                        <Image style={{ height: width * 0.35, width: width * 0.35, margin: 2, borderRadius: 10 }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp6.itc.cn%2Fimages01%2F20200805%2Fd160acc7ccc54543ae96306cf689aa1b.jpeg&refer=http%3A%2F%2Fp6.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632013127&t=92366525746964222404ebe301bee1ac' }} />
+                                        <Image style={{ height: width * 0.35, width: width * 0.35, margin: 2, borderRadius: 10 }} source={{ uri: this.props.route.params.msg.img }} />
                                     </TouchableOpacity>
-                                    <Text style={{ marginTop: 5, color: this.state.isXiangmu0 === false ? 'black' : 'orange' }}>血檀竹节茶架</Text>
+                                    <Text style={{ marginTop: 5, color: this.state.isXiangmu0 === false ? 'black' : 'orange' }}>{this.props.route.params.msg.title}</Text>
                                 </View>
 
                                 <View>

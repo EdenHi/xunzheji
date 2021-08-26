@@ -336,7 +336,7 @@ export default class chat extends Component {
       );
       
     componentDidMount() {
-        // this.messageGet();
+        console.log(this.props.route.params.room)
         this.get_shuju();
         this.init();
         this.backInterval = setInterval(() => {

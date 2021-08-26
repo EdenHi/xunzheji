@@ -1,10 +1,58 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Dimensions, Image } from 'react-native'
+import { View, Text, TouchableOpacity, Dimensions, Image,FlatList } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
 const { width, height } = Dimensions.get("window")
 
 export default class XiaoXi extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            username: 'ppx',
+            data:[]
+        }
+    }
+
+    componentDidMount() {
+        fetch('http://8.142.11.85:3000/users/getchatuser', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username: this.state.username
+            })
+        }).then((response) => response.json())
+            .then((json) => {
+                var Arr=new Array();
+                Arr=json
+                for(let i=0;i<Arr.length;i++){
+                    if(Arr[i].user_1!==this.state.username){
+                        let temp=Arr[i].user_1;
+                        Arr[i].user_1=this.state.username;
+                        Arr[i].user_2=temp;
+                    }
+                }
+                this.setState({data:Arr})
+                console.log('data',this.state.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+    
+    renderItem=({item})=>{  
+        return(
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats', { room: item.room })}} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
+            <Image source={{ uri: "https://img1.baidu.com/it/u=2034495355,3217564887&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
+            <View style={{ marginLeft: 20 }}>
+                <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{item.user_2}</Text>
+                <Text style={{ fontSize: 13 }}>是寻商迹啊:阿巴阿巴阿布阿巴阿巴阿布</Text>
+            </View>
+        </TouchableOpacity>
+        )
+    }
     render() {
         return (
             <View>
@@ -27,34 +75,11 @@ export default class XiaoXi extends Component {
                     </View>
                 </View>
                 <View>
-                    <View style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row" ,backgroundColor:"#fff",alignItems:"center",marginHorizontal:width*0.05,marginBottom:20,elevation:1,borderRadius:10}}>
-                        <Image source={{ uri: "https://img1.baidu.com/it/u=2034495355,3217564887&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50,marginLeft:10 }} />
-                        <View style={{marginLeft:20}}>
-                            <Text style={{fontSize:15,fontWeight:"bold",marginBottom:5}}>是寻商迹啊</Text>
-                            <Text style={{fontSize:13}}>是寻商迹啊，阿巴阿巴阿布阿巴阿巴阿布</Text>
-                        </View>
-                    </View>
-                    <View style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row" ,backgroundColor:"#fff",alignItems:"center",marginHorizontal:width*0.05,marginBottom:20,elevation:1,borderRadius:10}}>
-                        <Image source={{ uri: "https://img1.baidu.com/it/u=2034495355,3217564887&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50,marginLeft:10 }} />
-                        <View style={{marginLeft:20}}>
-                            <Text style={{fontSize:15,fontWeight:"bold",marginBottom:5}}>是寻商迹啊</Text>
-                            <Text style={{fontSize:13}}>是寻商迹啊，阿巴阿巴阿布阿巴阿巴阿布</Text>
-                        </View>
-                    </View>
-                    <View style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row" ,backgroundColor:"#fff",alignItems:"center",marginHorizontal:width*0.05,marginBottom:20,elevation:1,borderRadius:10}}>
-                        <Image source={{ uri: "https://img1.baidu.com/it/u=2034495355,3217564887&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50,marginLeft:10 }} />
-                        <View style={{marginLeft:20}}>
-                            <Text style={{fontSize:15,fontWeight:"bold",marginBottom:5}}>是寻商迹啊</Text>
-                            <Text style={{fontSize:13}}>是寻商迹啊，阿巴阿巴阿布阿巴阿巴阿布</Text>
-                        </View>
-                    </View>
-                    <View style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row" ,backgroundColor:"#fff",alignItems:"center",marginHorizontal:width*0.05,marginBottom:20,elevation:1,borderRadius:10}}>
-                        <Image source={{ uri: "https://img1.baidu.com/it/u=2034495355,3217564887&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500" }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50,marginLeft:10 }} />
-                        <View style={{marginLeft:20}}>
-                            <Text style={{fontSize:15,fontWeight:"bold",marginBottom:5}}>是寻商迹啊</Text>
-                            <Text style={{fontSize:13}}>是寻商迹啊，阿巴阿巴阿布阿巴阿巴阿布</Text>
-                        </View>
-                    </View>
+    <FlatList
+    data={this.state.data}
+    renderItem={this.renderItem}
+    />
+
                 </View>
             </View>
         )
