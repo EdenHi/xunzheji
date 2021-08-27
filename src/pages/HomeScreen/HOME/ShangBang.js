@@ -14,7 +14,7 @@ const COLORS = ['coral', 'mediumturquoise', 'palevioletred', 'papayawhip', 'toma
 const ITEMS = [
   'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',
   'http://8.142.11.85:3000/public/images/xiaoshao1.png',
-  'http://8.142.11.85:3000/public/images/xiaoxing1.png',
+  'http://8.142.11.85:3000/public/images/shaoxin1.png',
   'http://8.142.11.85:3000/public/images/taizhou1.png',
   'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',
   ''
