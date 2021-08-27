@@ -41,7 +41,7 @@ export default class Locked extends Component {
         .then((json) => {
 
           this.setState({ lastStep: json[0].steps })
-          console.log( json[0].steps);
+
         })
         .catch((error) => {
           console.log(error);
@@ -99,7 +99,6 @@ export default class Locked extends Component {
   unLock() {
     this.setState({ isUnlock: "false" })
     this.updateLock();
-    console.log(this.state.isUnlock);
     console.log('成功解锁');
   }
 
@@ -155,7 +154,7 @@ export default class Locked extends Component {
     if (this.state.isUnlock === 'false') {
       return (
         <FlipCard>
-          <View style={{ width: '100%', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, backgroundColor:"#fff",elevation:5 }}>
+          <View style={{ width: '100%', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, backgroundColor:"#fff",elevation:2 }}>
             <View style={{ width: '85%', marginHorizontal: '7%', height: '60%', borderRadius: 60, marginTop: "5%" }}>
               <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: 'http://8.142.11.85:3000/public/images/a.png' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
@@ -202,7 +201,7 @@ export default class Locked extends Component {
       );
     } else
       return (
-        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#fff', elevation:5 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
+        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#fff', elevation:2 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
           <Text style={{ marginTop: '7%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#333' }}>{this.props.roadname}</Text>
           <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#333' }}>可获得 <FontAwesome5
               name='coins'
