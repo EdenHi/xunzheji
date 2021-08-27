@@ -113,6 +113,7 @@ export default class Exchange2 extends Component {
             <ImageBackground source={{uri:item.path}} style={{height:width*0.2,width:width * 0.2,marginTop:width * 0.05,alignItems:'flex-end'}}>
                 <AntDesign
                 name='closecircle'
+                color='#fedc61'
                 size={15}
                 onPress={()=>this.delete_pic(index)}/>
             </ImageBackground>

@@ -38,12 +38,36 @@ export default class Want extends Component {
     }
 
 renderDate({item,index}){
+        //取出年月日
+        let a = item.send_time.slice(0, 10)
+        //取出时分
+        let b = item.send_time.slice(11, 16)
+        let time1 = new Date();
+        let time2 = new Date(item.send_time).getTime()
+        let sum = a + ' ' + b
+        //获得相差的秒
+        let ss = (time1 - time2) / 1000
+        let day = Math.floor(ss / 86400)
+        let hour = Math.floor(ss / 3600)
+        let min = Math.floor(ss / 60)
+        let time = ''
+        if (day >= 1 && day < 4) {time = day + '天前'}
+        else if (hour >= 1 && hour < 24) {time = hour + '小时前'}
+        else if (min >= 1 && min < 60) {time = min + '分钟前'}
+        else if (day >= 4) {time = sum}
+        else {time = '刚刚'}
     return(
-        <TouchableOpacity style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
-            <Image source={{ uri:item.portrait }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
-            <View style={{ marginLeft: 20 }}>
-                <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{item.nickname}</Text>
-                <Text style={{ fontSize: 13 }}>{`我想要\t\t"${item.wupin}"`}</Text>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('new_exchange',{item})} key={index} style={{ width: width * 0.9, height: height * 0.1, flexDirection: 'row', backgroundColor: "#fff", justifyContent:'space-between',alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }} activeOpacity={1}>
+            <View style={{flexDirection:'row'}}>
+                <Image source={{ uri:item.portrait }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
+                <View style={{ marginLeft: 20 }}>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{item.nickname}</Text>
+                    <Text style={{ fontSize: 13 }}>{`我想要\t\t"${item.wupin}"`}</Text>
+                </View>
+            </View>
+            
+            <View style={{marginTop:30,marginRight:10}}>
+                <Text style={{color:'#ccc'}}>{time}</Text>
             </View>
         </TouchableOpacity>
     )
@@ -51,8 +75,6 @@ renderDate({item,index}){
 
 
     render() {
-        console.log('item', this.props.route.params);
-        const item = this.state.data
         return (
             <View style={{ flex: 1 }}>
                 <View  activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0", elevation: 1 }}>

@@ -263,6 +263,7 @@ export default class dingzhi_xuqiu extends Component {
                                                     >
                                                         <AntDesign
                                                             name='closecircle'
+                                                            color='#fedc61'
                                                             size={20} />
                                                     </TouchableOpacity>
                                                 </View>
