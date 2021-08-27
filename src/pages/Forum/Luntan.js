@@ -400,7 +400,7 @@ export default class LunTan extends Component {
                                                                                     activeOpacity={1}
                                                                                     key={index}
                                                                                     onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }} resizeMode='stretch' />
+                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }}  />
                                                                                 </TouchableOpacity>
                                                                             </View>
                                                                         );
@@ -411,7 +411,7 @@ export default class LunTan extends Component {
                                                                                     activeOpacity={1}
                                                                                     key={index}
                                                                                     onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }} resizeMode='stretch' />
+                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }}  />
                                                                                 </TouchableOpacity>
                                                                             </View>
                                                                         );
@@ -422,7 +422,7 @@ export default class LunTan extends Component {
                                                                                     activeOpacity={1}
                                                                                     key={index}
                                                                                     onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }} resizeMode='stretch' />
+                                                                                    <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }}  />
                                                                                 </TouchableOpacity>
                                                                             </View>
                                                                         );
@@ -529,7 +529,7 @@ export default class LunTan extends Component {
                                                                                 activeOpacity={1}
                                                                                 key={index}
                                                                                 onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }} resizeMode='stretch' />
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }}  />
                                                                             </TouchableOpacity>
                                                                         </View>
                                                                     );
@@ -540,7 +540,7 @@ export default class LunTan extends Component {
                                                                                 activeOpacity={1}
                                                                                 key={index}
                                                                                 onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }} resizeMode='stretch' />
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }}  />
                                                                             </TouchableOpacity>
                                                                         </View>
                                                                     );
@@ -551,7 +551,7 @@ export default class LunTan extends Component {
                                                                                 activeOpacity={1}
                                                                                 key={index}
                                                                                 onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }} resizeMode='stretch' />
+                                                                                <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }}  />
                                                                             </TouchableOpacity>
                                                                         </View>
                                                                     );
