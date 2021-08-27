@@ -94,7 +94,8 @@ import {
   ShiMin,
   XiaoXi,
   Want,
-  ShangBang
+  ShangBang,
+  new_exchange,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -209,6 +210,7 @@ export default function StackNav() {
       <Stack.Screen name="XiaoXi" component={XiaoXi} />
       <Stack.Screen name="Want" component={Want} />
       <Stack.Screen name="ShangBang" component={ShangBang} />
+      <Stack.Screen name="new_exchange" component={new_exchange} />
     </Stack.Navigator>
   );
 }

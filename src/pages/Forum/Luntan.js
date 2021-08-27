@@ -433,7 +433,7 @@ export default class LunTan extends Component {
                                                         {/* tag标签 */}
                                                         <TouchableOpacity
                                                             activeOpacity={1}
-                                                            style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
+                                                            style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row',  marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
                                                             onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                             <Fontisto name='hashtag' color='#fff' />
                                                             <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
