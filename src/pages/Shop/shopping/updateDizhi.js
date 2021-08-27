@@ -18,6 +18,7 @@ export default class updateDizhi extends Component {
             xiangxi:this.props.route.params.xiangxi,
             swicthValue1:this.props.route.params.dizhi_id === 0 ? false : true,
             data:this.props.route.params,
+            username:'',
         }
     }
     go_area(){
@@ -40,6 +41,16 @@ export default class updateDizhi extends Component {
         });
     }
 
+    componentDidMount(){
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
+                this.setState({
+                    username:result
+                })
+            }
+        })
+    }
+
     //更新地址
     update_Dizhi(){
         if (this.state.swicthValue1 === true){
@@ -55,6 +66,7 @@ export default class updateDizhi extends Component {
                     dizhi:this.state.dizhi,
                     xiangxi:this.state.xiangxi,
                     id:this.props.route.params.id,
+                    username:this.state.username
                 }),
                 })
         } else {

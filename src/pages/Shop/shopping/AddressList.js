@@ -75,7 +75,8 @@ export default class AddressList extends Component {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    id:this.state.data[k].id
+                    id:this.state.data[k].id,
+                    
                 }),
             }).then((response) => response.json())
             .then((responseJson) => {
@@ -93,7 +94,8 @@ export default class AddressList extends Component {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                id:this.state.data[k].id
+                id:this.state.data[k].id,
+                username:this.state.username
             }),
         }).then((response) => response.json())
         .then((responseJson) => {
