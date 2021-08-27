@@ -13,7 +13,7 @@ export default class Exchange_want extends Component {
             leibie:'',
             mingcheng:'',
             liuyan:'',
-            imag:'',
+            imag:{"mime": "","path": ""},
         }
     }
 
@@ -24,7 +24,6 @@ export default class Exchange_want extends Component {
                 height: 400,
             }).then(image => {
                 console.log('imag', image);
-                const { img } = this.state;
                 this.setState({ img:image.path,imag:image })
             });
     
@@ -32,29 +31,43 @@ export default class Exchange_want extends Component {
 
         send_message(){
             const {imag} = this.state
-            let time = new Date()
+            console.log('imag', imag);
             AsyncStorage.getItem('username',(error,result)=>{
                 if (!error) {
-                    let formData = new FormData();//如果需要上传多张图片,需要遍历数组,把图片的路径数组放入formData中
-                    let file = {uri: imag.path, type: imag.mime, name: imag.path.split('/').pop()};   //这里的key(uri和type和name)不能改变,
-                    formData.append('files',file);   //这里的files就是后台需要的key
-                    formData.append('send_username',result);
-                    formData.append('username',this.props.route.params.username);
-                    formData.append('leibie',this.state.leibie);
-                    formData.append('mingcheng',this.state.mingcheng);
-                    formData.append('liuyan',this.state.liuyan);
-                    formData.append('uuid',this.props.route.params.uuid)
-                    FormData.append('time',time)
-                    fetch('http://8.142.11.85:3000/shop/insert_Exchange2_want',{
-                    method:'POST',
-                    headers:{
-                        'Content-Type':'multipart/form-data',
-                    },
-                    body:formData,
+
+                    //发送日期
+                    fetch('http://8.142.11.85:3000/shop/insert_Exchange2_want_time', {
+                        method: 'POST',
+                        headers: {
+                            Accept: 'application/json',
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            send_username:result,
+                            username:this.props.route.params.username,
+                            leibie:this.state.leibie,
+                            mingcheng:this.state.mingcheng,
+                            liuyan:this.state.liuyan,
+                            uuid:this.props.route.params.uuid,
+                            send_time:new Date()
+                        }),
                     })
                     .then((response) => response.json())
                     .then((josn)=>{
-                         console.log(josn);
+                        console.log(josn);
+                        
+                        //上传物品图片
+                        let formData = new FormData();//如果需要上传多张图片,需要遍历数组,把图片的路径数组放入formData中
+                        let file = {uri: imag.path, type: imag.mime, name: imag.path.split('/').pop()};   //这里的key(uri和type和name)不能改变,
+                        formData.append('files',file);   //这里的files就是后台需要的key
+                        formData.append('insertId',josn.insertId)
+                        fetch('http://8.142.11.85:3000/shop/update_Exchange2_want',{
+                        method:'POST',
+                        headers:{
+                            'Content-Type':'multipart/form-data',
+                        },
+                        body:formData,
+                        })
                     });
                 }
             })
