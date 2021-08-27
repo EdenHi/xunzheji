@@ -5,6 +5,7 @@ import { Dimensions } from 'react-native'
 import { View, Text, Animated, Easing, TextInput } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LottieView from 'lottie-react-native';
+import ImagePicker from 'react-native-image-crop-picker';
 const { width, height } = Dimensions.get("window")
 
 export default class ShiMin extends Component {
@@ -13,6 +14,8 @@ export default class ShiMin extends Component {
         this.state = {
             progress: new Animated.Value(0),
             data: [],
+            img:'',
+            img2:''
         }
     }
     componentDidMount() {
@@ -24,19 +27,44 @@ export default class ShiMin extends Component {
         }).start();
 
     }
+    _openPicker(){
+        ImagePicker.openPicker({
+            width:100,
+            height:100,
+
+        }).then(image => {
+            console.log('imag',image);
+            this.setState({img:image})
+        });
+
+    }
+
+    _openPicker2(){
+        ImagePicker.openPicker({
+            width:100,
+            height:100,
+
+        }).then(image => {
+            console.log('imag',image);
+            this.setState({img2:image})
+        });
+
+    }
 
     render() {
+        console.log('1',this.state.img);
+        const {img,img2} = this.state
         return (
             <View>
-                <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0", elevation: 1 }}>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0"}}>
                     <AntDesign name='left' size={20} color='#fff' />
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft: 10, fontWeight: "bold" }}>实名认证中心</Text>
                 </TouchableOpacity>
-                <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                    <LottieView source={require('../../../animal/wave.json')} style={{ width: width * 1, marginTop: -10 }} autoPlay loop progress={this.state.progress} />
+                <View style={{ width: width * 0.15, height: height * 0.05,marginTop:10,elevation:50}}>
+                    <LottieView source={require('../../../animal/wave.json')} style={{ width: width * 1, marginTop: -10, elevation:50}} autoPlay loop progress={this.state.progress} />
                 </View>
 
-                <View style={{ justifyContent: "center", alignItems: "center", marginTop: width * 0.15 }}>
+                <View style={{ justifyContent: "center", alignItems: "center", marginTop: width * 0.35 }}>
                     <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>姓名</Text>
                     <TextInput placeholder={'请输入真实姓名'} style={{ width: width * 0.8, height: height * 0.06, marginHorizontal: width * 0.05, borderRadius: 20, borderWidth: 1, borderColor: "#7cc0c0", textAlign: "center", marginTop: 15 }} />
                 </View>
@@ -45,12 +73,14 @@ export default class ShiMin extends Component {
                     <TextInput placeholder={'请输入身份证号码'} style={{ width: width * 0.8, height: height * 0.06, marginHorizontal: width * 0.05, borderRadius: 20, borderWidth: 1, borderColor: "#7cc0c0", textAlign: "center", marginTop: 15 }} />
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: width * 0.1, marginHorizontal: width * 0.1 }}>
-                    <View style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: "#7cc0c0", borderWidth: 1 }}>
-                        <Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />
-                    </View>
-                    <View style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: "#7cc0c0", borderWidth: 1 }}>
-                    <Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />
-                    </View>
+                    <TouchableOpacity onPress={()=>this._openPicker()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: "#7cc0c0", borderWidth: 1 }}>
+                        {this.state.img===''?<Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />:null}
+                        {this.state.img===''?null:<Image source={{uri:img.path}} style={{ width: "100%", height:"100%"}} />}
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>this._openPicker2()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: "#7cc0c0", borderWidth: 1 }}>
+                        {this.state.img2===''?<Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />:null}
+                        {this.state.img2===''?null:<Image source={{uri:img2.path}} style={{ width: "100%", height:"100%"}} />}
+                    </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={{ width: width * 0.8, height: height * 0.06, borderRadius: 20, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.1, marginTop: width * 0.2 }}>
                     <Text style={{ fontWeight: "bold", fontSize: 15, color: "#fff" }}>提交</Text>

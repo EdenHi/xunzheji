@@ -41,7 +41,7 @@ export default class Business extends Component {
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商人物介绍</Text>
                     </View>
-                    <View style={{ maxHeight: '20%', width: '90%', height: height * 0.2 }}>
+                    <View style={{ maxHeight: '40%', width: '90%', height: height * 0.4}}>
                         <ScrollView ref={ref => this.scrollRef = ref} onScroll={(e)=>console.log(e.nativeEvent.contentOffset.y)} style={{ width: '100%', height: '100%' }} showsVerticalScrollIndicator={false}>
                             <Image style={{ width: '100%', height: 300, borderRadius: 10 }} source={{ uri: this.state.map }}></Image>
                         </ScrollView>

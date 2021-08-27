@@ -16,6 +16,7 @@ import Homepagebook from '../Homepagebook'
 import ScrollTopView from 'react-native-scrolltotop';
 import { Button } from 'react-native';
 import ShangBang from './ShangBang';
+import Carousel from 'react-native-snap-carousel';
 
 const { width, height } = Dimensions.get('window');
 
@@ -29,8 +30,46 @@ export default class Home extends Component {
             username: '',
             isShowToTop: true,
 
+            isLoding: false,
+            showpage: 5,
+            modalVisible: false,
+            currentPage: 0,
+            activeIndex: 0,
+
+            carouselItems: [
+                {
+                  img: "http://8.142.11.85:3000/public/images/a.png",
+                },
+                {
+                  img: "http://8.142.11.85:3000/public/images/b.png",
+                },
+                {
+                  img: "http://8.142.11.85:3000/public/images/c3.png",
+                },
+                
+              ],
+
         }
     }
+
+    _renderItem({ item, index }) {
+        return (
+          <View style={{
+    
+            borderRadius: 15,
+            height: 200,
+            width: "90%",
+            elevation: 5,
+            backgroundColor: "#fff"
+          }}>
+            <ImageBackground resizeMode="stretch" imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: item.img }} >
+              
+            </ImageBackground>
+          </View>
+    
+        )
+      }
+    
 
     //获取路线信息
     get_shuju() {
@@ -68,8 +107,13 @@ export default class Home extends Component {
             })
         }
     }
+    
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  }
 
     render() {
+        const { modalVisible } = this.state;
         return (
             <View style={{ alignItems: 'center', }}>
                 <LinearGradient style={{ width }} colors={['#7cc0bf', '#fff', '#fff']} >
@@ -82,18 +126,19 @@ export default class Home extends Component {
                         {/* <LottieView style={{marginLeft:"15%"}}  source={require('../../../../animal/71338-welcomegolden.json')} autoPlay loop={false} progress={this.state.progress} /> */}
 
                     </View>
-                    <View style={{ alignItems: 'center', }}>
+                    <View style={{ alignItems: 'center',height:height*0.88 }}>
                         <ScrollView
                             ref={component => this._scrollView = component}
-                            onScroll={(e) => {
-                                console.log(Math.ceil(e.nativeEvent.contentOffset.y)); if (Math.ceil(e.nativeEvent.contentOffset.y) == 800) {
-                                    this.childList.move()
-                                } else if (Math.ceil(e.nativeEvent.contentOffset.y) == 420) {
-                                    this.childList.stopSlide()
-                                }
-                            }}
+                        //     onScroll={(e) => {
+                        //         console.log(Math.ceil(e.nativeEvent.contentOffset.y)); if (Math.ceil(e.nativeEvent.contentOffset.y) == 800) {
+                        //             this.childList.move()
+                        //         } else if (Math.ceil(e.nativeEvent.contentOffset.y) == 420) {
+                        //             this.childList.stopSlide()
+                        //         }
+                        //     }
+                        // }
                             renderScrollComponent={(props) => {
-                                return <ScrollView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#fff" }}  {...props} />
+                                return <ScrollView style={{  backgroundColorL: "#fff" }}  {...props} />
                             }}
                             showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
@@ -184,7 +229,7 @@ export default class Home extends Component {
                                         </ScrollView> */}
                                     </View>
                                 </View>
-                                <View style={{ height: height*0.33, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
+                                <View style={{ height: height*0.38,backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom:10,marginLeft:10}}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29 }} />
                                         <View style={{width:width*0.75,marginRight:10 }}>
@@ -218,8 +263,24 @@ export default class Home extends Component {
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </View>
-                                    <TouchableOpacity activeOpacity={1} >
-                                        <View style={{ height: 200, backgroundColor: '#fff', justifyContent: 'center', margin: 10, marginTop: -5, borderRadius: 10, padding: 10, elevation: 5 }}>
+                                    <View style={{width:"100%",height:"100%",alignItems:"center",justifyContent:"center",marginLeft:width*0.05}}>
+                               {/* <TouchableOpacity style={{}}> */}
+                                    <Carousel
+                               
+              // layout={"default"}
+              layout={'tinder'} layoutCardOffset={`10`}
+              // layout={'tinder'} layoutCardOffset={`15`} 
+              ref={ref => this.carousel = ref}
+              data={this.state.carouselItems}
+              sliderWidth={400}
+              itemWidth={350}
+              renderItem={this._renderItem}
+              loop={true}
+              //onSnapToItem={index => this.setState({ activeIndex: index })} 
+              />
+              </View>
+              {/* </TouchableOpacity> */}
+                                        {/* <View style={{ height: 200, backgroundColor: '#fff', justifyContent: 'center', margin: 10, marginTop: -5, borderRadius: 10, padding: 10, elevation: 5 }}>
                                             <View style={{ flexDirection: 'row' }}>
                                                 <View><Image style={{ height: 80, width: width * 0.3, borderRadius: 10, marginLeft: 5, alignItems: 'center' }} source={{ uri: 'http://8.142.11.85:3000/public/images/jm2.jpeg' }} /></View>
                                                 <View style={{}}>
@@ -228,8 +289,8 @@ export default class Home extends Component {
                                                 </View>
                                             </View>
                                             <View ><Text style={{  flexWrap: 'wrap', fontSize: 12,color:"#333"  }}>&emsp;&emsp;鸡毛换糖是指在那个物资匮缺的年代，小商小贩走南闯北走街串巷，以红糖、草纸等低廉物品，换取居民家中的鸡毛等废品以获取微利。最早的鸡毛换糖，形成于我国的浙江省义乌地区，而最终，这一行为对地区经济和发展的促进作用得到认可，并发挥出巨大的积极作用。</Text></View>
-                                        </View>
-                                    </TouchableOpacity>
+                                        </View> */}
+                              
                                     {/* <View style={{ height: 120, backgroundColor: '#fff', justifyContent: 'center', alignItems: 'center', margin: 10, borderRadius: 10, elevation: 5, paddingTop: 10 }}> */}
                                         {/* <Swiper paginationStyle={{ bottom: -1 }} horizontal={true} autoplay autoplayTimeout={3} >
                                             <TouchableOpacity activeOpacity={1}>
@@ -288,12 +349,12 @@ export default class Home extends Component {
                         <Card navigation={this.props.navigation} />
                         <Card navigation={this.props.navigation} />
                     </ScrollView> */}
-                                <View style={{ height: height*0.9, backgroundColor: '#fff', borderRadius: 10 }}>
+                                <View style={{ height: height*0.5, backgroundColor: "#fff", borderRadius: 10 ,marginBottom:height*0.05}}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10,width:width*0.75  }}>
-                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>浙商人物介绍</Text>
-                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>INTRODUCTION TO ZHEJIANG BUSINESSMEN</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>商帮介绍</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>INTRODUCION TO SHANGBANG</Text>
                                         </View>
                                         {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: '#7cc0bf' }}>
                                             <AntDesign onPress={() => this.props.navigation.navigate('Business')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#7cc0bf' }} name="doubleright" size={25} color="#000000" />
@@ -302,14 +363,14 @@ export default class Home extends Component {
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
-                                    <View style={{ alignItems: 'center' }}>
-                                        <View>
+       
+                                        <View style={{alignItems:"center",width:width*0.9,marginLeft:width*0.025}}>
                                             <ShangBang></ShangBang>
                                             {/* <Horiz
                                                 ref={(view) => this.childList = view}
                                             /> */}
 
-                                        </View>
+                               
                                         {/* <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>
                                             <Text style={{ borderColor: '#7cc0bf', height: 30, fontSize: 10 }}>杭州出台14项政策大力度吸引浙商回归</Text>
