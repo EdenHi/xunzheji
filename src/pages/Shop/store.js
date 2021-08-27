@@ -613,7 +613,7 @@ componentWillUnmount(){
               <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/9.jpg' }}></Image>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-              <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/10.jpg' }}></Image>
+              <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} resizeMode="contain" source={require("../img/以物换物.png")}></Image>
             </TouchableOpacity>
           </View>
         </View>

@@ -229,7 +229,7 @@ export default class Home extends Component {
                                         </ScrollView> */}
                                     </View>
                                 </View>
-                                <View style={{ height: height*0.38,backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
+                                <View style={{ height: height*0.35,backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom:10,marginLeft:10}}>
                                         <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29 }} />
                                         <View style={{width:width*0.75,marginRight:10 }}>
