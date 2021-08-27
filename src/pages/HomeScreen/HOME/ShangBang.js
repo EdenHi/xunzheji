@@ -16,10 +16,10 @@ const ITEMS = [
   {img:'http://8.142.11.85:3000/public/images/xiaoshao1.png',name:"湖州商帮",item:"湖商，是继徽商、晋商之后，在近代中国涌现的具有强烈地域特征的商人群体。"},
   {img:'http://8.142.11.85:3000/public/images/shaoxin1.png',name:"龙游商帮",item:"明清时期中国十大商帮之一，主要指历史上今浙江境内金丽衢地区商人的集合，它以原衢州府龙游县为中心。"},
   {img:'http://8.142.11.85:3000/public/images/shaoxin1.png',name:"绍兴越商",item:"绍兴越商，是中国一大商帮，从民国时期逐鹿上海滩、控制金融命脉的绍兴帮。"},
-  {img:'http://8.142.11.85:3000/public/images/taizhou1.png',name:"宁波商帮",item:"甬商（即宁波籍商人）是中国近代最大的商帮，为中国民族工商业的发展做出了贡献，推动了中国工商业的近代化。"},
-  {img:'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',name:"温州商帮",item:"温州商人有经商传统，改革开放之后，温州商人更活跃于国内外商界。"},
-  {img:'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',name:"台州商帮",item:"台州早有经商传统，改革开放之后，台州商人更活跃于国内外商界。"},
-  {img:'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',name:"义乌商帮",item:"义乌以制造、经营小商品闻名于世，其小商品行销全球。义乌商人 “鸡毛换糖” 的商业行为，被列为浙商标志性事件第一名。"},
+  {img:'http://8.142.11.85:3000/public/images/ningbo1.png',name:"宁波商帮",item:"甬商（即宁波籍商人）是中国近代最大的商帮，为中国民族工商业的发展做出了贡献，推动了中国工商业的近代化。"},
+  {img:'http://8.142.11.85:3000/public/images/quzhou1.png',name:"温州商帮",item:"温州商人有经商传统，改革开放之后，温州商人更活跃于国内外商界。"},
+  {img:'http://8.142.11.85:3000/public/images/taizhou1.png',name:"台州商帮",item:"台州早有经商传统，改革开放之后，台州商人更活跃于国内外商界。"},
+  {img:'http://8.142.11.85:3000/public/images/yiwu1.png',name:"义乌商帮",item:"义乌以制造、经营小商品闻名于世，其小商品行销全球。义乌商人 “鸡毛换糖” 的商业行为，被列为浙商标志性事件第一名。"},
 
 ]
 
