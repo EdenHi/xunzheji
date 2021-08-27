@@ -461,9 +461,9 @@ componentWillUnmount(){
         backgroundColor: "#fff"
       }}>
         <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: item.img }} >
-          <View style={{ width: "100%", height: "30%", backgroundColor: 'rgba(0,0,0,0.5)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
-            <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold", marginLeft: "5%", marginTop: "2%" }}>{item.title}</Text>
-            <Text numberOfLines={2} ellipsizeMode='tail' style={{ fontSize: 12, color: "#fff", marginLeft: "5%", marginTop: "2%" }}>{item.text}</Text>
+          <View style={{ width: "100%", height: "40%", backgroundColor: 'rgba(255,255,255,0.8)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
+            <Text style={{ fontSize: 15, color: "#333", fontWeight: "bold", marginLeft: 5, marginTop: "2%" }}>{item.title}</Text>
+            <Text numberOfLines={3} ellipsizeMode='tail' style={{ fontSize: 12, color: "#000",padding:5, marginTop: "2%" }}>{item.text}</Text>
           </View>
         </ImageBackground>
       </View>
@@ -572,11 +572,11 @@ componentWillUnmount(){
               borderRadius: 15
             }} />}
           >
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img0.baidu.com/it/u=3861618596,4141988624&fm=26&fmt=auto&gp=0.jpg" }} />
+            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://8.142.11.85:3000/public/images/store1.png" }} />
             <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1617206691,1514069942&fm=26&fmt=auto&gp=0.jpg" }} />
             <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=471631677,3527280070&fm=26&fmt=auto&gp=0.jpg" }} />
             <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=3177392174,4240871380&fm=15&fmt=auto&gp=0.jpg" }} />
+            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://8.142.11.85:3000/public/images/store1.png" }} />
             <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
           </Swiper>
           {/* <ShiCha /> */}
@@ -706,7 +706,7 @@ componentWillUnmount(){
               ref={ref => this.carousel = ref}
               data={this.state.carouselItems}
               sliderWidth={400}
-              itemWidth={350}
+              itemWidth={330}
               renderItem={this._renderItem}
               loop={true}
               //onSnapToItem={index => this.setState({ activeIndex: index })} 
@@ -830,7 +830,7 @@ componentWillUnmount(){
 
              
                 <FlatList
-                style={{height:height*0.9}}
+                style={{height:height*0.855}}
                   ref={(flatList)=>this._flatList = flatList}
                   //onScroll={(e)=>this._onScroll(e)}
                   numColumns={2}

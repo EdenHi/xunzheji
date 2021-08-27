@@ -270,24 +270,26 @@ export default class Fabu extends Component {
                                 this.state.tag.map((v, k) => {
                                     return (
                                         <View key={k} style={{ alignItems: 'flex-end' }}>
-                                            <View style={{ marginLeft: 10, width: 100, justifyContent: 'center', alignItems: 'center', backgroundColor: '#eee', borderRadius: 15, position: 'relative' }}
-                                                activeOpacity={1}>
-                                                <Text style={{ color: 'orange', padding: 5 }}>{v}</Text>
+                                            <View style={{ flexDirection:'row',marginTop:10,marginBottom: 10,marginLeft: 10, width: width*0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, position: 'relative' }}
+                                                >
+                                                <Fontisto name='hashtag' color='#fff' />
+                                                <Text style={{ paddingTop: 5, paddingBottom: 5, color:"#fff"}}>{v}</Text>
                                             </View>
                                             <AntDesign
                                                 name='closecircle'
                                                 size={15}
+                                                color='#fedc61'
                                                 style={{ position: 'absolute' }}
                                                 onPress={() => { tags.splice(k, 1), this.setState({ tag: tags }) }} />
                                         </View>
                                     )
                                 })
                             }
-                            <TouchableOpacity style={{ flexDirection:"row",marginLeft: 10, marginBottom: 20, width: 70, justifyContent: 'center', alignItems: 'center', backgroundColor: '#eee', borderRadius: 15 }}
+                            {this.state.tag.length===0?<TouchableOpacity style={{ flexDirection:"row",marginLeft: 10, marginBottom: 20, width: width*0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20 }}
                                 onPress={() => this.props.navigation.navigate('tag')}>
-                                <Fontisto name='hashtag' color='#7cc0c0' />
-                                <Text style={{ color: 'orange', padding: 5,color:"#7cc0c0"}}>话题</Text>
-                            </TouchableOpacity>
+                                <Fontisto name='hashtag' color='#fff' />
+                                <Text style={{ paddingTop: 5, paddingBottom: 5, color:"#fff"}}>话题</Text>
+                            </TouchableOpacity>:null}
                         </View>
 
 
@@ -311,6 +313,7 @@ export default class Fabu extends Component {
                                             >
                                                 <AntDesign
                                                     name='closecircle'
+                                                    color='#fedc61'
                                                     size={20} />
                                             </TouchableOpacity>
 

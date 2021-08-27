@@ -178,14 +178,10 @@ export default class componentName extends Component {
 
                             <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
                                 <ScrollView>
-
-
-
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170329%2Ff767b2d8563b46d787b6e8f4459fa110_th.jpeg&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631497805&t=1cb7cdd93f00c78d6bb54740699a55ac' }}>
                                             <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
-
                                                 </View>
                                                 <View style={{ height: '70%' }}>
                                                     <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>时空难阻货郎情</Text>

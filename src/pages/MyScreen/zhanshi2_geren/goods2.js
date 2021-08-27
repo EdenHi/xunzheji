@@ -115,6 +115,7 @@ export default class Goods2 extends Component {
         <AntDesign
           name='closecircle'
           size={30}
+          color='#fedc61'
           style={{position:'absolute',right:-10,top:-10}}
           onPress={()=>this.setState({visible:true,arr:item})}/>
           
