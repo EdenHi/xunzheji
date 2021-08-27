@@ -131,7 +131,7 @@ export default class Exchange_want extends Component {
 
                         {/* 按钮 */}
                         <View style={{justifyContent:'center',alignItems:'center',width,marginBottom:20}}>
-                            <TouchableOpacity onPress={()=>{this.send_message(),this.props.navigation.goBack()}} activeOpacity={1} style={{justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0c0',borderRadius:30}}>
+                            <TouchableOpacity onPress={()=>{this.send_message(),this.props.navigation.goBack()}} activeOpacity={1} style={{justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0c0',borderRadius:20,width:width*0.8,marginHorizontal:width*0.05}}>
                                 <Text style={{color:'#fff',fontSize:17,fontWeight:'bold',paddingHorizontal:50,paddingVertical:10}}>立即提交</Text>
                             </TouchableOpacity>
                         </View>

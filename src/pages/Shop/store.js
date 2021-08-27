@@ -694,8 +694,6 @@ componentWillUnmount(){
               <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
               <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
             </View>
-
-
             <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
               <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
@@ -805,7 +803,7 @@ componentWillUnmount(){
                 color="#fff"
               />
             </TouchableOpacity> */}
-            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 18, width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.0}}>{this.state.zuobiao}</Text><AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/>
+            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 16,fontWeight:"bold", width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.0}}>{this.state.zuobiao}</Text><AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/>
             <TouchableOpacity activeOpacity={1}
               onPress={() => navigation.navigate('search')}
               style={styles.input}>

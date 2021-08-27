@@ -147,27 +147,27 @@ export default class Exchange2 extends Component {
     render() {
         return (
             <View style={{backgroundColor:'white',flex:1}}>
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center",backgroundColor:"#7cc0c0" }}>
                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-                        <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#7cc0c0" }} name="left" size={20} color="#000000" />
+                        <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#7cc0c0", width: width * 0.85, marginLeft: "2%" }}>以物换物</Text>
+                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>以物换物</Text>
                 </View>
                 <ScrollView>
                     <View style={{width:width * 0.9,margin:width * 0.05}}>
                             <TextInput
                             maxLength={15}
                             placeholder='物品/服务/技能名称(最多15字)'
-                            style={{borderWidth:1,borderColor:'black',width:width * 0.9,paddingLeft:10}}
+                            style={{borderWidth:1,borderColor:'#7cc0c0',width:width * 0.9,paddingLeft:10,borderRadius:10}}
                             onChangeText={(wupin)=>this.setState({wupin})}
                             />
                             <TextInput
                             maxLength={15}
                             placeholder='需要的物品/服务/技能名称(最多15字)'
-                            style={{borderWidth:1,borderColor:'black',width:width * 0.9,paddingLeft:10,marginTop:10}}
+                            style={{borderWidth:1,borderColor:'#7cc0c0',width:width * 0.9,paddingLeft:10,marginTop:10,borderRadius:10}}
                             onChangeText={(exchang_wupin)=>this.setState({exchang_wupin})}
                             />
-                            <View style={{borderWidth:1,borderColor:'black',width:width * 0.9,marginTop:width * 0.05,height:300}}>
+                            <View style={{borderWidth:1,borderColor:'#7cc0c0',width:width * 0.9,marginTop:width * 0.05,height:300,borderRadius:10}}>
                                 <TextInput
                                 maxLength={1500}
                                 placeholder='你的 物品/服务/技能 背后的故事，背后的酸甜苦辣，欢迎和我们分享'
@@ -188,7 +188,7 @@ export default class Exchange2 extends Component {
                            
                             <TouchableOpacity
                             activeOpacity={0.9}
-                            style={{width:width * 0.7,marginLeft:width * 0.1,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:height*0.05,borderRadius:20}}
+                            style={{width:width * 0.8,marginHorizontal:width * 0.05,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:height*0.05,borderRadius:20}}
                             onPress = {()=>this.send()}>
                                 <Text style={{color:'white',fontSize:15}}>上传</Text>
                             </TouchableOpacity>

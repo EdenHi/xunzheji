@@ -2,31 +2,35 @@ import { LayoutAnimation, Animated, Dimensions, Text, View, StyleSheet, ScrollVi
 import React, { Component } from 'react';
 import { Constants } from 'expo';
 import { ImageBackground } from 'react-native';
-var {height, width} = Dimensions.get('window');
+var { height, width } = Dimensions.get('window');
 
 const smallSize = width / 5;
-const itemWidth = width * .67;
-const itemHeight = height / 2 -50;
+const itemWidth = width * 0.7;
+const itemHeight = width * 0.7;
 const fontSize=  50;
 
 
 const COLORS = ['coral', 'mediumturquoise', 'palevioletred', 'papayawhip', 'tomato']
 const ITEMS = [
-  'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',
-  'http://8.142.11.85:3000/public/images/xiaoshao1.png',
-  'http://8.142.11.85:3000/public/images/xiaoxing1.png',
-  'http://8.142.11.85:3000/public/images/taizhou1.png',
-  'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',
-  ''
+  {img:'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',name:"萧绍商帮",item:"萧绍地区即古越文化的核心地区，萧绍商帮是指活跃在萧绍平原上的萧山，萧山和绍兴是浙江经济最为发达的地区，是中国最大的纺织化纤制造基地。"},
+  {img:'http://8.142.11.85:3000/public/images/xiaoshao1.png',name:"湖州商帮",item:"湖商，是继徽商、晋商之后，在近代中国涌现的具有强烈地域特征的商人群体。"},
+  {img:'http://8.142.11.85:3000/public/images/shaoxin1.png',name:"龙游商帮",item:"明清时期中国十大商帮之一，主要指历史上今浙江境内金丽衢地区商人的集合，它以原衢州府龙游县为中心。"},
+  {img:'http://8.142.11.85:3000/public/images/shaoxin1.png',name:"绍兴越商",item:"绍兴越商，是中国一大商帮，从民国时期逐鹿上海滩、控制金融命脉的绍兴帮。"},
+  {img:'http://8.142.11.85:3000/public/images/taizhou1.png',name:"宁波商帮",item:"甬商（即宁波籍商人）是中国近代最大的商帮，为中国民族工商业的发展做出了贡献，推动了中国工商业的近代化。"},
+  {img:'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',name:"温州商帮",item:"温州商人有经商传统，改革开放之后，温州商人更活跃于国内外商界。"},
+  {img:'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',name:"台州商帮",item:"台州早有经商传统，改革开放之后，台州商人更活跃于国内外商界。"},
+  {img:'https://s-media-cache-ak0.pinimg.com/564x/75/eb/53/75eb53941897f231cd0b55f25806d887.jpg',name:"义乌商帮",item:"义乌以制造、经营小商品闻名于世，其小商品行销全球。义乌商人 “鸡毛换糖” 的商业行为，被列为浙商标志性事件第一名。"},
+
 ]
 
+
 // const SMALL_ITEMS = [
-//   'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',
-//   'https://s-media-cache-ak0.pinimg.com/236x/8e/e3/ef/8ee3efa5a843f2c79258e3f0684d306e.jpg',
-//   'https://s-media-cache-ak0.pinimg.com/236x/f1/1c/26/f11c26247021daeac5ec8c3aba1792d1.jpg',
-//   'https://s-media-cache-ak0.pinimg.com/236x/fa/5c/a9/fa5ca9074f962ef824e513aac4d59f1f.jpg',
-//   'https://s-media-cache-ak0.pinimg.com/236x/95/bb/e4/95bbe482ca9744ea71f68321ec4260a2.jpg',
-//   'https://s-media-cache-ak0.pinimg.com/564x/54/7d/13/547d1303000793176aca26505312089c.jpg',
+//   {img:'https://img0.baidu.com/it/u=2760969569,3249886625&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=889',name:"萧绍商帮"},
+//   {img:'https://s-media-cache-ak0.pinimg.com/236x/8e/e3/ef/8ee3efa5a843f2c79258e3f0684d306e.jpg',name:"萧a绍商帮"},
+//   {img:'https://s-media-cache-ak0.pinimg.com/236x/f1/1c/26/f11c26247021daeac5ec8c3aba1792d1.jpg',name:"萧绍a商帮"},
+//   {img:'https://s-media-cache-ak0.pinimg.com/236x/fa/5c/a9/fa5ca9074f962ef824e513aac4d59f1f.jpg',name:"萧绍商a帮"},
+//   {img:'https://s-media-cache-ak0.pinimg.com/236x/95/bb/e4/95bbe482ca9744ea71f68321ec4260a2.jpg',name:"萧绍商帮"},
+//   {img:'https://s-media-cache-ak0.pinimg.com/564x/54/7d/13/547d1303000793176aca26505312089c.jpg',name:"萧绍商帮"},
 //   ''
 // ]
 
@@ -37,7 +41,15 @@ export default class ShangBang extends Component {
 
     this.state = {
       scrollX: new Animated.Value(0),
-      indicator: new Animated.Value(1)
+      indicator: new Animated.Value(1),
+      data:[
+       { text1:'湖州商帮'},
+       { text1:'绍兴商帮'},
+       { text1:'台州商帮'},
+       { text1:'湖州商帮'},
+       { text1:'湖州商帮'},
+       { text1:'湖州商帮'},
+      ]
     }
   }
 
@@ -48,7 +60,7 @@ export default class ShangBang extends Component {
     return (
       <View style={styles.container}>
         {/* <View style={{height: 20 + height / 2}}> */}
-          {this.renderScroll()}
+        {this.renderScroll()}
         {/* </View> */}
       </View>
     );
@@ -57,19 +69,19 @@ export default class ShangBang extends Component {
   renderScroll() {
     return <Animated.ScrollView
       horizontal={true}
-      style={{flex: 1}}
-      contentContainerStyle={{alignItems: 'center', flexGrow: 1}}
+      style={{ flex: 1 }}
+      contentContainerStyle={{ alignItems: 'center', flexGrow: 1 }}
       decelerationRate={0}
       snapToInterval={itemWidth}
-      scrollEventThrottle={16}
+      scrollEventThrottle={20}
       snapToAlignment="start"
       showsHorizontalScrollIndicator={false}
       onScroll={Animated.event(
         [{ nativeEvent: { contentOffset: { x: this.state.scrollX } } }]
       )}
     >
-      {ITEMS.map((image,i) => {
-        return this.renderRow(image, i)
+      {ITEMS.map((k,i) => {
+        return this.renderRow(k, i)
       })}
     </Animated.ScrollView>
   }
@@ -89,13 +101,13 @@ export default class ShangBang extends Component {
   //     </View>
   // }
 
-  renderRow(image, i) {
+  renderRow(k, i) {
     let inputRange = [(i - 1) * itemWidth, i * itemWidth, (i + 1) * itemWidth, (i + 2) * itemWidth];
     let secondRange = [(i - 1) * itemWidth, i * itemWidth, (i + 1) * itemWidth]
 
     // Ensure that we're leaving space for latest item.
-    if (image === '') {
-      return <View key={i} style={[styles.emptyItem, {width: width * .33}]}></View>
+    if (k === '') {
+      return <View key={i} style={[styles.emptyItem, {width: width * 0.2}]}></View>
     }
 
     return (
@@ -106,10 +118,10 @@ export default class ShangBang extends Component {
         }),
         height: this.state.scrollX.interpolate({
           inputRange: secondRange,
-          outputRange: [itemHeight * .8, itemHeight, itemHeight],
+          outputRange: [itemHeight * 0.6, itemHeight, itemHeight],
         })
       }]}>
-        <ImageBackground key={i} source={{uri: image}} style={[StyleSheet.AbsoluteFill, {height: itemHeight, width: itemWidth,borderRadius:20, opacity: 1, resizeMode: 'cover'}]}>
+        <ImageBackground key={i} source={{uri: k.img}} style={[StyleSheet.AbsoluteFill, {height: itemHeight, width: itemWidth,borderRadius:20, opacity: 1, resizeMode: 'cover'}]}>
         <View style={[StyleSheet.AbsoluteFill, {opacity: 0.4, backgroundColor: COLORS[i], width: itemWidth, height: itemHeight}]}></View>
         <Animated.View
             style={[{
@@ -121,7 +133,7 @@ export default class ShangBang extends Component {
               height: itemHeight,
               opacity: this.state.scrollX.interpolate({
                 inputRange,
-                outputRange: [0.4,1, 1, 1]
+                outputRange: [0.4, 1, 1, 1]
               }),
               transform: [{
                 scale: this.state.scrollX.interpolate({
@@ -130,14 +142,17 @@ export default class ShangBang extends Component {
                 })
               }]
             }]}>
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: itemWidth, height: itemHeight, position: 'absolute', bottom: -itemHeight / 3, }}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: itemWidth, height: itemHeight, position: 'absolute', bottom: -itemHeight / 2.8, }}>
               {/* <Text style={{fontSize: fontSize,color: 'rgba(0,0,0,0.4)'}}>{i + 1}</Text> */}
-              <Text style={{fontSize: fontSize,color: '#7cc0c0',opacity:0.8}}>湖州商帮</Text>
+              <View style={{width:"100%",height:height*0.2,backgroundColor:"rgba(255,255,255,0.5)",padding:10}}>
+                <Text style={{fontSize:18,color:"#333",fontWeight:"bold"}}>{k.name}</Text>
+                <Text style={{fontSize:13,color:"#333"}}>{k.item}</Text>
+              </View>
+              {/* <Text style={{fontSize: 40,color: '#7cc0c0',fontWeight:"bold",opacity:0.9}}>湖州商帮</Text> */}
               {/* <Text style={{fontSize: fontSize,color: '#7cc0c0'}}>商帮</Text> */}
-
             </View>
           </Animated.View>
-          </ImageBackground>
+        </ImageBackground>
       </Animated.View>
     );
   }
@@ -145,11 +160,11 @@ export default class ShangBang extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height:height*0.45,
+    height:height*0.35,
     width:width*0.9,
-    marginLeft:-20
+    // marginLeft:-20
     // backgroundColor:"red",
- 
+
   },
   emptyItem: {
     overflow: 'hidden',
@@ -157,16 +172,12 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderLeftWidth: 20,
-    borderColor: 'white',
+    // borderColor: 'red',
     width: itemWidth,
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
+    borderRadius:15,
+    elevation:2,
+    marginLeft:width*0.01
   },
-  // heading: {
-  //   fontSize: 22,
-  //   fontWeight: '300',
-  //   alignSelf: 'flex-start',
-  //   paddingHorizontal: 10,
-  //   paddingVertical: 10,
-  // }
+
 });
