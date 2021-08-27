@@ -117,14 +117,9 @@ export default class Home extends Component {
         return (
             <View style={{ alignItems: 'center', }}>
                 <LinearGradient style={{ width }} colors={['#7cc0bf', '#fff', '#fff']} >
-                    <View style={{ height: height * 0.08, flexDirection: "row", alignItems: "center" }}>
-                        <View style={{ marginLeft: "5%" }}>
-                            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
-                            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
-                        </View>
-
-                        {/* <LottieView style={{marginLeft:"15%"}}  source={require('../../../../animal/71338-welcomegolden.json')} autoPlay loop={false} progress={this.state.progress} /> */}
-
+                    <View style={{ height: height * 0.08,width:width, flexDirection: "row", alignItems: "center",borderBottomLeftRadius:15,borderBottomRightRadius:15 }}>
+                        <Image source={require("../../img/logo.png")} style={{width:width*0.5,height:height*0.25,marginLeft:-width*0.05}}>
+                        </Image>
                     </View>
                     <View style={{ alignItems: 'center',height:height*0.88 }}>
                         <ScrollView

@@ -56,10 +56,9 @@ renderDate({item,index}){
         return (
             <View style={{ flex: 1 }}>
                 <View  activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0", elevation: 1 }}>
-                    <AntDesign name='left' size={20} color='#fff' onPress={() => this.props.navigation.goBack()} />
-                    <Text style={{ fontSize: 18, color: "#fff", marginLeft: 10, fontWeight: "bold" }}>消息</Text>
+                    <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' onPress={() => this.props.navigation.goBack()} />
+                    <Text style={{ fontSize: 18, color: "#fff", marginLeft: "2%", fontWeight: "bold" }}>消息</Text>
                 </View>
-                
                 <FlatList
                 style={{marginTop:20}}
                 data={this.state.data}

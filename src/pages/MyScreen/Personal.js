@@ -192,17 +192,26 @@ export default class Personal extends Component {
               <Text style={{ fontSize: 15, color: "#fff" }}>{data.nickname}</Text>
               <Text style={{ fontSize: 15, color: "#fff" }}>的个人中心</Text>
             </View>
-            <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})} />
+            <TouchableOpacity activeOpacity={1} style={{ width:65,height:65 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})}>
+            <LottieView source={require('../../../animal/bell.json')} autoPlay loop progress={this.state.progress} />
+            </TouchableOpacity>
+            {/* <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})} /> */}
           </View>
           <View style={{ width: width * 1, height: height * 0.87 }}>
             <ScrollView>
               <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
-                <View activeOpacity={1} style={{ width: width * 0.754, height: height * 0.354, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10, elevation: 5, justifyContent: "center", alignItems: "center" }}>
-                  <ImageBackground source={{ uri: data.portrait }} style={{ width: width * 0.75, height: height * 0.35, alignItems: "center" }} borderRadius={10}>
-                    <View style={{ width: "100%", height: "100%", borderRadius: 10, backgroundColor: "rgba(0,0,0,0.1)" }}>
-                      <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
-                      <View style={{ marginTop: 10, width: width * 0.65 }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", textAlign: "right" }}>{data.signature}</Text></View>
-                    </View>
+                <View activeOpacity={1} style={{ width: width * 0.754,height: height * 0.354, borderWidth: 1, borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10, elevation: 5, }}>
+                  <ImageBackground source={{ uri: data.portrait }} style={{ width: width * 0.75, height: height * 0.35 }} borderRadius={10}>
+                    {/* <View style={{  height: "100%", borderRadius: 10,}}> */}
+                    <View style={{ width:width*0.4, height: height * 0.05, backgroundColor:"rgba(255,255,255,0.8)",justifyContent: "center",elevation: 5,marginTop:height*0.22 }}>
+                    <Text style={{ color: "#7cc0c0", fontSize: 15, fontWeight: "bold",marginLeft:"5%" }}>{data.nickname}</Text>
+                  </View>
+                  <View style={{ height: height * 0.05, backgroundColor:"rgba(255,255,255,0.8)",justifyContent: "center", marginTop: "5%", elevation: 5 }}>
+                  <Text style={{ color: "#7cc0c0", fontSize: 13 ,marginLeft:"5%"}}>{data.signature}</Text>
+                  </View>
+                      {/* <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
+                      <View style={{ marginTop: 10, width: width * 0.65 }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", textAlign: "right" }}>{data.signature}</Text></View> */}
+                    {/* </View> */}
                   </ImageBackground>
                 </View>
                 <View>
@@ -246,7 +255,7 @@ export default class Personal extends Component {
                 <View style={{ width: width * 0.9, height: height * 0.25, backgroundColor: "#fff", marginHorizontal: width * 0.05 }}>
                 </View>
               </View>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.4, alignItems: "center", flexDirection: "row" }}>
+              <TouchableOpacity onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.35, alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: width * 0.3 }}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text style={{ marginLeft: "15%", marginTop: "45%", fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>我的发布</Text>
