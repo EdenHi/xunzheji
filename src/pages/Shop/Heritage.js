@@ -75,8 +75,8 @@ export default class Heritage extends Component {
     }
     renderItem = ({ item, index }) => {
         return (
-            <TouchableOpacity style={{ borderWidth: 3, borderColor: this.state.data[index].select ? "#7cc0c0" : "#fff" }} onPress={() => {this.selcetOnpress(item, index) }}>
-                <View style={{ flexDirection: "row", backgroundColor: "#fff", borderRadius: 5, marginVertical: height * 0.01 }}>
+            <TouchableOpacity style={{ borderWidth: 0,  }} onPress={() => {this.selcetOnpress(item, index) }}>
+                <View style={{ borderColor: this.state.data[index].select ? "#fedc61" : "#fff",flexDirection: "row", backgroundColor: "#fff", borderRadius: 5, marginVertical: height * 0.01 ,borderWidth:5}}>
                     <Image style={{ width: width * 0.5, height: width * 0.5, borderRadius: 5 }} source={{ uri: item.img }} />
                     <View style={{ width: width * 0.32, marginLeft: 10, height: width * 0.5, justifyContent: "center" }}>
                         <Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center", color: "#333333" }}>{item.title}</Text>
