@@ -154,7 +154,7 @@ export default class Locked extends Component {
         <FlipCard>
           <View style={{ width: '100%', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, backgroundColor:"#fff",elevation:5 }}>
             <View style={{ width: '85%', marginHorizontal: '7%', height: '60%', borderRadius: 60, marginTop: "5%" }}>
-              <Image style={{ width: '100%', height: '100%', }} borderRadius={60} source={{ uri: 'https://img.zcool.cn/community/01e7bf58c8c065a801219c77f23072.jpg@1280w_1l_2o_100sh.jpg' }}></Image>
+              <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: 'http://8.142.11.85:3000/public/images/a.png' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
                 <ImageBackground style={{ width: '100%', height: '100%', }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}>
                   <AntDesign style={{ backgroundColor: '#7cc0bf', width: '35%', height: '35%', borderRadius: 50, textAlign: 'center', textAlignVertical: 'center', marginTop: '60%', marginLeft: '60%' }}
@@ -175,8 +175,8 @@ export default class Locked extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.roadNumber
-            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%',elevation:5 }}>
-              <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
+            })} style={{ backgroundColor: '#fff', width: '90%', marginHorizontal: '5%', borderColor:"#7cc0c0",borderWidth:1,height: '10%', borderRadius: 20, marginTop: '1%',elevation:5 }}>
+              <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#7cc0c0' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
           <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
@@ -191,7 +191,7 @@ export default class Locked extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.road
-            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '2.5%' ,elevation:5}}>
+            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '1%' ,elevation:5}}>
               <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
@@ -199,15 +199,15 @@ export default class Locked extends Component {
       );
     } else
       return (
-        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#7cc0c0', elevation:5 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
-          <Text style={{ marginTop: '7%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>{this.props.roadname}</Text>
-          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>可获得 <FontAwesome5
+        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#fff', elevation:5 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
+          <Text style={{ marginTop: '7%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#333' }}>{this.props.roadname}</Text>
+          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#333' }}>可获得 <FontAwesome5
               name='coins'
               size={15}
               color='gold'
             /> 25</Text>
-          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#fff' }}>共225用户参与</Text>
-          <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-19%', borderRadius: 50, backgroundColor: '#729c9c' ,elevation:5}}>
+          <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#333' }}>共225用户参与</Text>
+          <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-19%', borderRadius: 50, backgroundColor: '#7cc0c0' ,elevation:5}}>
             <Fontisto style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', }}
               onPress={() => {
                 this.showAlert()
