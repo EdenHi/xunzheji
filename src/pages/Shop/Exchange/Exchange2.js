@@ -188,7 +188,7 @@ export default class Exchange2 extends Component {
                            
                             <TouchableOpacity
                             activeOpacity={0.9}
-                            style={{width:width * 0.7,marginLeft:width * 0.1,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:height*0.05,borderRadius:20}}
+                            style={{width:width * 0.8,marginHorizontal:width * 0.05,justifyContent:'center',alignItems:'center',backgroundColor:'#7cc0bc',marginTop:width * 0.05,height:height*0.05,borderRadius:20}}
                             onPress = {()=>this.send()}>
                                 <Text style={{color:'white',fontSize:15}}>上传</Text>
                             </TouchableOpacity>
