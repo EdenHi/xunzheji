@@ -64,7 +64,7 @@ export default class XiaoXi extends Component {
     renderItem = ({ item, index }) => {
 
         return (
-            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: item.room, nickname:this.props.route.params.nickname==item.nickname1?item.nickname2:item.nickname1,username:item.user_2}) }} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 1, borderRadius: 10 }}>
+            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Chats', { room: item.room, nickname:this.props.route.params.nickname==item.nickname1?item.nickname2:item.nickname1,username:item.user_2}) }} style={{ width: width * 0.9, height: height * 0.1, flexDirection: "row", backgroundColor: "#fff", alignItems: "center", marginHorizontal: width * 0.05, marginBottom: 20, elevation: 5, borderRadius: 10,marginTop:5 }}>
                 <Image source={{ uri:this.props.route.params.avatar==item.avatar1?item.avatar2:item.avatar1 }} style={{ width: width * 0.1, height: width * 0.1, borderRadius: 50, marginLeft: 10 }} />
                 <View style={{ marginLeft: 20 }}>
                     <Text style={{ fontSize: 15, fontWeight: "bold", marginBottom: 5 }}>{this.props.route.params.nickname==item.nickname1?item.nickname2:item.nickname1}</Text>
@@ -75,23 +75,30 @@ export default class XiaoXi extends Component {
     }
     render() {
         return (
-            <View>
+            <View style={{flex:1,backgroundColor:"#fff"}}>
                 <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0", elevation: 1 }}>
-                    <AntDesign name='left' size={20} color='#fff' />
-                    <Text style={{ fontSize: 18, color: "#fff", marginLeft: 10, fontWeight: "bold" }}>消息</Text>
+                    <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' />
+                    <Text style={{ fontSize: 18, color: "#fff", marginLeft:"2%", fontWeight: "bold" }}>消息</Text>
                 </TouchableOpacity>
-                <View style={{ flexDirection: "row", marginTop: 20, marginHorizontal: width * 0.1, justifyContent: "space-between", height: height * 0.15 }}>
-                    <View style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
-                        <Image source={require('../HomeScreen/photos/q.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
-                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>赞和收藏</Text>
-                    </View>
-                    <View style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                <View style={{ flexDirection: "row", marginTop: 20,marginHorizontal: width * 0.1, justifyContent: "space-between", height: height * 0.12}}>
+                    <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.2, alignItems: "center" ,backgroundColor:"#fff"}}>
+                        <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
+                        <Image source={require('../HomeScreen/photos/q.png')} style={{ width: width * 0.10, height: width * 0.10,borderRadius:50 }} />
+                        </View>
+                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>赞和收藏</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                    <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
                         <Image source={require('../HomeScreen/photos/e.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
-                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>评论和@</Text>
-                    </View>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate("Want")} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                        </View>
+                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>评论</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate("Want")} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                    <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
+                    {/* <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}> */}
                         <Image source={require('../HomeScreen/photos/r.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
-                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 10 }}>我想要</Text>
+                        </View>
+                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>我想要</Text>
                     </TouchableOpacity>
                 </View>
                 <View>

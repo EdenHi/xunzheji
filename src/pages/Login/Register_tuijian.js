@@ -14,17 +14,17 @@ export default class Register_tuijian extends Component {
         this.state = {
             tuijian:'',
             isZs1:false,
-            donghua1_1:new Animated.Value(-80),
-            donghua1_2:new Animated.Value(-160),
+            donghua1_1:new Animated.Value(-65),
+            donghua1_2:new Animated.Value(-130),
             isZs2:false,
-            donghua2_1:new Animated.Value(-80),
-            donghua2_2:new Animated.Value(-160),
+            donghua2_1:new Animated.Value(-65),
+            donghua2_2:new Animated.Value(-130),
             isZs3:false,
-            donghua3_1:new Animated.Value(-80),
-            donghua3_2:new Animated.Value(-160),
+            donghua3_1:new Animated.Value(-65),
+            donghua3_2:new Animated.Value(-130),
             isZs4:false,
-            donghua4_1:new Animated.Value(-80),
-            donghua4_2:new Animated.Value(-160),
+            donghua4_1:new Animated.Value(-65),
+            donghua4_2:new Animated.Value(-130),
         }
     }
 
@@ -63,12 +63,12 @@ export default class Register_tuijian extends Component {
 
     pingyi1_close(){
         Animated.timing(this.state.donghua1_1, {
-            toValue: -80, // 目标值
+            toValue: -65, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
         Animated.timing(this.state.donghua1_2, {
-            toValue: -160, // 目标值
+            toValue: -130, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
@@ -92,12 +92,12 @@ export default class Register_tuijian extends Component {
 
     pingyi2_close(){
         Animated.timing(this.state.donghua2_1, {
-            toValue: -80, // 目标值
+            toValue: -65, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
         Animated.timing(this.state.donghua2_2, {
-            toValue: -160, // 目标值
+            toValue: -130, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
@@ -121,12 +121,12 @@ export default class Register_tuijian extends Component {
 
     pingyi3_close(){
         Animated.timing(this.state.donghua3_1, {
-            toValue: -80, // 目标值
+            toValue: -65, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
         Animated.timing(this.state.donghua3_2, {
-            toValue: -160, // 目标值
+            toValue: -130, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
@@ -151,12 +151,12 @@ export default class Register_tuijian extends Component {
 
     pingyi4_close(){
         Animated.timing(this.state.donghua4_1, {
-            toValue: -80, // 目标值
+            toValue: -65, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
         Animated.timing(this.state.donghua4_2, {
-            toValue: -160, // 目标值
+            toValue: -130, // 目标值
             duration: 500, // 动画时间
             easing: Easing.linear // 缓动函数
         }).start();
@@ -186,13 +186,13 @@ export default class Register_tuijian extends Component {
                             <Text style={{marginHorizontal:5}}>美食</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs1===false?this.pingyi1_open():this.pingyi1_close()}} activeOpacity={1}>
                                 <View style={{elevation:5,borderWidth:1}} >
-                                    <Image resizeMode='stretch' source={{uri:'https://gd4.alicdn.com/imgextra/i4/2209861795974/O1CN01oQxYo61u08jlpRxZR_!!2209861795974.png_150x150.jpg_.webp'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://gd4.alicdn.com/imgextra/i4/2209861795974/O1CN01oQxYo61u08jlpRxZR_!!2209861795974.png_150x150.jpg_.webp'}} style={{height:80,width:80,}}/>
                                 </View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua1_1}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://i.loli.net/2021/08/09/Jkbdoh3DIyeT9Lt.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://i.loli.net/2021/08/09/Jkbdoh3DIyeT9Lt.jpg'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua1_2}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://5b0988e595225.cdn.sohucs.com/images/20170927/2e0458795d5447f894722b23dbec8934.png'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://5b0988e595225.cdn.sohucs.com/images/20170927/2e0458795d5447f894722b23dbec8934.png'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                             </TouchableOpacity>
                             
@@ -206,13 +206,13 @@ export default class Register_tuijian extends Component {
                             <Text style={{marginHorizontal:5}}>制造</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs2===false?this.pingyi2_open():this.pingyi2_close()}} activeOpacity={1}>
                                 <View style={{elevation:10,borderWidth:1}} >
-                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i2/1963505180/O1CN01Jody7q1o8UI4P01pc_!!1963505180.jpg_150x150q90.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i2/1963505180/O1CN01Jody7q1o8UI4P01pc_!!1963505180.jpg_150x150q90.jpg'}} style={{height:80,width:80,}}/>
                                 </View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua2_1}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/https://img.alicdn.com/bao/uploaded/i1/2824527807/TB2fx64qr1YBuNjSszhXXcUsFXa_!!2824527807.jpg_150x150q90.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/https://img.alicdn.com/bao/uploaded/i1/2824527807/TB2fx64qr1YBuNjSszhXXcUsFXa_!!2824527807.jpg_150x150q90.jpg'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua2_2}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://bkimg.cdn.bcebos.com/pic/54fbb2fb43166d224da409d84b2309f79152d2ae?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://bkimg.cdn.bcebos.com/pic/54fbb2fb43166d224da409d84b2309f79152d2ae?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                             </TouchableOpacity>
                         </TouchableOpacity>
@@ -224,13 +224,13 @@ export default class Register_tuijian extends Component {
                             <Text style={{marginHorizontal:5}}>工美</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs3===false?this.pingyi3_open():this.pingyi3_close()}} activeOpacity={1}>
                                 <View style={{elevation:10,borderWidth:1}} >
-                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i4/2013831043/O1CN01mIGIni1JZjm48Xh9F_!!2013831043.jpg_150x150q90.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i4/2013831043/O1CN01mIGIni1JZjm48Xh9F_!!2013831043.jpg_150x150q90.jpg'}} style={{height:80,width:80,}}/>
                                 </View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua3_1}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i4/2211562091974/O1CN017uWHIr1QS8VtcLJJV_!!0-item_pic.jpg_160x160q90.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i4/2211562091974/O1CN017uWHIr1QS8VtcLJJV_!!0-item_pic.jpg_160x160q90.jpg'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua3_2}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2928866662,1560677089&fm=199&app=68&f=JPEG?w=750&h=750&s=C1C09A464A67BADC54DDB59E03005082'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=2928866662,1560677089&fm=199&app=68&f=JPEG?w=750&h=750&s=C1C09A464A67BADC54DDB59E03005082'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                             </TouchableOpacity>
                         </TouchableOpacity>
@@ -242,13 +242,13 @@ export default class Register_tuijian extends Component {
                             <Text style={{marginHorizontal:5}}>茶酒</Text>
                             <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>{this.state.isZs4===false?this.pingyi4_open():this.pingyi4_close()}} activeOpacity={1}>
                                 <View style={{elevation:10,borderWidth:1}} >
-                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i3/1665326773/O1CN01NyzYBR1zu54pkOOEX_!!0-item_pic.jpg_160x160q90.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://img.alicdn.com/imgextra/i3/1665326773/O1CN01NyzYBR1zu54pkOOEX_!!0-item_pic.jpg_160x160q90.jpg'}} style={{height:80,width:80,}}/>
                                 </View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua4_1}}>
-                                    <Image resizeMode='stretch' source={{uri:'http://cdn.tjkximg.com/2020-03/20/11/32341423408.jpg'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'http://cdn.tjkximg.com/2020-03/20/11/32341423408.jpg'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                                 <Animated.View style={{elevation:10,borderWidth:1,left:this.state.donghua4_2}}>
-                                    <Image resizeMode='stretch' source={{uri:'https://bkimg.cdn.bcebos.com/pic/a9d3fd1f4134970a304e02dde081c6c8a786c817f7a4?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto'}} style={{height:100,width:100,}}/>
+                                    <Image resizeMode='stretch' source={{uri:'https://bkimg.cdn.bcebos.com/pic/a9d3fd1f4134970a304e02dde081c6c8a786c817f7a4?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto'}} style={{height:80,width:80,}}/>
                                 </Animated.View>
                             </TouchableOpacity>
                         </TouchableOpacity>

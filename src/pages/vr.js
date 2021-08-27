@@ -14,8 +14,11 @@ export default class vr extends Component {
        <View style={{width:width,height:80,position:"absolute",backgroundColor:"#7cc0c0",elevation:5,borderBottomLeftRadius:15,borderBottomRightRadius:15}}>
        <View style={{ height: height * 0.1, flexDirection: "row", alignItems: "center" }}>
                         <View style={{ marginLeft: "5%" }}>
-                            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
-                            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text>
+                        <Image source={require("../pages/img/logo.png")} style={{width:width*0.5,height:height*0.25,marginLeft:-width*0.1}}>
+                            {/* <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff' }}>寻商迹</Text>
+                            <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff' }}>XUN SHANG JI</Text> */}
+                        </Image>
+
                         </View>
 
                         {/* <LottieView style={{marginLeft:"15%"}}  source={require('../../../../animal/71338-welcomegolden.json')} autoPlay loop={false} progress={this.state.progress} /> */}
