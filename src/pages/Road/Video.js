@@ -112,11 +112,19 @@ export default class componentName extends Component {
     //向服务器上传steps
     updateStep() {
         console.log(this.state.step);
-        axios.post('http://8.142.11.85:3000/shouye/update_map', {
-            username: this.props.route.params.username,
-            road: this.props.route.params.road,
-            steps: this.state.step
-        })
+        if(this.state.step==0){
+            axios.post('http://8.142.11.85:3000/shouye/update_map', {
+                username: this.props.route.params.username,
+                road: this.props.route.params.road,
+                steps: this.state.prevSteps
+            })
+        }else{
+            axios.post('http://8.142.11.85:3000/shouye/update_map', {
+                username: this.props.route.params.username,
+                road: this.props.route.params.road,
+                steps: this.state.step
+            })
+        }
     }
     //更新金币数
     getAllGold(gold1) {
@@ -461,7 +469,6 @@ export default class componentName extends Component {
         );
     }
 }
-
 
 class ThisMission extends Component {
     constructor(props) {

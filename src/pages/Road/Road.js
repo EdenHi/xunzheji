@@ -36,8 +36,10 @@ export default class Road extends Component {
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>路线选择</Text>
                     </View>
-                    <ScrollableTabView renderTabBar={() => <TabBar />}>
-                        <ScrollView tabLabel='鸡毛换糖之路' style={{ width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
+                    <ScrollableTabView initialPage={1} renderTabBar={() => <TabBar />}
+
+                    >
+                        <ScrollView tabLabel='糖担路线' style={{ width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.9, marginLeft: width * 0.05 }}>
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road1} roadNumber={1} roadname="鸡毛换糖-南路" />
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road2} roadNumber={2} roadname="鸡毛换糖-中路"/>

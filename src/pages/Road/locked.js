@@ -26,7 +26,7 @@ export default class Locked extends Component {
 
   //获取上一条路线信息
   getLastData() {
-    if (this.props.roadNumber >= 2)
+    if (this.props.roadNumber >= 2){
       fetch('http://8.142.11.85:3000/shouye/get_user_map', {
         method: 'post',
         headers: {
@@ -41,10 +41,13 @@ export default class Locked extends Component {
         .then((json) => {
 
           this.setState({ lastStep: json[0].steps })
+          console.log( json[0].steps);
         })
         .catch((error) => {
           console.log(error);
         })
+    }
+
   }
   //获取当前路线信息
   getThisData() {
