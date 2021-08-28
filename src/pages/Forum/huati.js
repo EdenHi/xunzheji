@@ -224,7 +224,7 @@ export default class huati extends Component {
                         ellipsizeMode="tail"
                         numberOfLines={8}>{item.title}</Text>
                     <View style={styles.box}>
-
+                        <View style={styles.listViewStyle}>
                         {
                             item.pic.map((v, k) => {
                                 if (v === null) {
@@ -266,6 +266,7 @@ export default class huati extends Component {
 
                             })
                         }
+                        </View>
                     </View>
 
                     {/* tag标签 */}

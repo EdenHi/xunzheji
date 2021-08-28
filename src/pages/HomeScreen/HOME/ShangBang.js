@@ -12,7 +12,7 @@ const fontSize=  50;
 
 const COLORS = ['coral', 'mediumturquoise', 'palevioletred', 'papayawhip', 'tomato']
 const ITEMS = [
-  {img:'http://8.142.11.85:3000/public/images/yiwu1.png',name:"萧绍商帮",item:"萧绍地区即古越文化的核心地区，萧绍商帮是指活跃在萧绍平原上的萧山，萧山和绍兴是浙江经济最为发达的地区，是中国最大的纺织化纤制造基地。"},
+  {img:'http://8.142.11.85:3000/public/images/xiaoshao1.png',name:"萧绍商帮",item:"萧绍地区即古越文化的核心地区，萧绍商帮是指活跃在萧绍平原上的萧山，萧山和绍兴是浙江经济最为发达的地区，是中国最大的纺织化纤制造基地。"},
   {img:'http://8.142.11.85:3000/public/images/xiaoshao1.png',name:"湖州商帮",item:"湖商，是继徽商、晋商之后，在近代中国涌现的具有强烈地域特征的商人群体。"},
   {img:'http://8.142.11.85:3000/public/images/shaoxin1.png',name:"龙游商帮",item:"明清时期中国十大商帮之一，主要指历史上今浙江境内金丽衢地区商人的集合，它以原衢州府龙游县为中心。"},
   {img:'http://8.142.11.85:3000/public/images/shaoxin1.png',name:"绍兴越商",item:"绍兴越商，是中国一大商帮，从民国时期逐鹿上海滩、控制金融命脉的绍兴帮。"},
@@ -72,7 +72,7 @@ export default class ShangBang extends Component {
       style={{ flex: 1 }}
       contentContainerStyle={{ alignItems: 'center', flexGrow: 1 }}
       decelerationRate={0}
-      snapToInterval={itemWidth}
+      snapToInterval={width*0.75}
       scrollEventThrottle={20}
       snapToAlignment="start"
       showsHorizontalScrollIndicator={false}
@@ -118,14 +118,14 @@ export default class ShangBang extends Component {
         }),
         height: this.state.scrollX.interpolate({
           inputRange: secondRange,
-          outputRange: [itemHeight * 0.6, itemHeight, itemHeight],
+          outputRange: [itemHeight * 0.7, itemHeight, itemHeight],
         })
       }]}>
         <ImageBackground key={i} source={{uri: k.img}} style={[StyleSheet.AbsoluteFill, {height: itemHeight, width: itemWidth,borderRadius:20, opacity: 1, resizeMode: 'cover'}]}>
         <View style={[StyleSheet.AbsoluteFill, {opacity: 0.5, backgroundColor: COLORS[i], width: itemWidth, height: itemHeight}]}></View>
         <Animated.View
             style={[{
-              width: itemWidth,
+              width: width*0.7,
               alignItems: 'flex-end',
               justifyContent: 'flex-end',
               flex: 1,
@@ -133,16 +133,16 @@ export default class ShangBang extends Component {
               height: itemHeight,
               opacity: this.state.scrollX.interpolate({
                 inputRange,
-                outputRange: [0.4, 1, 1, 1]
+                outputRange: [0.5, 1, 1, 1]
               }),
               transform: [{
                 scale: this.state.scrollX.interpolate({
                   inputRange,
-                  outputRange: [.5, 1, 1.4, 1]
+                  outputRange: [0.5, 1, 1, 1]
                 })
               }]
             }]}>
-            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: itemWidth, height: itemHeight, position: 'absolute', bottom: -itemHeight / 2.8, }}>
+            <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', width: width*0.7, height: itemHeight, position: 'absolute', bottom: -itemHeight / 2.8, }}>
               {/* <Text style={{fontSize: fontSize,color: 'rgba(0,0,0,0.4)'}}>{i + 1}</Text> */}
               <View style={{width:"100%",height:height*0.2,backgroundColor:"rgba(255,255,255,0.8)",padding:10}}>
                 <Text style={{fontSize:18,color:"#333",fontWeight:"bold"}}>{k.name}</Text>
@@ -173,11 +173,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     // borderColor: 'red',
-    width: itemWidth,
+    width: width*0.7,
     backgroundColor: 'transparent',
     borderRadius:15,
     elevation:2,
-    marginLeft:width*0.01
+    
+    marginRight:width*0.05
   },
 
 });

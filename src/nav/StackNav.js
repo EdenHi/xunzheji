@@ -102,6 +102,8 @@ import CityList from '../components/CityList';
 import Ranking from '../Ranking';
 import { startClock } from 'react-native-reanimated';
 import Road from '../pages/Road/Road';
+import Road2 from '../pages/Road/Road2';
+import Road3 from '../pages/Road/Road3';
 import Chats from '../pages/chat/demo';
 import articel from '../pages/article/comment/article_detail';
 const Stack = createStackNavigator();
@@ -153,6 +155,8 @@ export default function StackNav() {
       <Stack.Screen name="Zs" component={Zs} />
       <Stack.Screen name="CulturalCreation" component={CulturalCreation} />
       <Stack.Screen name="Road" component={Road} />
+      <Stack.Screen name="Road2" component={Road2} />
+      <Stack.Screen name="Road3" component={Road3} />
       <Stack.Screen name="Classify" component={Classify} />
 
       <Stack.Screen name="Heritage" component={Heritage} />

@@ -37,9 +37,10 @@ export default class Road extends Component {
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>路线选择</Text>
                     </View>
-                    <ScrollableTabView initialPage={0} renderTabBar={() => <TabBar />}
+                    <ScrollableTabView initialPage={1} renderTabBar={() => <TabBar />}
 
                     >
+  
                         <ScrollView tabLabel='糖担路线' style={{ width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.9, marginLeft: width * 0.05 }}>
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road1} roadNumber={1} roadname="鸡毛换糖-南路" />
@@ -48,7 +49,6 @@ export default class Road extends Component {
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road4} roadNumber={4} />
                             </View>
                         </ScrollView>
-
                         <ScrollView tabLabel='亚运路线' style={{ width: width, flex: 0.8, borderColor: 'red', borderTopLeftRadius: 15, borderTopRightRadius: 15 }} showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.9, marginLeft: width * 0.05 }}>
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road8} roadNumber={8} />
@@ -63,6 +63,8 @@ export default class Road extends Component {
                                 <Locked navigation={this.props.navigation} username={this.state.username} isUnlock={this.state.road7} roadNumber={7} />
                             </View>
                         </ScrollView>
+
+
                     </ScrollableTabView>
                 </LinearGradient>
             </View>
