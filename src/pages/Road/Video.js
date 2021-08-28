@@ -286,7 +286,6 @@ export default class componentName extends Component {
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3419080691,3340640814&fm=26&fmt=auto&gp=0.jpg' }}>
                                             <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
-
                                                 </View>
                                                 <View style={{ height: '70%' }}>
                                                     <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>唱一曲团结协作的歌</Text>
@@ -299,7 +298,6 @@ export default class componentName extends Component {
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
-
                                             </TouchableOpacity>
                                         </ImageBackground>
                                     </View>
