@@ -112,11 +112,19 @@ export default class componentName extends Component {
     //向服务器上传steps
     updateStep() {
         console.log(this.state.step);
-        axios.post('http://8.142.11.85:3000/shouye/update_map', {
-            username: this.props.route.params.username,
-            road: this.props.route.params.road,
-            steps: this.state.step
-        })
+        if (this.state.step == 0) {
+            axios.post('http://8.142.11.85:3000/shouye/update_map', {
+                username: this.props.route.params.username,
+                road: this.props.route.params.road,
+                steps: this.state.prevSteps
+            })
+        } else {
+            axios.post('http://8.142.11.85:3000/shouye/update_map', {
+                username: this.props.route.params.username,
+                road: this.props.route.params.road,
+                steps: this.state.step
+            })
+        }
     }
     //更新金币数
     getAllGold(gold1) {
@@ -278,7 +286,6 @@ export default class componentName extends Component {
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3419080691,3340640814&fm=26&fmt=auto&gp=0.jpg' }}>
                                             <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
-
                                                 </View>
                                                 <View style={{ height: '70%' }}>
                                                     <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>唱一曲团结协作的歌</Text>
@@ -291,7 +298,6 @@ export default class componentName extends Component {
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
-
                                             </TouchableOpacity>
                                         </ImageBackground>
                                     </View>
@@ -349,7 +355,7 @@ export default class componentName extends Component {
                         </View>
                     </Modal>
 
-{/*  */}
+                    {/*  */}
 
                     <Modal
                         animationType='fade'
@@ -360,29 +366,32 @@ export default class componentName extends Component {
                             this.setModalVisible4(!modalVisible4);
                         }}
                     >
-                        <TouchableOpacity  activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
-                            <View collapsable={false} ref={viewRef} style={{borderWidth:1,height:height*0.83}}>
-                            <ImageBackground  resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={require('../img/haibao.png')}>
-                                <View style={{ height: height * 0.05, width: '90%', marginLeft: '4.7%', borderColor: 'red', marginTop: height * 0.433, borderWidth: 0 }}>
-                                    <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>已抵达孝顺镇{ }，累计走过{ }00公里</Text>
-                                </View>
-                            </ImageBackground>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                            <View collapsable={false} ref={viewRef} style={{ borderWidth: 1, height: height * 0.83 }}>
+                                <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: '80%', height: height * 0.6, marginLeft: '10%', marginTop: height * 0.15, borderWidth: 0, }} imageStyle={{ width: '100%' }} borderRadius={10} source={require('../img/haibao.png')}>
+                                    <View style={{ height: height * 0.05, width: '90%', marginLeft: '4.7%', borderColor: 'red', marginTop: height * 0.433, borderWidth: 0 }}>
+                                        <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold', textAlign: 'center', width: '100%', height: '100%', textAlignVertical: 'center' }}>已抵达孝顺镇{ }，累计走过{ }00公里</Text>
+                                    </View>
+                                </ImageBackground>
                             </View>
-                            
+
                             <View style={{ backgroundColor: '#fff', width, flex: 1, marginBottom: height * 0 }}>
                                 <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
 
                                     <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
-                                        <TouchableOpacity onPress={() => { captureRef(viewRef, {
-                                        format: "jpg",
-                                        quality: 0.8
-                                    }).then(
-                                        uri => {
-                                            this.setState({ shoturi: uri })
-                                            console.log("Image saved to", uri)
-                                            this.props.navigation.navigate('Fabu', { path:uri, mime: 'image/jpeg' }) }
+                                        <TouchableOpacity onPress={() => {
+                                            captureRef(viewRef, {
+                                                format: "jpg",
+                                                quality: 0.8
+                                            }).then(
+                                                uri => {
+                                                    this.setState({ shoturi: uri })
+                                                    console.log("Image saved to", uri)
+                                                    this.props.navigation.navigate('Fabu', { path: uri, mime: 'image/jpeg' })
+                                                }
 
-                                    );console.log(this.state.shoturi),this.setModalVisible4(!modalVisible4)}} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
+                                            ); console.log(this.state.shoturi), this.setModalVisible4(!modalVisible4)
+                                        }} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
                                             <Image style={{ width: '100%', height: '100%', }} source={require('../img/pyq.png')}></Image>
                                         </TouchableOpacity>
                                         <Text style={{ marginTop: height * 0.01, width: '60%', alignSelf: 'center', textAlignVertical: 'center', textAlign: 'center', fontSize: 17, color: '#333' }}>
@@ -435,11 +444,11 @@ export default class componentName extends Component {
                         />
                     </View>
                     {/* 底部 */}
-                    <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075 ,justifyContent:'center'}}>
+                    <View style={{ height: height * 0.2, flexDirection: 'row', marginTop: -height * 0.075, justifyContent: 'center' }}>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '18%', justifyContent: 'space-around' }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../img/指南.png")}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2), this.props.navigation.navigate('AR')}} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
+                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2), this.props.navigation.navigate('AR') }} style={{ height: '100%', width: '18%', justifyContent: 'space-around', alignItems: 'flex-end', borderWidth: 0 }}>
                             <Image style={{ borderWidth: 1, width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../img/足迹.png")}></Image>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.18, height: width * 0.18, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center', marginTop: -height * 0.07, borderWidth: 5, borderColor: '#fff', marginLeft: width * 0.06 }}>
@@ -457,7 +466,6 @@ export default class componentName extends Component {
         );
     }
 }
-
 
 class ThisMission extends Component {
     constructor(props) {
