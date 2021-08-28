@@ -1,4 +1,6 @@
 import React from 'react';
+import { TouchableOpacity } from 'react-native';
+import { ImageBackground } from 'react-native';
 import {
     StyleSheet,
     Text,
@@ -48,6 +50,7 @@ export default class open extends React.Component
         this.state.size.setValue({
             x: width,
             y: height
+            
         })
 
         this.setState({
@@ -60,7 +63,7 @@ export default class open extends React.Component
                         toValue: tPageX
                     }),
                     Animated.spring(this.state.position.y, {
-                        toValue: tPageY
+                        toValue: 0
                     }),
                     Animated.spring(this.state.size.x, {
                         toValue: tWidth
@@ -119,19 +122,21 @@ export default class open extends React.Component
 
                     const activeStyle = idx === this.state.activeIndex ? activeIndexStyle : undefined
                     return (
-                        <TouchableWithoutFeedback
-                        style={{margin:51}}
+                        <TouchableOpacity
+                        style={{flexDirection:"column-reverse"}}
                             key={idx}
                             onPress={() => this.handleOpeningImage(idx)}
                         >
                             <Image
+                            // imageStyle={{borderRadius:15}}
                                 source={src}
                                 resizeMode="cover"
                                 style={[styles.photoStyle, activeStyle]}
                                 ref={image => this._gridImages[idx] = image}
                             />
+                            <View style={{width: width*0.45,height:width*0.2,borderBottomLeftRadius:15,borderBottomRightRadius:15,backgroundColor:"rgba(255,255,255,0.8)",position:"absolute",  marginLeft:width*0.033,}}></View>
                             {/* 外面图片的大小 */}
-                        </TouchableWithoutFeedback>
+                        </TouchableOpacity>
                     )
                 })
             }
@@ -142,7 +147,7 @@ export default class open extends React.Component
   renderImageDummyData = () => {
     const animatedContentTranslate = this.state.animation.interpolate({
         inputRange: [0, 1],
-        outputRange: [100, 0]
+        outputRange: [500, 0]
     })
 
     const animatedContentStyle = {
@@ -158,21 +163,15 @@ export default class open extends React.Component
                 style={[styles.content, animatedContentStyle]}
             >
                 <View style={styles.headingStyle}>
-                    <Text style={styles.title}>
-                        Life
-                    </Text>
+                <ScrollView>
+                    <Text style={styles.contentStyle}>
+                    {DUMMY_TEXT}
+                </Text>
+                </ScrollView>
                 </View>
-                <Text style={styles.contentStyle}>
-                    {DUMMY_TEXT}
-                </Text>
-                <Text style={styles.contentStyle}>
-                    {DUMMY_TEXT}
-                </Text>
             </Animated.View>
       )
   }
-
-
   renderImageCloseButton = () => {
     const animatedCloseStyle = {
         opacity: this.state.animation
@@ -232,11 +231,14 @@ export default class open extends React.Component
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
   },
   grid: {
+      
       flexDirection: 'row',
       flexWrap: "wrap-reverse",
+    //   width:width,
+    //   height:height*0.93
     // justifyContent:"space-around"
   },
   photoStyle: {
@@ -244,7 +246,9 @@ const styles = StyleSheet.create({
       height: height*0.3,
       marginLeft:width*0.033,
       marginTop:width*0.033,
-      borderRadius:15
+    //   elevation:5
+      borderRadius:15,
+      
   },
   topContent: {
       flex: 2, 
@@ -254,8 +258,8 @@ const styles = StyleSheet.create({
       backgroundColor: 'rgb(240, 240, 240)'
   },
   viewImage: {
-      width: null,
-      height: null,
+      width: width,
+      height: height*0.01,
       position: "absolute",
       top: 0,
       left: 0
