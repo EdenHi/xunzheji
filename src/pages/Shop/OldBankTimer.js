@@ -1,44 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView,FlatList, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, ScrollView,FlatList, TouchableOpacity,Dimensions} from 'react-native';
+import Open from '../Shop/Offline/open'
+import AntDesign from "react-native-vector-icons/AntDesign";
+import LinearGradient from 'react-native-linear-gradient'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import Timer from './Timer/Timer'
-
+// import Timer from './Timer/Timer'
+const { width, height } = Dimensions.get("window")
 export default function OldBankTimer ({navigation}){
   return (
     <View style={styles.container}>
-      <View style={{
-          backgroundColor: "#fff",
-          height: 45,
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: 'row',
-          backgroundColor:"#7cc0c0",
-        }}>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={() => navigation.goBack()}
-            style={{ 
-              width: 50,
-              position: "absolute",
-              height: "100%",
-              justifyContent: "center",
-              alignItems: "center",
-              left: 0
-            }}>
-            {/* <FontAwesome name={'angle-left'} size={25} color={'#000'} /> */}
-          </TouchableOpacity>
-          <View style={{ width: 200 }}>
-            <Text style={{
-              fontSize: 18,
-              textAlign: 'center',
-              color:'#fff',
-              textAlignVertical: 'center',
-            }}>浙江老字号  </Text>
-          </View>
-        </View>
+      <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+       <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
+              <TouchableOpacity activeOpacity={1} style={{ }}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+              </TouchableOpacity>
+              <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>线下老字号</Text>
+
+            </View> 
       <View style={{width:"100%",height:"100%"}}>
-   <Timer></Timer>
+        <Open></Open>
+   {/* <Timer></Timer> */}
       </View>
+      </LinearGradient>
     </View>
 
     

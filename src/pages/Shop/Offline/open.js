@@ -6,18 +6,20 @@ import {
     Image,
     ScrollView,
     TouchableWithoutFeedback,
-    Animated
+    Animated,
+    Dimensions
 } from 'react-native';
 
 import Images from './index';
-
+const { width, height } = Dimensions.get("window")
 const DUMMY_TEXT = "Lorem ipsum dolor sit amet,consectetur adipisicing elit.\
 Eligendi non quis exercitationem culpa nesciunt nihil aut nostrum explicabo \
 reprehenderit optio amet ab temporibus asperiores quasi cupiditate. \
 Voluptatum ducimus voluptates voluptas?"
 
 
-class PhotoFocus extends React.Component {
+export default class open extends React.Component
+{
 
   state={
       activeImage: null,
@@ -118,6 +120,7 @@ class PhotoFocus extends React.Component {
                     const activeStyle = idx === this.state.activeIndex ? activeIndexStyle : undefined
                     return (
                         <TouchableWithoutFeedback
+                        style={{margin:51}}
                             key={idx}
                             onPress={() => this.handleOpeningImage(idx)}
                         >
@@ -139,7 +142,7 @@ class PhotoFocus extends React.Component {
   renderImageDummyData = () => {
     const animatedContentTranslate = this.state.animation.interpolate({
         inputRange: [0, 1],
-        outputRange: [300, 0]
+        outputRange: [100, 0]
     })
 
     const animatedContentStyle = {
@@ -233,11 +236,15 @@ const styles = StyleSheet.create({
   },
   grid: {
       flexDirection: 'row',
-      flexWrap: 'wrap'
+      flexWrap: "wrap-reverse",
+    // justifyContent:"space-around"
   },
   photoStyle: {
-      width: "33%",
-      height: 150,
+      width: width*0.45,
+      height: height*0.3,
+      marginLeft:width*0.033,
+      marginTop:width*0.033,
+      borderRadius:15
   },
   topContent: {
       flex: 2, 
@@ -276,5 +283,3 @@ const styles = StyleSheet.create({
   }
 });
 
-
-export default PhotoFocus;
