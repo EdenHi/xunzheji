@@ -48,6 +48,7 @@ export default class Drawpic extends Component{
                             uri => {
                                 console.log("Image saved to", uri),
                                     DeviceEventEmitter.emit('Draw', {drawpic:uri})
+                                    this.props.navigation.goBack()
                             },
                             error => console.error("Oops, snapshot failed", error)
                         )
