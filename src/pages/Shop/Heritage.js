@@ -72,14 +72,14 @@ export default class Heritage extends Component {
     }
     renderItem = ({ item, index }) => {
         return (
-            <TouchableOpacity activeOpacity={1} style={{ borderWidth: 0, }}
+            <TouchableOpacity activeOpacity={1} style={{ width:width*0.9,elevation:5}}
                 onPress={() => { this.selcetOnpress(item, index) }} >
                 <View style={{ borderColor: this.state.data[index].select ? "#fedc61" : "#fff", flexDirection: "row", backgroundColor: "#fff", borderRadius: 5, marginVertical: height * 0.01, borderWidth: 2 }} >
-                    <Image style={{ width: width * 0.5, height: width * 0.5, borderRadius: 5 }}
+                    <Image style={{ width: width * 0.3, height: width * 0.3, borderRadius: 5 }}
                         source={{ uri: item.img }}/>
-                    <View style={{ width: width * 0.32, marginLeft: 10, height: width * 0.5, justifyContent: "center" }} >
-                        <Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center", color: "#333333" }} > {item.title} </Text>
-                        <Text style={{ fontSize: 13, flexWrap: "wrap", marginTop: 10, color: "#333333" }} > {item.title2} </Text>
+                    <View style={{ width: width * 0.6, height: width * 0.3, padding:10 }} >
+                        <Text style={{ fontSize: 15, fontWeight: "bold",color: "#333333" }}>{item.title} </Text>
+                        <Text style={{ fontSize: 13, flexWrap: "wrap", marginTop: 10, color: "#333333" }} >{item.title2} </Text>
                          </View>
                 </View>
             </TouchableOpacity>
@@ -108,18 +108,21 @@ export default class Heritage extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <View >
-                <LinearGradient colors={['#7cc0c0', '#fff', '#fff']} >
+            <LinearGradient colors={['#7cc0c0', '#fff', '#fff']} >
+            <View style={{width:width,height:height}} >
+                {/* <LinearGradient colors={['#7cc0c0', '#fff', '#fff']} > */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }} >
                         < TouchableOpacity activeOpacity={1}
                             style={{width:width*0.06}} >
                            
                            <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff" }}>人物介绍 </Text> 
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff" }}>人物介绍</Text> 
                         </View> 
-                        <View style={{  alignItems: "center", height: height * 0.93 }} >
-                        <ScrollView>
+                        <View style={{  alignItems: "center", height: height * 0.82 }} >
+                        <ScrollView
+                           showsVerticalScrollIndicator={false}
+                        >
                             <View style={{ alignItems: "center" }} >
                                 <View style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }} >
                                     <ImageBackground style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between" }}
@@ -127,34 +130,34 @@ export default class Heritage extends Component {
                                     </ImageBackground>
                                      </View> 
                                      <View style={{ backgroundColor: "#fff", marginTop: 15, marginBottom: 10, elevation: 10, borderRadius: 10 }} >
-                                    <View style={{ flexDirection: "row", borderRadius: 5, backgroundColor: "#fff", alignItems: "center", height: 120, width: width * 0.95 }} >
+                                    <View style={{ flexDirection: "row", borderRadius: 5,alignItems: "center", height: 120, width: width * 0.95 }} >
                                         <Image style={{ width: width * 0.25, marginLeft: 10, height: width * 0.25, borderRadius: 5 }}
                                             source={{ uri: "https://img2.baidu.com/it/u=360064306,3967606391&fm=15&fmt=auto&gp=0.jpg" }}/> 
                                 <View style={{ marginLeft: 10 }} >
                                             <View > 
-                                                < Text style={{ fontSize: 15, color: "#333333" }}> 陆小华 </Text>
+                                                < Text style={{ fontSize: 15, color: "#333333" }}>陆小华 </Text>
                                                 </View >
-                                            <View tyle={{ marginTop: 10 }} > 
-                                            < Text style={{ fontSize: 13, color: "#333333" }}>市级非遗传承人</Text>
+                                            <View tyle={{ }} > 
+                                            < Text style={{ fontSize: 13, color: "#666" }}>市级非遗传承人</Text>
                                             </View >
-                                            <View style={{ flexDirection: "row", marginTop: 25 }} >
+                                            <View style={{ flexDirection: "row", marginTop: 15 }} >
                                                 <View style={{ width: 70, elevation:5,height: 20, backgroundColor: "#7cc0c0", borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }} > 
-                                                <Text style={{ fontSize: 13,color:"#fff" }} > 五彩梁弄 </Text>
+                                                <Text style={{ fontSize: 13,color:"#fff" }} >五彩梁弄</Text>
                                                         </View >
                                                 <View style={{ width: 70, height: 20, elevation:5, backgroundColor: "#7cc0c0", borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }} > 
-                                                <Text style={{ fontSize: 13,color:"#fff" }} > 梁弄大糕 </Text>
+                                                <Text style={{ fontSize: 13,color:"#fff" }} >梁弄大糕</Text>
                                                         </View >
                                             </View> 
                                             </View>
                                              </View> 
-                                             <View style={{ width: width * 0.95, height: 120, backgroundColor: "#fff", justifyContent: "center" }} >
-                                        <Text style={{ marginLeft: 15, color: "#333333" }}>我国非物质文化遗产研究领域的领军人物，民俗学博士， 中国艺术研究院研究员、 博士生导师。 原国际亚细亚民俗学会副会长， 中国分会会长， 中国民间文艺家协会副主席、 中国农业历史学会副理事长、 中国人类学民族学学会民族遗产专业委员会主任。 </Text> 
+                                             <View style={{ width: width * 0.95, height: 120,padding:10, justifyContent: "center" }} >
+                                        <Text style={{ color: "#333333" }}>我国非物质文化遗产研究领域的领军人物，民俗学博士，中国艺术研究院研究员、博士生导师。原国际亚细亚民俗学会副会长，中国分会会长，中国民间文艺家协会副主席、中国农业历史学会副理事长、中国人类学民族学学会民族遗产专业委员会主任。</Text> 
                                         </View> 
                                         </View> 
                                         <View style={{ width: width * 0.95, height: 40 }} > 
                                         < Text style={{ fontSize: 15, fontWeight: "bold", margin: 10, color: "#333333" }}>可定制项目 </Text>
                                         </View >
-                                <View style={{ marginTop: 10 }} >
+                                <View style={{  }} >
                                     <FlatList handleMethod={
                                         ({ viewableItems }) => this.handleViewableItemsChanged(viewableItems)}
                                         data={this.state.data}
@@ -164,7 +167,8 @@ export default class Heritage extends Component {
                                 </View>
                             </View>
                         </ScrollView>
-                        <View style={{ height: height * 0.07, backgroundColor: "#fff", flexDirection: "row", width: width, alignItems: "center",}} >
+                    </View>
+                    <View style={{ height: height * 0.07, backgroundColor: "#fff",flexDirection: "row", width: width, alignItems: "center",}} >
                             <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.08}} activeOpacity={1}
                                 onPress={() => this.props.navigation.navigate('Chats', { room: 3 })} >
                                 <AntDesign style={
@@ -180,12 +184,12 @@ export default class Heritage extends Component {
                                 style={
                                     { width: width * 0.7, height: height * 0.05,elevation:5, backgroundColor: "#7cc0c0",marginLeft:width*0.05, justifyContent: "center", alignItems: "center", borderRadius: 20 }} >
                                 <Text style={
-                                    { fontWeight: "bold", fontSize: 18, color: "#fff" }} > 下单定制 </Text>
+                                    { fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
                             </TouchableOpacity>
                         </View>
-                    </View>
-                </LinearGradient>
+             
             </View>
+            </LinearGradient>
         )
     }
 }

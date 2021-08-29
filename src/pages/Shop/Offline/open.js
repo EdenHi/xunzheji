@@ -154,7 +154,7 @@ export default class open extends React.Component{
   }
 
   renderImageDummyData = () => {
-      console.log('activeIndex',this.state.activeIndex);
+     // console.log('activeIndex',this.state.daliheng);
     const animatedContentTranslate = this.state.animation.interpolate({
         inputRange: [0, 1],
         outputRange: [500, 0]

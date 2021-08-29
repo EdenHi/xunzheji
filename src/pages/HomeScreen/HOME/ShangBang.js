@@ -121,8 +121,8 @@ export default class ShangBang extends Component {
           outputRange: [itemHeight * 0.7, itemHeight, itemHeight],
         })
       }]}>
-        <ImageBackground key={i} source={{uri: k.img}} style={[StyleSheet.AbsoluteFill, {height: itemHeight, width: itemWidth,borderRadius:20, opacity: 1, resizeMode: 'cover'}]}>
-        <View style={[StyleSheet.AbsoluteFill, {opacity: 0.5, backgroundColor: COLORS[i], width: itemWidth, height: itemHeight}]}></View>
+        <ImageBackground key={i} source={{uri: k.img}} style={[StyleSheet.absoluteFill, {height: itemHeight, width: itemWidth,borderRadius:20, opacity: 1, resizeMode: 'cover'}]}>
+        <View style={[StyleSheet.absoluteFill, {opacity: 0.5, backgroundColor: COLORS[i], width: itemWidth, height: itemHeight}]}></View>
         <Animated.View
             style={[{
               width: width*0.7,

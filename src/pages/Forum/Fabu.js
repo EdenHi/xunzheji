@@ -6,6 +6,7 @@ import {
     View, Image, FlatList, Animated, Modal,
     Easing, Text, StyleSheet, TextInput, TouchableOpacity, Dimensions, AsyncStorage, DeviceEventEmitter
 } from 'react-native';
+
 const { height, width } = Dimensions.get('window');
 import ImagePicker from 'react-native-image-crop-picker';
 import randId from '../../components/comment/randId';
@@ -66,7 +67,7 @@ export default class Fabu extends Component {
                 <TouchableOpacity
                     activeOpacity={1}
                     onPress={() => this._openPicker()}>
-                    <Image source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }} style={{ width: 100, height: 100, marginLeft: "10%" }} />
+                    <Image source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }} style={{ width: 95, height: 95, marginLeft: "9%" }} />
                 </TouchableOpacity>
             );
         }
@@ -182,10 +183,12 @@ export default class Fabu extends Component {
                 <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
                     <View style={styles.box}>
                         <TouchableOpacity
+                        style={{width:width*0.06}}
                             activeOpacity={1}>
-                            <AntDesign onPress={() => this.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} />
+                                 <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign onPress={() => this.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} /> */}
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, color: "#fff", fontWeight: "bold" }}>发布动态</Text>
+                        <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>发布动态</Text>
                         <TouchableOpacity
                             onPress={this._openModalWin}
                             activeOpacity={1}
@@ -250,6 +253,7 @@ export default class Fabu extends Component {
                     <View style={{ width: width * 0.9, height: height, backgroundColor: "#fff", borderRadius: 15 }}>
                         <View style={{ height: 200, width: "100%" }}>
                             <TextInput
+                            textAlignVertical="top"
                                 style={styles.tx}
                                 multiline={true}
                                 placeholder="这一刻的想法..."
@@ -285,7 +289,7 @@ export default class Fabu extends Component {
                                     )
                                 })
                             }
-                            {this.state.tag.length===0?<TouchableOpacity style={{ flexDirection:"row",marginLeft: 10, marginBottom: 20, width: width*0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20 }}
+                            {this.state.tag.length===0?<TouchableOpacity style={{ flexDirection:"row",marginLeft: 10, marginBottom: 20, width: width*0.20, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20 }}
                                 onPress={() => this.props.navigation.navigate('tag')}>
                                 <Fontisto name='hashtag' color='#fff' />
                                 <Text style={{ paddingTop: 5, paddingBottom: 5, color:"#fff"}}>话题</Text>
@@ -364,7 +368,9 @@ const styles = StyleSheet.create({
     },
     tx: {
 
-        marginLeft: "2%"
+        marginLeft: "2%",
+        // backgroundColor:"red",
+        height:"100%"
 
     },
     txt: {
