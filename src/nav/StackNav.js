@@ -98,6 +98,7 @@ import {
   new_exchange,
   open,
   go_map,
+  book_0,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -219,6 +220,7 @@ export default function StackNav() {
       <Stack.Screen name="new_exchange" component={new_exchange} />
       <Stack.Screen name="open" component={open} />
       <Stack.Screen name="go_map" component={go_map} />
+      <Stack.Screen name="book_0" component={book_0} />
     </Stack.Navigator>
   );
 }

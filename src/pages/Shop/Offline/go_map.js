@@ -6,10 +6,9 @@ import WebView from 'react-native-webview';
 
 export default class go_map extends Component {
     render() {
-        console.log('1',this.props.route.params);
         return (
             <View style={{flex:1}}>
-                <WebView source={{uri:`https://uri.amap.com/navigation?from=120.156339,30.315248,startpoint&to="${this.props.route.params.to}",endpoint&via=116.402796,39.936915,midwaypoint&mode=car&policy=1&src=mypage&coordinate=gaode&callnative=0`}}
+                <WebView source={{uri:`https://uri.amap.com/navigation?from=120.156339,30.315248,startpoint&to=${this.props.route.params.to},endpoint&via=116.402796,39.936915,midwaypoint&mode=car&policy=1&src=mypage&coordinate=gaode&callnative=0`}}
                 style={{height:'100%',width:'100%'}}/>
             </View>
         );
