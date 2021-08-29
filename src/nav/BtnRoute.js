@@ -34,10 +34,15 @@ export default function BtnRoute() {
         component={Home}
         options={{
           tabBarIcon: ({ tintColor,focused }) =>
-          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/homeafter.png')} />//
+          ( focused?
+            <Image source={ require('./tabpic/5.png') }
+          style={{width:80,height:80} }/>
+            //  <CustomAnimation 
+            //  animationStyle={'spring'} junpTime={1000000} 
+            //   imageStyle={{width:80,height:80}}  imageAddress={require('./tabpic/5.png')} />
           :
-          <Image source={ require('./tabpic/homebefore.png') }
-          style={{width:30,height:30} }//前面是未被选中的图
+          <Image source={ require('./tabpic/6.png') }
+          style={{width:70,height:70} }//前面是未被选中的图
           />
           )
         }}
@@ -47,10 +52,13 @@ export default function BtnRoute() {
         component={ForumTop}
         options={{
           tabBarIcon: ({ tintColor,focused }) =>
-          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/forumafter.png')} />//
+          ( focused?
+            <Image source={ require('./tabpic/3.png') }
+            style={{width:80,height:80} }/>
+            //  <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:80,height:80}}  imageAddress={require('./tabpic/3.png')} />//
           :
-          <Image source={ require('./tabpic/forumbefore.png') }
-          style={{width:30,height:30} }//前面是未被选中的图
+          <Image source={ require('./tabpic/4.png') }
+          style={{width:70,height:70} }//前面是未被选中的图
           />
           )
         }}
@@ -60,10 +68,13 @@ export default function BtnRoute() {
         component={Store}
         options={{
           tabBarIcon: ({ tintColor,focused }) =>
-          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/storeafter.png')} />//
+          ( focused? 
+            <Image source={ require('./tabpic/1.png') }
+            style={{width:80,height:80} }/>
+          // <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:80,height:80}}  imageAddress={require('./tabpic/1.png')} />//
           :
-          <Image source={ require('./tabpic/storebefore.png') }
-          style={{width:30,height:30} }//前面是未被选中的图
+          <Image source={ require('./tabpic/2.png') }
+          style={{width:70,height:70} }//前面是未被选中的图
           />
           )
          
@@ -77,10 +88,13 @@ export default function BtnRoute() {
           //   <SimpleLineIcons name={'ghost'} size={24} color={color} />
           // ),
           tabBarIcon: ({ tintColor,focused }) =>
-          ( focused? <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:35,height:35}}  imageAddress={require('./tabpic/myafter.png')} />//
+          ( focused?
+            <Image source={ require('./tabpic/7.png') }
+            style={{width:80,height:80} }/>
+            //  <CustomAnimation animationStyle={'spring'} junpTime={1000000}  imageStyle={{width:80,height:80}}  imageAddress={require('./tabpic/7.png')} />//
           :
-          <Image source={ require('./tabpic/mybefore.png') }
-          style={{width:30,height:30} }//前面是未被选中的图
+          <Image source={ require('./tabpic/8.png') }
+          style={{width:70,height:70} }//前面是未被选中的图
           />
           )
         }}

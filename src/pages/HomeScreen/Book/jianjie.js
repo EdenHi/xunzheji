@@ -67,7 +67,7 @@ go(kk){
                     onPress={()=>this.setState({isVisible:true})}>
                         <View style={{flexDirection:'row',alignItems:'baseline'}}>
                             <Text style={{fontSize:18,fontWeight:'bold',color:"#333"}}>目录</Text>
-                            <Text style={{color:'#ccc',marginLeft:10}}>已完结  共十章</Text>
+                            <Text style={{color:'#ccc',marginLeft:10}}>已完结  共七章</Text>
                         </View>
                         <Text>{`>`}</Text>
                     </TouchableOpacity>

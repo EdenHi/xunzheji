@@ -29,7 +29,8 @@ export default class Classify extends React.Component {
             <View style={{ flex: 1 }}>
 
                 <View style={{
-                    height: 45,
+                    height:height*0.07,
+                
                     alignItems: "center",
                     flexDirection: 'row',
                     backgroundColor: "#7cc0c0"
@@ -38,9 +39,11 @@ export default class Classify extends React.Component {
                         activeOpacity={0.8}
                         onPress={() => navigation.goBack()}
                         style={{
-                            marginLeft: 10
+                            marginLeft:width*0.05,
+                            width:width*0.06,
+                          
                         }}>
-                        <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
+                  <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                     </TouchableOpacity>
                     <View style={{}}>
                         <Text style={{
@@ -49,7 +52,7 @@ export default class Classify extends React.Component {
                             textAlign: 'center',
                             textAlignVertical: 'center',
                             color: "#fff",
-                            marginLeft: "5%"
+                            // marginLeft: "2%"
                         }}>老字号</Text>
                     </View>
                 </View>

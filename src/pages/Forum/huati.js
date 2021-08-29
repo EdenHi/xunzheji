@@ -21,6 +21,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Fontisto from "react-native-vector-icons/Fontisto";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const { height, width } = Dimensions.get('window')
 export default class huati extends Component {
     static contextType = NavigationContext;
@@ -270,7 +271,7 @@ export default class huati extends Component {
                     </View>
 
                     {/* tag标签 */}
-                    <View style={item.tag === '' ? { height: 0, width: 0 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={item.tag === '' ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row', marginTop: 10, alignItems: 'center',elevation:5, backgroundColor: '#7cc0c0', borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center' }}>
                         <Fontisto name='hashtag' color='#fff' />
                         <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{item.tag}</Text>
                     </View>
@@ -324,12 +325,13 @@ export default class huati extends Component {
         return (
             <View style={{ backgroundColor: "#fff" }}>
                 {/* 顶部标题栏 */}
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, backgroundColor: "#fff" }}>
-                    <TouchableOpacity activeOpacity={1} style={{}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ marginLeft: width * 0.05, textAlignVertical: 'center', height: "100%", color: "#333" }} name="left" size={20} color="#000000" />
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, backgroundColor: "#7cc0c0" }}>
+                    <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                    <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                       
                     </TouchableOpacity>
 
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333", fontWeight: "bold", marginLeft: "2%" }}>{this.props.route.params.tag}</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", fontWeight: "bold" }}>{this.props.route.params.tag}</Text>
 
                 </View>
 

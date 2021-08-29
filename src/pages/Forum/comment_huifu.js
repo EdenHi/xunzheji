@@ -163,10 +163,11 @@ export default class comment_huifu extends Component {
  <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity
-               activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>{this.props.navigation.goBack(),DeviceEventEmitter.emit('update',1)}} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+               activeOpacity={1} style={{ width:width*0.06}}>
+                <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                  {/* <AntDesign onPress={()=>{this.props.navigation.goBack(),DeviceEventEmitter.emit('update',1)}} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" /> */}
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>共{data.counts}条评论</Text>
+              <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85}}>共{data.counts}条评论</Text>
             </View> 
                 <ScrollView
                  refreshControl={
