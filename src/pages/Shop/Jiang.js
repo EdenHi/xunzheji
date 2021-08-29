@@ -6,7 +6,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import TabBar from '../Road/TabBar'
 import JiangRen from './WebView/JiangRen'
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 const { width, height } = Dimensions.get("window")
@@ -19,10 +19,11 @@ export default class Jiang extends Component {
             <View style={{}}>
                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width }}>
-                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff", marginLeft: 10 }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity style={{width:width*0.06,marginLeft:width*0.05}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
+                        <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff", marginLeft: 10 }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", textAlign: "center" }}>全部匠人</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", textAlign: "center" }}>全部匠人</Text>
                     </View>
                     <View style={{ height: height * 0.93 }}>
                         <ScrollView>

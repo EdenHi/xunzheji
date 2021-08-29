@@ -222,8 +222,8 @@ export default class LunTan extends Component {
                                         return (
                                             <View>
                                                 <View style={{ marginTop: "5%", width: width }}>
-                                                    <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 15, color: "#7cc0c0" }}>官方推荐</Text>
-                                                    <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 7, color: "#7cc0c0" }}>THE OFFICIAL RECOMMENDATION</Text>
+                                                    <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 18, color: "#7cc0c0" }}>官方推荐</Text>
+                                                    <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 9, color: "#7cc0c0" }}>THE OFFICIAL RECOMMENDATION</Text>
                                                     <ScrollView
                                                         horizontal
                                                         showsHorizontalScrollIndicator={false}
@@ -433,7 +433,7 @@ export default class LunTan extends Component {
                                                         {/* tag标签 */}
                                                         <TouchableOpacity
                                                             activeOpacity={1}
-                                                            style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row',  marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
+                                                            style={v.tag === '' || v.tag === null ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row',  marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center',elevation:5 }}
                                                             onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                             <Fontisto name='hashtag' color='#fff' />
                                                             <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
@@ -560,7 +560,7 @@ export default class LunTan extends Component {
                                                     </View>
 
                                                     {/* tag标签 */}
-                                                    <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                                                    <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center',elevation:5 }}
                                                         onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                         <Fontisto name='hashtag' color='#fff' />
                                                         <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{v.tag}</Text>
