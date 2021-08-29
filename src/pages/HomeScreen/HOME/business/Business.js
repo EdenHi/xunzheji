@@ -5,6 +5,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { ScrollView } from 'react-native-gesture-handler'
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import HuZhou from './HuZhou'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SegmentTabBar from './SegmentTabBar'
 import Swiper from 'react-native-swiper'
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
@@ -36,10 +37,10 @@ export default class Business extends Component {
             <View style={{ flex: 1 }}>
                 <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                        <TouchableOpacity activeOpacity={1} style={{}} onPress={() => this.props.navigation.goBack()}>
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity activeOpacity={1} style={{       width:width*0.06,}} onPress={() => this.props.navigation.goBack()}>
+                        <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>商帮介绍</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85 }}>商帮介绍</Text>
                     </View>
                     <View style={{ maxHeight: '40%', width: '90%', height: height * 0.4}}>
                         <ScrollView ref={ref => this.scrollRef = ref} onScroll={(e)=>console.log(e.nativeEvent.contentOffset.y)} style={{ width: '100%', height: '100%' }} showsVerticalScrollIndicator={false}>

@@ -3,6 +3,7 @@ import { TouchableOpacityBase, View, TouchableOpacity, StyleSheet,Dimensions, Im
 import { ScrollView } from 'react-native-gesture-handler'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const { width, height } = Dimensions.get("window")
 export default class History extends Component {
     render() {
@@ -10,10 +11,10 @@ export default class History extends Component {
             <View>
                 <LinearGradient style={{ width: width, height: "100%" }} colors={["#7cc0bf", "#fff", "#fff"]} >
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity activeOpacity={1} style={{       width:width*0.06,}}>
+                        <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商历史推荐</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>浙商历史推荐</Text>
                     </View>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <View style={{ width: width, alignItems: "center" }}>

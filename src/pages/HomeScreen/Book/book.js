@@ -5,6 +5,7 @@ import React, {Component} from 'react';
 import {ScrollView, TouchableOpacity, View,Text, FlatList,Image,Dimensions} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from "react-native-vector-icons/AntDesign"
 const {height,width} = Dimensions.get('window');
 export default class book extends Component {
@@ -133,10 +134,11 @@ export default class book extends Component {
             <View >
                   <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
-              <TouchableOpacity activeOpacity={1} style={{ }}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={22} color="#000000" />
+              <TouchableOpacity activeOpacity={1} style={{width:width*0.06,}}>
+              <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                  {/* <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={22} color="#000000" /> */}
               </TouchableOpacity>
-              <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>浙商必知丛书</Text>
+              <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85}}>浙商必知丛书</Text>
 
             </View> 
             <View>

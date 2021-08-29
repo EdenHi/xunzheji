@@ -32,7 +32,7 @@ export default class ExchangeTop extends Component {
   render() {
     return (
       <ScrollableTabView initialPage={1} renderTabBar={() => <CustormerBar />}>
-        <LunTan tabLabel="关注" />
+        <LunTan tabLabel="关注" /> 
         <LunTan tabLabel="推荐" />
       </ScrollableTabView>
     );

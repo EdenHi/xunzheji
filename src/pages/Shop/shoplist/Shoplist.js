@@ -44,27 +44,24 @@ export default class Shoplist extends Component {
                 <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0c0","#fff"]} >
                     {/* 标题 */}
                     <View style={{
-                        height: 45,
+                        height: height*0.07,
                         alignItems: "center",
                         width:width*0.9,
                         flexDirection: 'row',
                         marginLeft:width*0.05
                     }}>
                         <TouchableOpacity
+                        style={{width:width*0.06}}
                             activeOpacity={0.8}
                             onPress={() => this.props.navigation.goBack()}
-                            style={{
-                            
-                            }}>
+                            >
                             <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                       
                             <Text style={{
-                                fontSize: 15,
+                                fontSize: 18,
                                 fontWeight:"bold",
                                 color:"#fff",
-                                marginLeft:"5%"
-                              
+                                // marginLeft:"2%"
                             }}>商品列表</Text>
                        
                     </View>
