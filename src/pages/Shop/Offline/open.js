@@ -1,6 +1,8 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { ImageBackground } from 'react-native';
+import axios from 'axios'
+import Feather from 'react-native-vector-icons/Feather'
 import {
     StyleSheet,
     Text,
@@ -11,7 +13,7 @@ import {
     Animated,
     Dimensions
 } from 'react-native';
-
+import { NavigationContext } from '@react-navigation/native';
 import Images from './index';
 const { width, height } = Dimensions.get("window")
 const DUMMY_TEXT = "Lorem ipsum dolor sit amet,consectetur adipisicing elit.\
@@ -20,15 +22,20 @@ reprehenderit optio amet ab temporibus asperiores quasi cupiditate. \
 Voluptatum ducimus voluptates voluptas?"
 
 
-export default class open extends React.Component
-{
-
+export default class open extends React.Component{
+    static contextType = NavigationContext;
   state={
-      activeImage: null,
-      activeIndex: null,
-      size: new Animated.ValueXY(),
-      position: new Animated.ValueXY(),
-      animation: new Animated.Value(0)
+    activeImage: null,
+    activeIndex: null,
+    size: new Animated.ValueXY(),
+    position: new Animated.ValueXY(),
+    animation: new Animated.Value(0),
+    daliheng:'',
+    shaozhiyan:[],
+    xilengyinshe:[],
+    zhufutongyi:[],
+    wangxingji:[],
+    zhangxiaoquan:[],
   }
 
   componentWillMount(){
@@ -129,12 +136,14 @@ export default class open extends React.Component
                         >
                             <Image
                             // imageStyle={{borderRadius:15}}
-                                source={src}
+                                source={{uri:src.uri}}
                                 resizeMode="cover"
                                 style={[styles.photoStyle, activeStyle]}
                                 ref={image => this._gridImages[idx] = image}
                             />
-                            <View style={{width: width*0.45,height:width*0.2,borderBottomLeftRadius:15,borderBottomRightRadius:15,backgroundColor:"rgba(255,255,255,0.8)",position:"absolute",  marginLeft:width*0.033,}}></View>
+                            <View style={{width: width*0.45,height:width*0.2,borderBottomLeftRadius:15,borderBottomRightRadius:15,backgroundColor:"rgba(255,255,255,0.8)",position:"absolute",  marginLeft:width*0.033,}}>
+                                <Text>{src.txt}</Text>
+                            </View>
                             {/* 外面图片的大小 */}
                         </TouchableOpacity>
                     )
@@ -145,6 +154,7 @@ export default class open extends React.Component
   }
 
   renderImageDummyData = () => {
+     // console.log('activeIndex',this.state.daliheng);
     const animatedContentTranslate = this.state.animation.interpolate({
         inputRange: [0, 1],
         outputRange: [500, 0]
@@ -163,10 +173,145 @@ export default class open extends React.Component
                 style={[styles.content, animatedContentStyle]}
             >
                 <View style={styles.headingStyle}>
-                <ScrollView>
-                    <Text style={styles.contentStyle}>
-                    {DUMMY_TEXT}
-                </Text>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    {this.state.activeIndex===0?this.state.daliheng.map((v,k)=>{
+                        return(
+                            <View style={{flexDirection:'row',backgroundColor:'#fff',borderRadius:10,marginTop:10}}>
+                                <Image source={{uri:v.photos[0].url}} style={{height:150,width:100,margin:20,borderRadius:10}}/>
+                                <View style={{marginTop:40}}>
+                                    <Text style={{fontSize:18,fontWeight:'bold'}}>{v.name}</Text>
+                                    <Text>{v.cityname+v.adname+v.address}</Text>
+                                    <Text>电话：<Text style={{fontSize:16,fontWeight:'bold'}}>{v.tel.length>0?v.tel:"暂无"}</Text></Text>
+                                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'space-between',width:width*0.9-170,alignItems:'center'}}>
+                                        <Feather
+                                        name='map-pin'
+                                        size={15}>
+                                            <Text style={{marginLeft:10,fontSize:15}}>{' '+v.distance/1000+"km"}</Text>
+                                        </Feather>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',borderRadius:10}} activeOpacity={1} onPress={()=>this.context.navigate('go_map',{to:v.location})}>
+                                            <Text style={{fontSize:15,paddingHorizontal:20,paddingVertical:5,color:'#fff'}}>导航</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }):null}
+                    {this.state.activeIndex===1?this.state.shaozhiyan.map((v,k)=>{
+                        return(
+                            <View style={{flexDirection:'row',backgroundColor:'#fff',borderRadius:10,marginTop:10}}>
+                                <Image source={v.photos.length>0?{uri:v.photos[0].url}:{uri:'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg'}} style={{height:150,width:100,margin:20,borderRadius:10}}/>
+                                <View style={{marginTop:40}}>
+                                    <Text style={{fontSize:18,fontWeight:'bold'}}>{v.name}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>{v.cityname+v.adname+v.address}</Text>
+                                    <Text>电话：<Text style={{fontSize:16,fontWeight:'bold'}}>{v.tel.length>0?v.tel:"暂无"}</Text></Text>
+                                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'space-between',width:width*0.9-170,alignItems:'center'}}>
+                                        <Feather
+                                        name='map-pin'
+                                        size={15}>
+                                            <Text style={{marginLeft:10,fontSize:15}}>{' '+v.distance/1000+"km"}</Text>
+                                        </Feather>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',borderRadius:10}} activeOpacity={1} onPress={()=>this.context.navigate('go_map',{to:v.location})}>
+                                            <Text style={{fontSize:15,paddingHorizontal:20,paddingVertical:5,color:'#fff'}}>导航</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }):null}
+                    {this.state.activeIndex===2?this.state.xilengyinshe.map((v,k)=>{
+                        return(
+                            <View style={{flexDirection:'row',backgroundColor:'#fff',borderRadius:10,marginTop:10}}>
+                                <Image source={v.photos.length>0?{uri:v.photos[0].url}:{uri:'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg'}} style={{height:150,width:100,margin:20,borderRadius:10}}/>
+                                <View style={{marginTop:40}}>
+                                    <Text style={{fontSize:18,fontWeight:'bold'}}>{v.name}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>{v.cityname+v.adname+v.address}</Text>
+                                    <Text>电话：<Text style={{fontSize:16,fontWeight:'bold'}}>{v.tel.length>0?v.tel:"暂无"}</Text></Text>
+                                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'space-between',width:width*0.9-170,alignItems:'center'}}>
+                                        <Feather
+                                        name='map-pin'
+                                        size={15}>
+                                            <Text style={{marginLeft:10,fontSize:15}}>{' '+v.distance/1000+"km"}</Text>
+                                        </Feather>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',borderRadius:10}} activeOpacity={1} onPress={()=>this.context.navigate('go_map',{to:v.location})}>
+                                            <Text style={{fontSize:15,paddingHorizontal:20,paddingVertical:5,color:'#fff'}}>导航</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }):null}
+                    {this.state.activeIndex===3?this.state.zhufutongyi.map((v,k)=>{
+                        return(
+                            <View style={{flexDirection:'row',backgroundColor:'#fff',borderRadius:10,marginTop:10}}>
+                                <Image source={v.photos.length>0?{uri:v.photos[0].url}:{uri:'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg'}} style={{height:150,width:100,margin:20,borderRadius:10}}/>
+                                <View style={{marginTop:40}}>
+                                    <Text style={{fontSize:18,fontWeight:'bold'}}>{v.name}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>{v.cityname+v.adname+v.address}</Text>
+                                    <Text>电话：<Text style={{fontSize:16,fontWeight:'bold'}}>{v.tel.length>0?v.tel:"暂无"}</Text></Text>
+                                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'space-between',width:width*0.9-170,alignItems:'center'}}>
+                                        <Feather
+                                        name='map-pin'
+                                        size={15}>
+                                            <Text style={{marginLeft:10,fontSize:15}}>{' '+v.distance/1000+"km"}</Text>
+                                        </Feather>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',borderRadius:10}} activeOpacity={1} onPress={()=>this.context.navigate('go_map',{to:v.location})}>
+                                            <Text style={{fontSize:15,paddingHorizontal:20,paddingVertical:5,color:'#fff'}}>导航</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }):null}
+                    {this.state.activeIndex===4?this.state.wangxingji.map((v,k)=>{
+                        return(
+                            <View style={{flexDirection:'row',backgroundColor:'#fff',borderRadius:10,marginTop:10}}>
+                                <Image source={v.photos.length>0?{uri:v.photos[0].url}:{uri:'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg'}} style={{height:150,width:100,margin:20,borderRadius:10}}/>
+                                <View style={{marginTop:40}}>
+                                    <Text style={{fontSize:18,fontWeight:'bold'}}>{v.name}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>{v.cityname+v.adname+v.address}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>电话：<Text style={{fontSize:16,fontWeight:'bold'}} >{v.tel.length>0?v.tel:"暂无"}</Text></Text>
+                                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'space-between',width:width*0.9-170,alignItems:'center'}}>
+                                        <Feather
+                                        name='map-pin'
+                                        size={15}>
+                                            <Text style={{marginLeft:10,fontSize:15}}>{' '+v.distance/1000+"km"}</Text>
+                                        </Feather>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',borderRadius:10}} activeOpacity={1} onPress={()=>this.context.navigate('go_map',{to:v.location})}>
+                                            <Text style={{fontSize:15,paddingHorizontal:20,paddingVertical:5,color:'#fff'}}>导航</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }):null}
+                    {this.state.activeIndex===5?this.state.zhangxiaoquan.map((v,k)=>{
+                        return(
+                            <View style={{flexDirection:'row',backgroundColor:'#fff',borderRadius:10,marginTop:10}}>
+                                <Image source={v.photos.length>0?{uri:v.photos[0].url}:{uri:'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg'}} style={{height:150,width:100,margin:20,borderRadius:10}}/>
+                                <View style={{marginTop:40}}>
+                                    <Text style={{fontSize:18,fontWeight:'bold',width:width*0.9-170}} numberOfLines={5}>{v.name}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>{v.cityname+v.adname+v.address}</Text>
+                                    <Text style={{width:width*0.9-170}} numberOfLines={5}>电话：<Text style={{fontSize:16,fontWeight:'bold'}} >{v.tel.length>0?v.tel:"暂无"}</Text></Text>
+                                    <View style={{flexDirection:'row',marginTop:20,justifyContent:'space-between',width:width*0.9-170,alignItems:'center'}}>
+                                        <Feather
+                                        name='map-pin'
+                                        size={15}>
+                                            <Text style={{marginLeft:10,fontSize:15}}>{' '+v.distance/1000+"km"}</Text>
+                                        </Feather>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'#7cc0c0',borderRadius:10}} activeOpacity={1} onPress={()=>this.context.navigate('go_map',{to:v.location})}>
+                                            <Text style={{fontSize:15,paddingHorizontal:20,paddingVertical:5,color:'#fff'}}>导航</Text>
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </View>
+                        )
+                    }):null}
                 </ScrollView>
                 </View>
             </Animated.View>
@@ -200,6 +345,52 @@ export default class open extends React.Component
             style={[styles.viewImage, activeImageStyle]}
         />
     )
+  }
+
+  componentDidMount(){
+      fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=亨达利&types=&radius=50000&offset=20&page=1&extensions=all')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({daliheng:json.pois})
+      })
+    //   axios.get('https://restapi.amap.com/v3/place/around',{
+    //     params:{
+    //         key:'bd30ae3e640c5c5416ea671e713a6cfc',
+    //         location:'120.156339,30.315248',
+    //         keywords:'亨达利',
+    //         radius:50000,
+    //         offset:20,
+    //         page:1,
+    //         extensions:'all'
+    //     }
+    //   }).then(function (response) {
+    //     console.log(response.data.pois);
+    //   })
+      fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=邵芝岩&types=&radius=50000&offset=20&page=1&extensions=all')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({shaozhiyan:json.pois})
+      })
+      fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=西泠印社&types=&radius=50000&offset=20&page=1&extensions=all')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({xilengyinshe:json.pois})
+      })
+      fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=朱府铜艺&types=&radius=50000&offset=20&page=1&extensions=all')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({zhufutongyi:json.pois})
+      })
+      fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=王星记&types=&radius=50000&offset=20&page=1&extensions=all')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({wangxingji:json.pois})
+      })
+      fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=张小泉&types=&radius=50000&offset=20&page=1&extensions=all')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({zhangxiaoquan:json.pois})
+      })
   }
 
   render() {
@@ -265,9 +456,7 @@ const styles = StyleSheet.create({
       left: 0
   },
   headingStyle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 10,
+    marginHorizontal: width*0.05,
   },
   title: {
       fontSize: 28,

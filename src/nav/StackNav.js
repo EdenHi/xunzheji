@@ -96,7 +96,8 @@ import {
   Want,
   ShangBang,
   new_exchange,
-  open
+  open,
+  go_map,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -217,6 +218,7 @@ export default function StackNav() {
       <Stack.Screen name="ShangBang" component={ShangBang} />
       <Stack.Screen name="new_exchange" component={new_exchange} />
       <Stack.Screen name="open" component={open} />
+      <Stack.Screen name="go_map" component={go_map} />
     </Stack.Navigator>
   );
 }
