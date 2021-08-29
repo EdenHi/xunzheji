@@ -44,7 +44,7 @@ export default class Classify extends React.Component {
                     </TouchableOpacity>
                     <View style={{}}>
                         <Text style={{
-                            fontSize: 15,
+                            fontSize: 18,
                             fontWeight: "bold",
                             textAlign: 'center',
                             textAlignVertical: 'center',

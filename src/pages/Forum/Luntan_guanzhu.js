@@ -586,7 +586,6 @@ export default class Luntan_guanzhu extends Component {
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}
                                                             onPress={() => {
-
                                                                 this.onShare();
                                                             }}
                                                         >
