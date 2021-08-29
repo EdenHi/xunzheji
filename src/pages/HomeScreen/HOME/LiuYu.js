@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Dimensions, View, Text, TouchableOpacity, Image } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Entypo from 'react-native-vector-icons/Entypo'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import LinearGradient from 'react-native-linear-gradient'
 import { ScrollView, TextInput } from 'react-native-gesture-handler'
@@ -20,10 +21,10 @@ export default class LiuYu extends Component {
             <View style={{ flex: 1 }}>
                 <LinearGradient style={{ flex: 1 }} colors={['#7cc0c0', '#fff', '#fff']}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity style={{width:width*0.06,}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
+                        <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>浙商人物详情</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>浙商人物详情</Text>
                     </View>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <View style={{ width }}>
