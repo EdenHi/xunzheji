@@ -114,7 +114,6 @@ export default class Clothe extends Component {
                 //     friction: 3
                 // }
                 // ).start();
-
             },
             // 使用拖拽的偏移量来定位
             onPanResponderMove: Animated.event([
@@ -127,7 +126,6 @@ export default class Clothe extends Component {
                 //     this.state.scale,
                 //     { toValue: 2, friction: 3 }
                 // ).start();
-
             }
         });
     }
