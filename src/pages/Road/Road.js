@@ -3,7 +3,7 @@ import { ScrollView, View, Dimensions, TouchableOpacity, Text, Image, ImageBackg
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Fontisto from 'react-native-vector-icons/Fontisto'
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
 import TabBar from './TabBar'
 import Locked from './locked';
@@ -32,10 +32,10 @@ export default class Road extends Component {
                 <LinearGradient style={{ height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
                     {/* 顶部导航栏 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity activeOpacity={1} style={{       width:width*0.06,}}>
+                        <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>路线选择</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>路线选择</Text>
                     </View>
                     <ScrollableTabView initialPage={0} renderTabBar={() => <TabBar />}
 

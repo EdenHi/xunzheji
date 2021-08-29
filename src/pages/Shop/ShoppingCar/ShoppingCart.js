@@ -4,6 +4,7 @@ import {View, Text, TouchableOpacity, Image,Dimensions, StyleSheet, SectionList,
 import {commonStyle} from './commonStyle'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import { SwipeRow } from 'react-native-swipe-list-view';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 let {width,height} = Dimensions.get("window");
 export default class ShoppingCart extends Component {
 
@@ -298,17 +299,18 @@ send(){
 
     return (
       <View style={styles.container}>
-        <View style={{width:width,height:height*0.07,backgroundColor:"#fff",flexDirection:"row",alignItems:"center"}}>
-          <TouchableOpacity style={{marginLeft:"2%"}}
+        <View style={{width:width,height:height*0.07,backgroundColor:"#7cc0c0",flexDirection:"row",alignItems:"center"}}>
+          <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}
                       onPress={() => navigation.goBack()}
           >
-          <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
+            <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
+          {/* <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
               name="left"
               size={20}
-              color="black"
-            />
+              color="#fff"
+            /> */}
           </TouchableOpacity>
-          <Text style={{fontSize:15,marginLeft:"2%",color:"#333333"}}>购物车</Text>
+          <Text style={{fontSize:18,color:"#fff",fontWeight:"bold"}}>购物车</Text>
           <TouchableOpacity style={{width:width*0.09,height:width*0.09,}}>
           </TouchableOpacity>
         </View>

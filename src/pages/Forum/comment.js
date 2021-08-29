@@ -25,6 +25,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
 import { BottomSheet, ListItem } from 'react-native-elements'
@@ -349,10 +350,10 @@ export default class Comment extends React.Component {
             return (
                 <View style={{ flex: 1 }}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: "#7cc0c0" }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.go_luntan()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity activeOpacity={1} style={{width:width*0.06}}>
+                        <FontAwesome onPress={() => this.go_luntan()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>论坛详情</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85 }}>论坛详情</Text>
                     </View>
                     <ScrollView
                         refreshControl={
@@ -401,7 +402,7 @@ export default class Comment extends React.Component {
                                 </View>
 
                                 {/* tag标签 */}
-                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0,elevation:5 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center',elevation:5 }}>
                                     <Fontisto name='hashtag' color='#fff' />
                                     <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{data.tag}</Text>
                                 </View>
@@ -448,7 +449,7 @@ export default class Comment extends React.Component {
                             <ImageViewer imageUrls={imgUrls} style={{ flex: 1 }} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }} />
                         </Modal>
                         {/* 评论的渲染 */}
-                        <View style={{ marginTop: 10 }}>
+                        <View style={{ marginTop: 10 ,marginBottom:10,elevation:5}}>
                             {
                                 comment_zhu.map((v, k) => {
 
@@ -485,7 +486,7 @@ export default class Comment extends React.Component {
 
                                     if (v.counts > 0) {
                                         return (
-                                            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15 }}>
+                                            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15,elevation:5 }}>
                                                 <View key={k} style={{ backgroundColor: '#fff', borderRadius: 15 }}>
                                                     <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: width * 0.025, width: width * 0.85, }}>
                                                         <TouchableOpacity activeOpacity={1}>
@@ -588,10 +589,11 @@ export default class Comment extends React.Component {
             return (
                 <View style={{ flex: 1 }}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: "#7cc0c0" }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign onPress={() => this.go_luntan()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity activeOpacity={1} style={{ width:width*0.06}}>
+                        <FontAwesome onPress={() => this.go_luntan()} name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign onPress={() => this.go_luntan()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>论坛详情</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85 }}>论坛详情</Text>
 
                     </View>
                     <ScrollView
@@ -625,7 +627,7 @@ export default class Comment extends React.Component {
 
 
                                 {/* tag标签 */}
-                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0,elevation:5 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' ,elevation:5}}>
                                     <Fontisto name='hashtag' color='#fff' />
                                     <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{data.tag}</Text>
                                 </View>
@@ -670,12 +672,12 @@ export default class Comment extends React.Component {
                             <ImageViewer imageUrls={imgUrls} style={{ flex: 1 }} index={currentIndex} onClick={() => { this.setState({ modalVisible: false }); }} />
                         </Modal>
                         {/* 评论的渲染 */}
-                        <View style={{ marginTop: 10 }}>
+                        <View style={{ marginTop: 10 ,marginBottom:15}}>
                             {
                                 comment_zhu.map((v, k) => {
                                     if (v.counts > 0) {
                                         return (
-                                            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15 }}>
+                                            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15 ,elevation:5}}>
                                                 <View key={k} style={{ backgroundColor: '#fff', borderRadius: 15 }}>
                                                     <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: width * 0.025, width: width * 0.85, }}>
                                                         <TouchableOpacity activeOpacity={1}>

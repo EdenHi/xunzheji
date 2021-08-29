@@ -7,6 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import Entypo from 'react-native-vector-icons/Entypo'
 import LottieView from 'lottie-react-native';
 import {NavigationContext} from '@react-navigation/native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { FlatList } from 'react-native'
 import { AsyncStorage } from 'react-native'
 
@@ -108,7 +109,7 @@ export default class Dingdan extends Component {
                             </View>
                             <View style={{ flexDirection: "row" }}>
 
-                                <View style={{ marginLeft: "66%" }}><Text style={{ color: "#808080" }}>x{item.num}</Text></View>
+                                <View style={{ marginLeft: "66%" }}><Text style={{ color: "#666" }}>x{item.num}</Text></View>
                             </View>
                         </View>
                     </View>
@@ -135,12 +136,13 @@ export default class Dingdan extends Component {
                 <LinearGradient colors={["#7CC0C0","#fff","#fff"]} style={{flex:1}}>
                 
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }}>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
-                            <AntDesign   onPress={() => {
+                        <TouchableOpacity activeOpacity={1} style={{width:width*0.06}}>
+                        <FontAwesome onPress={() => { this.props.navigation.goBack()}} name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign   onPress={() => {
                                                    this.props.navigation.goBack()
-                                                }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                                                }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
-                        <View style={{marginLeft:10}}><Text style={{fontSize:15,fontWeight:"bold",color:"#fff"}}>订单</Text></View>
+                        <Text style={{fontSize:18,fontWeight:"bold",color:"#fff"}}>订单</Text>
                     </View>
            
 
@@ -196,7 +198,7 @@ export default class Dingdan extends Component {
                                                 }}
 
                                             >
-                                                <Text style={{ fontSize: 15 }}>确定</Text>
+                                                <Text style={{ fontSize: 15 ,color:"#333333"}}>确定</Text>
                                             </TouchableOpacity>
                                             <TouchableOpacity style={{}}
                                                 onPress={() => {
