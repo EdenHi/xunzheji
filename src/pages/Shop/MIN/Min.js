@@ -135,10 +135,8 @@ export default class Min extends Component {
         const { navigation } = this.props;
         return (
             <View>
-
-                <View>
+                <View style={{marginTop:10}}>
                     <Carousel
-
                         ref={(c) => { this._carousel = c; }}
                         data={this.state.entries}
                         inactiveSlideScale={0.8}
@@ -146,7 +144,6 @@ export default class Min extends Component {
                         sliderWidth={width}
                         itemWidth={300}
                         onSnapToItem={index => this.setState({ activeIndex: index })}
-
                     />
                 </View>
 

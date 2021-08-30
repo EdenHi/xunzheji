@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import { View, Text, ScrollView, FlatList, AsyncStorage, Dimensions, ImageBackground, TouchableOpacity, DeviceEventEmitter, Image } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const { height, width } = Dimensions.get('window');
 export default class Dianzan2 extends Component {
@@ -95,10 +96,11 @@ export default class Dianzan2 extends Component {
         return (
             <View style={{ width }}>
                 <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0"}}>
-                    <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} name="left" size={20} color="#fff" />
+                    <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05,width:width*0.06,}}>
+                    <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                        {/* <AntDesign onPress={() => this.props.navigation.goBack()} name="left" size={20} color="#fff" /> */}
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>我的点赞</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的点赞</Text>
                 </View>
                 <ScrollView
                     style={{ height: height - 50 - 120 }}

@@ -216,7 +216,7 @@ export default class Personal extends Component {
                 </View>
                 <View>
                   <TouchableOpacity activeOpacity={1} style={{ marginHorizontal: width * 0.075, marginTop: 20 }}>
-                    <Feather name='gift' size={30} color='#7cc0c0' onPress={() => this.props.navigation.navigate('JiFen')} />
+                    <Feather name='gift' size={30} color='#7cc0c0' onPress={() => this.props.navigation.navigate('JiFen',{portrait:data.portrait})} />
                   </TouchableOpacity>
                   <TouchableOpacity
                     activeOpacity={1}

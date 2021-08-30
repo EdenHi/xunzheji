@@ -15,6 +15,7 @@ import {
   ToastAndroid
 } from 'react-native'
 import { BlurView } from "@react-native-community/blur";
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper';
 import AntDesign from 'react-native-vector-icons/AntDesign';
@@ -158,10 +159,11 @@ export default class Goods2 extends Component {
           <Animated.Image source={{uri:this.state.imgUrl}} resizeMode="stretch" style={{ opacity: 0.5}} />
         </BlurView>
         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                        <TouchableOpacity  style={{width:width*0.06, }} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
+                        <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>我的商店</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>我的商店</Text>
                     </View>
         <View style={{width:width,height:height*0.93}}>
         {/* 消息弹窗 */}
