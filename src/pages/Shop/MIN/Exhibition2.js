@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 const { width, height } = Dimensions.get("window")
 
-export default class Exhibition extends React.Component {
+export default class Exhibition2 extends React.Component {
 
     state = {
         modalVisible: false,
@@ -38,7 +38,7 @@ export default class Exhibition extends React.Component {
     render() {
         return (
             <View >
-                <ImageBackground style={{ width: width * 4, height: height * 0.8, elevation: 1, flexDirection: "row", justifyContent: "space-around" }} source={require("../../HomeScreen/photos/祥云1.png")} >
+                <ImageBackground style={{ width: width * 4, height: height * 0.8, elevation: 1, flexDirection: "row", justifyContent: "space-around" }} source={require("../../HomeScreen/photos/祥云2.png")} >
                     <ImageBackground resizeMode="stretch" style={{ width: width * 0.95, height: width * 0.7, marginHorizontal: width * 0.025, marginVertical: height * 0.25, justifyContent: "center", alignItems: "center", elevation: 1 }} source={{ uri: "https://img0.baidu.com/it/u=260609161,2032145387&fm=26&fmt=auto&gp=0.jpg" }}>
                         <View >
                             <TouchableOpacity onPress={this._openModalWin} >
@@ -98,7 +98,7 @@ export default class Exhibition extends React.Component {
                     </ImageBackground>
                 </ImageBackground>
                 <View style={{ width: width * 0.3, height: height * 0.2, elevation: 5, position: "absolute" }}>
-                    <Image style={{ width: width * 0.3, height: height * 0.2, marginTop: "450%" }} source={require("../../HomeScreen/photos/花卉1.png")} />
+                    <Image style={{ width: width * 0.3, height: height * 0.2, marginTop: "450%" }} source={require("../../HomeScreen/photos/花卉3.png")} />
                 </View>
             </View>
         );
