@@ -92,7 +92,8 @@ export default class Clothe extends Component {
             zoombig: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             showBorder: true,
             imgData: [],
-            marginTop: [height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2]
+            marginTop: [height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2],
+            fresh:false,
         };
     }
 
@@ -120,7 +121,8 @@ export default class Clothe extends Component {
 
     componentDidMount() {
         this.listener = DeviceEventEmitter.addListener('Draw', (shoturi) => {
-            this.setState({ drawPic: shoturi.drawpic })
+            console.log();
+            this.addPic(shoturi.drawpic)
         });
     }
     componentWillUnmount() {
@@ -129,8 +131,8 @@ export default class Clothe extends Component {
     /* 增加图片 */
     addPic(item) {
         let Arr = this.state.imgData;
-        Arr=Arr.push(item)
-        console.log(this.state.imgData);
+        Arr.push(item)
+        this.setState({fresh:!this.state.fresh})
     }
     /* 隐藏自定义组件 */
     FlatListClic() {
@@ -170,7 +172,6 @@ export default class Clothe extends Component {
         const arrs = this.state.imgData;
         arrs.splice(e, 1);
         this.setState({ imgData: arrs })
-
     }
     /* 图片放大 */
     ZoomBig(e) {
@@ -349,6 +350,7 @@ export default class Clothe extends Component {
                                         onPress={() => this.props.navigation.navigate('Zhifu', { price: 39, name: "定制物品", jieshao: '......', pic: [this.state.shoturi] })}>
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>立即购买</Text>
                                     </TouchableOpacity>
+
                                 </View>
 
                             </View>
