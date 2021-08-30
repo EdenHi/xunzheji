@@ -4,13 +4,16 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import { ScrollView } from 'react-native-gesture-handler'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { AsyncStorage } from 'react-native'
 import LottieView from 'lottie-react-native';
+import {NavigationContext} from '@react-navigation/native';
 import { HeaderTitle } from 'react-navigation-stack'
 
 const { width, height } = Dimensions.get("window")
 
 export default class JiFen extends Component {
+    static contextType = NavigationContext;
     constructor(props) {
         super(props)
         this.state = {
@@ -29,7 +32,7 @@ export default class JiFen extends Component {
             easing: Easing.linear,
 
         }).start();
-
+        this.get_jinbi()
     }
 
     _openModalWin = () => {
@@ -70,9 +73,7 @@ export default class JiFen extends Component {
         })
     }
 
-    componentDidMount() {
-        this.get_jinbi()
-    }
+
 
     qiandao() {
         AsyncStorage.getItem('username', (err, result) => {
@@ -96,39 +97,47 @@ export default class JiFen extends Component {
 
     render() {
         const { data } = this.state
+        console.log('22',this.props.route.params.portrait);
+        
         return (
             <View>
-                <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }}>
-                        <TouchableOpacity activeOpacity={1} >
-                            <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                {/* <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}> */}
+                    <View style={{backgroundColor:"#7cc0c0", flexDirection: "row", alignItems: "center", height: height * 0.07, width: width ,}}>
+                        <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                        <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>金币福利</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>金币福利</Text>
                     </View>
                     <View style={{ height: height * 0.93 }}>
                         <ScrollView>
-                            <View style={{ width, height: height * 0.25, backgroundColor: "#7cc0c0", flexDirection: "row" }}>
-                                <View style={{ alignItems: "center", flexDirection: "row", height: height * 0.15, marginHorizontal: 40 }}>
-                                    <View >
+                            <View style={{ width, height: height * 0.23, backgroundColor: "rgba(124,192,192,1)", flexDirection: "row" }}>
+                                <View style={{ alignItems: "center", flexDirection: "row", height: height * 0.15,marginTop:-height*0.015}}>
+                                        <View style={{width:width*0.15,height:width*0.15,borderRadius:50,marginLeft:width*0.05}}>
+                                            <Image source={{uri:this.props.route.params.portrait}} style={{width:width*0.15,height:width*0.15,borderRadius:50}}/>
+                                        </View>
+                                        <View style={{marginLeft:width*0.025}}>
                                         <View style={{ flexDirection: "row", alignItems: "center" }}>
                                             <Text style={{ fontSize: 20, color: "#daa520", marginRight: 5 }}>{data.jinbi}</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         </View>
                                         <View style={{ flexDirection: "row", alignItems: "center" }}>
-                                            <Text style={{ fontSize: 20, color: "#fff" }}>已经连续签到 </Text>
+                                            <Text style={{ fontSize: 15, color: "#fff" }}>已经连续签到</Text>
                                             <Text style={{ fontSize: 20, color: "#daa520" }}>{data.qiandao}</Text>
-                                            <Text style={{ fontSize: 20, color: "#fff" }}> 天</Text>
+                                            <Text style={{ fontSize: 15, color: "#fff" }}>天</Text>
                                         </View>
-                                    </View>
-                                    <TouchableOpacity activeOpacity={1} style={{ width: width * 0.25, height: height * 0.04, borderWidth: 1, justifyContent: "center",marginTop:-width*0.07, alignItems: "center", borderRadius: 20, borderColor: "#fff", marginHorizontal: 30 }}
+                                        </View>
+                                        <TouchableOpacity activeOpacity={1} style={{ width: width * 0.25, height: height * 0.04, borderWidth: 1, justifyContent: "center",marginTop:-width*0.07, alignItems: "center", borderRadius: 20, borderColor: "#fff", marginHorizontal: 30 }}
                                         onPress={() => this.props.navigation.navigate('duihuan_jinbi')}>
                                         <Text style={{ fontSize: 15, color: "#fff" }}>金币兑换</Text>
                                     </TouchableOpacity>
-                                </View>
+                                    </View>
+                                   
+   
                             </View>
 
                             {/* 贴士 */}
-                            <View style={{ width: width * 0.9, height: height * 0.45, backgroundColor: "#fff", marginHorizontal: width * 0.05, elevation: 2, marginBottom: 20, borderRadius: 10, padding: 10, marginTop: "-20%" }}>
+                            <View style={{ width: width * 0.9, height: height * 0.45, backgroundColor: "#fff", marginHorizontal: width * 0.05, elevation: 5, marginBottom: 20, borderRadius: 10, padding: 10, marginTop: "-20%" }}>
                                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                                     <Text style={{ fontSize: 20, marginRight: 5 ,color:"#333"}}>每日签到</Text>
                                     <TouchableOpacity activeOpacity={1} onPress={this._openModalWin}>
@@ -145,7 +154,7 @@ export default class JiFen extends Component {
                                             style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: 'rgba(0,0,0,.5)', }}
                                             onPress={this._closeModalWin}
                                         >
-                                            <View style={{ marginHorizontal: width * 0.05, height: height * 0.3, backgroundColor: "#fff", width: width * 0.9, padding: 15, borderRadius: 10 }}>
+                                            <View style={{ height: height * 0.3, backgroundColor: "#fff", width: width * 0.9, padding: 15, borderRadius: 10 ,justifyContent:"center"}}>
                                                 <Text style={{ marginTop: 10, fontSize: 20, fontWeight: "bold" ,color:"#333"}}>签到说明</Text>
                                                 <Text style={{ marginTop: 10, fontSize: 14,color:"#333" }}>1、登录用户每天可签到1次，并领取奖励。</Text>
                                                 <Text style={{ marginTop: 10, fontSize: 14 ,color:"#333"}}>2、保持每天连续签到，获得的奖励值越高。若连续签到中断，则奖励分值重新计算。</Text>
@@ -213,9 +222,9 @@ export default class JiFen extends Component {
                                 </View>
 
 
-                                <TouchableOpacity activeOpacity={1} style={{ width: width * 0.8, height: 45, borderRadius: 25, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.025, marginTop: 20 }}
+                                <TouchableOpacity activeOpacity={1} style={{ width: width * 0.8, height: height*0.05,elevation:5, borderRadius: 25, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center", marginHorizontal: width * 0.025, marginTop: 20 }}
                                     onPress={() => { this.state.click === false ? this._openModalWin2() : {} }} activeOpacity={this.state.click === false ? 0.8 : 1}   >
-                                    <Text style={{ fontSize: 20, color: "#fff" }}>{this.state.click === false ? '立即签到' : '已签到'}</Text>
+                                    <Text style={{ fontSize: 18, color: "#fff" }}>{this.state.click === false ? '立即签到' : '已签到'}</Text>
                                 </TouchableOpacity>
 
                                 <Modal
@@ -256,52 +265,52 @@ export default class JiFen extends Component {
                                         <View style={{ flexDirection: "row" }}>
                                             <Text style={{ marginRight: 20 ,color:"#333"}}>绑定手机</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>1金币</Text>
+                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>100金币</Text>
                                         </View>
                                         <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1}  style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去绑定</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20 ,color:"#333"}}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20 ,color:"#333"}}>更换用户头像</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>1金币</Text>
+                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>换一个好看的头像~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去更换</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20 ,color:"#333"}}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20 ,color:"#333"}}>修改用户昵称</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>1金币</Text>
+                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>换一个好听的昵称~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去修改</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05 }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20 ,color:"#333"}}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20 ,color:"#333"}}>完善个人信息</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>1金币</Text>
+                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>完善所有资料，你就不是新手啦~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去完善</Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                             <View>
@@ -311,59 +320,59 @@ export default class JiFen extends Component {
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20,color:"#333" }}>游玩小游戏</Text>
+                                            <Text style={{ marginRight: 20,color:"#333" }}>趣味小游戏</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5,color:"#333" }}>1金币</Text>
+                                            <Text style={{ marginLeft: 5,color:"#333" }}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>~~~~~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>一起来玩吧~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}} onPress={() => this.props.navigation.navigate('MatchGame')}>去游玩</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}} onPress={() => this.props.navigation.navigate('MatchGame')}>去游玩</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20,color:"#333" }}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20,color:"#333" }}>阅读一篇文章</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5,color:"#333" }}>1金币</Text>
+                                            <Text style={{ marginLeft: 5,color:"#333" }}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>一起来学习吧~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} onPress={() => this.context.navigate('History')} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去阅读</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: "#7cc0c0" }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20 ,color:"#333"}}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20 ,color:"#333"}}>发表评论</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5,color:"#333" }}>1金币</Text>
+                                            <Text style={{ marginLeft: 5,color:"#333" }}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>跟大家一起讨论吧~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去发表</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05 }}>
                                     <View >
                                         <View style={{ flexDirection: "row" }}>
-                                            <Text style={{ marginRight: 20,color:"#333" }}>绑定手机</Text>
+                                            <Text style={{ marginRight: 20,color:"#333" }}>发表动态</Text>
                                             <FontAwesome5 name='coins' color='#daa520' size={15} />
-                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>1金币</Text>
+                                            <Text style={{ marginLeft: 5 ,color:"#333"}}>100金币</Text>
                                         </View>
-                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                        <View><Text style={{ fontSize: 13, color: "#808080" }}>分享你的生活~</Text></View>
                                     </View>
-                                    <View style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:"#333"}}>去绑定</Text>
-                                    </View>
+                                    <TouchableOpacity activeOpacity={1} onPress={() => this.context.navigate('Fabu')} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去发表</Text>
+                                    </TouchableOpacity>
                                 </View>
                             </View>
                         </ScrollView>
                     </View>
-                </LinearGradient>
+                {/* </LinearGradient> */}
             </View>
         )
     }

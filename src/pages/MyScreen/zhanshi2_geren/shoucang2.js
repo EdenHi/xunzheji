@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import {View,Text, ScrollView, FlatList,AsyncStorage,Dimensions,ImageBackground,TouchableOpacity,DeviceEventEmitter} from 'react-native';
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const {height,width} = Dimensions.get('window');
 export default class Shhoucang2 extends Component {
     constructor(props){
@@ -104,10 +104,11 @@ export default class Shhoucang2 extends Component {
         return (
             <View style={{width:width * 1}}>
                  <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0"}}>
-                    <TouchableOpacity activeOpacity={1} style={{}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center',marginLeft:width*0.05, height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                    <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05 }}>
+                    <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                        {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center',marginLeft:width*0.05, height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff",marginLeft:"2%" }}>我的收藏</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的收藏</Text>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
                     </TouchableOpacity>

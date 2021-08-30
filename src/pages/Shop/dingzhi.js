@@ -42,7 +42,7 @@ export default class dingzhi extends Component {
                                 </Swiper>
                                 {/* </TouchableOpacity> */}
                             </View>
-                            <TouchableOpacity onPress={() => this.props.navigation.navigate("Jiang")} style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, borderRadius: 5, elevation: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.03, marginLeft: 15 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate("Jiang")} style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, borderRadius: 5, elevation: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.03, marginLeft: 15 }}>
                                 <Text style={{ color: 'white', fontSize: 12 }}>查看全部 </Text>
                             </TouchableOpacity>
                         </View>
@@ -62,7 +62,7 @@ export default class dingzhi extends Component {
                                                 <Text style={{ backgroundColor: '#ccc', color: '#666', fontSize: 10, borderRadius: 10, padding: 5, marginBottom: width * 0.03, width: width * 0.37 }}>中国木（竹）雕展“金雕手”</Text>
                                                 <Text style={{ backgroundColor: '#ccc', color: '#666', fontSize: 10, borderRadius: 10, padding: 5, width: width * 0.37 }}>黄山市徽派雕刻博物馆馆长</Text>
                                             </View>
-                                            <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{ backgroundColor: '#fedc61', elevation: 5, height: width * 0.06, width: width * 0.15, borderRadius: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.26 }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Heritage')} style={{ backgroundColor: '#fedc61', elevation: 5, height: width * 0.06, width: width * 0.15, borderRadius: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.26 }}>
                                                 <Text style={{ color: 'white', fontSize: 12 }}>查看定制</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -81,7 +81,7 @@ export default class dingzhi extends Component {
                                                     <Text style={{ backgroundColor: '#ccc', color: '#666', fontSize: 12, borderRadius: 10, padding: 5, marginLeft: 5, marginBottom: width * 0.03 }}>一砚一品</Text>
                                                 </View>
                                             </View>
-                                            <TouchableOpacity onPress={() => navigation.navigate('Heritage')} style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, elevation: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.26 }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Heritage')} style={{ backgroundColor: '#fedc61', height: width * 0.06, width: width * 0.15, elevation: 5, borderRadius: 5, justifyContent: 'center', alignItems: 'center', marginTop: width * 0.26 }}>
                                                 <Text style={{ color: 'white', fontSize: 12 }}>查看定制</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -100,7 +100,7 @@ export default class dingzhi extends Component {
                                                             <Text style={{ color: 'red', fontSize: 14 }}>{80}%</Text>
                                                         </View>
                                                     </View>
-                                                    <TouchableOpacity style={{ borderColor: '#fedc61', borderWidth: 1, height: width * 0.06, width: width * 0.15, borderRadius: 10, justifyContent: 'center', alignItems: 'center', marginLeft: width * 0.1, top: -5 }}>
+                                                    <TouchableOpacity activeOpacity={1} style={{ borderColor: '#fedc61', borderWidth: 1, height: width * 0.06, width: width * 0.15, borderRadius: 10, justifyContent: 'center', alignItems: 'center', marginLeft: width * 0.1, top: -5 }}>
                                                         <Text style={{ color: '#fedc61', fontSize: 12 }}>查看详情</Text>
                                                     </TouchableOpacity>
                                                 </View>

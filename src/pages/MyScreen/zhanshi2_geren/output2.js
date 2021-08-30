@@ -5,6 +5,7 @@ import Timeline from 'react-native-timeline-listview'
 import { NavigationContext } from '@react-navigation/native';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from 'react-native-vector-icons/AntDesign'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const { height, width } = Dimensions.get('window');
 export default class Output2 extends Component {
   static contextType = NavigationContext;
@@ -216,10 +217,11 @@ export default class Output2 extends Component {
     return (
       <View style={styles.container}>
          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
-                    <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05}}>
-                        <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                    <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                    <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                        {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>我的发布</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的发布</Text>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
                     </TouchableOpacity>
