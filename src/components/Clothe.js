@@ -11,49 +11,49 @@ import SegmentTabBar from './ClotheBar';
 const { width, height } = Dimensions.get('window');
 
 const data = [{
-    key: 0,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/1.png'
 },
 
 {
-    key: 1,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/2.png'
 },
 {
-    key: 2,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/3.png'
 }, {
-    key: 3,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/4.png'
 }, {
-    key: 4,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/5.png'
 }, {
-    key: 5,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/6.png'
 }, {
-    key: 6,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/7.png'
 }, {
-    key: 7,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/8.png'
 }, {
-    key: 8,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/9.png'
 }, {
-    key: 9,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/10.png'
 }, {
-    key: 10,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/11.png'
 }, {
-    key: 11,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/12.png'
 }, {
-    key: 12,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/13.png'
 }, {
-    key: 13,
+
     img: 'http://8.142.11.85:3000/public/images/dingzhi/14.png'
 },
 ]
@@ -82,18 +82,17 @@ export default class Clothe extends Component {
             pic1: false,
             pic2: false,
             pic3: false,
-            pan: [new Animated.ValueXY(),new Animated.ValueXY(),new Animated.ValueXY(),new Animated.ValueXY(),new Animated.ValueXY(),new Animated.ValueXY()],
-            scale: new Animated.Value(1),
+            pan: [new Animated.ValueXY(), new Animated.ValueXY(), new Animated.ValueXY(), new Animated.ValueXY(), new Animated.ValueXY(), new Animated.ValueXY()],
+            scale: [new Animated.Value(1), new Animated.Value(1), new Animated.Value(1), new Animated.Value(1), new Animated.Value(1), new Animated.Value(1)],
             shoturi: '',
             modalVisible4: false,
-            CustomPic: '',
             drawPic: '',
             backImg: props.index,
             img: '',
-            zoombig: 0,
+            zoombig: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             showBorder: true,
             imgData: [],
-
+            marginTop: [height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2]
         };
     }
 
@@ -113,19 +112,12 @@ export default class Clothe extends Component {
             multiple: true,
             maxFiles: 1,
         }).then(image => {
-            console.log(image[0]);
-            this.setState({ CustomPic: image[0].path })
+
+            this.addPic({img:image[0].path})
         });
+
     }
-    /* 上传图片显示 */
-    CustomShow() {
-        this.setState({ pic1: false })
-        if (this.state.pic2 === false) {
-            this.setState({ pic2: !this.state.pic2 })
-        } else {
-            this.setState({ CustomPic: '' })
-        }
-    }
+
     componentDidMount() {
         this.listener = DeviceEventEmitter.addListener('Draw', (shoturi) => {
             this.setState({ drawPic: shoturi.drawpic })
@@ -136,9 +128,9 @@ export default class Clothe extends Component {
     }
     /* 增加图片 */
     addPic(item) {
-        let ImgData = this.state.imgData;
-        ImgData.push(item)
-
+        let Arr = this.state.imgData;
+        Arr=Arr.push(item)
+        console.log(this.state.imgData);
     }
     /* 隐藏自定义组件 */
     FlatListClic() {
@@ -173,23 +165,35 @@ export default class Clothe extends Component {
 
         this.setModalVisible4(!this.state.modalVisible4)
     }
-    /* 图片放大 */
-    ZoomBig() {
-        if (this.state.zoombig <= 15) {
-            this.setState({ zoombig: this.state.zoombig + 1 })
-        }
+    /* 图片删除 */
+    delete(e) {
+        const arrs = this.state.imgData;
+        arrs.splice(e, 1);
+        this.setState({ imgData: arrs })
 
-        console.log('缩放大小', this.state.zoombig);
-        Animated.spring(this.state.scale, { toValue: 1 + this.state.zoombig * 0.1, friction: 3 }).start();
+    }
+    /* 图片放大 */
+    ZoomBig(e) {
+        if (this.state.zoombig[e] <= 15) {
+            let zoombig = this.state.zoombig;
+            zoombig[e] = zoombig[e] + 1;
+        }
+        let Top = this.state.marginTop;
+        Top[e] = Top[e] - height * 0.01
+        this.setState({ marginTop: Top })
+        console.log(this.state.marginTop[e]);
+        Animated.spring(this.state.scale[e], { toValue: 1 + this.state.zoombig[e] * 0.1, friction: 3 }).start();
     }
     /* 图片缩小 */
-    ZoomSmall() {
-        if (this.state.zoombig >= -7) {
-            this.setState({ zoombig: this.state.zoombig - 1 })
+    ZoomSmall(e) {
+        if (this.state.zoombig[e] >= -7) {
+            let zoombig = this.state.zoombig;
+            zoombig[e] = zoombig[e] - 1;
         }
-
-        console.log('缩放大小', this.state.zoombig);
-        Animated.spring(this.state.scale, { toValue: 1 + this.state.zoombig * 0.1, friction: 3 }).start();
+        let Top = this.state.marginTop;
+        Top[e] = Top[e] + height * 0.01
+        this.setState({ marginTop: Top })
+        Animated.spring(this.state.scale[e], { toValue: 1 + this.state.zoombig[e] * 0.1, friction: 3 }).start();
     }
     /* 延时隐藏边框 */
     ShowBorder(e) {
@@ -216,89 +220,107 @@ export default class Clothe extends Component {
                         y: this.state.pan[key].y._value
                     });
                     this.state.pan[key].setValue({ x: 0, y: 0 });
-                    // Animated.spring(this.state.scale, {
-                    //     toValue: 2,
-                    //     friction: 3
-                    // }
-                    // ).start();
+
                 },
                 // 使用拖拽的偏移量来定位
                 onPanResponderMove: Animated.event([
                     null, { dx: this.state.pan[key].x, dy: this.state.pan[key].y },
                 ]),
                 onPanResponderRelease: (e, { vx, vy }) => {
-    
                     this.state.pan[key].flattenOffset();
-                    // Animated.spring(
-                    //     this.state.scale,
-                    //     { toValue: 2, friction: 3 }
-                    // ).start();
                 }
             });
-        // 从state中取出pan
-        const { pan, scale } = this.state;
-        // 从pan里计算出偏移量
-        const [translateX, translateY] = [pan[key].x, pan[key].y];
-        const imageStyle = { transform: [{ translateX }, { translateY }, { scale },] };
+            const A = this.state.showBorder ? <View style={{ flexDirection: "row-reverse", justifyContent: 'space-around' }}>
+                <TouchableOpacity onPress={() => { }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/钩-03.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.ZoomSmall(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.ZoomBig(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.delete(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/叉.png')}></Image></TouchableOpacity>
+            </View> : null
+            // 从state中取出pan
+            const { pan, scale } = this.state;
+            // 从pan里计算出偏移量
+
+            const [translateX, translateY] = [pan[key].x, pan[key].y];
+            const imageStyle = { transform: [{ translateX }, { translateY }, { scale: scale[key] },] };
+            const iconStyle = { transform: [{ translateX }, { translateY: translateY }] };
+
+
+
+
+
+
             return (
-                
-                <Animated.View   {...this._panResponder.panHandlers}>
-                    <TouchableOpacity onPress={() => {console.log('image',key)
-                     
-                    ,this.ZoomBig()
-                     }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-
-                    <View style={[this.state.showBorder ? styles.container : styles.container1,imageStyle]}>
-                        <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{ uri:this.state.imgData[key].img}} />
+                <View style={{ borderWidth: 0, height: 1 }}>
+                    <Animated.View style={[{
+                        width: width * 0.4,
+                        height: height * 0.05,
+                        marginTop: this.state.marginTop[key],
+                        marginLeft: width * 0.3
+                    }, iconStyle]} >{A}</Animated.View>
+                    <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
+                        {/* <Animated.Image  {...this._panResponder.panHandlers} style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={this.state.imageFunction} /> */}
+                        <Animated.Image  {...this._panResponder.panHandlers} style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{uri:this.state.imgData[key].img}} />
                     </View>
+                </View>
 
-                </Animated.View>
             );
         }, this);
     }
     render() {
-        const A = this.state.showBorder ? <View><TouchableOpacity onPress={() => { this.ZoomBig() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-            <TouchableOpacity onPress={() => { this.ZoomSmall() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity></View> : null
-        // 从state中取出pan
+        this._panResponder = PanResponder.create({
+            onMoveShouldSetResponderCapture: () => true,
+            onMoveShouldSetPanResponderCapture: () => true,
+            // 设置初始位置
+            onPanResponderGrant: (e, gestureState) => {
+                this.state.pan[5].setOffset({
+                    x: this.state.pan[5].x._value,
+                    y: this.state.pan[5].y._value
+                });
+                this.state.pan[5].setValue({ x: 0, y: 0 });
+
+            },
+            // 使用拖拽的偏移量来定位
+            onPanResponderMove: Animated.event([
+                null, { dx: this.state.pan[5].x, dy: this.state.pan[5].y },
+            ]),
+            onPanResponderRelease: (e, { vx, vy }) => {
+
+                this.state.pan[5].flattenOffset();
+
+            }
+        });
+
         const { pan, scale } = this.state;
+
         // 从pan里计算出偏移量
         const [translateX, translateY] = [pan.x, pan.y];
-        const imageStyle = { transform: [{ translateX }, { translateY }, { scale },] };
-        // const ShowPic1 = this.state.pic1 ?
+        const imageStyle = { transform: [{ translateX }, { translateY }, { scale: scale[5] },] };
+
+
+
+
+
+
+        // const CustomPic = this.state.pic2 ?
         //     <Animated.View   {...this._panResponder.panHandlers}>
-        //         {A}
+        //         <TouchableOpacity onPress={() => { this.ZoomBig(5) }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
+        //         <TouchableOpacity onPress={() => { this.ZoomSmall(5) }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
         //         <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
-        //             <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{ uri: this.state.img }} />
+        //             <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
         //         </View>
 
         //     </Animated.View>
-
         //     : null;
+        // const DrawPic = this.state.pic3 ?
+        //     <Animated.View   {...this._panResponder.panHandlers}>
+        //         <TouchableOpacity onPress={() => { this.ZoomBig() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
+        //         <TouchableOpacity onPress={() => { this.ZoomSmall() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
+        //         <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
+        //             <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'cover'} source={{ uri: this.state.drawPic }} />
+        //         </View>
 
-
-
-
-
-        const CustomPic = this.state.pic2 ?
-            <Animated.View   {...this._panResponder.panHandlers}>
-                <TouchableOpacity onPress={() => { this.ZoomBig() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.ZoomSmall() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
-                <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
-                    <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
-                </View>
-
-            </Animated.View>
-            : null;
-        const DrawPic = this.state.pic3 ?
-            <Animated.View   {...this._panResponder.panHandlers}>
-                <TouchableOpacity onPress={() => { this.ZoomBig() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.ZoomSmall() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
-                <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
-                    <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'cover'} source={{ uri: this.state.drawPic }} />
-                </View>
-
-            </Animated.View>
-            : null;
+        //     </Animated.View>
+        //     : null;
         const { modalVisible4 } = this.state;
         return (
             <View style={{ width: width, height: height, alignItems: "center" }}>
@@ -341,8 +363,8 @@ export default class Clothe extends Component {
                     <ImageBackground ref={viewRef} collapsable={false} source={{ uri: this.state.backImg }} resizeMode={'contain'} style={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: '#5A849F' }}>
                         {/* {ShowPic1} */}
                         {this.ImageComponent()}
-                        {CustomPic}
-                        {DrawPic}
+                        {/* {CustomPic}
+                        {DrawPic} */}
                     </ImageBackground>
                 </View>
 
@@ -367,7 +389,7 @@ export default class Clothe extends Component {
 
                         </View>
                         <View tabLabel="自定义" style={{ width: width * 0.8, marginLeft: width * 0.1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker(), this.CustomShow() }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker() }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
                                 <Image style={{ width: '100%', height: '80%' }} source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }}>
 
                                 </Image>
@@ -375,7 +397,7 @@ export default class Clothe extends Component {
                                     上传图片
                                 </Text>
                             </TouchableOpacity>
-                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic'), this.setState({ pic1: false }), this.setState({ pic2: false }), this.setState({ pic3: true }) }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
+                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('drawpic') }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
                                 <Image style={{ width: '100%', height: '80%' }} source={require('../pages/img/drawimg.png')}>
 
                                 </Image>
@@ -406,5 +428,12 @@ const styles = StyleSheet.create({
         position: 'absolute',
         left: width * 0.3,
         top: height * 0.25,
+    },
+    icon: {
+
+        width: width * 0.4,
+        height: height * 0.05,
+        marginTop: height * 0.2,
+        marginLeft: width * 0.3
     }
 })
