@@ -6,6 +6,7 @@ import {View,Dimensions,TouchableOpacity,Text, ScrollView, Image,AsyncStorage } 
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import shop from './duihuan_jinbi.json'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const {height,width} = Dimensions.get('window')
 export default class duihuan_jinbi extends Component {
     constructor(props){
@@ -45,7 +46,7 @@ export default class duihuan_jinbi extends Component {
 
     renderDate({item,index}){
         return(
-            <TouchableOpacity style={{marginLeft:width*0.05,width:width*0.9,elevation:5,backgroundColor:'white',marginTop:10,borderRadius:10,flexDirection:'row'}} activeOpacity={1}>
+            <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05,width:width*0.9,elevation:5,backgroundColor:'white',marginTop:10,borderRadius:10,flexDirection:'row'}} activeOpacity={1}>
                 <Image source={{uri:item.img}} resizeMode='stretch' style={{height:width*0.25,width:width*0.25,margin:10,borderRadius:10}}/>
                 <View style={{marginTop:10}}>
                     <Text style={{fontWeight:'bold',fontSize:18,width:width*0.55,color:"#333"}}
@@ -59,7 +60,7 @@ export default class duihuan_jinbi extends Component {
                             <View style={{flexDirection:'row',alignItems:'center'}}>
                                 <FontAwesome5 name='coins' color='#daa520' size={15} />
                             <Text style={{color:'#7cc0c0',fontWeight:'bold',fontSize:18,marginLeft:2}}>{item.jinbi}  </Text>
-                            <Text>{item.jinbi>this.state.data.jinbi?'(金币不足)':null}</Text>
+                            <Text style={{color:"#666"}}>{item.jinbi>this.state.data.jinbi?'(金币不足)':null}</Text>
                             </View>
                         </View>
                         <View style={{position:"absolute",marginLeft:width*0.37}}>
@@ -82,16 +83,17 @@ export default class duihuan_jinbi extends Component {
             <View style={{flex:1}}>
                 <View style={{ flexDirection: "row", alignItems: "center",width, height: height * 0.07, justifyContent:'space-between',alignItems:'center',backgroundColor:"#7cc0c0",paddingLeft:width*0.05,paddingRight:width*0.05 }}>
                     <View style={{flexDirection:'row'}}>
-                        <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.goBack()}>
-                            <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#fff" />
+                        <TouchableOpacity  style={{width:width*0.06}} activeOpacity={1} onPress={()=>this.props.navigation.goBack()}>
+                        <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#fff" /> */}
                         </TouchableOpacity>
-                        <TouchableOpacity style={{flexDirection:'row',marginLeft:10,alignItems:'center'}}>
-                            <FontAwesome5 name='coins' color='#daa520' size={15} />
-                            <Text style={{color:'#fff',marginLeft:2}}>{data.jinbi}</Text>
+                        <TouchableOpacity activeOpacity={1} style={{flexDirection:'row',alignItems:'center'}}>
+                            <FontAwesome5 name='coins' color='#daa520' size={20} />
+                            <Text style={{color:'#fff',fontSize:18,marginLeft:5}}>{data.jinbi}</Text>
                         </TouchableOpacity>
                     </View>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff"}}>福利中心</Text>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff"}}>兑换记录</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff",position:"absolute",marginLeft:width*0.4}}>福利中心</Text>
+                    {/* <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff"}}>兑换记录</Text> */}
                 </View>
 
                    <FlatList

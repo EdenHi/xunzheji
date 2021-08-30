@@ -16,6 +16,7 @@ import {
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LottieView from 'lottie-react-native';
 import { SpeedDial } from 'react-native-elements';
@@ -82,17 +83,14 @@ export default class Swop extends Component {
         });
       })
   }
-
   componentDidMount() {
     this.get_shuju();
     this.listener = DeviceEventEmitter.addListener('exchange', this.get_shuju.bind(this));
   }
-
   //移除监听
   componentWillUnmount() {
     this.listener.remove();
   }
-
   renderDate({ item, index }) {
     return (
       <FlipCard
@@ -109,28 +107,27 @@ export default class Swop extends Component {
               <Text style={{marginLeft:'10%',fontSize:18,fontWeight:'bold'}}>{item.tag}</Text>
             <LottieView style={{ width: 60, height: 40, marginLeft: '55%' }} source={require('../../../../animal/qwe.json')} autoPlay loop progress={this.state.progress} />
           </View>
-          
           <ImageBackground imageStyle={{ borderRadius: 15 }} style={{ width: width * 0.9, height: height * 0.6,alignItems: "center", justifyContent: "center" }} source={{ uri: this.state.imgUrl }} >
-
-            <View style={{ backgroundColor: "rgba(255,255,255,0.7)", width: width * 0.7, height: height * 0.2 }}>
-              <View style={{flexDirection:'row',top:-width*0.05,left:10}}>
-                <Image source={{uri:item.portrait}} style={{width:width*0.1,height:width*0.1,borderRadius:50}}/>
+            <View style={{ backgroundColor: "#fff", width: width * 0.7, height: height * 0.25,borderRadius:15,
+          }}>
+              <View style={{flexDirection:'row',backgroundColor:"rgba(124,192,192,0.5)",borderTopLeftRadius:15,borderTopRightRadius:15}}>
+                <Image source={{uri:item.portrait}} style={{width:width*0.2,height:width*0.2,borderRadius:50,marginTop:-height*0.05,marginLeft:width*0.25}}/>
                 <View style={{marginLeft:5,justifyContent:'space-between'}}>
-                  <Text>{item.nickname}</Text>
-                  <Text>{item.renzheng}</Text>
+                  {/* <Text>{item.nickname}</Text> */}
+                  {/* <Text>{item.renzheng}</Text> */}
                 </View>
               </View>
-              
-              <View style={{ alignItems: "center", justifyContent: "center"}}>
-                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333333" }}>交换的物品：</Text>
-                <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.wupin}</Text>
-                <Text style={{ fontSize: 16, fontWeight: "bold", color: "#333333" }}>想换什么：</Text>
-                <Text style={{ fontSize: 14, fontWeight: "bold", color: "#333333" }}>{item.exchang_wupin}</Text>
+              <View style={{width:"100%",height:"20%",alignItems:"center",justifyContent:"center",flexDirection:"row",backgroundColor:"rgba(124,192,192,0.5)"}}>
+                  <Text style={{fontSize:18,color:"#333333",position:"absolute"}}>{item.nickname}</Text>
+                  <View style={{width:width*0.15,height:height*0.03,backgroundColor:"#fff",alignItems:"center",justifyContent:"center",borderRadius:15,marginLeft:width*0.5,elevation:5}}><Text style={{fontSize:13,color:"#333333"}}>{item.renzheng}</Text></View>
               </View>
-              
+              <View style={{ alignItems: "center", justifyContent: "center",width:"100%",height:"55%",}}>
+                <Text style={{ fontSize: 16, color: "#7cc0c0" }}>交换的物品：</Text>
+                <Text style={{ fontSize: 14, color: "#333333" }}>{item.wupin}</Text>
+                <Text style={{ fontSize: 16, color: "#7cc0c0" }}>想换什么：</Text>
+                <Text style={{ fontSize: 14, color: "#333333" }}>{item.exchang_wupin}</Text>
+              </View>
             </View>
-
-            
           </ImageBackground>
         </View>
         <View style={{ backgroundColor: 'rgba(255,255,255,0.8)', marginHorizontal: width * 0.05, height: height * 0.6, width: width * 0.9, borderRadius: 10, marginTop: height * 0.15, padding: 10 }}>
@@ -154,13 +151,10 @@ export default class Swop extends Component {
               <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </View>
-          
         </View>
-
       </FlipCard>
     )
   }
-
   render() {
     const Imgref = createRef();
     console.log('data', this.state.data);
@@ -171,10 +165,11 @@ export default class Swop extends Component {
           <Animated.Image source={{ uri: this.state.imgUrl }} style={{ opacity: 0.5 }} />
         </BlurView>
         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
-          <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-            <AntDesign name="left" size={20} color="#fff" />
+          <TouchableOpacity style={{width:width*0.06}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
+          <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
+            {/* <AntDesign name="left" size={20} color="#fff" /> */}
           </TouchableOpacity>
-          <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>以物换物</Text>
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>以物换物</Text>
         </View>
         <FlatList
           data={data}
