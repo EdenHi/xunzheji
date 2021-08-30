@@ -755,7 +755,7 @@ componentWillUnmount(){
                   <TouchableOpacity onPress={() => { this.props.navigation.navigate('Dingdan'), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="clipboard-text-outline"
-                      size={35} 
+                      size={35}
                       color="#7cc0c0"
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
