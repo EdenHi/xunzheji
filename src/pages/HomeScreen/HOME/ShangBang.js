@@ -2,6 +2,7 @@ import { LayoutAnimation, Animated, Dimensions, Text, View, StyleSheet, ScrollVi
 import React, { Component } from 'react';
 import { Constants } from 'expo';
 import { ImageBackground } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 var { height, width } = Dimensions.get('window');
 
 const smallSize = width / 5;
@@ -111,7 +112,8 @@ export default class ShangBang extends Component {
     }
 
     return (
-      <Animated.View key={i} style={[styles.emptyItem, {
+      <TouchableOpacity activeOpacity={1}>
+  <Animated.View  key={i} style={[styles.emptyItem, {
         opacity: this.state.scrollX.interpolate({
           inputRange: secondRange,
           outputRange: [.3, 1, 1]
@@ -154,6 +156,8 @@ export default class ShangBang extends Component {
           </Animated.View>
         </ImageBackground>
       </Animated.View>
+      </TouchableOpacity>
+    
     );
   }
 }
