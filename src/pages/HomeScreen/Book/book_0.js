@@ -57,7 +57,7 @@ export default class book_0 extends Component {
                             size={30}/>
                             <Text style={{color:"#333",fontSize:13}}>听书</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundColor:'#7cc0c0',borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate('book_xiangqing',{k:0})}>
+                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundColor:'#7cc0c0',borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate('book_xiangqing_0',{k:0})}>
                             <Text style={{fontSize:15,color:"#fff"}}>立即阅读</Text>
                         </TouchableOpacity>
                     </View>
