@@ -15,8 +15,8 @@ export default class MinJia extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient style={{ flex: 1 }} colors={["#7cc0c0", "#fff", "#fff"]} >
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
+                <LinearGradient style={{ flex: 1 }} colors={["#fff", "#fff"]} >
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center",backgroundColor:"#7cc0c0"}}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
