@@ -7,6 +7,7 @@ import Card from '../../../components/Card';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Characters from './Characters';
 import ShiCha from './ShiCha';
+import ShiCha2 from './shicha2';
 import LinearGradient from 'react-native-linear-gradient';
 import Demo from './Demo';
 import EZSwiper from 'react-native-ezswiper';
@@ -159,8 +160,9 @@ export default class Home extends Component {
                             }}
                             showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
-                                <View style={{ marginBottom: -10 }}>
-                                    <ShiCha  navigation={this.props.navigation} />
+                                <View style={{ marginBottom: -10,width:width,height:height*0.25 }}>
+                                <ShiCha2  navigation={this.props.navigation} />
+                                    {/* <ShiCha  navigation={this.props.navigation} /> */}
                                 </View>
                                 <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
                                     <View>
