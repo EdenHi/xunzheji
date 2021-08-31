@@ -173,7 +173,6 @@ const styles = StyleSheet.create({
   emptyItem: {
     overflow: 'hidden',
     height: itemHeight,
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     // borderColor: 'red',

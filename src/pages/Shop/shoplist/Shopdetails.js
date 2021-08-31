@@ -291,15 +291,16 @@ export default class Shopdetails extends Component {
                         activeOpacity={0.8}
                         onPress={() => this.props.navigation.goBack()}
                         style={{
-                            marginLeft: 10
+                            width:width*0.06,
+                            marginLeft:width*0.05
                         }}>
                         <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
                     </TouchableOpacity>
 
                     <Text style={{
-                        fontSize: 15,
+                        fontSize: 18,
                         fontWeight: "bold",
-                        marginLeft: "5%",
+                      
                         color: "#fff"
 
                     }}>商品详情</Text>

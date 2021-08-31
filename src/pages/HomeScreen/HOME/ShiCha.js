@@ -8,11 +8,12 @@ import {
   TouchableOpacity,
   Platform,
 } from 'react-native';
+import { NavigationContext } from '@react-navigation/native';
 
 const ENTRIES1 = [
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'http://8.142.11.85:3000/public/images/travel2.jpeg',
+    illustration: 'http://8.142.11.85:3000/public/images/home1.png',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
@@ -24,7 +25,7 @@ const ENTRIES1 = [
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'http://8.142.11.85:3000/public/images/zs1.jpeg',
+    illustration: 'http://8.142.11.85:3000/public/images/home1.png',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
@@ -51,18 +52,21 @@ const MyCarousel = props => {
 
   const renderItem = ({ item, index }, parallaxProps) => {
     return (
-      <View style={styles.item}>
+      <TouchableOpacity style={styles.item} activeOpacity={1} onPress={()=>this.props.navigation.navigate("ZhenCe")}>
         <ParallaxImage
           autoplay={true}
+          resizeMode="stretch"
+          removeClippedSubviews={false}
           autoplayDelay={1}
+          autoplayTimeout={10}
           source={{ uri: item.illustration }}
           containerStyle={styles.imageContainer}
           style={styles.image}
-          parallaxFactor={0.8}
+          parallaxFactor={0}
           {...parallaxProps}
        />
 
-      </View>
+      </TouchableOpacity>
 
     );
   };
@@ -80,6 +84,7 @@ const MyCarousel = props => {
         hasParallaxImages={true}
         autoplay={true}
         autoplayDelay={1}
+        resizeMode="stretch"
       />
     </View>
   );
@@ -92,11 +97,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   item: {
-    height: 140,
+    height: 170,
     width: width * 0.95,
     justifyContent: "center",
     alignItems: "center",
-    marginBottom:10
+    marginBottom:10,
     // backgroundColor:"red"
   },
   imageContainer: {
@@ -104,12 +109,13 @@ const styles = StyleSheet.create({
     height: "100%",
     backgroundColor: 'white',
     borderRadius: 15,
-    alignSelf: 'center'
+    alignSelf: 'center',
+   
   },
   image: {
 
     width: width * 0.95,
     ...StyleSheet.absoluteFillObject,
-    resizeMode: 'cover',
+    resizeMode: "stretch",
   },
 });
