@@ -100,6 +100,8 @@ import {
   go_map,
   book_0,
   book_xiangqing_0,
+  zanheshoucang,
+  go_pinglun,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -223,6 +225,8 @@ export default function StackNav() {
       <Stack.Screen name="go_map" component={go_map} />
       <Stack.Screen name="book_0" component={book_0} />
       <Stack.Screen name="book_xiangqing_0" component={book_xiangqing_0} />
+      <Stack.Screen name="zanheshoucang" component={zanheshoucang} />
+      <Stack.Screen name="go_pinglun" component={go_pinglun} />
     </Stack.Navigator>
   );
 }
