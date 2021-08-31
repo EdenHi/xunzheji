@@ -147,8 +147,8 @@ export default class ShangBang extends Component {
               <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', width: width * 0.7, height: itemHeight, position: 'absolute', bottom: -itemHeight / 2.8, }}>
                 {/* <Text style={{fontSize: fontSize,color: 'rgba(0,0,0,0.4)'}}>{i + 1}</Text> */}
                 <View style={{ width: "100%", height: height * 0.2, backgroundColor: "rgba(255,255,255,0.8)", padding: 10 }}>
-                  <Text style={{ fontSize: 18, color: "#333", fontWeight: "bold" }}>{k.name}</Text>
-                  <Text style={{ fontSize: 13, color: "#333" }}>{k.item}</Text>
+                  <Text style={{ fontSize: 15, color: "#333", fontWeight: "bold" }}>{k.name}</Text>
+                  <Text style={{ fontSize: 13, color: "#333" ,lineHeight:25}}>{k.item}</Text>
                 </View>
                 {/* <Text style={{fontSize: 40,color: '#7cc0c0',fontWeight:"bold",opacity:0.9}}>湖州商帮</Text> */}
                 {/* <Text style={{fontSize: fontSize,color: '#7cc0c0'}}>商帮</Text> */}
