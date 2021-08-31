@@ -82,13 +82,13 @@ export default class XiaoXi extends Component {
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft:"2%", fontWeight: "bold" }}>消息</Text>
                 </TouchableOpacity>
                 <View style={{ flexDirection: "row", marginTop: 20,marginHorizontal: width * 0.1, justifyContent: "space-between", height: height * 0.12}}>
-                    <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.2, alignItems: "center" ,backgroundColor:"#fff"}}>
+                    <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('zanheshoucang')} style={{ width: width * 0.2, height: width * 0.2, alignItems: "center" ,backgroundColor:"#fff"}}>
                         <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
                         <Image source={require('../HomeScreen/photos/q.png')} style={{ width: width * 0.10, height: width * 0.10,borderRadius:50 }} />
                         </View>
                         <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>赞和收藏</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
+                    <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('go_pinglun')} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
                     <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
                         <Image source={require('../HomeScreen/photos/e.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         </View>

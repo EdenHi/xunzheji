@@ -70,7 +70,9 @@ import {
     PanResponder,
     Animated,
     FlatList,
-    DeviceEventEmitter
+    DeviceEventEmitter,
+    AsyncStorage,
+    ToastAndroid
 } from 'react-native';
 
 
@@ -90,10 +92,11 @@ export default class Clothe extends Component {
             backImg: props.index,
             img: '',
             zoombig: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            showBorder: true,
+            showBorder: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
             imgData: [],
             marginTop: [height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2],
-            fresh:false,
+            fresh: false,
+            eye: true,
         };
     }
 
@@ -114,15 +117,15 @@ export default class Clothe extends Component {
             maxFiles: 1,
         }).then(image => {
 
-            this.addPic({img:image[0].path})
+            this.addPic({ img: image[0].path })
         });
 
     }
 
     componentDidMount() {
         this.listener = DeviceEventEmitter.addListener('Draw', (shoturi) => {
-            console.log();
-            this.addPic(shoturi.drawpic)
+
+            this.addPic({ img: shoturi.drawpic, id: 1 })
         });
     }
     componentWillUnmount() {
@@ -130,9 +133,12 @@ export default class Clothe extends Component {
     }
     /* 增加图片 */
     addPic(item) {
+
         let Arr = this.state.imgData;
+
         Arr.push(item)
-        this.setState({fresh:!this.state.fresh})
+        this.setState({ fresh: !this.state.fresh })
+
     }
     /* 隐藏自定义组件 */
     FlatListClic() {
@@ -152,18 +158,21 @@ export default class Clothe extends Component {
             quality: 0.8
         }).then(
             uri => {
-                console.log("Image saved to", uri),
-                    this.setState({ shoturi: uri })
+
+                this.setState({ shoturi: uri })
             },
             error => console.error("Oops, snapshot failed", error)
         )
     }
     /* 截图并隐藏边框 */
     Sure() {
-        this.setState({ showBorder: false })
+        let Arr = this.state.showBorder;
+        for (let i = 0; i < Arr.length; i++) {
+            Arr[i] = false;
+        }
         setTimeout(() => {
             this.capture()
-        }, 100);
+        }, 50);
 
         this.setModalVisible4(!this.state.modalVisible4)
     }
@@ -182,7 +191,6 @@ export default class Clothe extends Component {
         let Top = this.state.marginTop;
         Top[e] = Top[e] - height * 0.01
         this.setState({ marginTop: Top })
-        console.log(this.state.marginTop[e]);
         Animated.spring(this.state.scale[e], { toValue: 1 + this.state.zoombig[e] * 0.1, friction: 3 }).start();
     }
     /* 图片缩小 */
@@ -196,17 +204,64 @@ export default class Clothe extends Component {
         this.setState({ marginTop: Top })
         Animated.spring(this.state.scale[e], { toValue: 1 + this.state.zoombig[e] * 0.1, friction: 3 }).start();
     }
-    /* 延时隐藏边框 */
-    ShowBorder(e) {
-        setTimeout(() => {
-            this.setState({ showBorder: e })
-        }, 100);
+    /* 显示边框 */
+    ShowBorder() {
+
+        let Arr = this.state.showBorder;
+        for (let i = 0; i < Arr.length; i++) {
+            Arr[i] = true;
+        }
+
+    }
+    HideAll(){
+        let Arr = this.state.showBorder;
+        for (let i = 0; i < Arr.length; i++) {
+            Arr[i] = false;
+        }
+    }
+    /* 隐藏边框边框 */
+    HideBorder(e) {
+        console.log(e);
+        console.log(this.state.showBorder);
+        let Arr = this.state.showBorder;
+        Arr[e] = false;
+        this.setState({ fresh: !this.state.fresh })
+        console.log(this.state.showBorder);
     }
     /* 延时函数 */
     sleep(time) {
         var startTime = new Date().getTime() + parseInt(time, 10);
         while (new Date().getTime() < startTime) { }
     };
+    insert_shopcart(item) {
+        AsyncStorage.getItem('username', (err, result) => {
+            if (!err) {
+                fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: result,
+                        shop_name: '定制物品',
+                        shop_pic: this.state.shoturi,
+                        price: 39,
+                        shop_dianpu: '官方店铺',
+                    }),
+                })
+            }
+        })
+        ToastAndroid.showWithGravity('加入购物车成功', 2000, ToastAndroid.BOTTOM)
+        DeviceEventEmitter.emit('shop_cart', 1)
+    }
+    EyeControl(){
+        if(this.state.eye==false){
+            this.ShowBorder()
+        }else{
+            this.HideAll()
+        }
+    }
     ImageComponent() {
 
 
@@ -231,8 +286,8 @@ export default class Clothe extends Component {
                     this.state.pan[key].flattenOffset();
                 }
             });
-            const A = this.state.showBorder ? <View style={{ flexDirection: "row-reverse", justifyContent: 'space-around' }}>
-                <TouchableOpacity onPress={() => { }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/钩-03.png')}></Image></TouchableOpacity>
+            const A = this.state.showBorder[key] ? <View style={{ flexDirection: "row-reverse", justifyContent: 'space-around' }}>
+                <TouchableOpacity onPress={() => { this.HideBorder(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/钩-03.png')}></Image></TouchableOpacity>
                 <TouchableOpacity onPress={() => { this.ZoomSmall(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
                 <TouchableOpacity onPress={() => { this.ZoomBig(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
                 <TouchableOpacity onPress={() => { this.delete(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/叉.png')}></Image></TouchableOpacity>
@@ -245,11 +300,6 @@ export default class Clothe extends Component {
             const imageStyle = { transform: [{ translateX }, { translateY }, { scale: scale[key] },] };
             const iconStyle = { transform: [{ translateX }, { translateY: translateY }] };
 
-
-
-
-
-
             return (
                 <View style={{ borderWidth: 0, height: 1 }}>
                     <Animated.View style={[{
@@ -258,15 +308,17 @@ export default class Clothe extends Component {
                         marginTop: this.state.marginTop[key],
                         marginLeft: width * 0.3
                     }, iconStyle]} >{A}</Animated.View>
-                    <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
-                        {/* <Animated.Image  {...this._panResponder.panHandlers} style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={this.state.imageFunction} /> */}
-                        <Animated.Image  {...this._panResponder.panHandlers} style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{uri:this.state.imgData[key].img}} />
+                    <View style={[this.state.showBorder[key] ? styles.container : styles.container1, imageStyle]}>
+                        <Animated.Image  {...this._panResponder.panHandlers} style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={this.state.imgData[key].id === 1 ? 'cover' : 'contain'} source={{ uri: this.state.imgData[key].img }} />
+
                     </View>
+
                 </View>
 
             );
         }, this);
     }
+
     render() {
         this._panResponder = PanResponder.create({
             onMoveShouldSetResponderCapture: () => true,
@@ -292,36 +344,11 @@ export default class Clothe extends Component {
         });
 
         const { pan, scale } = this.state;
-
+   
         // 从pan里计算出偏移量
         const [translateX, translateY] = [pan.x, pan.y];
         const imageStyle = { transform: [{ translateX }, { translateY }, { scale: scale[5] },] };
 
-
-
-
-
-
-        // const CustomPic = this.state.pic2 ?
-        //     <Animated.View   {...this._panResponder.panHandlers}>
-        //         <TouchableOpacity onPress={() => { this.ZoomBig(5) }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-        //         <TouchableOpacity onPress={() => { this.ZoomSmall(5) }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
-        //         <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
-        //             <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'contain'} source={{ uri: this.state.CustomPic }} />
-        //         </View>
-
-        //     </Animated.View>
-        //     : null;
-        // const DrawPic = this.state.pic3 ?
-        //     <Animated.View   {...this._panResponder.panHandlers}>
-        //         <TouchableOpacity onPress={() => { this.ZoomBig() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-        //         <TouchableOpacity onPress={() => { this.ZoomSmall() }} style={{ width: width * 0.1, height: width * 0.1, borderWidth: 0.3, marginLeft: width * 0.85, marginTop: height * 0.01, borderRadius: 10 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
-        //         <View style={[this.state.showBorder ? styles.container : styles.container1, imageStyle]}>
-        //             <Image style={{ width: width * 0.4, height: width * 0.4, }} resizeMode={'cover'} source={{ uri: this.state.drawPic }} />
-        //         </View>
-
-        //     </Animated.View>
-        //     : null;
         const { modalVisible4 } = this.state;
         return (
             <View style={{ width: width, height: height, alignItems: "center" }}>
@@ -363,10 +390,10 @@ export default class Clothe extends Component {
 
                 <View style={{ width: width, height: height * 0.65, }}>
                     <ImageBackground ref={viewRef} collapsable={false} source={{ uri: this.state.backImg }} resizeMode={'contain'} style={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: '#5A849F' }}>
-                        {/* {ShowPic1} */}
                         {this.ImageComponent()}
-                        {/* {CustomPic}
-                        {DrawPic} */}
+                        <TouchableOpacity onPress={()=>{this.setState({eye:!this.state.eye}),this.EyeControl()}} style={{ width: width * 0.07, height: width * 0.07, marginLeft: width * 0.92, marginTop: height * 0.6 }}>
+                            <Image style={{ width: '100%', height: '100%', }} source={{uri:this.state.eye ? "http://8.142.11.85:3000/public/images/openEye.png" : "http://8.142.11.85:3000/public/images/closeEye.png"}}></Image>
+                        </TouchableOpacity>
                     </ImageBackground>
                 </View>
 

@@ -135,15 +135,16 @@ export default class Personal extends Component {
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>实名认证</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={1} style={{ opacity: 0, width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="map-marker-radius"
               size={35}
               color="#7cc0c0"
             />
-            <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
+            <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>商品足迹</Text>
           </TouchableOpacity>
         </View>
+        
       </View>
     )
   }
