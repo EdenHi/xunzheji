@@ -257,7 +257,7 @@ export default class Homepagebook extends Component {
                         swiper={true}
                         ref={(c) => { this._carousel = c; }}
                         data={this.state.entries}
-                        inactiveSlideScale={0.8}
+                        inactiveSlideScale={0.75}
                         renderItem={(e) => this._renderItem(e)}
                         sliderWidth={width * 0.9}
                         itemWidth={280}
