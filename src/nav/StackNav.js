@@ -102,6 +102,7 @@ import {
   book_xiangqing_0,
   zanheshoucang,
   go_pinglun,
+  ZhenCe
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -227,6 +228,7 @@ export default function StackNav() {
       <Stack.Screen name="book_xiangqing_0" component={book_xiangqing_0} />
       <Stack.Screen name="zanheshoucang" component={zanheshoucang} />
       <Stack.Screen name="go_pinglun" component={go_pinglun} />
+      <Stack.Screen name="ZhenCe" component={ZhenCe} />
     </Stack.Navigator>
   );
 }
