@@ -51,6 +51,7 @@ export default class Store extends Component {
       progress: new Animated.Value(0),
       activeIndex: 0,
       zuobiao: '查询',
+      username:'',
       carouselItems: [
         {
           title: "亨达利",
@@ -319,6 +320,7 @@ export default class Store extends Component {
   }
 
   componentDidMount() {
+    AsyncStorage.getItem('username', (err, result) => {this.setState({username:result})})
     this.handleGetLocation();
     Animated.timing(this.state.progress, {
       toValue: 1,
@@ -483,7 +485,7 @@ componentWillUnmount(){
     }else{
     return(
         <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,elevation:5}} activeOpacity={1}
-        onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
+        onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item,username:this.state.username})}>
             <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
             <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
             <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
@@ -639,7 +641,7 @@ componentWillUnmount(){
             keyExtractor={(item, index) => (index + '1')}
             renderItem={({ item }) =>
               <View style={{ width: width, alignItems: 'center' }}>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item }) }} activeOpacity={1} style={{
+                <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item ,username:this.state.username}) }} activeOpacity={1} style={{
                   width: width * 0.9,
                   height: height * 0.18,
                   // marginLeft:width*0.05,

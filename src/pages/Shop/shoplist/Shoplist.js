@@ -18,7 +18,7 @@ export default class Shoplist extends Component {
     renderDate({item,index}){
         return(
             <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,marginLeft:width*0.05,borderRadius:10,marginBottom:width*0.05,elevation:5}} activeOpacity={1}
-            onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item})}>
+            onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item,username:this.state.username})}>
                 <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
                 <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
                 <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>

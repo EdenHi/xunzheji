@@ -29,6 +29,7 @@ export default class Shopdetails extends Component {
             imgUrls: [],
             biao: 1,
             data: [],
+            username: ''
         }
     }
 
@@ -77,14 +78,32 @@ export default class Shopdetails extends Component {
                 });
             })
     }
-
+    /* 添加足迹 */
+    FootMark() {
+        fetch("http://8.142.11.85:3000/shop/insertfootmark", {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                shop_name: this.props.route.params.shops.name,
+                shop_pic: this.props.route.params.shops.pic[0],
+                username: this.state.username
+            })
+        })
+    }
     componentDidMount() {
+        AsyncStorage.getItem('username',(err,result)=>{this.setState({username:result}),console.log(this.state.username);})
+
+
         this.get_pingjia();
         this.listener = DeviceEventEmitter.addListener('Shopdetails', this.get_pingjia.bind(this))
     }
 
     componentWillUnmount() {
         this.listener.remove();
+        this.FootMark();
     }
 
 
@@ -142,24 +161,25 @@ export default class Shopdetails extends Component {
     }
 
     insert_shopcart() {
-        AsyncStorage.getItem('username', (err, result) => {
-            if (!err) {
-                fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
-                    method: 'POST',
-                    headers: {
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        username: result,
-                        shop_name: this.props.route.params.shops.name,
-                        shop_pic: this.props.route.params.shops.pic[0],
-                        price: this.props.route.params.shops.price,
-                        shop_dianpu: this.props.route.params.shops.dianpu,
-                    }),
-                })
-            }
+
+
+
+        fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: this.props.route.params.username,
+                shop_name: this.props.route.params.shops.name,
+                shop_pic: this.props.route.params.shops.pic[0],
+                price: this.props.route.params.shops.price,
+                shop_dianpu: this.props.route.params.shops.dianpu,
+            }),
         })
+
+
         ToastAndroid.showWithGravity('加入购物车成功', 2000, ToastAndroid.BOTTOM)
         DeviceEventEmitter.emit('shop_cart', 1)
     }
