@@ -14,8 +14,8 @@ const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 
 const images = [
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
   "http://8.142.11.85:3000/public/images/home1.png",
   "http://8.142.11.85:3000/public/images/home1.png",
   "http://8.142.11.85:3000/public/images/home1.png",
