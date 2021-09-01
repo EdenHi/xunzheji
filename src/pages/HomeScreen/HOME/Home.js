@@ -7,6 +7,7 @@ import Card from '../../../components/Card';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Characters from './Characters';
 import ShiCha from './ShiCha';
+import ShiCha2 from './shicha2';
 import LinearGradient from 'react-native-linear-gradient';
 import Demo from './Demo';
 import EZSwiper from 'react-native-ezswiper';
@@ -51,16 +52,16 @@ export default class Home extends Component {
 
         }
     }
-    roadJump(e){
-        if(e==0){
+    roadJump(e) {
+        if (e == 0) {
             this.props.navigation.navigate('Road', {
                 username: this.state.username,
             })
-        }else if(e==1){
+        } else if (e == 1) {
             this.props.navigation.navigate('Road2', {
                 username: this.state.username,
             })
-        }else if(e==2){
+        } else if (e == 2) {
             this.props.navigation.navigate('Road3', {
                 username: this.state.username,
             })
@@ -71,21 +72,21 @@ export default class Home extends Component {
     _renderItem({ item, index }) {
         return (
 
-                <TouchableOpacity style={{
+            <TouchableOpacity style={{
 
-                    borderRadius: 15,
-                    height: 200,
-                    width: "90%",
-                    elevation: 5,
-                    backgroundColor: "#fff"
-                }} activeOpacity={1} onPress={() => {
+                borderRadius: 15,
+                height: 200,
+                width: "90%",
+                elevation: 5,
+                backgroundColor: "#fff"
+            }} activeOpacity={1} onPress={() => {
 
-                    this.roadJump(index-3)
-                }}>
-                    <ImageBackground resizeMode="stretch" imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: item.img }} >
+                this.roadJump(index - 3)
+            }}>
+                <ImageBackground resizeMode="stretch" imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: item.img }} >
 
-                    </ImageBackground>
-                </TouchableOpacity>
+                </ImageBackground>
+            </TouchableOpacity>
 
 
 
@@ -139,8 +140,8 @@ export default class Home extends Component {
         return (
             <View style={{ alignItems: 'center', }}>
                 <LinearGradient style={{ width }} colors={['#7cc0bf', '#fff', '#fff']} >
-                    <View style={{ height: height * 0.08,width:width, flexDirection: "row", alignItems: "center",borderBottomLeftRadius:15,borderBottomRightRadius:15 }}>
-                        <Image source={require("../../img/logo.png")} style={{width:width*0.5,height:height*0.25,marginLeft:-width*0.05}}>
+                    <View style={{ height: height * 0.08, width: width, flexDirection: "row", alignItems: "center", borderBottomLeftRadius: 15, borderBottomRightRadius: 15 }}>
+                        <Image source={require("../../img/logo.png")} style={{ width: width * 0.5, height: height * 0.25, marginLeft: -width * 0.05 }}>
                         </Image>
                     </View>
                     <View style={{ alignItems: 'center', height: height * 0.88 }}>
@@ -159,8 +160,9 @@ export default class Home extends Component {
                             }}
                             showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
-                                <View style={{ marginBottom: -10 }}>
-                                    <ShiCha  navigation={this.props.navigation} />
+                                <View style={{ marginBottom: -5, width: width, height: height * 0.22 }}>
+                                    <ShiCha2 navigation={this.props.navigation} />
+                                    {/* <ShiCha  navigation={this.props.navigation} /> */}
                                 </View>
                                 <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
                                     <View>

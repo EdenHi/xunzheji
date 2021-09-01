@@ -24,6 +24,7 @@ export default class NewWorks extends Component {
       turnOn: true,
       turnOff: false,
       progress: new Animated.Value(0),
+      username:'',
       shops:[
         {
           "name":"知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
@@ -117,6 +118,8 @@ export default class NewWorks extends Component {
 
 
   componentDidMount() {
+
+ 
     Animated.timing(this.state.progress, {
       toValue: 1,
       duration: 3500,
@@ -126,8 +129,7 @@ export default class NewWorks extends Component {
   }
 
   insert_shopcart(item){
-    AsyncStorage.getItem('username',(err,result)=>{
-      if(!err){
+
           fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
               method: 'POST',
               headers: {
@@ -135,15 +137,15 @@ export default class NewWorks extends Component {
                   'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                  username:result,
+                  username:this.state.username,
                   shop_name:item.name,
                   shop_pic:item.pic[0],
                   price:item.price,
                   shop_dianpu:item.dianpu,
               }),
           })
-      }
-  })
+      
+  
   ToastAndroid.showWithGravity('加入购物车成功',2000,ToastAndroid.BOTTOM)
   DeviceEventEmitter.emit('shop_cart',1)
   }

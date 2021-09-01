@@ -19,7 +19,7 @@ export default class Homepagebook extends Component {
             entries: [
                 {
                     title: "",
-                    img: "https://bkimg.cdn.bcebos.com/pic/a08b87d6277f9e2fbfd2794a1130e924b999f389?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
+                    img: "https://img0.baidu.com/it/u=2944285600,2767547880&fm=26&fmt=auto&gp=0.jpg"
                 },
                 {
                     title: "",
