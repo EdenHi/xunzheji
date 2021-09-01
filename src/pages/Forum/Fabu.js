@@ -251,7 +251,7 @@ export default class Fabu extends Component {
                                             </View>
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {
-                                                    this._closeModalWin()
+                                                    this._closeModalWin(),
                                                     this._goget()
 
                                                 }}

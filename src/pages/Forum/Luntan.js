@@ -84,6 +84,7 @@ export default class LunTan extends Component {
             }
         })
         this.listener = DeviceEventEmitter.addListener('shuaxin', this.get_xinxi.bind(this))
+        this.listener = DeviceEventEmitter.addListener('myfabu', this.loding.bind(this))
     }
 
     componentWillUnmount() {
@@ -105,7 +106,7 @@ export default class LunTan extends Component {
                 isLoding: false,
             });
             this.get_xinxi();
-        }, 1000);
+        }, 500);
     }
 
 

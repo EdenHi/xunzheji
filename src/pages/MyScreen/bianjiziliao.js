@@ -240,7 +240,7 @@ export default class app1 extends Component {
                  <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{width:width*0.06 }}>
-              <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+              <FontAwesome onPress={()=>this.go_back()} name={'angle-left'} size={25} color={'#fff'} />
                   {/* <AntDesign onPress={()=>this.go_back()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={15} color="#000000" /> */}
               </TouchableOpacity>
               <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85}}>编辑资料</Text>

@@ -91,6 +91,7 @@ export default class Luntan_guanzhu extends Component {
 
         this.get_xinxi();
         this.listener = DeviceEventEmitter.addListener('shuaxin', this.get_xinxi.bind(this))
+        this.listener = DeviceEventEmitter.addListener('myfabu', this.loding.bind(this))
     }
 
     componentWillUnmount() {
@@ -112,7 +113,7 @@ export default class Luntan_guanzhu extends Component {
                 isLoding: false,
             });
             this.get_xinxi();
-        }, 1000);
+        }, 500);
     }
 
 
