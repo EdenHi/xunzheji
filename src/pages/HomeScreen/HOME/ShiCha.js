@@ -52,7 +52,7 @@ const MyCarousel = props => {
 
   const renderItem = ({ item, index }, parallaxProps) => {
     return (
-      <TouchableOpacity style={styles.item} activeOpacity={1} onPress={()=>this.props.navigation.navigate("ZhenCe")}>
+      <TouchableOpacity style={styles.item} activeOpacity={1} >
         <ParallaxImage
           autoplay={true}
           resizeMode="stretch"
@@ -72,7 +72,7 @@ const MyCarousel = props => {
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableOpacity onPress={()=>this.props.navigation.navigate("ZhenCe")} style={styles.container}>
       <Carousel
         loop={true}
         ref={carouselRef}
@@ -86,7 +86,7 @@ const MyCarousel = props => {
         autoplayDelay={1}
         resizeMode="stretch"
       />
-    </View>
+    </TouchableOpacity>
   );
 };
 

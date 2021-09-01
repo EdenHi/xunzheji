@@ -14,16 +14,16 @@ const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 
 const images = [
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
 ];
 
 const data = images.map((image, index) => ({
@@ -38,7 +38,7 @@ export default function shicha2() {
   const scrollX = useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.container}>
- 
+
       <Animated.FlatList
         data={data}
         horizontal
@@ -62,23 +62,23 @@ export default function shicha2() {
           return (
             <View
               style={{
-    width:width,
+                width: width,
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
               <View
                 style={{
-               
+
                 }}
               >
                 <View
                   style={{
-                    width: width*0.95,
-                    height: height*0.2,
-                    marginLeft:-width*0.05,
+                    width: width * 0.95,
+                    height: height * 0.21,
+                    marginLeft: -width * 0.05,
                     overflow: "hidden",
-                    
+
                     alignItems: "center",
                     borderRadius: 15,
                     // elevation:5
@@ -88,8 +88,8 @@ export default function shicha2() {
                     source={{ uri: item.photo }}
                     style={{
                       width: width,
-                      height: height*0.2,
-                      resizeMode:"stretch",
+                      height: height * 0.22,
+                      resizeMode: "stretch",
                       transform: [
                         {
                           translateX: translateX,
