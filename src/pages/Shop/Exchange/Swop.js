@@ -161,9 +161,10 @@ export default class Swop extends Component {
     const { data } = this.state;
     return (
       <View style={{ flex: 1 }}>
-        <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%' }}>
-          <Animated.Image source={{ uri: this.state.imgUrl }} style={{ opacity: 1 }} />
-        </BlurView>
+        <Animated.Image source={{ uri: this.state.imgUrl }} style={{ opacity: 1 }} />
+        <BlurView blurType="light" blurAmount={10} style={{ position: 'absolute', height: '100%', width: '100%' }}>
+          <Animated.Image source={{ uri: this.state.imgUrl }} style={{ opacity: 0.4 }} />
+        </BlurView> 
         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
           <TouchableOpacity style={{width:width*0.06}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
           <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />

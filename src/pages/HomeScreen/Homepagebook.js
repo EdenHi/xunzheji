@@ -31,7 +31,7 @@ export default class Homepagebook extends Component {
                 },
                 {
                     title: "",
-                    img: "https://img1.baidu.com/it/u=370130011,359262321&fm=15&fmt=auto&gp=0.jpg"
+                    img: "https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
                 },
                 {
                     title: "",
@@ -193,20 +193,20 @@ export default class Homepagebook extends Component {
 
     page(index) {
         console.log(index)
-        if (index === 0) {
-            this.props.navigation.navigate('book_1')
-        }
-        if (index === 1) {
-            this.props.navigation.navigate('book_1')
-        }
-        if (index === 2) {
-            this.props.navigation.navigate('book_1')
-        }
         if (index === 3) {
-            this.props.navigation.navigate('book_1')
+            this.props.navigation.navigate('book_0',{ii:3})
         }
         if (index === 4) {
-            this.props.navigation.navigate('book_1')
+            this.props.navigation.navigate('book_1',{ii:4})
+        }
+        if (index === 5) {
+            this.props.navigation.navigate('book_1',{ii:5})
+        }
+        if (index === 6) {
+            this.props.navigation.navigate('book_6',{ii:6})
+        }
+        if (index === 7) {
+            this.props.navigation.navigate('book_6',{ii:7})
         }
     }
     _renderItem({ item, index }) {
