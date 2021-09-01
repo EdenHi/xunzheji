@@ -68,7 +68,7 @@ export default  shicha2=(props)=> {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity  onPress={()=>{props.navigation.navigate("FootMark")}}>
+              <TouchableOpacity activeOpacity={1} onPress={()=>{props.navigation.navigate("FootMark")}}>
                 <View
                   style={{
                     width: width * 0.95,
