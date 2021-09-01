@@ -105,6 +105,9 @@ import {
   zanheshoucang,
   go_pinglun,
   ZhenCe,
+  ZhenCe2,
+  ZhenCe3,
+  ZhenCe4,
   book_6,
   book_xiangqing_6,
   shicha2
@@ -235,6 +238,9 @@ export default function StackNav() {
       <Stack.Screen name="zanheshoucang" component={zanheshoucang} />
       <Stack.Screen name="go_pinglun" component={go_pinglun} />
       <Stack.Screen name="ZhenCe" component={ZhenCe} />
+      <Stack.Screen name="ZhenCe2" component={ZhenCe2} />
+      <Stack.Screen name="ZhenCe3" component={ZhenCe3} />
+      <Stack.Screen name="ZhenCe4" component={ZhenCe4} />
       <Stack.Screen name="book_6" component={book_6} />
       <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
