@@ -32,7 +32,7 @@ export default class book_1 extends Component {
                     </View>
                     
                     <View style={{backgroundColor:'#fff'}}>
-                        <BookRoute/>
+                        <BookRoute route={this.props.route.params.ii}/>
                     </View>
                         
 

@@ -15,16 +15,16 @@ const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 
 const images = [
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
-  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home2.png",
+  "http://8.142.11.85:3000/public/images/home3.png",
 ];
 
 const data = images.map((image, index) => ({
@@ -68,7 +68,7 @@ export default  shicha2=(props)=> {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity activeOpacity={1} onPress={()=>{props.navigation.navigate("FootMark")}}>
+              <TouchableOpacity  onPress={()=>{props.navigation.navigate("ZhenCe")}}>
                 <View
                   style={{
                     width: width * 0.95,
@@ -108,6 +108,5 @@ export default  shicha2=(props)=> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#fff",
   },
 });
