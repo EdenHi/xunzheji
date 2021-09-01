@@ -24,7 +24,7 @@ export default class ZhenCe3 extends Component {
                 </View>
                 <ScrollView>
                     <View style={{ width, marginHorizontal: width * 0.05 }}>
-                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                         <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold", width: width * 0.9, color: "#333" }}>浙江省全面深化“证照分离”改革 520项涉企经营许可事项大调整</Text>
                         <View style={{ flexDirection: "row", marginTop: 5 }}>
                             <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙江日报</Text>
@@ -35,8 +35,8 @@ export default class ZhenCe3 extends Component {
                                 &emsp;&emsp;日前，浙江省政府印发《浙江省深化“证照分离”改革进一步激发市场主体发展活力实施方案》，省市场监管局发布《浙江省涉企经营许可事项改革清单（2021年）》和《中国（浙江）自由贸易试验区涉企经营许可事项改革清单（2021年）》。这标志着我省“证照分离”改革再一次迭代升级，全省520项涉企经营许可事项进行大调整。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
-                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb1.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb3.jpeg' }} />
+                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb1.jpeg' }} /> */}
 
 
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
@@ -50,7 +50,7 @@ export default class ZhenCe3 extends Component {
                                 &emsp;&emsp;为强化改革系统集成和协同配套，浙江还将在实施改革过程中同步推进商事主体登记确认制改革、准入准营“一件事”改革、电子证照多维度运用、打造“证照分离”协同平台、构建信用综合监管体系等创新举措，进一步提升改革能级。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
+                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb2.jpeg' }} />
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                             <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025, color: "#333" }}>
                                 &emsp;&emsp;“‘金融大脑’则像一个中枢系统，能实现政府、金融机构、企业、居民等各方面数据的集成共享。”金雪军认为。大数据、云计算、区块链、人工智能等数字技术奠定了体系构建的基石，须同步发展，合力形成完整的金融技术生态系统。最终，不断完善运用场景，将金融与产业链、供应链等实体经济体系深度融合，形成完善的“链网式金融”。建设数智化区域金融运行体系，金雪军有几个提醒，“首先是把握金融体系建设不是孤立的，而是要与供应链、产业链协调对接，加强技术和场景的深度融合，形成完整系统。同时，积极争取数字人民币试点，这对金融大脑构建具有重要推动意义。此外，风控和监管要跟上。”
@@ -78,7 +78,7 @@ export default class ZhenCe3 extends Component {
                                 &emsp;&emsp;浙江企业将迎来哪些利好？金雪军认为，“全链条”建设是“凤凰行动”升级版的最大特色。“这不光是一个简单的上市工作，还包括股改、再融资、并购等环节，涵盖企业培育到上市之后的全过程。”升级版的“凤凰行动”将更注重“全方位、全要素、全市场、全系统”。除了企业自身推进外，在这个过程中，还需要在企业发展的不同阶段丰富金融机构参与场景，各类金融资源共同发力，不仅助力企业做大做强，也反向推动金融机构自身的发展，实现双赢。而多层次资本市场体系也将得到完善。其中，大力推动上市公司引领高质量发展仍是“凤凰行动”升级版的核心。浙江企业通过与资本市场对接，进一步加强科技创新，提升企业治理水平，最终实现产业引领。
                             </Text>
                         </View> */}
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} /> */}
                     </View>
                 </ScrollView>
             </View>

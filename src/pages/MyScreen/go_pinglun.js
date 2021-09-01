@@ -18,7 +18,7 @@ export default class go_pinglun extends Component {
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({username:result})
-                fetch('http://8.142.11.85:3000/index/select_go_pinglun', {
+                fetch('http://47.100.78.254:3000/index/select_go_pinglun', {
                     method: 'post',
                     headers: {
                         'Accept': 'application/json',

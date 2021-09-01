@@ -31,7 +31,7 @@ export default class componentName extends Component {
             mission1: false,
             mission2: false,
             mission3: false,
-            shoturi: 'http://8.142.11.85:3000/public/images/initimg.jpg'
+            shoturi: 'http://47.100.78.254:3000/public/images/initimg.jpg'
         }
     }
 
@@ -44,7 +44,7 @@ export default class componentName extends Component {
         console.log('road', this.props.route.params);
         console.log('username', this.props.route.params.username);
         //网络请求
-        fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+        fetch('http://47.100.78.254:3000/shouye/get_user_map', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -113,13 +113,13 @@ export default class componentName extends Component {
     updateStep() {
         console.log(this.state.step);
         if (this.state.step == 0) {
-            axios.post('http://8.142.11.85:3000/shouye/update_map', {
+            axios.post('http://47.100.78.254:3000/shouye/update_map', {
                 username: this.props.route.params.username,
                 road: this.props.route.params.road,
                 steps: this.state.prevSteps
             })
         } else {
-            axios.post('http://8.142.11.85:3000/shouye/update_map', {
+            axios.post('http://47.100.78.254:3000/shouye/update_map', {
                 username: this.props.route.params.username,
                 road: this.props.route.params.road,
                 steps: this.state.step
@@ -431,11 +431,11 @@ export default class componentName extends Component {
 
                         <Step prevStep={this.state.prevSteps} getSteps={this.getSteps.bind(this)} />
                     </View>
-                    <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
+                    <Image style={{ height: height * 0.8, width: width }} source={{ uri: 'http://47.100.78.254:3000/public/images/nanlu.jpg' }}></Image>
 
                     <View>
                         <Video
-                            source={{ uri: 'http://8.142.11.85:8080/1.mp4' }}
+                            source={{ uri: 'http://47.100.78.254:8080/1.mp4' }}
                             paused={this.state.poused}
                             resizeMode="stretch"
                             posterResizeMode='contain'

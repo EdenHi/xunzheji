@@ -14,7 +14,7 @@ export default class shhoucang extends Component {
         }
     }
     get_shuju(){
-        fetch('http://8.142.11.85:3000/index/selectShoucang', {
+        fetch('http://47.100.78.254:3000/index/selectShoucang', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -47,7 +47,7 @@ export default class shhoucang extends Component {
     renderData({item,index}){
         return (
             <View key={index}>
-                <ImageBackground style={{height:150,marginBottom:10,width:width * 0.8,marginRight:20}} borderRadus={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginBottom:10,width:width * 0.8,marginRight:20}} borderRadus={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -80,7 +80,7 @@ export default class shhoucang extends Component {
                  keyExtractor={(item, index) => (index + '1')}
                  data = {data}
                  renderItem = {this.renderData.bind(this)}/> */}
-                 <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                 <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -93,7 +93,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -106,7 +106,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -119,7 +119,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -132,7 +132,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -145,7 +145,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -158,7 +158,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -171,7 +171,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -184,7 +184,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>
@@ -197,7 +197,7 @@ export default class shhoucang extends Component {
                         </View>
                     </View>
                 </ImageBackground>
-                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://8.142.11.85:3000/public/images/zs1.jpeg'}}>
+                <ImageBackground style={{height:150,marginTop:10}} borderRadius={10} source={{uri:'http://47.100.78.254:3000/public/images/zs1.jpeg'}}>
                     <View style={{height:150,borderRadius: 10,shadowRadius:15,padding:15,width:width * 0.8}}>
                         <View style={{flex:3}} />
                         <View style={{flex:2}}><Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>浙江商帮的崛起</Text></View>

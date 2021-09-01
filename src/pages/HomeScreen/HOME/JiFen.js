@@ -53,7 +53,7 @@ export default class JiFen extends Component {
     get_jinbi() {
         AsyncStorage.getItem('username', (err, result) => {
             if (!err) {
-                fetch('http://8.142.11.85:3000/index/select_jinbi', {
+                fetch('http://47.100.78.254:3000/index/select_jinbi', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -78,7 +78,7 @@ export default class JiFen extends Component {
     qiandao() {
         AsyncStorage.getItem('username', (err, result) => {
             if (!err) {
-                fetch('http://8.142.11.85:3000/index/update_jinbi', {
+                fetch('http://47.100.78.254:3000/index/update_jinbi', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

@@ -15,16 +15,11 @@ const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 
 const images = [
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
+  {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe"},
+  {img:"http://47.100.78.254:3000/public/images/home3.png",jump:"ZhenCe2"},
+  {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe3"},
+  {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe4"},
+
 ];
 
 const data = images.map((image, index) => ({
@@ -67,20 +62,21 @@ export default  shicha2=(props)=> {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity  onPress={()=>{props.navigation.navigate("ZhenCe")}}>
+              <TouchableOpacity  onPress={()=>{props.navigation.navigate(item.photo.jump)}}>
                 <View
                   style={{
                     width: width * 0.95,
                     height: height * 0.2,
                     marginLeft: -width * 0.05,
                     overflow: "hidden",
+                    borderWidth:1,
                     alignItems: "center",
                     borderRadius: 15,
                     // elevation:5
                   }}
                 >
                   <Animated.Image
-                    source={{ uri: item.photo }}
+                    source={{ uri: item.photo.img }}
                     style={{
                       width: width,
                       height: height * 0.2,

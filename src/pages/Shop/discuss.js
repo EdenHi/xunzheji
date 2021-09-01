@@ -37,7 +37,7 @@ export default class discuss extends Component {
                     <TouchableOpacity
                         activeOpacity={1}
                         onPress={() => this._openPicker()}>
-                        <Image source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }} style={{   height: (width - 100) / 3,
+                        <Image source={{ uri: 'http://47.100.78.254:3000/public/images/addimg.png' }} style={{   height: (width - 100) / 3,
         width: (width * 0.84 - 48) / 3, marginLeft: "8%" }} />
                     </TouchableOpacity>
                 );
@@ -96,7 +96,7 @@ export default class discuss extends Component {
         pingjia_txt(){
             AsyncStorage.getItem('username',(err,result)=>{
                 if(!err){
-                    fetch('http://8.142.11.85:3000/shop/insert_pingjia_txt', {
+                    fetch('http://47.100.78.254:3000/shop/insert_pingjia_txt', {
                         method: 'POST',
                         headers: {
                             Accept: 'application/json',
@@ -117,7 +117,7 @@ export default class discuss extends Component {
         }
         //上传评价图片
         _fetchImage(image) {
-            let url = 'http://8.142.11.85:3000/shop/insert_pingjia_img';
+            let url = 'http://47.100.78.254:3000/shop/insert_pingjia_img';
             let head = { uri: image.path, type: image.mime, name: image.path.split('/').pop() };
             let formData = new FormData();
             formData.append('files', head); // 这里的 file 要与后台名字对应。

@@ -12,49 +12,49 @@ const { width, height } = Dimensions.get('window');
 
 const data = [{
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/1.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/1.png'
 },
 
 {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/2.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/2.png'
 },
 {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/3.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/3.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/4.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/4.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/5.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/5.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/6.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/6.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/7.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/7.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/8.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/8.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/9.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/9.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/10.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/10.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/11.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/11.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/12.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/12.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/13.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/13.png'
 }, {
 
-    img: 'http://8.142.11.85:3000/public/images/dingzhi/14.png'
+    img: 'http://47.100.78.254:3000/public/images/dingzhi/14.png'
 },
 ]
 
@@ -236,7 +236,7 @@ export default class Clothe extends Component {
     insert_shopcart(item) {
         AsyncStorage.getItem('username', (err, result) => {
             if (!err) {
-                fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+                fetch('http://47.100.78.254:3000/shop/insert_shopcart', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -392,7 +392,7 @@ export default class Clothe extends Component {
                     <ImageBackground ref={viewRef} collapsable={false} source={{ uri: this.state.backImg }} resizeMode={'contain'} style={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: '#5A849F' }}>
                         {this.ImageComponent()}
                         <TouchableOpacity onPress={()=>{this.setState({eye:!this.state.eye}),this.EyeControl()}} style={{ width: width * 0.07, height: width * 0.07, marginLeft: width * 0.92, marginTop: height * 0.6 }}>
-                            <Image style={{ width: '100%', height: '100%', }} source={{uri:this.state.eye ? "http://8.142.11.85:3000/public/images/openEye.png" : "http://8.142.11.85:3000/public/images/closeEye.png"}}></Image>
+                            <Image style={{ width: '100%', height: '100%', }} source={{uri:this.state.eye ? "http://47.100.78.254:3000/public/images/openEye.png" : "http://47.100.78.254:3000/public/images/closeEye.png"}}></Image>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
@@ -419,7 +419,7 @@ export default class Clothe extends Component {
                         </View>
                         <View tabLabel="自定义" style={{ width: width * 0.8, marginLeft: width * 0.1, flexDirection: 'row', justifyContent: 'space-between' }}>
                             <TouchableOpacity activeOpacity={1} onPress={() => { this._openPicker() }} style={{ width: width * 0.3, height: width * 0.38, marginTop: height * 0.0 }}>
-                                <Image style={{ width: '100%', height: '80%' }} source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }}>
+                                <Image style={{ width: '100%', height: '80%' }} source={{ uri: 'http://47.100.78.254:3000/public/images/addimg.png' }}>
 
                                 </Image>
                                 <Text style={{ width: '100%', height: '20%', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, color: '#333' }}>

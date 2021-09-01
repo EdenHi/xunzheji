@@ -9,7 +9,7 @@ export default class Exchange_want extends Component {
     constructor(props){
         super(props)
         this.state = {
-            img:'http://8.142.11.85:3000/public/images/addimg.png',
+            img:'http://47.100.78.254:3000/public/images/addimg.png',
             leibie:'',
             mingcheng:'',
             liuyan:'',
@@ -36,7 +36,7 @@ export default class Exchange_want extends Component {
                 if (!error) {
 
                     //发送日期
-                    fetch('http://8.142.11.85:3000/shop/insert_Exchange2_want_time', {
+                    fetch('http://47.100.78.254:3000/shop/insert_Exchange2_want_time', {
                         method: 'POST',
                         headers: {
                             Accept: 'application/json',
@@ -61,7 +61,7 @@ export default class Exchange_want extends Component {
                         let file = {uri: imag.path, type: imag.mime, name: imag.path.split('/').pop()};   //这里的key(uri和type和name)不能改变,
                         formData.append('files',file);   //这里的files就是后台需要的key
                         formData.append('insertId',josn.insertId)
-                        fetch('http://8.142.11.85:3000/shop/update_Exchange2_want',{
+                        fetch('http://47.100.78.254:3000/shop/update_Exchange2_want',{
                         method:'POST',
                         headers:{
                             'Content-Type':'multipart/form-data',

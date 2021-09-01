@@ -24,7 +24,7 @@ export default class CustomMade extends React.Component {
         {
           title: "老字号出道",
           text: "文创定制",
-          img: "http://8.142.11.85:3000/public/images/wenchuang.jpg",
+          img: "http://47.100.78.254:3000/public/images/wenchuang.jpg",
           t1: "T恤定制",
           t2: "手机壳定制",
           t3: "帆布袋定制"
@@ -32,7 +32,7 @@ export default class CustomMade extends React.Component {
         {
           title: "非遗大师",
           text: "手工定制",
-          img: "http://8.142.11.85:3000/public/images/feiyi.jpg",
+          img: "http://47.100.78.254:3000/public/images/feiyi.jpg",
           t1: "皮影定制",
           t2: "木刻定制",
           t3: "香包定制"
@@ -40,7 +40,7 @@ export default class CustomMade extends React.Component {
         {
           title: "投资收藏",
           text: "名家定制",
-          img: "http://8.142.11.85:3000/public/images/16.jpg",
+          img: "http://47.100.78.254:3000/public/images/16.jpg",
           t1: "T恤定制",
           t2: "手机壳定制",
           t3: "帆布袋定制"

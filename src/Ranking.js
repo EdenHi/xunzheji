@@ -25,7 +25,7 @@ export default class Ranking extends Component {
             <ScrollView>
                 <ImageBackground style={{ width: width, height: height * 0.28 }} source={{ uri: 'https://sjbz-fd.zol-img.com.cn/t_s320x510c5/g2/M00/05/0C/ChMlWl1BWGKIa5b1AAkDHph43SoAAMQfgALVicACQM2533.jpg' }}>
                 </ImageBackground>
-                <ImageBackground resizeMode={'stretch'} style={{ width: width * 0.95, height: height * 0.3478, marginTop: height * -0.2, marginHorizontal: "2.5%", elevation: 1.5, }} source={{uri:'http://8.142.11.85:3000/public/images/14.png'}}>
+                <ImageBackground resizeMode={'stretch'} style={{ width: width * 0.95, height: height * 0.3478, marginTop: height * -0.2, marginHorizontal: "2.5%", elevation: 1.5, }} source={{uri:'http://47.100.78.254:3000/public/images/14.png'}}>
                     <View style={{width:150,height:150,position:"absolute",left:"23.5%",top:-70}}>
                     <LottieView style={{width:"100%",height:"100%"}} source={require('../animal/trophy.json')} progress={this.state.progress} />
                     </View>

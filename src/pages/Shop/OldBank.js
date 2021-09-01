@@ -35,19 +35,19 @@ export default class OldBank extends Component {
       useNativeDriver: false,
     }).start()
     if (index == 0) {
-      this.setState({ imgUrl: { uri: 'http://8.142.11.85:3000/public/images/2.jpg' } })
+      this.setState({ imgUrl: { uri: 'http://47.100.78.254:3000/public/images/2.jpg' } })
     }
     if (index == 1) {
       this.setState({ imgUrl: { uri: 'https://img1.baidu.com/it/u=3476655050,4029386946&fm=26&fmt=auto&gp=0.jpg' } })
     }
     if (index == 2) {
-      this.setState({ imgUrl: { uri: 'http://8.142.11.85:3000/public/images/2.jpg' } })
+      this.setState({ imgUrl: { uri: 'http://47.100.78.254:3000/public/images/2.jpg' } })
     }
     if (index == 3) {
       this.setState({ imgUrl: { uri: 'https://img1.baidu.com/it/u=3476655050,4029386946&fm=26&fmt=auto&gp=0.jpg' } })
     }
     if (index == 4) {
-      this.setState({ imgUrl: { uri: 'http://8.142.11.85:3000/public/images/2.jpg' } })
+      this.setState({ imgUrl: { uri: 'http://47.100.78.254:3000/public/images/2.jpg' } })
     }
     if (index == 5) {
       this.setState({ imgUrl: { uri: 'https://img1.baidu.com/it/u=3476655050,4029386946&fm=26&fmt=auto&gp=0.jpg' } })

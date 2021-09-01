@@ -15,6 +15,7 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import LottieView from 'lottie-react-native';
 import Fontisto from 'react-native-vector-icons/Fontisto'
+import { ScrollView } from 'react-native';
 const tags = [];
 export default class Fabu extends Component {
     constructor(props) {
@@ -26,8 +27,11 @@ export default class Fabu extends Component {
             username: '',
             progress: new Animated.Value(0),
             modalVisible: false,
+            modalVisible1: false,
             tag: [],
+            Tags: ['圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '漫展返图', '凉宫春日', '圣诞COS', '凉宫春日', '凉宫春日', '凉宫春日', '凉宫春日']
         };
+
     }
 
     componentDidMount() {
@@ -67,7 +71,7 @@ export default class Fabu extends Component {
                 <TouchableOpacity
                     activeOpacity={1}
                     onPress={() => this._openPicker()}>
-                    <Image source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }} style={{ width: 95, height: 95, marginLeft: "9%" }} />
+                    <Image source={{ uri: 'http://47.100.78.254:3000/public/images/addimg.png' }} style={{ width: 95, height: 95, marginLeft: "9%" }} />
                 </TouchableOpacity>
             );
         }
@@ -81,7 +85,7 @@ export default class Fabu extends Component {
     }
 
     _fetchImage(image) {
-        let url = 'http://8.142.11.85:3000/dongtai/releaseDongtai';
+        let url = 'http://47.100.78.254:3000/dongtai/releaseDongtai';
         let head = { uri: image.path, type: image.mime, name: image.path.split('/').pop() };
         let formData = new FormData();
         formData.append('files', head); // 这里的 file 要与后台名字对应。
@@ -108,7 +112,7 @@ export default class Fabu extends Component {
                     username: result,
                 });
                 console.log('username', result)
-                fetch('http://8.142.11.85:3000/dongtai/title', {
+                fetch('http://47.100.78.254:3000/dongtai/title', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -171,9 +175,20 @@ export default class Fabu extends Component {
     _openModalWin = () => {
         this.setState({ modalVisible: true });
     }
-
     _closeModalWin = () => {
         this.setState({ modalVisible: false });
+    }
+    _openModalWin1 = () => {
+        this.setState({ modalVisible1: true });
+    }
+    _closeModalWin1 = () => {
+        this.setState({ modalVisible1: false });
+    }
+    TagRender({ item, index }) {
+        return (
+            <Text onPress={() => { this.tag(item) }} style={{ backgroundColor: '#7cc0c0', fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#{item}</Text>
+        )
+
     }
     render() {
         const { navigation } = this.props;
@@ -183,9 +198,9 @@ export default class Fabu extends Component {
                 <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
                     <View style={styles.box}>
                         <TouchableOpacity
-                        style={{width:width*0.06}}
+                            style={{ width: width * 0.06 }}
                             activeOpacity={1}>
-                                 <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                            <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                             {/* <AntDesign onPress={() => this.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} /> */}
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>发布动态</Text>
@@ -236,7 +251,7 @@ export default class Fabu extends Component {
                                             </View>
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {
-                                                    this._closeModalWin()
+                                                    this._closeModalWin(),
                                                     this._goget()
 
                                                 }}
@@ -249,11 +264,32 @@ export default class Fabu extends Component {
                                 </View>
                             </TouchableOpacity>
                         </Modal>
+                        <Modal
+                            animationType='slide' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
+                            transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
+                            visible={this.state.modalVisible1} // 是否显示 modal 窗口
+                            onRequestClose={() => { this._closeModalWin1(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
+                            onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
+                        >
+                            <View style={{ borderWidth: 1, height: height * 0.5, width: width, backgroundColor: '#eee', marginTop: height * 0.5 }}>
+                                <ScrollView style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>
+
+                                    <FlatList
+                                        renderItem={this.TagRender.bind(this)}
+                                        data={this.state.Tags}
+                                        showsVerticalScrollIndicator={false}
+                                        numColumns={3}
+                                    />
+
+
+                                </ScrollView>
+                            </View>
+                        </Modal>
                     </View>
                     <View style={{ width: width * 0.9, height: height, backgroundColor: "#fff", borderRadius: 15 }}>
                         <View style={{ height: 200, width: "100%" }}>
                             <TextInput
-                            textAlignVertical="top"
+                                textAlignVertical="top"
                                 style={styles.tx}
                                 multiline={true}
                                 placeholder="这一刻的想法..."
@@ -274,10 +310,10 @@ export default class Fabu extends Component {
                                 this.state.tag.map((v, k) => {
                                     return (
                                         <View key={k} style={{ alignItems: 'flex-end' }}>
-                                            <View style={{ flexDirection:'row',marginTop:10,marginBottom: 10,marginLeft: 10, width: width*0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, position: 'relative' }}
-                                                >
+                                            <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: 10, width: width * 0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, position: 'relative' }}
+                                            >
                                                 <Fontisto name='hashtag' color='#fff' />
-                                                <Text style={{ paddingTop: 5, paddingBottom: 5, color:"#fff"}}>{v}</Text>
+                                                <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{v}</Text>
                                             </View>
                                             <AntDesign
                                                 name='closecircle'
@@ -289,11 +325,13 @@ export default class Fabu extends Component {
                                     )
                                 })
                             }
-                            {this.state.tag.length===0?<TouchableOpacity style={{ flexDirection:"row",marginLeft: 10, marginBottom: 20, width: width*0.20, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20 }}
-                                onPress={() => this.props.navigation.navigate('tag')}>
+                            {this.state.tag.length === 0 ? <TouchableOpacity style={{ flexDirection: "row", marginLeft: 10, marginBottom: 20, width: width * 0.20, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20 }}
+                                // onPress={() => this.props.navigation.navigate('tag')}
+                                onPress={() => { this._openModalWin1() }}
+                            >
                                 <Fontisto name='hashtag' color='#fff' />
-                                <Text style={{ paddingTop: 5, paddingBottom: 5, color:"#fff"}}>话题</Text>
-                            </TouchableOpacity>:null}
+                                <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>话题</Text>
+                            </TouchableOpacity> : null}
                         </View>
 
 
@@ -370,7 +408,7 @@ const styles = StyleSheet.create({
 
         marginLeft: "2%",
         // backgroundColor:"red",
-        height:"100%"
+        height: "100%"
 
     },
     txt: {

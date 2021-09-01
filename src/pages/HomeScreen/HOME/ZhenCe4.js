@@ -24,7 +24,7 @@ export default class ZhenCe4 extends Component {
                 </View>
                 <ScrollView>
                     <View style={{ width, marginHorizontal: width * 0.05 }}>
-                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                         <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold", width: width * 0.9, color: "#333" }}>《浙江省民营企业发展促进条例》落地</Text>
                         <View style={{ flexDirection: "row", marginTop: 5 }}>
                             <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙江日报</Text>
@@ -35,8 +35,8 @@ export default class ZhenCe4 extends Component {
                                 &emsp;&emsp;1月16日，浙江省十三届人大三次会议表决通过了《浙江省民营企业发展促进条例》（下称《条例》）。《条例》自2020年2月1日起正式施行。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
-                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb1.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb3.jpeg' }} />
+                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb1.jpeg' }} /> */}
 
 
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
@@ -51,7 +51,7 @@ export default class ZhenCe4 extends Component {
                                 &emsp;&emsp;浙江省人大常委会委员、法制委员会主任委员丁祖年在发布会上介绍说，浙江省委高度重视《浙江省民营企业发展促进条例》的制定工作，要求认真总结提炼改革实践中积累的成功经验，积极回应民营企业诉求，制定好这部重要创制性法规。浙江省政府坚持以问题为导向，认真梳理需要破解的重点问题，形成了《条例（草案）》，浙江省人大常委会分别于去年9月、11月、12月召开会议，对草案进行了三次审议，并决定提交省十三届人大三次会议审议。1月16日下午，《条例》以99.51%的赞成率高票通过。
                             </Text>
                         </View>
-                        <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
+                        <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb2.jpeg' }} />
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                             <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025, color: "#333" }}>
                                 &emsp;&emsp;作为一部与民营企业切身相关的法规，在制定过程中，非常注重听取不同类型、不同行业、不同规模、不同区域民营企业的意见，同时，也听取吸收了金融机构、省企业权益保护协会、工商联、律师协会、民营企业发展联合会等意见。
@@ -81,7 +81,7 @@ export default class ZhenCe4 extends Component {
                                 &emsp;&emsp;《条例》提供了民营企业境外投资、人才引进、风险防范、融资畅通等方面的制度支撑：一是支持民营企业“走出去”，规定有关部门应当为其提供信息推送、境外风险预警、境外投资知识培训等服务，引导支持民营企业依法合理有序开展境外投资；二是强化民营企业人才保障，针对民营企业引进和留住人才难的问题，除对政府制定人才政策提出要求外，允许符合条件的民营企业利用其存量工业用地按照国家有关规定建设企业人才公寓等办公生活配套设施；三是完善民营企业风险预警和纾困帮扶机制，对政府、司法机关等建立健全市场风险分析预警、分类帮扶纾困、企业破产联动协调、企业破产启动资金援助、破产重整企业征信信息修复等制度作了规定；四是推动解决民营企业融资难融资贵问题，对民营企业融资过程中涉及的个人保证担保、授信评价、续贷产品、应收账款质押等作出明确规定。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} /> */}
                     </View>
                 </ScrollView>
             </View>

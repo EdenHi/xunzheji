@@ -25,7 +25,7 @@ export default class Zs extends Component {
                 this.setState({
                     denglu_username: result,
                 })
-                fetch('http://8.142.11.85:3000/shouye/get_pinglun', {
+                fetch('http://47.100.78.254:3000/shouye/get_pinglun', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -52,7 +52,7 @@ export default class Zs extends Component {
     //更新文章评论点赞
     update_dianzan(v) {
         if (v.wenzhang_dianzan === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan2', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -63,7 +63,7 @@ export default class Zs extends Component {
                 }),
             });
         } else {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -80,7 +80,7 @@ export default class Zs extends Component {
 
     //获取点赞数据
     get_shuju() {
-        fetch('http://8.142.11.85:3000/shouye/selectShoucang', {
+        fetch('http://47.100.78.254:3000/shouye/selectShoucang', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -100,7 +100,7 @@ export default class Zs extends Component {
 
     //对文章进行评论
     insert_pinglun() {
-        fetch('http://8.142.11.85:3000/shouye/insert_wenzhang', {
+        fetch('http://47.100.78.254:3000/shouye/insert_wenzhang', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -120,7 +120,7 @@ export default class Zs extends Component {
 
     shoucang() {
         if (this.state.data.username === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/shouye/update_shoucang2', {
+            fetch('http://47.100.78.254:3000/shouye/update_shoucang2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -132,7 +132,7 @@ export default class Zs extends Component {
             });
         } else {
             {
-                fetch('http://8.142.11.85:3000/shouye/update_shoucang', {
+                fetch('http://47.100.78.254:3000/shouye/update_shoucang', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -213,7 +213,7 @@ export default class Zs extends Component {
         return (
             <View>
                 <View style={{ width, alignItems: "center" }}>
-                    {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                    {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                     <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold",color:"#333" }}>浙江商帮为何能在明清时期就纷纷兴起？</Text>
                     <View style={{ flexDirection: "row", marginTop: 5 }}>
                         <Text style={{ fontSize: 10, marginLeft: "-45%",color:"#333" }}>#浙商话题</Text>
@@ -224,8 +224,8 @@ export default class Zs extends Component {
                             &emsp;&emsp;明代中后期因为全国的交通条件得到了大幅的改善和发展。大规模的远航的商业活动和商品贩卖贩运开始，发展也从而推动了各地的商帮的兴起和发展。尤其是在明代，当时国家统一交通也便利幅员辽阔水路都非常的畅通，也是为大规模的商品的流通提供了非常便利的交通运输条件。我国古代的商帮的诞生，从刚开始的经商风气的形成到最后商品经济的发展一直是一个比较艰难而长久的过程。在封建社会的多种的因素合条件之下，明清时期各地的商帮开始先后形成。
                         </Text>
                     </View>
-                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
-                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb1.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb3.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb1.jpeg' }} />
 
                     <View><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center" ,color:"#333"}}>地域化的商帮兴起的背景</Text></View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
@@ -238,7 +238,7 @@ export default class Zs extends Component {
                             &emsp;&emsp;明朝更是为了利用贯通南北大运河来转输粮草。在后来的永乐年间，为了对付蒙古的设立，便于军队的往来和粮食的运输，更是修建了很多的道路。是北边与内地的交通更加的便利和畅通。从宿州通向西域的道路也是通过明朝的修筑，也开始变得畅通无阻。到了明朝中后期的时候，全国各地的水陆交通开始有十分大的改观。
                         </Text>
                     </View>
-                    <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb2.jpeg' }} />
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025,color:"#333" }}>
                             &emsp;&emsp;除此之外，当时商品经济生产发展和它的结构也是有利于商人进行群体集团的产生。在明代时期，当时的商业主要经营生产是棉布和丝绸等纺织品的经营。当时的棉花在全国进行种植，南北都是可以的，遍布全国。每年江南要从华北地区输入各种的原材料。当时可以向海内外输入大量丝绸的，只有江南，这就形成了江南丝绸，可以畅销于海内外的单向的一个商品流畅。也就形成了一种垄断垄断的方式。从而促进了商业群体的活动。加之当时的白银货币已经改变了当时的支付手段，提高了结算的效率，从而也就给商业大规模的流通带来了一种便利的条件，有利于商帮群体的产生。
@@ -255,7 +255,7 @@ export default class Zs extends Component {
                             &emsp;&emsp;  传统的根深蒂固的重商思想开始慢慢的在这江浙地区延伸开来。也是成为了江浙地区有很多商帮兴起的原因之一。因为深厚的思想是民间经商的基础大大加深也使庞大的商人群体开始产生。当时在江浙地区经世致用思想已经成为了当时江浙人的一种集体无意识的人文精神。他强调个人个体能力公立还是注重实际成为了他们的主导思想。
                         </Text>
                     </View>
-                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} />
                 </View>
                 <View style={{ width: width, flexDirection: "row", alignItems: "center", marginTop: "5%" }}>
                     <View style={{ width: 2, height: 28, backgroundColor: "#7cc0c0", marginLeft: width * 0.05 }}></View>

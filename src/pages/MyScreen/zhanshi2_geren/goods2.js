@@ -44,7 +44,7 @@ export default class Goods2 extends Component {
   get_shuju(){
     AsyncStorage.getItem('username',(err,result)=>{
       if(!err){
-        fetch('http://8.142.11.85:3000/shop/select_PersonExchange', {
+        fetch('http://47.100.78.254:3000/shop/select_PersonExchange', {
           method: 'POST',
           headers: {
               Accept: 'application/json',
@@ -75,7 +75,7 @@ export default class Goods2 extends Component {
   }
 
   delete_card(item){
-    fetch('http://8.142.11.85:3000/shop/delete_exchange', {
+    fetch('http://47.100.78.254:3000/shop/delete_exchange', {
           method: 'POST',
           headers: {
               Accept: 'application/json',

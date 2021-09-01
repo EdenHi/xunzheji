@@ -74,7 +74,7 @@ export default class Swop extends Component {
   }
 
   get_shuju() {
-    fetch('http://8.142.11.85:3000/shop/select_exchange2')
+    fetch('http://47.100.78.254:3000/shop/select_exchange2')
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson);

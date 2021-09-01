@@ -53,7 +53,7 @@ export default class Dingdan extends Component {
                     this.setState({
                         username:result
                     })
-                    fetch('http://8.142.11.85:3000/shop/select_dingdan', {
+                    fetch('http://47.100.78.254:3000/shop/select_dingdan', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -73,7 +73,7 @@ export default class Dingdan extends Component {
         }
 
         update_dingdan(){
-            fetch('http://8.142.11.85:3000/shop/update_dingdan', {
+            fetch('http://47.100.78.254:3000/shop/update_dingdan', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

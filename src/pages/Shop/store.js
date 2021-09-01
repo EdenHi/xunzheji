@@ -37,7 +37,7 @@ import shoplist from './shoplist/shoplist.json';
 import Geolocation from '@react-native-community/geolocation';
 
 const { width, height } = Dimensions.get('window');
-const images = [{ uri: 'http://8.142.11.85:3000/public/images/5.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/6.jpg' }, { uri: 'http://8.142.11.85:3000/public/images/5.jpg' }]
+const images = [{ uri: 'http://47.100.78.254:3000/public/images/5.jpg' }, { uri: 'http://47.100.78.254:3000/public/images/6.jpg' }, { uri: 'http://47.100.78.254:3000/public/images/6.jpg' }, { uri: 'http://47.100.78.254:3000/public/images/5.jpg' }]
 
 export default class Store extends Component {
   constructor(props) {
@@ -246,7 +246,7 @@ export default class Store extends Component {
   insert_shopcart(item) {
     AsyncStorage.getItem('username', (err, result) => {
       if (!err) {
-        fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+        fetch('http://47.100.78.254:3000/shop/insert_shopcart', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -344,7 +344,7 @@ componentWillUnmount(){
   tuijian(){
     AsyncStorage.getItem('username',(err,result)=>{
       if(!err){
-        fetch('http://8.142.11.85:3000/index/selectTuijian', {
+        fetch('http://47.100.78.254:3000/index/selectTuijian', {
       method: 'POST',
       headers: {
           Accept: 'application/json',
@@ -574,11 +574,11 @@ componentWillUnmount(){
               borderRadius: 15
             }} />}
           >
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://8.142.11.85:3000/public/images/store1.png" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://8.142.11.85:3000/public/images/store2.png" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://8.142.11.85:3000/public/images/store3.png" }} />
+            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store1.png" }} />
+            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store2.png" }} />
+            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store3.png" }} />
             <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://8.142.11.85:3000/public/images/store1.png" }} />
+            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store1.png" }} />
             <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
           </Swiper>
           {/* <ShiCha /> */}
@@ -607,12 +607,12 @@ componentWillUnmount(){
             <View style={{ width: "100%", height: "50%" }}>
               <LottieView source={require('../../../animal/dingzhi.json')} autoPlay loop progress={this.state.progress} />
             </View>
-            {/* <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://8.142.11.85:3000/public/images/8.jpg' }}></Image> */}
+            {/* <Image style={{ width: "100%", height: "100%", borderRadius: 15, }} source={{ uri: 'http://47.100.78.254:3000/public/images/8.jpg' }}></Image> */}
           </TouchableOpacity>
           <View style={{ width: "59%", height: "100%", marginLeft: "1%", justifyContent: "center" }}>
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Classify')} style={{ width: "100%", flexDirection: "row", height: "49%", marginBottom: "2%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
               <View style={{}}></View>
-              <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://8.142.11.85:3000/public/images/9.jpg' }}></Image>
+              <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} source={{ uri: 'http://47.100.78.254:3000/public/images/9.jpg' }}></Image>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('Swop')} style={{ width: "100%", height: "49%", backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
               <Image style={{ width: "100%", height: "100%", borderRadius: 15 }} resizeMode="contain" source={require("../img/以物换物.png")}></Image>

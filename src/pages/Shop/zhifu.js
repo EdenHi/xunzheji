@@ -114,7 +114,7 @@ console.log(this.props.route.params);
                     username:result,
                 });
                 console.log('username',result);
-                fetch('http://8.142.11.85:3000/shop/selectdizhi_2', {
+                fetch('http://47.100.78.254:3000/shop/selectdizhi_2', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -155,7 +155,7 @@ console.log(this.props.route.params);
         }
 
     buy(){
-        fetch('http://8.142.11.85:3000/shop/insert_dingdan', {
+        fetch('http://47.100.78.254:3000/shop/insert_dingdan', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
