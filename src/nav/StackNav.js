@@ -105,6 +105,8 @@ import {
   zanheshoucang,
   go_pinglun,
   ZhenCe,
+  book_6,
+  book_xiangqing_6,
   shicha2
 } from '../pages/index';
 import CityList from '../components/CityList';
@@ -233,6 +235,8 @@ export default function StackNav() {
       <Stack.Screen name="zanheshoucang" component={zanheshoucang} />
       <Stack.Screen name="go_pinglun" component={go_pinglun} />
       <Stack.Screen name="ZhenCe" component={ZhenCe} />
+      <Stack.Screen name="book_6" component={book_6} />
+      <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
     </Stack.Navigator>
   );
