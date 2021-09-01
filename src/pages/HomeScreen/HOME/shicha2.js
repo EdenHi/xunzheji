@@ -15,16 +15,16 @@ const ITEM_WIDTH = width * 0.76;
 const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 
 const images = [
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home2.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
-  "http://8.142.11.85:3000/public/images/home3.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
+  "http://8.142.11.85:3000/public/images/home1.png",
 ];
 
 const data = images.map((image, index) => ({
@@ -35,7 +35,7 @@ const data = images.map((image, index) => ({
   )}.jpg`,
 }));
 
-export default shicha2 = (props) => {
+export default  shicha2=(props)=> {
   const scrollX = useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.container}>
@@ -68,11 +68,11 @@ export default shicha2 = (props) => {
                 alignItems: "center",
               }}
             >
-
-                <TouchableOpacity
+              <TouchableOpacity  onPress={()=>{props.navigation.navigate("FootMark")}}>
+                <View
                   style={{
                     width: width * 0.95,
-                    height: height * 0.21,
+                    height: height * 0.2,
                     marginLeft: -width * 0.05,
                     overflow: "hidden",
 
@@ -85,7 +85,7 @@ export default shicha2 = (props) => {
                     source={{ uri: item.photo }}
                     style={{
                       width: width,
-                      height: height * 0.22,
+                      height: height * 0.2,
                       resizeMode: "stretch",
                       transform: [
                         {
@@ -94,9 +94,9 @@ export default shicha2 = (props) => {
                       ],
                     }}
                   />
-                </TouchableOpacity>
+                </View>
 
-
+              </TouchableOpacity>
             </View>
           );
         }}
