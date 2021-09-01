@@ -19,11 +19,11 @@ export default class Homepagebook extends Component {
             entries: [
                 {
                     title: "",
-                    img: "https://img0.baidu.com/it/u=2944285600,2767547880&fm=26&fmt=auto&gp=0.jpg"
+                    img: "https://bkimg.cdn.bcebos.com/pic/a08b87d6277f9e2fbfd2794a1130e924b999f389?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
                 },
                 {
                     title: "",
-                    img: "http://t15.baidu.com/it/u=3242792747,33567011&fm=224&app=112&f=JPEG?w=368&h=500&s=5DB8AD57718DEAFE84536DEB0300503A"
+                    img: "https://easyreadfs.nosdn.127.net/1MaX3qUtU39F6dYfkSLjNA==/8796093024887126402"
                 },
                 {
                     title: "",
@@ -197,7 +197,7 @@ export default class Homepagebook extends Component {
             this.props.navigation.navigate('book_0',{ii:3})
         }
         if (index === 4) {
-            this.props.navigation.navigate('book_1',{ii:4})
+            this.props.navigation.navigate('book_2',{ii:4})
         }
         if (index === 5) {
             this.props.navigation.navigate('book_1',{ii:5})

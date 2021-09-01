@@ -107,7 +107,9 @@ import {
   ZhenCe,
   book_6,
   book_xiangqing_6,
-  shicha2
+  shicha2,
+  book_2,
+  book_xiangqing_2
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -238,6 +240,8 @@ export default function StackNav() {
       <Stack.Screen name="book_6" component={book_6} />
       <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
+      <Stack.Screen name="book_2" component={book_2} />
+      <Stack.Screen name="book_xiangqing_2" component={book_xiangqing_2} />
     </Stack.Navigator>
   );
 }
