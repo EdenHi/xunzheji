@@ -68,7 +68,7 @@ export default class app1 extends Component {
                     this.setState({
                         portrait:image.path,
                     });
-                    fetch('http://8.142.11.85:3000/index/updatePortrait',{
+                    fetch('http://47.100.78.254:3000/index/updatePortrait',{
                     method:'POST',
                     headers:{
                         'Content-Type':'multipart/form-data',
@@ -87,7 +87,7 @@ export default class app1 extends Component {
     }
 
     go_nickname(){
-        axios.post('http://8.142.11.85:3000/index/updateNickname',{
+        axios.post('http://47.100.78.254:3000/index/updateNickname',{
                             username:this.state.username,
                             nickname:this.state.nickname,
                     }).then((json)=>{
@@ -98,7 +98,7 @@ export default class app1 extends Component {
         });
       }
       go_phone(){
-        axios.post('http://8.142.11.85:3000/index/updatePhone',{
+        axios.post('http://47.100.78.254:3000/index/updatePhone',{
                             username:this.state.username,
                             phone:this.state.phone,
                     }).then((json)=>{
@@ -109,7 +109,7 @@ export default class app1 extends Component {
         });
       }
     go_birthday=(birthday)=>{
-        axios.post('http://8.142.11.85:3000/index/updateBirthday',{
+        axios.post('http://47.100.78.254:3000/index/updateBirthday',{
                             username:this.state.username,
                             birthday:birthday,
                     }).then((json)=>{
@@ -120,7 +120,7 @@ export default class app1 extends Component {
         });
     }
     go_signature(){
-        axios.post('http://8.142.11.85:3000/index/updateSignature',{
+        axios.post('http://47.100.78.254:3000/index/updateSignature',{
             username:this.state.username,
             signature:this.state.signature,
             }).then((json)=>{
@@ -143,7 +143,7 @@ export default class app1 extends Component {
         Picker.show();
     }
     updateSex = (arr) =>{
-        axios.post('http://8.142.11.85:3000/index/updateSex',{
+        axios.post('http://47.100.78.254:3000/index/updateSex',{
                             username:this.state.username,
                             sex:arr[0],
                     }).then((json)=>{
@@ -167,7 +167,7 @@ export default class app1 extends Component {
         Picker.show();
     }
     updateArea = (arr) =>{
-        axios.post('http://8.142.11.85:3000/index/updateArea',{
+        axios.post('http://47.100.78.254:3000/index/updateArea',{
                             username:this.state.username,
                             area:arr[1],
                     }).then((json)=>{
@@ -203,7 +203,7 @@ export default class app1 extends Component {
                     this.setState({
                         backpic:image.path,
                     });
-                    fetch('http://8.142.11.85:3000/index/updateBackpic',{
+                    fetch('http://47.100.78.254:3000/index/updateBackpic',{
                     method:'POST',
                     headers:{
                         'Content-Type':'multipart/form-data',

@@ -77,7 +77,7 @@ export default class Comment extends React.Component {
     ];
     //删除该条评论
     delect() {
-        fetch('http://8.142.11.85:3000/dongtai/delect_Dongtai', {
+        fetch('http://47.100.78.254:3000/dongtai/delect_Dongtai', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -93,7 +93,7 @@ export default class Comment extends React.Component {
 
     //获取某一个数据
     get_One() {
-        fetch('http://8.142.11.85:3000/dongtai/OneDongtai', {
+        fetch('http://47.100.78.254:3000/dongtai/OneDongtai', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -178,7 +178,7 @@ export default class Comment extends React.Component {
     pinglun() {
         var date = new Date();
 
-        fetch('http://8.142.11.85:3000/dongtai/insert_comment', {
+        fetch('http://47.100.78.254:3000/dongtai/insert_comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -240,7 +240,7 @@ export default class Comment extends React.Component {
 
     //获取评论信息
     go_select() {
-        fetch('http://8.142.11.85:3000/dongtai/comment', {
+        fetch('http://47.100.78.254:3000/dongtai/comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -285,7 +285,7 @@ export default class Comment extends React.Component {
     //更新点赞信息
     update_dianzan() {
         if (this.state.data.dianzan_username === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/dongtai/update_dianzan2', {
+            fetch('http://47.100.78.254:3000/dongtai/update_dianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -296,7 +296,7 @@ export default class Comment extends React.Component {
                 }),
             });
         } else {
-            fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
+            fetch('http://47.100.78.254:3000/dongtai/update_dianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

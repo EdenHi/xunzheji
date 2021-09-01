@@ -20,7 +20,7 @@ export default class zanheshoucang extends Component {
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({username:result})
-                fetch('http://8.142.11.85:3000/index/select_zanyushoucang', {
+                fetch('http://47.100.78.254:3000/index/select_zanyushoucang', {
                     method: 'post',
                     headers: {
                         'Accept': 'application/json',

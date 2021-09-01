@@ -13,27 +13,27 @@ import { NavigationContext } from '@react-navigation/native';
 const ENTRIES1 = [
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'http://8.142.11.85:3000/public/images/home1.png',
+    illustration: 'http://47.100.78.254:3000/public/images/home1.png',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'http://8.142.11.85:3000/public/images/travel3.jpeg',
+    illustration: 'http://47.100.78.254:3000/public/images/travel3.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'http://8.142.11.85:3000/public/images/travel1.jpeg',
+    illustration: 'http://47.100.78.254:3000/public/images/travel1.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'http://8.142.11.85:3000/public/images/home1.png',
+    illustration: 'http://47.100.78.254:3000/public/images/home1.png',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'http://8.142.11.85:3000/public/images/travel2.jpeg',
+    illustration: 'http://47.100.78.254:3000/public/images/travel2.jpeg',
   },
   {
     subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'http://8.142.11.85:3000/public/images/travel1.jpeg',
+    illustration: 'http://47.100.78.254:3000/public/images/travel1.jpeg',
   },
 ];
 const { width, height } = Dimensions.get('window');

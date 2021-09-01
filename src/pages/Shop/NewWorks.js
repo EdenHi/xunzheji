@@ -130,7 +130,7 @@ export default class NewWorks extends Component {
 
   insert_shopcart(item){
 
-          fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+          fetch('http://47.100.78.254:3000/shop/insert_shopcart', {
               method: 'POST',
               headers: {
                   Accept: 'application/json',

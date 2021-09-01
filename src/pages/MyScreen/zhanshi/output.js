@@ -19,7 +19,7 @@ export default class output extends Component {
   }
 
   get_shuju(v) {
-    fetch('http://8.142.11.85:3000/index/select_Dongtai', {
+    fetch('http://47.100.78.254:3000/index/select_Dongtai', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -37,7 +37,7 @@ export default class output extends Component {
       })
   }
   get_shuju2(v) {
-    fetch('http://8.142.11.85:3000/index/select_Dongtai2', {
+    fetch('http://47.100.78.254:3000/index/select_Dongtai2', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

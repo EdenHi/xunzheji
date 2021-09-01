@@ -53,7 +53,7 @@ export default class Dingdan extends Component {
                 this.setState({
                     username: result
                 })
-                fetch('http://8.142.11.85:3000/shop/selectfootmark', {
+                fetch('http://47.100.78.254:3000/shop/selectfootmark', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

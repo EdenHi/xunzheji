@@ -19,7 +19,7 @@ export default class Want extends Component {
     componentDidMount(){
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
-                fetch('http://8.142.11.85:3000/shop/select_Exchange2_want', {
+                fetch('http://47.100.78.254:3000/shop/select_Exchange2_want', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

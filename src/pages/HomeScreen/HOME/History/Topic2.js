@@ -26,7 +26,7 @@ export default class Topic1 extends Component {
                 this.setState({
                     denglu_username: result,
                 })
-                fetch('http://8.142.11.85:3000/shouye/get_pinglun', {
+                fetch('http://47.100.78.254:3000/shouye/get_pinglun', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -53,7 +53,7 @@ export default class Topic1 extends Component {
 
 //获取点赞数据
 get_shuju(){
-    fetch('http://8.142.11.85:3000/shouye/selectShoucang', {
+    fetch('http://47.100.78.254:3000/shouye/selectShoucang', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -77,7 +77,7 @@ get_shuju(){
 shoucang(){
     if(this.state.data.username===this.state.denglu_username)
     {
-        fetch('http://8.142.11.85:3000/shouye/update_shoucang2', {
+        fetch('http://47.100.78.254:3000/shouye/update_shoucang2', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -89,7 +89,7 @@ shoucang(){
         });
     }else{
         {
-            fetch('http://8.142.11.85:3000/shouye/update_shoucang', {
+            fetch('http://47.100.78.254:3000/shouye/update_shoucang', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -109,7 +109,7 @@ shoucang(){
 
 //对文章进行评论
 insert_pinglun(){
-    fetch('http://8.142.11.85:3000/shouye/insert_wenzhang', {
+    fetch('http://47.100.78.254:3000/shouye/insert_wenzhang', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -130,7 +130,7 @@ insert_pinglun(){
     //更新文章评论点赞
     update_dianzan(v) {
         if (v.wenzhang_dianzan === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan2', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -141,7 +141,7 @@ insert_pinglun(){
                 }),
             });
         } else {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

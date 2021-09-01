@@ -22,7 +22,7 @@ export default class Zs extends Component {
     //             this.setState({
     //                 denglu_username: result,
     //             })
-    //             fetch('http://8.142.11.85:3000/shouye/get_pinglun', {
+    //             fetch('http://47.100.78.254:3000/shouye/get_pinglun', {
     //                 method: 'POST',
     //                 headers: {
     //                     Accept: 'application/json',
@@ -48,7 +48,7 @@ export default class Zs extends Component {
     //更新文章评论点赞
     update_dianzan(v) {
         if (v.wenzhang_dianzan === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan2', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -59,7 +59,7 @@ export default class Zs extends Component {
                 }),
             });
         } else {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -105,7 +105,7 @@ export default class Zs extends Component {
         return (
             <View>
                 <View style={{ width, alignItems: "center" }}>
-                    {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                    {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                     <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold" }}>朱耀俊：谱写新丝路传奇 </Text>
                     <View style={{ flexDirection: "row", marginTop: 5 }}>
                         <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙商话题</Text>

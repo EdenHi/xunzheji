@@ -10,7 +10,7 @@ import {
 import {Picker} from '@react-native-picker/picker';
 const {width, height} = Dimensions.get("window")
 // 读取本地json文件
-let jsonData = {uri:'http://8.142.11.85:3000/public/images/animal/area.json'}
+let jsonData = {uri:'http://47.100.78.254:3000/public/images/animal/area.json'}
 
 export default class HelloWorld extends Component {
 

@@ -27,7 +27,7 @@ export default class comment_huifu extends Component {
     }
 
     get_comment(){
-        fetch('http://8.142.11.85:3000/dongtai/One_comment', {
+        fetch('http://47.100.78.254:3000/dongtai/One_comment', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -94,7 +94,7 @@ export default class comment_huifu extends Component {
                 });
             }
         });
-        fetch('http://8.142.11.85:3000/dongtai/comment_huifu', {
+        fetch('http://47.100.78.254:3000/dongtai/comment_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -135,7 +135,7 @@ export default class comment_huifu extends Component {
     fabu(){
         var date = new Date();
         
-        fetch('http://8.142.11.85:3000/dongtai/insert_huifu', {
+        fetch('http://47.100.78.254:3000/dongtai/insert_huifu', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

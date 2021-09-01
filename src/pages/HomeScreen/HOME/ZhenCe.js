@@ -24,7 +24,7 @@ export default class ZhenCe extends Component {
                 </View>
                 <ScrollView>
                     <View style={{ width, marginHorizontal: width * 0.05 }}>
-                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                         <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold", width: width * 0.9, color: "#333" }}>浙江省金融业发展“十四五”规划发布——未来金融 “数智”先行</Text>
                         <View style={{ flexDirection: "row", marginTop: 5 }}>
                             <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙江日报</Text>
@@ -35,8 +35,8 @@ export default class ZhenCe extends Component {
                                 &emsp;&emsp;浙江省金融业发展轮廓愈发清晰。近日，浙江省政府发布《浙江省金融业发展“十四五”规划》（以下简称《规划》），提出“十四五”期间，要围绕服务新发展格局，基本建成高端资源集聚的金融服务战略支点、内外循环相互促进的金融要素配置枢纽，打造金融高质量发展强省和区域金融现代治理先行示范省。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
-                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb1.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb3.jpeg' }} />
+                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb1.jpeg' }} /> */}
 
 
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
@@ -50,7 +50,7 @@ export default class ZhenCe extends Component {
                                 &emsp;&emsp;《规划》提出加快打造全国一流新兴金融中心。“新”在哪？记者注意到，《规划》中，“数智”一词出现了10次。浙江大学公共政策研究院执行院长金雪军认为，《规划》指出了方向，“要牵住‘数智金融’的牛鼻子。在长三角一体化背景下，浙江要体现比较优势，实现分工协作、错位发展。”“构建数智化区域金融运行体系，打造数智金融先行省”，正是下一个五年我省金融发展的主线。作为全国数字经济先行省份，浙江的数字生态展现出勃勃生机。如何继续深化这一重要特色，是把握下一阶段金融业发展的关键。省地方金融监管局负责人表示，构建数智化区域金融运行体系，核心是搭建富有浙江特色的数智金融平台，探索构建“金融大脑”，形成“平台+大脑+场景应用”的体制。这就要求打通集成各类金融服务平台，横向进一步协同各类金融服务平台，纵向加快省市县三级平台贯通。
                             </Text>
                         </View>
-                        <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
+                        <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb2.jpeg' }} />
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                             <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025, color: "#333" }}>
                                 &emsp;&emsp;“‘金融大脑’则像一个中枢系统，能实现政府、金融机构、企业、居民等各方面数据的集成共享。”金雪军认为。大数据、云计算、区块链、人工智能等数字技术奠定了体系构建的基石，须同步发展，合力形成完整的金融技术生态系统。最终，不断完善运用场景，将金融与产业链、供应链等实体经济体系深度融合，形成完善的“链网式金融”。建设数智化区域金融运行体系，金雪军有几个提醒，“首先是把握金融体系建设不是孤立的，而是要与供应链、产业链协调对接，加强技术和场景的深度融合，形成完整系统。同时，积极争取数字人民币试点，这对金融大脑构建具有重要推动意义。此外，风控和监管要跟上。”
@@ -78,7 +78,7 @@ export default class ZhenCe extends Component {
                                 &emsp;&emsp;浙江企业将迎来哪些利好？金雪军认为，“全链条”建设是“凤凰行动”升级版的最大特色。“这不光是一个简单的上市工作，还包括股改、再融资、并购等环节，涵盖企业培育到上市之后的全过程。”升级版的“凤凰行动”将更注重“全方位、全要素、全市场、全系统”。除了企业自身推进外，在这个过程中，还需要在企业发展的不同阶段丰富金融机构参与场景，各类金融资源共同发力，不仅助力企业做大做强，也反向推动金融机构自身的发展，实现双赢。而多层次资本市场体系也将得到完善。其中，大力推动上市公司引领高质量发展仍是“凤凰行动”升级版的核心。浙江企业通过与资本市场对接，进一步加强科技创新，提升企业治理水平，最终实现产业引领。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} /> */}
                     </View>
                 </ScrollView>
             </View>

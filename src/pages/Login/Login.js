@@ -25,7 +25,7 @@ const ratio_w = Dimensions.get('window').width / 375;
 export default class Login extends Component {
   load() {
     axios
-      .post('http://8.142.11.85:3000/index/login', {
+      .post('http://47.100.78.254:3000/index/login', {
         username: this.state.username,
         password: this.state.password,
       })

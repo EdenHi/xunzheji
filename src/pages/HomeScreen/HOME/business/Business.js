@@ -20,7 +20,7 @@ export default class Business extends Component {
         super(props)
         this.state = {
             isLock: true,
-            map:'http://8.142.11.85:3000/public/images/zhejiang1.png',
+            map:'http://47.100.78.254:3000/public/images/zhejiang1.png',
         }
     }
     jumpToTop(){
@@ -60,27 +60,27 @@ export default class Business extends Component {
                             tabBarUnderlineStyle={{ backgroundColor: '#00A9F2' }}
                             onChangeTab={(obj) => { console.log('被选中的下标:' + obj.i)
                         if(obj.i==0){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/huzhou.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/huzhou.png'})
                             this.jumpToTop();
                         }else if(obj.i==1){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/xiaoshao.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/xiaoshao.png'})
                             this.jumpToTop();
                         }else if(obj.i==2){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/shaoxing.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/shaoxing.png'})
                             this.jumpToTop();
                         }else if(obj.i==3){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/ningbo.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/ningbo.png'})
                             this.jumpToTop();
                         }else if(obj.i==4){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/longyou.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/longyou.png'})
                             this.jumpToMid();
                         }else if(obj.i==5){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/yiwu.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/yiwu.png'})
                         }else if(obj.i==6){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/taizhou.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/taizhou.png'})
                             this.jumpToMid();
                         }else if(obj.i==7){
-                            this.setState({map:'http://8.142.11.85:3000/public/images/wenzhou.png'})
+                            this.setState({map:'http://47.100.78.254:3000/public/images/wenzhou.png'})
                             this.jumpToBottom();
                         }
                         }}

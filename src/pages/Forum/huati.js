@@ -52,7 +52,7 @@ export default class huati extends Component {
     }
 
     get_shuju() {
-        fetch('http://8.142.11.85:3000/dongtai/select_tag', {
+        fetch('http://47.100.78.254:3000/dongtai/select_tag', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -107,7 +107,7 @@ export default class huati extends Component {
     //更新点赞信息
     update_dianzan(v) {
         if (v.dianzan_username === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/dongtai/update_dianzan2', {
+            fetch('http://47.100.78.254:3000/dongtai/update_dianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -119,7 +119,7 @@ export default class huati extends Component {
             });
         } else {
 
-            fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
+            fetch('http://47.100.78.254:3000/dongtai/update_dianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

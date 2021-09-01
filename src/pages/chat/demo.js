@@ -34,7 +34,7 @@ export default class chat extends Component {
                     username: result,
                 });
                 // console.log('username', this.state.username);
-                axios.post('http://8.142.11.85:3000/index/selectPerson', {
+                axios.post('http://47.100.78.254:3000/index/selectPerson', {
                     username: this.state.username,
                 }).then((json) => {
                     this.setState({
@@ -51,7 +51,7 @@ export default class chat extends Component {
     }
     /* 初始化信息 */
     init() {
-        fetch('http://8.142.11.85:3000/users/gethistory', {
+        fetch('http://47.100.78.254:3000/users/gethistory', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -101,7 +101,7 @@ export default class chat extends Component {
     /* 更新消息 */
     freshAll() {
 
-        fetch('http://8.142.11.85:3000/users/gethistory', {
+        fetch('http://47.100.78.254:3000/users/gethistory', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -170,7 +170,7 @@ export default class chat extends Component {
                 messages: GiftedChat.append(previousState.messages, msg),
             };
         });
-        fetch('http://8.142.11.85:3000/users/chatinsert', {
+        fetch('http://47.100.78.254:3000/users/chatinsert', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -190,7 +190,7 @@ export default class chat extends Component {
             formData.append('files', head); // 这里的 file 要与后台名字对应。
             formData.append('_id', msg._id);
             //   formData.append('title',this.state.fayan);
-            fetch('http://8.142.11.85:3000/users/updateChatImage', {
+            fetch('http://47.100.78.254:3000/users/updateChatImage', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'multipart/form-data',
@@ -205,7 +205,7 @@ export default class chat extends Component {
         }
 
         this.setState({ image: '' })
-        fetch('http://8.142.11.85:3000/users/updatemessage', {
+        fetch('http://47.100.78.254:3000/users/updatemessage', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',

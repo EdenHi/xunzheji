@@ -24,7 +24,7 @@ export default class ZhenCe2 extends Component {
                 </View>
                 <ScrollView>
                     <View style={{ width, marginHorizontal: width * 0.05 }}>
-                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                         <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold", width: width * 0.9, color: "#333" }}>浙江省出台计划推进文旅高质量发展</Text>
                         <View style={{ flexDirection: "row", marginTop: 5 }}>
                             <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙江日报</Text>
@@ -35,8 +35,8 @@ export default class ZhenCe2 extends Component {
                                 &emsp;&emsp;如今，家住杭州临安区的陈女士早已习惯了这样的文化生活——在杭州时去浙江图书馆借书，周末回家后将图书归还到临安图书馆。早在今年初，两家图书馆就实现了共享通借通还业务。不仅如此，在临安，文化馆、图书馆、博物馆样样俱全，连村里的文化礼堂都越来越有“文艺范儿”。未来5年里，陈女士还能在“15分钟品质文化生活圈”里享受到更丰富的公共文化资源。近日，省文化和旅游厅印发了《浙江省文化和旅游厅推进文化和旅游高质量发展促进共同富裕示范区建设行动计划（2021-2025年）》（下称《计划》）。《计划》提出，浙江将在“物质富裕、精神富有”上双向发力，到2025年基本建成新时代文化高地、中国最佳旅游目的地、全国文化和旅游融合发展样板地，为全国文化和旅游系统提供可复制、可推广的“浙江经验”。
                             </Text>
                         </View>
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
-                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb1.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb3.jpeg' }} />
+                            <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb1.jpeg' }} /> */}
 
 
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
@@ -50,7 +50,7 @@ export default class ZhenCe2 extends Component {
                                 &emsp;&emsp;《计划》还关注基层文艺队伍建设，要求推进乡村文艺团队“三团三社”（合唱团、民乐团、艺术团、文学社、摄影社、书画社）建设，到“十四五”末，“三团三社”数量从如今的3万余支增加到4万支。同时，开展文化示范户和乡村文化能人培育，提升乡村文化的造血功能。《计划》提出，“十四五”期间，浙江将实施促进居民收入十年倍增计划，努力成为旅游富民的省域范例。到2025年，旅游业对国民经济的综合贡献率达19%，农村居民的旅游收入占其可支配收入的比重达13%以上。
                             </Text>
                         </View>
-                        <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
+                        <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb2.jpeg' }} />
                         <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                             <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025, color: "#333" }}>
                                 &emsp;&emsp;省文化和旅游厅提出，不仅要协调城乡均衡，还要促进区域协调发展，目标将地区人均文化和旅游总收入最高最低倍差缩小到2.1以下。为此，省文化和旅游厅等6部门此前印发了《关于加快推动山区26县旅游业高质量发展的意见》，提出到2025年，实现山区26县旅游总产出、游客总人次年均分别增长5%以上。
@@ -78,7 +78,7 @@ export default class ZhenCe2 extends Component {
                                 &emsp;&emsp;浙江企业将迎来哪些利好？金雪军认为，“全链条”建设是“凤凰行动”升级版的最大特色。“这不光是一个简单的上市工作，还包括股改、再融资、并购等环节，涵盖企业培育到上市之后的全过程。”升级版的“凤凰行动”将更注重“全方位、全要素、全市场、全系统”。除了企业自身推进外，在这个过程中，还需要在企业发展的不同阶段丰富金融机构参与场景，各类金融资源共同发力，不仅助力企业做大做强，也反向推动金融机构自身的发展，实现双赢。而多层次资本市场体系也将得到完善。其中，大力推动上市公司引领高质量发展仍是“凤凰行动”升级版的核心。浙江企业通过与资本市场对接，进一步加强科技创新，提升企业治理水平，最终实现产业引领。
                             </Text>
                         </View> */}
-                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} /> */}
+                        {/* <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} /> */}
                     </View>
                 </ScrollView>
             </View>
