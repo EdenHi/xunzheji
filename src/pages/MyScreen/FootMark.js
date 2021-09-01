@@ -28,6 +28,7 @@ export default class Dingdan extends Component {
             kk: '',
             Time: [],
             fresh: true,
+            showNull:false,
         }
     }
 
@@ -97,6 +98,9 @@ export default class Dingdan extends Component {
                             Time.push(time)
                         }
                         this.setState({ Time: this.newData(Time) })
+                        if(this.state.Time!==[]){
+                            this.setState({showNull:true})
+                        }
                         this.setState({ data: data.data })
                     })
             }
@@ -141,15 +145,15 @@ export default class Dingdan extends Component {
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.2, marginLeft: width * 0.29 }}>商品足迹</Text>
                         <TouchableOpacity activeOpacity={1} style={{ width: width * 0.06, marginLeft: width * 0.29 }}>
-                            <MaterialIcons onPress={() => { this.setState({ Time: [] }) }} name={'delete-outline'} size={25} color={'#fff'} />
+                            <MaterialIcons onPress={() => { this.setState({ Time: [] }),this.setState({showNull:false}) }} name={'delete-outline'} size={25} color={'#fff'} />
                         </TouchableOpacity>
                     </View>
-                    {this.state.Time === [] ? <Image style={{ width: '100%', height: '100%', }} source={require('../nothingpic/暂无记录.png')}></Image> : <FlatList
+                    {this.state.showNull ?  <FlatList
                         numColumns={1}
                         showsVerticalScrollIndicator={false}
                         data={this.state.Time}
-                        renderItem={this.renderDate.bind(this)} />}
-                        
+                        renderItem={this.renderDate.bind(this)} />:<Image style={{ width: '100%', height: '40%',marginTop:height*0.2 }} source={require('../nothingpic/暂无记录.png')}></Image> }
+
                 </LinearGradient>
             </View>
         )
