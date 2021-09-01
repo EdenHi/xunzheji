@@ -14,7 +14,7 @@ import Output2 from './zhanshi2_geren/Output2';
 import Goods2 from './zhanshi2_geren/Goods2';
 import LinearGradient from 'react-native-linear-gradient';
 import LottieView from 'lottie-react-native';
-
+import Foundation from 'react-native-vector-icons/Foundation'
 
 const { width, height } = Dimensions.get("window")
 
@@ -137,7 +137,7 @@ export default class Personal extends Component {
           </TouchableOpacity>
           <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
-              name="map-marker-radius"
+              name="foot-print"
               size={35}
               color="#7cc0c0"
             />

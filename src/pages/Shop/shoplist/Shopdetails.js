@@ -89,7 +89,9 @@ export default class Shopdetails extends Component {
             body: JSON.stringify({
                 shop_name: this.props.route.params.shops.name,
                 shop_pic: this.props.route.params.shops.pic[0],
-                username: this.state.username
+                username: this.state.username,
+                createdAt: new Date,
+                price: this.props.route.params.shops.price,
             })
         })
     }
