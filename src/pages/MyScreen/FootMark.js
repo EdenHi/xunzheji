@@ -12,7 +12,7 @@ import { NavigationContext } from '@react-navigation/native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { FlatList } from 'react-native'
 import { AsyncStorage } from 'react-native'
-
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 const { width, height } = Dimensions.get("window")
 
 export default class Dingdan extends Component {
@@ -26,6 +26,8 @@ export default class Dingdan extends Component {
             username: '',
             vv: '',
             kk: '',
+            Time: [],
+            fresh: true,
         }
     }
 
@@ -35,7 +37,15 @@ export default class Dingdan extends Component {
         this.get_dingdan()
 
     }
-
+    newData(data) {
+        var nData = new Array();
+        for (var i = 0; i < data.length; i++) {
+            if (nData.indexOf(data[i]) == -1) {
+                nData.push(data[i]);
+            }
+        }
+        return nData;
+    }
     get_dingdan() {
         AsyncStorage.getItem('username', (err, result) => {
             if (!err) {
@@ -53,24 +63,70 @@ export default class Dingdan extends Component {
                     }),
                 }).then((response) => response.json())
                     .then((responseJson) => {
-                        console.log(responseJson);
-                        this.setState({
-                            data: responseJson.data,
-                        });
+                        let data = responseJson;
+                        let Time = new Array();
+                        for (let i = 0; i < responseJson.data.length; i++) {
+                            let a = responseJson.data[i].createdAt.slice(0, 10)
+                            //取出时分
+                            let b = responseJson.data[i].createdAt.slice(11, 16)
+                            let time1 = new Date();
+                            let time2 = new Date(responseJson.data[i].createdAt).getTime()
+                            let sum = a + ' ' + b
+                            //获得相差的秒
+                            let ss = (time1 - time2) / 1000
+                            let day = Math.floor(ss / 86400)
+                            let hour = Math.floor(ss / 3600)
+                            let min = Math.floor(ss / 60)
+                            let time = ''
+                            if (day >= 1 && day < 4) {
+                                time = day + '天前'
+                            }
+                            else if (hour >= 1 && hour < 24) {
+                                time = hour + '小时前'
+                            }
+                            else if (min >= 1 && min < 60) {
+                                time = min + '分钟前'
+                            }
+                            else if (day >= 4) {
+                                time = sum
+                            }
+                            else {
+                                time = '刚刚'
+                            }
+                            data.data[i].createdAt = time
+                            Time.push(time)
+                        }
+                        this.setState({ Time: this.newData(Time) })
+                        this.setState({ data: data.data })
                     })
             }
         })
     }
 
-
-
-    renderDate({ item, index }) {
-
+    insideMap(e) {
         return (
-            <View style={{ height: height * 0.2, marginVertical: height * 0.03, backgroundColor: '#fff', borderRadius: 10, width: width * 0.95, marginLeft: width * 0.025, flexDirection: 'row' }}>
-                <Image style={{ height: height * 0.18, width: width * 0.3, marginLeft: width * 0.05,marginTop:height*0.01 }} resizeMode={'contain'} source={{ uri: item.shop_pic }}></Image>
-                <View style={{ borderWidth: 1, width: width * 0.55,height:height*0.15,marginTop:height*0.025}}>
-                    <Text style={{borderWidth:1,marginLeft:width * 0.05,width:width*0.45,marginTop:height*0.01,fontSize:15,color:'#333'}} numberOfLines={2}>{item.shop_name}</Text>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                {this.state.data.map((i, key) => {
+                    const Time = e === this.state.data[key].createdAt ? <View><Text>1</Text></View> : null
+                    return (
+                        this.state.data[key].createdAt == e ? <View style={{ height: height * 0.18, marginVertical: height * 0.01, backgroundColor: '#fff', borderRadius: 10, width: width * 0.3, marginLeft: width * 0.025, flexDirection: 'column', elevation: 1 }}>
+                            <Image style={{ height: '80%', width: '100%', borderTopLeftRadius: 10, borderTopRightRadius: 10, marginTop: -height * 0.01 }} resizeMode={'contain'} source={{ uri: this.state.data[key].shop_pic }}></Image>
+                            <View style={{ width: width * 0.3, height: height * 0.04, marginTop: -height * 0.0, borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
+                                <Text style={{ width: '90%', fontSize: 12, color: '#333', textAlign: 'center' }} numberOfLines={1}>{this.state.data[key].shop_name}</Text>
+                                <Text style={{ width: '100%', fontSize: 14, color: '#FF0000', textAlign: 'center' }} numberOfLines={1}>{this.state.data[key].price}￥</Text>
+                            </View>
+                        </View> : null
+                    )
+                })}
+            </View>
+        )
+    }
+    renderDate({ item, index }) {
+        return (
+            <View style={{ width }}>
+                <Text style={{ fontSize: 16, color: '#333', paddingLeft: width * 0.025, }}>{item}</Text>
+                <View style={{ backgroundColor: '', }}>
+                    {this.insideMap(item)}
                 </View>
             </View>
         )
@@ -83,12 +139,17 @@ export default class Dingdan extends Component {
                         <TouchableOpacity activeOpacity={1} style={{ width: width * 0.06 }}>
                             <FontAwesome onPress={() => { this.props.navigation.goBack() }} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff" }}>商品足迹</Text>
+                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.2, marginLeft: width * 0.29 }}>商品足迹</Text>
+                        <TouchableOpacity activeOpacity={1} style={{ width: width * 0.06, marginLeft: width * 0.29 }}>
+                            <MaterialIcons onPress={() => { this.setState({ Time: [] }) }} name={'delete-outline'} size={25} color={'#fff'} />
+                        </TouchableOpacity>
                     </View>
-
-                    <FlatList
-                        data={this.state.data}
-                        renderItem={this.renderDate.bind(this)} />
+                    {this.state.Time === [] ? <Image style={{ width: '100%', height: '100%', }} source={require('../nothingpic/暂无记录.png')}></Image> : <FlatList
+                        numColumns={1}
+                        showsVerticalScrollIndicator={false}
+                        data={this.state.Time}
+                        renderItem={this.renderDate.bind(this)} />}
+                        
                 </LinearGradient>
             </View>
         )

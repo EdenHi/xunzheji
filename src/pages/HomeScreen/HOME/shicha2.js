@@ -1,5 +1,6 @@
 
 import React, { useRef } from "react";
+import { TouchableOpacity } from "react-native";
 import {
   FlatList,
   StyleSheet,
@@ -34,11 +35,11 @@ const data = images.map((image, index) => ({
   )}.jpg`,
 }));
 
-export default function shicha2() {
+export default  shicha2=(props)=> {
   const scrollX = useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.container}>
- 
+
       <Animated.FlatList
         data={data}
         horizontal
@@ -62,23 +63,19 @@ export default function shicha2() {
           return (
             <View
               style={{
-    width:width,
+                width: width,
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <View
-                style={{
-               
-                }}
-              >
+              <TouchableOpacity  onPress={()=>{props.navigation.navigate("FootMark")}}>
                 <View
                   style={{
-                    width: width*0.95,
-                    height: height*0.2,
-                    marginLeft:-width*0.05,
+                    width: width * 0.95,
+                    height: height * 0.2,
+                    marginLeft: -width * 0.05,
                     overflow: "hidden",
-                    
+
                     alignItems: "center",
                     borderRadius: 15,
                     // elevation:5
@@ -88,8 +85,8 @@ export default function shicha2() {
                     source={{ uri: item.photo }}
                     style={{
                       width: width,
-                      height: height*0.2,
-                      resizeMode:"stretch",
+                      height: height * 0.2,
+                      resizeMode: "stretch",
                       transform: [
                         {
                           translateX: translateX,
@@ -98,20 +95,8 @@ export default function shicha2() {
                     }}
                   />
                 </View>
-                {/* <Image
-                  source={{ uri: item.avatar_url }}
-                  style={{
-                    width: 60,
-                    height: 60,
-                    borderRadius: 50,
-                    position: "absolute",
-                    bottom: -20,
-                    right: -20,
-                    borderColor: "white",
-                    borderWidth: 5,
-                  }}
-                /> */}
-              </View>
+
+              </TouchableOpacity>
             </View>
           );
         }}
