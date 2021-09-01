@@ -39,7 +39,6 @@ export default  shicha2=(props)=> {
   const scrollX = useRef(new Animated.Value(0)).current;
   return (
     <View style={styles.container}>
-
       <Animated.FlatList
         data={data}
         horizontal
@@ -75,7 +74,6 @@ export default  shicha2=(props)=> {
                     height: height * 0.2,
                     marginLeft: -width * 0.05,
                     overflow: "hidden",
-
                     alignItems: "center",
                     borderRadius: 15,
                     // elevation:5
@@ -95,7 +93,6 @@ export default  shicha2=(props)=> {
                     }}
                   />
                 </View>
-
               </TouchableOpacity>
             </View>
           );

@@ -169,7 +169,7 @@ export default class BarrageMoveView extends Component {
                         data={b}
                         speed={2}
                         type={2}
-                        heightOfLine={45}
+                        heightOfLine={60}
                     />
                 )
                 views.push(barrageItem);

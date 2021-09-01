@@ -299,6 +299,7 @@ export default class musicPlayer extends Component {
         <View style={styles.navBarStyle}>
           <View style={styles.navBarContent}>
             <TouchableOpacity
+            activeOpacity={1}
             >
               {/* <Icon name={'oneIcon|nav_back_o'} size={20} color={commonStyle.white}/> */}
               <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center',marginLeft:width*0.05, height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
@@ -307,7 +308,7 @@ export default class musicPlayer extends Component {
               <Text style={styles.title}>{musicInfo.title}</Text>
               {/* <Text style={styles.subTitle}>{musicInfo.text}</Text> */}
             </View>
-            <TouchableOpacity
+            <TouchableOpacity  activeOpacity={1}
               style={{marginTop: 5}}
               onPress={() => alert('分享')}
             >
@@ -330,7 +331,7 @@ export default class musicPlayer extends Component {
             borderRadius: 85,
             alignSelf: 'center',
             
-            position: 'absolute', top: 140,//转动的书
+            position: 'absolute', top: 140,
             transform: [{rotate: this.state.spinValue.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '360deg']
@@ -343,12 +344,12 @@ export default class musicPlayer extends Component {
           {/* <BarrageMoveView newMessages={this.state.data} numberOfLines={5} speed={1} /> */}
           </View>
           <View style={styles.progressStyle}>
-            <Text style={{width: 35, fontSize: 11, color: "#7cc0c0", marginLeft: 5,fontWeight:"bold"}}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
+            <Text style={{width: 35, fontSize: 11, color: commonStyle.white, marginLeft: 5}}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
             <Slider
               style={styles.slider}
               value={this.state.slideValue}
               maximumValue={this.state.duration}
-              minimumTrackTintColor={"#fedc61"}
+              minimumTrackTintColor={"#7cc0c0"}
               maximumTrackTintColor={"#fff"}
               step={1}
               onValueChange={value => this.setState({currentTime: value})}
@@ -367,13 +368,13 @@ export default class musicPlayer extends Component {
              <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" />
             </TouchableOpacity> */}
             <View style={styles.cdStyle}>
-              <TouchableOpacity
+              <TouchableOpacity  activeOpacity={1}
                 onPress={() => this.preSong(this.state.currentIndex - 1)}
               >
                 {/* <Icon name={'oneIcon|music_pre_o'} size={35} color={commonStyle.white}/> */}
                 <AntDesign  style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <TouchableOpacity
+              <TouchableOpacity  activeOpacity={1}
               activeOpacity={1}
                 style={{width: 35, height: 35, borderRadius: 20, borderWidth: 1, borderColor: commonStyle.white, justifyContent: 'center', alignItems: 'center'}}
                 onPress={() => this.play()}
@@ -381,7 +382,7 @@ export default class musicPlayer extends Component {
                 {/* <Icon name={`oneIcon|${this.state.playIcon}`} size={20} color={commonStyle.white}/> */}
                 <AntDesign  style={{ textAlignVertical: 'center', height: "100%", color: "#000" }} name="play" size={20} color="#000000" />
               </TouchableOpacity>
-              <TouchableOpacity
+              <TouchableOpacity  activeOpacity={1}
                 onPress={() => this.nextSong(this.state.currentIndex + 1)}
               >
                 {/* <Icon name={'oneIcon|music_next_o'} size={25} color={commonStyle.white}/> */}
@@ -468,7 +469,7 @@ const styles = StyleSheet.create({
   },
   navBarStyle: {
     position: 'absolute',
-    // backgroundColor: 'rgba(0, 0, 0, 0)',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
     width:width,
     height: 64,
     // borderWidth: 0.5,
@@ -479,12 +480,11 @@ const styles = StyleSheet.create({
     height:height*0.07,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor:"rgba(124,192,192,0.8)"
-  
+  backgroundColor:"#7cc0c0"
   },
   title: {
     color:"#fff",
-    fontSize: 15,
+    fontSize: 18,
     fontWeight:"bold",
     marginLeft:"2%"
   },
@@ -512,8 +512,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     alignItems: 'center',
     position: 'absolute',
-    // backgroundColor:"black",
-   
+    bottom: 80
   },
   slider: {
     flex: 1,
@@ -524,9 +523,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 10,
     position: 'absolute',
- 
-    marginVertical: 30,
-    // backgroundColor:"red"
+    bottom: 0,
+    marginVertical: 30
   },
   cdStyle: {
     flex: 1,
