@@ -161,7 +161,7 @@ export default class Home extends Component {
                             showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginBottom: -5, width: width, height: height * 0.22 }}>
-                                    <ShiCha2 navigation={this.props.navigation} />
+                                    <ShiCha2  navigation={this.props.navigation} />
                                     {/* <ShiCha  navigation={this.props.navigation} /> */}
                                 </View>
                                 <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
