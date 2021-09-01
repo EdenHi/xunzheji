@@ -108,7 +108,7 @@ export default class Swop extends Component {
             <LottieView style={{ width: 60, height: 40, marginLeft: '55%' }} source={require('../../../../animal/qwe.json')} autoPlay loop progress={this.state.progress} />
           </View>
           <ImageBackground imageStyle={{ borderRadius: 15 }} style={{ width: width * 0.9, height: height * 0.6,alignItems: "center", justifyContent: "center" }} source={{ uri: this.state.imgUrl }} >
-            <View style={{ backgroundColor: "#fff", width: width * 0.7, height: height * 0.25,borderRadius:15,
+            <View style={{ backgroundColor: "rgba(255,255,255,0.8)", width: width * 0.7, height: height * 0.25,borderRadius:15,
           }}>
               <View style={{flexDirection:'row',backgroundColor:"rgba(124,192,192,0.5)",borderTopLeftRadius:15,borderTopRightRadius:15}}>
                 <Image source={{uri:item.portrait}} style={{width:width*0.2,height:width*0.2,borderRadius:50,marginTop:-height*0.05,marginLeft:width*0.25}}/>
@@ -162,7 +162,7 @@ export default class Swop extends Component {
     return (
       <View style={{ flex: 1 }}>
         <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%' }}>
-          <Animated.Image source={{ uri: this.state.imgUrl }} style={{ opacity: 0.5 }} />
+          <Animated.Image source={{ uri: this.state.imgUrl }} style={{ opacity: 1 }} />
         </BlurView>
         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
           <TouchableOpacity style={{width:width*0.06}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
