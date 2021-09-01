@@ -53,7 +53,7 @@ export default class Dingdan extends Component {
                 this.setState({
                     username: result
                 })
-                fetch('http://8.142.11.85:3000/shop/selectfootmark', {
+                fetch('http://47.100.78.254:3000/shop/selectfootmark', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -111,7 +111,7 @@ export default class Dingdan extends Component {
         return (
             <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                 {this.state.data.map((i, key) => {
-                    const Time = e === this.state.data[key].createdAt ? <View><Text>1</Text></View> : null
+
                     return (
                         this.state.data[key].createdAt == e ? <View style={{ height: height * 0.18, marginVertical: height * 0.01, backgroundColor: '#fff', borderRadius: 10, width: width * 0.3, marginLeft: width * 0.025, flexDirection: 'column', elevation: 1 }}>
                             <Image style={{ height: '80%', width: '100%', borderTopLeftRadius: 10, borderTopRightRadius: 10, marginTop: -height * 0.01 }} resizeMode={'contain'} source={{ uri: this.state.data[key].shop_pic }}></Image>

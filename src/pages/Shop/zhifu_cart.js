@@ -91,7 +91,7 @@ export default class zhifu_cart extends Component {
                     username:result,
                 });
                 console.log('username',result);
-                fetch('http://8.142.11.85:3000/shop/selectdizhi_2', {
+                fetch('http://47.100.78.254:3000/shop/selectdizhi_2', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',

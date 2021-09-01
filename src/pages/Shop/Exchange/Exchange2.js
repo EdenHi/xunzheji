@@ -51,7 +51,7 @@ export default class Exchange2 extends Component {
     }
 
     _fetchImage(v) {
-        let url = 'http://8.142.11.85:3000/shop/insert_Exchange2_pic';
+        let url = 'http://47.100.78.254:3000/shop/insert_Exchange2_pic';
         let head = { uri: v.path, type: v.mime, name: v.path.split('/').pop() };
         let formData = new FormData();
         formData.append('files', head); // 这里的 file 要与后台名字对应。
@@ -71,7 +71,7 @@ export default class Exchange2 extends Component {
     }
 
     send_Txt(){
-        fetch('http://8.142.11.85:3000/shop/insert_Exchange2', {
+        fetch('http://47.100.78.254:3000/shop/insert_Exchange2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -134,7 +134,7 @@ export default class Exchange2 extends Component {
             <TouchableOpacity
             activeOpacity={1}
             onPress={()=>this._openPicker()}>
-                <Image source={{uri:'http://8.142.11.85:3000/public/images/addimg.png'}} style={this.state.img.length === 0 ? {height:width*0.2,width:width * 0.2,marginTop:width * 0.05}:{height:width*0.2,width:width * 0.2,marginTop:width * 0.05,marginLeft:width*0.033}}/>
+                <Image source={{uri:'http://47.100.78.254:3000/public/images/addimg.png'}} style={this.state.img.length === 0 ? {height:width*0.2,width:width * 0.2,marginTop:width * 0.05}:{height:width*0.2,width:width * 0.2,marginTop:width * 0.05,marginLeft:width*0.033}}/>
             </TouchableOpacity>
         )
         }else{

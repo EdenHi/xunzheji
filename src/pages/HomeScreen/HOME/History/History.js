@@ -20,7 +20,7 @@ export default class History extends Component {
                         <View style={{ width: width, alignItems: "center" }}>
                             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Zs', { wenzhang_id: 1 })} activeOpacity={1}>
                                 < View style={{ height: 150, marginBottom: 10, elevation: 5, width: width * 0.9, marginLeft: 10, marginRight: 10, elevation: 5 }}>
-                                    <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://8.142.11.85:3000/public/images/zs1.jpeg' }}>
+                                    <ImageBackground style={{ height: 150, marginBottom: 10, width: width * 0.9, marginRight: 20 }} borderRadius={10} source={{ uri: 'http://47.100.78.254:3000/public/images/zs1.jpeg' }}>
                                         <View style={{ height: 150, borderRadius: 10, shadowRadius: 15, padding: 15, width: width * 0.8 }}>
                                             <View style={{ flex: 3 }} />
                                             <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff',marginTop:height*0.015 }}>浙江商帮的崛起</Text></View>

@@ -48,7 +48,7 @@ export default class people extends Component {
 
   //获取用户数据
   get_shuju(){
-    axios.post('http://8.142.11.85:3000/index/selectPerson',{
+    axios.post('http://47.100.78.254:3000/index/selectPerson',{
                     username:this.props.route.params,
             }).then((json)=>{
                 this.setState({
@@ -58,7 +58,7 @@ export default class people extends Component {
   }
   //查询聊天室
   SelcetChatRoom(x){
-    fetch('http://8.142.11.85:3000/users/getchatroom', {
+    fetch('http://47.100.78.254:3000/users/getchatroom', {
         method: 'post',
         headers: {
             'Accept': 'application/json',
@@ -81,7 +81,7 @@ export default class people extends Component {
   }
   //判断是否关注该用户
   panduan_guanzhu(v){
-    axios.post('http://8.142.11.85:3000/index/panduan_guanzhu',{
+    axios.post('http://47.100.78.254:3000/index/panduan_guanzhu',{
         user_name:this.props.route.params,
         username:v,
         }).then((json)=>{
@@ -121,7 +121,7 @@ export default class people extends Component {
 
   //点击关注按钮，增加粉丝数量，增加登录用户的关注数
   guanzhu(){
-    fetch('http://8.142.11.85:3000/index/insert_guanzhu', {
+    fetch('http://47.100.78.254:3000/index/insert_guanzhu', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -149,7 +149,7 @@ export default class people extends Component {
 
   //取消关注
   quxiao_guanzhu(){
-    fetch('http://8.142.11.85:3000/index/delect_guanzhu', {
+    fetch('http://47.100.78.254:3000/index/delect_guanzhu', {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -196,7 +196,7 @@ CreateChatRoom(){
     let uid=uuid.v4();
     this.setState({chatroom:uid})
     console.log('name',this.state.chatroom);
-    fetch('http://8.142.11.85:3000/users/creatchatroom', {
+    fetch('http://47.100.78.254:3000/users/creatchatroom', {
         method: 'post',
         headers: {
             'Accept': 'application/json',

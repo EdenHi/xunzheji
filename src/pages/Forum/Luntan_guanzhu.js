@@ -66,7 +66,7 @@ export default class Luntan_guanzhu extends Component {
                 this.setState({
                     denglu_username: result
                 })
-                fetch('http://8.142.11.85:3000/dongtai/guanzhu_allDongtai', {
+                fetch('http://47.100.78.254:3000/dongtai/guanzhu_allDongtai', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -91,6 +91,7 @@ export default class Luntan_guanzhu extends Component {
 
         this.get_xinxi();
         this.listener = DeviceEventEmitter.addListener('shuaxin', this.get_xinxi.bind(this))
+        this.listener = DeviceEventEmitter.addListener('myfabu', this.loding.bind(this))
     }
 
     componentWillUnmount() {
@@ -112,14 +113,14 @@ export default class Luntan_guanzhu extends Component {
                 isLoding: false,
             });
             this.get_xinxi();
-        }, 1000);
+        }, 500);
     }
 
 
     //更新点赞信息
     update_dianzan(v) {
         if (v.dianzan_username === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/dongtai/update_dianzan2', {
+            fetch('http://47.100.78.254:3000/dongtai/update_dianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -131,7 +132,7 @@ export default class Luntan_guanzhu extends Component {
             });
         } else {
 
-            fetch('http://8.142.11.85:3000/dongtai/update_dianzan', {
+            fetch('http://47.100.78.254:3000/dongtai/update_dianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

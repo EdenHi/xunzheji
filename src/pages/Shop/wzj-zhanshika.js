@@ -20,7 +20,7 @@ class App extends Component {
     this.state.fadeAnim = new Animated.Value(1)
   }
   state = {
-    imgUrl: require('http://8.142.11.85:3000/public/images/5.jpg')
+    imgUrl: require('http://47.100.78.254:3000/public/images/5.jpg')
   }
   switch = (index) => {
     this.state.fadeAnim = new Animated.Value(0.4)
@@ -30,11 +30,11 @@ class App extends Component {
       useNativeDriver: false,
     }).start()
     if (index == 0) {
-      this.setState({ imgUrl: require('http://8.142.11.85:3000/public/images/5.jpg') })
+      this.setState({ imgUrl: require('http://47.100.78.254:3000/public/images/5.jpg') })
     } else if (index == 1) {
-      this.setState({ imgUrl: require('http://8.142.11.85:3000/public/images/5.jpg') })
+      this.setState({ imgUrl: require('http://47.100.78.254:3000/public/images/5.jpg') })
     } else {
-      this.setState({ imgUrl: require('http://8.142.11.85:3000/public/images/5.jpg') })
+      this.setState({ imgUrl: require('http://47.100.78.254:3000/public/images/5.jpg') })
     }
   }
   render () {
@@ -70,14 +70,14 @@ class App extends Component {
               <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={require('../../../images/j1.jpg')}></Image>
             </View> */}
             <View style={styles.slide}>
-              <Image source={require('http://8.142.11.85:3000/public/images/5.jpg')} style={styles.image} />
+              <Image source={require('http://47.100.78.254:3000/public/images/5.jpg')} style={styles.image} />
             </View>
             {/* Back Side */}
 
             <View style={[{ backgroundColor: '#595f79', marginLeft: 5, height: '90%', width: '97%', borderRadius: 20, justifyContent: 'center', alignItems: 'center' }, styles.back]}>
               <ScrollView style={{ height: 400 }}>
                 <View>
-                <Image source={require('http://8.142.11.85:3000/public/images/5.jpg')}  />
+                <Image source={require('http://47.100.78.254:3000/public/images/5.jpg')}  />
                   <Text style={{ fontSize: 14, fontWeight: '500', justifyContent: 'center', alignItems: 'center', }}>
                     骆宾王,字观光，婺州义乌（今浙江义乌）人，唐代诗人，与王勃、卢照邻、杨炯并称为“初唐四杰”。
                   </Text>
@@ -100,7 +100,7 @@ class App extends Component {
               <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={require('../../../images/j1.jpg')}></Image>
             </View> */}
             <View style={styles.slide}>
-              <Image source={require('http://8.142.11.85:3000/public/images/5.jpg')} style={styles.image} />
+              <Image source={require('http://47.100.78.254:3000/public/images/5.jpg')} style={styles.image} />
             </View>
             {/* Back Side */}
 
@@ -151,7 +151,7 @@ class App extends Component {
               <Image style={{ height: pxToDp(150), width: pxToDp(350), borderRadius: 20 }} source={require('../../../images/j1.jpg')}></Image>
             </View> */}
             <View style={styles.slide}>
-              <Image source={require('http://8.142.11.85:3000/public/images/5.jpg')} style={styles.image} />
+              <Image source={require('http://47.100.78.254:3000/public/images/5.jpg')} style={styles.image} />
             </View>
             {/* Back Side */}
 

@@ -41,7 +41,7 @@ send(){
   get(){
     AsyncStorage.getItem('username',(err,result)=>{
       if(!err){
-        fetch('http://8.142.11.85:3000/shop/get_shopcart', {
+        fetch('http://47.100.78.254:3000/shop/get_shopcart', {
           method: 'POST',
           headers: {
               Accept: 'application/json',
@@ -91,7 +91,7 @@ send(){
 
   //删除购物车某一条数据
   delect_shop(v){
-      fetch('http://8.142.11.85:3000/shop/delect_shopcart', {
+      fetch('http://47.100.78.254:3000/shop/delect_shopcart', {
         method: 'POST',
         headers: {
             Accept: 'application/json',

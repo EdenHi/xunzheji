@@ -169,7 +169,7 @@ export default class dingzhi_xuqiu extends Component {
                     style={{width:width*0.25,height:width*0.25,margin:15,borderRadius:10,justifyContent:'center',alignItems:'center'}}
                     onPress={() => this.props.navigation.navigate('dingzhi_tupian')}
                   >
-                    <Image source={{ uri: 'http://8.142.11.85:3000/public/images/addimg.png' }} style={{ width: 100, height: 100, marginLeft: "10%" }} />
+                    <Image source={{ uri: 'http://47.100.78.254:3000/public/images/addimg.png' }} style={{ width: 100, height: 100, marginLeft: "10%" }} />
                 </TouchableOpacity>
             );
         }

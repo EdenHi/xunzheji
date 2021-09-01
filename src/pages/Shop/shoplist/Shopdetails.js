@@ -61,7 +61,7 @@ export default class Shopdetails extends Component {
     }
 
     get_pingjia() {
-        fetch('http://8.142.11.85:3000/shop/select_pingjia', {
+        fetch('http://47.100.78.254:3000/shop/select_pingjia', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -80,7 +80,7 @@ export default class Shopdetails extends Component {
     }
     /* 添加足迹 */
     FootMark() {
-        fetch("http://8.142.11.85:3000/shop/insertfootmark", {
+        fetch("http://47.100.78.254:3000/shop/insertfootmark", {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -166,7 +166,7 @@ export default class Shopdetails extends Component {
 
 
 
-        fetch('http://8.142.11.85:3000/shop/insert_shopcart', {
+        fetch('http://47.100.78.254:3000/shop/insert_shopcart', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

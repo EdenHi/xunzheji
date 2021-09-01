@@ -55,7 +55,7 @@ export default class updateDizhi extends Component {
     //更新地址
     update_Dizhi(){
         if (this.state.swicthValue1 === true){
-            fetch('http://8.142.11.85:3000/shop/update_Dizhi2', {
+            fetch('http://47.100.78.254:3000/shop/update_Dizhi2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -71,7 +71,7 @@ export default class updateDizhi extends Component {
                 }),
                 })
         } else {
-            fetch('http://8.142.11.85:3000/shop/update_Dizhi', {
+            fetch('http://47.100.78.254:3000/shop/update_Dizhi', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

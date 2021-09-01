@@ -19,7 +19,7 @@ export default class XiaoXi extends Component {
         }
     }
     getData() {
-        fetch('http://8.142.11.85:3000/users/getchatuser', {
+        fetch('http://47.100.78.254:3000/users/getchatuser', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',

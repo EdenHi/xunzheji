@@ -126,7 +126,7 @@ export default class Heritage extends Component {
                             <View style={{ alignItems: "center" }} >
                                 <View style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }} >
                                     <ImageBackground style={{ width, height: 180, flexDirection: "row", justifyContent: "space-between" }}
-                                        source={{ uri: 'http://8.142.11.85:3000/public/images/customs.gif' }} >
+                                        source={{ uri: 'http://47.100.78.254:3000/public/images/customs.gif' }} >
                                     </ImageBackground>
                                      </View> 
                                      <View style={{ backgroundColor: "#fff", marginTop: 15, marginBottom: 10, elevation: 10, borderRadius: 10 }} >

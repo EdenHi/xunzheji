@@ -21,7 +21,7 @@ export default class Zs extends Component {
     //             this.setState({
     //                 denglu_username: result,
     //             })
-    //             fetch('http://8.142.11.85:3000/shouye/get_pinglun', {
+    //             fetch('http://47.100.78.254:3000/shouye/get_pinglun', {
     //                 method: 'POST',
     //                 headers: {
     //                     Accept: 'application/json',
@@ -47,7 +47,7 @@ export default class Zs extends Component {
     //更新文章评论点赞
     update_dianzan(v) {
         if (v.wenzhang_dianzan === this.state.denglu_username) {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan2', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan2', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -58,7 +58,7 @@ export default class Zs extends Component {
                 }),
             });
         } else {
-            fetch('http://8.142.11.85:3000/shouye/update_pldianzan', {
+            fetch('http://47.100.78.254:3000/shouye/update_pldianzan', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -104,7 +104,7 @@ export default class Zs extends Component {
         return (
             <View>
                 <View style={{ width, alignItems: "center" }}>
-                    {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://8.142.11.85:3000/public/images/zsb1.jpeg'}} /> */}
+                    {/* <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{uri:'http://47.100.78.254:3000/public/images/zsb1.jpeg'}} /> */}
                     <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold" }}>时空难阻货郎情</Text>
                     <View style={{ flexDirection: "row", marginTop: 5 }}>
                         <Text style={{ fontSize: 10, marginLeft: "-45%" }}>#浙商话题</Text>
@@ -115,8 +115,8 @@ export default class Zs extends Component {
                         20多年前，义乌货郎肩挑货郎担，手摇拨浪鼓，用小百货和义乌姜糖去江西省资溪县谋生计；20多年后，当年的货郎再次来到当年的谋生地招聘工人。当年的江西老东家依旧念叨感怀当年的货郎，当年的义乌货郎也仍然铭记着当年给过他们帮助的好心人。
                         </Text>
                     </View>
-                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb3.jpeg' }} />
-                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb1.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb3.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb1.jpeg' }} />
 
                     <View><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center" }}></Text></View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center" }}>
@@ -132,7 +132,7 @@ export default class Zs extends Component {
 “一起去的人一般都要分开走，人多生意就少，别人刚去过的村子生意也很少。我们没有明确的目的地，只有一个大致的方向，见到人就去做生意。看不到房屋，就沿着电线杆走，我们知道，有电线杆的地方就有村子，有村子的地方就有我们的货郎担。”当年总结的生意经，楼圣贤至今仍记忆犹新。
                         </Text>
                     </View>
-                    <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb2.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb2.jpeg' }} />
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 10 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25 }}>
                         出了县城没多久，汽车便进入到一条盘旋于崇山峻岭间的仅能容一辆车通过的砂路上。车子在一个个险弯陡坡之间前行。放眼望去，周围是看不到尽头的葱郁山岭，路两旁高大的乔木林立，几栋土木结构的矮房子偶尔从车窗外闪过，一路走来，不见人影。
@@ -161,7 +161,7 @@ export default class Zs extends Component {
 “一个60多岁的老头，姓齐，从淳安移民过来的。我是二十多年前在这里挑担子鸡毛换糖的呀，义乌敲糖的。”楼圣贤一边说，一边做起了挑担、手摇拨浪鼓的动作。“哦——以前这里义乌敲糖的很多呢。”店主忙点头说道，当年他还是一个几岁的孩子，每次听到“咚咚咚”的鼓声，就会从家里跑出来，把积攒好的塑料鞋、破布等东西，拿来换糖吃。正说着，周围一些上了岁数的老人们也走了过来。“那时，家里要的针线、扣子等小东西，孩子们的小玩意，货郎担里都有，买这些东西十分方便。我们这里离城里太远了，又没什么商店的，要买东西了，都等他们来。家里一些鸡毛、鸭毛等东西都可以换给他们，过年的时候特别多。”他们对当年鸡毛换糖的义乌人，记得非常清楚。
                         </Text>
                     </View>
-                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/zsb4.jpeg' }} />
+                    <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} />
                 </View>
                 <View style={{ width: width, flexDirection: "row", alignItems: "center", marginTop: "5%" }}>
                     <View style={{ width: 2, height: 28, backgroundColor: "#7cc0c0", marginLeft: width * 0.05 }}></View>

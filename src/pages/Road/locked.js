@@ -27,7 +27,7 @@ export default class Locked extends Component {
   //获取上一条路线信息
   getLastData() {
     if (this.props.roadNumber >= 2){
-      fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+      fetch('http://47.100.78.254:3000/shouye/get_user_map', {
         method: 'post',
         headers: {
           'Accept': 'application/json',
@@ -52,7 +52,7 @@ export default class Locked extends Component {
   //获取当前路线信息
   getThisData() {
     this.getLastData()
-    fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+    fetch('http://47.100.78.254:3000/shouye/get_user_map', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -75,7 +75,7 @@ export default class Locked extends Component {
   //前端判断解锁
   updateThisData() {
     this.getLastData()
-    fetch('http://8.142.11.85:3000/shouye/get_user_map', {
+    fetch('http://47.100.78.254:3000/shouye/get_user_map', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -105,7 +105,7 @@ export default class Locked extends Component {
   //后台解锁
   updateLock() {
 
-    fetch('http://8.142.11.85:3000/shouye/update_lock', {
+    fetch('http://47.100.78.254:3000/shouye/update_lock', {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -156,9 +156,9 @@ export default class Locked extends Component {
         <FlipCard>
           <View style={{ width: '100%', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, backgroundColor:"#fff",elevation:2 }}>
             <View style={{ width: '85%', marginHorizontal: '7%', height: '60%', borderRadius: 60, marginTop: "5%" }}>
-              <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: 'http://8.142.11.85:3000/public/images/a.png' }}></Image>
+              <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: 'http://47.100.78.254:3000/public/images/a.png' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
-                <ImageBackground style={{ width: '100%', height: '100%', }} borderRadius={15} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}>
+                <ImageBackground style={{ width: '100%', height: '100%', }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/nanlu.jpg' }}>
                   <AntDesign style={{ backgroundColor: '#7cc0bf', width: '35%', height: '35%', borderRadius: 50, textAlign: 'center', textAlignVertical: 'center', marginTop: '60%', marginLeft: '60%' }}
                     name="right"
                     size={20}
@@ -183,7 +183,7 @@ export default class Locked extends Component {
           </View>
           <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
             <View style={{ width: '85%', marginHorizontal: '7%', borderColor: 'green', height: '60%', borderRadius: 60, marginTop: "5%" }}>
-              <Image style={{ width: '100%', height: '100%', }} borderRadius={60} source={{ uri: 'http://8.142.11.85:3000/public/images/nanlu.jpg' }}></Image>
+              <Image style={{ width: '100%', height: '100%', }} borderRadius={60} source={{ uri: 'http://47.100.78.254:3000/public/images/nanlu.jpg' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
               </View>
             </View>

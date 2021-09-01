@@ -50,7 +50,7 @@ export default class Address extends Component {
                         username:result,
                     });
                     console.log('username',result);
-                    fetch('http://8.142.11.85:3000/shop/insert_dizhi2', {
+                    fetch('http://47.100.78.254:3000/shop/insert_dizhi2', {
                         method: 'POST',
                         headers: {
                             Accept: 'application/json',
@@ -75,7 +75,7 @@ export default class Address extends Component {
                         username:result,
                     });
                     console.log('username',result);
-                    fetch('http://8.142.11.85:3000/shop/insert_dizhi1', {
+                    fetch('http://47.100.78.254:3000/shop/insert_dizhi1', {
                         method: 'POST',
                         headers: {
                             Accept: 'application/json',

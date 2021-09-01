@@ -31,7 +31,7 @@ export default class Register_tuijian extends Component {
     go_tuijian(){
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
-                fetch('http://8.142.11.85:3000/index/updateTuijian', {
+                fetch('http://47.100.78.254:3000/index/updateTuijian', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

@@ -23,7 +23,7 @@ const ratio_w = Dimensions.get('window').width / 375;
 export default class Register extends Component {
   load() {
     axios
-      .post('http://8.142.11.85:3000/index/register', {
+      .post('http://47.100.78.254:3000/index/register', {
         username: this.state.username,
         password1: this.state.password1,
         password2: this.state.password2,

@@ -25,7 +25,7 @@ export default class book extends Component {
         };
     }
     componentDidMount(){
-        fetch('http://8.142.11.85:3000/dongtai/selectBook', {
+        fetch('http://47.100.78.254:3000/dongtai/selectBook', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
@@ -43,7 +43,7 @@ export default class book extends Component {
         });
 }
     select_book(i){
-        fetch('http://8.142.11.85:3000/dongtai/selectBook', {
+        fetch('http://47.100.78.254:3000/dongtai/selectBook', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',

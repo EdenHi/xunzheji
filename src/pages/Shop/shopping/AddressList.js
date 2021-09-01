@@ -26,7 +26,7 @@ export default class AddressList extends Component {
                     username:result,
                 });
                 console.log('username',result);
-                fetch('http://8.142.11.85:3000/shop/selectdizhi', {
+                fetch('http://47.100.78.254:3000/shop/selectdizhi', {
                     method: 'POST',
                     headers: {
                         Accept: 'application/json',
@@ -69,7 +69,7 @@ export default class AddressList extends Component {
 
     //删除收货地址
     handleShowAlbum = (k)=>{
-        fetch('http://8.142.11.85:3000/shop/delect_dizhi', {
+        fetch('http://47.100.78.254:3000/shop/delect_dizhi', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -88,7 +88,7 @@ export default class AddressList extends Component {
 
     //修改默认地址
     update_moren = (k)=>{
-        fetch('http://8.142.11.85:3000/shop/update_moren', {
+        fetch('http://47.100.78.254:3000/shop/update_moren', {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
