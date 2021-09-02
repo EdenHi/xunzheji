@@ -24,7 +24,14 @@ import LinearGradient from 'react-native-linear-gradient';
 const ratio_w = Dimensions.get('window').width / 375;
 export default class Login extends Component {
   load() {
-    axios
+    if(this.state.username === ''){
+      alert('用户名不能为空')
+    } 
+    else if(this.state.password ===''){
+      alert('密码不能为空')
+    }
+    else{
+      axios
       .post('http://47.100.78.254:3000/index/login', {
         username: this.state.username,
         password: this.state.password,
@@ -45,6 +52,8 @@ export default class Login extends Component {
           alert(resp.data);
         }
       });
+    }
+    
   }
 
   constructor(props) {
