@@ -17,8 +17,11 @@ export default  function BookRoute({route}) {
 
     <Tab.Navigator
     tabBarOptions={{
-        labelStyle:{fontSize:18},
-        style:{width:width*0.5,elevation:0},
+        labelStyle:{fontSize:18,padding:0,margin:0},
+        tabStyle:{width:width*0.15},
+        indicatorStyle:{backgroundColor:'#7cc0c0',width:width*0.1,marginHorizontal:width*0.025},
+        style:{width:width*0.3,elevation:0,marginLeft:20},
+       
     }}>
 
        {route===3?<Tab.Screen name="简介" component={jianjie_0}/>:null}
