@@ -19,6 +19,7 @@ const images = [
   {img:"http://47.100.78.254:3000/public/images/home3.png",jump:"ZhenCe2"},
   {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe3"},
   {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe4"},
+
 ];
 
 const data = images.map((image, index) => ({
