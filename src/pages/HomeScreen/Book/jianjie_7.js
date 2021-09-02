@@ -14,16 +14,12 @@ export default class jianjie_7 extends Component {
     
 //底部弹窗
 list = [
-    { title: '总序：记录一段重要历史',
+    { title: '前言',
     onPress: () => this.go(0) },
-    { title: '前言：传化的“三螺旋体”生长',
+    { title: '第一章　从发展到传承：民营企业成长新阶段',
     onPress: () => this.go(4) },
-    { title: '引言　徐冠巨：传化的初心',
-    onPress: () => this.go(10) },
-    { title: '第一章　沙地精神',
-    onPress: () => this.go(18) },
-    { title: '第二章　社会责任感的“传”与“化”',
-    onPress: () => this.go(51) },
+    { title: '第二章　创办方太之前的茅氏父子',
+    onPress: () => this.go(22) },
   ];
 
 go(kk){
