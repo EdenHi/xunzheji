@@ -128,37 +128,49 @@ export default class goods extends Component {
     const Imgref = createRef();
     console.log('data',this.state.data);
     const {data} = this.state;
-    return (
-      <View style={{ width }}>
+    if(data.length>0){
+      return (
+        <View style={{ width }}>
 
-        <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%'}}>
-          <Animated.Image source={{uri:this.state.imgUrl}} resizeMode="stretch" style={{ opacity: 0.5}} />
-        </BlurView>
-       
-        <ScrollView
-         style={{height:height -50}}
-         ref={ref => this.scrollRef = ref}
-         onScroll={(e) =>{
-           if (e.nativeEvent.contentOffset.y === 0 ){
-             DeviceEventEmitter.emit('scrollview',1);
-           }
-           }}>    
-        <FlatList
-        data={data}
-       // horizontal
-        //pagingEnabled={true}
-        keyExtractor={(item, index) => (index + '1')}
-        renderItem={this.renderDate.bind(this)}
-        ref={ref => this.scrollRef = ref}
-                onScroll={(e) =>{
-                  if (e.nativeEvent.contentOffset.y === 0 ){
-                    DeviceEventEmitter.emit('scrollview',1);
-                  }
-                  }}
-        />
-      </ScrollView>
-      </View>
-    )
+          <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%'}}>
+            <Animated.Image source={{uri:this.state.imgUrl}} resizeMode="stretch" style={{ opacity: 0.5}} />
+          </BlurView>
+        
+          <ScrollView
+          style={{height:height -50}}
+          ref={ref => this.scrollRef = ref}
+          onScroll={(e) =>{
+            if (e.nativeEvent.contentOffset.y === 0 ){
+              DeviceEventEmitter.emit('scrollview',1);
+            }
+            }}>    
+          <FlatList
+          data={data}
+        // horizontal
+          //pagingEnabled={true}
+          keyExtractor={(item, index) => (index + '1')}
+          renderItem={this.renderDate.bind(this)}
+          ref={ref => this.scrollRef = ref}
+                  onScroll={(e) =>{
+                    if (e.nativeEvent.contentOffset.y === 0 ){
+                      DeviceEventEmitter.emit('scrollview',1);
+                    }
+                    }}
+          />
+        </ScrollView>
+        </View>
+      )}
+      else{
+        return(
+          <View style={width}>
+            <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                  <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+                  <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无商品</Text>
+              </View>
+            
+          </View>
+        )
+      }
   }
 };
 

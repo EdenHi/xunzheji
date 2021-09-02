@@ -151,61 +151,82 @@ export default class Goods2 extends Component {
     const Imgref = createRef();
     console.log('data',this.state.data);
     const {data,visible,arr} = this.state;
-    return (
-      <View style={{ width:width,height:height }}>
-         
-                   
-        <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%'}}>
-          <Animated.Image source={{uri:this.state.imgUrl}} resizeMode="stretch" style={{ opacity: 0.5}} />
-        </BlurView>
-        <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                        <TouchableOpacity  style={{width:width*0.06, }} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-                        <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
-                            {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
-                        </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>我的商店</Text>
-                    </View>
-        <View style={{width:width,height:height*0.93}}>
-        {/* 消息弹窗 */}
-        <AwesomeAlert
-            show={visible}
-            showProgress={false}
-            title="提示"
-            message="你确定要删除这条信息吗？"
-            closeOnTouchOutside={true}
-            closeOnHardwareBackPress={false}
-            showCancelButton={true}
-            showConfirmButton={true}
-            confirmText="确认"
-            cancelText="取消"
-            confirmButtonColor="#93c9c9"
-            onConfirmPressed={() => {
-              this.setState({ visible: false })
-              this.delete_card(arr);
-            }}
-            onCancelPressed={() => {
-              this.setState({ visible: false })
-            }}
+    if(data.length>0){
+      return (
+        <View style={{ width:width,height:height }}>
+          
+                    
+          <BlurView blurType="dark" blurAmount={4000} style={{ position: 'absolute', height: '100%', width: '100%'}}>
+            <Animated.Image source={{uri:this.state.imgUrl}} resizeMode="stretch" style={{ opacity: 0.5}} />
+          </BlurView>
+          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
+                          <TouchableOpacity  style={{width:width*0.06, }} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
+                          <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
+                              {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
+                          </TouchableOpacity>
+                          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>我的商店</Text>
+                      </View>
+          <View style={{width:width,height:height*0.93}}>
+          {/* 消息弹窗 */}
+          <AwesomeAlert
+              show={visible}
+              showProgress={false}
+              title="提示"
+              message="你确定要删除这条信息吗？"
+              closeOnTouchOutside={true}
+              closeOnHardwareBackPress={false}
+              showCancelButton={true}
+              showConfirmButton={true}
+              confirmText="确认"
+              cancelText="取消"
+              confirmButtonColor="#93c9c9"
+              onConfirmPressed={() => {
+                this.setState({ visible: false })
+                this.delete_card(arr);
+              }}
+              onCancelPressed={() => {
+                this.setState({ visible: false })
+              }}
+            />
+          <ScrollView
+          style={{}}
+          ref={ref => this.scrollRef = ref}
+          onScroll={(e) =>{
+            if (e.nativeEvent.contentOffset.y === 0 ){
+              DeviceEventEmitter.emit('scrollview',1);
+            }
+            }}>    
+          <FlatList
+          data={data}
+        // horizontal
+          //pagingEnabled={true}
+          keyExtractor={(item, index) => (index + '1')}
+          renderItem={this.renderDate.bind(this)}
           />
-        <ScrollView
-         style={{}}
-         ref={ref => this.scrollRef = ref}
-         onScroll={(e) =>{
-           if (e.nativeEvent.contentOffset.y === 0 ){
-             DeviceEventEmitter.emit('scrollview',1);
-           }
-           }}>    
-        <FlatList
-        data={data}
-       // horizontal
-        //pagingEnabled={true}
-        keyExtractor={(item, index) => (index + '1')}
-        renderItem={this.renderDate.bind(this)}
-        />
-      </ScrollView>
-      </View>
-      </View>
-    )
+        </ScrollView>
+        </View>
+        </View>
+      )}else{
+        return(
+          <View style={width}>
+            <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
+                <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                    {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
+                </TouchableOpacity>
+                <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的商店</Text>
+                <TouchableOpacity activeOpacity={1} style={{}}>
+                    <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
+                </TouchableOpacity>
+            </View>
+            <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                  <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+                  <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无商品</Text>
+              </View>
+            
+        </View>
+        )
+      }
   }
 };
 const styles = StyleSheet.create({
