@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native';
 import {BottomSheet,ListItem} from 'react-native-elements'
 import {View,Text,Dimensions } from 'react-native';
 const {width} = Dimensions.get('window')
-export default class jianjie_2 extends Component {
+export default class jianjie_7 extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -28,7 +28,7 @@ list = [
 
 go(kk){
     this.setState({isVisible:false})
-    this.props.navigation.navigate('book_xiangqing_2',{k:kk})
+    this.props.navigation.navigate('book_xiangqing_7',{k:kk})
 }
     render() {
         return (
@@ -50,8 +50,13 @@ go(kk){
                     
                     </BottomSheet>
                 <View style={{width:width*0.9,marginLeft:width*0.05,marginTop:20}}>
-                    <Text style={{color:'#333',lineHeight:23}}>{`\t\t\t\t自古与钱塘江潮休戚共存的萧山人骨子里有一种“奔竞不息，勇立潮头”的精神。这种精神就像一粒种子，离不开土壤与气候的成就。传化企业能从最底层成长起来，成为勇于承担社会责任的企业，徐冠巨先生能够成为着眼于社会及时代的企业家，离不开国家与地方政府在变革中给予的支持。
-        本书还原了徐冠巨先生与其父徐传化先生创立传化的创业历程，记录了徐冠巨先生与时代共进，以“社会责任感理念”为依归，持续推进企业转型，成就社会化、时代化企业的历程。`}</Text>
+                    <Text style={{color:'#333',lineHeight:23}}>{`家族企业在创业早期表现出极大的活力，而后期却又成为“封闭”“落后”和“低效率”的代名词。中国家族企业如何走上一条可持续发展的健康之路？后创始人时代，企业又该何去何从？
+茅理翔和茅忠群父子共同创办了方太，为企业传承提供了一份优秀的范例。方太的传承分为以下三个阶段。
+带三年：另起炉灶，约法三章。淡化家族制，实现弯道超车。
+帮三年：父亲主外，儿子主内。用“口袋”理论避免了家族股权矛盾，组建了职业经理人团队。
+看三年：父亲彻底交权，儿子全面掌舵。共同梳理了方太精神和价值观。
+茅理翔交给茅忠群的不是一笔不菲的财富，也非一个可能被时代淘汰的企业，而是将自己毕生的知识、经验和智慧在一次轰轰烈烈的创业中与儿子交流、碰撞、检验和实践，继而创造出一家价值远超此前的公司。
+创业式传承的关键，是企业家精神的代际传递！`}</Text>
                     <View style={{borderWidth:0.5,borderColor:'#333',marginTop:20}}/>
                     <TouchableOpacity activeOpacity={1} style={{flexDirection:'row',marginTop:10,justifyContent:'space-between',marginBottom:10}}
                     onPress={()=>this.setState({isVisible:true})}>

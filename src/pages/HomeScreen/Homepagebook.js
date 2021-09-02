@@ -31,11 +31,11 @@ export default class Homepagebook extends Component {
                 },
                 {
                     title: "",
-                    img: "https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
+                    img: "https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
                 },
                 {
                     title: "",
-                    img: "https://img0.baidu.com/it/u=2944285600,2767547880&fm=26&fmt=auto&gp=0.jpg"
+                    img: "https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a75c929dfadf43ad4bd01302d4?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
                 },
             ],
             data: [{
@@ -206,7 +206,7 @@ export default class Homepagebook extends Component {
             this.props.navigation.navigate('book_6',{ii:6})
         }
         if (index === 7) {
-            this.props.navigation.navigate('book_6',{ii:7})
+            this.props.navigation.navigate('book_7',{ii:7})
         }
     }
     _renderItem({ item, index }) {
