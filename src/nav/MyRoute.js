@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
 import * as React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import Shoucang from '../pages/MyScreen/zhanshi/Shoucang';
-import Dianzan from '../pages/MyScreen/zhanshi/Dianzan';
-import Output from '../pages/MyScreen/zhanshi/Output';
-import Goods from '../pages/MyScreen/zhanshi/Goods';
+import Shoucang from '../pages/MyScreen/zhanshi/shoucang';
+import Dianzan from '../pages/MyScreen/zhanshi/dianzan';
+import Output from '../pages/MyScreen/zhanshi/output';
+import Goods from '../pages/MyScreen/zhanshi/goods';
 import {NavigationContainer} from '@react-navigation/native';
 const Tab = createMaterialTopTabNavigator();
 

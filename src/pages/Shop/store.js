@@ -559,7 +559,6 @@ componentWillUnmount(){
               height: 5,
               marginLeft: 2,
               marginRight: 2,
-
               marginBottom: 9,
               borderRadius: 50
             }} />}
@@ -569,7 +568,7 @@ componentWillUnmount(){
               height: 5,
               marginLeft: 2,
               marginRight: 2,
-              marginTop: 9,
+              // marginTop: 0,
               marginBottom: 9,
               borderRadius: 15
             }} />}

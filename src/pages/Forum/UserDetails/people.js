@@ -274,7 +274,7 @@ CreateChatRoom(){
                     </View>
                     <View style={{width:'100%',height:'15%',flexDirection:'row',alignItems:'center'}}>
                      <View style={{width:'0%',height:'80%',alignItems:'center',justifyContent:'center',backgroundColor:'#fff',marginLeft:'10%',borderRadius:5}} />
-                     <View style={{height:'80%',justifyContent:'center',backgroundColor:'#f1f1f1',marginLeft:'2%',borderRadius:5}}>
+                     <View style={{height:'80%',justifyContent:'center',backgroundColor:'#f1f1f1',borderRadius:5}}>
                          <Text style={{fontSize:13,margin:3}}>{data.area}</Text>
                      </View>
                     </View>

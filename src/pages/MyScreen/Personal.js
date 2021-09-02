@@ -190,10 +190,10 @@ export default class Personal extends Component {
           <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.08, justifyContent: "space-between", flexDirection: "row", backgroundColor: "#7cc0c0" }}>
             <Feather name="menu" size={25} color="#fff" style={{ marginLeft: 10 }} onPress={() => this.setState({ isOpen: true, })} />
             <View style={{ width: width * 0.6, alignContent: "center", justifyContent: "center", flexDirection: "row" }}>
-              <Text style={{ fontSize: 15, color: "#fff" }}>{data.nickname}</Text>
-              <Text style={{ fontSize: 15, color: "#fff" }}>的个人中心</Text>
+              {/* <Text style={{ fontSize: 18, color: "#fff",fontWeight:"bold" }}>{data.nickname}</Text> */}
+              <Text style={{ fontSize: 18, color: "#fff",fontWeight:"bold" }}>个人中心</Text>
             </View>
-            <TouchableOpacity activeOpacity={1} style={{ width:65,height:65 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})}>
+            <TouchableOpacity activeOpacity={1} style={{ width:60,height:60 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})}>
             <LottieView source={require('../../../animal/bell.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
             {/* <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})} /> */}

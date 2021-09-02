@@ -29,7 +29,7 @@ export default class book_6 extends Component {
                             <Text style={{marginTop:20,fontSize:18,color:'#fff'}}>百年浙商</Text>
                             <Text style={{marginTop:20,color:'#fff',fontSize:13}}>毛祖棠</Text>
                         </View>
-                        <Image source={{uri:'https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg'}} style={{height:150,width:100,marginRight:width*0.05}}/>
+                        <Image source={{uri:'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg'}} style={{height:150,width:100,marginRight:width*0.05}}/>
                     </View>
                     
                     <View style={{backgroundColor:'#fff'}}>

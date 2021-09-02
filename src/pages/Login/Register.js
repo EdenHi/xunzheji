@@ -22,27 +22,38 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 const ratio_w = Dimensions.get('window').width / 375;
 export default class Register extends Component {
   load() {
-    axios
-      .post('http://47.100.78.254:3000/index/register', {
-        username: this.state.username,
-        password1: this.state.password1,
-        password2: this.state.password2,
-        phone:this.state.phone,
-      })
-      .then(resp => {
-        if (resp.data === '注册成功') {
-          AsyncStorage.setItem('username',this.state.username,(error)=>{
-            if (!error){
-                console.log('保存成功');
-            } else {
-                console.log('保存失败');
-            }
+    if(this.state.username === ''){
+      alert('用户名不能为空')
+    } 
+    else if(this.state.password1 ===''){
+      alert('密码不能为空')
+    }
+    else if(this.state.password2 != this.state.password1){
+      alert('两次输入密码不一致')
+    }
+    else{
+      axios
+        .post('http://47.100.78.254:3000/index/register', {
+          username: this.state.username,
+          password1: this.state.password1,
+          password2: this.state.password2,
+          phone:this.state.phone,
+        })
+        .then(resp => {
+          if (resp.data === '注册成功') {
+            AsyncStorage.setItem('username',this.state.username,(error)=>{
+              if (!error){
+                  console.log('保存成功');
+              } else {
+                  console.log('保存失败');
+              }
+          });
+            this.props.navigation.navigate('Register2');
+          } else {
+            alert(resp.data);
+          }
         });
-          this.props.navigation.navigate('Register2');
-        } else {
-          alert(resp.data);
-        }
-      });
+    }
   }
 
   constructor(props) {
