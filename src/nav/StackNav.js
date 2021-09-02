@@ -120,6 +120,7 @@ import Road2 from '../pages/Road/Road2';
 import Road3 from '../pages/Road/Road3';
 import Chats from '../pages/chat/demo';
 import articel from '../pages/article/comment/article_detail';
+import Live from '../components/Live/Live';
 const Stack = createStackNavigator();
 
 export default function StackNav() {
@@ -244,6 +245,7 @@ export default function StackNav() {
       <Stack.Screen name="book_6" component={book_6} />
       <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
+      <Stack.Screen name="Live" component={Live} />
     </Stack.Navigator>
   );
 }
