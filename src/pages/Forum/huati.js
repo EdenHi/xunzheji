@@ -156,7 +156,7 @@ export default class huati extends Component {
 
     ListEmptyComponent() {
         return (
-            <View style={{ width, height: height * 0.93, alignItems: 'center', justifyContent: "center", marginTop: -height * 0.1, backgroundColor: "#fff" }}>
+            <View style={{ width, height: height * 0.93, alignItems: 'center', justifyContent: "center",  backgroundColor: "#fff" }}>
                 <Image style={{ width: width * 0.5, height: width * 0.5 }} source={require("../nothingpic/暂无消息.png")}></Image>
                 <Text style={{ color: "#7cc0c0", fontSize: 15, }}>暂无讨论</Text>
             </View>

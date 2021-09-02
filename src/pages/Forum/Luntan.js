@@ -47,6 +47,7 @@ export default class LunTan extends Component {
             isLoding: false,
             denglu_username: '',
             isVisible: false,
+            message:0,
         };
     }
     //图片点击放大
@@ -62,9 +63,16 @@ export default class LunTan extends Component {
     get_xinxi() {
         axios.get('http://47.100.78.254:3000/dongtai/allDongtai')
             .then((json) => {
-                this.setState({
-                    data: json.data,
-                });
+                if(json.data.length===0){
+                    this.setState({
+                        message:1
+                    });
+                }else{
+                    this.setState({
+                        data: json.data,
+                        message:0,
+                    });
+                }
                 console.log('data', json.data);
             });
     }
@@ -641,7 +649,17 @@ export default class LunTan extends Component {
 
                 </View>
             );
-        } else {
+        } else if(this.state.message===1){
+            return(
+                <View style={width}>
+                    <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                        <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
+                        <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无发布</Text>
+                    </View>
+                    
+                </View>
+            )
+        }else{
             return (
                 <View style={styles.LoadingPage}>
                     <View style={{

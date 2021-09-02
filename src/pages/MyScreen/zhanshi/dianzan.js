@@ -70,24 +70,36 @@ export default class dianzan extends Component {
         )
     }
     render() {
-        return (
-            <View style={{width}}>
-                <ScrollView
-                style={{height:height -50 }}
-                ref={ref => this.scrollRef = ref}
-                onScroll={(e) =>{
-                  if (e.nativeEvent.contentOffset.y === 0 ){
-                    DeviceEventEmitter.emit('scrollview',1);
-                  }
-                  }}>
-                
-                <FlatList
-                keyExtractor={(item, index) => (index + '1')}
-                data = {this.state.data}
-                renderItem = {this.renderData.bind(this)}/>
-                <View style={{alignItems:'center',marginBottom:20}}><Text>------------到底了------------</Text></View>
-                </ScrollView>
-            </View>
-        );
+        if(this.state.data.length>0){
+            return (
+                <View style={{width}}>
+                    <ScrollView
+                    style={{height:height -50 }}
+                    ref={ref => this.scrollRef = ref}
+                    onScroll={(e) =>{
+                    if (e.nativeEvent.contentOffset.y === 0 ){
+                        DeviceEventEmitter.emit('scrollview',1);
+                    }
+                    }}>
+                    
+                    <FlatList
+                    keyExtractor={(item, index) => (index + '1')}
+                    data = {this.state.data}
+                    renderItem = {this.renderData.bind(this)}/>
+                    <View style={{alignItems:'center',marginBottom:20}}><Text>------------到底了------------</Text></View>
+                    </ScrollView>
+                </View>
+            );}
+            else{
+                return(
+                    <View style={width}>
+                        <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                            <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+                            <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无点赞</Text>
+                        </View>
+                        
+                    </View>
+                )
+            }
     }
 }
