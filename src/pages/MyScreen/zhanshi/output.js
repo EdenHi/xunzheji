@@ -195,10 +195,10 @@ render() {
         style={styles.list}
         data={this.state.data}
         circleSize={20}
-        //   circleColor='rgba(45,156,219)'
-        lineColor='rgb(45,156,219)'
+        circleColor='#fedc61'
+        lineColor='#fedc61'
         timeContainerStyle={{ minWidth: 52 }}
-        timeStyle={{ textAlign: 'center', backgroundColor: '#ff9797', color: 'white', padding: 5, borderRadius: 13 }}
+        timeStyle={{ textAlign: 'center', backgroundColor: '#7cc0c0', color: 'white', padding: 5, borderRadius: 13 }}
         descriptionStyle={{ color: 'gray' }}
         options={{
           style: { paddingTop: 5 }
