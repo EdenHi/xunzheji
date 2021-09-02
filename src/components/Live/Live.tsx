@@ -1,7 +1,7 @@
 
-import React, {Component} from 'react'
-import {Platform, ScrollView, Text, TouchableOpacity, View} from 'react-native'
-import RtcEngine, {RtcLocalView, RtcRemoteView, VideoRenderMode} from 'react-native-agora'
+import React, { Component } from 'react'
+import { Platform, ScrollView, Text, TouchableOpacity, View, Dimensions } from 'react-native'
+import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode } from 'react-native-agora'
 
 import requestCameraAndAudioPermission from './Permission'
 import styles from './Style'
@@ -13,157 +13,192 @@ import styles from './Style'
  * @property joinSucceed State variable for storing success
  */
 interface State {
-    appId: string,
-    token: string,
-    channelName: string,
-    joinSucceed: boolean,
-    peerIds: number[],
+  appId: string,
+  token: string,
+  channelName: string,
+  joinSucceed: boolean,
+  peerIds: number[],
+  localvoice:true
 }
-
+const { height, width } = Dimensions.get('window');
 export default class Live extends Component<Props, State> {
   _engine?: RtcEngine
 
   constructor(props) {
-      super(props)
-      this.state = {
-          appId: 'afd79a4ac84e49cbb69c28c8eab69f69',
-          token: '006afd79a4ac84e49cbb69c28c8eab69f69IAAkB3StCTBH48CC9VDXi3/cshR9AK8DG+K9oYPc+PyljYjFkOEAAAAAEAAMCq6y3HYxYQEAAQDbdjFh',
-          channelName: 'Edenzhang',
-          joinSucceed: false,
-          peerIds: [],
-      }
-      if (Platform.OS === 'android') {
-          // Request required permissions from Android
-          requestCameraAndAudioPermission().then(() => {
-              console.log('requested!')
-          })
-      }
+    super(props)
+    this.state = {
+      appId: 'afd79a4ac84e49cbb69c28c8eab69f69',
+      token: '006afd79a4ac84e49cbb69c28c8eab69f69IAAkB3StCTBH48CC9VDXi3/cshR9AK8DG+K9oYPc+PyljYjFkOEAAAAAEAAMCq6y3HYxYQEAAQDbdjFh',
+      channelName: 'Edenzhang',
+      joinSucceed: false,
+      peerIds: [],
+      localvoice:true
+    }
+
+    if (Platform.OS === 'android') {
+      // Request required permissions from Android
+      requestCameraAndAudioPermission().then(() => {
+        console.log('requested!')
+      })
+    }
   }
 
   componentDidMount() {
-      this.init()
-  }
 
+    this.init()
+    
+  }
+  
   /**
    * @name init
    * @description Function to initialize the Rtc Engine, attach event listeners and actions
    */
   init = async () => {
-      const {appId} = this.state
-      this._engine = await RtcEngine.create(appId)
-      await this._engine.enableVideo()
+    const { appId } = this.state
+    this._engine = await RtcEngine.create(appId)
+    await this._engine.enableVideo()
 
-      this._engine.addListener('Warning', (warn) => {
-          console.log('Warning', warn)
-      })
+    this._engine.addListener('Warning', (warn) => {
+      console.log('Warning', warn)
+    })
 
-      this._engine.addListener('Error', (err) => {
-          console.log('Error', err)
-      })
+    this._engine.addListener('Error', (err) => {
+      console.log('Error', err)
+    })
 
-      this._engine.addListener('UserJoined', (uid, elapsed) => {
-          console.log('UserJoined', uid, elapsed)
-          // Get current peer IDs
-          const {peerIds} = this.state
-          // If new user
-          if (peerIds.indexOf(uid) === -1) {
-              this.setState({
-                  // Add peer ID to state array
-                  peerIds: [...peerIds, uid]
-              })
-          }
-      })
+    this._engine.addListener('UserJoined', (uid, elapsed) => {
+      console.log('UserJoined', uid, elapsed)
+      // Get current peer IDs
+      const { peerIds } = this.state
+      // If new user
+      if (peerIds.indexOf(uid) === -1) {
+        this.setState({
+          // Add peer ID to state array
+          peerIds: [...peerIds, uid]
+        })
+      }
+    })
 
-      this._engine.addListener('UserOffline', (uid, reason) => {
-          console.log('UserOffline', uid, reason)
-          const {peerIds} = this.state
-          this.setState({
-              // Remove peer ID from state array
-              peerIds: peerIds.filter(id => id !== uid)
-          })
+    this._engine.addListener('UserOffline', (uid, reason) => {
+      console.log('UserOffline', uid, reason)
+      const { peerIds } = this.state
+      this.setState({
+        // Remove peer ID from state array
+        peerIds: peerIds.filter(id => id !== uid)
       })
+    })
 
-      // If Local user joins RTC channel
-      this._engine.addListener('JoinChannelSuccess', (channel, uid, elapsed) => {
-          console.log('JoinChannelSuccess', channel, uid, elapsed)
-          // Set state variable to true
-          this.setState({
-              joinSucceed: true
-          })
+    // If Local user joins RTC channel
+    this._engine.addListener('JoinChannelSuccess', (channel, uid, elapsed) => {
+      console.log('JoinChannelSuccess', channel, uid, elapsed)
+      // Set state variable to true
+      this.setState({
+        joinSucceed: true
       })
+    })
   }
 
-    /**
-     * @name startCall
-     * @description Function to start the call
-     */
-    startCall = async () => {
-        // Join Channel using null token and channel name
-        await this._engine?.joinChannel(this.state.token, this.state.channelName, null, 0)
-    }
+  /**
+   * @name startCall
+   * @description Function to start the call
+   */
+  startCall = async () => {
+    // Join Channel using null token and channel name
+    await this._engine?.joinChannel(this.state.token, this.state.channelName, null, 0)
+  }
 
-    /**
-     * @name endCall
-     * @description Function to end the call
-     */
-    endCall = async () => {
-        await this._engine?.leaveChannel()
-        this.setState({peerIds: [], joinSucceed: false})
-    }
+  /**
+   * @name endCall
+   * @description Function to end the call
+   */
+  endCall = async () => {
+    await this._engine?.leaveChannel()
+    this.setState({ peerIds: [], joinSucceed: false })
+  }
 
-    render() {
-        return (
-            <View style={styles.max}>
-                <View style={styles.max}>
-                    <View style={styles.buttonHolder}>
-                        <TouchableOpacity
-                            onPress={this.startCall}
-                            style={styles.button}>
-                            <Text style={styles.buttonText}> Start Call </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            onPress={this.endCall}
-                            style={styles.button}>
-                            <Text style={styles.buttonText}> End Call </Text>
-                        </TouchableOpacity>
-                    </View>
-                    {this._renderVideos()}
-                </View>
-            </View>
-        )
-    }
+  controlVoice(){
+    this._engine.enableLocalAudio(!this.state.localvoice);
+    this.setState({localvoice:!this.state.localvoice})
+  }
+  render() {
+    return (
+      <View style={{ width, height }}>
 
-    _renderVideos = () => {
-        const {joinSucceed} = this.state
-        return joinSucceed ? (
-            <View style={styles.fullView}>
-                <RtcLocalView.SurfaceView
-                    style={styles.max}
-                    channelId={this.state.channelName}
-                    renderMode={VideoRenderMode.Hidden}/>
-                {this._renderRemoteVideos()}
-            </View>
-        ) : null
-    }
+        {this.state.joinSucceed ? null : <View >
+          <TouchableOpacity style={{ borderWidth: 1, width: width, height: height * 0.2 }} onPress={() => { this.startCall() }}></TouchableOpacity>
+        </View>}
 
-    _renderRemoteVideos = () => {
-        const {peerIds} = this.state
-        return (
-            <ScrollView
-                style={styles.remoteContainer}
-                contentContainerStyle={{paddingHorizontal: 2.5}}
-                horizontal={true}>
-                {peerIds.map((value, index, array) => {
-                    return (
-                        <RtcRemoteView.SurfaceView
-                            style={styles.remote}
-                            uid={value}
-                            channelId={this.state.channelName}
-                            renderMode={VideoRenderMode.Hidden}
-                            zOrderMediaOverlay={true}/>
-                    )
-                })}
-            </ScrollView>
-        )
-    }
+        {this._renderVideos()}
+
+
+      </View>
+    )
+  }
+
+  _renderVideos = () => {
+    const { joinSucceed } = this.state;
+    const { peerIds } = this.state
+    return joinSucceed ?
+      (
+        <View
+          style={{
+            width: width,
+            height: height,
+          }}
+        >
+          {peerIds.map((value, index, array) => {
+            return (
+              <RtcRemoteView.SurfaceView
+                style={{
+                  width: width,
+                  height: height,
+                  zIndex: 0,
+                  position: 'absolute',
+
+                  borderWidth: 5, borderColor: '#fff'
+                }}
+                zOrderMediaOverlay
+                uid={value}
+                channelId={this.state.channelName}
+                renderMode={VideoRenderMode.Hidden}
+              />
+            )
+
+          })}
+          {this._renderRemoteVideos()}
+
+          <View style={{ backgroundColor: 'rgba(0,0,0,0.4', width, height: height * 0.15, zIndex: 100, marginTop: height * 0.83, flexDirection: 'row', justifyContent: 'space-between' }}>
+            <TouchableOpacity onPress={()=>{this._engine.switchCamera()}} style={{ borderWidth: 1, width: width * 0.3, height: width * 0.3, backgroundColor: '#fff' }}>
+
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{this.endCall()
+            // , this.props.navigation.goBack()
+              }} style={{ borderWidth: 1, width: width * 0.3, height: width * 0.3, backgroundColor: '#fff' }}>
+
+            </TouchableOpacity>
+            <TouchableOpacity onPress={()=>{this.controlVoice()}} style={{ borderWidth: 1, width: width * 0.3, height: width * 0.3, backgroundColor: '#fff' }}>
+
+            </TouchableOpacity>
+          </View>
+        </View>
+      )
+      : null
+  }
+
+  _renderRemoteVideos = () => {
+    // const {peerIds} = this.state
+    return (
+
+      <View style={{}}>
+        <RtcLocalView.SurfaceView
+          style={{ width: width * 0.3, height: height * 0.3, zIndex: 100, position: 'absolute', borderWidth: 5, borderColor: '#fff' }}
+          channelId={this.state.channelName}
+          renderMode={VideoRenderMode.Hidden}
+          zOrderOnTop={true}
+        />
+
+        {/* <TouchableOpacity style={{width:width,height:height*0.1,backgroundColor:'green',marginTop:height*0.7}} onPress={()=>{this.endCall()}}></TouchableOpacity> */}
+      </View>
+    )
+  }
 }
