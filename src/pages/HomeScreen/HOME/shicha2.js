@@ -17,8 +17,8 @@ const ITEM_HEIGHT = ITEM_WIDTH * 1.47;
 const images = [
   {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe"},
   {img:"http://47.100.78.254:3000/public/images/home3.png",jump:"ZhenCe2"},
-  {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe3"},
-  {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe4"},
+  {img:"http://47.100.78.254:3000/public/images/home4.png",jump:"ZhenCe3"},
+  {img:"http://47.100.78.254:3000/public/images/home5.png",jump:"ZhenCe4"},
 
 ];
 
@@ -69,7 +69,6 @@ export default  shicha2=(props)=> {
                     height: height * 0.2,
                     marginLeft: -width * 0.05,
                     overflow: "hidden",
-                    borderWidth:1,
                     alignItems: "center",
                     borderRadius: 15,
                     // elevation:5
