@@ -83,7 +83,7 @@ export default class Barrage extends Component {
         return (
             <View style={styles.container}>
                 
-                    {/* <BarrageMoveView newMessages={this.state.data} numberOfLines={5} speed={1} /> */}
+                    <BarrageMoveView newMessages={this.state.data} numberOfLines={4} speed={1} />
            
                 {/* <BarrageInputView onButtonPress={this.onButtonPress} /> */}
                 {/* <View style={{ flex: 1 }} /> */}
