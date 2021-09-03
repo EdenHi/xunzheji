@@ -31,6 +31,7 @@ export default class Personal extends Component {
       aa: 1,
       shoucang: '',
       dianzan: '',
+      shangdian:'',
     }
   }
 
@@ -43,7 +44,6 @@ export default class Personal extends Component {
         this.setState({
           username: result,
         });
-        console.log('username', result);
         axios.post('http://47.100.78.254:3000/index/selectPerson', {
           username: result,
         }).then((json) => {
@@ -51,8 +51,9 @@ export default class Personal extends Component {
             data: json.data[0][0],
             shoucang: json.data[1][0],
             dianzan: json.data[2][0],
+            shangdian:json.data[3][0]
           });
-
+          console.log('data',json.data);
         });
       } else {
         console.log('获取数据失败', error);
@@ -152,7 +153,7 @@ export default class Personal extends Component {
 
 
   render() {
-    const { data, shoucang, dianzan } = this.state;
+    const { data, shoucang, dianzan,shangdian } = this.state;
     console.log('data', data);
     console.log('isopen',this.state.isOpen);
     let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
@@ -279,7 +280,7 @@ export default class Personal extends Component {
                   <ImageBackground resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1868037487,4029559003&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.45, height: height * 0.35, }} borderTopRightRadius={10} borderBottomRightRadius={10}>
                     <View style={{ flexDirection: "row", alignItems: "center", marginTop: "100%", justifyContent: "space-between", marginHorizontal: width * 0.05, width: width * 0.25 }}>
                       <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>我的商店</Text>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>0</Text>
+                      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{shangdian.shangdian}</Text>
                     </View>
                     <View style={{ width: width * 0.25, height: height * 0.05, backgroundColor: "#7cc0c0", justifyContent: "center", alignItems: "center", marginHorizontal: width * 0.05, elevation: 5 }}><Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>MY STORE</Text></View>
                   </ImageBackground>

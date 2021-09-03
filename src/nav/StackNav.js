@@ -114,7 +114,8 @@ import {
   book_2,
   book_xiangqing_2,
   book_7,
-  book_xiangqing_7
+  book_xiangqing_7,
+  duihuan,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -254,6 +255,7 @@ export default function StackNav() {
       <Stack.Screen name="book_xiangqing_2" component={book_xiangqing_2} />
       <Stack.Screen name="book_7" component={book_7} />
       <Stack.Screen name="book_xiangqing_7" component={book_xiangqing_7} />
+      <Stack.Screen name="duihuan" component={duihuan} />
     </Stack.Navigator>
   );
 }

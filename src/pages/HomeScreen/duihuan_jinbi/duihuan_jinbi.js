@@ -7,6 +7,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import shop from './duihuan_jinbi.json'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { ToastAndroid } from 'react-native';
+import { DeviceEventEmitter } from 'react-native';
 const {height,width} = Dimensions.get('window')
 export default class duihuan_jinbi extends Component {
     constructor(props){
@@ -42,11 +44,16 @@ export default class duihuan_jinbi extends Component {
 
     componentDidMount(){
         this.get_jinbi()
+        this.listener = DeviceEventEmitter.addListener('jinbi',this.get_jinbi.bind(this))
+    }
+
+    componentWillUnmount(){
+        this.listener.remove();
     }
 
     renderDate({item,index}){
         return(
-            <TouchableOpacity activeOpacity={1} style={{marginLeft:width*0.05,width:width*0.9,elevation:5,backgroundColor:'white',marginTop:10,borderRadius:10,flexDirection:'row'}} activeOpacity={1}>
+            <TouchableOpacity key={index} activeOpacity={1} style={{marginLeft:width*0.05,width:width*0.9,elevation:5,backgroundColor:'white',marginTop:10,borderRadius:10,flexDirection:'row'}} activeOpacity={1}>
                 <Image source={{uri:item.img}} resizeMode='stretch' style={{height:width*0.25,width:width*0.25,margin:10,borderRadius:10}}/>
                 <View style={{marginTop:10}}>
                     <Text style={{fontWeight:'bold',fontSize:18,width:width*0.55,color:"#333"}}
@@ -63,14 +70,14 @@ export default class duihuan_jinbi extends Component {
                             <Text style={{color:"#666"}}>{item.jinbi>this.state.data.jinbi?'(金币不足)':null}</Text>
                             </View>
                         </View>
-                        <View style={{position:"absolute",marginLeft:width*0.37}}>
+                        <TouchableOpacity activeOpacity={1} onPress={()=>{item.jinbi>this.state.data.jinbi?ToastAndroid.show('金币不足，无法兑换',2000):this.props.navigation.navigate('duihuan',{jinbi:item.jinbi,price:item.price,name:item.name,pic:item.img})}} style={{position:"absolute",marginLeft:width*0.37}}>
                             <View style={{width:75,backgroundColor:'#7cc0c0',borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                 <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                             </View>
                             <View style={{width:75,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
                                 <Text style={{color:'#7cc0c0',fontSize:10,paddingLeft:10,textAlign:"center",paddingRight:10,paddingTop:3,paddingBottom:3,width:80}}>已兑{item.duihuan}件</Text>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </TouchableOpacity>
