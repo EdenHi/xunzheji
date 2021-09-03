@@ -31,6 +31,7 @@ export default class Personal extends Component {
       aa: 1,
       shoucang: '',
       dianzan: '',
+      shangdian:'',
     }
   }
 
@@ -43,7 +44,6 @@ export default class Personal extends Component {
         this.setState({
           username: result,
         });
-        console.log('username', result);
         axios.post('http://47.100.78.254:3000/index/selectPerson', {
           username: result,
         }).then((json) => {
@@ -51,8 +51,9 @@ export default class Personal extends Component {
             data: json.data[0][0],
             shoucang: json.data[1][0],
             dianzan: json.data[2][0],
+            shangdian:json.data[3][0]
           });
-
+          console.log('data',json.data);
         });
       } else {
         console.log('获取数据失败', error);
@@ -87,19 +88,20 @@ export default class Personal extends Component {
   }
 
   menu() {
+    const {isOpen} = this.state
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
           <TouchableOpacity activeOpacity={1} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-            <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen: false }) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+            <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen:false  }) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="cart-outline"
               size={35}
               color="#7cc0c0"
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Dingdan') }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Dingdan') , this.setState({ isOpen:false  })}} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="clipboard-text-outline"
               size={35}
@@ -127,7 +129,7 @@ export default class Personal extends Component {
           </TouchableOpacity>
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
-          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShiMin') }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShiMin'), this.setState({ isOpen: false }) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="adduser"
               size={35}
@@ -135,7 +137,7 @@ export default class Personal extends Component {
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>实名认证</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}), this.setState({ isOpen: false }) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="foot-print"
               size={35}
@@ -151,8 +153,9 @@ export default class Personal extends Component {
 
 
   render() {
-    const { data, shoucang, dianzan } = this.state;
+    const { data, shoucang, dianzan,shangdian } = this.state;
     console.log('data', data);
+    console.log('isopen',this.state.isOpen);
     let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
       <View >
         <Text style={{ color: '#7cc0c0', width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>账号</Text>
@@ -183,7 +186,7 @@ export default class Personal extends Component {
             console.log(marginLeft)
           }}
         menuPosition={'left'}     //抽屉在左侧还是右侧
-        autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
+        autoClosing={true}         //默认为true 如果为true 一有事件发生抽屉就会关闭
       >
         <LottieView source={require('../../../animal/background')} autoPlay loop progress={this.state.progress} />
         <View>
@@ -277,7 +280,7 @@ export default class Personal extends Component {
                   <ImageBackground resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1868037487,4029559003&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.45, height: height * 0.35, }} borderTopRightRadius={10} borderBottomRightRadius={10}>
                     <View style={{ flexDirection: "row", alignItems: "center", marginTop: "100%", justifyContent: "space-between", marginHorizontal: width * 0.05, width: width * 0.25 }}>
                       <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>我的商店</Text>
-                      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>0</Text>
+                      <Text style={{ fontSize: 20, fontWeight: "bold", color: "#7cc0c0" }}>{shangdian.shangdian}</Text>
                     </View>
                     <View style={{ width: width * 0.25, height: height * 0.05, backgroundColor: "#7cc0c0", justifyContent: "center", alignItems: "center", marginHorizontal: width * 0.05, elevation: 5 }}><Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>MY STORE</Text></View>
                   </ImageBackground>
