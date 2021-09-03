@@ -16,7 +16,6 @@ export default class OldBankTimer extends Component{
                     <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
                 </TouchableOpacity>
                 <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>线下老字号</Text>
-
               </View> 
         <View style={{width:"100%",height:"100%"}}>
           <Open></Open>
@@ -24,8 +23,6 @@ export default class OldBankTimer extends Component{
         </View>
         </LinearGradient>
       </View>
-
-    
     );
   }
 }
