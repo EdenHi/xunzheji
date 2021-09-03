@@ -2,7 +2,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign'
-import {View,Text, ScrollView, FlatList,AsyncStorage,Dimensions,ImageBackground,TouchableOpacity,DeviceEventEmitter} from 'react-native';
+import {View,Text, ScrollView, FlatList,AsyncStorage,Dimensions,ImageBackground,TouchableOpacity,DeviceEventEmitter,Image} from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const {height,width} = Dimensions.get('window');
 export default class Shoucang2 extends Component {
@@ -101,6 +101,7 @@ export default class Shoucang2 extends Component {
     }
     render() {
         const {data} = this.state;
+        if(data.length>0){
         return (
             <View style={{width:width * 1}}>
                  <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0"}}>
@@ -126,6 +127,26 @@ export default class Shoucang2 extends Component {
 
                 </View>
             </View>
-        );
+        );}else{
+            return(
+                <View style={width}>
+                        <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
+                            <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                            <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                                {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
+                            </TouchableOpacity>
+                            <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的收藏</Text>
+                            <TouchableOpacity activeOpacity={1} style={{}}>
+                                <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                                <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+                                <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无收藏</Text>
+                            </View>
+            
+                </View>
+            )
+        }
     }
 }

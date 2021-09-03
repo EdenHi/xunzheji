@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,Text,TouchableOpacity,Dimensions,Image,AsyncStorage,FlatList } from 'react-native';
+import {View,Text,TouchableOpacity,Dimensions,Image,AsyncStorage,FlatList,DeviceEventEmitter } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 const { width, height } = Dimensions.get("window")
@@ -14,7 +14,7 @@ export default class go_pinglun extends Component {
         }
     }
 
-    componentDidMount(){
+    go_pinglun(){
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 this.setState({username:result})
@@ -33,9 +33,15 @@ export default class go_pinglun extends Component {
                     })
             }
         })
-        
     }
-
+    componentDidMount(){
+        this.go_pinglun()
+        this.listener = DeviceEventEmitter.addListener('test',this.go_pinglun.bind(this))
+    }
+    
+    componentWillUnmount(){
+        this.listener.remove();
+    }
     renderDate({item,index}){
          //取出年月日
          let a = item.date_zhu.slice(0, 10)
@@ -81,13 +87,17 @@ export default class go_pinglun extends Component {
                     <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' onPress={() => this.props.navigation.goBack()} />
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft: "2%", fontWeight: "bold" }}>评论</Text>
                 </View>
-                
+                {this.state.data.length>0?
                 <FlatList
                 style={{marginTop:20}}
                 data={this.state.data}
                 keyExtractor={(item,index)=>(index+1)}
                 renderItem={this.renderDate.bind(this)}/>
-
+                :
+                <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                    <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
+                    <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无评论</Text>
+                </View>}
             </View>
         );
     }

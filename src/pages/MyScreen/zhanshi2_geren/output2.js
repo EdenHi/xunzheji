@@ -19,14 +19,7 @@ export default class Output2 extends Component {
       aa: 1,
     }
   }
-//   ListEmptyComponent(){
-//     return(
-//         <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",marginTop:-height*0.1,backgroundColor:"#fff"}}>
-//             <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
-//             <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无讨论</Text>
-//         </View>
-//     )
-// }
+
   get_shuju(v) {
     fetch('http://47.100.78.254:3000/index/select_Dongtai', {
       method: 'POST',
@@ -214,50 +207,66 @@ export default class Output2 extends Component {
 
   render() {
     console.log('我的发布', this.props.route);
-    return (
-      <View style={styles.container}>
-         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
-                    <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
-                    <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
-                        {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
-                    </TouchableOpacity>
-                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的发布</Text>
-                    <TouchableOpacity activeOpacity={1} style={{}}>
-                        <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
-                    </TouchableOpacity>
-                </View>
-          <ScrollView
-          //  ListEmptyComponent={this.ListEmptyComponent.bind(this)}
-            style={{ height: height - 50 - 120 ,width:width*0.9,marginLeft:width*0.05,marginTop:"2%"}}
-            ref={ref => this.scrollRef = ref}
-            onScroll={(e) => {
-              if (e.nativeEvent.contentOffset.y === 0) {
-                DeviceEventEmitter.emit('scrollview', 1);
-              }
-            }}>
-            <TouchableOpacity activeOpacity={1} onPress={() => this.select()}>
-              <Text>{this.state.data.length === 0 ? '' : '排序'}</Text>
-            </TouchableOpacity>
-            <Timeline
-              style={styles.list}
-              data={this.state.data}
-              circleSize={20}
-                circleColor='#fedc61'
-              lineColor='#fedc61'
-              timeContainerStyle={{ minWidth: 52 }}
-              timeStyle={{ textAlign: 'center', backgroundColor: '#7cc0c0', color: 'white', padding: 5, borderRadius: 13 }}
-              descriptionStyle={{ color: 'gray' }}
-              options={{
-                style: { paddingTop: 5 }
-              }}
-              innerCircle={'dot'}
+    if(this.state.data.length>0){
+      return (
+        <View style={styles.container}>
+          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
+                      <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                      <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                          {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
+                      </TouchableOpacity>
+                      <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的发布</Text>
+                      <TouchableOpacity activeOpacity={1} style={{}}>
+                          <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
+                      </TouchableOpacity>
+                  </View>
+            <ScrollView
 
-              // //  onEventPress={this.onEventPress.bind(this)}
-              renderDetail={this.renderDetail.bind(this)}
-            />
-          </ScrollView>
-      </View>
-    );
+              style={{ height: height - 50 - 120 ,width:width*0.9,marginLeft:width*0.05,marginTop:"2%"}}
+              >
+              <TouchableOpacity activeOpacity={1} onPress={() => this.select()}>
+                <Text>{this.state.data.length === 0 ? '' : '排序'}</Text>
+              </TouchableOpacity>
+              <Timeline
+                style={styles.list}
+                data={this.state.data}
+                circleSize={20}
+                  circleColor='#fedc61'
+                lineColor='#fedc61'
+                timeContainerStyle={{ minWidth: 52 }}
+                timeStyle={{ textAlign: 'center', backgroundColor: '#7cc0c0', color: 'white', padding: 5, borderRadius: 13 }}
+                descriptionStyle={{ color: 'gray' }}
+                options={{
+                  style: { paddingTop: 5 }
+                }}
+                innerCircle={'dot'}
+
+                // //  onEventPress={this.onEventPress.bind(this)}
+                renderDetail={this.renderDetail.bind(this)}
+              />
+            </ScrollView>
+        </View>
+      );}else{
+        return(
+          <View style={styles.container}>
+            <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
+                <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
+                <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                    {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
+                </TouchableOpacity>
+                <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff"}}>我的发布</Text>
+                <TouchableOpacity activeOpacity={1} style={{}}>
+                    <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff",opacity:0 }} name="sound" size={20} color="#000000" />
+                </TouchableOpacity>
+            </View>
+            <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                  <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+                  <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无发布</Text>
+              </View>
+              
+          </View>
+      )
+      }
   }
 }
 const styles = StyleSheet.create({

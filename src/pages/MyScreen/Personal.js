@@ -87,19 +87,20 @@ export default class Personal extends Component {
   }
 
   menu() {
+    const {isOpen} = this.state
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
           <TouchableOpacity activeOpacity={1} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
-            <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen: false }) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
+            <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen:false  }) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="cart-outline"
               size={35}
               color="#7cc0c0"
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Dingdan') }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Dingdan') , this.setState({ isOpen:false  })}} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="clipboard-text-outline"
               size={35}
@@ -127,7 +128,7 @@ export default class Personal extends Component {
           </TouchableOpacity>
         </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
-          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShiMin') }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShiMin'), this.setState({ isOpen: false }) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="adduser"
               size={35}
@@ -135,7 +136,7 @@ export default class Personal extends Component {
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>实名认证</Text>
           </TouchableOpacity>
-          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
+          <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}), this.setState({ isOpen: false }) }} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="foot-print"
               size={35}
@@ -153,6 +154,7 @@ export default class Personal extends Component {
   render() {
     const { data, shoucang, dianzan } = this.state;
     console.log('data', data);
+    console.log('isopen',this.state.isOpen);
     let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
       <View >
         <Text style={{ color: '#7cc0c0', width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>账号</Text>
@@ -183,7 +185,7 @@ export default class Personal extends Component {
             console.log(marginLeft)
           }}
         menuPosition={'left'}     //抽屉在左侧还是右侧
-        autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
+        autoClosing={true}         //默认为true 如果为true 一有事件发生抽屉就会关闭
       >
         <LottieView source={require('../../../animal/background')} autoPlay loop progress={this.state.progress} />
         <View>

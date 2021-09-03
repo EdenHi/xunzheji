@@ -178,52 +178,58 @@ renderDetail(rowData, sectionID, rowID) {
 
 
 render() {
-  return (
-    <View style={styles.container}>
-      <ScrollView
-         style={{height:height -50 }}
-         ref={ref => this.scrollRef = ref}
-         onScroll={(e) =>{
-           if (e.nativeEvent.contentOffset.y === 0 ){
-             DeviceEventEmitter.emit('scrollview',1);
-           }
-           }}>    
-      <TouchableOpacity onPress={() => this.select()}>
-        <Text>{this.state.data.length === 0 ? '' :'排序'}</Text>
-      </TouchableOpacity>
-      <Timeline
-        style={styles.list}
-        data={this.state.data}
-        circleSize={20}
-        circleColor='#fedc61'
-        lineColor='#fedc61'
-        timeContainerStyle={{ minWidth: 52 }}
-        timeStyle={{ textAlign: 'center', backgroundColor: '#7cc0c0', color: 'white', padding: 5, borderRadius: 13 }}
-        descriptionStyle={{ color: 'gray' }}
-        options={{
-          style: { paddingTop: 5 }
-        }}
-        innerCircle={'dot'}
-        ref={ref => this.scrollRef = ref}
-        onScroll={(e) => {
-          console.log('e22', e.nativeEvent.contentOffset.y);
-          if (e.nativeEvent.contentOffset.y === 0) {
-            DeviceEventEmitter.emit('scrollview', 1);
-          }
-        }}
-        // //  onEventPress={this.onEventPress.bind(this)}
-        renderDetail={this.renderDetail.bind(this)}
-      />
-      </ScrollView>
-    </View>
-  );
+  if(this.state.data.length>0){
+    return (
+      <View style={styles.container}>
+        <ScrollView
+          style={{height:height -50 }}
+>    
+        <TouchableOpacity onPress={() => this.select()}>
+          <Text>{this.state.data.length === 0 ? '' :'排序'}</Text>
+        </TouchableOpacity>
+        <Timeline
+          style={styles.list}
+          data={this.state.data}
+          circleSize={20}
+          circleColor='#fedc61'
+          lineColor='#fedc61'
+          timeContainerStyle={{ minWidth: 52 }}
+          timeStyle={{ textAlign: 'center', backgroundColor: '#7cc0c0', color: 'white', padding: 5, borderRadius: 13 }}
+          descriptionStyle={{ color: 'gray' }}
+          options={{
+            style: { paddingTop: 5 }
+          }}
+          innerCircle={'dot'}
+          ref={ref => this.scrollRef = ref}
+          onScroll={(e) => {
+            console.log('e22', e.nativeEvent.contentOffset.y);
+            if (e.nativeEvent.contentOffset.y === 0) {
+              DeviceEventEmitter.emit('scrollview', 1);
+            }
+          }}
+          // //  onEventPress={this.onEventPress.bind(this)}
+          renderDetail={this.renderDetail.bind(this)}
+        />
+        </ScrollView>
+      </View>
+    );}
+    else{
+      return(
+        <View style={width}>
+            <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                  <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
+                  <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无发布</Text>
+              </View>
+            
+        </View>
+      )
+    }
 }
 }
 const styles = StyleSheet.create({
   container: {
     width,
     padding: 20,
-    marginTop: 10,
     backgroundColor: 'white'
   },
   list: {

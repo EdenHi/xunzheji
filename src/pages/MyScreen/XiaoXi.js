@@ -74,6 +74,7 @@ export default class XiaoXi extends Component {
         )
     }
 
+
     render() {
         return (
             <View style={{flex:1,backgroundColor:"#fff"}}>
@@ -103,11 +104,17 @@ export default class XiaoXi extends Component {
                     </TouchableOpacity>
                 </View>
                 <View>
+                   {this.state.data.length>0?
                     <FlatList
                         handleMethod={({ viewableItems }) => this.handleViewableItemsChanged(viewableItems)}
                         data={this.state.data}
                         renderItem={this.renderItem}
                     />
+                    :
+                    <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                        <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
+                        <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无消息</Text>
+                    </View>}
 
                 </View>
             </View>

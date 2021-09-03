@@ -4,6 +4,7 @@ import {View,TouchableOpacity,Text,Dimensions,ImageBackground,Image, TextInput,S
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import ImagePicker from 'react-native-image-crop-picker';
+import { DeviceEventEmitter } from 'react-native';
 const {width,height} = Dimensions.get('window')
 export default class Exchange_want extends Component {
     constructor(props){
@@ -71,6 +72,7 @@ export default class Exchange_want extends Component {
                     });
                 }
             })
+            DeviceEventEmitter.emit('want',1)
         }
 
     render() {
