@@ -131,7 +131,6 @@ export default function StackNav() {
   return (
     <Stack.Navigator headerMode="none"
       initialRouteName="Login">
-
       <Stack.Screen name="BtnRoute" component={BtnRoute} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="MyScreen" component={My} />
@@ -177,7 +176,6 @@ export default function StackNav() {
       <Stack.Screen name="Road2" component={Road2} />
       <Stack.Screen name="Road3" component={Road3} />
       <Stack.Screen name="Classify" component={Classify} />
-
       <Stack.Screen name="Heritage" component={Heritage} />
       <Stack.Screen name="Concerns" component={Concerns} />
       <Stack.Screen name="fans" component={fans} />

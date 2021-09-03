@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { Platform, ScrollView, Text, TouchableOpacity, View, Dimensions } from 'react-native'
+import { Platform, ScrollView, Text, TouchableOpacity, View, Dimensions,Image } from 'react-native'
 import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode } from 'react-native-agora'
 
 import requestCameraAndAudioPermission from './Permission'
@@ -28,8 +28,8 @@ export default class Live extends Component<Props, State> {
     super(props)
     this.state = {
       appId: 'afd79a4ac84e49cbb69c28c8eab69f69',
-      token: '006afd79a4ac84e49cbb69c28c8eab69f69IAAkB3StCTBH48CC9VDXi3/cshR9AK8DG+K9oYPc+PyljYjFkOEAAAAAEAAMCq6y3HYxYQEAAQDbdjFh',
-      channelName: 'Edenzhang',
+      token: '006afd79a4ac84e49cbb69c28c8eab69f69IADkIyROGzKVQjqHp1qXzVCPj3m+QTSsbEAEQAbz5mdrdAfFc8kAAAAAEAAMCq6ySc0yYQEAAQBIzTJh',
+      channelName: 'zhangyi',
       joinSucceed: false,
       peerIds: [],
       localvoice:true
@@ -97,7 +97,6 @@ export default class Live extends Component<Props, State> {
       })
     })
   }
-
   /**
    * @name startCall
    * @description Function to start the call
@@ -125,7 +124,7 @@ export default class Live extends Component<Props, State> {
       <View style={{ width, height }}>
 
         {this.state.joinSucceed ? null : <View >
-          <TouchableOpacity style={{ borderWidth: 1, width: width, height: height * 0.2 }} onPress={() => { this.startCall() }}></TouchableOpacity>
+          <TouchableOpacity style={{  width: width, height: height * 0.2 }} onPress={() => { this.startCall() }}></TouchableOpacity>
         </View>}
 
         {this._renderVideos()}
@@ -163,21 +162,20 @@ export default class Live extends Component<Props, State> {
                 renderMode={VideoRenderMode.Hidden}
               />
             )
-
           })}
           {this._renderRemoteVideos()}
 
-          <View style={{ backgroundColor: 'rgba(0,0,0,0.4', width, height: height * 0.15, zIndex: 100, marginTop: height * 0.83, flexDirection: 'row', justifyContent: 'space-between' }}>
-            <TouchableOpacity onPress={()=>{this._engine.switchCamera()}} style={{ borderWidth: 1, width: width * 0.3, height: width * 0.3, backgroundColor: '#fff' }}>
-
+          <View style={{ backgroundColor: 'rgba(0,0,0,0.4', width, height: height * 0.15, zIndex: 100, marginTop: height * 0.83, flexDirection: 'row', justifyContent: 'space-around' }}>
+            <TouchableOpacity onPress={()=>{this._engine.switchCamera()}} style={{  width: width * 0.2, height: width * 0.2 ,borderRadius:50,backgroundColor:'rgba(255,255,255,0.5)', }}>
+            <Image style={{height: '60%',width: '60%',alignSelf:'center',marginTop:height*0.018}}resizeMode={'contain'}  source={require('../../pages/img/ChangeCamera.png')}></Image>
             </TouchableOpacity>
             <TouchableOpacity onPress={()=>{this.endCall()
             // , this.props.navigation.goBack()
-              }} style={{ borderWidth: 1, width: width * 0.3, height: width * 0.3, backgroundColor: '#fff' }}>
-
+              }} style={{  width: width * 0.2, height: width * 0.2 ,borderRadius:50,backgroundColor:'rgba(255,255,255,0.5)',}}>
+ <Image style={{height: '60%',width: '60%',alignSelf:'center',marginTop:height*0.018}}resizeMode={'contain'}  source={require('../../pages/img/endCall.png')}></Image>
             </TouchableOpacity>
-            <TouchableOpacity onPress={()=>{this.controlVoice()}} style={{ borderWidth: 1, width: width * 0.3, height: width * 0.3, backgroundColor: '#fff' }}>
-
+            <TouchableOpacity onPress={()=>{this.controlVoice()}} style={{  width: width * 0.2, height: width * 0.2 ,borderRadius:50,backgroundColor:'rgba(255,255,255,0.5)', }}>
+{    this.state.localvoice?<Image style={{height: '50%',width: '50%',alignSelf:'center',marginTop:height*0.02}}resizeMode={'contain'} source={require('../../pages/img/voiceDown.png')}></Image>: <Image style={{height: '50%',width: '50%',alignSelf:'center'}}resizeMode={'contain'}  source={require('../../pages/img/VoiceUp.png')}></Image>}
             </TouchableOpacity>
           </View>
         </View>
@@ -186,7 +184,9 @@ export default class Live extends Component<Props, State> {
   }
 
   _renderRemoteVideos = () => {
+    
     // const {peerIds} = this.state
+
     return (
 
       <View style={{}}>
