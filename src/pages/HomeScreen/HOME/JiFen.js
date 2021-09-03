@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { Dimensions, View, Text, TouchableOpacity, TextInput, Image, Modal, Animated, Easing, StyleSheet, Button, TouchableWithoutFeedbackComponent } from 'react-native'
+import { Dimensions, View, Text, TouchableOpacity, TextInput, Image, Modal, Animated, Easing, StyleSheet, Button, TouchableWithoutFeedbackComponent,DeviceEventEmitter } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import { ScrollView } from 'react-native-gesture-handler'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { AsyncStorage } from 'react-native'
+import axios from 'axios';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { HeaderTitle } from 'react-navigation-stack'
@@ -21,15 +22,33 @@ export default class JiFen extends Component {
             modalVisible: false,
             modalVisible2: false,
             data: [],
-            click: false
+            click: false,
+            ziliao:[],
         }
     }
 
-    componentWillUnmount() {
-        // 如果存在this.timer，则使用clearTimeout清空。
-        // 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
-        this.timer && clearTimeout(this.timer);
+    //获取个人信息数据
+    get_shuju() {
+        AsyncStorage.getItem('username', (error, result) => {
+        if (!error) {
+            this.setState({
+            username: result,
+            });
+            console.log('username', result);
+            axios.post('http://47.100.78.254:3000/index/selectPerson', {
+            username: result,
+            }).then((json) => {
+            this.setState({
+                ziliao: json.data[0][0],
+            });
+
+            });
+        } else {
+            console.log('获取数据失败', error);
+        }
+        });
     }
+
     componentDidMount() {
         Animated.timing(this.state.progress, {
             toValue: 1,
@@ -38,7 +57,15 @@ export default class JiFen extends Component {
 
         }).start();
         this.get_jinbi()
+        this.get_shuju()
+        this.listener = DeviceEventEmitter.addListener('jinbi',this.get_jinbi.bind(this))
+
     }
+
+    componentWillUnmount(){
+        this.listener.remove();
+    }
+
 
     _openModalWin = () => {
         this.setState({ modalVisible: true });
@@ -96,6 +123,23 @@ export default class JiFen extends Component {
             }
         })
         this.get_jinbi()
+    }
+
+
+
+    go_ziliao(){
+        const {ziliao} = this.state
+        this.props.navigation.navigate('bianjiziliao', {
+            username: ziliao.username,
+            portrait: ziliao.portrait,
+            nickname: ziliao.nickname,
+            sex: ziliao.sex,
+            birthday: ziliao.birthday,
+            signature: ziliao.signature,
+            phone: ziliao.phone,
+            area: ziliao.area,
+            backpic: ziliao.backpic,
+          })
     }
 
 
@@ -272,7 +316,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <View><Text style={{ fontSize: 13, color: "#808080" }}>绑定手机账号更安全、不丢失~</Text></View>
+                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1}  style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去绑定</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: "#7cc0c0" }}>去绑定</Text>
@@ -285,7 +331,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <View><Text style={{ fontSize: 13, color: "#808080" }}>换一个好看的头像~</Text></View>
+                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去更换</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: "#7cc0c0" }}>去更换</Text>
@@ -298,7 +346,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <View><Text style={{ fontSize: 13, color: "#808080" }}>换一个好听的昵称~</Text></View>
+                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去修改</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: "#7cc0c0" }}>去修改</Text>
@@ -311,7 +361,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <View><Text style={{ fontSize: 13, color: "#808080" }}>完善所有资料，你就不是新手啦~</Text></View>
+                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去完善</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: "#7cc0c0" }}>去完善</Text>
@@ -342,7 +394,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <View><Text style={{ fontSize: 13, color: "#808080" }}>一起来学习吧~</Text></View>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} onPress={() => this.context.navigate('History')} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去阅读</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} onPress={() => this.context.navigate('History')} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: "#7cc0c0" }}>去阅读</Text>
@@ -368,7 +422,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <View><Text style={{ fontSize: 13, color: "#808080" }}>分享你的生活~</Text></View>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Fabu')} activeOpacity={1} onPress={() => this.context.navigate('Fabu')} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{color:"#7cc0c0"}}>去发表</Text>
+                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} onPress={() => this.context.navigate('Fabu')} style={{ borderRadius: 5, borderWidth: 1, borderColor: "#7cc0c0", width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: "#7cc0c0" }}>去发表</Text>

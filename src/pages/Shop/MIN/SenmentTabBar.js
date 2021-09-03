@@ -10,7 +10,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 const { width, height } = Dimensions.get('window');
 const Button = (props) => {
     return (
-        <TouchableOpacity {...props} activeOpacity={0.95}>
+        <TouchableOpacity {...props} activeOpacity={1}>
             {props.children}
         </TouchableOpacity>
     )
@@ -23,7 +23,7 @@ export default class SegmentTabBar extends Component {
         };
     }
     renderTab(name, page, isTabActive, onPressHandler) {
-        const textColor = isTabActive ? '#0086E5' : '#fff';
+        const textColor = isTabActive ? '#287D7D' : '#fff';
         const backgroundColor = isTabActive ? '#fff' : '#fff';
         console.log(textColor)
         return <Button

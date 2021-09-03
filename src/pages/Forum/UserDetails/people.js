@@ -104,19 +104,8 @@ export default class people extends Component {
     })
 
     this.get_shuju();
-    this.listener = DeviceEventEmitter.addListener('scrollview',this.scrollview.bind(this));
     
 }
-
-        //打开ScrollView的移动
-        scrollview(){
-        this.setState({isScroll:true})
-        }
-
-        //移除监听
-        componentWillUnmount(){
-        this.listener.remove();
-        }
 
 
   //点击关注按钮，增加粉丝数量，增加登录用户的关注数
@@ -223,16 +212,6 @@ CreateChatRoom(){
               parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
               backgroundSpeed={1}
               scrollEnabled={isScroll}
-              ref={ref => this.scrollRef = ref}
-              onScroll={(e) =>{
-                console.log('e',e.nativeEvent.contentOffset.y);
-                console.log('isScro',isScroll)
-                if (e.nativeEvent.contentOffset.y >= 349 && e.nativeEvent.contentOffset.y <= 353){
-                  this.setState({
-                    isScroll:false,
-                  });
-                }
-                }}
               renderBackground={()=>(
                 <View key="background" />
               )}
@@ -274,7 +253,7 @@ CreateChatRoom(){
                     </View>
                     <View style={{width:'100%',height:'15%',flexDirection:'row',alignItems:'center'}}>
                      <View style={{width:'0%',height:'80%',alignItems:'center',justifyContent:'center',backgroundColor:'#fff',marginLeft:'10%',borderRadius:5}} />
-                     <View style={{height:'80%',justifyContent:'center',backgroundColor:'#f1f1f1',marginLeft:'2%',borderRadius:5}}>
+                     <View style={{height:'80%',justifyContent:'center',backgroundColor:'#f1f1f1',borderRadius:5}}>
                          <Text style={{fontSize:13,margin:3}}>{data.area}</Text>
                      </View>
                     </View>

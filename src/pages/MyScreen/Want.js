@@ -3,7 +3,7 @@ import { ScrollView } from 'react-native'
 import { AsyncStorage } from 'react-native'
 import { FlatList } from 'react-native'
 import { Dimensions } from 'react-native'
-import { View, ImageBackground, Image, Text,TouchableOpacity } from 'react-native'
+import { View, ImageBackground, Image, Text,TouchableOpacity,DeviceEventEmitter } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 
 const { width, height } = Dimensions.get("window")
@@ -16,7 +16,7 @@ export default class Want extends Component {
         }
     }
 
-    componentDidMount(){
+    want(){
         AsyncStorage.getItem('username',(err,result)=>{
             if(!err){
                 fetch('http://47.100.78.254:3000/shop/select_Exchange2_want', {
@@ -35,6 +35,15 @@ export default class Want extends Component {
                 })
             }
         })
+    }
+
+    componentDidMount(){
+        this.want()
+        this.listener = DeviceEventEmitter.addListener('want',this.want.bind(this))
+    }
+
+    componentWillUnmount(){
+        this.listener.remove();
     }
 
 renderDate({item,index}){
@@ -81,11 +90,17 @@ renderDate({item,index}){
                     <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' onPress={() => this.props.navigation.goBack()} />
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft: "2%", fontWeight: "bold" }}>消息</Text>
                 </View>
+                {this.state.data.length>0?
                 <FlatList
                 style={{marginTop:20}}
                 data={this.state.data}
                 keyExtractor={(item,index)=>(index+1)}
                 renderItem={this.renderDate.bind(this)}/>
+                :
+                <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                    <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
+                    <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无消息</Text>
+                </View>}
             </View>
         )
     }

@@ -62,8 +62,6 @@ export default class zanheshoucang extends Component {
 }
 
 
-
-
     render() {
         return (
             <View style={{ flex: 1 }}>
@@ -71,11 +69,17 @@ export default class zanheshoucang extends Component {
                     <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' onPress={() => this.props.navigation.goBack()} />
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft: "2%", fontWeight: "bold" }}>赞和收藏</Text>
                 </View>
+                {this.state.data.length>0?
                 <FlatList
-                style={{marginTop:20}}
+                contentContainerStyle={{marginTop:20}}
                 data={this.state.data}
                 keyExtractor={(item,index)=>(index+1)}
                 renderItem={this.renderDate.bind(this)}/>
+                :
+                <View style={{width,height:height,top:-20,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
+                    <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
+                    <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无消息</Text>
+                </View>}
             </View>
         );
     }

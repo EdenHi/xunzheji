@@ -11,31 +11,14 @@ import LottieView from 'lottie-react-native';
 // import IconFont from "../../iconfont";
 // import global from "../../utils/global";
 const {height,width} = Dimensions.get('window');
-export default class zhifu extends Component {
+export default class duihuan extends Component {
     static contextType = NavigationContext;
     constructor(props) {
         super(props);
         this.state = {
             progress: new Animated.Value(0),
             modalVisible: false,
-            paidway: [
-                {
-                    id: 1,
-                    image: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg011.21cnimg.com%2Fphoto%2F2017%2F0413%2F13%2F201217faf3a7a6a62c949082_o.jpg&refer=http%3A%2F%2Fimg011.21cnimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629772402&t=dccd52d33b8b93d2e9edfa74d2230838',
-                    text: "微信支付"
-                },
-                {
-                    id: 2,
-                    image: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.baike.soso.com%2Fugc%2Fbaikepic2%2F15696%2F20170825221628-1162233375_jpg_400_320_10454.jpg%2F0&refer=http%3A%2F%2Fpic.baike.soso.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629772465&t=a37c42f7a60343c5838602296f03379a',
-                    text: "支付宝支付",
-                },
-                {
-                    id: 3,
-                    image: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstatic.open-open.com%2Flib%2FuploadImg%2F20150724%2F20150724161913_15.png&refer=http%3A%2F%2Fstatic.open-open.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1629772566&t=eab2d80662ed76a01e4a282cf61a983c',
-                    text: "银行卡支付",
-                },
-
-            ],
+           
             panduan: [
                 {
                     id: 1,
@@ -50,7 +33,7 @@ export default class zhifu extends Component {
             price: this.props.route.params.price,
             dingdan:'待确认',
             goodsname:this.props.route.params.name,
-            goods: this.props.route.params.jieshao,
+
             dizhi:'',
             username:'',
             total:1,
@@ -76,36 +59,12 @@ console.log(this.props.route.params);
     _closeModalWin = () => {
         this.setState({ modalVisible: false });
     }
-    changeTab = (index) => {
-        this.setState({ activeTab: index })
-        if (index == 0) {
-            this.setState({ way: "微信支付" });
-        }
-        else if (index == 1) {
-            this.setState({ way: "支付宝支付" });
-        }
-        else {
-            this.setState({ way: "银行卡支付" });
-        }
-    }
+   
     changeDingdan = ()=>{
         this.setState({dingdan:'提交成功'})
     }
 
-    //增加商品数量
-    add_total(){
-        this.setState({
-            total:this.state.total+1
-        })
-    }
-    //减少商品数量
-    jianshao_total(){
-        if(this.state.total > 1){
-            this.setState({
-                total:this.state.total-1
-            })
-        }
-    }
+    
     //获取地址
     get_dizhi(){
         AsyncStorage.getItem('username',(error,result)=>{
@@ -162,7 +121,7 @@ console.log(this.props.route.params);
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                ddianpu: this.props.route.params.dianpu,
+                dianpu: this.props.route.params.dianpu,
                 shop_name: this.props.route.params.name,
                 price: parseFloat(this.state.price*this.state.total).toFixed(2),
                 num: this.state.total,
@@ -173,7 +132,19 @@ console.log(this.props.route.params);
             }),
         });
 
-        
+        fetch('http://47.100.78.254:3000/index/update_jinbi2', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                jinbi:this.props.route.params.jinbi,
+                username:this.state.username,
+            }),
+        });
+        DeviceEventEmitter.emit('jinbi',1)
+
         this.props.navigation.goBack();
         ToastAndroid.show('提交订单成功',2000)
     }
@@ -218,13 +189,12 @@ console.log(this.props.route.params);
                     {/* 商品信息 */}
                     <View style={{ flexDirection: 'row',marginTop: 5,backgroundColor:"#fff",width:width*0.90,borderRadius:10 ,marginLeft:width*0.05,elevation:5}}>
                         <View style={{ margin: 10 }}>
-                            <Image style={{ width: 110, height: 110, borderRadius: 10 }} source={{ uri:this.props.route.params.pic[0] }} />
+                            <Image style={{ width: 110, height: 110, borderRadius: 10 }} source={{ uri:this.props.route.params.pic }} />
                         </View>
-                        <View style={{ marginLeft: 5,justifyContent:'space-around' }}>
+                        <View style={{ marginLeft: 5,justifyContent:'space-around'}}>
                             {/* 商品名称 */}
                             <Text style={{ fontSize: 15, fontWeight: "bold",width:width*0.45,color:"#333333" }} numberOfLines={3} >{this.state.goodsname}</Text>
-                            {/* 对商品的解释或者规格 */}
-                            <Text style={{ fontSize:15,color:'#7cc0c0',width:width*0.5,}} numberOfLines={1}>{this.state.goods}</Text>
+
                         </View>
                     </View>
                     <View style={{ backgroundColor: "white", marginTop: 10, borderRadius: 10,margin:5,width:width*0.9,marginLeft:width*0.05,elevation:5 }}>
@@ -233,17 +203,15 @@ console.log(this.props.route.params);
                             <Text style={{ opacity: 0.6  ,fontSize:15,color:"#333333"}}>￥{this.state.price}</Text>
                         </View>
                         <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
+                            <Text style={{ opacity: 0.6 ,fontSize:15,color:"#333333"}}>所需金币</Text>
+                            <Text style={{ opacity: 0.6  ,fontSize:15,color:"#333333"}}>{this.props.route.params.jinbi}</Text>
+                        </View>
+                        <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginLeft: 20, marginTop: 10 }}>
                             <Text style={{ opacity: 0.6 ,fontSize:15 ,color:"#333333"}}>商品数量</Text>
                             <View style={{flexDirection:'row',alignItems:'center'}}>
-                                <AntDesign
-                                name='minussquareo'
-                                size={15}
-                                onPress={()=>this.jianshao_total()}/>
+                                
                                 <Text style={{ fontSize:15,marginLeft:10,marginRight:10,color:"#333333" }}>{this.state.total}</Text>
-                                <AntDesign
-                                name='plussquareo'
-                                size={15}
-                                onPress={()=>this.add_total()}/>
+                                
                             </View>
                             
                         </View>
@@ -259,9 +227,9 @@ console.log(this.props.route.params);
 
 
 
-                        <TouchableOpacity onPress={() => this.Scrollable.open()} style={{width:width*0.90,marginLeft:width*0.05, justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 ,elevation:5}} activeOpacity={0.95}>
+                        <TouchableOpacity style={{width:width*0.90,marginLeft:width*0.05, justifyContent: 'space-between', alignItems: "center", height: 40, margin:5, flexDirection: "row", backgroundColor: "white", marginTop:10, borderRadius:10 ,elevation:5}} activeOpacity={0.95}>
                             <Text style={{ marginLeft: 15,color:"#333333" }}>支付方式:</Text>
-                            <Text style={{ marginRight:15 ,color:"#333333"}}>{this.state.way}</Text>
+                            <Text style={{ marginRight:15 ,color:"#333333"}}>金币支付</Text>
                             {/* <IconFont name="jiantou" size={20}  /> */}
                         </TouchableOpacity>
                     </View>
@@ -269,8 +237,8 @@ console.log(this.props.route.params);
 
                 <View style={{ alignItems: "center", justifyContent: "space-between", flexDirection: "row", backgroundColor: "white", height: 70 }}>
                     <View style={{ flexDirection: "row", marginLeft: 15, alignItems: "flex-end" }}>
-                        <Text style={{ fontSize: 15,color:"#333333" }}>合计金额</Text>
-                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
+                        <Text style={{ fontSize: 15,color:"#333333" }}>合计金币</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>{this.props.route.params.jinbi}</Text>
                     </View>
                   
                         <TouchableOpacity  onPress={this._openModalWin} activeOpacity={1} style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
@@ -305,7 +273,7 @@ console.log(this.props.route.params);
                                                 alignItems: 'center',
                                                 justifyContent: 'center'
                                             }}>
-                                                <LottieView source={require('../../../animal/success.json')} autoPlay loop progress={this.state.progress} />
+                                                <LottieView source={require('../../../../animal/success.json')} autoPlay loop progress={this.state.progress} />
                                             </View>
                                             <View style={{
                                                 width: '100%',
@@ -331,18 +299,7 @@ console.log(this.props.route.params);
                         </Modal>
                     
                 </View>
-                <RBSheet ref={ref => { this.Scrollable = ref; }} height={200} closeOnDragDowncustomStyles={{ container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 } }}>
-                    <View>
-                        <Text style={{ marginLeft: 25, fontSize:15, marginTop: 10 ,color:"#333333"}}>支付方式</Text>
-                        {this.state.paidway.map((item, index) => (
-                            <TouchableOpacity key={item.id} onPress={() => {this.changeTab(index),this.Scrollable.close()}} style={{ alignItems: 'center', flexDirection: "row", marginTop: 15, marginLeft: 20 }}>
-                                <Image style={{ width: 30, height: 30 }} source={{uri:item.image}} />
-                                <Text style={{ marginLeft: 10,color:"#333333" }}>{item.text}</Text>
-                            </TouchableOpacity>
-                            
-                        ))}
-                    </View>
-                </RBSheet>
+
                 </LinearGradient>
             </View >
         );

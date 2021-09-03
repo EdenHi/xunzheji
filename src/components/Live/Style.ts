@@ -26,19 +26,22 @@ export default StyleSheet.create({
         color: '#fff',
     },
     fullView: {
-        width: dimensions.width,
-        height: dimensions.height - 100,
+        zIndex:20,
+        width: dimensions.width*0.3,
+        height: dimensions.height*0.3,
+        marginTop:-dimensions.height*0.4,
+        marginBottom:dimensions.height*0.4,
+        borderWidth:1
     },
     remoteContainer: {
         width: '100%',
-        height: 150,
+        height: '90%',
         position: 'absolute',
         top: 5
     },
     remote: {
-        width: 150,
-        height: 150,
-        marginHorizontal: 2.5
+        width:dimensions.width,
+        height:dimensions.height
     },
     noUserText: {
         paddingHorizontal: 10,

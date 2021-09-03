@@ -114,7 +114,8 @@ import {
   book_2,
   book_xiangqing_2,
   book_7,
-  book_xiangqing_7
+  book_xiangqing_7,
+  duihuan,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -124,13 +125,13 @@ import Road2 from '../pages/Road/Road2';
 import Road3 from '../pages/Road/Road3';
 import Chats from '../pages/chat/demo';
 import articel from '../pages/article/comment/article_detail';
+import Live from '../components/Live/Live';
 const Stack = createStackNavigator();
 
 export default function StackNav() {
   return (
     <Stack.Navigator headerMode="none"
       initialRouteName="Login">
-
       <Stack.Screen name="BtnRoute" component={BtnRoute} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="MyScreen" component={My} />
@@ -176,7 +177,6 @@ export default function StackNav() {
       <Stack.Screen name="Road2" component={Road2} />
       <Stack.Screen name="Road3" component={Road3} />
       <Stack.Screen name="Classify" component={Classify} />
-
       <Stack.Screen name="Heritage" component={Heritage} />
       <Stack.Screen name="Concerns" component={Concerns} />
       <Stack.Screen name="fans" component={fans} />
@@ -248,10 +248,12 @@ export default function StackNav() {
       <Stack.Screen name="book_6" component={book_6} />
       <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
+      <Stack.Screen name="Live" component={Live} />
       <Stack.Screen name="book_2" component={book_2} />
       <Stack.Screen name="book_xiangqing_2" component={book_xiangqing_2} />
       <Stack.Screen name="book_7" component={book_7} />
       <Stack.Screen name="book_xiangqing_7" component={book_xiangqing_7} />
+      <Stack.Screen name="duihuan" component={duihuan} />
     </Stack.Navigator>
   );
 }

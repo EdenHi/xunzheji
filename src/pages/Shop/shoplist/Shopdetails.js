@@ -182,7 +182,7 @@ export default class Shopdetails extends Component {
         })
 
 
-        ToastAndroid.showWithGravity('加入购物车成功', 2000, ToastAndroid.BOTTOM)
+        ToastAndroid.show('加入购物车成功', 2000)
         DeviceEventEmitter.emit('shop_cart', 1)
     }
 
