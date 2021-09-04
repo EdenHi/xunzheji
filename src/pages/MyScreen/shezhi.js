@@ -85,7 +85,7 @@ export default class shezhi extends Component {
                             size={30} />
                     </ListItem>
                     <ListItem
-                        onPress={()=>{global.back('#000'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}
+                        onPress={()=>{global.back('#145A59'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}
                         bottomDivider>
                         <ListItem.Content>
                             <ListItem.Title>夜间模式</ListItem.Title>
