@@ -1,13 +1,13 @@
-import React,{Component} from 'react';
-import { StyleSheet, Text, View, TextInput, ScrollView,FlatList, TouchableOpacity,Dimensions} from 'react-native';
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, TextInput, ScrollView, FlatList, TouchableOpacity, Dimensions } from 'react-native';
 import Open from '../Shop/Offline/open'
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 // import Timer from './Timer/Timer'
 const { width, height } = Dimensions.get("window")
-export default class OldBankTimer extends Component{
-  render(){
+export default class OldBankTimer extends Component {
+  render() {
     return (
       <View style={styles.container}>
         <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
@@ -24,8 +24,6 @@ export default class OldBankTimer extends Component{
         </View>
         </LinearGradient>
       </View>
-
-    
     );
   }
 }
@@ -33,20 +31,20 @@ export default class OldBankTimer extends Component{
 
 
 const styles = StyleSheet.create({
-    container: {
-       flex: 1
-    },
-    letter_up_1:{
-      width:'80%',
-      backgroundColor:'#fff',
-      top:10,
-      left:25
-    },
-    word:{
-      fontSize:14,
-      color:'#000',
-      letterSpacing:1,
-      top:4,
-      left:4
-    }
-  }); 
+  container: {
+    flex: 1
+  },
+  letter_up_1: {
+    width: '80%',
+    backgroundColor: '#fff',
+    top: 10,
+    left: 25
+  },
+  word: {
+    fontSize: 14,
+    color: '#000',
+    letterSpacing: 1,
+    top: 4,
+    left: 4
+  }
+});

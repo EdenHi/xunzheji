@@ -3,6 +3,8 @@ import { Dimensions, Image, View, TouchableOpacity, Text, ScrollView } from 'rea
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient'
 import ZuoPin from './ZuoPin'
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
 
 const { width, height } = Dimensions.get("window")
 
@@ -13,10 +15,11 @@ export default class JieShao extends Component {
                 <LinearGradient colors={[global.back2, "#fff", "#fff"]}>
                     <View style={{ marginHorizontal: width * 0.05, alignItems: "center" }}>
                         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
-                            <TouchableOpacity activeOpacity={1} style={{}} onPress={() => this.props.navigation.goBack()}>
-                                <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
+                            <TouchableOpacity activeOpacity={1} style={{width:width*0.06}} onPress={() => this.props.navigation.goBack()}>
+                            <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                                {/* <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                             </TouchableOpacity>
-                            <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85, marginLeft: "2%" }}>主页</Text>
+                            <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85 }}>主页</Text>
                         </View>
                         <View style={{ height: height * 0.93 }}>
                             <ScrollView showsVerticalScrollIndicator={false}>

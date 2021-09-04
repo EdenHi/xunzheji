@@ -61,7 +61,7 @@ class CustormerBar extends Component {
               style={{
                 justifyContent: 'center',
                 borderBottomColor: '#fff', //下划线颜色
-                borderBottomWidth: activeTab === i ? pxToDp(2) : 0,
+                borderBottomWidth: activeTab === i ? pxToDp(3) : 0,
                 borderRadius: 2,
                
               }}>
@@ -74,7 +74,7 @@ class CustormerBar extends Component {
                 }}>
                 {v}
               </Text>
-              <Text
+              {/* <Text
                 style={{
                   color: activeTab === i ? '#fff' : '#fff',
                   fontSize: activeTab === i ? pxToDp(8) : pxToDp(8),
@@ -82,7 +82,7 @@ class CustormerBar extends Component {
                   marginTop:-2
                 }}>
                 {i == 0 ? 'ATTENTION' : 'HOTLISTS'}
-              </Text>
+              </Text> */}
             </TouchableOpacity>
           ))}
           <TouchableOpacity
