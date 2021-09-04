@@ -101,6 +101,7 @@ export default class Luntan_guanzhu extends Component {
         this.get_xinxi();
         this.listener = DeviceEventEmitter.addListener('shuaxin', this.get_xinxi.bind(this))
         this.listener = DeviceEventEmitter.addListener('myfabu', this.loding.bind(this))
+        this.listener = DeviceEventEmitter.addListener('yanse', this.get_xinxi.bind(this))
     }
 
     componentWillUnmount() {
@@ -238,8 +239,8 @@ export default class Luntan_guanzhu extends Component {
                                         return (
                                             <View>
                                                 <View style={{ marginTop: "5%", width: width }}>
-                                                    <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 18, color: "#7cc0c0" }}>官方推荐</Text>
-                                                    <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 9, color: "#7cc0c0" }}>THE OFFICIAL RECOMMENDATION</Text>
+                                                    <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 18, color: global.back2 }}>官方推荐</Text>
+                                                    <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 9, color: global.back2 }}>THE OFFICIAL RECOMMENDATION</Text>
                                                     <ScrollView
                                                         horizontal
                                                         showsHorizontalScrollIndicator={false}
@@ -248,14 +249,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>圣诞COS</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '圣诞COS' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -266,14 +267,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>猫和老鼠</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '猫和老鼠' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -284,14 +285,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>lolita</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: 'lolita' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -302,14 +303,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>新年祝福姬</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '新年祝福姬' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -320,14 +321,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>动漫嘉年华</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '动漫嘉年华' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -338,14 +339,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>漫展返图</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '漫展返图' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -356,14 +357,14 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={["#7cc0c0", "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.back2, "#fff"]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>凉宫春日</Text>
                                                                     <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
-                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center" }}
+                                                                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
                                                                         onPress={() => this.context.navigate('huati', { tag: '凉宫春日' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
@@ -444,7 +445,7 @@ export default class Luntan_guanzhu extends Component {
                                                         </View>
 
                                                         {/* tag标签 */}
-                                                        <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: '#7cc0c0', borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
+                                                        <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: global.back2, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
                                                             onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                             <Fontisto name='hashtag' color='#fff' />
                                                             <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
@@ -566,7 +567,7 @@ export default class Luntan_guanzhu extends Component {
                                                     </View>
 
                                                     {/* tag标签 */}
-                                                    <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 5 }}
+                                                    <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: global.back2, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 5 }}
                                                         onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                         <Fontisto name='hashtag' color='#fff' />
                                                         <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{v.tag}</Text>
@@ -652,7 +653,7 @@ export default class Luntan_guanzhu extends Component {
                 <View style={width}>
                     <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                         <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
-                        <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无发布</Text>
+                        <Text style={{color:global.back2,fontSize:15,}}>暂无发布</Text>
                     </View>
                     
                 </View>

@@ -33,7 +33,7 @@ export default class SegmentTabBar1 extends Component {
         // const backgroundColor = isTabActive ? '#fff' : '#fff';
         console.log('index', index)
         return <TouchableOpacity
-            style={{ height: 50, width: width * 0.25, backgroundColor: '#7cc0c0',justifyContent: "center", alignItems: "center" }}
+            style={{ height: 50, width: width * 0.25, backgroundColor: global.back2,justifyContent: "center", alignItems: "center" }}
             key={name}
             accessible={true}
             accessibilityLabel={name}

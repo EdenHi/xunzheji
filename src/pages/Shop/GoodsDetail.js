@@ -63,7 +63,7 @@ class GoodsDetail extends Component {
     const { modalVisible, imgUrls, currentIndex } = this.state;
     return (
       <View style={styles.Box1}>
-        {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+        {/* <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} > */}
             {/* <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"space-around"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
@@ -90,7 +90,7 @@ class GoodsDetail extends Component {
                 <MaterialCommunityIcons onPress={()=>{this.props.navigation.navigate('ShoppingCart'),this.setModalVisible(!modalVisible1)}}style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="cart-outline"
                   size={35}
-                  color="#7cc0c0"
+                  color={global.back2}
                 />
                 <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
 
@@ -100,7 +100,7 @@ class GoodsDetail extends Component {
                 <MaterialCommunityIcons style={{ textAlign: 'center', marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="clipboard-text-outline"
                   size={35}
-                  color="#7cc0c0"
+                  color={global.back2}
                 />
                 <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
               </TouchableOpacity>
@@ -108,7 +108,7 @@ class GoodsDetail extends Component {
                 <AntDesign style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="customerservice"
                   size={35}
-                  color="#7cc0c0"
+                  color={global.back2}
                 />
                 <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
               </TouchableOpacity>
@@ -116,7 +116,7 @@ class GoodsDetail extends Component {
                 <MaterialCommunityIcons  style={{ textAlign: 'center',  marginTop:"-15%", height: '100%', textAlignVertical: 'center' }}
                   name="map-marker-radius"
                   size={35}
-                  color="#7cc0c0"
+                  color={global.back2}
                 />
                 <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
               </TouchableOpacity>
@@ -127,7 +127,7 @@ class GoodsDetail extends Component {
 
               name="apple-keyboard-control"
               size={30}
-              color="#7cc0c0"
+              color={global.back2}
             />
           </View>
           <TouchableOpacity activeOpacity={1} onPress={() => {
@@ -138,14 +138,14 @@ class GoodsDetail extends Component {
           
         </Modal>
         {/* 头部 */}
-        <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"#7cc0c0",height:height*0.07,justifyContent:"space-around"}}> 
+        <View style={{flexDirection:"row",alignItems:"center",backgroundColor:global.back2,height:height*0.07,justifyContent:"space-around"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
               <Text style={{fontSize:15,fontWeight:"bold",color:"#fff",marginLeft:"25%",marginRight:"25%"}}>商品详情</Text>
               <Entypo onPress={() => {
               this.setModalVisible(!modalVisible);
-            }} name="dots-three-vertical"  color="#7cc0c0"  size={20} />
+            }} name="dots-three-vertical"  color={global.back2}  size={20} />
             </View> 
         {/* <View style={styles.Head}>
           <Entypo
@@ -452,7 +452,7 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shop"
-                color="#7cc0c0"
+                color={global.back2}
                 size={25}
               />
               <Text
@@ -470,7 +470,7 @@ class GoodsDetail extends Component {
               <Entypo
                 style={{ borderWidth: 0, marginTop: '15%' }}
                 name="shopping-bag"
-                color="#7cc0c0"
+                color={global.back2}
                 size={25}
               />
               <Text
@@ -492,7 +492,7 @@ class GoodsDetail extends Component {
               borderWidth: 0,
               width: '27.5%',
               height: '80%',
-              backgroundColor: '#7cc0c0',
+              backgroundColor: global.back2,
               borderTopLeftRadius: 30,
               borderBottomLeftRadius: 30,
               marginTop: '1%',
@@ -514,7 +514,7 @@ class GoodsDetail extends Component {
               borderWidth: 0,
               width: '27.5%',
               height: '80%',
-              backgroundColor: '#7cc0c0',
+              backgroundColor: global.back2,
               borderTopRightRadius: 30,
               borderBottomRightRadius: 30,
               marginTop: '1%',

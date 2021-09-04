@@ -182,7 +182,7 @@ export default class dingzhi_xuqiu extends Component {
         const {arr} = this.state
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient style={{ width: width, height: "100%" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+                <LinearGradient style={{ width: width, height: "100%" }} colors={[global.back2, "#fff", "#fff"]} >
                     <View style={{ width: width * 0.9, marginLeft: width * 0.05, marginRight: width * 0.05, height }}>
                         {/* 标题 */}
                         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: 'space-between' }}>
@@ -330,7 +330,7 @@ export default class dingzhi_xuqiu extends Component {
                         </ScrollView>
 
                         <View style={{ height: 50, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 20, backgroundColor: '#7cc0c0', height: '80%', width: '80%' }}>
+                            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 20, backgroundColor: global.back2, height: '80%', width: '80%' }}>
                                 <Text style={{ color: '#fff', fontWeight: 'bold' }}>下定制需求</Text>
                             </TouchableOpacity>
                         </View>

@@ -6,7 +6,7 @@ export default class Card extends Component {
     render() {
         return (
             <TouchableOpacity style={styles.box} activeOpacity={1} onPress={()=>this.props.navigation.navigate('Ranking')}>
-                <View style={{ marginVertical: width * 0.03 }}><Text style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold', color: '#7cc0bf' }}>国内最美村镇人气</Text></View>
+                <View style={{ marginVertical: width * 0.03 }}><Text style={{ textAlign: 'center', fontSize: 15, fontWeight: 'bold', color: global.back2 }}>国内最美村镇人气</Text></View>
                 <View style={styles.img}>
                     <View style={styles.box2} ><Image style={{ width: '100%', height: '100%', borderRadius: 10 }} source={{ uri: 'https://sjbz-fd.zol-img.com.cn/t_s320x510c5/g2/M00/05/0C/ChMlWl1BWGKIa5b1AAkDHph43SoAAMQfgALVicACQM2533.jpg' }}></Image></View>
                     <View style={styles.box3}><Image style={{ width: '100%', height: '100%', borderRadius: 10 }} source={{ uri: 'http://img.ewebweb.com/uploads/20190506/13/1557121557-MeFPIjRBrN.jpg' }}></Image></View>

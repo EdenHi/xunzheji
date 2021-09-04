@@ -263,7 +263,7 @@ send(){
               <Image style={{width: 80, height: 80}} source={{uri:item.itemimg}}/>
               <View style={{justifyContent: commonStyle.around, flex: 1, marginHorizontal: 10, height: 50}}>
                 <Text style={{fontSize: 13, color:"#333333"}}numberOfLines={2}>{item.itemName}</Text>
-                <Text style={{fontSize: 13,color:"#7cc0c0",marginTop:30}}>{`￥${item.itemPrice}`}</Text>
+                <Text style={{fontSize: 13,color:global.back2,marginTop:30}}>{`￥${item.itemPrice}`}</Text>
               </View>
               <View style={{flexDirection: commonStyle.row, alignItems: commonStyle.center, marginHorizontal: 10}}>
                 <TouchableOpacity onPress={() => this.minus(sectionIndex, index)}>
@@ -299,7 +299,7 @@ send(){
 
     return (
       <View style={styles.container}>
-        <View style={{width:width,height:height*0.07,backgroundColor:"#7cc0c0",flexDirection:"row",alignItems:"center"}}>
+        <View style={{width:width,height:height*0.07,backgroundColor:global.back2,flexDirection:"row",alignItems:"center"}}>
           <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}
                       onPress={() => navigation.goBack()}
           >
@@ -328,9 +328,9 @@ send(){
             <Text style={{color:"#333333"}}>全选</Text>
           </View>
           <Text style={{marginHorizontal: 10,color:"#333333"}}>合计:
-            <Text style={{color:"#7cc0c0"}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
+            <Text style={{color:global.back2}}>￥{parseFloat(this.state.totalPrice).toFixed(2)}</Text>
           </Text>
-          <View style={{width: 120,backgroundColor:"#7cc0c0", alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>
+          <View style={{width: 120,backgroundColor:global.back2, alignItems: commonStyle.center, justifyContent: commonStyle.center, height: commonStyle.cellHeight}}>
             <TouchableOpacity onPress={()=>this.send()}>
             <Text style={{color: "#fff"}}>去结算({this.state.totalNum})</Text>
             </TouchableOpacity>

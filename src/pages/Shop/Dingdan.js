@@ -94,7 +94,7 @@ export default class Dingdan extends Component {
                         <Text style={{ fontWeight: "bold", fontSize: 15 ,color:"#333333"}}>
                             {item.dianpu==='undefined'?'官方店铺':item.dianpu}
                         </Text>
-                        <Text style={{ marginLeft: "52%", color: "#7cc0c0" }}>
+                        <Text style={{ marginLeft: "52%", color: global.back2 }}>
                             {item.fahuo}
                         </Text>
                     </View>
@@ -115,7 +115,7 @@ export default class Dingdan extends Component {
                     </View>
                    {item.fahuo ==='未发货' ?<View style={{ flexDirection: "row", flexDirection:"row-reverse" }}>
                         {/* <View style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20 }}><Text style={{ fontSize: 14,color:"#333333" }}>申请退款</Text></View> */}
-                        <TouchableOpacity  onPress={()=>this.setState({vv:item.id,modalVisible: true,kk:item})} style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20, marginLeft: 10, borderColor: "#7cc0c0" }}><Text style={{ fontSize: 14, color: "#7cc0c0" }}>确认收货</Text></TouchableOpacity>
+                        <TouchableOpacity  onPress={()=>this.setState({vv:item.id,modalVisible: true,kk:item})} style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20, marginLeft: 10, borderColor: global.back2 }}><Text style={{ fontSize: 14, color: global.back2 }}>确认收货</Text></TouchableOpacity>
                         <TouchableOpacity  style={{ justifyContent: "center", alignItems: "center", width: 80, height: height*0.04, borderWidth: 1, borderRadius: 20 }}><Text style={{ fontSize: 14,color:"#333333" }}>申请退款</Text></TouchableOpacity>
                     </View>
                     :
@@ -188,7 +188,7 @@ export default class Dingdan extends Component {
                                                 alignItems: 'center',
 
                                             }}>
-                                                <Text style={{ fontSize: 20, color: "#7cc0c0" }}>收货成功</Text>
+                                                <Text style={{ fontSize: 20, color: global.back2 }}>收货成功</Text>
                                             </View>
                                             <View style={{width:"60%",flexDirection:"row",alignItems:"center",justifyContent:"space-between"}}>
                                             <TouchableOpacity style={{}}
@@ -208,7 +208,7 @@ export default class Dingdan extends Component {
                                                 }}
 
                                             >
-                                                <Text style={{ fontSize: 15,color:"#7cc0c0" }}>去评论</Text>
+                                                <Text style={{ fontSize: 15,color:global.back2 }}>去评论</Text>
                                             </TouchableOpacity>
                                             </View>
                                         </View>

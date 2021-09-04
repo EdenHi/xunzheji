@@ -159,7 +159,7 @@ export default class Locked extends Component {
               <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: 'http://47.100.78.254:3000/public/images/a.png' }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
                 <ImageBackground style={{ width: '100%', height: '100%', }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/nanlu.jpg' }}>
-                  <AntDesign style={{ backgroundColor: '#7cc0bf', width: '35%', height: '35%', borderRadius: 50, textAlign: 'center', textAlignVertical: 'center', marginTop: '60%', marginLeft: '60%' }}
+                  <AntDesign style={{ backgroundColor: global.back2, width: '35%', height: '35%', borderRadius: 50, textAlign: 'center', textAlignVertical: 'center', marginTop: '60%', marginLeft: '60%' }}
                     name="right"
                     size={20}
                     color='white'
@@ -177,8 +177,8 @@ export default class Locked extends Component {
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.roadNumber
-            })} style={{ backgroundColor: '#fff', width: '90%', marginHorizontal: '5%', borderColor:"#7cc0c0",borderWidth:1,height: '10%', borderRadius: 20, marginTop: '1%',elevation:5 }}>
-              <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#7cc0c0' }}>进入路线 全程26公里</Text>
+            })} style={{ backgroundColor: '#fff', width: '90%', marginHorizontal: '5%', borderColor:global.back2,borderWidth:1,height: '10%', borderRadius: 20, marginTop: '1%',elevation:5 }}>
+              <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: global.back2 }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
           <View style={{ width: '100%', backgroundColor: '#fff', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, elevation: 1 }}>
@@ -188,12 +188,12 @@ export default class Locked extends Component {
               </View>
             </View>
 
-            <Text style={{ marginTop: 10, fontSize: 15, width: '100%', color: "#7cc0bf", textAlign: 'center' }}>共225用户参与</Text>
+            <Text style={{ marginTop: 10, fontSize: 15, width: '100%', color: global.back2, textAlign: 'center' }}>共225用户参与</Text>
             <Text style={{ marginTop: 10, width: '80%', color: "#333", marginHorizontal: '10%', fontSize: 12, textAlign: 'center' }}>空蒙山色里住着诗人的一直，潋滟水光映透西子成鱼落雁般的容颜，柔美的线条中透露江南韵味。</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Video', {
               username: this.props.username,
               road: this.props.road
-            })} style={{ backgroundColor: '#7cc0bf', width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '1%' ,elevation:5}}>
+            })} style={{ backgroundColor: global.back2, width: '90%', marginHorizontal: '5%', height: '10%', borderRadius: 20, marginTop: '1%' ,elevation:5}}>
               <Text style={{ textAlignVertical: 'center', textAlign: 'center', height: '100%', fontSize: 20, color: '#fff' }}>进入路线 全程26公里</Text>
             </TouchableOpacity>
           </View>
@@ -209,7 +209,7 @@ export default class Locked extends Component {
               color='gold'
             /> 25</Text>
           <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#333' }}>共225用户参与</Text>
-          <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-19%', borderRadius: 50, backgroundColor: '#7cc0c0' ,elevation:5}}>
+          <View style={{ height: width * 0.15, width: width * 0.15, marginLeft: '80%', marginTop: '-19%', borderRadius: 50, backgroundColor: global.back2 ,elevation:5}}>
             <Fontisto style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', }}
               onPress={() => {
                 this.showAlert()
@@ -231,7 +231,7 @@ export default class Locked extends Component {
             confirmText="确认"
             cancelText="取消"
 
-            confirmButtonColor="#7cc0c0"
+            confirmButtonColor={global.back2}
             onCancelPressed={() => {
               this.hideAlert();
 

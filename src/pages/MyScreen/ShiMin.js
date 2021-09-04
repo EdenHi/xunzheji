@@ -57,7 +57,7 @@ export default class ShiMin extends Component {
         const {img,img2} = this.state
         return (
             <View>
-                <View style={{flexDirection:"row",backgroundColor:"#7cc0c0",alignItems:"center",height:height*0.07}}>
+                <View style={{flexDirection:"row",backgroundColor:global.back2,alignItems:"center",height:height*0.07}}>
                 <TouchableOpacity  onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05 }}>
                 <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
                     {/* <AntDesign name='left' size={20} color='#fff' /> */}
@@ -70,34 +70,34 @@ export default class ShiMin extends Component {
                 </View> */}
 
                 <View style={{ justifyContent: "center", alignItems: "center", marginTop: width * 0.35 }}>
-                    <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>姓名</Text>
-                    <TextInput placeholder={'请输入真实姓名'} style={{ width: width * 0.8, height: height * 0.06, marginHorizontal: width * 0.05, borderRadius: 20, borderWidth: 1, borderColor: "#7cc0c0", textAlign: "center", marginTop: 15 }} />
+                    <Text style={{ fontSize: 15, color: global.back2, fontWeight: "bold" }}>姓名</Text>
+                    <TextInput placeholder={'请输入真实姓名'} style={{ width: width * 0.8, height: height * 0.06, marginHorizontal: width * 0.05, borderRadius: 20, borderWidth: 1, borderColor: global.back2, textAlign: "center", marginTop: 15 }} />
                 </View>
                 <View style={{ justifyContent: "center", alignItems: "center", marginTop: width * 0.1 }}>
-                    <Text style={{ fontSize: 15, color: "#7cc0c0", fontWeight: "bold" }}>身份证</Text>
-                    <TextInput keyboardType="number-pad" placeholder={'请输入身份证号码'} style={{ width: width * 0.8, height: height * 0.06, marginHorizontal: width * 0.05, borderRadius: 20, borderWidth: 1, borderColor: "#7cc0c0", textAlign: "center", marginTop: 15 }} />
+                    <Text style={{ fontSize: 15, color: global.back2, fontWeight: "bold" }}>身份证</Text>
+                    <TextInput keyboardType="number-pad" placeholder={'请输入身份证号码'} style={{ width: width * 0.8, height: height * 0.06, marginHorizontal: width * 0.05, borderRadius: 20, borderWidth: 1, borderColor: global.back2, textAlign: "center", marginTop: 15 }} />
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: width * 0.1, marginHorizontal: width * 0.1 }}>
-                    <TouchableOpacity onPress={()=>this._openPicker()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: "#7cc0c0", borderWidth: 1 }}>
+                    <TouchableOpacity onPress={()=>this._openPicker()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: global.back2, borderWidth: 1 }}>
                         {this.state.img===''?<Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />:null}
                         {this.state.img===''?null:<Image source={{uri:img.path}} style={{ width: "100%", height:"100%"}} />}
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>this._openPicker2()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: "#7cc0c0", borderWidth: 1 }}>
+                    <TouchableOpacity onPress={()=>this._openPicker2()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: global.back2, borderWidth: 1 }}>
                         {this.state.img2===''?<Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />:null}
                         {this.state.img2===''?null:<Image source={{uri:img2.path}} style={{ width: "100%", height:"100%"}} />}
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={{ width: width * 0.9, height: height * 0.05, borderRadius: 20, backgroundColor: "#7cc0c0", alignItems: "center", justifyContent: "center",marginLeft:width*0.05,elevation:5, marginTop: width * 0.2 }}>
+                <TouchableOpacity style={{ width: width * 0.9, height: height * 0.05, borderRadius: 20, backgroundColor: global.back2, alignItems: "center", justifyContent: "center",marginLeft:width*0.05,elevation:5, marginTop: width * 0.2 }}>
                     <Text style={{ fontWeight: "bold", fontSize: 15, color: "#fff" }}>提交</Text>
                 </TouchableOpacity>
 
             </View>
             // <View>
-            //     <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0" }}>
+            //     <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: global.back2 }}>
             //         <AntDesign name='left' size={20} color='#fff' />
             //         <Text style={{ fontSize: 15, color: "#fff", marginLeft: 10 }}>实名认证中心</Text>
             //     </TouchableOpacity>
-            //     <View style={{ marginHorizontal: width * 0.05, backgroundColor: "#7cc0c0", height: height * 0.25, marginTop: 10, borderRadius: 10, justifyContent: "space-around" }}>
+            //     <View style={{ marginHorizontal: width * 0.05, backgroundColor: global.back2, height: height * 0.25, marginTop: 10, borderRadius: 10, justifyContent: "space-around" }}>
             //         <View style={{ marginHorizontal: width * 0.05, flexDirection: "row", alignItems: "center" }}>
             //             <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: "#fff" }}></View>
             //             <View >

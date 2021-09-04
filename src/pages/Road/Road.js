@@ -29,7 +29,7 @@ export default class Road extends Component {
         return (
             // 最外面盒子
             <View style={{}}>
-                <LinearGradient style={{ height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+                <LinearGradient style={{ height: "100%", alignItems: "center" }} colors={[global.back2, "#fff", "#fff"]} >
                     {/* 顶部导航栏 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
                         <TouchableOpacity activeOpacity={1} style={{       width:width*0.06,}}>

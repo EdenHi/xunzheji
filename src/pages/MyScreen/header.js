@@ -101,10 +101,10 @@ export default class AboutComponent {
                   justifyContent: 'space-around',
                 }}>
                 <Text
-                  style={{fontSize: 15, color: '#7cc0c0', fontWeight: 'bold'}}>
+                  style={{fontSize: 15, color: global.back2, fontWeight: 'bold'}}>
                   {params.nickname}
                 </Text>
-                <Text style={{fontSize: 13, color: '#7cc0c0'}}>{params.signature === '' ? '暂无个性签名' : params.signature }</Text>
+                <Text style={{fontSize: 13, color: global.back2}}>{params.signature === '' ? '暂无个性签名' : params.signature }</Text>
               </View>
             </View>
             <View
@@ -148,7 +148,7 @@ export default class AboutComponent {
                   borderRadius: 20,
                   marginLeft: '15%',
                   marginTop: '8%',
-                  backgroundColor: '#7cc0c0',
+                  backgroundColor: global.back2,
                   elevation:5,
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -176,7 +176,7 @@ export default class AboutComponent {
                   elevation:5,
                   marginLeft: '5%',
                   marginTop: '8%',
-                  backgroundColor: '#7cc0c0',
+                  backgroundColor: global.back2,
                   alignItems: 'center',
                   justifyContent: 'center',
                 }}
@@ -194,7 +194,7 @@ export default class AboutComponent {
           style={{
             width: 30,
             height: 30,
-            backgroundColor: '#7cc0c0',
+            backgroundColor: global.back2,
             marginLeft: '10%',
             borderRadius: 50,
           }}
@@ -217,7 +217,7 @@ export default class AboutComponent {
             this.props.navigation.goBack();
           }}
           >
-          <Feather name="menu" size={25} color="#7cc0c0" />
+          <Feather name="menu" size={25} color={global.back2} />
         </TouchableOpacity>
         <TouchableOpacity
         activeOpacity={1}
@@ -227,7 +227,7 @@ export default class AboutComponent {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <Feather name="external-link" size={25} color="#7cc0c0" />  
+          <Feather name="external-link" size={25} color={global.back2} />  
         </TouchableOpacity>
       </View>
     );

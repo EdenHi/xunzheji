@@ -110,20 +110,20 @@ export default class Min extends Component {
 
                         <TouchableOpacity activeOpacity={1} onPress={() => this.go_page(index)} >
                             <View style={{ marginBottom: 10 }}>
-                                <MaterialCommunityIcons style={{ marginLeft: 10 }} color='#7cc0c0' name='eye-circle-outline' size={25} />
-                                <Text style={{ fontSize: 13, color: '#7cc0c0' }}>逛展览</Text>
+                                <MaterialCommunityIcons style={{ marginLeft: 10 }} color={global.back2} name='eye-circle-outline' size={25} />
+                                <Text style={{ fontSize: 13, color: global.back2 }}>逛展览</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} onPress={() => this.goto_page(index)}>
                             <View style={{ marginBottom: 10 }}>
-                                <FontAwesome style={{ marginLeft: 10 }} name='bars' color='#7cc0c0' size={25} />
-                                <Text style={{ fontSize: 13, color: '#7cc0c0' }}>看介绍</Text>
+                                <FontAwesome style={{ marginLeft: 10 }} name='bars' color={global.back2} size={25} />
+                                <Text style={{ fontSize: 13, color: global.back2 }}>看介绍</Text>
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Chats',{room:10,introduce:this.state.introduce})}} activeOpacity={1} >
                             <View>
-                                <AntDesign name="customerservice" style={{ marginLeft: 10 }} size={25} color="#7cc0c0" />
-                                <Text style={{ fontSize: 13, color: '#7cc0c0' }}>去咨询</Text>
+                                <AntDesign name="customerservice" style={{ marginLeft: 10 }} size={25} color={global.back2} />
+                                <Text style={{ fontSize: 13, color: global.back2 }}>去咨询</Text>
                             </View>
                         </TouchableOpacity>
                     </View>

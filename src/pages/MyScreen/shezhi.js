@@ -11,7 +11,7 @@ export default class shezhi extends Component {
     constructor(props){
         super(props);
         this.state={
-        
+        f:1
     }}
 
 
@@ -22,7 +22,7 @@ export default class shezhi extends Component {
     render() {
         return (
             <View style={{flex:1}}>
-                 <View style={{flexDirection:"row",backgroundColor:"#7cc0c0",alignItems:"center",height:height*0.07,justifyContent:"center",marginBottom:"5%"}}> 
+                 <View style={{flexDirection:"row",backgroundColor:global.back2,alignItems:"center",height:height*0.07,justifyContent:"center",marginBottom:"5%"}}> 
               <TouchableOpacity activeOpacity={1} style={{width:width*0.06, }}>
               <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                   {/* <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#000" }} name="left" size={15} color="#000000" /> */}
@@ -76,17 +76,19 @@ export default class shezhi extends Component {
                 </View>
                 <View style={{marginTop:15}}>
                     <ListItem
+                        onPress={()=>{global.back('#7cc0c0'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}
                         bottomDivider>
                         <ListItem.Content>
-                            <ListItem.Title>青少年模式</ListItem.Title>
+                            <ListItem.Title>白天模式</ListItem.Title>
                         </ListItem.Content>
                             <ListItem.Chevron
                             size={30} />
                     </ListItem>
                     <ListItem
+                        onPress={()=>{global.back('#000'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}
                         bottomDivider>
                         <ListItem.Content>
-                            <ListItem.Title>深色模式</ListItem.Title>
+                            <ListItem.Title>夜间模式</ListItem.Title>
                         </ListItem.Content>
                             <ListItem.Chevron
                             size={30} />
@@ -110,7 +112,7 @@ export default class shezhi extends Component {
                             size={30} />
                     </ListItem>
                 </View>
-                <TouchableOpacity activeOpacity={1} style={{marginTop:15,width:width * 0.9,backgroundColor:'#7cc0c0',height:height*0.05,elevation:5,alignItems:'center',justifyContent:'center',marginLeft:width * 0.05,borderRadius:30,marginBottom:15}}
+                <TouchableOpacity activeOpacity={1} style={{marginTop:15,width:width * 0.9,backgroundcolor:global.back2,height:height*0.05,elevation:5,alignItems:'center',justifyContent:'center',marginLeft:width * 0.05,borderRadius:30,marginBottom:15}}
                 onPress={()=>this.go_back()}>
                     <Text style={{fontSize:18,color:"#fff"}}>退出登录</Text>
                 </TouchableOpacity>

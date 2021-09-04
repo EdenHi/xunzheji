@@ -118,7 +118,11 @@ export default class comment_huifu extends Component {
     componentDidMount(){
        this.go_select();
        this.get_comment();
+       this.listener = DeviceEventEmitter.addListener('yanse',this.go_select.bind(this))
     }
+    componentWillUnmount(){
+        this.listener.remove();
+        }
 
     loding(){
         this.setState({
@@ -160,7 +164,7 @@ export default class comment_huifu extends Component {
         console.log('data',data);
         return (
             <View style={{flex:1}}>
- <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+ <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
  <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity
                activeOpacity={1} style={{ width:width*0.06}}>
@@ -224,7 +228,7 @@ export default class comment_huifu extends Component {
                                         }
                                 return (
                                     <View key={k} >
-                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10,paddingBottom:10,marginLeft:width * 0.025,width:width * 0.85,borderBottomWidth:1/3,borderColor:"#7cc0c0"}}>
+                                        <View style={{flexDirection:'row',marginTop:10,marginBottom:10,paddingBottom:10,marginLeft:width * 0.025,width:width * 0.85,borderBottomWidth:1/3,borderColor:global.back2}}>
                                             <TouchableOpacity activeOpacity={1}>
                                                 <Image source={{uri:v.portrait}} style={styles.touxiang}/>
                                             </TouchableOpacity >
@@ -250,7 +254,7 @@ export default class comment_huifu extends Component {
                         ref={input => { this.textInput = input }} 
                     />
                     <TouchableOpacity onPress={()=>{this.fabu(),Keyboard.dismiss(),this.textInput.clear()}}
-                    style={{marginLeft:width * 0.05,backgroundColor:'#7cc0c0',borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
+                    style={{marginLeft:width * 0.05,backgroundcolor:global.back2,borderRadius:50,width:width*0.12,height:width*0.12,alignItems:"center",justifyContent:"center",elevation:5}}>
                         <FontAwesome
                         name="send-o"
                         color="#fff"
@@ -277,7 +281,7 @@ const styles = StyleSheet.create({
         fontSize:15,
         fontWeight:'bold',
         marginBottom:5,
-        color:"#7cc0c0"
+        color:global.back2
     },
     box3: {
         flexDirection: 'row',

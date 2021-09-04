@@ -64,7 +64,7 @@ export default class FindPass extends Component {
 
 
           <View style={{ marginBottom: height * 0.03 }}>
-            <Text style={{ fontSize: ratio_w * 30, borderWidth: 0, textAlign: "center", marginBottom: height * 0.01, color: "#7cc0c0" }} allowFontScaling={false}>找回密码</Text>
+            <Text style={{ fontSize: ratio_w * 30, borderWidth: 0, textAlign: "center", marginBottom: height * 0.01, color: global.back2 }} allowFontScaling={false}>找回密码</Text>
             <Text style={{ fontSize: ratio_w * 20, borderWidth: 0, textAlign: "center", color: "grey", }}></Text>
           </View>
         </View>
@@ -85,9 +85,9 @@ export default class FindPass extends Component {
             <Feather style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
-              color="#7cc0c0"
+              color={global.back2}
             />
-            <TextInput style={styles.text} placeholder={'请输入密码'} placeholderTextColor="#7cc0c0"
+            <TextInput style={styles.text} placeholder={'请输入密码'} placeholderTextColor={global.back2}
               secureTextEntry={true}
               onChangeText={password => {
                 this.changeTextFunction(password);
@@ -96,7 +96,7 @@ export default class FindPass extends Component {
             </TextInput>
           </View>
           <TouchableOpacity style={styles.btn} onPress={() => { this.props.navigation.navigate('BtnRoute') }} >
-            <ImageBackground borderRadius={20} style={{ height: "100%", width: "100%",backgroundColor:"#7cc0c0",borderRadius:20,elevation:5}}>
+            <ImageBackground borderRadius={20} style={{ height: "100%", width: "100%",backgroundColor:global.back2,borderRadius:20,elevation:5}}>
               <Text style={{ fontSize: 20 * ratio_w, textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#ffffff", borderRadius: 20 }}  >登录</Text>
             </ImageBackground>
           </TouchableOpacity>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 50,
     fontSize: 11 * ratio_w,
     backgroundColor: "#ffffff",
-    color: "#7cc0c0",
+    color: global.back2,
   },
   box: {
     flexDirection: "row",

@@ -78,7 +78,7 @@ export default class XiaoXi extends Component {
     render() {
         return (
             <View style={{flex:1,backgroundColor:"#fff"}}>
-                <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0", elevation: 1 }}>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: global.back2, elevation: 1 }}>
                     <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' />
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft:"2%", fontWeight: "bold" }}>消息</Text>
                 </TouchableOpacity>
@@ -87,20 +87,20 @@ export default class XiaoXi extends Component {
                         <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
                         <Image source={require('../HomeScreen/photos/q.png')} style={{ width: width * 0.10, height: width * 0.10,borderRadius:50 }} />
                         </View>
-                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>赞和收藏</Text>
+                        <Text style={{ fontSize: 15, color: global.back2, marginTop: 5 }}>赞和收藏</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('go_pinglun')} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
                     <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
                         <Image source={require('../HomeScreen/photos/e.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         </View>
-                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>评论</Text>
+                        <Text style={{ fontSize: 15, color: global.back2, marginTop: 5 }}>评论</Text>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate("Want")} style={{ width: width * 0.2, height: width * 0.15, alignItems: "center" }}>
                     <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
                     {/* <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}> */}
                         <Image source={require('../HomeScreen/photos/r.png')} style={{ width: width * 0.1, height: width * 0.1 }} />
                         </View>
-                        <Text style={{ fontSize: 15, color: "#7cc0c0", marginTop: 5 }}>我想要</Text>
+                        <Text style={{ fontSize: 15, color: global.back2, marginTop: 5 }}>我想要</Text>
                     </TouchableOpacity>
                 </View>
                 <View>
@@ -113,7 +113,7 @@ export default class XiaoXi extends Component {
                     :
                     <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                         <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
-                        <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无消息</Text>
+                        <Text style={{color:global.back2,fontSize:15,}}>暂无消息</Text>
                     </View>}
 
                 </View>

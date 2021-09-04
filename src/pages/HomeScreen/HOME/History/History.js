@@ -9,7 +9,7 @@ export default class History extends Component {
     render() {
         return (
             <View>
-                <LinearGradient style={{ width: width, height: "100%" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+                <LinearGradient style={{ width: width, height: "100%" }} colors={[global.back2, "#fff", "#fff"]} >
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
                         <TouchableOpacity activeOpacity={1} style={{       width:width*0.06,}}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     Comment:{
         borderRadius: 5,
          marginRight: 5,
-        backgroundColor: '#7cc0c0',
+        backgroundColor: global.back2,
          width: 55,
         alignItems: 'center',
         elevation:5,

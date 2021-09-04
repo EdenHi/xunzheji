@@ -237,7 +237,7 @@ export default class app1 extends Component {
         var currentdate = year + seperatorl + month + seperatorl + strDate;
         return (
             <View style={{backgroundColor:'white'}}>
-                 <LinearGradient colors={["#7cc0c0", "#fff", "#fff"]}>
+                 <LinearGradient colors={[global.back2, "#fff", "#fff"]}>
 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{width:width*0.06 }}>
               <FontAwesome onPress={()=>this.go_back()} name={'angle-left'} size={25} color={'#fff'} />

@@ -80,20 +80,20 @@ export default class CustomMade extends React.Component {
         <View style={{ width: "100%", height: "30%", alignItems: "center" }}>
           <View style={{ width: "100%", height: "60%", flexDirection: "row" }}>
             <View style={{ width: "60%", height: "100%" }}>
-              <Text style={{ fontSize: 15, marginLeft: "10%", marginTop: "5%", color: "#999" }}>{item.title}</Text>
-              <Text style={{ fontSize: 25, fontWeight: "bold", marginLeft: "10%", marginTop: "5%", color: "#7cc0c0" }}>{item.text}</Text>
+              <Text style={{ fontSize: 15, marginLeft: "10%", marginTop: "5%", color: global.back2 }}>{item.title}</Text>
+              <Text style={{ fontSize: 20, fontWeight: "bold", marginLeft: "10%", marginTop: "5%", color: global.back2 }}>{item.text}</Text>
             </View>
             <View style={{ width: "40%", height: "100%", }}>
-              <Text style={{ fontSize: 13, marginLeft: "10%", marginTop: "5%", color: "#999" }}>{item.t1}</Text>
-              <Text style={{ fontSize: 13, marginLeft: "10%", marginTop: "5%", color: "#999" }}>{item.t2}</Text>
-              <Text style={{ fontSize: 13, marginLeft: "10%", marginTop: "5%", color: "#999" }}>{item.t3}</Text>
+              <Text style={{ fontSize: 13, marginLeft: "10%", marginTop: "5%", color: global.back2 }}>{item.t1}</Text>
+              <Text style={{ fontSize: 13, marginLeft: "10%", marginTop: "5%", color: global.back2 }}>{item.t2}</Text>
+              <Text style={{ fontSize: 13, marginLeft: "10%", marginTop: "5%", color: global.back2 }}>{item.t3}</Text>
             </View>
           </View>
           <TouchableOpacity
             activeOpacity={1}
             onPress={() => this.go_papg(index)}
-            style={{ width: "50%", height: height*0.05, backgroundColor: "#7cc0c0", borderRadius: 20, alignItems: "center", justifyContent: "center", elevation: 10 }}>
-            <Text style={{ fontSize: 18, color: "#fff" }}>去定制</Text>
+            style={{ width: "50%", height: "20%", backgroundColor: global.back2, borderRadius: 20, alignItems: "center", justifyContent: "center", elevation: 10 }}>
+            <Text style={{ fontSize: 15, color: "#fff" }}>去定制</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -103,7 +103,7 @@ export default class CustomMade extends React.Component {
     const { navigation } = this.props;
     return (
       <View style={{ width: width, height: height }}>
-        <LinearGradient style={{ width: width, height: "100%" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+        <LinearGradient style={{ width: width, height: "100%" }} colors={[global.back2, "#fff", "#fff"]} >
           <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
             <TouchableOpacity activeOpacity={1} style={{width:width*0.06}}>
             <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />

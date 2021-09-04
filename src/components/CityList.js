@@ -79,11 +79,11 @@ class CitySelect extends Component {
         }
         return (
 
-            // <LinearGradient style={{ width }} colors={['#7cc0bf', '#fff', '#fff']} >
+            // <LinearGradient style={{ width }} colors={[global.back2, '#fff', '#fff']} >
             //     <View style={{ height: height, }}>
 
             <View >
-                <View style={{ height: height * 0.07, borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,0.5)',backgroundColor:'#7cc0c0' }}>
+                <View style={{ height: height * 0.07, borderBottomWidth: 1, borderBottomColor: 'rgba(255,255,255,0.5)',backgroundcolor:global.back2 }}>
                     <View style={{ alignSelf: 'center' }}>
                         <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#fff', height: '50%', textAlignVertical: 'bottom' }}>地区</Text>
                         <Text style={{ fontSize: 13, fontWeight: 'bold', color: '#fff', height: '50%', textAlignVertical: 'top', marginLeft: width * 0.01, }}>Area</Text>

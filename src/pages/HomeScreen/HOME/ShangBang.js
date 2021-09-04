@@ -150,8 +150,8 @@ export default class ShangBang extends Component {
                   <Text style={{ fontSize: 15, color: "#333", fontWeight: "bold" }}>{k.name}</Text>
                   <Text style={{ fontSize: 13, color: "#333" ,lineHeight:25}}>{k.item}</Text>
                 </View>
-                {/* <Text style={{fontSize: 40,color: '#7cc0c0',fontWeight:"bold",opacity:0.9}}>湖州商帮</Text> */}
-                {/* <Text style={{fontSize: fontSize,color: '#7cc0c0'}}>商帮</Text> */}
+                {/* <Text style={{fontSize: 40,color: global.back2,fontWeight:"bold",opacity:0.9}}>湖州商帮</Text> */}
+                {/* <Text style={{fontSize: fontSize,color: global.back2}}>商帮</Text> */}
               </View>
             </Animated.View>
           </ImageBackground>

@@ -52,6 +52,7 @@ export default class Store extends Component {
       activeIndex: 0,
       zuobiao: '查询',
       username:'',
+      f:1,
       carouselItems: [
         {
           title: "亨达利",
@@ -333,8 +334,12 @@ export default class Store extends Component {
       console.log(msg);
       this.setState({zuobiao:msg})
     })
+    this.subscription=DeviceEventEmitter.addListener('yanse',this.f.bind(this))
   }
 
+  f(){
+    this.setState({f:this.state.f+1})
+  }
 //移除监听
 componentWillUnmount(){
   this.subscription.remove();
@@ -489,8 +494,8 @@ componentWillUnmount(){
             <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
             <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
                 <View style={{flexDirection:'row',alignItems:'baseline'}}>
-                    <Text style={{color:"#7cc0c0",fontSize:15}}>￥</Text>
-                    <Text style={{color:'#7cc0c0',fontSize:15}}>{item.price}</Text>
+                    <Text style={{color:global.back2,fontSize:15}}>￥</Text>
+                    <Text style={{color:global.back2,fontSize:15}}>{item.price}</Text>
                 </View>
                 <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
             </View>
@@ -510,7 +515,7 @@ componentWillUnmount(){
           <ActivityIndicator
             size="large"
             animating={true} //动画效果
-            color="#7cc0c0"
+            color={global.back2}
           />
         </View>
       );
@@ -562,7 +567,7 @@ componentWillUnmount(){
               borderRadius: 50
             }} />}
             activeDot={<View style={{    //选中的圆点样式
-              backgroundColor: '#7cc0c0',
+              backgroundColor: global.back2,
               width: 15,
               height: 5,
               marginLeft: 2,
@@ -598,7 +603,7 @@ componentWillUnmount(){
           >
             <View style={{ width: "100%", height: "50%", alignItems: "center", justifyContent: "center" }}>
 
-              <Text style={{ fontSize: 18, fontWeight: "bold", color: "#7cc0c0", marginTop: "7%" }}>文化定制</Text>
+              <Text style={{ fontSize: 18, fontWeight: "bold", color: global.back2, marginTop: "7%" }}>文化定制</Text>
 
               {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
             </View>
@@ -619,14 +624,14 @@ componentWillUnmount(){
         </View>
         <View style={styles.old}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-            <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
+            <View style={{ backgroundColor: global.back2, width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
-              <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.back2 }}>上新好物</Text>
+              <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.back2 }}>NEW GOOD THINKGS</Text>
             </View>
 
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
               <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </TouchableOpacity>
@@ -657,7 +662,7 @@ componentWillUnmount(){
                       <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: "#333333" }}>{item.jieshao}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text style={{ color: "#7cc0c0" }}>￥<Text style={{ fontSize: 13, color: "#7cc0c0" }}>{item.price}</Text></Text>
+                      <Text style={{ color: global.back2 }}>￥<Text style={{ fontSize: 13, color: global.back2 }}>{item.price}</Text></Text>
                     </View>
 
                     <View style={{ width: "90%", height: "18%", flexDirection: "row", alignItems: "center", marginLeft: "2%" }}>
@@ -666,7 +671,7 @@ componentWillUnmount(){
                     </View>
 
                     <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: "#7cc0c0", marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
+                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: global.back2, marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
                         onPress={() => this.insert_shopcart(item)}>
                         <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                       </TouchableOpacity>
@@ -689,12 +694,12 @@ componentWillUnmount(){
         </View>
         <View style={styles.limit}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-            <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
+            <View style={{ backgroundColor: global.back2, width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
-              <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.back2 }}>线下老字号</Text>
+              <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.back2 }}>OFFLINE TIME-HONONER BRANDS</Text>
             </View>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
               <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </TouchableOpacity>
@@ -714,10 +719,10 @@ componentWillUnmount(){
           </View>
         </View>
         <View style={{ width: "95%", alignItems: "center", backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-          <Text style={{ height: 20, fontSize: 16, color: "#7cc0c0", fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
-          <Text style={{ height: 20, fontSize: 9, color: "#7cc0c0", fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
+          <Text style={{ height: 20, fontSize: 16, color: global.back2, fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
+          <Text style={{ height: 20, fontSize: 9, color: global.back2, fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
 
-          <View style={{ width: "25%", borderWidth: 2, borderColor: "#7cc0c0", marginTop: "0.5%" }}></View>
+          <View style={{ width: "25%", borderWidth: 2, borderColor: global.back2, marginTop: "0.5%" }}></View>
         </View>
       </View>
     )
@@ -730,7 +735,7 @@ componentWillUnmount(){
     console.log('showpage', this.state.showpage);
     return (
       <View style={styles.container}>
-        <LinearGradient style={{ width }} colors={["#7cc0bf", "#fff", "#fff"]} >
+        <LinearGradient style={{ width }} colors={[global.back2, "#fff", "#fff"]} >
           <Modal
             animationType="fade"
             transparent={true}
@@ -748,7 +753,7 @@ componentWillUnmount(){
                     <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setModalVisible(!modalVisible) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="cart-outline"
                       size={35}
-                      color="#7cc0c0"
+                      color={global.back2}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>购物车</Text>
                   </TouchableOpacity>
@@ -756,7 +761,7 @@ componentWillUnmount(){
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="clipboard-text-outline"
                       size={35}
-                      color="#7cc0c0"
+                      color={global.back2}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
                   </TouchableOpacity>
@@ -764,7 +769,7 @@ componentWillUnmount(){
                     <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="customerservice"
                       size={35}
-                      color="#7cc0c0"
+                      color={global.back2}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>客服</Text>
                   </TouchableOpacity>
@@ -772,7 +777,7 @@ componentWillUnmount(){
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="map-marker-radius"
                       size={35}
-                      color="#7cc0c0"
+                      color={global.back2}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>地址管理</Text>
                   </TouchableOpacity>
@@ -783,7 +788,7 @@ componentWillUnmount(){
 
                   name="apple-keyboard-control"
                   size={20}
-                  color="#7cc0c0"
+                  color={global.back2}
                 />
               </View>
               <TouchableOpacity activeOpacity={1} onPress={() => {
@@ -815,7 +820,7 @@ componentWillUnmount(){
                   color="grey"
                 />
               </View>
-              <Text style={{ fontSize: 15, marginLeft: "8%", color: "#7cc0c0" }}>搜索好物</Text>
+              <Text style={{ fontSize: 15, marginLeft: "3%", color: global.back2 }}>搜索好物</Text>
             </TouchableOpacity>
 
             <MaterialCommunityIcons onPress={() => {

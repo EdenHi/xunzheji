@@ -108,9 +108,9 @@ export default class Heritage extends Component {
     render() {
         const { navigation } = this.props;
         return (
-            <LinearGradient colors={['#7cc0c0', '#fff', '#fff']} >
+            <LinearGradient colors={[global.back2, '#fff', '#fff']} >
             <View style={{width:width,height:height}} >
-                {/* <LinearGradient colors={['#7cc0c0', '#fff', '#fff']} > */}
+                {/* <LinearGradient colors={[global.back2, '#fff', '#fff']} > */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05 }} >
                         < TouchableOpacity activeOpacity={1}
                             style={{width:width*0.06}} >
@@ -141,10 +141,10 @@ export default class Heritage extends Component {
                                             < Text style={{ fontSize: 13, color: "#666" }}>市级非遗传承人</Text>
                                             </View >
                                             <View style={{ flexDirection: "row", marginTop: 15 }} >
-                                                <View style={{ width: 70, elevation:5,height: 20, backgroundColor: "#7cc0c0", borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }} > 
+                                                <View style={{ width: 70, elevation:5,height: 20, backgroundColor: global.back2, borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }} > 
                                                 <Text style={{ fontSize: 13,color:"#fff" }} >五彩梁弄</Text>
                                                         </View >
-                                                <View style={{ width: 70, height: 20, elevation:5, backgroundColor: "#7cc0c0", borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }} > 
+                                                <View style={{ width: 70, height: 20, elevation:5, backgroundColor: global.back2, borderRadius: 10, marginRight: 10, justifyContent: "center", alignItems: "center" }} > 
                                                 <Text style={{ fontSize: 13,color:"#fff" }} >梁弄大糕</Text>
                                                         </View >
                                             </View> 
@@ -175,14 +175,14 @@ export default class Heritage extends Component {
                                     { textAlign: 'center', height: '100%', textAlignVertical: 'center' }}
                                     name="customerservice"
                                     size={35}
-                                    color="#7cc0c0"
+                                    color={global.back2}
                                 />
                             </TouchableOpacity>
                             <TouchableOpacity onPress={
                                 () => this.props.navigation.navigate('dingzhi_xuqiu', { msg: this.state.emitMsg })}
                                 activeOpacity={1}
                                 style={
-                                    { width: width * 0.7, height: height * 0.05,elevation:5, backgroundColor: "#7cc0c0",marginLeft:width*0.05, justifyContent: "center", alignItems: "center", borderRadius: 20 }} >
+                                    { width: width * 0.7, height: height * 0.05,elevation:5, backgroundColor: global.back2,marginLeft:width*0.05, justifyContent: "center", alignItems: "center", borderRadius: 20 }} >
                                 <Text style={
                                     { fontWeight: "bold", fontSize: 18, color: "#fff" }}>下单定制</Text>
                             </TouchableOpacity>
