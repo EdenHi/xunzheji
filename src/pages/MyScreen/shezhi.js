@@ -32,12 +32,6 @@ export default class shezhi extends Component {
             </View> 
                 <ScrollView
                 showsVerticalScrollIndicator={false}>
-                    <TouchableOpacity onPress={()=>{global.back('#000'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}>
-                        <Text>#000</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{global.back('#7cc0c0'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}>
-                        <Text>#7cc0c0</Text>
-                    </TouchableOpacity>
                <ListItem
                bottomDivider>
                    <ListItem.Content>
@@ -82,17 +76,19 @@ export default class shezhi extends Component {
                 </View>
                 <View style={{marginTop:15}}>
                     <ListItem
+                        onPress={()=>{global.back('#7cc0c0'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}
                         bottomDivider>
                         <ListItem.Content>
-                            <ListItem.Title>青少年模式</ListItem.Title>
+                            <ListItem.Title>白天模式</ListItem.Title>
                         </ListItem.Content>
                             <ListItem.Chevron
                             size={30} />
                     </ListItem>
                     <ListItem
+                        onPress={()=>{global.back('#000'),console.log('global',global.back2),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}}
                         bottomDivider>
                         <ListItem.Content>
-                            <ListItem.Title>深色模式</ListItem.Title>
+                            <ListItem.Title>夜间模式</ListItem.Title>
                         </ListItem.Content>
                             <ListItem.Chevron
                             size={30} />
