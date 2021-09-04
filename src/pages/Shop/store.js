@@ -455,7 +455,6 @@ componentWillUnmount(){
   _renderItem({ item, index }) {
     return (
       <View style={{
-
         borderRadius: 15,
         height: 250,
         width: "90%",
@@ -802,18 +801,21 @@ componentWillUnmount(){
                 color="#fff"
               />
             </TouchableOpacity> */}
-            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 16,fontWeight:"bold", width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff' ,marginLeft:width*0.0}}>{this.state.zuobiao}</Text><AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/>
+            <LottieView style={{width:35,height:35,marginLeft:5}} source={require('../../../animal/location')} autoPlay loop progress={this.state.progress} />
+            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 16,fontWeight:"bold", width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff',marginLeft:-10 }}>{this.state.zuobiao}</Text>
+            {/* <LottieView style={{marginLeft:-width*0.03}} source={require('../../../animal/location')} autoPlay loop progress={this.state.progress} /> */}
+            {/* <AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/> */}
             <TouchableOpacity activeOpacity={1}
               onPress={() => navigation.navigate('search')}
               style={styles.input}>
-              <View style={{ width: width * 0.07, marginLeft: "5%", height: height * 0.08, }}>
+              <View style={{ width: width * 0.07, marginLeft: "3%", height: height * 0.08, }}>
                 <SimpleLineIcons style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', borderWidth: 0, }}
                   name="magnifier"
                   size={18}
                   color="grey"
                 />
               </View>
-              <Text style={{ fontSize: 15, marginLeft: "3%", color: "#7cc0c0" }}>搜索好物</Text>
+              <Text style={{ fontSize: 15, marginLeft: "8%", color: "#7cc0c0" }}>搜索好物</Text>
             </TouchableOpacity>
 
             <MaterialCommunityIcons onPress={() => {
@@ -885,14 +887,14 @@ const styles = StyleSheet.create({
     borderWidth: 0
   },
   input: {
-    width: width * 0.70,
+    width: width * 0.65,
     height: width * 0.09,
     backgroundColor: "#fff",
     borderRadius: 20,
     flexDirection: "row",
     alignItems: "center",
     elevation: 5,
-    marginLeft:width*0.04
+    // marginLeft:width*0.04
   },
   icon: {
     width: "100%",

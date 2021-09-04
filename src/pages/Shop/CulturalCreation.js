@@ -54,9 +54,9 @@ export default class Select extends Component {
     render() {
 
 
-        const Z = this.state.course === "T恤" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/134880490.png'} /> : null
-        const H = this.state.course === "帆布包" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/bao.png'} /> : null
-        const A = this.state.course === "手机壳" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/ke.png'} /> : null
+        const Z = this.state.course === "T恤" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/yifu.png'} /> : null
+        const H = this.state.course === "帆布包" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/daizi.png'} /> : null
+        const A = this.state.course === "手机壳" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/shoujike.png'} /> : null
         const N = this.state.course === "拉拉" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/134880490.png'} /> : null
         const G = this.state.course === "夫夫" ? <Clothe navigation={this.props.navigation} ref={(view) => this.childList = view} index={'http://47.100.78.254:3000/public/images/134880490.png'} /> : null
 
