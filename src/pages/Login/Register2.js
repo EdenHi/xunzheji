@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import { Image, TextInput } from 'react-native';
 
-import {View,Text,TouchableOpacity,Dimensions,AsyncStorage,StyleSheet } from 'react-native';
+import {View,Text,TouchableOpacity,Dimensions,AsyncStorage,StyleSheet, } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import ImagePicker from 'react-native-image-crop-picker';
 import cities from '../MyScreen/cities/cities.json';
@@ -142,6 +142,7 @@ export default class Register2 extends Component {
                     <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", marginLeft:"2%"}}>注册</Text>
                 </View>
 
+
                 {/* 注册头像 */}
                 <TouchableOpacity activeOpacity={1} style={{height:width*0.25,width:width*0.25,borderRadius:50,marginLeft:width*0.375,marginVertical:width*0.1}} onPress={()=>this._openPicker()}>
                     <Image source={{uri:this.state.img}} style={{height:width*0.25,width:width*0.25,borderRadius:50,borderWidth:2,borderColor:'#000'}}/>
@@ -191,9 +192,7 @@ export default class Register2 extends Component {
                             onDateChange={this.go_birthday}
                     />
                 </TouchableOpacity>
-
-
-                <TouchableOpacity onPress={()=>{this.go_nickname(),this.updateSex(),this.props.navigation.navigate('Register_tuijian')}} style={{backgroundcolor:global.back2,width:width*0.5,marginHorizontal:width*0.25,justifyContent:'center',alignItems:'center',borderRadius:30}} activeOpacity={1}>
+                <TouchableOpacity onPress={()=>{this.go_nickname(),this.updateSex(),this.props.navigation.navigate('Register_tuijian')}} style={{backgroundColor:global.back2,width:width*0.5,marginHorizontal:width*0.25,justifyContent:'center',alignItems:'center',borderRadius:30}} activeOpacity={1}>
                     <Text style={{fontSize:18,fontWeight:'bold',color:'#fff',paddingVertical:10}}>下一步</Text>
                 </TouchableOpacity>
             </View>

@@ -115,7 +115,23 @@ export default class Register extends Component {
                 }}
               />
             </View>
-          <Textinput icon="mail" text="请输入邮箱" />
+
+            <View style={styles.box}>
+                <Feather
+                  style={styles.icon}
+                  name={'mail'}
+                  size={20 * ratio_w}
+                  color={global.back2}
+                />
+                <TextInput
+
+                  style={styles.text}
+                  placeholder={'请输入邮箱'}
+                  placeholderTextColor={global.back2}
+                  
+                />
+              </View>
+          
             <View style={styles.box}>
                 <Feather
                   style={styles.icon}
