@@ -35,7 +35,7 @@ export default class Business extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+                <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={[global.back2, "#fff", "#fff"]} >
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
                         <TouchableOpacity activeOpacity={1} style={{       width:width*0.06,}} onPress={() => this.props.navigation.goBack()}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -48,7 +48,7 @@ export default class Business extends Component {
                         </ScrollView>
                     </View>
                     {/* <View style={{ width: width * 0.9, alignItems: "center" }}>
-                        <View style={{ width: width * 0.9, height: 100, borderWidth: 1, borderStyle: "dashed", borderRadius: 5, borderColor: "#7cc0c0", justifyContent: "center" }}><Text style={{ fontSize: 12, marginLeft: 7 }}>从古至今，浙江商人都是中国经济发展的重要推动力量。浙商，一般指浙江籍的商人，实业家的集合。浙商有湖州商帮，龙游商帮，宁波商帮，萧绍商帮，绍兴商帮（越商），温州商帮，台州商帮，义乌商帮等著名浙商群体。现代浙商已经是当仁不让的华夏第一商帮，台湾商界称之为“大陆之狼”，生存能力让全球感到震撼。</Text></View>
+                        <View style={{ width: width * 0.9, height: 100, borderWidth: 1, borderStyle: "dashed", borderRadius: 5, borderColor: global.back2, justifyContent: "center" }}><Text style={{ fontSize: 12, marginLeft: 7 }}>从古至今，浙江商人都是中国经济发展的重要推动力量。浙商，一般指浙江籍的商人，实业家的集合。浙商有湖州商帮，龙游商帮，宁波商帮，萧绍商帮，绍兴商帮（越商），温州商帮，台州商帮，义乌商帮等著名浙商群体。现代浙商已经是当仁不让的华夏第一商帮，台湾商界称之为“大陆之狼”，生存能力让全球感到震撼。</Text></View>
                     </View> */}
                     <View style={{ flex: 1, width }}>
                         <ScrollableTabView

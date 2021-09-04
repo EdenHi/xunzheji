@@ -12,7 +12,7 @@ export default class book_6 extends Component {
     render() {
         return (
             <View style={{flex:1}}>
-                <LinearGradient style={{ flex: 1 }} colors={["#7cc0bf", "#fff", "#fff"]}>
+                <LinearGradient style={{ flex: 1 }} colors={[global.back2, "#fff", "#fff"]}>
                     {/* 标题 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
@@ -57,7 +57,7 @@ export default class book_6 extends Component {
                             size={30}/>
                             <Text style={{color:"#333",fontSize:13}}>听书</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundColor:'#7cc0c0',borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate('book_xiangqing_6',{k:0})}>
+                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundcolor:global.back2,borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate('book_xiangqing_6',{k:0})}>
                             <Text style={{fontSize:15,color:"#fff"}}>立即阅读</Text>
                         </TouchableOpacity>
                     </View>

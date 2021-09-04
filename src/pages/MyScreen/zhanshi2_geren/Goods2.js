@@ -209,7 +209,7 @@ export default class Goods2 extends Component {
       )}else{
         return(
           <View style={width}>
-            <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:"#7cc0c0",}}>
+            <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:global.back2,}}>
                 <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
                 <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                     {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
@@ -221,7 +221,7 @@ export default class Goods2 extends Component {
             </View>
             <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                   <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
-                  <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无商品</Text>
+                  <Text style={{color:global.back2,fontSize:15,}}>暂无商品</Text>
               </View>
             
         </View>

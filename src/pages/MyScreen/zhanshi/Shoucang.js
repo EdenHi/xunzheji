@@ -124,7 +124,7 @@ export default class Shoucang2 extends Component {
                         
                         <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                                 <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
-                                <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无收藏</Text>
+                                <Text style={{color:global.back2,fontSize:15,}}>暂无收藏</Text>
                             </View>
             
                 </View>

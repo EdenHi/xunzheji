@@ -100,7 +100,7 @@ export default class goods extends Component {
           </View>
         </ImageBackground>
       </View>
-      <View style={{ backgroundColor: '#7cc0c0', marginHorizontal: width * 0.05, height: '80%', width: width * 0.9, borderRadius: 10, marginTop: 40, opacity: 0.8, padding: 10 }}>
+      <View style={{ backgroundColor: global.back2, marginHorizontal: width * 0.05, height: '80%', width: width * 0.9, borderRadius: 10, marginTop: 40, opacity: 0.8, padding: 10 }}>
         <View style={{}}>
           <Text style={{ fontSize: 14 }}>
               {item.liyou}
@@ -165,7 +165,7 @@ export default class goods extends Component {
           <View style={width}>
             <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                   <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
-                  <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无商品</Text>
+                  <Text style={{color:global.back2,fontSize:15,}}>暂无商品</Text>
               </View>
             
           </View>

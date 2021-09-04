@@ -26,7 +26,7 @@ export default class SegmentTabBar extends Component {
         const textColor = isTabActive ? '#0086E5' : '#fff';
         const backgroundColor = isTabActive ? '#fff' : '#fff';
         return <Button
-            style={{ flex: 1, height: 40, width: width * 0.25, backgroundColor: '#7cc0c0', margin: 10, borderRadius: 10 }}
+            style={{ flex: 1, height: 40, width: width * 0.25, backgroundColor: global.back2, margin: 10, borderRadius: 10 }}
             key={name}
             accessible={true}
             accessibilityLabel={name}

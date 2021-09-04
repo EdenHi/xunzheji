@@ -160,7 +160,7 @@ export default class zhifu_cart extends Component {
                         </View>
                         <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginTop: 10, marginBottom: 15, marginLeft: 20 }}>
                             <Text style={{ fontSize: 15 }}>合计</Text>
-                            <Text style={{ fontSize:15, color: "#7cc0c0", fontWeight: "bold" }}>￥{parseFloat(item.itemPrice*item.quantity).toFixed(2)}</Text>
+                            <Text style={{ fontSize:15, color: global.back2, fontWeight: "bold" }}>￥{parseFloat(item.itemPrice*item.quantity).toFixed(2)}</Text>
                         </View>
                     </View>
                 </View>
@@ -185,7 +185,7 @@ export default class zhifu_cart extends Component {
             return(
                 <View>
                     {/* 收货地址 */}
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:"#7cc0c0",borderWidth:2 }} activeOpacity={0.95}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 10, borderRadius:10, margin: 5, backgroundColor: "#fff",borderColor:global.back2,borderWidth:2 }} activeOpacity={0.95}>
                         <View style={{ marginTop: 20, marginLeft: 20, flexDirection: "row", }}>
                             <Text style={{ fontSize: 16 }}>{dizhi.name}</Text>
                             <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi.phone}</Text>
@@ -235,10 +235,10 @@ export default class zhifu_cart extends Component {
                 <View style={{ alignItems: "center", justifyContent: "space-between", flexDirection: "row", backgroundColor: "white", height: 70 }}>
                     <View style={{ flexDirection: "row", marginLeft: 15, alignItems: "flex-end" }}>
                         <Text style={{ fontSize: 15 }}>合计金额</Text>
-                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: "#7cc0c0" }}>￥{this.props.route.params.total}</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: global.back2 }}>￥{this.props.route.params.total}</Text>
                     </View>
                   
-                        <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:"#7cc0c0",justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
+                        <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:global.back2,justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
 
                             <Text  style={{fontSize:15,color:"#fff"}}>提交订单</Text>
                        

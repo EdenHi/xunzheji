@@ -92,7 +92,7 @@ export default class Register extends Component {
             <AntDesign
               name="arrowleft"
               size={30 * ratio_w}
-              color="#7cc0c0"
+              color={global.back2}
               style={{textAlign: 'center'}}
             />
           </TouchableOpacity>
@@ -104,12 +104,12 @@ export default class Register extends Component {
                 style={styles.icon}
                 name={'user'}
                 size={20 * ratio_w}
-                color="#7cc0c0"
+                color={global.back2}
               />
               <TextInput
                 style={styles.text}
                 placeholder={'请输入用户名'}
-                placeholderTextColor="#7cc0c0"
+                placeholderTextColor={global.back2}
                 onChangeText={username => {
                   this.setState({username});
                 }}
@@ -121,12 +121,12 @@ export default class Register extends Component {
                   style={styles.icon}
                   name={'phone'}
                   size={20 * ratio_w}
-                  color="#7cc0c0"
+                  color={global.back2}
                 />
                 <TextInput
                   style={styles.text}
                   placeholder={'请输入手机号'}
-                  placeholderTextColor="#7cc0c0"
+                  placeholderTextColor={global.back2}
                   onChangeText={phone => {
                     this.setState({phone});
                   }}
@@ -137,12 +137,12 @@ export default class Register extends Component {
               style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
-              color="#7cc0c0"
+              color={global.back2}
             />
             <TextInput
               style={styles.text}
               placeholder={'请输入密码'}
-              placeholderTextColor="#7cc0c0"
+              placeholderTextColor={global.back2}
               secureTextEntry={true}
               password={true}
               onChangeText={password1 => {
@@ -155,12 +155,12 @@ export default class Register extends Component {
               style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
-              color="#7cc0c0"
+              color={global.back2}
             />
             <TextInput
               style={styles.text}
               placeholder={'请确认密码'}
-              placeholderTextColor="#7cc0c0"
+              placeholderTextColor={global.back2}
               secureTextEntry={true}
               password={true}
               onChangeText={password2 => {
@@ -172,7 +172,7 @@ export default class Register extends Component {
           onPress={()=>{this.load();}}>
             <ImageBackground
               borderRadius={20}
-              style={{height: '100%', width: '100%',backgroundColor:"#7cc0c0",borderRadius:20,elevation:5}}
+              style={{height: '100%', width: '100%',backgroundColor:global.back2,borderRadius:20,elevation:5}}
               >
               <Text
                 style={{
@@ -203,7 +203,7 @@ export default class Register extends Component {
                   fontSize: 12 * ratio_w,
                   marginTop: height * 0.07,
                   textAlign: 'center',
-                  color: '#7cc0c0',
+                  color: global.back2,
                 }}>
                 此处登录
               </Text>
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 50,
     fontSize: 11 * ratio_w,
     backgroundColor: '#ffffff',
-    color: '#7cc0c0',
+    color: global.back2,
   },
   box: {
     flexDirection: 'row',

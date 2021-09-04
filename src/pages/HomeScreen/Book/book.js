@@ -132,7 +132,7 @@ export default class book extends Component {
         const {data0,data1,backgroundColor0,backgroundColor1,backgroundColor2,backgroundColor3,fontWeight0,fontWeight1,fontWeight2,fontWeight3} = this.state;
         return (
             <View >
-                  <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+                  <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{width:width*0.06,}}>
               <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />

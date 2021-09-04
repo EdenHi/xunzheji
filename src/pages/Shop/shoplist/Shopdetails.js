@@ -286,7 +286,7 @@ export default class Shopdetails extends Component {
                 <View style={{
                     height: height * 0.07,
                     alignItems: "center",
-                    backgroundColor: "#7cc0c0",
+                    backgroundColor: global.back2,
                     flexDirection: 'row',
                 }}>
                     <TouchableOpacity
@@ -350,9 +350,9 @@ export default class Shopdetails extends Component {
                     {/* 介绍 */}
                     <View style={{ width: width * 0.95, marginLeft: width * 0.025, borderRadius: 10, marginTop: 10, backgroundColor: 'white' }}>
                         <Text style={{ margin: 10, fontSize: 18, fontWeight: 'bold', color: "#333333" }}>{shops.name}</Text>
-                        <Text style={shops.jieshao === '' ? { color: '#7cc0c0', marginLeft: 10, height: 0 } : { color: '#7cc0c0', marginLeft: 10, marginBottom: 10 }}>{shops.jieshao}</Text>
+                        <Text style={shops.jieshao === '' ? { color: global.back2, marginLeft: 10, height: 0 } : { color: global.back2, marginLeft: 10, marginBottom: 10 }}>{shops.jieshao}</Text>
                         <View style={{ flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 10 }}>
-                            <Text style={{ color: '#7cc0c0', fontSize: 16, marginLeft: 10 }}>￥<Text style={{ fontSize: 25 }}>{shops.price}</Text></Text>
+                            <Text style={{ color: global.back2, fontSize: 16, marginLeft: 10 }}>￥<Text style={{ fontSize: 25 }}>{shops.price}</Text></Text>
                             <Text style={{ color: '#88ada6', marginRight: 10 }}>月售<Text>{shops.sales}</Text></Text>
                         </View>
                     </View>
@@ -364,8 +364,8 @@ export default class Shopdetails extends Component {
                             <Text style={{ fontWeight: 'bold', fontSize: 16, color: "#333333" }}>{shops.dianpu}</Text>
                         </View>
                         <View style={{ marginRight: width * 0.025 }}>
-                            <TouchableOpacity style={{ borderWidth: 1, borderColor: '#7cc0c0', borderRadius: 20, marginTop: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: '#7cc0c0' }} onPress={() => this.dianpu()}>进店逛逛</Text></TouchableOpacity>
-                            <TouchableOpacity style={{ borderWidth: 1, borderColor: '#7cc0c0', borderRadius: 20, marginTop: 10, marginBottom: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: '#7cc0c0' }} onPress={() => this.dianpu()}>全部商品</Text></TouchableOpacity>
+                            <TouchableOpacity style={{ borderWidth: 1, borderColor: global.back2, borderRadius: 20, marginTop: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: global.back2 }} onPress={() => this.dianpu()}>进店逛逛</Text></TouchableOpacity>
+                            <TouchableOpacity style={{ borderWidth: 1, borderColor: global.back2, borderRadius: 20, marginTop: 10, marginBottom: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: global.back2 }} onPress={() => this.dianpu()}>全部商品</Text></TouchableOpacity>
                         </View>
                     </View>
 
@@ -404,16 +404,16 @@ export default class Shopdetails extends Component {
                         <AntDesign
                             name="isv"
                             size={25}
-                            color="#7cc0c0"
+                            color={global.back2}
                             onPress={() => this.dianpu()} />
                         <Text style={{ fontSize: 12 }}>店铺</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row' }}>
-                        <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                        <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.back2, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
                             onPress={() => this.insert_shopcart()}>
                             <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>加入购物车</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{ backgroundColor: '#7cc0c0', borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
+                        <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.back2, borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
                             onPress={() => this.props.navigation.navigate('Zhifu', this.state.shops)}>
                             <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>立即购买</Text>
                         </TouchableOpacity>
@@ -428,7 +428,7 @@ export default class Shopdetails extends Component {
                     onRequestClose={() => { this.setState({ modalVisible: false }); }}>
                     <ImageViewer imageUrls={imgUrls} index={currentIndex} enableImageZoom={true} onClick={() => { this.setState({ modalVisible: false }); }} />
                 </Modal>
-                {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: "#7cc0c0" }} root={this} ></ScrollTopView> : null}
+                {this.state.isShowToTop ? <ScrollTopView style={{ width: width * 0.2, height: height * 0.2, backgroundColorL: global.back2 }} root={this} ></ScrollTopView> : null}
             </View>
         );
     }

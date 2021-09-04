@@ -52,7 +52,7 @@ export default class zanheshoucang extends Component {
                         <Ionicons
                         name={"heart-outline" }
                         size={18}
-                        color={"#7cc0c0" } />
+                        color={global.back2 } />
                     </View>
                 </View>
                 <Image source={{uri:item.pic[0]}} style={{width:width*0.15,height:width*0.15,marginRight:10,borderRadius:10}}/>
@@ -65,7 +65,7 @@ export default class zanheshoucang extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <View  style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: "#7cc0c0", elevation: 1 }}>
+                <View  style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: global.back2, elevation: 1 }}>
                     <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' onPress={() => this.props.navigation.goBack()} />
                     <Text style={{ fontSize: 18, color: "#fff", marginLeft: "2%", fontWeight: "bold" }}>赞和收藏</Text>
                 </View>
@@ -78,7 +78,7 @@ export default class zanheshoucang extends Component {
                 :
                 <View style={{width,height:height,top:-20,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                     <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
-                    <Text style={{color:"#7cc0c0",fontSize:15,}}>暂无消息</Text>
+                    <Text style={{color:global.back2,fontSize:15,}}>暂无消息</Text>
                 </View>}
             </View>
         );

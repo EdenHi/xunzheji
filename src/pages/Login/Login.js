@@ -53,7 +53,6 @@ export default class Login extends Component {
         }
       });
     }
-    
   }
 
   constructor(props) {
@@ -76,7 +75,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={{ width:width,height:height, }}>
-         <LinearGradient style={{width:width,height:height,}} colors={['#7cc0bf', '#fff',  '#fff', '#fff']} >
+         <LinearGradient style={{width:width,height:height,}} colors={[global.back2, '#fff',  '#fff', '#fff']} >
            <View style={{width:width,height:height*0.3}}>
            <LottieView source={require('../../../animal/circle.json')} autoPlay loop progress={this.state.progress} />
            <Image style={{width:width*0.22,height:width*0.22,marginLeft:width*0.39,marginTop:height*0.1}} source={require("../img/xun.png")}></Image>
@@ -87,11 +86,11 @@ export default class Login extends Component {
               <Feather style={styles.icon}
                 name={'user'}
                 size={20 * ratio_w}
-                color="#7cc0c0"
+                color={global.back2}
               />
               <TextInput style={styles.text}
                 placeholder={'请输入用户名'}
-                placeholderTextColor="#7cc0c0"
+                placeholderTextColor={global.back2}
                 onChangeText={username => {
                   this.setState({username});
                 }}
@@ -101,9 +100,9 @@ export default class Login extends Component {
             <Feather style={styles.icon}
               name={'lock'}
               size={20 * ratio_w}
-              color="#7cc0c0"
+              color={global.back2}
             />
-            <TextInput style={styles.text} placeholder={'请输入密码'} placeholderTextColor="#7cc0c0"
+            <TextInput style={styles.text} placeholder={'请输入密码'} placeholderTextColor={global.back2}
               secureTextEntry={true}
               password={true}
               onChangeText={password => {
@@ -123,14 +122,14 @@ export default class Login extends Component {
           </View>
           <TouchableOpacity style={styles.btn} onPress={() => { this.load(); }} >
           <LottieView source={require('../../../animal/loginicon.json')} autoPlay loop progress={this.state.progress} />
-            {/* <View borderRadius={20} style={{ height: '100%', width: '100%',backgroundColor:"#7cc0c0",elevation:5 }}>
+            {/* <View borderRadius={20} style={{ height: '100%', width: '100%',backgroundColor:global.back2,elevation:5 }}>
               <Text style={{ fontSize: 20 * ratio_w, textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#ffffff', borderRadius: 20 }}  >登录</Text>
             </View> */}
           </TouchableOpacity>
           <View style={{ flexDirection: 'row', justifyContent: 'center',marginTop:"2%", borderWidth: 0}}>
             <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', borderWidth: 0 }}>还没有账号？</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
-              <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: '#7cc0c0' }}>此处注册</Text>
+              <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: global.back2 }}>此处注册</Text>
             </TouchableOpacity>
           </View>
 
@@ -162,7 +161,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 50,
     fontSize: 11 * ratio_w,
     backgroundColor: '#f1f1f1',
-    color: '#7cc0c0',
+    color: global.back2,
   },
   box: {
     flexDirection: 'row',

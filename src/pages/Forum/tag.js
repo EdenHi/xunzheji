@@ -22,7 +22,7 @@ export default class tag extends Component {
         return (
             <View>
                 {/* 顶部标题栏 */}
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, backgroundColor: "#7cc0c0" }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, backgroundColor: global.back2 }}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff", marginLeft: 10 }} name="left" size={20} />
                     </TouchableOpacity>

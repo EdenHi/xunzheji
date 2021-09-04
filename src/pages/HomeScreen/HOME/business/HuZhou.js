@@ -66,7 +66,7 @@ export default class HuZhou extends Component {
     renderDate({item,index}){
         return(
             <TouchableOpacity onPress={()=>this.context.navigate('LiuYu',item)} key={index}>
-                <View style={{ flexDirection: "row", marginBottom: 10, width: width * 0.9, height: 150, borderWidth: 1, justifyContent: "center", alignItems: "center", borderStyle: "dashed", borderColor: "#7cc0c0", borderRadius: 10 }}>
+                <View style={{ flexDirection: "row", marginBottom: 10, width: width * 0.9, height: 150, borderWidth: 1, justifyContent: "center", alignItems: "center", borderStyle: "dashed", borderColor: global.back2, borderRadius: 10 }}>
                     <View style={{ width: width * 0.5 }}>
                         <View><Text>{item.name}</Text></View>
                         <View><Text>{item.jieshao}</Text></View>

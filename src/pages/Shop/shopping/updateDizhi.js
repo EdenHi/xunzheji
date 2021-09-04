@@ -93,9 +93,9 @@ export default class updateDizhi extends Component {
     render() {
 
         return (
-            <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+            <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
             <View style={{alignItems:"center"}}>
-                                {/* <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} > */}
+                                {/* <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} > */}
                 <View style={{height:height * 0.85,width:width*0.9}}>
 
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
@@ -108,23 +108,23 @@ export default class updateDizhi extends Component {
             </View> 
             <View style={{width:width*0.9,backgroundColor:"#fff",borderRadius:15,padding:20,elevation:5}}>
                 <View style={{flexDirection:'row',height:50,alignItems:'center'}}>
-                    <Text style={{fontSize:15,width:width * 0.2,color:"#7cc0c0"}}>收货人</Text>
+                    <Text style={{fontSize:15,width:width * 0.2,color:global.back2}}>收货人</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="请使用真实姓名" onChangeText={(name)=>this.setState({name})} defaultValue={this.state.name}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center'}}>
-                    <Text style={{fontSize:16,width:width * 0.2,color:"#7cc0c0"}}>联系电话</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:global.back2}}>联系电话</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="收件人电话号码" onChangeText={(phone)=>this.setState({phone})} defaultValue={this.state.phone}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center'}}>
-                    <Text style={{fontSize:16,width:width * 0.2,color:"#7cc0c0"}}>所在地区</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:global.back2}}>所在地区</Text>
                     <View style={{height:50}} ><TouchableOpacity onPress={()=>this.go_area()} style={{height:50,width,justifyContent:'center'}}><Text>{this.state.dizhi}</Text></TouchableOpacity></View>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center'}}>
-                    <Text style={{fontSize:16,width:width * 0.2,color:"#7cc0c0"}}>详细地址</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:global.back2}}>详细地址</Text>
                     <TextInput style={{width:width * 0.8,height:50}} placeholder="请输入" onChangeText={(xiangxi)=>this.setState({xiangxi})} defaultValue={this.state.xiangxi}/>
                 </View>
                 <View style={{flexDirection:'row',height:50,alignItems:'center'}}>
-                    <Text style={{fontSize:16,width:width * 0.2,color:"#7cc0c0"}}>默认地址</Text>
+                    <Text style={{fontSize:16,width:width * 0.2,color:global.back2}}>默认地址</Text>
                     <Switch style={{}}
                             onTintColor={'#ffaa11'}
                             tintColor={'#aaaa11'}
@@ -143,7 +143,7 @@ export default class updateDizhi extends Component {
                
                 </View>
                 <TouchableOpacity underlayColor="red"  onPress={()=>this.update_Dizhi()}>
-                    <View style={{backgroundColor:'#7cc0c0',height:height*0.05,borderRadius:20,justifyContent:'center',width:width*0.9,elevation:5}}>
+                    <View style={{backgroundcolor:global.back2,height:height*0.05,borderRadius:20,justifyContent:'center',width:width*0.9,elevation:5}}>
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>修改收货信息</Text>
                     </View>
                 </TouchableOpacity>

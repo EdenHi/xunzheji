@@ -28,6 +28,7 @@ export default class Fabu extends Component {
             progress: new Animated.Value(0),
             modalVisible: false,
             modalVisible1: false,
+            f:1,
             tag: [],
             Tags: ['圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '漫展返图', '凉宫春日', '圣诞COS', '凉宫春日', '凉宫春日', '凉宫春日', '凉宫春日']
         };
@@ -47,6 +48,10 @@ export default class Fabu extends Component {
             this.setState({ arr })
         }
         this.listener = DeviceEventEmitter.addListener('tag', this.tag.bind(this))
+        this.listener = DeviceEventEmitter.addListener('yanse', this.f.bind(this))
+    }
+    f(){
+        this.setState({f:this.state.f+1})
     }
 
     tag(tag) {
@@ -186,7 +191,7 @@ export default class Fabu extends Component {
     }
     TagRender({ item, index }) {
         return (
-            <Text onPress={() => { this.tag(item) }} style={{ backgroundColor: '#7cc0c0', fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#{item}</Text>
+            <Text onPress={() => { this.tag(item) }} style={{ backgroundColor: global.back2, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#{item}</Text>
         )
 
     }
@@ -195,7 +200,7 @@ export default class Fabu extends Component {
         const { arr } = this.state;
         return (
             <View style={styles.container}>
-                <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={["#7cc0bf", "#fff", "#fff"]} >
+                <LinearGradient style={{ width: width, height: "100%", alignItems: "center" }} colors={[global.back2, "#fff", "#fff"]} >
                     <View style={styles.box}>
                         <TouchableOpacity
                             style={{ width: width * 0.06 }}
@@ -247,7 +252,7 @@ export default class Fabu extends Component {
                                                 height: '25%',
                                                 alignItems: 'center',
                                             }}>
-                                                <Text style={{ fontSize: 20, color: "#7cc0c0" }}>发布成功</Text>
+                                                <Text style={{ fontSize: 20, color: global.back2 }}>发布成功</Text>
                                             </View>
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {
@@ -310,7 +315,7 @@ export default class Fabu extends Component {
                                 this.state.tag.map((v, k) => {
                                     return (
                                         <View key={k} style={{ alignItems: 'flex-end' }}>
-                                            <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: 10, width: width * 0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20, position: 'relative' }}
+                                            <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: 10, width: width * 0.25, justifyContent: 'center', alignItems: 'center', backgroundColor: global.back2, borderRadius: 20, position: 'relative' }}
                                             >
                                                 <Fontisto name='hashtag' color='#fff' />
                                                 <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{v}</Text>
@@ -325,7 +330,7 @@ export default class Fabu extends Component {
                                     )
                                 })
                             }
-                            {this.state.tag.length === 0 ? <TouchableOpacity style={{ flexDirection: "row", marginLeft: 10, marginBottom: 20, width: width * 0.20, justifyContent: 'center', alignItems: 'center', backgroundColor: '#7cc0c0', borderRadius: 20 }}
+                            {this.state.tag.length === 0 ? <TouchableOpacity style={{ flexDirection: "row", marginLeft: 10, marginBottom: 20, width: width * 0.20, justifyContent: 'center', alignItems: 'center', backgroundColor: global.back2, borderRadius: 20 }}
                                 // onPress={() => this.props.navigation.navigate('tag')}
                                 onPress={() => { this._openModalWin1() }}
                             >

@@ -135,7 +135,7 @@ export default class Register2 extends Component {
         return (
             <View style={{flex:1,backgroundColor:'#fff'}}>
                 {/* 标题 */}
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width, paddingLeft: width * 0.05,backgroundColor:'#7cc0c0' }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width, paddingLeft: width * 0.05,backgroundcolor:global.back2 }}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
@@ -193,7 +193,7 @@ export default class Register2 extends Component {
                 </TouchableOpacity>
 
 
-                <TouchableOpacity onPress={()=>{this.go_nickname(),this.updateSex(),this.props.navigation.navigate('Register_tuijian')}} style={{backgroundColor:'#7cc0c0',width:width*0.5,marginHorizontal:width*0.25,justifyContent:'center',alignItems:'center',borderRadius:30}} activeOpacity={1}>
+                <TouchableOpacity onPress={()=>{this.go_nickname(),this.updateSex(),this.props.navigation.navigate('Register_tuijian')}} style={{backgroundcolor:global.back2,width:width*0.5,marginHorizontal:width*0.25,justifyContent:'center',alignItems:'center',borderRadius:30}} activeOpacity={1}>
                     <Text style={{fontSize:18,fontWeight:'bold',color:'#fff',paddingVertical:10}}>下一步</Text>
                 </TouchableOpacity>
             </View>

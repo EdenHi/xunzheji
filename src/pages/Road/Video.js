@@ -153,7 +153,7 @@ export default class componentName extends Component {
         return (
             <View style={{ backgroundColor: 'rgb(249,200,159)', flex: 1 }}>
 
-                <LinearGradient style={{ width }} colors={["#7cc0bf", "#fff", "#7cc0bf"]} >
+                <LinearGradient style={{ width }} colors={[global.back2, "#fff", global.back2]} >
                     <Modal
                         animationType='slide'
                         transparent={true}
@@ -170,13 +170,13 @@ export default class componentName extends Component {
                                 </TouchableOpacity>
                             </View>
 
-                            <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
+                            <View style={{ flex: 0.1, backgroundColor: global.back2, borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5 }}>
                                 <Text style={{ width, height: '100%', color: '#fff', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold' }}>浙商小故事</Text>
                             </View>
 
 
 
-                            <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
+                            <View style={{ flex: 0.9, backgroundColor: global.back2, elevation: 5 }}>
                                 <ScrollView>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170329%2Ff767b2d8563b46d787b6e8f4459fa110_th.jpeg&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631497805&t=1cb7cdd93f00c78d6bb54740699a55ac' }}>
@@ -322,7 +322,7 @@ export default class componentName extends Component {
 
                                 </TouchableOpacity>
                             </View>
-                            <View style={{ flex: 0.1, backgroundColor: '#7cc0c0', borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5, flexDirection: 'row', justifyContent: 'space-between' }}>
+                            <View style={{ flex: 0.1, backgroundColor: global.back2, borderTopRightRadius: 50, borderTopLeftRadius: 50, elevation: 5, flexDirection: 'row', justifyContent: 'space-between' }}>
                                 <Text onPress={() => this.props.navigation.navigate('duihuan_jinbi')} style={{ width: '30%', height: '100%', color: '#fff', textAlign: 'center', textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', }}>金币商城</Text>
 
 
@@ -332,7 +332,7 @@ export default class componentName extends Component {
                                     color='gold'
                                 /> {this.state.gold}个 </Text>
                             </View>
-                            <View style={{ flex: 0.9, backgroundColor: '#7cc0c0', elevation: 5 }}>
+                            <View style={{ flex: 0.9, backgroundColor: global.back2, elevation: 5 }}>
                                 <View style={{ height: height * 0.1, width, flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.25)', marginVertical: '0.25%' }}>
                                     <Text style={{ marginLeft: '4%', width: '20%', height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', color: '#333' }}>签到有奖:</Text>
                                     <Text style={{ width: '40%', height: '100%', borderWidth: 0, textAlignVertical: 'center', fontSize: 15, fontWeight: 'bold', color: '#333' }}>每日签到可获得 5 <FontAwesome5
@@ -451,7 +451,7 @@ export default class componentName extends Component {
                         <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2), this.props.navigation.navigate('AR') }} style={{ height: '100%', width: '18%'}}>
                             <Image style={{  width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../HomeScreen/photos/icon2.png")}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.20, height: width * 0.20, borderRadius: 60, backgroundColor: '#7cc0c0', alignSelf: 'center',borderWidth: 5, borderColor: '#fff',marginHorizontal:width*0.03,marginTop:"-50%"}}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.20, height: width * 0.20, borderRadius: 60, backgroundColor: global.back2, alignSelf: 'center',borderWidth: 5, borderColor: '#fff',marginHorizontal:width*0.03,marginTop:"-50%"}}>
                             <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '18%'}}>

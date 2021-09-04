@@ -121,7 +121,7 @@ export default class Page1 extends Component {
                 autoClosing={false}         //默认为true 如果为true 一有事件发生抽屉就会关闭
             >
 
-                <View style={{ flex: 1, backgroundColor: "#7cc0c0" }}>
+                <View style={{ flex: 1, backgroundColor: global.back2 }}>
                     <View style={{ borderWidth: 0, height: 50, justifyContent: "space-between", flexDirection: 'row', marginHorizontal: width * 0.05 }}>
                         {/* 头部两个ICON */}
                         <SimpleLineIcons onPress={() => { this.SelectToOpenLeftSideMenu() }}

@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, AsyncStorage } from 'react-native';
+import { View, Text, TouchableOpacity, ImageBackground, AsyncStorage,DeviceEventEmitter } from 'react-native';
 import { pxToDp } from './styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import { Dimensions } from 'react-native';
@@ -19,8 +19,11 @@ class CustormerBar extends Component {
   componentDidMount() {
 
     this.get_token()
-
+    this.listener = DeviceEventEmitter.addListener('yanse',this.get_token.bind(this))
   }
+  componentWillUnmount(){
+    this.listener.remove();
+    }
   //获取个人信息数据
   get_token() {
     AsyncStorage.getItem('username', (error, result) => {
@@ -47,7 +50,7 @@ class CustormerBar extends Component {
             alignItems: 'center',
             paddingLeft: pxToDp(20),
             justifyContent: 'space-around',
-            backgroundColor: '#7cc0c0',
+            backgroundColor: global.back2,
             
             height:height*0.08
           }}>
@@ -95,7 +98,7 @@ class CustormerBar extends Component {
               justifyContent: 'center',
               marginLeft: '40%',
             }}>
-            <Text style={{ color: '#7cc0c0' }}>发布</Text>
+            <Text style={{ color: global.back2 }}>发布</Text>
           </TouchableOpacity>
         </View>
       </View>

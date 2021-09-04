@@ -258,8 +258,8 @@ export default class Zs extends Component {
                     <Image style={{ width: width * 0.9, height: 200, marginTop: 10, marginBottom: 10 }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/zsb4.jpeg' }} />
                 </View>
                 <View style={{ width: width, flexDirection: "row", alignItems: "center", marginTop: "5%" }}>
-                    <View style={{ width: 2, height: 28, backgroundColor: "#7cc0c0", marginLeft: width * 0.05 }}></View>
-                    <Text style={{ fontSize: 15, color: "#7cc0c0", marginLeft: "2%",color:"#333" }}>相关评论</Text>
+                    <View style={{ width: 2, height: 28, backgroundColor: global.back2, marginLeft: width * 0.05 }}></View>
+                    <Text style={{ fontSize: 15, color: global.back2, marginLeft: "2%",color:"#333" }}>相关评论</Text>
                 </View>
             </View>
         )
@@ -267,7 +267,7 @@ export default class Zs extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between",backgroundColor:"#7cc0c0" }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between",backgroundColor:global.back2 }}>
                         <TouchableOpacity activeOpacity={1}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
@@ -286,12 +286,12 @@ export default class Zs extends Component {
                             <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" onEndEditing={() => { this.insert_pinglun(), Keyboard.dismiss(), this.textInput.clear() }} onChangeText={(send_pinglun) => this.setState({ send_pinglun })}
                                 ref={input => { this.textInput = input }} />
                         </View>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf", marginLeft: 5, alignItems: 'center', justifyContent: 'center' }}>
-                            <AntDesign name={this.state.data.username === this.state.denglu_username ? "star" : "staro"} size={25} color={this.state.data.username === this.state.denglu_username ? 'yellow' : "#7cc0bf"}
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.back2, marginLeft: 5, alignItems: 'center', justifyContent: 'center' }}>
+                            <AntDesign name={this.state.data.username === this.state.denglu_username ? "star" : "staro"} size={25} color={this.state.data.username === this.state.denglu_username ? 'yellow' : global.back2}
                                 onPress={() => this.shoucang()} />
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: "#7cc0bf" }}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: "#7cc0bf" }} name="export" size={25} color="#000000" />
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
+                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: global.back2 }} name="export" size={25} color="#000000" />
                         </TouchableOpacity>
                     </View>
             </View>

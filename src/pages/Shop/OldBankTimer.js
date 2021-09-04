@@ -10,7 +10,7 @@ export default class OldBankTimer extends Component{
   render(){
     return (
       <View style={styles.container}>
-        <LinearGradient style={{width:width,height:"100%"}} colors={["#7cc0bf","#fff","#fff"]} >
+        <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
         <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
                 <TouchableOpacity activeOpacity={1} style={{ }}>
                     <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />

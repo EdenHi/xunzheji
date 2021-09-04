@@ -22,7 +22,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Chats',{room:10,introduce:this.state.introduce})}}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -34,7 +34,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity activeOpacity={1}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -46,7 +46,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity activeOpacity={1}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -58,7 +58,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity activeOpacity={1}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -70,7 +70,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity activeOpacity={1}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -82,7 +82,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity activeOpacity={1}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -94,7 +94,7 @@ export default class Characters extends Component {
                         <View style={{}}><Text style={{ fontSize: 15 }}>镜心</Text></View>
                         <View style={{}}><Text style={{ fontSize: 15 }}>45*42cm</Text></View>
                         <TouchableOpacity activeOpacity={1}>
-                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:"#7cc0c0",marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
+                        <View style={{ width:width*0.25,height:40,borderWidth:1,justifyContent:"center",alignItems:"center",borderRadius:10,borderColor:global.back2,marginLeft:"40%",marginTop:-20}}><Text style={{ fontSize: 15 }}>加入咨询</Text></View>
                         </TouchableOpacity>
                     </View>
                 </View>

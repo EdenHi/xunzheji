@@ -22,8 +22,8 @@ export default class SegmentTabBar extends Component {
         };
     }
     renderTab(name, page, isTabActive, onPressHandler) {
-        const textColor = isTabActive ? '#7cc0c0' : '#fff';
-        const backgroundColor = isTabActive ? '#fff' : '#7cc0c0';
+        const textColor = isTabActive ? global.back2 : '#fff';
+        const backgroundColor = isTabActive ? '#fff' : global.back2;
 
         return <TouchableOpacity  activeOpacity={1}
             style={{flex: 1, height: 35, backgroundColor:backgroundColor,borderRadius:20,marginHorizontal:10,elevation:5}}
