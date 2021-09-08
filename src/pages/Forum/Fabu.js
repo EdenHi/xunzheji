@@ -28,7 +28,7 @@ export default class Fabu extends Component {
             progress: new Animated.Value(0),
             modalVisible: false,
             modalVisible1: false,
-            f:1,
+            f: 1,
             tag: [],
             Tags: ['圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '圣诞COS', '猫和老鼠', 'lolita', '新年祝福姬', '动漫嘉年华', '漫展返图', '凉宫春日', '圣诞COS', '凉宫春日', '凉宫春日', '凉宫春日', '凉宫春日']
         };
@@ -50,8 +50,8 @@ export default class Fabu extends Component {
         this.listener = DeviceEventEmitter.addListener('tag', this.tag.bind(this))
         this.listener = DeviceEventEmitter.addListener('yanse', this.f.bind(this))
     }
-    f(){
-        this.setState({f:this.state.f+1})
+    f() {
+        this.setState({ f: this.state.f + 1 })
     }
 
     tag(tag) {
@@ -179,6 +179,10 @@ export default class Fabu extends Component {
     }
     _openModalWin = () => {
         this.setState({ modalVisible: true });
+        setTimeout(() => {
+            this._closeModalWin(),
+                                                        this._goget()
+        }, 1000);
     }
     _closeModalWin = () => {
         this.setState({ modalVisible: false });
@@ -194,6 +198,10 @@ export default class Fabu extends Component {
             <Text onPress={() => { this.tag(item) }} style={{ backgroundColor: global.back2, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#{item}</Text>
         )
 
+    }
+    _goBack() {
+        this._closeModalWin(),
+            this._goget()
     }
     render() {
         const { navigation } = this.props;
@@ -254,16 +262,7 @@ export default class Fabu extends Component {
                                             }}>
                                                 <Text style={{ fontSize: 20, color: global.back2 }}>发布成功</Text>
                                             </View>
-                                            <TouchableOpacity style={styles.modalButtonStyle}
-                                                onPress={() => {
-                                                    this._closeModalWin(),
-                                                    this._goget()
 
-                                                }}
-
-                                            >
-                                                <Text style={{ fontSize: 15 }}>确定</Text>
-                                            </TouchableOpacity>
                                         </View>
                                     </TouchableOpacity>
                                 </View>
