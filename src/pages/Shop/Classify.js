@@ -33,7 +33,7 @@ export default class Classify extends React.Component {
                 
                     alignItems: "center",
                     flexDirection: 'row',
-                    backgroundColor: global.back2
+                    backgroundColor: global.mainColor
                 }}>
                     <TouchableOpacity
                         activeOpacity={0.8}

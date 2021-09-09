@@ -13,11 +13,11 @@ export default class News extends Component {
         return (
             <View>
                  <View style={{flexDirection:"row",alignItems:"center",padding:10}}> 
-              <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,color:global.back2}}>
-                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:global.back2 }} name="left" size={20} color="#000000" />
+              <TouchableOpacity style={{ width: width * 0.08, height: width * 0.08,color:global.mainColor}}>
+                  <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:global.mainColor }} name="left" size={20} color="#000000" />
               </TouchableOpacity>
-              <Text style={{fontSize:15,fontWeight:"bold",color:global.back2,width:width*0.85}}>浙商新闻</Text>
-              <View style={{backgroundColor:global.back2,width:2,height:28}}></View>
+              <Text style={{fontSize:15,fontWeight:"bold",color:global.mainColor,width:width*0.85}}>浙商新闻</Text>
+              <View style={{backgroundColor:global.mainColor,width:2,height:28}}></View>
             </View> 
                  <View style={{alignItems:"center"}}>
                      <FlatList 
@@ -35,7 +35,7 @@ export default class News extends Component {
                          <TouchableOpacity>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",width:width*0.95,height:120,alignItems:"center",elevation:2,borderRadius:10}}>
                                            <View style={{}}>
-                                             <Text style={{color:global.back2,fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
+                                             <Text style={{color:global.mainColor,fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
                                              <Text style={{color:"#000",fontSize: 13,marginLeft:10,flexWrap:"wrap",width:width*0.6,height:40,marginTop:20}} >{item.name}</Text>
                                            </View>
                                            <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={{uri:'http://47.100.78.254:3000/public/images/news1.jpeg'}}/></View>
@@ -46,7 +46,7 @@ export default class News extends Component {
                          <TouchableOpacity>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",width:width*0.95,height:120,alignItems:"center",elevation:2,borderRadius:10}}>
                                            <View style={{}}>
-                                             <Text style={{color:global.back2,fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
+                                             <Text style={{color:global.mainColor,fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
                                              <Text style={{color:"#000",fontSize: 13,marginLeft:10,flexWrap:"wrap",width:width*0.6,height:40,marginTop:20}} >{item.name}</Text>
                                            </View>
                                            <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={{uri:'http://47.100.78.254:3000/public/images/news2.jpg'}}/></View>
@@ -57,7 +57,7 @@ export default class News extends Component {
                          <TouchableOpacity>
                                  <View style={{flexDirection:"row",backgroundColor:"#fff",width:width*0.95,height:120,alignItems:"center",elevation:2,borderRadius:10}}>
                                            <View style={{}}>
-                                             <Text style={{color:global.back2,fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
+                                             <Text style={{color:global.mainColor,fontSize: 15,fontWeight: 'bold',flexWrap:"wrap",marginLeft:10,width:width*0.6,height:50,marginTop:20}}>{item.Topic}</Text>
                                              <Text style={{color:"#000",fontSize: 13,marginLeft:10,flexWrap:"wrap",width:width*0.6,height:40,marginTop:20}} >{item.name}</Text>
                                            </View>
                                            <View><Image style={{height:100,width:width*0.3,borderRadius:10,marginLeft:0,alignItems:"center"}} source={{uri:'http://47.100.78.254:3000/public/images/news3.jpeg'}}/></View>

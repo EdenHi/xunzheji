@@ -210,7 +210,7 @@ export default class Shopclassifymore extends Component {
         console.log('dalei',this.props.route.params.dalei);
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff"]} >
+                <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff"]} >
                     {/* 标题 */}
                     <View style={{
                        height:height*0.07,

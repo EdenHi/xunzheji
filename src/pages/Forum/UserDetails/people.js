@@ -229,17 +229,17 @@ CreateChatRoom(){
                             
                         }else{console.log('chat',this.state.chatroom);
                             this.props.navigation.navigate('Chats',{room:this.state.chatroom})
-                        }}} style={{width:'15%',height:'85%',borderWidth:1,bordercolor:global.back2,borderRadius:20,margin:'5%',alignItems:'center',justifyContent:'center'}}>
+                        }}} style={{width:'15%',height:'85%',borderWidth:1,bordercolor:global.mainColor,borderRadius:20,margin:'5%',alignItems:'center',justifyContent:'center'}}>
                             <Feather style={styles.icon}
                                     name="mail"
                                     size={30}
-                                    color={global.back2}
+                                    color={global.mainColor}
                                 />
                         </TouchableOpacity>
                         
                         
                             
-                            <TouchableOpacity style={{width:'35%',height:'78%',backgroundColor:this.state.panduan_guanzhu === 1 ? 'white':global.back2,borderRadius:20,alignItems:'center',elevation:5,justifyContent:'center'}}
+                            <TouchableOpacity style={{width:'35%',height:'78%',backgroundColor:this.state.panduan_guanzhu === 1 ? 'white':global.mainColor,borderRadius:20,alignItems:'center',elevation:5,justifyContent:'center'}}
                             onPress={()=>this.dianji_anniu()}>
                             <Text style={{fontSize:15,color:this.state.panduan_guanzhu === 1 ? 'black' : '#fff'}}>{this.state.panduan_guanzhu === 1 ? '已关注' :'关注'}</Text>
                             </TouchableOpacity>
@@ -276,14 +276,14 @@ CreateChatRoom(){
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Image style={{width:width*0.28,height:width*0.28,backgroundcolor:global.back2,position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:data.portrait}}/>
+                <Image style={{width:width*0.28,height:width*0.28,backgroundcolor:global.mainColor,position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:data.portrait}}/>
                 </ImageBackground>
 
             </View>
                     )}
                     renderStickyHeader={()=>
                       <View key="sticky-header" style={styles.stickySection}>
-                      <Image style={{width:30,height:30,backgroundcolor:global.back2,marginLeft:'10%',borderRadius:50}} source={{uri:data.portrait}}/>
+                      <Image style={{width:30,height:30,backgroundcolor:global.mainColor,marginLeft:'10%',borderRadius:50}} source={{uri:data.portrait}}/>
                       <Text style={styles.stickySectionText}>{data.nickname}</Text>
                   </View>
                     }

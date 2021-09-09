@@ -11,7 +11,7 @@ export default class vr extends Component {
         source={{ uri: 'http://beyond.3dnest.cn/play/?m=3bae8568_WLs1_b6f9' }}
         style={{ marginTop: 20 }}
       />
-       <View style={{width:width,height:80,position:"absolute",backgroundColor:global.back2,elevation:5,borderBottomLeftRadius:15,borderBottomRightRadius:15}}>
+       <View style={{width:width,height:80,position:"absolute",backgroundColor:global.mainColor,elevation:5,borderBottomLeftRadius:15,borderBottomRightRadius:15}}>
        <View style={{ height: height * 0.1, flexDirection: "row", alignItems: "center" }}>
                         <View style={{ marginLeft: "5%" }}>
                         <Image source={require("../pages/img/logo.png")} style={{width:width*0.5,height:height*0.25,marginLeft:-width*0.1}}>

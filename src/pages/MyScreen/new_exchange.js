@@ -15,7 +15,7 @@ export default class new_exchange extends Component {
         const item = this.props.route.params.item
         return (
             <View style={{flex:1}}> 
-                <LinearGradient style={{flex:1}} colors={[global.back2, "#fff", "#fff"]}>
+                <LinearGradient style={{flex:1}} colors={[global.mainColor, "#fff", "#fff"]}>
                     
                     {/* 标题 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, }}>
@@ -73,7 +73,7 @@ export default class new_exchange extends Component {
                         <TouchableOpacity style={{backgroundColor:'red',borderRadius:30}}>
                             <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',paddingHorizontal:30,paddingVertical:10}}>拒绝</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{backgroundcolor:global.back2,borderRadius:30}}>
+                        <TouchableOpacity style={{backgroundcolor:global.mainColor,borderRadius:30}}>
                             <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',paddingHorizontal:30,paddingVertical:10}}>接收</Text>
                         </TouchableOpacity>
                     </View>

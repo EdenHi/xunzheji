@@ -50,7 +50,7 @@ class CustormerBar extends Component {
             alignItems: 'center',
             paddingLeft: pxToDp(20),
             justifyContent: 'space-around',
-            backgroundColor: global.back2,
+            backgroundColor: global.mainColor,
             
             height:height*0.08
           }}>
@@ -98,7 +98,7 @@ class CustormerBar extends Component {
               justifyContent: 'center',
               marginLeft: '40%',
             }}>
-            <Text style={{ color: global.back2 }}>发布</Text>
+            <Text style={{ color: global.mainColor }}>发布</Text>
           </TouchableOpacity>
         </View>
       </View>

@@ -349,7 +349,7 @@ export default class musicPlayer extends Component {
               style={styles.slider}
               value={this.state.slideValue}
               maximumValue={this.state.duration}
-              minimumTrackTintColor={global.back2}
+              minimumTrackTintColor={global.mainColor}
               maximumTrackTintColor={"#fff"}
               step={1}
               onValueChange={value => this.setState({currentTime: value})}
@@ -480,7 +480,7 @@ const styles = StyleSheet.create({
     height:height*0.07,
     flexDirection: 'row',
     alignItems: 'center',
-  backgroundColor:global.back2
+  backgroundColor:global.mainColor
   },
   title: {
     color:"#fff",
@@ -489,7 +489,7 @@ const styles = StyleSheet.create({
     marginLeft:"2%"
   },
   subTitle: {
-    color: global.back2,
+    color: global.mainColor,
     fontSize: 11,
     marginTop: 5
   },

@@ -17,7 +17,7 @@ export default class Jiang extends Component {
         const { navigation } = this.props;
         return (
             <View style={{}}>
-                <LinearGradient colors={[global.back2, "#fff", "#fff"]}>
+                <LinearGradient colors={[global.mainColor, "#fff", "#fff"]}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width }}>
                         <TouchableOpacity style={{width:width*0.06,marginLeft:width*0.05}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />

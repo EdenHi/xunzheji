@@ -147,8 +147,8 @@ export default class My extends Component {
     console.log('data', data);
     let showLogin = this.state.username === '' ? <TouchableOpacity activeOpacity={1} style={{ width: width * 0.2, height: width * 0.3 * 0.5, marginLeft: width * -0.25, backgroundColor: 'rgba(255,255,255,0.1)', borderRadius: 10 }} onPress={() => this.props.navigation.navigate('Login')}>
       <View >
-        <Text style={{ color: global.back2, width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>账号</Text>
-        <Text style={{ color: global.back2, width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>登录</Text>
+        <Text style={{ color: global.mainColor, width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>账号</Text>
+        <Text style={{ color: global.mainColor, width: '100%', height: '50%', textAlign: 'center', textAlignVertical: 'center', fontWeight: 'bold', fontSize: 15 }}>登录</Text>
 
       </View>
     </TouchableOpacity> : null;
@@ -159,7 +159,7 @@ export default class My extends Component {
             <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart') }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="cart-outline"
               size={35}
-              color={global.back2}
+              color={global.mainColor}
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
@@ -170,7 +170,7 @@ export default class My extends Component {
             <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart') }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="cart-outline"
               size={35}
-              color={global.back2}
+              color={global.mainColor}
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>购物车</Text>
           </TouchableOpacity>
@@ -181,7 +181,7 @@ export default class My extends Component {
             <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="customerservice"
               size={35}
-              color={global.back2}
+              color={global.mainColor}
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>客服</Text>
           </TouchableOpacity>
@@ -189,7 +189,7 @@ export default class My extends Component {
             <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
               name="map-marker-radius"
               size={35}
-              color={global.back2}
+              color={global.mainColor}
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>地址管理</Text>
           </TouchableOpacity>
@@ -291,7 +291,7 @@ export default class My extends Component {
                       marginTop:"40%",
                       borderTopLeftRadius: 20,
                       borderTopRightRadius: 20,
-                      backgroundColor: global.back2,
+                      backgroundColor: global.mainColor,
                       flexDirection: "row",
                       opacity:0.9
                     }}>
@@ -317,7 +317,7 @@ export default class My extends Component {
                             marginLeft: '7%',
                             marginTop: "-20%",
                             borderWidth: 1,
-                            borderColor: global.back2,
+                            borderColor: global.mainColor,
                             elevation: 5
                           }}
                           onPress={() => {
@@ -340,7 +340,7 @@ export default class My extends Component {
                             backgroundColor: '#fff',
                             borderRadius: 50,
                             borderWidth: 1,
-                            borderColor: global.back2,
+                            borderColor: global.mainColor,
                             elevation: 5
                           }}
                          
@@ -447,7 +447,7 @@ export default class My extends Component {
                           height: '30%',
                           borderRadius: 20,
                           marginTop: '8%',
-                          backgroundColor: global.back2,
+                          backgroundColor: global.mainColor,
                           elevation: 5,
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -466,7 +466,7 @@ export default class My extends Component {
                   style={{
                     width: 30,
                     height: 30,
-                    backgroundColor: global.back2,
+                    backgroundColor: global.mainColor,
                     marginLeft: '10%',
                     borderRadius: 50,
                   }}
@@ -489,7 +489,7 @@ export default class My extends Component {
                   }}
                   onPress={() => { this.SelectToOpenLeftSideMenu() }}
                 >
-                  <Feather name="menu" size={25} color={global.back2} />
+                  <Feather name="menu" size={25} color={global.mainColor} />
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={{ marginTop: 10, marginRight: 10 }}
@@ -500,7 +500,7 @@ export default class My extends Component {
                     shuaxing: () => this.get_shuju()
                   })}
                 >
-                  <AntDesign name='setting' size={30} color={global.back2} />
+                  <AntDesign name='setting' size={30} color={global.mainColor} />
                 </TouchableOpacity>
               </View>}
           >

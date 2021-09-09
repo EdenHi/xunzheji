@@ -13,7 +13,7 @@ export default class ZhenCe extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between", backgroundColor: global.back2 }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between", backgroundColor: global.mainColor }}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                         <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>

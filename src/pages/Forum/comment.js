@@ -70,7 +70,7 @@ export default class Comment extends React.Component {
         },
         {
             title: '取消',
-            containerStyle: { backgroundColor: global.back2 },
+            containerStyle: { backgroundColor: global.mainColor },
             titleStyle: { color: 'white' },
             onPress: () => this.setState({ isVisible: false }),
         },
@@ -350,7 +350,7 @@ export default class Comment extends React.Component {
         if (data.username === denglu_username) {
             return (
                 <View style={{ flex: 1 }}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: global.back2 }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: global.mainColor }}>
                         <TouchableOpacity activeOpacity={1} style={{width:width*0.06}}>
                         <FontAwesome onPress={() => this.go_luntan()} name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
@@ -388,7 +388,7 @@ export default class Comment extends React.Component {
                                         </View>
                                     </View>
                                     <TouchableOpacity onPress={() => this.setState({ isVisible: true })}>
-                                        <Entypo name='dots-three-vertical' color={global.back2} size={20} />
+                                        <Entypo name='dots-three-vertical' color={global.mainColor} size={20} />
                                     </TouchableOpacity>
                                 </View>
                                 <Text style={data.title === '' ? { height: 0 } : styles.txt}
@@ -403,7 +403,7 @@ export default class Comment extends React.Component {
                                 </View>
 
                                 {/* tag标签 */}
-                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0,elevation:5 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: global.back2, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center',elevation:5 }}>
+                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0,elevation:5 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: global.mainColor, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center',elevation:5 }}>
                                     <Fontisto name='hashtag' color='#fff' />
                                     <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{data.tag}</Text>
                                 </View>
@@ -574,7 +574,7 @@ export default class Comment extends React.Component {
                         <TouchableOpacity
                             activeOpacity={1}
                             onPress={() => { this.pinglun(), Keyboard.dismiss(), this.textInput.clear() }}
-                            style={{ marginLeft: width * 0.05, backgroundColor: global.back2, borderRadius: 50, width: width * 0.12, height: width * 0.12, alignItems: "center", justifyContent: "center", elevation: 5 }}>
+                            style={{ marginLeft: width * 0.05, backgroundColor: global.mainColor, borderRadius: 50, width: width * 0.12, height: width * 0.12, alignItems: "center", justifyContent: "center", elevation: 5 }}>
                             <FontAwesome
                                 name="send-o"
                                 color="#fff"
@@ -589,7 +589,7 @@ export default class Comment extends React.Component {
         } else {
             return (
                 <View style={{ flex: 1 }}>
-                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: global.back2 }}>
+                    <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", backgroundColor: global.mainColor }}>
                         <TouchableOpacity activeOpacity={1} style={{ width:width*0.06}}>
                         <FontAwesome onPress={() => this.go_luntan()} name={'angle-left'} size={25} color={'#fff'} />
                             {/* <AntDesign onPress={() => this.go_luntan()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
@@ -628,7 +628,7 @@ export default class Comment extends React.Component {
 
 
                                 {/* tag标签 */}
-                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0,elevation:5 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: global.back2, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' ,elevation:5}}>
+                                <View style={data.tag === '' || data.tag === null ? { height: 0, width: 0,elevation:5 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: global.mainColor, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' ,elevation:5}}>
                                     <Fontisto name='hashtag' color='#fff' />
                                     <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{data.tag}</Text>
                                 </View>
@@ -765,7 +765,7 @@ export default class Comment extends React.Component {
                         <TouchableOpacity
                             activeOpacity={1}
                             onPress={() => { this.pinglun(), Keyboard.dismiss(), this.textInput.clear() }}
-                            style={{ marginLeft: width * 0.05, backgroundColor: global.back2, borderRadius: 50, width: width * 0.12, height: width * 0.12, alignItems: "center", justifyContent: "center", elevation: 5 }}>
+                            style={{ marginLeft: width * 0.05, backgroundColor: global.mainColor, borderRadius: 50, width: width * 0.12, height: width * 0.12, alignItems: "center", justifyContent: "center", elevation: 5 }}>
                             <FontAwesome
                                 name="send-o"
                                 color="#fff"

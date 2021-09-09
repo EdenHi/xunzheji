@@ -103,7 +103,7 @@ export default class fans extends Component {
         console.log('denglu_username',this.state.denglu_username);
         return (
                 <View style={{width:width}}>
-                     <LinearGradient colors={[global.back2, '#fff', '#fff']}>
+                     <LinearGradient colors={[global.mainColor, '#fff', '#fff']}>
                     <View style={{ flexDirection: "row", justifyContent: "space-between", height: height*0.07,width:width*0.9,marginLeft:width*0.05, alignItems: "center" }}>
                         <TouchableOpacity style={{ width: width * 0.2, height: 20 }} onPress={()=>this.goBack()}>
                             <AntDesign name="left" size={20} color="#fff" />

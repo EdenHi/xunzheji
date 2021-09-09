@@ -184,7 +184,7 @@ console.log(this.props.route.params);
         const {dizhi} = this.state
         return (
             <View style={{flex:1}}>
-                <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
+                <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff","#fff"]} >
                 {/* <Nav title="等待买家付款" /> */}
                 <View style={{ width:width*0.9,height:height*0.07,flexDirection:"row",alignItems:"center"}}>
                        
@@ -201,7 +201,7 @@ console.log(this.props.route.params);
                    </View>
                 <ScrollView >
                     {/* 收货地址 */}
-                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 5, borderRadius:10, margin: 5, backgroundColor: "#fff",width:width*0.9,marginLeft:width*0.05,borderColor:global.back2,borderWidth:2 }} activeOpacity={1}>
+                    <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddressList2')} style={{ marginTop: 5, borderRadius:10, margin: 5, backgroundColor: "#fff",width:width*0.9,marginLeft:width*0.05,borderColor:global.mainColor,borderWidth:2 }} activeOpacity={1}>
                         <View style={{ marginTop: 5, marginLeft: 20, flexDirection: "row", }}>
                             <Text style={{ fontSize: 16 }}>{dizhi===''?'':dizhi.name}</Text>
                             <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi===''?'':dizhi.phone}</Text>
@@ -224,7 +224,7 @@ console.log(this.props.route.params);
                             {/* 商品名称 */}
                             <Text style={{ fontSize: 15, fontWeight: "bold",width:width*0.45,color:"#333333" }} numberOfLines={3} >{this.state.goodsname}</Text>
                             {/* 对商品的解释或者规格 */}
-                            <Text style={{ fontSize:15,color:global.back2,width:width*0.5,}} numberOfLines={1}>{this.state.goods}</Text>
+                            <Text style={{ fontSize:15,color:global.mainColor,width:width*0.5,}} numberOfLines={1}>{this.state.goods}</Text>
                         </View>
                     </View>
                     <View style={{ backgroundColor: "white", marginTop: 10, borderRadius: 10,margin:5,width:width*0.9,marginLeft:width*0.05,elevation:5 }}>
@@ -249,7 +249,7 @@ console.log(this.props.route.params);
                         </View>
                         <View style={{ alignItems: 'flex-end', marginRight: 10, justifyContent: "space-between", flexDirection: "row", marginTop: 10, marginBottom: 15, marginLeft: 20 }}>
                             <Text style={{ fontSize: 15 ,color:"#333333"}}>合计</Text>
-                            <Text style={{ fontSize:15, color: global.back2, fontWeight: "bold" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
+                            <Text style={{ fontSize:15, color: global.mainColor, fontWeight: "bold" }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
                         </View>
                     </View>
                     <View>
@@ -270,10 +270,10 @@ console.log(this.props.route.params);
                 <View style={{ alignItems: "center", justifyContent: "space-between", flexDirection: "row", backgroundColor: "white", height: 70 }}>
                     <View style={{ flexDirection: "row", marginLeft: 15, alignItems: "flex-end" }}>
                         <Text style={{ fontSize: 15,color:"#333333" }}>合计金额</Text>
-                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: global.back2 }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
+                        <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: global.mainColor }}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
                     </View>
                   
-                        <TouchableOpacity  onPress={this._openModalWin} activeOpacity={1} style={{width:width*0.3,height:"50%",backgroundColor:global.back2,justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
+                        <TouchableOpacity  onPress={this._openModalWin} activeOpacity={1} style={{width:width*0.3,height:"50%",backgroundColor:global.mainColor,justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
 
                             <Text  style={{fontSize:15,color:"#fff"}}>提交订单</Text>
                        
@@ -313,7 +313,7 @@ console.log(this.props.route.params);
                                                 alignItems: 'center',
 
                                             }}>
-                                                <Text style={{ fontSize: 20, color: global.back2 }}>提交成功</Text>
+                                                <Text style={{ fontSize: 20, color: global.mainColor }}>提交成功</Text>
                                             </View>
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {

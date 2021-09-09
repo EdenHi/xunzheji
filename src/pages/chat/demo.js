@@ -237,7 +237,7 @@ export default class chat extends Component {
                         backgroundColor: '#fff',
                     },
                     right: {
-                        backgroundColor: global.back2,
+                        backgroundColor: global.mainColor,
                     },
                 }}
             />
@@ -325,7 +325,7 @@ export default class chat extends Component {
                 <Octicons style={{ marginTop: 0, marginLeft: 20 }}
                     name="diff-added"
                     size={30}
-                    color={global.back2}
+                    color={global.mainColor}
                 />
             )}
             options={{
@@ -352,7 +352,7 @@ export default class chat extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ borderWidth: 0, width: '100%', height: '7%', backgroundColor: global.back2,}}>
+                <View style={{ borderWidth: 0, width: '100%', height: '7%', backgroundColor: global.mainColor,}}>
                    <View style={{width:'95%',marginLeft:'2.5%',flexDirection: 'row' ,justifyContent:'space-between'}}>
                    <TouchableOpacity activeOpacity={1} style={{ }}>
                         <AntDesign onPress={() => { this. go_back(); clearInterval(this.backInterval) }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" ,}} name="left" size={25} color="#000000" />
@@ -400,7 +400,7 @@ const styles = StyleSheet.create({
         width: 63,
         height: 32,
         borderRadius: 3,
-        backgroundColor: global.back2,
+        backgroundColor: global.mainColor,
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 5,

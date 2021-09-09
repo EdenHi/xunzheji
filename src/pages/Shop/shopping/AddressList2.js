@@ -139,7 +139,7 @@ export default class AddressList2 extends Component {
           
             <View style={{}}>
                
-                 <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
+                 <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff","#fff"]} >
                 <View style={{flex:1}}>
                
                 <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
@@ -204,7 +204,7 @@ export default class AddressList2 extends Component {
                 }
                 </ScrollView>
                 {/* </LinearGradient> */}
-                <TouchableOpacity style={{backgroundcolor:global.back2,bottom:height*0.1,height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}} activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
+                <TouchableOpacity style={{backgroundcolor:global.mainColor,bottom:height*0.1,height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}} activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
             
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
                    
