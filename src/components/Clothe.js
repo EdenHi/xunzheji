@@ -396,9 +396,7 @@ export default class Clothe extends Component {
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>
-
                 <View style={{ width: width, height: height * 0.35, backgroundColor: "#fff", borderTopRightRadius: 20, elevation: 20, position: "absolute", bottom: 0, borderTopLeftRadius: 20 }}>
-
                     <ScrollableTabView
                         initialPage={0}
                         locked={true}
@@ -406,7 +404,6 @@ export default class Clothe extends Component {
                         tabBarActiveTextColor='#FF0000'>
                         <View tabLabel="推荐样式" style={{ width: width }}>
                             <FlatList
-
                                 data={data}
                                 renderItem={this._renderItem}
                                 // numColumns={3}

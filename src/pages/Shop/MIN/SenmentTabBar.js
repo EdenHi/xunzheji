@@ -23,11 +23,12 @@ export default class SegmentTabBar extends Component {
         };
     }
     renderTab(name, page, isTabActive, onPressHandler) {
-        const textColor = isTabActive ? '#287D7D' : '#fff';
-        const backgroundColor = isTabActive ? '#fff' : '#fff';
+        const textColor = isTabActive ? '#7cc0c0' : '#fff';
+        const backgroundColor = isTabActive ? '#fff' : '#7cc0c0';
         console.log(textColor)
-        return <Button
-            style={{ flex: 1, height: 40, width: width * 0.25, backgroundColor: global.back2, margin: 10, borderRadius: 10 }}
+        return <TouchableOpacity
+        
+            style={{ flex: 1,height: 40, width: width * 0.25,elevation:5, backgroundColor: backgroundColor, margin: 10, borderRadius: 10 }}
             key={name}
             accessible={true}
             accessibilityLabel={name}
@@ -39,7 +40,7 @@ export default class SegmentTabBar extends Component {
                     {name}
                 </Text>
             </View>
-        </Button>;
+        </TouchableOpacity>;
     }
 
     render() {
@@ -61,12 +62,12 @@ export default class SegmentTabBar extends Component {
 }
 const styles = StyleSheet.create({
     tabBarBox: {
-        height: 50,
+        height: 60,
         width: width,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 10
+        // marginBottom: 10,
     },
     iconBox: {
         margin: 15

@@ -62,7 +62,7 @@ export default  shicha2=(props)=> {
                 alignItems: "center",
               }}
             >
-              <TouchableOpacity  onPress={()=>{props.navigation.navigate(item.photo.jump)}}>
+              <TouchableOpacity activeOpacity={1}  onPress={()=>{props.navigation.navigate(item.photo.jump)}}>
                 <View
                   style={{
                     width: width * 0.95,

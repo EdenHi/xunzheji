@@ -26,7 +26,6 @@ export default class MinJia extends Component {
                     </View>
               
                          <ScrollView showsVerticalScrollIndicator={false}>
-                            
                                 <Min navigation={this.props.navigation}/>
                                 <View style={{ height:height*1.37}}>
                                 <ScrollableTabView renderTabBar={() => <SegmentTabBar />}>
