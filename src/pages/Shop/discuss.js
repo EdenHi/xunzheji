@@ -203,7 +203,7 @@ export default class discuss extends Component {
                                                 alignItems: 'center',
 
                                             }}>
-                                                <Text style={{ fontSize: 20, color: global.back2 }}>发布成功</Text>
+                                                <Text style={{ fontSize: 20, color: global.mainColor }}>发布成功</Text>
                                             </View>
                                             <TouchableOpacity style={styles.modalButtonStyle}
                                                 onPress={() => {

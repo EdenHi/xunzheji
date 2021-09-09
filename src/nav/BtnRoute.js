@@ -24,9 +24,11 @@ const Tab = createBottomTabNavigator(); //底部导航
 export default function BtnRoute() {
  
   return (
-    <Tab.Navigator
+    <Tab.Navigator 
       tabBarOptions={{
-        activeTintColor: global.back2,
+        inactiveBackgroundColor:global.backColor,
+        activeBackgroundColor:global.backColor,
+        activeTintColor: global.mainColor,
         inactiveTintColor: 'gray',
       }}>
       <Tab.Screen

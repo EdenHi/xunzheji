@@ -122,9 +122,9 @@ export default class Swop extends Component {
                   <View style={{width:width*0.15,height:height*0.03,backgroundColor:"#fff",alignItems:"center",justifyContent:"center",borderRadius:15,marginLeft:width*0.5,elevation:5}}><Text style={{fontSize:13,color:"#333333"}}>{item.renzheng}</Text></View>
               </View>
               <View style={{ alignItems: "center", justifyContent: "center",width:"100%",height:"55%",}}>
-                <Text style={{ fontSize: 16, color: global.back2 }}>交换的物品：</Text>
+                <Text style={{ fontSize: 16, color: global.mainColor }}>交换的物品：</Text>
                 <Text style={{ fontSize: 14, color: "#333333" }}>{item.wupin}</Text>
-                <Text style={{ fontSize: 16, color: global.back2 }}>想换什么：</Text>
+                <Text style={{ fontSize: 16, color: global.mainColor }}>想换什么：</Text>
                 <Text style={{ fontSize: 14, color: "#333333" }}>{item.exchang_wupin}</Text>
               </View>
             </View>
@@ -145,9 +145,9 @@ export default class Swop extends Component {
             <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
           </View>
           <View style={{flexDirection:'row', marginTop: 15}}>
-            <Text onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{marginLeft:'10%',fontWeight: "bold", fontSize: 15, color: global.back2,marginTop:5}}>聊天</Text>
+            <Text onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{marginLeft:'10%',fontWeight: "bold", fontSize: 15, color: global.mainColor,marginTop:5}}>聊天</Text>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Exchange_want',item)} style={{ flexDirection: "row", width: width * 0.2, height: 50, alignItems: "center", marginLeft: "55%" }} >
-              <View style={{ width: 50, height: 40 }}><Text style={{ fontWeight: "bold", fontSize: 15, color: global.back2 }}>我想要</Text></View>
+              <View style={{ width: 50, height: 40 }}><Text style={{ fontWeight: "bold", fontSize: 15, color: global.mainColor }}>我想要</Text></View>
               <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </View>
@@ -186,14 +186,14 @@ export default class Swop extends Component {
         <SpeedDial
           buttonStyle={{ borderRadius: 50 }}
           isOpen={this.state.open}
-          color={global.back2}
+          color={global.mainColor}
           icon={{ name: 'add', color: '#fff' }}
           openIcon={{ name: 'close', color: '#fff' }}
           onOpen={() => this.setState({ open: true })}
           onClose={() => this.setState({ open: false })}
         >
           <SpeedDial.Action
-            color={global.back2}
+            color={global.mainColor}
             buttonStyle={{ borderRadius: 50 }}
             icon={{ name: 'drive-file-rename-outline', color: '#fff' }}
             onPress={() => { this.props.navigation.navigate('Exchange2'), this.setState({ open: false }) }}

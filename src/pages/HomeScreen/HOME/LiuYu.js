@@ -19,7 +19,7 @@ export default class LiuYu extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient style={{ flex: 1 }} colors={[global.back2, '#fff', '#fff']}>
+                <LinearGradient style={{ flex: 1 }} colors={[global.mainColor, '#fff', '#fff']}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
                         <TouchableOpacity style={{width:width*0.06,}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -40,7 +40,7 @@ export default class LiuYu extends Component {
                             </View>
                             <View style={{ marginHorizontal: width * 0.05 }}>
                                 <View style={{ width: width * 0.9, height: 30, justifyContent: "center", marginLeft: 10 }}><Text style={{ fontSize: 15, fontWeight: "bold" }}>人物简介</Text></View>
-                                <View style={{ width: width * 0.9, backgroundColor: "#fff", elevation: 5, borderWidth: 1, borderRadius: 10, borderColor: global.back2, borderStyle: "dashed",marginBottom:10 }}>
+                                <View style={{ width: width * 0.9, backgroundColor: "#fff", elevation: 5, borderWidth: 1, borderRadius: 10, borderColor: global.mainColor, borderStyle: "dashed",marginBottom:10 }}>
                                     <Text style={{ fontSize: 13, lineHeight: 25, marginVertical: width * 0.025, marginHorizontal: width * 0.025 }}>
                                         {this.props.route.params.jianjie}
                                     </Text>

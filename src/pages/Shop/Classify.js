@@ -47,7 +47,7 @@ go_page(v){
                 
                     alignItems: "center",
                     flexDirection: 'row',
-                    backgroundColor: global.back2
+                    backgroundColor: global.mainColor
                 }}>
                     <TouchableOpacity
                         activeOpacity={0.8}

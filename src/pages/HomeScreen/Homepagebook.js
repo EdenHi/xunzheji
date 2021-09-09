@@ -211,7 +211,7 @@ export default class Homepagebook extends Component {
     }
     _renderItem({ item, index }) {
         return (
-            <View style={{ width:width*0.8,flexDirection: "row", marginLeft: -20, backgroundColor: "#fff", elevation: 5,bottom:5,borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:global.back2 }} >
+            <View style={{ width:width*0.8,flexDirection: "row", marginLeft: -20, backgroundColor: "#fff", elevation: 5,bottom:5,borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:global.mainColor }} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.page(index)}>
                     <ImageBackground borderRadius={10} style={{ width: width * 0.35, height: width * 0.4, marginLeft: 10 }} resizeMode="stretch" source={{ uri: item.img }}>
                         <Text style={{ flexWrap: "wrap", width: 15, marginLeft: 10, fontWeight: "bold", marginTop: 10,color:"#333" }}>{item.title}</Text>
@@ -221,25 +221,25 @@ export default class Homepagebook extends Component {
                     <View><Text style={{fontSize:13}}>作者：周咏南</Text></View>
                     <View><Text style={{fontSize:13}}>一部浙江改革开放史，就是一部浙江民营企业家历尽艰辛、书写传奇的创业史，就是一部浙江民营经济风起云涌、波澜壮阔的崛起史，就是一部浙商精神接续传承、丰富升华的发展史。</Text></View>
                 </View> */}
-                <View style={{ justifyContent: "center", justifyContent: "space-around", borderWidth: 1, width: width * 0.38, height: width * 0.38, borderRadius: 10, borderColor: global.back2, marginLeft: 5 }}>
+                <View style={{ justifyContent: "center", justifyContent: "space-around", borderWidth: 1, width: width * 0.38, height: width * 0.38, borderRadius: 10, borderColor: global.mainColor, marginLeft: 5 }}>
                     <TouchableOpacity activeOpacity={1} onPress={() => {this._openModalWin(index)}} >
                         <View style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
-                            <Entypo style={{ marginLeft: 10 }} color={global.back2} name='user' size={25} />
-                            <Text style={{ fontSize: 13, color: global.back2, marginLeft: 10 }}>了解作者</Text>
+                            <Entypo style={{ marginLeft: 10 }} color={global.mainColor} name='user' size={25} />
+                            <Text style={{ fontSize: 13, color: global.mainColor, marginLeft: 10 }}>了解作者</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={1} onPress={() => this._openModalWin2(index)}>
                         <View style={{ marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
-                            <FontAwesome style={{ marginLeft: 10 }} name='bars' color={global.back2} size={25} />
-                            <Text style={{ fontSize: 13, color: global.back2, marginLeft: 10 }}>查看简介</Text>
+                            <FontAwesome style={{ marginLeft: 10 }} name='bars' color={global.mainColor} size={25} />
+                            <Text style={{ fontSize: 13, color: global.mainColor, marginLeft: 10 }}>查看简介</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity activeOpacity={1}
                    onPress={() => this.context.navigate('musicPlayer')}
                      >
                         <View style={{ marginBottom: 10, marginLeft: 10, flexDirection: "row", alignItems: "center" }}>
-                            <SimpleLineIcons style={{ marginLeft: 10 }} name='earphones' color={global.back2} size={25} />
-                            <Text style={{ fontSize: 13, color: global.back2, marginLeft: 10 }}>聆听书籍</Text>
+                            <SimpleLineIcons style={{ marginLeft: 10 }} name='earphones' color={global.mainColor} size={25} />
+                            <Text style={{ fontSize: 13, color: global.mainColor, marginLeft: 10 }}>聆听书籍</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

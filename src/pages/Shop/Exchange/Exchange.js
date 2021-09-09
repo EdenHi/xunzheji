@@ -24,7 +24,7 @@ export default class componentName extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <LinearGradient style={{flex:1}} colors={[global.back2, "#fff", "#fff"]}>
+        <LinearGradient style={{flex:1}} colors={[global.mainColor, "#fff", "#fff"]}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, }}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
@@ -82,14 +82,14 @@ export default class componentName extends Component {
         <SpeedDial
           buttonStyle={{borderRadius:50}}
           isOpen={this.state.open}
-          color={global.back2}
+          color={global.mainColor}
           icon={{ name: 'add', color: '#fff' }}
           openIcon={{ name: 'close', color: '#fff' }}
           onOpen={() => this.setState({open:true})}
           onClose={() =>this.setState({open:false})}
         >
           <SpeedDial.Action
-          color={global.back2}
+          color={global.mainColor}
             buttonStyle={{borderRadius:50}}
             icon={{ name: 'drive-file-rename-outline', color: '#fff' }}
             onPress={() => {this.props.navigation.navigate('Exchange2'),this.setState({open:false})}}

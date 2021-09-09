@@ -19,7 +19,7 @@ export default  function BookRoute({route}) {
     tabBarOptions={{
         labelStyle:{fontSize:18,padding:0,margin:0},
         tabStyle:{width:width*0.15},
-        indicatorStyle:{backgroundcolor:global.back2,width:width*0.1,marginHorizontal:width*0.025},
+        indicatorStyle:{backgroundcolor:global.mainColor,width:width*0.1,marginHorizontal:width*0.025},
         style:{width:width*0.3,elevation:0,marginLeft:20},
        
     }}>

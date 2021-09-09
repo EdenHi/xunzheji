@@ -155,7 +155,7 @@ export default class NewWorks extends Component {
     const { navigation } = this.props;
     return (
       <View style = {styles.container}>
-<LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff","#fff"]} >
+<LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff","#fff"]} >
             <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
               <TouchableOpacity activeOpacity={1} style={{ }}>
                   <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
@@ -178,7 +178,7 @@ export default class NewWorks extends Component {
                     <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13,color:"#333333"  }}>{item.jieshao}</Text>
                   </View>
                   <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                    <Text style={{  color: global.back2 }}>￥<Text style={{ fontSize: 13, color: global.back2 }}>{item.price}</Text></Text>
+                    <Text style={{  color: global.mainColor }}>￥<Text style={{ fontSize: 13, color: global.mainColor }}>{item.price}</Text></Text>
                   </View>
                   
                   <View style={{ width: "90%", height: "18%", flexDirection: "row" ,alignItems:"center",marginLeft:"2%"}}>
@@ -187,7 +187,7 @@ export default class NewWorks extends Component {
                   </View>
                   
                   <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: global.back2, marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
+                    <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: global.mainColor, marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
                     onPress={()=>this.insert_shopcart(item)}>
                       <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                     </TouchableOpacity>

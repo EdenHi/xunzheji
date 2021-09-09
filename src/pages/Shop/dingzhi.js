@@ -17,7 +17,7 @@ export default class dingzhi extends Component {
         const { navigation } = this.props;
         return (
             <View style={{ flex: 1, alignItems: "center" }}>
-                <LinearGradient style={{ width: width, height: "100%" }} colors={[global.back2, "#fff", "#fff"]} >
+                <LinearGradient style={{ width: width, height: "100%" }} colors={[global.mainColor, "#fff", "#fff"]} >
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
                         <TouchableOpacity activeOpacity={1} style={{width:width*0.06}}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -90,7 +90,7 @@ export default class dingzhi extends Component {
                                             {/* 进度条显示，后期把数值放入数据库，进行数字的更改 */}
                                             <View style={{ marginLeft: width * 0.035 }}>
                                                 <View style={{ flexDirection: 'row', marginTop: width * 0.03, alignItems: 'center' }}>
-                                                    <Text style={{ color: 'white', backgroundColor: global.back2, borderRadius: 5, padding: 3, height: 25, fontSize: 12 }}>已结束</Text>
+                                                    <Text style={{ color: 'white', backgroundColor: global.mainColor, borderRadius: 5, padding: 3, height: 25, fontSize: 12 }}>已结束</Text>
                                                     <Text style={{ fontSize: 15, marginLeft: 10 }}>蝉形砚</Text>
                                                 </View>
                                                 <View style={{ flexDirection: 'row', marginTop: width * 0.03 }}>

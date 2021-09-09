@@ -489,7 +489,7 @@ componentWillUnmount(){
             <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
             <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
                 <View style={{flexDirection:'row',alignItems:'baseline'}}>
-                    <Text style={{color:global.back2,fontSize:15}}>￥</Text>
+                    <Text style={{color:global.mainColor,fontSize:15}}>￥</Text>
                     <Text style={{color:'#7cc0c0',fontSize:15}}>{item.price}</Text>
                 </View>
                 <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
@@ -510,7 +510,7 @@ componentWillUnmount(){
           <ActivityIndicator
             size="large"
             animating={true} //动画效果
-            color={global.back2}
+            color={global.mainColor}
           />
         </View>
       );
@@ -598,7 +598,7 @@ componentWillUnmount(){
           >
             <View style={{ width: "100%", height: "50%", alignItems: "center", justifyContent: "center" }}>
 
-              <Text style={{ fontSize: 18, fontWeight: "bold", color: global.back2, marginTop: "7%" }}>文化定制</Text>
+              <Text style={{ fontSize: 18, fontWeight: "bold", color: global.mainColor, marginTop: "7%" }}>文化定制</Text>
 
               {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
             </View>
@@ -657,7 +657,7 @@ componentWillUnmount(){
                       <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: "#333333" }}>{item.jieshao}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text style={{ color: global.back2 }}>￥<Text style={{ fontSize: 13, color: global.back2 }}>{item.price}</Text></Text>
+                      <Text style={{ color: global.mainColor }}>￥<Text style={{ fontSize: 13, color: global.mainColor }}>{item.price}</Text></Text>
                     </View>
 
                     <View style={{ width: "90%", height: "18%", flexDirection: "row", alignItems: "center", marginLeft: "2%" }}>
@@ -666,7 +666,7 @@ componentWillUnmount(){
                     </View>
 
                     <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
-                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: global.back2, marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
+                      <TouchableOpacity activeOpacity={1} style={{ width: "60%", height: "95%", backgroundColor: global.mainColor, marginRight: "5%", borderRadius: 50, elevation: 5, alignItems: "center", justifyContent: "center" }}
                         onPress={() => this.insert_shopcart(item)}>
                         <Text style={{ fontSize: 13, color: "#fff" }}>加入购物车</Text>
                       </TouchableOpacity>
@@ -714,10 +714,10 @@ componentWillUnmount(){
           </View>
         </View>
         <View style={{ width: "95%", alignItems: "center", backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-          <Text style={{ height: 20, fontSize: 16, color: global.back2, fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
-          <Text style={{ height: 20, fontSize: 9, color: global.back2, fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
+          <Text style={{ height: 20, fontSize: 16, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
+          <Text style={{ height: 20, fontSize: 9, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
 
-          <View style={{ width: "25%", borderWidth: 2, borderColor: global.back2, marginTop: "0.5%" }}></View>
+          <View style={{ width: "25%", borderWidth: 2, borderColor: global.mainColor, marginTop: "0.5%" }}></View>
         </View>
       </View>
     )
@@ -730,7 +730,7 @@ componentWillUnmount(){
     console.log('showpage', this.state.showpage);
     return (
       <View style={styles.container}>
-        <LinearGradient style={{ width }} colors={[global.back2, "#fff", "#fff"]} >
+        <LinearGradient style={{ width }} colors={[global.mainColor, "#fff", "#fff"]} >
           <Modal
             animationType="fade"
             transparent={true}
@@ -748,7 +748,7 @@ componentWillUnmount(){
                     <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setModalVisible(!modalVisible) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="cart-outline"
                       size={35}
-                      color={global.back2}
+                      color={global.mainColor}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>购物车</Text>
                   </TouchableOpacity>
@@ -756,7 +756,7 @@ componentWillUnmount(){
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="clipboard-text-outline"
                       size={35}
-                      color={global.back2}
+                      color={global.mainColor}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
                   </TouchableOpacity>
@@ -764,7 +764,7 @@ componentWillUnmount(){
                     <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="customerservice"
                       size={35}
-                      color={global.back2}
+                      color={global.mainColor}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>客服</Text>
                   </TouchableOpacity>
@@ -772,7 +772,7 @@ componentWillUnmount(){
                     <MaterialCommunityIcons style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="map-marker-radius"
                       size={35}
-                      color={global.back2}
+                      color={global.mainColor}
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%", color: "#333333" }}>地址管理</Text>
                   </TouchableOpacity>
@@ -783,7 +783,7 @@ componentWillUnmount(){
 
                   name="apple-keyboard-control"
                   size={20}
-                  color={global.back2}
+                  color={global.mainColor}
                 />
               </View>
               <TouchableOpacity activeOpacity={1} onPress={() => {
@@ -815,7 +815,7 @@ componentWillUnmount(){
                   color="grey"
                 />
               </View>
-              <Text style={{ fontSize: 15, marginLeft: "8%", color: global.back2 }}>搜索好物</Text>
+              <Text style={{ fontSize: 15, marginLeft: "8%", color: global.mainColor }}>搜索好物</Text>
             </TouchableOpacity>
 
             <MaterialCommunityIcons onPress={() => {

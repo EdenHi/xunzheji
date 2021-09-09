@@ -144,7 +144,7 @@ export default class open extends React.Component {
                                 <View style={{ width: width * 0.45, height: width * 0.28, borderBottomLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: "rgba(255,255,255,0.8)", position: "absolute", marginLeft: width * 0.033, }}>
                                     <Text style={{ fontSize: 13, fontWeight: "bold", marginHorizontal: width * 0.01, marginTop: 5 }}>{src.txt}</Text>
                                     <Text style={{ fontSize: 13, marginHorizontal: width * 0.01, height: 50, marginTop: 5 }}>{src.txt1}</Text>
-                                    <View style={{ width: 50, height: 20, backgroundColor: global.back2, borderRadius: 5, marginHorizontal: width * 0.01, alignItems: "center", justifyContent: "center" }}>
+                                    <View style={{ width: 50, height: 20, backgroundColor: global.mainColor, borderRadius: 5, marginHorizontal: width * 0.01, alignItems: "center", justifyContent: "center" }}>
                                         <Text style={{ fontSize: 13, color: "#fff" }}>{src.txt2}</Text>
                                     </View>
                                 </View>
@@ -193,7 +193,7 @@ export default class open extends React.Component {
                                                 <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.back2, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
                                                 <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -216,7 +216,7 @@ export default class open extends React.Component {
                                                 <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.back2, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
                                                 <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -239,7 +239,7 @@ export default class open extends React.Component {
                                                 <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.back2, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
                                                 <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -262,7 +262,7 @@ export default class open extends React.Component {
                                                 <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.back2, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
                                                 <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -285,7 +285,7 @@ export default class open extends React.Component {
                                                 <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.back2, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
                                                 <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
@@ -308,7 +308,7 @@ export default class open extends React.Component {
                                                 <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.back2, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
                                                 <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>

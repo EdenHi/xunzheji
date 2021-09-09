@@ -80,7 +80,7 @@ export default class Exchange_want extends Component {
         const item = this.props.route.params
         return (
             <View style={{flex:1}}>
-                <LinearGradient style={{flex:1}} colors={[global.back2, "#fff", "#fff"]}>
+                <LinearGradient style={{flex:1}} colors={[global.mainColor, "#fff", "#fff"]}>
                     
                     {/* 标题 */}
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, }}>
@@ -133,7 +133,7 @@ export default class Exchange_want extends Component {
 
                         {/* 按钮 */}
                         <View style={{justifyContent:'center',alignItems:'center',width,marginBottom:20}}>
-                            <TouchableOpacity onPress={()=>{this.send_message(),this.props.navigation.goBack()}} activeOpacity={1} style={{justifyContent:'center',alignItems:'center',backgroundcolor:global.back2,borderRadius:20,width:width*0.8,marginHorizontal:width*0.05}}>
+                            <TouchableOpacity onPress={()=>{this.send_message(),this.props.navigation.goBack()}} activeOpacity={1} style={{justifyContent:'center',alignItems:'center',backgroundcolor:global.mainColor,borderRadius:20,width:width*0.8,marginHorizontal:width*0.05}}>
                                 <Text style={{color:'#fff',fontSize:17,fontWeight:'bold',paddingHorizontal:50,paddingVertical:10}}>立即提交</Text>
                             </TouchableOpacity>
                         </View>
