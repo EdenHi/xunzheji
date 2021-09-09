@@ -255,7 +255,7 @@ insert_pinglun(){
     render() {
         return (
             <View style={{flex:1}}>
-                <LinearGradient colors={[global.back2, "#fff", "#fff"]} style={{flex:1}}>
+                <LinearGradient colors={[global.mainColor, "#fff", "#fff"]} style={{flex:1}}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width: width * 0.9, marginLeft: width * 0.05, justifyContent: "space-between" }}>
                         <TouchableOpacity activeOpacity={1} style={{}}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -280,12 +280,12 @@ insert_pinglun(){
                             <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" onEndEditing={()=>{this.insert_pinglun(),Keyboard.dismiss(),this.textInput.clear()}} onChangeText={(send_pinglun)=>this.setState({send_pinglun})} 
                             ref={input => { this.textInput = input }} />
                         </View>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.back2, marginLeft: 5,alignItems:'center',justifyContent:'center' }}>
-                            <AntDesign name={this.state.data.username===this.state.denglu_username?"star":"staro"} size={25} color={this.state.data.username===this.state.denglu_username?'yellow':global.back2} 
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor, marginLeft: 5,alignItems:'center',justifyContent:'center' }}>
+                            <AntDesign name={this.state.data.username===this.state.denglu_username?"star":"staro"} size={25} color={this.state.data.username===this.state.denglu_username?'yellow':global.mainColor} 
                                 onPress={()=>this.shoucang()}/>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
-                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: global.back2 }} name="export" size={25} color="#000000" />
+                        <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor }}>
+                            <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: global.mainColor }} name="export" size={25} color="#000000" />
                         </TouchableOpacity>
                     </View>
                 </LinearGradient>

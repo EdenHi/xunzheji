@@ -10,7 +10,7 @@ export default class culture extends Component {
 
     return (
         <View style={{ flex: 1, alignItems: "center" }}>
-        <LinearGradient style={{ width: width, height: "100%" ,alignItems:"center"}} colors={[global.back2, "#fff", "#fff"]} >
+        <LinearGradient style={{ width: width, height: "100%" ,alignItems:"center"}} colors={[global.mainColor, "#fff", "#fff"]} >
             <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
                 <TouchableOpacity
                  activeOpacity={1} style={{}}>

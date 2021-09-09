@@ -12,9 +12,9 @@ const { width, height } = Dimensions.get("window")
 
 export default class ZhenCe2 extends Component {
     render() {
-        return ( 
-            <View style={{ flex: 1 }}>             
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between", backgroundColor: global.back2 }}>
+        return (
+            <View style={{ flex: 1 }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "space-between", backgroundColor: global.mainColor }}>
                     <TouchableOpacity activeOpacity={1} style={{}}>
                     <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                         {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}

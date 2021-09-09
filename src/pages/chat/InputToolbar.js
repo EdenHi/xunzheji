@@ -6,7 +6,7 @@ export const renderInputToolbar = (props) => (
   <InputToolbar
     {...props}
     containerStyle={{
-      backgroundColor: global.back2,
+      backgroundColor: global.mainColor,
       paddingTop: 6,
     }}
     primaryStyle={{ alignItems: 'center' }}

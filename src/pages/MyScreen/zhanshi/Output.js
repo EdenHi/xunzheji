@@ -194,7 +194,7 @@ render() {
           circleColor='#fedc61'
           lineColor='#fedc61'
           timeContainerStyle={{ minWidth: 52 }}
-          timeStyle={{ textAlign: 'center', backgroundColor: global.back2, color: 'white', padding: 5, borderRadius: 13 }}
+          timeStyle={{ textAlign: 'center', backgroundColor: global.mainColor, color: 'white', padding: 5, borderRadius: 13 }}
           descriptionStyle={{ color: 'gray' }}
           options={{
             style: { paddingTop: 5 }
@@ -218,7 +218,7 @@ render() {
         <View style={width}>
             <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                   <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
-                  <Text style={{color:global.back2,fontSize:15,}}>暂无发布</Text>
+                  <Text style={{color:global.mainColor,fontSize:15,}}>暂无发布</Text>
               </View>
             
         </View>

@@ -176,7 +176,7 @@ tuijian(x){
               </View>
               <TouchableOpacity
               onPress={()=>this.indexSelect()}
-              style={{width:"15%",height:height*0.05,alignItems:"center",justifyContent:"center",backgroundcolor:global.back2,borderRadius:20}}><Text style={{fontSize:15,color:'white'}}>搜索</Text></TouchableOpacity>
+              style={{width:"15%",height:height*0.05,alignItems:"center",justifyContent:"center",backgroundcolor:global.mainColor,borderRadius:20}}><Text style={{fontSize:15,color:'white'}}>搜索</Text></TouchableOpacity>
           </View>
           <View style={{width:width*0.95,height:height*0.1,marginTop:"5%",}}>
               <Text style={{fontSize:15,fontWeight:"bold"}}>推荐搜索</Text>

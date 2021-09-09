@@ -369,11 +369,11 @@ export default class Clothe extends Component {
                             <Text style={{ fontSize: 13, fontWeight: 'bold', textAlign: 'center', color: '#333' }}>预计3-4天制作完成</Text>
                             <View style={{ flex: 1, flexDirection: 'row', width: '90%', justifyContent: 'center', marginLeft: '5%', marginTop: height * 0.015, }}>
                                 <View style={{ flexDirection: 'row' }}>
-                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.back2, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center', height: height * 0.05 }}
+                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.mainColor, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center', height: height * 0.05 }}
                                         onPress={() => this.insert_shopcart()}>
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>加入购物车</Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.back2, borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center', height: height * 0.05 }}
+                                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.mainColor, borderTopRightRadius: 20, borderBottomRightRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center', height: height * 0.05 }}
                                         onPress={() => this.props.navigation.navigate('Zhifu', { price: 39, name: "定制物品", jieshao: '......', pic: [this.state.shoturi] })}>
                                         <Text style={{ fontSize: 15, color: 'white', fontWeight: 'bold', padding: 5 }}>立即购买</Text>
                                     </TouchableOpacity>

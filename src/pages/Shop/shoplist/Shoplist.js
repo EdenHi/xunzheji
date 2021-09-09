@@ -23,8 +23,8 @@ export default class Shoplist extends Component {
                 <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
                 <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
                     <View style={{flexDirection:'row',alignItems:'baseline'}}>
-                        <Text style={{color:global.back2,fontSize:15}}>￥</Text>
-                        <Text style={{color:global.back2,fontSize:15}}>{item.price}</Text>
+                        <Text style={{color:global.mainColor,fontSize:15}}>￥</Text>
+                        <Text style={{color:global.mainColor,fontSize:15}}>{item.price}</Text>
                     </View>
                     <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
                 </View>
@@ -41,7 +41,7 @@ export default class Shoplist extends Component {
         console.log('123',this.props.route.params.shops);
         return (
             <View style={{flex:1}}>
-                <LinearGradient style={{width:width,height:"100%"}} colors={[global.back2,"#fff"]} >
+                <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff"]} >
                     {/* 标题 */}
                     <View style={{
                         height: height*0.07,

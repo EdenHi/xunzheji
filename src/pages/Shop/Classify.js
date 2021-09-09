@@ -11,29 +11,43 @@ import {
     Animated,
     Surface,
     styleDict,
-    Dimensions
+    Dimensions,
+    Modal
 } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient'
 const { height, width } = Dimensions.get('window');
 import list from './shoplist/shoplist.json';
+import Feather from 'react-native-vector-icons/Feather';
+
 
 export default class Classify extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            open:false
+        }
     }
+
+go_page(v){
+    let scrollview = this.refs.scrollview;
+    scrollview.scrollTo({y:v})
+    this.setState({open:false})
+}
+
     render() {
         const { navigation } = this.props;
+        const {open} = this.state
         return (
             <View style={{ flex: 1 }}>
-
+                
                 <View style={{
                     height:height*0.07,
                 
                     alignItems: "center",
                     flexDirection: 'row',
-                    backgroundColor: global.back2
+                    backgroundColor: global.mainColor
                 }}>
                     <TouchableOpacity
                         activeOpacity={0.8}
@@ -55,8 +69,14 @@ export default class Classify extends React.Component {
                             // marginLeft: "2%"
                         }}>老字号</Text>
                     </View>
+
+                    <Feather name="menu" size={25} color="#fff" style={{ marginLeft:width*0.6 }} onPress={()=>this.setState({open:!open})} />
+                    
                 </View>
-                <ScrollView style={{}}>
+                
+                    <ScrollView style={{backgroundColor:'#fff'}}
+                    ref='scrollview'
+                    >
                     <View style={{
                         width: "100%",
                         alignItems: "center",
@@ -701,13 +721,33 @@ export default class Classify extends React.Component {
                     </View>
                     <Text style={{ textAlign: "center", marginTop: 20, marginBottom: 10, color: "#333333" }}>—————————————到底啦—————————————</Text>
                 </ScrollView>
+           
+                <Modal
+                transparent={true}
+                visible={open}
+                onRequestClose={() => {
+                  this.setState({open:!open});
+                }}>
+                    <TouchableOpacity style={{flex:1,alignItems:'flex-end',marginTop:height*0.06,borderRadius:10,marginRight:15}} activeOpacity={1} onPress={()=>this.setState({open:!open})}>
+                        <View style={{backgroundColor:'#000',width:width*0.2,borderRadius:10,alignItems:'center'}}>
+                            <Text style={styles.box} onPress={()=>this.go_page(280)}>美食</Text>
+                            <Text style={styles.box} onPress={()=>this.go_page(976)}>制造</Text>
+                            <Text style={styles.box} onPress={()=>this.go_page(1670)}>工美</Text>
+                            <Text style={[styles.box,{marginBottom:10}]} onPress={()=>this.go_page(2363)}>茶酒</Text>
+                        </View>
+                    </TouchableOpacity>
+                </Modal>
+           
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-
+    box:{
+        marginTop:10,
+        color:'#fff'
+    }
 
 
 });

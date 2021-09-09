@@ -36,7 +36,7 @@ export default class Home extends Component {
             modalVisible: false,
             currentPage: 0,
             activeIndex: 0,
-            f:1,
+            f: 1,
             carouselItems: [
                 {
                     img: "http://47.100.78.254:3000/public/images/a.png",
@@ -78,7 +78,7 @@ export default class Home extends Component {
                 height: 200,
                 width: "90%",
                 elevation: 5,
-                backgroundColor: "#fff"
+                backgroundColor: global.backColor
             }} activeOpacity={1} onPress={() => {
 
                 this.roadJump(index - 3)
@@ -115,16 +115,16 @@ export default class Home extends Component {
         }).start();
 
         this.get_shuju();
-        this.listener = DeviceEventEmitter.addListener('yanse',this.f.bind(this))
+        this.listener = DeviceEventEmitter.addListener('yanse', this.f.bind(this))
     }
 
-    f(){
-        this.setState({f:this.state.f+1})
+    f() {
+        this.setState({ f: this.state.f + 1 })
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.listener.remove();
-        }
+    }
 
     _onScroll(e) {
         const offsetY = e.nativeEvent.contentOffset.y;
@@ -148,7 +148,7 @@ export default class Home extends Component {
         const { modalVisible } = this.state;
         return (
             <View style={{ alignItems: 'center', }}>
-                <LinearGradient style={{ width }} colors={[global.back2, '#fff', '#fff']} >
+                <LinearGradient style={{ width }} colors={[global.mainColor, global.backColor, global.backColor]} >
                     <View style={{ height: height * 0.08, width: width, flexDirection: "row", alignItems: "center", borderBottomLeftRadius: 15, borderBottomRightRadius: 15 }}>
                         <Image source={require("../../img/logo.png")} style={{ width: width * 0.5, height: height * 0.25, marginLeft: -width * 0.05 }}>
                         </Image>
@@ -165,23 +165,23 @@ export default class Home extends Component {
                             //     }
                             // }
                             renderScrollComponent={(props) => {
-                                return <ScrollView style={{ backgroundColorL: "#fff" }}  {...props} />
+                                return <ScrollView style={{ backgroundColorL: global.backColor }}  {...props} />
                             }}
                             showsVerticalScrollIndicator={false}>
                             <View style={{ width: width * 0.95 }}>
                                 <View style={{ marginBottom: -5, width: width, height: height * 0.22 }}>
-                                    <ShiCha2  navigation={this.props.navigation} />
+                                    <ShiCha2 navigation={this.props.navigation} />
                                     {/* <ShiCha  navigation={this.props.navigation} /> */}
                                 </View>
-                                <View style={{ height: 220, backgroundColor: 'white', borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
+                                <View style={{ height: 220, backgroundColor: global.backColor, borderRadius: 10, marginTop: 10, justifyContent: 'center' }} >
                                     <View>
                                         <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
-                                            <View style={{ backgroundColor: global.back2, width: 3, height: 29, marginLeft: 10 }} />
+                                            <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
                                             <View style={{ marginLeft: 10, width: width * 0.75 }}>
-                                                <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.back2 }}>浙商历史推荐</Text>
-                                                <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.back2 }}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
+                                                <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>浙商历史推荐</Text>
+                                                <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>ZHEJIANG MERCHANTS HISTORY RECOMMENDATION</Text>
                                             </View>
-                                            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor }}>
                                                 <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                             </TouchableOpacity>
                                         </TouchableOpacity>
@@ -197,9 +197,9 @@ export default class Home extends Component {
                                                                 <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff', marginTop: height * 0.015 }}>浙江商帮的崛起</Text></View>
                                                                 <View style={{ flex: 1 }}>
                                                                     <View style={{ flexDirection: 'row' }}>
-                                                                        <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>宁波商帮</Text></View></TouchableOpacity>
-                                                                        <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>龙游商帮</Text></View></TouchableOpacity>
-                                                                        <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>南浔商帮</Text></View></TouchableOpacity>
+                                                                        <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>宁波商帮</Text></View></TouchableOpacity>
+                                                                        <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>龙游商帮</Text></View></TouchableOpacity>
+                                                                        <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>南浔商帮</Text></View></TouchableOpacity>
                                                                     </View>
                                                                 </View>
                                                             </View>
@@ -212,9 +212,9 @@ export default class Home extends Component {
                                                         <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff', marginTop: height * 0.015 }}>“浙商人”在非洲</Text></View>
                                                         <View style={{ flex: 1 }}>
                                                             <View style={{ flexDirection: 'row' }}>
-                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>浙江商人</Text></View></TouchableOpacity>
-                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>尼日利亚</Text></View></TouchableOpacity>
-                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>非洲</Text></View></TouchableOpacity>
+                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>浙江商人</Text></View></TouchableOpacity>
+                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>尼日利亚</Text></View></TouchableOpacity>
+                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>非洲</Text></View></TouchableOpacity>
                                                             </View>
                                                         </View>
                                                     </TouchableOpacity>
@@ -225,8 +225,8 @@ export default class Home extends Component {
                                                         <View style={{ flex: 2 }}><Text style={{ fontSize: 18, fontWeight: 'bold', color: '#fff', marginTop: height * 0.015 }}>浙江“优秀建设者”</Text></View>
                                                         <View style={{ flex: 1 }}>
                                                             <View style={{ flexDirection: 'row' }}>
-                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>浙商观察</Text></View></TouchableOpacity>
-                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: "#fff" }}>浙江</Text></View></TouchableOpacity>
+                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>浙商观察</Text></View></TouchableOpacity>
+                                                                <TouchableOpacity activeOpacity={1}><View style={styles.Comment}><Text style={{ fontSize: 12, color: global.backColor }}>浙江</Text></View></TouchableOpacity>
                                                                 {/* <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: '#ffffff', width: 55, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>非洲</Text></View></TouchableOpacity> */}
                                                             </View>
                                                         </View>
@@ -236,14 +236,14 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                                <View style={{ height: 230, backgroundColor: 'white', borderRadius: 10, marginTop: 10 }} >
+                                <View style={{ height: 230, backgroundColor: global.backColor, borderRadius: 10, marginTop: 10 }} >
                                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
-                                        <View style={{ backgroundColor: global.back2, width: 3, height: 29, marginLeft: 10 }} />
+                                        <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.75 }}>
-                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.back2 }}>浙商必知丛书</Text>
-                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.back2 }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>浙商必知丛书</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                         </View>
-                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
+                                        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor, }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
@@ -257,9 +257,9 @@ export default class Home extends Component {
                                         </ScrollView> */}
                                     </View>
                                 </View>
-                                <View style={{ height: height * 0.35, backgroundColor: '#fff', marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
+                                <View style={{ height: height * 0.35, backgroundColor: global.backColor, marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, marginLeft: 10 }}>
-                                        <View style={{ backgroundColor: global.back2, width: 3, height: 29 }} />
+                                        <View style={{ backgroundColor: global.mainColor, width: 3, height: 29 }} />
                                         <View style={{ width: width * 0.75, marginRight: 10 }}>
                                             <Text onPress={() => {
 
@@ -277,17 +277,17 @@ export default class Home extends Component {
                                                     road9: this.state.road9,
                                                     road10: this.state.road10
                                                 })
-                                            }} style={{ marginLeft: 10, fontSize: 16, fontWeight: 'bold', color: global.back2 }}
+                                            }} style={{ marginLeft: 10, fontSize: 16, fontWeight: 'bold', color: global.mainColor }}
 
                                             >重走鸡毛换糖之路</Text>
-                                            <Text style={{ marginLeft: 10, fontSize: 9, fontWeight: 'bold', color: global.back2 }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
+                                            <Text style={{ marginLeft: 10, fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>TAKE THE ROAD OF CHICKEN FEATHER FOR SUGAR AGAIN</Text>
                                         </View>
-                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: global.back2 }}>
-                                            <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: global.back2 }} name="doubleright" size={25} color="#000000" />
+                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '30%', color: global.mainColor }}>
+                                            <AntDesign onPress={()=>{this.props.navigation.navigate('Road')}} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: global.mainColor }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity> */}
                                         <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Road', {
                                             username: this.state.username,
-                                        })} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
+                                        })} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </View>
@@ -351,14 +351,14 @@ export default class Home extends Component {
                                         </Swiper> */}
                                     {/* </View> */}
                                 </View>
-                                <View style={{ height: height * 0.3, backgroundColor: 'white', borderRadius: 10, marginTop: 10, marginBottom: 15 }} >
+                                <View style={{ height: height * 0.3, backgroundColor: global.backColor, borderRadius: 10, marginTop: 10, marginBottom: 15 }} >
                                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
-                                        <View style={{ backgroundColor: global.back2, width: 3, height: 29, marginLeft: 10 }} />
+                                        <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.75 }}>
-                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.back2 }}>云游浙商</Text>
-                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.back2 }}>TRAVELING ZHEJIANG ERCHANTS</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>云游浙商</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>TRAVELING ZHEJIANG ERCHANTS</Text>
                                         </View>
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('vr')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
@@ -377,17 +377,17 @@ export default class Home extends Component {
                         <Card navigation={this.props.navigation} />
                         <Card navigation={this.props.navigation} />
                     </ScrollView> */}
-                                <View style={{ height: height * 0.5, backgroundColor: "#fff", borderRadius: 10, marginBottom: height * 0.05 }}>
+                                <View style={{ height: height * 0.5, backgroundColor:global.backColor, borderRadius: 10, marginBottom: height * 0.05 }}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
-                                        <View style={{ backgroundColor: global.back2, width: 3, height: 29, marginLeft: 10 }} />
+                                        <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.75 }}>
-                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.back2 }}>商帮介绍</Text>
-                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.back2 }}>INTRODUCION TO SHANGBANG</Text>
+                                            <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>商帮介绍</Text>
+                                            <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>INTRODUCION TO SHANGBANG</Text>
                                         </View>
-                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: global.back2 }}>
-                                            <AntDesign onPress={() => this.props.navigation.navigate('Business')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: global.back2 }} name="doubleright" size={25} color="#000000" />
+                                        {/* <TouchableOpacity activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, marginLeft: '35%', color: global.mainColor }}>
+                                            <AntDesign onPress={() => this.props.navigation.navigate('Business')} style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', color: global.mainColor }} name="doubleright" size={25} color="#000000" />
                                         </TouchableOpacity> */}
-                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.back2 }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor }}>
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
@@ -400,27 +400,27 @@ export default class Home extends Component {
 
 
                                         {/* <View style={{ flexDirection: 'row', height: 60, alignItems: 'center', justifyContent: 'center' }}>
-                                            <Text style={{ borderColor: global.back2, height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>
-                                            <Text style={{ borderColor: global.back2, height: 30, fontSize: 10 }}>杭州出台14项政策大力度吸引浙商回归</Text>
+                                            <Text style={{ borderColor: global.mainColor, height: 30, width: 60, fontSize: 12 }}>浙财视点</Text>
+                                            <Text style={{ borderColor: global.mainColor, height: 30, fontSize: 10 }}>杭州出台14项政策大力度吸引浙商回归</Text>
                                         </View> */}
                                         {/* <View style={{height:180,width:width*0.9,marginTop:10,borderRadius:10}}>
                             <Swiper showsPagination={false} horizontal={false} autoplay autoplayTimeout={5} >
                              <View style={{flex:1,height:180,width:width*0.9,borderRadius:10,justifyContent:"space-around",alignItems:"center"}}>
                                      <TouchableOpacity onPress={()=>this.props.navigation.navigate("News")}>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
-                                         <View style={{height:30,width:width*0.2,backgroundColor:global.back2,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
+                                         <View style={{height:30,width:width*0.2,backgroundColor:global.mainColor,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>
                                      </View>
                                      </TouchableOpacity>
                                      <TouchableOpacity>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
-                                         <View style={{height:30,width:width*0.2,backgroundColor:global.back2,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
+                                         <View style={{height:30,width:width*0.2,backgroundColor:global.mainColor,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>
                                      </View>
                                      </TouchableOpacity>
                                      <TouchableOpacity>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
-                                         <View style={{height:30,width:width*0.2,backgroundColor:global.back2,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
+                                         <View style={{height:30,width:width*0.2,backgroundColor:global.mainColor,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>
                                      </View>
                                      </TouchableOpacity>
@@ -428,19 +428,19 @@ export default class Home extends Component {
                              <View style={{flex:1,height:180,width:width*0.9,borderRadius:10,justifyContent:"space-around",alignItems:"center"}}>
                                      <TouchableOpacity>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
-                                         <View style={{height:30,width:width*0.2,backgroundColor:global.back2,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
+                                         <View style={{height:30,width:width*0.2,backgroundColor:global.mainColor,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>
                                      </View>
                                      </TouchableOpacity>
                                      <TouchableOpacity>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
-                                         <View style={{height:30,width:width*0.2,backgroundColor:global.back2,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
+                                         <View style={{height:30,width:width*0.2,backgroundColor:global.mainColor,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>
                                      </View>
                                      </TouchableOpacity>
                                      <TouchableOpacity>
                                      <View style={{flexDirection:"row",alignItems:"center",backgroundColor:"white",elevation:5,width:width*0.9,height:50,borderRadius:10}}>
-                                         <View style={{height:30,width:width*0.2,backgroundColor:global.back2,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
+                                         <View style={{height:30,width:width*0.2,backgroundColor:global.mainColor,borderRadius:5,justifyContent:"center",alignItems:"center",marginLeft:10}}><Text style={{fontSize:13}}>浙财视点</Text></View>
                                          <Text style={{fontSize:13,marginLeft:15}}>杭州出台14项政策大力度吸引浙商回归</Text>
                                      </View>
                                      </TouchableOpacity>
@@ -535,7 +535,7 @@ const styles = StyleSheet.create({
     Comment: {
         borderRadius: 5,
         marginRight: 5,
-        backgroundColor: global.back2,
+        backgroundColor: global.mainColor,
         width: 55,
         alignItems: 'center',
         elevation: 5,

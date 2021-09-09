@@ -12,8 +12,8 @@ export default class JieShao extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient colors={[global.back2, "#fff", "#fff"]}>
-                    <View style={{ }}>
+                <LinearGradient colors={[global.mainColor, "#fff", "#fff"]}>
+                    <View style={{ marginHorizontal: width * 0.05, alignItems: "center" }}>
                         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center", }}>
                             <TouchableOpacity activeOpacity={1} style={{width:width*0.06}} onPress={() => this.props.navigation.goBack()}>
                             <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />

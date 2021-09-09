@@ -162,7 +162,7 @@ export default class huati extends Component {
         return (
             <View style={{ width, height: height * 0.93, alignItems: 'center', justifyContent: "center",  backgroundColor: "#fff" }}>
                 <Image style={{ width: width * 0.5, height: width * 0.5 }} source={require("../nothingpic/暂无消息.png")}></Image>
-                <Text style={{ color: global.back2, fontSize: 15, }}>暂无讨论</Text>
+                <Text style={{ color: global.mainColor, fontSize: 15, }}>暂无讨论</Text>
             </View>
         )
     }
@@ -275,7 +275,7 @@ export default class huati extends Component {
                     </View>
 
                     {/* tag标签 */}
-                    <View style={item.tag === '' ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row', marginTop: 10, alignItems: 'center',elevation:5, backgroundColor: global.back2, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={item.tag === '' ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row', marginTop: 10, alignItems: 'center',elevation:5, backgroundColor: global.mainColor, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center' }}>
                         <Fontisto name='hashtag' color='#fff' />
                         <Text style={{ paddingTop: 5, paddingBottom: 5, color: "#fff" }}>{item.tag}</Text>
                     </View>
@@ -329,7 +329,7 @@ export default class huati extends Component {
         return (
             <View style={{ backgroundColor: "#fff" }}>
                 {/* 顶部标题栏 */}
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, backgroundColor: global.back2 }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, backgroundColor: global.mainColor }}>
                     <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
                     <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                        

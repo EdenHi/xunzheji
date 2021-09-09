@@ -148,7 +148,7 @@ export default class Exchange2 extends Component {
     render() {
         return (
             <View style={{backgroundColor:'white',flex:1}}>
-                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center",backgroundColor:global.back2 }}>
+                <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center",backgroundColor:global.mainColor }}>
                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
                         <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                     </TouchableOpacity>
@@ -159,16 +159,16 @@ export default class Exchange2 extends Component {
                             <TextInput
                             maxLength={15}
                             placeholder='物品/服务/技能名称(最多15字)'
-                            style={{borderWidth:1,bordercolor:global.back2,width:width * 0.9,paddingLeft:10,borderRadius:10}}
+                            style={{borderWidth:1,bordercolor:global.mainColor,width:width * 0.9,paddingLeft:10,borderRadius:10}}
                             onChangeText={(wupin)=>this.setState({wupin})}
                             />
                             <TextInput
                             maxLength={15}
                             placeholder='需要的物品/服务/技能名称(最多15字)'
-                            style={{borderWidth:1,bordercolor:global.back2,width:width * 0.9,paddingLeft:10,marginTop:10,borderRadius:10}}
+                            style={{borderWidth:1,bordercolor:global.mainColor,width:width * 0.9,paddingLeft:10,marginTop:10,borderRadius:10}}
                             onChangeText={(exchang_wupin)=>this.setState({exchang_wupin})}
                             />
-                            <View style={{borderWidth:1,bordercolor:global.back2,width:width * 0.9,marginTop:width * 0.05,height:300,borderRadius:10}}>
+                            <View style={{borderWidth:1,bordercolor:global.mainColor,width:width * 0.9,marginTop:width * 0.05,height:300,borderRadius:10}}>
                                 <TextInput
                                 maxLength={1500}
                                 placeholder='你的 物品/服务/技能 背后的故事，背后的酸甜苦辣，欢迎和我们分享'

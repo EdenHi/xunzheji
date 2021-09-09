@@ -210,7 +210,7 @@ export default class Output2 extends Component {
     if(this.state.data.length>0){
       return (
         <View style={styles.container}>
-          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:global.back2,}}>
+          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:global.mainColor,}}>
                       <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
                       <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                           {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
@@ -234,7 +234,7 @@ export default class Output2 extends Component {
                   circleColor='#fedc61'
                 lineColor='#fedc61'
                 timeContainerStyle={{ minWidth: 52 }}
-                timeStyle={{ textAlign: 'center', backgroundColor: global.back2, color: 'white', padding: 5, borderRadius: 13 }}
+                timeStyle={{ textAlign: 'center', backgroundColor: global.mainColor, color: 'white', padding: 5, borderRadius: 13 }}
                 descriptionStyle={{ color: 'gray' }}
                 options={{
                   style: { paddingTop: 5 }
@@ -249,7 +249,7 @@ export default class Output2 extends Component {
       );}else{
         return(
           <View style={styles.container}>
-            <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:global.back2,}}>
+            <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07,backgroundColor:global.mainColor,}}>
                 <TouchableOpacity activeOpacity={1} style={{width:width*0.06,marginLeft:width*0.05}}>
                 <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                     {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
@@ -261,7 +261,7 @@ export default class Output2 extends Component {
             </View>
             <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:"#fff"}}>
                   <Image style={{width:width*0.5,height:width*0.5}} source={require("../../nothingpic/暂无消息.png")}></Image>
-                  <Text style={{color:global.back2,fontSize:15,}}>暂无发布</Text>
+                  <Text style={{color:global.mainColor,fontSize:15,}}>暂无发布</Text>
               </View>
               
           </View>
