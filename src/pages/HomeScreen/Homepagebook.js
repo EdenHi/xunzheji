@@ -211,7 +211,7 @@ export default class Homepagebook extends Component {
     }
     _renderItem({ item, index }) {
         return (
-            <View style={{ width:width*0.8,flexDirection: "row", marginLeft: -20, backgroundColor: "#fff", elevation: 5,bottom:5,borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:global.mainColor }} >
+            <View style={{ width:width*0.8,flexDirection: "row", marginLeft: -20, backgroundColor: global.backColor, elevation: 5,bottom:5,borderRadius: 10, marginBottom: 5, marginTop: 5, alignItems: "center", height: width * 0.45,borderWidth:1,borderColor:global.mainColor }} >
                 <TouchableOpacity activeOpacity={1} onPress={() => this.page(index)}>
                     <ImageBackground borderRadius={10} style={{ width: width * 0.35, height: width * 0.4, marginLeft: 10 }} resizeMode="stretch" source={{ uri: item.img }}>
                         <Text style={{ flexWrap: "wrap", width: 15, marginLeft: 10, fontWeight: "bold", marginTop: 10,color:"#333" }}>{item.title}</Text>
