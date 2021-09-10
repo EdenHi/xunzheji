@@ -505,14 +505,14 @@ export default class Comment extends React.Component {
                                                                     <TouchableOpacity activeOpacity={1} onPress={() => this.putong_dianzan(k)}>
                                                                         <Ionicons
                                                                             name={this.state.dianzan[k] === '0' ? "heart-outline" : "heart"}
-                                                                            size={15}
-                                                                            color={this.state.dianzan[k] === '0' ? "black" : "red"} />
+                                                                            size={20}
+                                                                            color={this.state.dianzan[k] === '0' ? "#999" : "red"} />
                                                                     </TouchableOpacity>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginLeft: 10 }} onPress={() => this.goComment(v)}>
                                                                         <Ionicons
                                                                             name="chatbubble-ellipses-outline"
-                                                                            size={15}
-                                                                            color="black" />
+                                                                            size={20}
+                                                                            color="#999" />
                                                                     </TouchableOpacity>
                                                                 </View>
                                                                 <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
@@ -538,15 +538,15 @@ export default class Comment extends React.Component {
                                                                     <TouchableOpacity activeOpacity={1} onPress={() => this.putong_dianzan(k)}>
                                                                         <Ionicons
                                                                             name={this.state.dianzan[k] === '0' ? "heart-outline" : "heart"}
-                                                                            size={15}
-                                                                            color={this.state.dianzan[k] === '0' ? "black" : "red"} />
+                                                                            size={20}
+                                                                            color={this.state.dianzan[k] === '0' ? "#999" : "red"} />
                                                                     </TouchableOpacity>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginLeft: 10 }}
                                                                         onPress={() => this.goComment(v)} >
                                                                         <Ionicons
                                                                             name="chatbubble-ellipses-outline"
-                                                                            size={15}
-                                                                            color="black" />
+                                                                            size={20}
+                                                                            color="#999" />
                                                                     </TouchableOpacity>
                                                                 </View>
                                                                 <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
@@ -696,14 +696,14 @@ export default class Comment extends React.Component {
                                                                     <TouchableOpacity activeOpacity={1} onPress={() => this.setState({ heart: !this.state.heart })}>
                                                                         <Ionicons
                                                                             name={this.state.heart === false ? "heart-outline" : "heart"}
-                                                                            size={15}
-                                                                            color={this.state.heart === false ? "black" : "red"} />
+                                                                            size={20}
+                                                                            color={this.state.heart === false ? "#999" : "red"} />
                                                                     </TouchableOpacity>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginLeft: 10 }} onPress={() => this.goComment(v)}>
                                                                         <Ionicons
                                                                             name="chatbubble-ellipses-outline"
-                                                                            size={15}
-                                                                            color="black" />
+                                                                            size={20}
+                                                                            color="#999" />
                                                                     </TouchableOpacity>
                                                                 </View>
                                                                 <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
@@ -715,7 +715,7 @@ export default class Comment extends React.Component {
                                         );
                                     } else {
                                         return (
-                                            <View style={{ marginTop: 10, width: width * 0.9, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15 }}>
+                                            <View style={{ marginTop: 10, width: width * 0.9,elevation:5, backgroundColor: "#fff", marginLeft: width * 0.05, borderRadius: 15 }}>
                                                 <View key={k} >
                                                     <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10, marginLeft: width * 0.025, width: width * 0.85, }}>
                                                         <TouchableOpacity activeOpacity={1}>
@@ -729,15 +729,15 @@ export default class Comment extends React.Component {
                                                                     <TouchableOpacity activeOpacity={1} onPress={() => this.setState({ heart: !this.state.heart })}>
                                                                         <Ionicons
                                                                             name={this.state.heart === false ? "heart-outline" : "heart"}
-                                                                            size={15}
-                                                                            color={this.state.heart === false ? "black" : "red"} />
+                                                                            size={20}
+                                                                            color={this.state.heart === false ? "#999" : "red"} />
                                                                     </TouchableOpacity>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginLeft: 10 }}
                                                                         onPress={() => this.goComment(v)}>
                                                                         <Ionicons
                                                                             name="chatbubble-ellipses-outline"
-                                                                            size={15}
-                                                                            color="black" />
+                                                                            size={20}
+                                                                            color="#999" />
                                                                     </TouchableOpacity>
                                                                 </View>
                                                                 <Text style={{ color: '#aaa', marginRight: width * 0.2 }}>{time}</Text>
@@ -828,7 +828,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         height: height * 0.08,
-        backgroundColor: '#dcdcdc',
+        // backgroundColor: '#dcdcdc',
         elevation: 5,
 
         width: width,

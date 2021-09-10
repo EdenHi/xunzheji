@@ -13,6 +13,7 @@ import {
   DeviceEventEmitter,
   Easing,
 } from 'react-native'
+import Feather from 'react-native-vector-icons/Feather';
 import { BlurView } from "@react-native-community/blur";
 import FlipCard from 'react-native-flip-card';
 import Swiper from 'react-native-swiper'
@@ -103,9 +104,11 @@ export default class Swop extends Component {
         onFlipEnd={(isFlipEnd) => { console.log('isFlipEnd', isFlipEnd) }}
       >
         <View style={{ marginHorizontal: width * 0.05, marginVertical: height * 0.15 }} key={index}>
-          <View style={{  zIndex: 5, position: "absolute", marginTop: height * 0.03,flexDirection:'row' }}>
-              <Text style={{marginLeft:'10%',fontSize:18,fontWeight:'bold'}}>{item.tag}</Text>
-            <LottieView style={{ width: 60, height: 40, marginLeft: '55%' }} source={require('../../../../animal/qwe.json')} autoPlay loop progress={this.state.progress} />
+          <View style={{  zIndex: 5, position: "absolute", marginTop: height * 0.03,flexDirection:'row',justifyContent:"space-around" }}>
+            <View style={{width:50,height:height*0.05,backgroundColor:"#7cc0c0",marginLeft:width*0.05,borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+              <Text style={{fontSize:15,fontWeight:'bold',color:"#fff"}}>{item.tag}</Text>
+       </View>
+        <LottieView style={{ width: 60, height: 40, marginLeft: '50%' }} source={require('../../../../animal/qwe.json')} autoPlay loop progress={this.state.progress} />
           </View>
           <ImageBackground imageStyle={{ borderRadius: 15 }} style={{ width: width * 0.9, height: height * 0.6,alignItems: "center", justifyContent: "center" }} source={{ uri: this.state.imgUrl }} >
             <View style={{ backgroundColor: "rgba(255,255,255,0.8)", width: width * 0.7, height: height * 0.25,borderRadius:15,
@@ -119,7 +122,7 @@ export default class Swop extends Component {
               </View>
               <View style={{width:"100%",height:"20%",alignItems:"center",justifyContent:"center",flexDirection:"row",backgroundColor:"rgba(124,192,192,0.5)"}}>
                   <Text style={{fontSize:18,color:"#333333",position:"absolute"}}>{item.nickname}</Text>
-                  <View style={{width:width*0.15,height:height*0.03,backgroundColor:"#fff",alignItems:"center",justifyContent:"center",borderRadius:15,marginLeft:width*0.5,elevation:5}}><Text style={{fontSize:13,color:"#333333"}}>{item.renzheng}</Text></View>
+                  <View style={{width:width*0.15,height:height*0.03,backgroundColor:"#fff",alignItems:"center",justifyContent:"center",borderRadius:15,marginLeft:width*0.5,elevation:5}}><Text style={{fontSize:13,color:"#7cc0c0"}}>{item.renzheng}</Text></View>
               </View>
               <View style={{ alignItems: "center", justifyContent: "center",width:"100%",height:"55%",}}>
                 <Text style={{ fontSize: 16, color: global.mainColor }}>交换的物品：</Text>
@@ -144,11 +147,19 @@ export default class Swop extends Component {
             <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[2] }} />
             <Image style={{ width: width * 0.4, height: height * 0.2, borderRadius: 10 }} resizeMode="stretch" source={{ uri: item.pic[3] }} />
           </View>
-          <View style={{flexDirection:'row', marginTop: 15}}>
-            <Text onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{marginLeft:'10%',fontWeight: "bold", fontSize: 15, color: global.mainColor,marginTop:5}}>聊天</Text>
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Exchange_want',item)} style={{ flexDirection: "row", width: width * 0.2, height: 50, alignItems: "center", marginLeft: "55%" }} >
-              <View style={{ width: 50, height: 40 }}><Text style={{ fontWeight: "bold", fontSize: 15, color: global.mainColor }}>我想要</Text></View>
-              <LottieView style={{ width: 60, height: 40 }} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+          <View style={{flexDirection:'row', marginTop: 15,justifyContent:"space-around",width:"100%",height:height*0.05,alignItems:"center"}}>
+         <TouchableOpacity activeOpacity={1} onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{fontWeight: "bold", fontSize: 15, backgroundColor:"#fff",padding:10,borderRadius:10,elevation:5,alignItems:"center",justifyContent:"center"}}>
+         <Feather 
+                                    name="mail"
+                                    size={20}
+                                    color={global.mainColor}
+                                />
+         </TouchableOpacity>
+          
+            {/* <Text onPress={()=>{ this.props.navigation.navigate('Chats', { room: '2' }) }} style={{fontWeight: "bold", fontSize: 15, color: global.mainColor,backgroundColor:"#fff",padding:10,borderRadius:10,elevation:5}}>聊天</Text> */}
+            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Exchange_want',item)} style={{ flexDirection: "row",backgroundColor:"#fff",padding:10,borderRadius:10,elevation:5,width:width*0.5,alignItems:"center",justifyContent:"center"}} >
+              <View style={{ }}><Text style={{ fontWeight: "bold", fontSize: 15, color: global.mainColor }}>我想要</Text></View>
+              <LottieView style={{width:width*0.06}} source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </View>
         </View>

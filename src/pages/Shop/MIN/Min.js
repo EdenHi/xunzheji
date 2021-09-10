@@ -100,13 +100,13 @@ export default class Min extends Component {
 
         return (
             <View>
-                <View style={{ flexDirection: "row", marginLeft: -30 }} >
+                <View style={{ flexDirection: "row", marginLeft: -15 }} >
                     <TouchableOpacity activeOpacity={1} onPress={() => this.page(index)}>
                         <ImageBackground borderRadius={10} style={{ width: width * 0.6, height: height * 0.45 }} source={{ uri: item.img }}>
                             <Text style={{ flexWrap: "wrap", width: 15, marginLeft: 10, fontWeight: "bold", marginTop: 10 ,color:"#7cc0c0"}}>{item.title}</Text>
                         </ImageBackground>
                     </TouchableOpacity>
-                    <View style={{ justifyContent: "center", marginLeft: 10, }}>
+                    <View style={{ justifyContent: "center", marginLeft: 20, }}>
 
                         <TouchableOpacity activeOpacity={1} onPress={() => this.go_page(index)} >
                             <View style={{ marginBottom: 10 }}>
