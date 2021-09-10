@@ -8,6 +8,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import {NavigationContext} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import IconFont from "../../iconfont";
 // import global from "../../utils/global";
 const {height,width} = Dimensions.get('window');
@@ -191,13 +192,9 @@ console.log(this.props.route.params);
                        <TouchableOpacity style={{marginLeft:width*0.05}}
                        onPress={() => this.props.navigation.goBack()}
                            >
-                           <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-                               name="left"
-                               size={20}
-                               color="black"
-                               />
+                           <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                        </TouchableOpacity>
-                       <Text style={{fontSize:15,fontWeight:"bold",marginLeft:"2%",color:"#333333"}}>确认订单</Text>
+                       <Text style={{fontSize:18,fontWeight:"bold",marginLeft:"2%",color:"#fff"}}>确认订单</Text>
                    </View>
                 <ScrollView >
                     {/* 收货地址 */}

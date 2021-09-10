@@ -1,20 +1,16 @@
-import { BlurView } from '@react-native-community/blur'
+
 import React, { Component } from 'react'
 import { ScrollView, Dimensions, View, Text, TouchableOpacity, ImageBackground, Image, AsyncStorage, Easing, Animated, DeviceEventEmitter } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { NavigationContext } from '@react-navigation/native';
-import AwesomeAlert from 'react-native-awesome-alerts';
+
 import SideMenu from 'react-native-side-menu';
 import axios from 'axios';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-import Shoucang2 from './zhanshi2_geren/Shoucang2';
-import Dianzan2 from './zhanshi2_geren/Dianzan2';
-import Output2 from './zhanshi2_geren/Output2';
-import Goods2 from './zhanshi2_geren/Goods2';
-import LinearGradient from 'react-native-linear-gradient';
+
 import LottieView from 'lottie-react-native';
-import Foundation from 'react-native-vector-icons/Foundation'
+
 
 const { width, height } = Dimensions.get("window")
 
@@ -91,7 +87,7 @@ export default class Personal extends Component {
   menu() {
     const {isOpen} = this.state
     return (
-      <View style={{ backgroundColor: '#fff', flex: 1 }}>
+      <View style={{ backgroundColor: global.backColor, flex: 1 }}>
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
           <TouchableOpacity activeOpacity={1} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
@@ -202,7 +198,7 @@ export default class Personal extends Component {
             </TouchableOpacity>
             {/* <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})} /> */}
           </View>
-          <View style={{ width: width * 1, height: height * 0.87 }}>
+          <View style={{ width: width * 1, height: height * 0.87 ,backgroundColor:global.backColor}}>
             <ScrollView>
               <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
                 <View activeOpacity={1} style={{ width: width * 0.754,height: height * 0.354, borderWidth: 1, borderStyle: "dashed", borderColor: global.mainColor, borderRadius: 10, elevation: 5, }}>

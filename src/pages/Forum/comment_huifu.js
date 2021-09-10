@@ -295,15 +295,15 @@ const styles = StyleSheet.create({
         
     },
     txt2: {
-        backgroundColor: '#dcdcdc',
+        backgroundColor: '#f1f1f1',
         paddingLeft: 15,
-        paddingRight:15,
+        paddingRight: 15,
         width: '70%',
-        height:"60%",
+        height: 40,
         borderRadius: 30,
-        marginRight:0,
-        marginTop: 10 ,
-        marginBottom: 10 ,
-        marginLeft:"5%"
+        marginRight: 0,
+        marginTop: 10,
+        marginBottom: 10,
+        marginLeft: "5%"
     },
 });
