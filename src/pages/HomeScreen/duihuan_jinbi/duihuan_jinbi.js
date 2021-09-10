@@ -90,7 +90,7 @@ export default class duihuan_jinbi extends Component {
     renderItem = (itemData, itemIdx, itemContainer) => {
         return (
         <View style={{ width: itemContainer.width,  borderRadius: 10, elevation: 5,backgroundColor:'white'}}>
-            <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('duihuan_xiangqing',{jinbi:itemData.jinbi,price:itemData.price,name:itemData.name,pic:itemData.img,duihuan:itemData.duihuan,haveJinbi:this.state.data.jinbi})} >
+            <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('duihuan_xiangqing',{index:itemIdx,haveJinbi:this.state.data.jinbi})} >
                 <Image source={{uri:itemData.img}} resizeMode='stretch' borderRadius={20} style={{height:itemData.height,width:itemContainer.width-20,margin:10}}/>
                 <Text style={{fontWeight:'bold',width:itemContainer.width-20,marginLeft:10,color:"#333"}}
                     ellipsizeMode='tail'
