@@ -217,13 +217,12 @@ CreateChatRoom(){
               renderBackground={()=>(
                 <View key="background" />
               )}
-
               renderForeground={() => (
                 <View key="parallax-header" style={styles.parallaxHeader}>
                 <ImageBackground style={{ width: width, height: '100%',flexDirection:'column-reverse'}} source={{ uri:data.backpic }}>
                 <View style={{width:'100%',height:'60%',backgroundColor:'#fff',borderTopLeftRadius:15,borderTopRightRadius:15}}>
                     <View style={{width:'100%',height:'20%',flexDirection:'row-reverse',alignItems:'center'}}>
-                        <TouchableOpacity onPress={()=>{if (this.state.chatroom==0) {
+                        <TouchableOpacity activeOpacity={1} onPress={()=>{if (this.state.chatroom==0) {
                             this.CreateChatRoom()
 
                             
@@ -239,51 +238,51 @@ CreateChatRoom(){
                         
                         
                             
-                            <TouchableOpacity style={{width:'35%',height:'78%',backgroundColor:this.state.panduan_guanzhu === 1 ? 'white':global.mainColor,borderRadius:20,alignItems:'center',elevation:5,justifyContent:'center'}}
+                            <TouchableOpacity activeOpacity={1} style={{width:'35%',height:'78%',backgroundColor:this.state.panduan_guanzhu === 1 ? 'white':global.mainColor,borderRadius:20,alignItems:'center',elevation:5,justifyContent:'center'}}
                             onPress={()=>this.dianji_anniu()}>
-                            <Text style={{fontSize:15,color:this.state.panduan_guanzhu === 1 ? 'black' : '#fff'}}>{this.state.panduan_guanzhu === 1 ? '已关注' :'关注'}</Text>
+                            <Text style={{fontSize:15,color:this.state.panduan_guanzhu === 1 ? '#333' : '#fff'}}>{this.state.panduan_guanzhu === 1 ? '已关注' :'关注'}</Text>
                             </TouchableOpacity>
                         
                     
                     </View>
                     <View style={{width:'100%',height:'15%',alignItems:'center',flexDirection:'row'}}>
-                        <Text style={{marginLeft:'10%',fontSize:15}}>{data.nickname}</Text>
+                        <Text style={{marginLeft:'10%',fontSize:18,color:"#333"}}>{data.nickname}</Text>
 
                     </View>
                     <View style={{width:'100%',height:'10%',justifyContent:'center'}}>
-                        <Text style={{marginLeft:'10%',fontSize:13}}>{data.signature === '' ? '暂无个性签名' : data.signature }</Text>
+                        <Text style={{marginLeft:'10%',fontSize:13,color:"#333"}}>{data.signature === '' ? '暂无个性签名' : data.signature }</Text>
                     </View>
                     <View style={{width:'100%',height:'15%',flexDirection:'row',alignItems:'center'}}>
                      <View style={{width:'0%',height:'80%',alignItems:'center',justifyContent:'center',backgroundColor:'#fff',marginLeft:'10%',borderRadius:5}} />
                      <View style={{height:'80%',justifyContent:'center',backgroundColor:'#f1f1f1',borderRadius:5}}>
-                         <Text style={{fontSize:13,margin:3}}>{data.area}</Text>
+                         <Text style={{fontSize:13,margin:3,color:"#333"}}>{data.area}</Text>
                      </View>
                     </View>
                     <View style={{width:'100%',height:'30%',marginTop:'5%',flexDirection:'row',justifyContent:'space-around',alignItems:'center'}}>
                         <View style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}>
-                            <Text style={{fontSize:25}}>101 </Text>
-                            <Text style={{fontSize:15}}>获赞</Text>
+                            <Text style={{fontSize:25,color:"#333"}}>101 </Text>
+                            <Text style={{fontSize:15,color:"#333"}}>获赞</Text>
                         </View>
-                        <TouchableOpacity style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}
+                        <TouchableOpacity activeOpacity={1} style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}
                         onPress={()=>{this.props.navigation.push('fans',this.state.username)}}>
-                            <Text style={{fontSize:25}}>{data.fensi}</Text>
-                            <Text style={{fontSize:15}}>粉丝</Text>
+                            <Text style={{fontSize:25,color:"#333"}}>{data.fensi}</Text>
+                            <Text style={{fontSize:15,color:"#333"}}>粉丝</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}
+                        <TouchableOpacity activeOpacity={1} style={{width:'20%',height:'90%',alignItems:'center',justifyContent:'center'}}
                         onPress={()=>{this.props.navigation.push('Concerns',this.state.username)}}>
-                            <Text style={{fontSize:25}}>{data.guanzhu}</Text>
-                            <Text style={{fontSize:15}}>关注</Text>
+                            <Text style={{fontSize:25,color:"#333"}}>{data.guanzhu}</Text>
+                            <Text style={{fontSize:15,color:"#333"}}>关注</Text>
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Image style={{width:width*0.28,height:width*0.28,backgroundcolor:global.mainColor,position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:data.portrait}}/>
+                <Image style={{width:width*0.28,height:width*0.28,backgroundColor:global.mainColor,position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:data.portrait}}/>
                 </ImageBackground>
 
             </View>
                     )}
                     renderStickyHeader={()=>
                       <View key="sticky-header" style={styles.stickySection}>
-                      <Image style={{width:30,height:30,backgroundcolor:global.mainColor,marginLeft:'10%',borderRadius:50}} source={{uri:data.portrait}}/>
+                      <Image style={{width:30,height:30,backgroundColor:global.mainColor,marginLeft:'10%',borderRadius:50}} source={{uri:data.portrait}}/>
                       <Text style={styles.stickySectionText}>{data.nickname}</Text>
                   </View>
                     }
@@ -343,10 +342,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: STICKY_HEADER_HEIGHT,
         width: SCREEN_WIDTH,
-        backgroundColor:'#fff',
+        backgroundColor:'#7cc0c0',
     },
     stickySectionText: {
-        color: 'black',
+        color: '#fff',
         fontSize: 15,
         marginLeft:5,
     },
@@ -394,6 +393,7 @@ const styles = StyleSheet.create({
     },
     rowText: {
         fontSize: 20,
+        color:"#333"
     },
     left: {
         flexDirection: 'row',

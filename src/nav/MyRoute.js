@@ -11,7 +11,13 @@ const Tab = createMaterialTopTabNavigator();
 export default    function MyRoute() {
   return (
 
-    <Tab.Navigator>
+    <Tab.Navigator
+    tabBarOptions={{
+
+      indicatorStyle:{backgroundColor:global.mainColor},
+
+    }}
+      >
        <Tab.Screen name="我的发布" component={Output} />
        <Tab.Screen name="我的商品" component={Goods} />
        <Tab.Screen name="点赞" component={Dianzan} />

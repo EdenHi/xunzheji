@@ -143,7 +143,7 @@ export default class updateDizhi extends Component {
                
                 </View>
                 <TouchableOpacity underlayColor="red"  onPress={()=>this.update_Dizhi()}>
-                    <View style={{backgroundcolor:global.mainColor,height:height*0.05,borderRadius:20,justifyContent:'center',width:width*0.9,elevation:5}}>
+                    <View style={{backgroundColor:global.mainColor,height:height*0.05,borderRadius:20,justifyContent:'center',width:width*0.9,elevation:5}}>
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>修改收货信息</Text>
                     </View>
                 </TouchableOpacity>

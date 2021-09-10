@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Dimensions, Text, TouchableOpacity, ImageBackground, Image, Modal, ScrollView, ToastAndroid, } from 'react-native';
+import { View, Dimensions, Text, TouchableOpacity, ImageBackground, Image, Modal, ScrollView, ToastAndroid,AsyncStorage } from 'react-native';
 import Video from 'react-native-video';
 const { width, height } = Dimensions.get('window');
 import LinearGradient from 'react-native-linear-gradient'
@@ -31,9 +31,36 @@ export default class componentName extends Component {
             mission1: false,
             mission2: false,
             mission3: false,
-            shoturi: 'http://47.100.78.254:3000/public/images/initimg.jpg'
+            shoturi: 'http://47.100.78.254:3000/public/images/initimg.jpg',
+            jinbi:'',
         }
     }
+
+    //获取金币数量
+
+    get_jinbi(){
+        AsyncStorage.getItem('username',(err,result)=>{
+            if(!err){
+                fetch('http://47.100.78.254:3000/index/select_jinbi', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: result,
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        this.setState({
+                            jinbi: json[0].jinbi
+                        })
+                    });
+            }
+        })
+    }
+    
 
     componentDidMount() {
 
@@ -64,6 +91,7 @@ export default class componentName extends Component {
                 console.log(error);
             })
 
+        this.get_jinbi()
 
     }
     //继续播放
@@ -330,7 +358,7 @@ export default class componentName extends Component {
                                     name='coins'
                                     size={15}
                                     color='gold'
-                                /> {this.state.gold}个 </Text>
+                                /> {this.state.jinbi}个 </Text>
                             </View>
                             <View style={{ flex: 0.9, backgroundColor: global.mainColor, elevation: 5 }}>
                                 <View style={{ height: height * 0.1, width, flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.25)', marginVertical: '0.25%' }}>
@@ -340,7 +368,7 @@ export default class componentName extends Component {
                                         size={15}
                                         color='gold'
                                     /></Text>
-                                    <TouchableOpacity activeOpacity={1} style={{ borderWidth: 0, width: '20%', height: '50%', backgroundColor: 'rgb(249,200,159)', marginVertical: '6%', borderRadius: 20, marginHorizontal: '11%', }}>
+                                    <TouchableOpacity  activeOpacity={1} style={{ borderWidth: 0, width: '20%', height: '50%', backgroundColor: 'rgb(249,200,159)', marginVertical: '6%', borderRadius: 20, marginHorizontal: '11%', }}>
                                         <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontsize: 15, fontWeight: 'bold', color: '#fff' }}>领取</Text>
 
                                     </TouchableOpacity>

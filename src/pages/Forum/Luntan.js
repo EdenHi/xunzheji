@@ -645,6 +645,7 @@ export default class LunTan extends Component {
 
                                 )
                             }
+                            <View style={{ alignItems: 'center',backgroundColor:global.backColor }}><Text style={{ color: "#333" }}>------------到底了------------</Text></View>
                         </ScrollView>
                     </View>
                     <Modal animationType={'slide'}

@@ -294,7 +294,7 @@ export default class JiFen extends Component {
                                         </View>
 
                                         <Text style={{ marginTop: 10, fontSize: 20, fontWeight: "bold", color: "#daa520" }} >签到成功</Text>
-                                        <Text style={{ marginTop: 10, fontSize: 14, color: "#333" }}>恭喜你，获得6金币</Text>
+                                        <Text style={{ marginTop: 10, fontSize: 14, color: "#333" }}>恭喜你，获得5金币</Text>
                                         <Text style={{ marginTop: 10, fontSize: 14, color: "#333" }}>明天签到可继续获得金币哦~</Text>
 
 
@@ -318,8 +318,8 @@ export default class JiFen extends Component {
                                     </View>
                                     
                                 </View>
-                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.back2 }}>去绑定</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.mainColor }}>去绑定</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: global.mainColor }}>
@@ -330,8 +330,8 @@ export default class JiFen extends Component {
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.back2 }}>去更换</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.mainColor }}>去更换</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: global.mainColor }}>
@@ -343,8 +343,8 @@ export default class JiFen extends Component {
                                     </View>
 
                                 </View>
-                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.back2 }}>去修改</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.mainColor }}>去修改</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05 }}>
@@ -355,8 +355,8 @@ export default class JiFen extends Component {
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
                                 </View>
-                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.back2 }}>去完善</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.mainColor }}>去完善</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
