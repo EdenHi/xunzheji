@@ -36,10 +36,9 @@ export default class shezhi extends Component {
         <Text style={{textAlignVertical:'center',height:'100%',fontSize:16,paddingLeft:width*0.075,color:'#333'}}>白天模式</Text>
     </TouchableOpacity>
 
-    <TouchableOpacity onPress={()=>{global.back(['#145A59','#000','#fff']),console.log('global',global.mainColor,global.backColor),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}} style={{height:height*0.075,width:0.95*width,marginLeft:width*0.025,backgroundColor:'#eee',borderRadius:10,marginBottom:10}}>
+    <TouchableOpacity onPress={()=>{global.back(['#145A59','#1B1B1B','#fff']),console.log('global',global.mainColor,global.backColor),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}} style={{height:height*0.075,width:0.95*width,marginLeft:width*0.025,backgroundColor:'#eee',borderRadius:10,marginBottom:10}}>
         <Text style={{textAlignVertical:'center',height:'100%',fontSize:16,paddingLeft:width*0.075,color:'#333'}}>黑夜模式</Text>
     </TouchableOpacity>
-
 </View>
 
                 <View>

@@ -179,6 +179,8 @@ export default class LunTan extends Component {
                 <View>
                     <View>
                         <ScrollView
+                        // 间隔
+                        style={{backgroundColor:global.backColor}}
                             showsVerticalScrollIndicator={false}
                             refreshControl={
                                 <RefreshControl
@@ -231,7 +233,7 @@ export default class LunTan extends Component {
                                     if (k === 1) {
                                         return (
                                             <View>
-                                                <View style={{ marginTop: "5%", width: width }}>
+                                                <View style={{ marginTop: "5%", width: width ,backgroundColor:global.backColor}}>
                                                     <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 18, color: global.mainColor }}>官方推荐</Text>
                                                     <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 9, color: global.mainColor }}>THE OFFICIAL RECOMMENDATION</Text>
                                                     <ScrollView
@@ -366,7 +368,7 @@ export default class LunTan extends Component {
                                                         </TouchableOpacity>
                                                     </ScrollView>
                                                 </View>
-                                                <View key={k} style={{ marginTop: 10, backgroundColor: 'white' }}>
+                                                <View key={k} style={{ marginTop: 10, backgroundColor: global.backColor }}>
                                                     <View style={{ marginLeft: width * 0.05, width: width * 0.9 }}>
                                                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                                             <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
@@ -495,7 +497,7 @@ export default class LunTan extends Component {
 
                                     } else {
                                         return (
-                                            <View key={k} style={{ marginTop: 10, backgroundColor: 'white' }}>
+                                            <View key={k} style={{ marginTop: 10, backgroundColor: global.backColor }}>
                                                 <View style={{ marginLeft: width * 0.05, width: width * 0.9 }}>
                                                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                                                         <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
