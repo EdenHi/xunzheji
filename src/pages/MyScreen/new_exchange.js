@@ -73,7 +73,7 @@ export default class new_exchange extends Component {
                         <TouchableOpacity style={{backgroundColor:'red',borderRadius:30}}>
                             <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',paddingHorizontal:30,paddingVertical:10}}>拒绝</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{backgroundcolor:global.mainColor,borderRadius:30}}>
+                        <TouchableOpacity style={{backgroundColor:global.mainColor,borderRadius:30}}>
                             <Text style={{color:'#fff',fontSize:18,fontWeight:'bold',paddingHorizontal:30,paddingVertical:10}}>接收</Text>
                         </TouchableOpacity>
                     </View>

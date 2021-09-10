@@ -204,7 +204,7 @@ export default class AddressList2 extends Component {
                 }
                 </ScrollView>
                 {/* </LinearGradient> */}
-                <TouchableOpacity style={{backgroundcolor:global.mainColor,bottom:height*0.1,height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}} activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
+                <TouchableOpacity style={{backgroundColor:global.mainColor,bottom:height*0.1,height:40,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05}} activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Address');}} underlayColor="red">
             
                         <Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>添加新地址</Text>
                    

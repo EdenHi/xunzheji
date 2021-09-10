@@ -44,7 +44,7 @@ export default class shezhi extends Component {
                 <View>
                 
 
-                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 15, width: width * 0.9, backgroundcolor: global.mainColor, height: height * 0.05, elevation: 5, alignItems: 'center', justifyContent: 'center', marginLeft: width * 0.05, borderRadius: 30, marginBottom: 15 }}
+                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 15, width: width * 0.9, backgroundColor: global.mainColor, height: height * 0.05, elevation: 5, alignItems: 'center', justifyContent: 'center', marginLeft: width * 0.05, borderRadius: 30, marginBottom: 15 }}
                         onPress={() => this.go_back()}>
                         <Text style={{ fontSize: 18, color: global.backColor }}>退出登录</Text>
                     </TouchableOpacity>

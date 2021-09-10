@@ -145,7 +145,7 @@ export default class Address extends Component {
                             thumbTintColor={'#ff1111'}/>
                 </View>
                 </View>   
-                <TouchableOpacity activeOpacity={1}   onPress={()=>this.insert()}><View style={{backgroundcolor:global.mainColor,height:height*0.05,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05,marginTop:height*0.41,elevation:5,}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>保存收货信息</Text></View></TouchableOpacity>
+                <TouchableOpacity activeOpacity={1}   onPress={()=>this.insert()}><View style={{backgroundColor:global.mainColor,height:height*0.05,borderRadius:20,justifyContent:'center',width:width*0.9,marginLeft:width*0.05,marginTop:height*0.41,elevation:5,}}><Text style={{textAlign:'center',fontSize:18,color:'#fff'}}>保存收货信息</Text></View></TouchableOpacity>
                 </LinearGradient>
             </View>
         );
