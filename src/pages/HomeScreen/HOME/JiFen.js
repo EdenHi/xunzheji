@@ -220,28 +220,28 @@ export default class JiFen extends Component {
                                 <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 1 || (data.qiandao + 7) % 7 == 0 ? '已签到' : '第1天'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 >= 1 || (data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        {(data.qiandao + 7) % 7 >= 1 || (data.qiandao + 7) % 7 == 0 ?<LottieView source={ require('../../../../animal/dakasuccess.json') } autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 1 || (data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
                                 <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 2 || (data.qiandao + 7) % 7 == 0 ? '已签到' : '第2天'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 >= 2 || (data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        {(data.qiandao + 7) % 7 >= 2 || (data.qiandao + 7) % 7 == 0 ? <LottieView source={require('../../../../animal/dakasuccess.json') } autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 2 || (data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
                                 <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 3 || (data.qiandao + 7) % 7 == 0 ? '已签到' : '第3天'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 >= 3 || (data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                       {(data.qiandao + 7) % 7 >= 3 || (data.qiandao + 7) % 7 == 0 ?  <LottieView source={require('../../../../animal/dakasuccess.json')} autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 3 || (data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
                                 <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 4 || (data.qiandao + 7) % 7 == 0 ? '已签到' : '第4天'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 >= 4 || (data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        {(data.qiandao + 7) % 7 >= 4 || (data.qiandao + 7) % 7 == 0 ? <LottieView source={require('../../../../animal/dakasuccess.json') } autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 4 || (data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
@@ -250,21 +250,21 @@ export default class JiFen extends Component {
                                 <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 5 || (data.qiandao + 7) % 7 == 0 ? '已签到' : '第5天'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 >= 5 || (data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        {(data.qiandao + 7) % 7 >= 5 || (data.qiandao + 7) % 7 == 0 ?<LottieView source={ require('../../../../animal/dakasuccess.json')} autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 5 || (data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
                                 <View style={{ width: width * 0.2, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 >= 6 || (data.qiandao + 7) % 7 == 0 ? '已签到' : '第6天'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 >= 6 || (data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        {(data.qiandao + 7) % 7 >= 6 || (data.qiandao + 7) % 7 == 0 ?<LottieView source={ require('../../../../animal/dakasuccess.json')} autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 >= 6 || (data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
                                 <View style={{ width: width * 0.4, height: width * 0.2, backgroundColor: global.mainColor, borderRadius: 5, alignItems: "center" }}>
                                     <Text style={{ fontSize: 15, color: "#fff", marginTop: 5 }}>{(data.qiandao + 7) % 7 == 0 ? '已签到' : '第七天 签到赢礼包'}</Text>
                                     <View style={{ width: width * 0.15, height: height * 0.15, marginTop: -35 }}>
-                                        <LottieView source={(data.qiandao + 7) % 7 == 0 ? require('../../../../animal/dakasuccess.json') : require('../../../../animal/sign1.json')} autoPlay loop={false} progress={this.state.progress} />
+                                        {(data.qiandao + 7) % 7 == 0 ?<LottieView source={ require('../../../../animal/dakasuccess.json')} autoPlay loop={false} progress={this.state.progress} />:null}
                                     </View>
                                     <Image style={{ width: width * 0.15, height: height * 0.07, marginTop: -73 }} source={(data.qiandao + 7) % 7 == 0 ? { uri: '' } : require("../../HomeScreen/photos/wei.png")} />
                                 </View>
@@ -316,12 +316,10 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1}  style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:global.mainColor}}>去绑定</Text>
-                                    </TouchableOpacity>
+                                    
                                 </View>
-                                <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.mainColor }}>去绑定</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.back2 }}>去绑定</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: global.mainColor }}>
@@ -331,12 +329,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:global.mainColor}}>去更换</Text>
-                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.mainColor }}>去更换</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.back2 }}>去更换</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: global.mainColor }}>
@@ -346,12 +341,10 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:global.mainColor}}>去修改</Text>
-                                    </TouchableOpacity>
+
                                 </View>
-                                <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.mainColor }}>去修改</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.back2 }}>去修改</Text>
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05 }}>
@@ -361,12 +354,9 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:global.mainColor}}>去完善</Text>
-                                    </TouchableOpacity>
                                 </View>
-                                <TouchableOpacity activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                    <Text style={{ color: global.mainColor }}>去完善</Text>
+                                <TouchableOpacity onPress={()=>this.go_ziliao()} activeOpacity={1} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.back2, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
+                                    <Text style={{ color: global.back2 }}>去完善</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -394,9 +384,6 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('History')} activeOpacity={1} onPress={() => this.context.navigate('History')} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:global.mainColor}}>去阅读</Text>
-                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} onPress={() => this.context.navigate('History')} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: global.mainColor }}>去阅读</Text>
@@ -422,9 +409,6 @@ export default class JiFen extends Component {
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />
                                         <Text style={{ marginLeft: 5, color: "#333" }}>100金币</Text>
                                     </View>
-                                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Fabu')} activeOpacity={1} onPress={() => this.context.navigate('Fabu')} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{color:global.mainColor}}>去发表</Text>
-                                    </TouchableOpacity>
                                 </View>
                                 <TouchableOpacity activeOpacity={1} onPress={() => this.context.navigate('Fabu')} style={{ borderRadius: 5, borderWidth: 1, borderColor: global.mainColor, width: 70, height: 30, alignItems: "center", justifyContent: "center" }}>
                                     <Text style={{ color: global.mainColor }}>去发表</Text>

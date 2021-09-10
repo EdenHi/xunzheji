@@ -5,6 +5,7 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 import Entypo from "react-native-vector-icons/Entypo"
 import LinearGradient from 'react-native-linear-gradient'
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { DeviceEventEmitter } from 'react-native'
 const { width, height } = Dimensions.get("window")
 
@@ -192,7 +193,7 @@ export default class Zs extends Component {
                         </TouchableOpacity>
                         <View style={{ marginLeft: 10 }}>
                             <Text style={{ fontSize: 14, marginLeft: '2%', fontWeight: 'bold', color: '#6edcf8' }}>{item.nickname}</Text>
-                            <Text style={{ marginTop: 10 }}>{item.pinglun}</Text>
+                            <Text style={{ marginTop: 10,color:"#333" }}>{item.pinglun}</Text>
                             <Text style={{ color: '#aaa', marginRight: width * 0.2, fontSize: 13, marginTop: 10 }}>{time}</Text>
                         </View>
                     </View>
@@ -217,7 +218,7 @@ export default class Zs extends Component {
                     <Text style={{ fontSize: 16, textAlign: "center", marginTop: 10, fontWeight: "bold",color:"#333" }}>浙江商帮为何能在明清时期就纷纷兴起？</Text>
                     <View style={{ flexDirection: "row", marginTop: 5 }}>
                         <Text style={{ fontSize: 10, marginLeft: "-45%",color:"#333" }}>#浙商话题</Text>
-                        <Text style={{ fontSize: 10 }}>|2021-7-5</Text>
+                        <Text style={{ fontSize: 10 ,color:"#333"}}>|2021-7-5</Text>
                     </View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginBottom: 5, marginTop: 5 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025 ,color:"#333"}}>
@@ -244,7 +245,7 @@ export default class Zs extends Component {
                             &emsp;&emsp;除此之外，当时商品经济生产发展和它的结构也是有利于商人进行群体集团的产生。在明代时期，当时的商业主要经营生产是棉布和丝绸等纺织品的经营。当时的棉花在全国进行种植，南北都是可以的，遍布全国。每年江南要从华北地区输入各种的原材料。当时可以向海内外输入大量丝绸的，只有江南，这就形成了江南丝绸，可以畅销于海内外的单向的一个商品流畅。也就形成了一种垄断垄断的方式。从而促进了商业群体的活动。加之当时的白银货币已经改变了当时的支付手段，提高了结算的效率，从而也就给商业大规模的流通带来了一种便利的条件，有利于商帮群体的产生。
                         </Text>
                     </View>
-                    <View><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center", marginTop: 10 }}>浙东学派经商思想的影响</Text></View>
+                    <View><Text style={{ fontSize: 15, fontWeight: "bold", textAlign: "center", marginTop: 10 ,color:"#333"}}>浙东学派经商思想的影响</Text></View>
                     <View style={{ borderStyle: "dashed", borderRadius: 5, borderWidth: 0.5, width: width * 0.9, alignItems: "center", marginTop: 5, marginBottom: 5 }}>
                         <Text style={{ fontSize: 13, marginTop: 5, lineHeight: 25, marginHorizontal: width * 0.025,color:"#333" }}>
                             &emsp;&emsp; 在明清时期由黄宗羲开创的浙东学派。为当时的商品经济和学以致用的文化传统相结合的思想带来了非常成功的思想成果。当时的浙东文化当中的施工使用工商皆本的思想，也是孕育了当时浙江很大一批人强烈的经商意识
@@ -272,7 +273,7 @@ export default class Zs extends Component {
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
+                        <TouchableOpacity activeOpacity={1} style={{marginRight:width*0.05}}>
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>
