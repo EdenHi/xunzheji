@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
-import axios from 'axios';
 import {
     StyleSheet,
     Text,
@@ -16,7 +15,6 @@ import {
     AsyncStorage,
     Share,
     ImageBackground,
-    ActivityIndicator
 } from 'react-native';
 const { height, width } = Dimensions.get('window');
 import ImageViewer from 'react-native-image-zoom-viewer';
@@ -251,7 +249,7 @@ export default class Luntan_guanzhu extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.back]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, '#fff']} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 

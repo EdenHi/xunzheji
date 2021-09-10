@@ -51,7 +51,7 @@ export default class Store extends Component {
       progress: new Animated.Value(0),
       activeIndex: 0,
       zuobiao: '查询',
-      username:'',
+      username: '',
       carouselItems: [
         {
           title: "亨达利",
@@ -304,8 +304,8 @@ export default class Store extends Component {
           .then((jsonData) => {
             try {
               console.log('dizhi', jsonData.regeocode.addressComponent.district)
-              var str=jsonData.regeocode.addressComponent.district;
-              this.setState({ zuobiao: str.slice(0,2) })
+              var str = jsonData.regeocode.addressComponent.district;
+              this.setState({ zuobiao: str.slice(0, 2) })
             } catch (e) {
 
             }
@@ -320,7 +320,7 @@ export default class Store extends Component {
   }
 
   componentDidMount() {
-    AsyncStorage.getItem('username', (err, result) => {this.setState({username:result})})
+    AsyncStorage.getItem('username', (err, result) => { this.setState({ username: result }) })
     this.handleGetLocation();
     Animated.timing(this.state.progress, {
       toValue: 1,
@@ -328,116 +328,116 @@ export default class Store extends Component {
       easing: Easing.linear,
     }).start();
 
-   this.tuijian();
-    this.subscription=DeviceEventEmitter.addListener('dizhi',(msg)=>{
+    this.tuijian();
+    this.subscription = DeviceEventEmitter.addListener('dizhi', (msg) => {
       console.log(msg);
-      this.setState({zuobiao:msg})
+      this.setState({ zuobiao: msg })
     })
   }
 
-//移除监听
-componentWillUnmount(){
-  this.subscription.remove();
+  //移除监听
+  componentWillUnmount() {
+    this.subscription.remove();
   }
 
 
-  tuijian(){
-    AsyncStorage.getItem('username',(err,result)=>{
-      if(!err){
+  tuijian() {
+    AsyncStorage.getItem('username', (err, result) => {
+      if (!err) {
         fetch('http://47.100.78.254:3000/index/selectTuijian', {
-      method: 'POST',
-      headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-          username: result,
-      })
-  })
-      .then((response) => response.json())
-      .then((ress) => {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: result,
+          })
+        })
+          .then((response) => response.json())
+          .then((ress) => {
 
-        let x = ress.tuijian
-        console.log('x',x);
-        let newJson = [];
-        let json = eval(shoplist);
-         //先查询最外层的分类  
-         if(x==='meishi'){
-          //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-          for(var k=0;k<json[1].meishi.length;k++){
-              //这里是商品的查询
-              for(var j=0;j<json[1].meishi[k].shops.length;j++){
+            let x = ress.tuijian
+            console.log('x', x);
+            let newJson = [];
+            let json = eval(shoplist);
+            //先查询最外层的分类  
+            if (x === 'meishi') {
+              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+              for (var k = 0; k < json[1].meishi.length; k++) {
+                //这里是商品的查询
+                for (var j = 0; j < json[1].meishi[k].shops.length; j++) {
                   //查询商品中，含有知味的商品数据
-                  if((json[1].meishi[k].shops[j].name).indexOf('')>-1){
-                      var tempJson = {
-                          "shops":json[1].meishi[k].shops[j],
-                      }
-                      newJson.push(tempJson.shops);
+                  if ((json[1].meishi[k].shops[j].name).indexOf('') > -1) {
+                    var tempJson = {
+                      "shops": json[1].meishi[k].shops[j],
+                    }
+                    newJson.push(tempJson.shops);
                   }
+                }
               }
+              this.setState({ shops2: newJson })
             }
-            this.setState({shops2:newJson})
-        }
-        if(x==='zhizao'){
-        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-        for(var k=0;k<json[2].zhizao.length;k++){
-            //这里是商品的查询
-            for(var j=0;j<json[2].zhizao[k].shops.length;j++){
-                //查询商品中，含有知味的商品数据
-                if((json[2].zhizao[k].shops[j].name).indexOf('')>-1){
+            if (x === 'zhizao') {
+              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+              for (var k = 0; k < json[2].zhizao.length; k++) {
+                //这里是商品的查询
+                for (var j = 0; j < json[2].zhizao[k].shops.length; j++) {
+                  //查询商品中，含有知味的商品数据
+                  if ((json[2].zhizao[k].shops[j].name).indexOf('') > -1) {
                     var tempJson = {
-                        "shops":json[2].zhizao[k].shops[j],
+                      "shops": json[2].zhizao[k].shops[j],
                     }
                     newJson.push(tempJson.shops);
-                    }
+                  }
                 }
+              }
+              this.setState({ shops2: newJson })
             }
-            this.setState({shops2:newJson})
-        }
-        if(x==='gongmei'){
-        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-        for(var k=0;k<json[3].gongmei.length;k++){
-            //这里是商品的查询
-            for(var j=0;j<json[3].gongmei[k].shops.length;j++){
-                //查询商品中，含有知味的商品数据
-                if((json[3].gongmei[k].shops[j].name).indexOf('')>-1){
+            if (x === 'gongmei') {
+              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+              for (var k = 0; k < json[3].gongmei.length; k++) {
+                //这里是商品的查询
+                for (var j = 0; j < json[3].gongmei[k].shops.length; j++) {
+                  //查询商品中，含有知味的商品数据
+                  if ((json[3].gongmei[k].shops[j].name).indexOf('') > -1) {
                     var tempJson = {
-                        "shops":json[3].gongmei[k].shops[j],
+                      "shops": json[3].gongmei[k].shops[j],
                     }
                     newJson.push(tempJson.shops);
-                    }
+                  }
                 }
+              }
+              this.setState({ shops2: newJson })
             }
-            this.setState({shops2:newJson})
-        }
-        if(x==='chajiu'){
-        //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-        for(var k=0;k<json[4].chajiu.length;k++){
-            //这里是商品的查询
-            for(var j=0;j<json[4].chajiu[k].shops.length;j++){
-                //查询商品中，含有知味的商品数据
-                if((json[4].chajiu[k].shops[j].name).indexOf('')>-1){
+            if (x === 'chajiu') {
+              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+              for (var k = 0; k < json[4].chajiu.length; k++) {
+                //这里是商品的查询
+                for (var j = 0; j < json[4].chajiu[k].shops.length; j++) {
+                  //查询商品中，含有知味的商品数据
+                  if ((json[4].chajiu[k].shops[j].name).indexOf('') > -1) {
                     var tempJson = {
-                        "shops":json[4].chajiu[k].shops[j],
+                      "shops": json[4].chajiu[k].shops[j],
                     }
                     newJson.push(tempJson.shops);
-                    }
+                  }
                 }
+              }
+              this.setState({ shops2: newJson })
             }
-            this.setState({shops2:newJson})
-        }
 
-        
-    
-      })
+
+
+          })
       }
     })
 
 
-         
 
-    
-}
+
+
+  }
 
 
 
@@ -464,7 +464,7 @@ componentWillUnmount(){
         <ImageBackground imageStyle={{ borderRadius: 15, }} style={{ width: "100%", height: "100%", flexDirection: "column-reverse" }} source={{ uri: item.img }} >
           <View style={{ width: "100%", height: "40%", backgroundColor: 'rgba(255,255,255,0.8)', borderBottomLeftRadius: 10, borderBottomRightRadius: 10, }}>
             <Text style={{ fontSize: 15, color: "#333", fontWeight: "bold", marginLeft: 5, marginTop: "2%" }}>{item.title}</Text>
-            <Text numberOfLines={3} ellipsizeMode='tail' style={{ fontSize: 12, color: "#000",padding:5, marginTop: "2%" }}>{item.text}</Text>
+            <Text numberOfLines={3} ellipsizeMode='tail' style={{ fontSize: 12, color: "#000", padding: 5, marginTop: "2%" }}>{item.text}</Text>
           </View>
         </ImageBackground>
       </View>
@@ -478,24 +478,25 @@ componentWillUnmount(){
 
 
 
-  renderDate2({item,index}){
-    if(index > this.state.showpage){
-      return ;
-    }else{
-    return(
-        <TouchableOpacity key={index} style={{backgroundColor:'white',width:width*0.425,borderRadius:10,margin:width*0.025,elevation:5}} activeOpacity={1}
-        onPress={()=>this.props.navigation.navigate('Shopdetails',{shops:item,username:this.state.username})}>
-            <Image source={{uri:item.pic[0]}} style={{width:width *0.425,height:width*0.425,borderTopLeftRadius:10,borderTopRightRadius:10}}/>
-            <Text style={{width:"100%",paddingLeft:8,paddingRight:8,paddingTop:8,paddingBottom:2,color:"#333333",fontSize:13}} numberOfLines={2}>{item.name}</Text>
-            <View style={{flexDirection:'row',paddingLeft:8,alignItems:'baseline',justifyContent:'space-between',paddingRight:8,marginBottom:5}}>
-                <View style={{flexDirection:'row',alignItems:'baseline'}}>
-                    <Text style={{color:global.mainColor,fontSize:15}}>￥</Text>
-                    <Text style={{color:'#7cc0c0',fontSize:15}}>{item.price}</Text>
-                </View>
-                <Text style={{color:"#333333",fontSize:10}}>{item.sales}人付款</Text>
+  renderDate2({ item, index }) {
+    if (index > this.state.showpage) {
+      return;
+    } else {
+      return (
+        <TouchableOpacity key={index} style={{ backgroundColor: 'white', width: width * 0.425, borderRadius: 10, margin: width * 0.025, elevation: 5 }} activeOpacity={1}
+          onPress={() => this.props.navigation.navigate('Shopdetails', { shops: item, username: this.state.username })}>
+          <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.425, height: width * 0.425, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
+          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: "#333333", fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
+          <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
+              <Text style={{ color: global.mainColor, fontSize: 15 }}>￥</Text>
+              <Text style={{ color: '#7cc0c0', fontSize: 15 }}>{item.price}</Text>
             </View>
+            <Text style={{ color: "#333333", fontSize: 10 }}>{item.sales}人付款</Text>
+          </View>
         </TouchableOpacity>
-    )}
+      )
+    }
   }
 
 
@@ -617,7 +618,13 @@ componentWillUnmount(){
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.old}>
+        <View style={{
+          width: width * 0.95,
+          height: width * 1.4,
+          backgroundColor: global.backColor,
+          borderRadius: 15,
+          alignItems: "center"
+        }}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
             <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
@@ -639,7 +646,7 @@ componentWillUnmount(){
             keyExtractor={(item, index) => (index + '1')}
             renderItem={({ item }) =>
               <View style={{ width: width, alignItems: 'center' }}>
-                <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item ,username:this.state.username}) }} activeOpacity={1} style={{
+                <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item, username: this.state.username }) }} activeOpacity={1} style={{
                   width: width * 0.9,
                   height: height * 0.18,
                   // marginLeft:width*0.05,
@@ -687,7 +694,14 @@ componentWillUnmount(){
 
 
         </View>
-        <View style={styles.limit}>
+        <View style={{
+          width: width * 0.95,
+          height: width * 0.9,
+          backgroundColor: global.backColor,
+          borderRadius: 15,
+          alignItems: "center",
+          marginTop: "2%"
+        }}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
             <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
@@ -709,11 +723,11 @@ componentWillUnmount(){
               itemWidth={330}
               renderItem={this._renderItem}
               loop={true}
-              //onSnapToItem={index => this.setState({ activeIndex: index })} 
-              />
+            //onSnapToItem={index => this.setState({ activeIndex: index })} 
+            />
           </View>
         </View>
-        <View style={{ width: "95%", alignItems: "center", backgroundColor: '#fff', marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
+        <View style={{ width: "95%", alignItems: "center", backgroundColor: global.backColor, marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
           <Text style={{ height: 20, fontSize: 16, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
           <Text style={{ height: 20, fontSize: 9, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
 
@@ -730,7 +744,7 @@ componentWillUnmount(){
     console.log('showpage', this.state.showpage);
     return (
       <View style={styles.container}>
-        <LinearGradient style={{ width }} colors={[global.mainColor, "#fff", "#fff"]} >
+        <LinearGradient style={{ width }} colors={[global.mainColor, global.backColor, global.backColor]} >
           <Modal
             animationType="fade"
             transparent={true}
@@ -801,8 +815,8 @@ componentWillUnmount(){
                 color="#fff"
               />
             </TouchableOpacity> */}
-            <LottieView style={{width:35,height:35,marginLeft:5}} source={require('../../../animal/location')} autoPlay loop progress={this.state.progress} />
-            <Text onPress={()=>this.props.navigation.navigate('CityList',{zuobiao:this.state.zuobiao})} style={{ fontSize: 16,fontWeight:"bold", width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff',marginLeft:-10 }}>{this.state.zuobiao}</Text>
+            <LottieView style={{ width: 35, height: 35, marginLeft: 5 }} source={require('../../../animal/location')} autoPlay loop progress={this.state.progress} />
+            <Text onPress={() => this.props.navigation.navigate('CityList', { zuobiao: this.state.zuobiao })} style={{ fontSize: 16, fontWeight: "bold", width: width * 0.20, textAlign: 'center', textAlignVertical: 'center', color: '#fff', marginLeft: -10 }}>{this.state.zuobiao}</Text>
             {/* <LottieView style={{marginLeft:-width*0.03}} source={require('../../../animal/location')} autoPlay loop progress={this.state.progress} /> */}
             {/* <AntDesign style={{marginLeft:-width*0.03}} name="down" size={14} color='#fff'/> */}
             <TouchableOpacity activeOpacity={1}
@@ -827,38 +841,38 @@ componentWillUnmount(){
             />
 
           </View>
-          
-
-             
-                <FlatList
-                style={{height:height*0.855}}
-                  ref={(flatList)=>this._flatList = flatList}
-                  //onScroll={(e)=>this._onScroll(e)}
-                  numColumns={2}
-                  keyExtractor={(item, index) => (index + '1')}
-                  data={this.state.shops2}
-                  columnWrapperStyle={{backgroundColor:'#fff',width:width*0.95,marginLeft:width*0.025}}
-                  renderItem={this.renderDate2.bind(this)}
-                  ListHeaderComponent={this.ListHeaderComponent.bind(this)}
-                  ListFooterComponent = {this.yangshi.bind(this)} //确定刷新的样式
-                 onEndReached = {this.loadData.bind(this)}//上拉刷新
-                  onEndReachedThreshold={0}
-                  />  
-              
 
 
-        
+
+          <FlatList
+            style={{ height: height * 0.855 }}
+            ref={(flatList) => this._flatList = flatList}
+            //onScroll={(e)=>this._onScroll(e)}
+            numColumns={2}
+            keyExtractor={(item, index) => (index + '1')}
+            data={this.state.shops2}
+            columnWrapperStyle={{ backgroundColor: '#fff', width: width * 0.95, marginLeft: width * 0.025 }}
+            renderItem={this.renderDate2.bind(this)}
+            ListHeaderComponent={this.ListHeaderComponent.bind(this)}
+            ListFooterComponent={this.yangshi.bind(this)} //确定刷新的样式
+            onEndReached={this.loadData.bind(this)}//上拉刷新
+            onEndReachedThreshold={0}
+          />
+
+
+
+
         </LinearGradient>
-        {this.state.isShowToTop ? <TouchableOpacity onPress={()=>this._flatList.scrollToOffset({x:0, y:0, animated:true})} style={{width: 60,height: 60,left: Dimensions.get('window').width - 80,top: Dimensions.get('window').height - 160,borderRadius: 30,position:'absolute'}}>
-                        <Image 
-                        style={{
-                            width: 60,
-                            height: 60,
-                        }} 
-                        source={{
-                            uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGgAAABoCAQAAAC3FX0qAAAJNElEQVR4Ae2cfUxb1xnGz9oNjG2M+XQ+2qrSqjVKp6QN2bIsTN3yx/6YplWdtmTtpKZpt7WMVI3abhULWhuirJ0irZvaKmwdSrMomRjZaALtKN8QMOCvez2tKc7HWj78AqbAEpsABXzX6zc9V1dnR5btU3wtcd9/DJYwP57nfc65l3MOWbviX59j6hYs9h1DczAAt/KLATQoiobx+Vh9gVP4LkUzFpYeRYPIilU2W/iOBqfHMh5K1k5z05beH7oOeWp8jVKf/J582Q/+Yfl9aVDq8DV6alxV3XvObd1uQTgDYDEwiJK1Ibtl2+Azvnr5cgCGYRJmIQILsAQroEAUlmER5iECszAJwxAA+bKvvv/ZxtLiHNQMsdIExcI0fMn1vDRwCcYhHAOIXysQhnG4BNLAQOWZTUTFYqBWUxsK811z716p0R+cgEVQkqhFmAB/0NfU/XBZLjFpUKulkw5mv7X/UWlgGCKgpFhzMALSwIX938ljoVbJaFtNfY/IvlG4AYqgugGjIEkX9t1pRSjx5uNrk9W2XWoVBMNA+doavkZ7SrxOLM5ei/sF/8i0aBha0+AfGajebSMm0UgMjurts3dJzUE2yYTWCgTB11KL2af2E0USbrWe78lDIVBWoUIgD7U8SMzidGJwNmS7Kv3B66CsUl2HD8BZZbeKRaI49+d4Xh+DJVBWsZZgDFzHN9tIjg5JBM5Dub43x0BJQ42B++TufOymlJDQboiz0+w7EQQlTRX8BOlum4aUpO2we1Qch8lznKqTJpVcNXm5FAk7KemgznJVpRcHkZyHiRV7KblwoDgXvu8PLqcdaBn8wdY9xEJMGlJSYdDwZflKGBQDVBjkKyfuU5ESDwfaPY/ZpI4pUAxSU+Dr/HYhMSfeSVr3HA4aBgfzznmU5Oo6KQG7ZTVv94+uGApoBfyjf91FcO7AsR3XbptzpHenQTFYTYO3bX1eIrajdnM+OgqKAWsUOh7n246rT7ldlm4YEugGSPIDJZh2rEY8fbKdFRgHRiyAroMkF20XT6Ob+vzAJssLCX5MXbhc+VlSVa7UhRN7TiT5dxYRq6ZRXH16fjwCSoJVEU0GBuupaGKfNQKt+1iNuPoQk9Q8lzBQfbg8SaTy6Nlwog+9vC3EpusjTiDE8u38fQFQDF4BqN2hZR0GA9dwruqQ4YFC0HtU1YgxHWO4rEKz5F40Ng4Gg9dixxsKNB3XcA2laDij1yU4sVMNBp7pqOH6nxkX/qjjVKQi+ubc0rjInzoOXb/kmE6fcN76sFCcyMSxBUyzlxevT4i8P3L9neTxR6ObhrvXKl9eEfl3DB1a0gK6cjkYEjfzli/fUahLOsJ2UPbZLSI76OJHB1f0Y87TK/+eFhfdx3cQGx1eVQamg0xdPxoWhtMzi0Ptgein8wGc6HT+V8zPH4a3H8Hhle0i2kEDVZNCPiwKfwsjxnPL/5nCVx9O/WIZX52JiLD1JPQc1ncRMwaRHPcfZwV81ML4q/P4q7/48UeTCuBrBWYmqz/G13+Yn08582ah/8/Ejl3EAt2KQL7GSMo4zK9NgVTU13SoqVQEPE0akNpFTMYRs+RcSBFHM1YdGosCsWa8OpWSD8DbT/K1WGCBsolZfm8pJRz3DNP6FIiNi4ro4EwqA7Z0kRTEA7qSSru+fe0JJpx1QEygP6Gcv57KSBQPyOJPAacuzA6fDBCtiVDVzSH3dCTZT/RDDMjCAt1CgYajSQPh3/y3i+EJBfhA7KToQDQFoELdfI4Fki8uJw3UEH4qehKnoHwgZtp6AO9Xk7PclbhAQu+FGCChhaEQD8jXNW9gIDa2eUA0FLznIhkDFAFXEy8UaGy7XpvJGKAZcNbEHYd6n4WMAQJof54HRKc+LQ9+kDFAH0LDXpz6sLd4dHJ68t6hjAEagle+ypuc0tuHu23y0HJGAC2DNLTeQTiPsugNHrG6/3ItI4CuwcAZUsi/waMjUffPgxkBFIR3n9aFNgKxOXdqWyAjgALwytc5d0P6WLDZJM+iwYHwUXBOyf+PBKaLnEdDhgcKQfdLvA5iuujUVwKGBwrAq2X8DkIgOriSXG/LnKGB5sDdRopJPv9hvW4sItbWfSNCgdQnCE8KBBqBxsfRcPoxiGu6skLJLzIY6sIV0bqwwED41z0b+IZjTZdDcrsOgoH/rd/yHCnChOMYjkk6ywMlkmzYhRf+XbejPkzC8UynBkP7T4y6NKapHPXh/FufNxo57N42Iy5e8rTbHao+/BGIq9HpMiMuLzv+rTj6MMFA+4jYeo8abAGgOj8oZvqHBWI1wqzbUextCRlobYK7bfNGdfzhLy/ja4S2sx27Rx4yyiJaKXCoNGY3W2LrTukSTTUaiO38HqMsc65/GO2W2BJNxnYkr+eIERaidx4lJXy7JWK7XEv+4J/G0ozTV2tykEJMN57d4mtE0+6OwsFTwXQubj5dsh67J/GF6IztEGmbA5HSg7N54yc4+YiTqN0okK6TrMR2V3F/TTo2RPW9cfsGxEl+MwfTSYhkKeh+YbW3rLVXmxwaDtM9SW6Iokgk/609UmC1NhVKgbqHCMVJaUMUGw4Uyf7SFk/ramz7dLdXlsaC2k5xhO7Cw16yqEibHN2/+aw35na+/MWNpPgmjoXZVChm2ycmnjrUkoI37vd0fFZbp92dr++OWa0gNoxaxG77ZJDUoVbVqaD4nz+VJOGb2+XzT9rXUW1yRW/MZUOcdpOq09Z1zeWSawTmhBw/4PU0Vmy6jZSgNlrnxA9qgTqRgjsdjfvdzakdEPE+uJvfeuy2jQgjUJsEkFSdLJ9CkaLq0s4Xva5kjvDwutqrf72dOHQwFv7xA+KR9DppUIU5Jce/0V7pamAPWUGAJVjQHbLiamj71e+/aVJR1J6hMHptxOPwddJD5ZF8FYsUO9b9bte5fR1H+mpd73id0kX5qh/8IF+VLnqdrnf6ajuO/GP/sbKS9URDySd5ehjR2sRBYqBU+1kRS1UrBlZEiklJrBxaqV/HMIpiIKoqiGJVbSbgkBUR5qM9ZaZYCGaPaYZ4WPhVPrEjCEUx84/BSeNBRTEskwaGaEwhhgZi4h1UZJSjpBBLBVPR1LJohd+JvWdClMw4IYsqxinxh30Z/zi2tQPz1o40XLvWLiHX/wAK1chMLzoTvQAAAABJRU5ErkJggg=='
-                        }} />
-            </TouchableOpacity>: null}
+        {this.state.isShowToTop ? <TouchableOpacity onPress={() => this._flatList.scrollToOffset({ x: 0, y: 0, animated: true })} style={{ width: 60, height: 60, left: Dimensions.get('window').width - 80, top: Dimensions.get('window').height - 160, borderRadius: 30, position: 'absolute' }}>
+          <Image
+            style={{
+              width: 60,
+              height: 60,
+            }}
+            source={{
+              uri: 'data:image/png;base64,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'
+            }} />
+        </TouchableOpacity> : null}
       </View>
     );
   }
