@@ -294,7 +294,7 @@ export default class JiFen extends Component {
                                         </View>
 
                                         <Text style={{ marginTop: 10, fontSize: 20, fontWeight: "bold", color: "#daa520" }} >签到成功</Text>
-                                        <Text style={{ marginTop: 10, fontSize: 14, color: "#333" }}>恭喜你，获得6金币</Text>
+                                        <Text style={{ marginTop: 10, fontSize: 14, color: "#333" }}>恭喜你，获得5金币</Text>
                                         <Text style={{ marginTop: 10, fontSize: 14, color: "#333" }}>明天签到可继续获得金币哦~</Text>
 
 
