@@ -236,7 +236,7 @@ export default class Home extends Component {
                                         </View>
                                     </View>
                                 </View>
-                                <View style={{ height: 230, backgroundColor: global.backColor, borderRadius: 10, marginTop: 10 }} >
+                                <View style={{ height: height * 0.4, backgroundColor: global.backColor, borderRadius: 10, marginTop: 10 }} >
                                     <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Book')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10 }}>
                                         <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.75 }}>
@@ -247,15 +247,67 @@ export default class Home extends Component {
                                             <LottieView source={require('../../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
                                         </TouchableOpacity>
                                     </TouchableOpacity>
-                                    <View style={{ flexDirection: 'row', width: width * 0.9, marginLeft: width * 0.025 }}>
-                                        <Homepagebook navigation={this.props.navigation} />
-                                        {/* <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-                                            <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://47.100.78.254:3000/public/images/sj1.jpeg' }} /></View>
-                                            <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://47.100.78.254:3000/public/images/sj2.jpg' }} /></View>
-                                            <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://47.100.78.254:3000/public/images/sj3.jpeg' }} /></View>
-                                            <View style={{ width: width * 0.3, height: 180, margin: 10, borderColor: '#00000', borderRadius: 10, elevation: 5 }}><Image style={{ width: width * 0.3, flex: 1, borderRadius: 10 }} source={{ uri: 'http://47.100.78.254:3000/public/images/sj4.jpeg' }} /></View>
-                                        </ScrollView> */}
+                                    {/* book top */}
+                                    <View style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
+                                        <View style={{ width: width * 0.195, height: height * 0.4 * 0.35, marginTop: 5, marginLeft: '3.15%' }}>
+                                            <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                        </View>
+                                        <View style={{ borderColor: 'green', width: '72.5%', marginLeft: '3.15%' }}>
+                                            <Text style={{ fontSize: 20, marginTop: height * 0.01, paddingLeft: 10 ,color:'#333'}}>百年浙商</Text>
+                                            <Text style={{ marginTop: height * 0.02,color:'#333' }} numberOfLines={2}>浙商是中国社会的一个商业奇迹。他们是如何从无到有，由弱而强，缔造了东方奇迹？在百余年的商业奋斗史中，那些优秀的浙商典范，又是如何开创了伟大的商道智慧？
+                                                百年浙商，这样一部鲜活的大历史，这样一部商人史话，让人温故而知新，鉴往而察来，掩卷之余更添几分对中国商人的理解和对一切创造的敬畏。
+                                                作品以历史的眼光对浙商百年历史做了透视分析，对浙商人物事迹做了详尽记述，对浙商现象做了独到分析，是一部了解浙商进而了解商业借鉴成功经验的优秀作品。</Text>
+                                            <Text style={{ marginTop: height * 0.01 }}>
+                                                <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" />
+                                            </Text>
+                                        </View>
                                     </View>
+                                    {/* book 1 */}
+                                    <View style={{ height: height * 0.4 * 0.46, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, flexDirection: 'row' }}>
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                            </View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={14} color="gold" /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" size={15} />
+                                            </View>
+                                        </View>
+                                        {/* 2 */}
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                            </View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={14} /><AntDesign name="star" size={15} /><AntDesign name="star" size={15} /><AntDesign name="star" size={15} />
+                                            </View>
+                                        </View>
+                                        {/* 3 */}
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                            </View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={14} /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" size={15} />
+                                            </View>
+                                        </View>
+                                        {/* 4 */}
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                            </View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" />
+                                            </View>
+                                        </View>
+                                    </View>
+
+
+
+
                                 </View>
                                 <View style={{ height: height * 0.35, backgroundColor: global.backColor, marginTop: 10, marginBottom: 10, borderRadius: 10 }}>
                                     <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 10, marginLeft: 10 }}>
@@ -377,7 +429,7 @@ export default class Home extends Component {
                         <Card navigation={this.props.navigation} />
                         <Card navigation={this.props.navigation} />
                     </ScrollView> */}
-                                <View style={{ height: height * 0.5, backgroundColor:global.backColor, borderRadius: 10, marginBottom: height * 0.05 }}>
+                                <View style={{ height: height * 0.5, backgroundColor: global.backColor, borderRadius: 10, marginBottom: height * 0.05 }}>
                                     <TouchableOpacity onPress={() => this.props.navigation.navigate('Business')} activeOpacity={1} style={{ flexDirection: 'row', alignItems: 'center', width: width * 0.9, marginBottom: 10, marginTop: 10 }}>
                                         <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
                                         <View style={{ marginLeft: 10, width: width * 0.75 }}>

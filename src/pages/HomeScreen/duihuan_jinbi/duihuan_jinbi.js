@@ -9,6 +9,7 @@ import shop from './duihuan_jinbi.json'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { ToastAndroid } from 'react-native';
 import { DeviceEventEmitter } from 'react-native';
+import Waterfall from 'react-native-waterfall'
 const {height,width} = Dimensions.get('window')
 export default class duihuan_jinbi extends Component {
     constructor(props){
@@ -72,16 +73,47 @@ export default class duihuan_jinbi extends Component {
                             </View>
                         </View>
                         <TouchableOpacity activeOpacity={1} onPress={()=>{item.jinbi>this.state.data.jinbi?ToastAndroid.show('金币不足，无法兑换',2000):this.props.navigation.navigate('duihuan',{jinbi:item.jinbi,price:item.price,name:item.name,pic:item.img})}} style={{position:"absolute",marginLeft:width*0.37}}>
-                            <View style={{width:75,backgroundcolor:global.mainColor,borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
+                            <View style={{width:75,backgroundColor:global.mainColor,borderTopLeftRadius:10,borderTopRightRadius:10,alignItems:'center'}}>
                                 <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                             </View>
-                            <View style={{width:75,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,bordercolor:global.mainColor}}>
+                            <View style={{width:75,backgroundColor:'white',borderBottomLeftRadius:10,borderBottomRightRadius:10,alignItems:'center',borderWidth:1,borderColor:'#7cc0c0'}}>
                                 <Text style={{color:global.mainColor,fontSize:10,paddingLeft:10,textAlign:"center",paddingRight:10,paddingTop:3,paddingBottom:3,width:80}}>已兑{item.duihuan}件</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                 </View>
             </TouchableOpacity>
+        )
+    }
+
+
+    renderItem = (itemData, itemIdx, itemContainer) => {
+        return (
+        <View style={{ width: itemContainer.width,  borderRadius: 10, elevation: 5,backgroundColor:'white'}}>
+            <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('duihuan_xiangqing',{index:itemIdx,haveJinbi:this.state.data.jinbi})} >
+                <Image source={{uri:itemData.img}} resizeMode='stretch' borderRadius={20} style={{height:itemData.height,width:itemContainer.width-20,margin:10}}/>
+                <Text style={{fontWeight:'bold',width:itemContainer.width-20,marginLeft:10,color:"#333"}}
+                    ellipsizeMode='tail'
+                    numberOfLines={1}>{itemData.name}</Text>
+                <View style={{backgroundColor:'#f1f1f1',elevation:1,width:width*0.2,alignItems:'center',marginTop:10,borderRadius:10,marginLeft:10}}>
+                        <Text style={{color:global.mainColor,}}>价值￥{itemData.price}</Text>
+                </View>
+                <View style={{flexDirection:'row',marginLeft:10,marginTop:10}}>
+                    <View style={{flexDirection:'row',alignItems:'flex-end'}}>
+                        <View style={{flexDirection:'row',alignItems:'center'}}>
+                            <FontAwesome5 name='coins' color='#daa520' size={15} />
+                        <Text style={{color:global.mainColor,fontWeight:'bold',fontSize:18,marginLeft:2}}>{itemData.jinbi}  </Text>
+                        <Text style={{color:"#666"}}>{itemData.jinbi>this.state.data.jinbi?'(金币不足)':null}</Text>
+                        </View>
+                    </View>
+                </View>
+                <TouchableOpacity activeOpacity={1} onPress={()=>{itemData.jinbi>this.state.data.jinbi?ToastAndroid.show('金币不足，无法兑换',2000):this.props.navigation.navigate('duihuan',{jinbi:itemData.jinbi,price:itemData.price,name:itemData.name,pic:itemData.img})}} style={{marginLeft:10,marginVertical:10}}>
+                            <View style={{width:75,backgroundColor:global.mainColor,borderRadius:10,alignItems:'center'}}>
+                                <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
+                            </View>
+                        </TouchableOpacity>
+            </TouchableOpacity>
+        </View>
         )
     }
 
@@ -104,11 +136,27 @@ export default class duihuan_jinbi extends Component {
                     {/* <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff"}}>兑换记录</Text> */}
                 </View>
 
-                   <FlatList
+                   {/* <FlatList
                    contentContainerStyle={{}}
                    data={shop}
-                   renderItem={this.renderDate.bind(this)}/>
-                   
+                   renderItem={this.renderDate.bind(this)}/> */}
+                
+                <Waterfall
+                    style={{backgroundColor: '#fff',}}
+                    data={shop}
+                    gap={15}
+                    numberOfColumns={2}
+                    // expansionOfScope={0}
+                    // onEndReachedThreshold={1000}
+                    // onEndReached={this.loadMore}
+                    renderItem={this.renderItem}
+                    // refreshControl={
+                    //   <RefreshControl
+                    //     refreshing={this.state.isRefreshing}
+                    //     onRefresh={this.refresh}
+                    //   />
+                    // } 
+                    />
 
             </View>
         );

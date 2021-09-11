@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     Dimensions,
 } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 const PhoneWidth = Dimensions.get('window').width;
 const Button = (props) => {
     return (
@@ -26,7 +27,7 @@ export default class SegmentTabBar extends Component {
         const backgroundColor = isTabActive ? '#fff' : global.mainColor;
 
         return <TouchableOpacity  activeOpacity={1}
-            style={{height: 35, backgroundColor:backgroundColor,width:70,marginTop:15,borderRadius:20,marginHorizontal:5,elevation:5}}
+            style={{height: 35, backgroundColor:backgroundColor,width:70,marginTop:10,borderRadius:20,marginHorizontal:5,elevation:5}}
             key={name}
             accessible={true}
             accessibilityLabel={name}
@@ -43,13 +44,15 @@ export default class SegmentTabBar extends Component {
     render() {
         return (
             <View style={styles.tabBarBox}>
-                <View style={ {flexDirection: 'row',width:PhoneWidth,}}>
-                    {this.props.tabs.map((name, page) => {
-                        const isTabActive = this.props.activeTab === page;
-                        const renderTab = this.props.renderTab || this.renderTab;
-                        return renderTab(name, page, isTabActive, this.props.goToPage);
-                    })}
-                </View>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+
+                        {this.props.tabs.map((name, page) => {
+                            const isTabActive = this.props.activeTab === page;
+                            const renderTab = this.props.renderTab || this.renderTab;
+                            return renderTab(name, page, isTabActive, this.props.goToPage);
+                        })}
+
+                </ScrollView>
             </View>
         );
     }
@@ -58,7 +61,7 @@ export default class SegmentTabBar extends Component {
 const styles = StyleSheet.create({
     tabBarBox: {
         height: 50,
-        width: PhoneWidth,
+
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',

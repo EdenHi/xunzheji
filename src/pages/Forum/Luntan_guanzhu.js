@@ -393,7 +393,7 @@ export default class Luntan_guanzhu extends Component {
                                                                     <Image source={{ uri: v.portrait }} style={styles.touxiang} />
                                                                 </TouchableOpacity>
                                                                 <View style={{ marginLeft: 10 }}>
-                                                                    <Text style={styles.name}>{v.nickname}</Text>
+                                                                    <Text style={{}}>{v.nickname}</Text>
                                                                     <Text style={{ color: '#aaa', fontSize: 12 }}>{time}</Text>
                                                                 </View>
                                                             </View>

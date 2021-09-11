@@ -47,7 +47,8 @@ export default class LunTan extends Component {
             isLoding: false,
             denglu_username: '',
             isVisible: false,
-            message:0,
+            message: 0,
+            fresh:1,
         };
     }
     //图片点击放大
@@ -63,14 +64,14 @@ export default class LunTan extends Component {
     get_xinxi() {
         axios.get('http://47.100.78.254:3000/dongtai/allDongtai')
             .then((json) => {
-                if(json.data.length===0){
+                if (json.data.length === 0) {
                     this.setState({
-                        message:1
+                        message: 1
                     });
-                }else{
+                } else {
                     this.setState({
                         data: json.data,
-                        message:0,
+                        message: 0,
                     });
                 }
                 console.log('data', json.data);
@@ -93,9 +94,11 @@ export default class LunTan extends Component {
         })
         this.listener = DeviceEventEmitter.addListener('shuaxin', this.get_xinxi.bind(this))
         this.listener = DeviceEventEmitter.addListener('myfabu', this.loding.bind(this))
-        this.listener = DeviceEventEmitter.addListener('yanse', this.get_xinxi.bind(this))
+        this.listener = DeviceEventEmitter.addListener('yanse', this.get_xinxi.bind(this),this.fresh())
     }
-
+    fresh(){
+        this.setState({fresh:0})
+    }
     componentWillUnmount() {
         this.listener.remove();
     }
@@ -179,8 +182,8 @@ export default class LunTan extends Component {
                 <View>
                     <View>
                         <ScrollView
-                        // 间隔
-                        style={{backgroundColor:global.backColor}}
+                            // 间隔
+                            style={{ backgroundColor: global.backColor }}
                             showsVerticalScrollIndicator={false}
                             refreshControl={
                                 <RefreshControl
@@ -233,7 +236,7 @@ export default class LunTan extends Component {
                                     if (k === 1) {
                                         return (
                                             <View>
-                                                <View style={{ marginTop: "5%", width: width ,backgroundColor:global.backColor}}>
+                                                <View style={{ marginTop: "5%", width: width, backgroundColor: global.backColor }}>
                                                     <Text style={{ fontWeight: 'bold', marginTop: "2%", marginLeft: 10, fontSize: 18, color: global.mainColor }}>官方推荐</Text>
                                                     <Text style={{ fontWeight: 'bold', marginLeft: 10, fontSize: 9, color: global.mainColor }}>THE OFFICIAL RECOMMENDATION</Text>
                                                     <ScrollView
@@ -262,7 +265,7 @@ export default class LunTan extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor,global.backColor]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
@@ -298,7 +301,7 @@ export default class LunTan extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor,global.backColor]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
@@ -352,7 +355,7 @@ export default class LunTan extends Component {
                                                             <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor,global.backColor]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
@@ -388,13 +391,22 @@ export default class LunTan extends Component {
                                                                     <Image source={{ uri: v.portrait }} style={styles.touxiang} />
                                                                 </TouchableOpacity>
                                                                 <View style={{ marginLeft: 10 }}>
-                                                                    <Text style={styles.name}>{v.nickname}</Text>
+                                                                    <Text style={{
+                                                                        fontSize: 15,
+                                                                        fontWeight: 'bold',
+                                                                        marginBottom: 5,
+                                                                        color: "#333"
+                                                                    }}>{v.nickname}</Text>
                                                                     <Text style={{ color: '#aaa', fontSize: 12 }}>{time}</Text>
                                                                 </View>
                                                             </View>
                                                             <MaterialCommunityIcons name='dots-vertical' size={20} color='#ccc' onPress={() => this.setState({ isVisible: true })} />
                                                         </View>
-                                                        <Text style={v.title === '' ? { height: 0 } : styles.txt}
+                                                        <Text style={v.title === '' ? { height: 0 } : {
+                                                            marginTop: 10,
+                                                            fontSize: 15,
+                                                            color: global.mainColor == "#145A59" ? '#fff': '#333'
+                                                        }}
                                                             ellipsizeMode="tail"
                                                             numberOfLines={8}>{v.title}</Text>
                                                         <View style={styles.box}>
@@ -412,7 +424,7 @@ export default class LunTan extends Component {
                                                                                     activeOpacity={1}
                                                                                     key={index}
                                                                                     onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }}  />
+                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }} />
                                                                                 </TouchableOpacity>
                                                                             </View>
                                                                         );
@@ -423,7 +435,7 @@ export default class LunTan extends Component {
                                                                                     activeOpacity={1}
                                                                                     key={index}
                                                                                     onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }}  />
+                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }} />
                                                                                 </TouchableOpacity>
                                                                             </View>
                                                                         );
@@ -434,7 +446,7 @@ export default class LunTan extends Component {
                                                                                     activeOpacity={1}
                                                                                     key={index}
                                                                                     onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }}  />
+                                                                                    <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }} />
                                                                                 </TouchableOpacity>
                                                                             </View>
                                                                         );
@@ -445,7 +457,7 @@ export default class LunTan extends Component {
                                                         {/* tag标签 */}
                                                         <TouchableOpacity
                                                             activeOpacity={1}
-                                                            style={v.tag === '' || v.tag === null ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row',  marginTop: 10, backgroundColor: global.mainColor, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center',elevation:5 }}
+                                                            style={v.tag === '' || v.tag === null ? { height: 0, width: 0, elevation: 5 } : { flexDirection: 'row', marginTop: 10, backgroundColor: global.mainColor, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center', elevation: 5 }}
                                                             onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                             <Fontisto name='hashtag' color='#fff' />
                                                             <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
@@ -517,13 +529,22 @@ export default class LunTan extends Component {
                                                                 <Image source={{ uri: v.portrait }} style={styles.touxiang} />
                                                             </TouchableOpacity >
                                                             <View style={{ marginLeft: 10 }}>
-                                                                <Text style={styles.name}>{v.nickname}</Text>
+                                                                <Text style={{
+                                                                    fontSize: 15,
+                                                                    fontWeight: 'bold',
+                                                                    marginBottom: 5,
+                                                                    color: global.mainColor == "#145A59" ? '#fff': '#333'
+                                                                }}>{v.nickname}</Text>
                                                                 <Text style={{ color: '#aaa', fontSize: 12 }}>{time}</Text>
                                                             </View>
                                                         </View>
                                                         <MaterialCommunityIcons name='dots-vertical' size={20} color='#ccc' onPress={() => this.setState({ isVisible: true })} />
                                                     </View>
-                                                    <Text style={v.title === '' ? { height: 0 } : styles.txt}
+                                                    <Text style={v.title === '' ? { height: 0 } : {
+                                                        marginTop: 10,
+                                                        fontSize: 15,
+                                                        color: global.mainColor == "#145A59" ? '#fff': '#333'
+                                                    }}
                                                         ellipsizeMode="tail"
                                                         numberOfLines={8}>{v.title}</Text>
                                                     <View style={styles.box}>
@@ -541,7 +562,7 @@ export default class LunTan extends Component {
                                                                                 activeOpacity={1}
                                                                                 key={index}
                                                                                 onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }}  />
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }} />
                                                                             </TouchableOpacity>
                                                                         </View>
                                                                     );
@@ -552,7 +573,7 @@ export default class LunTan extends Component {
                                                                                 activeOpacity={1}
                                                                                 key={index}
                                                                                 onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }}  />
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }} />
                                                                             </TouchableOpacity>
                                                                         </View>
                                                                     );
@@ -563,7 +584,7 @@ export default class LunTan extends Component {
                                                                                 activeOpacity={1}
                                                                                 key={index}
                                                                                 onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }}  />
+                                                                                <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }} />
                                                                             </TouchableOpacity>
                                                                         </View>
                                                                     );
@@ -572,7 +593,7 @@ export default class LunTan extends Component {
                                                     </View>
 
                                                     {/* tag标签 */}
-                                                    <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 ,elevation:5} : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: global.mainColor, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center',elevation:5 }}
+                                                    <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0, elevation: 5 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: global.mainColor, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 5 }}
                                                         onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                         <Fontisto name='hashtag' color='#fff' />
                                                         <Text style={{ paddingTop: 5, paddingBottom: 5, color: global.backColor }}>{v.tag}</Text>
@@ -624,6 +645,7 @@ export default class LunTan extends Component {
 
                                 )
                             }
+                            <View style={{ alignItems: 'center',backgroundColor:global.backColor }}><Text style={{ color: "#333" }}>------------到底了------------</Text></View>
                         </ScrollView>
                     </View>
                     <Modal animationType={'slide'}
@@ -652,17 +674,17 @@ export default class LunTan extends Component {
 
                 </View>
             );
-        } else if(this.state.message===1){
-            return(
+        } else if (this.state.message === 1) {
+            return (
                 <View style={width}>
-                    <View style={{width,height:height*0.93,alignItems:'center',justifyContent:"center",backgroundColor:global.backColor}}>
-                        <Image style={{width:width*0.5,height:width*0.5}} source={require("../nothingpic/暂无消息.png")}></Image>
-                        <Text style={{color:global.mainColor,fontSize:15,}}>暂无发布</Text>
+                    <View style={{ width, height: height * 0.93, alignItems: 'center', justifyContent: "center", backgroundColor: global.backColor }}>
+                        <Image style={{ width: width * 0.5, height: width * 0.5 }} source={require("../nothingpic/暂无消息.png")}></Image>
+                        <Text style={{ color: global.mainColor, fontSize: 15, }}>暂无发布</Text>
                     </View>
-                    
+
                 </View>
             )
-        }else{
+        } else {
             return (
                 <View style={styles.LoadingPage}>
                     <View style={{

@@ -52,6 +52,7 @@ export default class Store extends Component {
       activeIndex: 0,
       zuobiao: '查询',
       username: '',
+      fresh:false,
       carouselItems: [
         {
           title: "亨达利",
@@ -333,11 +334,15 @@ export default class Store extends Component {
       console.log(msg);
       this.setState({ zuobiao: msg })
     })
+    this.listener = DeviceEventEmitter.addListener('yanse',this.fresh.bind(this))
   }
-
+fresh(){
+  this.setState({fresh:!this.state.fresh})
+}
   //移除监听
   componentWillUnmount() {
     this.subscription.remove();
+    this.listener.remove();
   }
 
 
@@ -483,16 +488,16 @@ export default class Store extends Component {
       return;
     } else {
       return (
-        <TouchableOpacity key={index} style={{ backgroundColor: 'white', width: width * 0.425, borderRadius: 10, margin: width * 0.025, elevation: 5 }} activeOpacity={1}
+        <TouchableOpacity key={index} style={{ backgroundColor: global.backColor, width: width * 0.425, borderRadius: 10, margin: width * 0.025, elevation: 5 }} activeOpacity={1}
           onPress={() => this.props.navigation.navigate('Shopdetails', { shops: item, username: this.state.username })}>
           <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.425, height: width * 0.425, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: "#333333", fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
+          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: global.mainColor=='#145A59'?"#fff":'#333', fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
           <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
-              <Text style={{ color: global.mainColor, fontSize: 15 }}>￥</Text>
+              <Text style={{ color:'#7cc0c0', fontSize: 15 }}>￥</Text>
               <Text style={{ color: '#7cc0c0', fontSize: 15 }}>{item.price}</Text>
             </View>
-            <Text style={{ color: "#333333", fontSize: 10 }}>{item.sales}人付款</Text>
+            <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 10 }}>{item.sales}人付款</Text>
           </View>
         </TouchableOpacity>
       )
@@ -650,18 +655,18 @@ export default class Store extends Component {
                   width: width * 0.9,
                   height: height * 0.18,
                   // marginLeft:width*0.05,
-                  backgroundColor: "grey",
+                  backgroundColor: 'grey',
                   marginBottom: "3%",
                   borderRadius: 10,
                   elevation: 5,
                   flexDirection: "row",
                 }}>
-                  <View style={{ width: "60%", height: "100%", backgroundColor: "#fff", borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
+                  <View style={{ width: "60%", height: "100%", backgroundColor: global.backColor, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                     <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold", color: "#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
+                      <Text style={{ fontSize: 15, fontWeight: "bold", color: global.mainColor=="#145A59"?"#fff":"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: "#333333" }}>{item.jieshao}</Text>
+                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333" }}>{item.jieshao}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
                       <Text style={{ color: global.mainColor }}>￥<Text style={{ fontSize: 13, color: global.mainColor }}>{item.price}</Text></Text>
@@ -669,7 +674,7 @@ export default class Store extends Component {
 
                     <View style={{ width: "90%", height: "18%", flexDirection: "row", alignItems: "center", marginLeft: "2%" }}>
                       <LottieView style={{ width: "50%", height: "100%" }} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
-                      <Text style={{ color: "#333333", fontSize: 13 }}>5.0</Text>
+                      <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 13 }}>5.0</Text>
                     </View>
 
                     <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
@@ -728,8 +733,8 @@ export default class Store extends Component {
           </View>
         </View>
         <View style={{ width: "95%", alignItems: "center", backgroundColor: global.backColor, marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-          <Text style={{ height: 20, fontSize: 16, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
-          <Text style={{ height: 20, fontSize: 9, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
+          <Text style={{ height: 20, fontSize: 16, color: "#7cc0c0", fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
+          <Text style={{ height: 20, fontSize: 9, color: '#7cc0c0', fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
 
           <View style={{ width: "25%", borderWidth: 2, borderColor: global.mainColor, marginTop: "0.5%" }}></View>
         </View>
@@ -851,7 +856,7 @@ export default class Store extends Component {
             numColumns={2}
             keyExtractor={(item, index) => (index + '1')}
             data={this.state.shops2}
-            columnWrapperStyle={{ backgroundColor: '#fff', width: width * 0.95, marginLeft: width * 0.025 }}
+            columnWrapperStyle={{ backgroundColor: global.backColor, width: width * 0.95, marginLeft: width * 0.025 }}
             renderItem={this.renderDate2.bind(this)}
             ListHeaderComponent={this.ListHeaderComponent.bind(this)}
             ListFooterComponent={this.yangshi.bind(this)} //确定刷新的样式

@@ -275,14 +275,14 @@ CreateChatRoom(){
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Image style={{width:width*0.28,height:width*0.28,backgroundcolor:global.mainColor,position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:data.portrait}}/>
+                <Image style={{width:width*0.28,height:width*0.28,backgroundColor:global.mainColor,position:'absolute',borderRadius:50,borderWidth:3,borderColor:'#fff',bottom:'50%',left:'6%'}} source={{uri:data.portrait}}/>
                 </ImageBackground>
 
             </View>
                     )}
                     renderStickyHeader={()=>
                       <View key="sticky-header" style={styles.stickySection}>
-                      <Image style={{width:30,height:30,backgroundcolor:global.mainColor,marginLeft:'10%',borderRadius:50}} source={{uri:data.portrait}}/>
+                      <Image style={{width:30,height:30,backgroundColor:global.mainColor,marginLeft:'10%',borderRadius:50}} source={{uri:data.portrait}}/>
                       <Text style={styles.stickySectionText}>{data.nickname}</Text>
                   </View>
                     }
