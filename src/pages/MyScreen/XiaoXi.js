@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { DeviceEventEmitter } from 'react-native'
 import { View, Text, TouchableOpacity, Dimensions, Image, FlatList } from 'react-native'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 const { width, height } = Dimensions.get("window")
 
 export default class XiaoXi extends Component {
@@ -78,10 +78,13 @@ export default class XiaoXi extends Component {
     render() {
         return (
             <View style={{flex:1,backgroundColor:"#fff"}}>
-                <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: global.mainColor, elevation: 1 }}>
-                    <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' />
-                    <Text style={{ fontSize: 18, color: "#fff", marginLeft:"2%", fontWeight: "bold" }}>消息</Text>
+                <View style={{ height: height * 0.07, alignItems: "center", flexDirection: "row", backgroundColor: global.mainColor, elevation: 1 }}>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()} activeOpacity={1} style={{marginLeft:width*0.05,width:width*0.06}}>
+                <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
+                    {/* <AntDesign style={{marginLeft:width*0.025}} name='left' size={20} color='#fff' /> */}
                 </TouchableOpacity>
+                <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>消息</Text>
+                </View>
                 <View style={{ flexDirection: "row", marginTop: 20,marginHorizontal: width * 0.1, justifyContent: "space-between", height: height * 0.12}}>
                     <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('zanheshoucang')} style={{ width: width * 0.2, height: width * 0.2, alignItems: "center" ,backgroundColor:"#fff"}}>
                         <View style={{backgroundColor:"#fff",padding:5,elevation:5,borderRadius:50}}>
