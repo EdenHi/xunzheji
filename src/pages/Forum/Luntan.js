@@ -29,7 +29,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { BottomSheet } from 'react-native-elements'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Fontisto from 'react-native-vector-icons/Fontisto'
-
+import changeSVGColor from '../../components/ChangeLottie/index'
 export default class LunTan extends Component {
     static contextType = NavigationContext;
     constructor(props) {
@@ -395,7 +395,7 @@ export default class LunTan extends Component {
                                                                         fontSize: 15,
                                                                         fontWeight: 'bold',
                                                                         marginBottom: 5,
-                                                                        color: "#333"
+                                                                        color: global.mainColor=="#145A59"?'#fff':'#333'
                                                                     }}>{v.nickname}</Text>
                                                                     <Text style={{ color: '#aaa', fontSize: 12 }}>{time}</Text>
                                                                 </View>
@@ -596,7 +596,7 @@ export default class LunTan extends Component {
                                                     <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0, elevation: 5 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: global.mainColor, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 5 }}
                                                         onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                         <Fontisto name='hashtag' color='#fff' />
-                                                        <Text style={{ paddingTop: 5, paddingBottom: 5, color: global.backColor }}>{v.tag}</Text>
+                                                        <Text style={{ paddingTop: 5, paddingBottom: 5, color: global.mainColor == "#145A59" ? '#fff': '#333' }}>{v.tag}</Text>
                                                     </TouchableOpacity>
 
                                                     <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10 }}>
@@ -695,7 +695,7 @@ export default class LunTan extends Component {
                         alignItems: "center",
                         borderRadius: 7
                     }}>
-                        <LottieView source={require('../../../animal/mail.json')} autoPlay loop progress={this.state.progress} />
+                        <LottieView source={changeSVGColor(require('../../../animal/mail.json'),global.mainColor)} autoPlay loop progress={this.state.progress} />
                         {/* <ActivityIndicator size="large" color="#FFF" /> */}
                         {/* <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text> */}
                     </View>

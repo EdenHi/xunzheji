@@ -26,6 +26,7 @@
     "axios": "^0.21.1",
     "deprecated-react-native-listview": "^0.0.7",
     "emoji-utils": "^1.0.1",
+    "hex-rgb": "^5.0.0",
     "lottie-react-native": "^4.0.2",
     "react": "17.0.1",
     "react-native": "0.64.2",

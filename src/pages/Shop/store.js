@@ -35,6 +35,7 @@ import Swiper from 'react-native-swiper';
 import ScrollTopView from 'react-native-scrolltotop';
 import shoplist from './shoplist/shoplist.json';
 import Geolocation from '@react-native-community/geolocation';
+import changeSVGColor from '../../components/ChangeLottie';
 
 const { width, height } = Dimensions.get('window');
 const images = [{ uri: 'http://47.100.78.254:3000/public/images/5.jpg' }, { uri: 'http://47.100.78.254:3000/public/images/6.jpg' }, { uri: 'http://47.100.78.254:3000/public/images/6.jpg' }, { uri: 'http://47.100.78.254:3000/public/images/5.jpg' }]
@@ -494,8 +495,8 @@ fresh(){
           <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: global.mainColor=='#145A59'?"#fff":'#333', fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
           <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
-              <Text style={{ color:'#7cc0c0', fontSize: 15 }}>￥</Text>
-              <Text style={{ color: '#7cc0c0', fontSize: 15 }}>{item.price}</Text>
+              <Text style={{ color:global.mainColor, fontSize: 15 }}>￥</Text>
+              <Text style={{ color: global.mainColor, fontSize: 15 }}>{item.price}</Text>
             </View>
             <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 10 }}>{item.sales}人付款</Text>
           </View>
@@ -631,15 +632,15 @@ fresh(){
           alignItems: "center"
         }}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('NewWorks')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-            <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
+            <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>上新好物</Text>
-              <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>NEW GOOD THINKGS</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>上新好物</Text>
+              <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>NEW GOOD THINKGS</Text>
             </View>
 
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
-              <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+              <LottieView source={changeSVGColor(require('../../../animal/right.json'),global.mainColor) } autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </TouchableOpacity>
 
@@ -708,13 +709,13 @@ fresh(){
           marginTop: "2%"
         }}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-            <View style={{ backgroundColor: '#7cc0bf', width: 3, height: 29, marginLeft: 10 }} />
+            <View style={{ backgroundColor:global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
-              <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#7cc0bf' }}>线下老字号</Text>
-              <Text style={{ fontSize: 9, fontWeight: 'bold', color: '#7cc0bf' }}>OFFLINE TIME-HONONER BRANDS</Text>
+              <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>线下老字号</Text>
+              <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>OFFLINE TIME-HONONER BRANDS</Text>
             </View>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
-              <LottieView source={require('../../../animal/right.json')} autoPlay loop progress={this.state.progress} />
+            <LottieView source={changeSVGColor(require('../../../animal/right.json'),global.mainColor) } autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </TouchableOpacity>
           <View style={styles.oldname}>
@@ -733,8 +734,8 @@ fresh(){
           </View>
         </View>
         <View style={{ width: "95%", alignItems: "center", backgroundColor: global.backColor, marginTop: 10, marginHorizontal: '2.5%', borderTopRightRadius: 10, borderTopLeftRadius: 10 }}>
-          <Text style={{ height: 20, fontSize: 16, color: "#7cc0c0", fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
-          <Text style={{ height: 20, fontSize: 9, color: '#7cc0c0', fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
+          <Text style={{ height: 20, fontSize: 16, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%", fontWeight: "bold" }}>今日推荐</Text>
+          <Text style={{ height: 20, fontSize: 9, color: global.mainColor, fontWeight: "bold", marginTop: "0.5%" }}>RECOMMENTED TODAY</Text>
 
           <View style={{ width: "25%", borderWidth: 2, borderColor: global.mainColor, marginTop: "0.5%" }}></View>
         </View>

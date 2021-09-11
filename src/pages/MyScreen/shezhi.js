@@ -57,9 +57,9 @@ export default class shezhi extends Component {
     </TouchableOpacity>
 </View> */}
                 <SwitchSelector
-                    selectedColor={global.mainColor}
+                    selectedColor={'#fff'}
                     buttonColor={global.mainColor}
-                    borderColor={"#7cc0c0"}
+                    borderColor={global.mainColor}
                     hasPadding
                     options={options}
                     initial={0}
