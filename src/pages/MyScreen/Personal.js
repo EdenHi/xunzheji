@@ -87,8 +87,62 @@ export default class Personal extends Component {
   menu() {
     const {isOpen} = this.state
     return (
-      <View style={{ backgroundColor: global.backColor, flex: 1 }}>
-
+      <View style={{ backgroundColor: "#D6F0F0", flex: 1 }}>
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen:false  }) }}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,marginTop:height*0.1,alignItems:"center",flexDirection:"row"}}>
+        <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen:false  }) }} 
+              name="cart-outline"
+              size={30}
+              color={global.mainColor}
+            />
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>购物车</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Dingdan') , this.setState({ isOpen:false  })}} style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('Dingdan') , this.setState({ isOpen:false  })}} 
+                 name="clipboard-text-outline"
+              size={30}
+              color={global.mainColor}
+            />
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的订单</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('AddressList'), this.setState({ isOpen: false }) }} style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen:false  }) }} 
+       name="map-marker-radius"
+              size={30}
+              color={global.mainColor}
+            />
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>地址管理</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('FootMark',{username:this.state.username}), this.setState({ isOpen: false }) }} style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,marginTop:height*0.01,alignItems:"center",flexDirection:"row"}}>
+        <MaterialCommunityIcons 
+              name="foot-print"
+              size={30}
+              color={global.mainColor}
+            />
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>商品足迹</Text>
+        </TouchableOpacity>
+      
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('ShiMin'), this.setState({ isOpen: false }) }} style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <AntDesign 
+              name="adduser"
+              size={30}
+              color={global.mainColor}
+            />
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>实名认证</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats', { room: '1' }), this.setState({ isOpen: false }) }}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <AntDesign 
+              name="customerservice"
+              size={30}
+              color={global.mainColor}
+            />
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的客服</Text>
+        </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('shezhi')}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <AntDesign name='setting' size={30} color={global.mainColor}/>
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的设置</Text>
+        </TouchableOpacity>
+       
+{/* 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
           <TouchableOpacity activeOpacity={1} style={{ width: width * 0.23, height: width * 0.25, backgroundColor: "#fff", borderRadius: 15, elevation: 5 }}>
             <MaterialCommunityIcons onPress={() => { this.props.navigation.navigate('ShoppingCart'), this.setState({ isOpen:false  }) }} style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
@@ -142,7 +196,7 @@ export default class Personal extends Component {
             />
             <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>商品足迹</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         
       </View>
     )
@@ -165,7 +219,7 @@ export default class Personal extends Component {
       <SideMenu
         menu={this.state.isOpen === false ? null : this.menu()}                    //抽屉内的组件
         isOpen={this.state.isOpen}     //抽屉打开/关闭
-        openMenuOffset={width * 0.6}     //抽屉的宽度
+        openMenuOffset={width * 0.4}     //抽屉的宽度
         hiddenMenuOffset={0}          //抽屉关闭状态时,显示多少宽度 默认0 抽屉完全隐藏
         edgeHitWidth={100}              //距离屏幕多少距离可以滑出抽屉,默认60
         disableGestures={false}
@@ -185,34 +239,70 @@ export default class Personal extends Component {
         menuPosition={'left'}     //抽屉在左侧还是右侧
         autoClosing={true}         //默认为true 如果为true 一有事件发生抽屉就会关闭
       >
-        <LottieView source={require('../../../animal/background')} autoPlay loop progress={this.state.progress} />
-        <View>
-          <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.08, justifyContent: "space-between", flexDirection: "row", backgroundColor: global.mainColor }}>
-            <Feather name="menu" size={25} color="#fff" style={{ marginLeft: 10 }} onPress={() => this.setState({ isOpen: true, })} />
-            <View style={{ width: width * 0.6, alignContent: "center", justifyContent: "center", flexDirection: "row" }}>
-              {/* <Text style={{ fontSize: 18, color: "#fff",fontWeight:"bold" }}>{data.nickname}</Text> */}
-              <Text style={{ fontSize: 18, color: "#fff",fontWeight:"bold" }}>个人中心</Text>
-            </View>
-            <TouchableOpacity activeOpacity={1} style={{ width:60,height:60 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})}>
-            <LottieView source={require('../../../animal/bell.json')} autoPlay loop progress={this.state.progress} />
+        {/* <LottieView source={require('../../../animal/background')} autoPlay loop progress={this.state.progress} /> */}
+        <View style={{width:width,height:height}}>
+          <View style={{ width: width * 1, height: height  ,backgroundColor:global.backColor}}>
+            <ImageBackground source={{ uri: data.backpic }} style={{width:width,height:height*0.4,position:"absolute"}}>
+              <View style={{width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,0.5)"}}>
+            <View style={{ flexDirection: "row", alignItems: "center",width:width*0.95,marginLeft:width*0.025,justifyContent:"space-between", }}>
+            <Feather name="menu" size={25} color="#7cc0c0" style={{ marginLeft: 10 }} onPress={() => this.setState({ isOpen: true, })} />
+          
+            <TouchableOpacity activeOpacity={1} style={{ width:50,height:50 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})}>
+            <LottieView source={require('../../../animal/bellblue.json')} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
             {/* <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})} /> */}
           </View>
-          <View style={{ width: width * 1, height: height * 0.87 ,backgroundColor:global.backColor}}>
-            <ScrollView>
-              <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
+          <View style={{width:width,marginTop:height*0.01,height:height*0.13,flexDirection:"row",alignItems:"center"}}>
+            <ImageBackground source={{ uri: data.portrait }} style={{width:width*0.25,elevation:5,height:width*0.25,marginLeft:width*0.05} } imageStyle={{borderRadius:50}}></ImageBackground>
+            <View style={{height:"100%",marginLeft:width*0.02,justifyContent:"center"}}>
+              <View style={{flexDirection:"row"}}>
+              <Text style={{ color: global.mainColor, fontSize: 18, fontWeight: "bold",marginLeft:"5%" }}>{data.nickname}</Text>
+           <TouchableOpacity activeOpacity={1} onPress={() => {
+                      this.props.navigation.navigate('bianjiziliao', {
+                        username: data.username,
+                        portrait: data.portrait,
+                        nickname: data.nickname,
+                        sex: data.sex,
+                        birthday: data.birthday,
+                        signature: data.signature,
+                        phone: data.phone,
+                        area: data.area,
+                        backpic: data.backpic,
+                      })
+                    }}>
+            <Feather name='edit-3' size={20} color={global.mainColor} style={{marginLeft:width*0.025}} />
+              </TouchableOpacity>
+              </View>
+            <Text style={{ color: global.mainColor, fontSize: 13 ,marginLeft:"5%",marginTop:height*0.02}}>{data.signature}</Text>
+            </View>
+          </View>
+          <View style={{width:width*0.4,height:height*0.09,marginLeft:width*0.05,marginTop:5,flexDirection:"row",alignItems:"center"}}>
+            <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }} style={{width:width*0.15,height:width*0.15,backgroundColor:"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+            <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold"}}>{this.state.username === '' ? '0' : data.fensi}</Text>
+            <Text style={{ fontSize: 15, color: "#fff"}}>粉丝</Text>      
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.context.navigate('Concerns', this.state.username) }} style={{width:width*0.15,height:width*0.15,marginLeft:width*0.025,backgroundColor:"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+            <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold"}}>{this.state.username === '' ? '0' : data.guanzhu}</Text>
+            <Text style={{ fontSize: 15, color: "#fff"}}>关注</Text>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('JiFen',{portrait:data.portrait})} style={{width:width*0.35,height:width*0.35,marginLeft:width*0.25,alignItems:"center",justifyContent:"center"}}>
+            <LottieView source={require('../../../animal/gifts')} autoPlay loop progress={this.state.progress} />
+            </TouchableOpacity>
+          </View>
+          
+          </View>
+            </ImageBackground>
+              {/* <View style={{ width, height: height * 0.35, flexDirection: "row", marginTop: 10 }}>
                 <View activeOpacity={1} style={{ width: width * 0.754,height: height * 0.354, borderWidth: 1, borderStyle: "dashed", borderColor: global.mainColor, borderRadius: 10, elevation: 5, }}>
                   <ImageBackground source={{ uri: data.portrait }} style={{ width: width * 0.75, height: height * 0.35 }} borderRadius={10}>
-                    {/* <View style={{  height: "100%", borderRadius: 10,}}> */}
+                    
                     <View style={{ width:width*0.4, height: height * 0.05, backgroundColor:"rgba(255,255,255,0.8)",justifyContent: "center",elevation: 5,marginTop:height*0.22 }}>
                     <Text style={{ color: global.mainColor, fontSize: 15, fontWeight: "bold",marginLeft:"5%" }}>{data.nickname}</Text>
                   </View>
                   <View style={{ height: height * 0.05, backgroundColor:"rgba(255,255,255,0.8)",justifyContent: "center", marginTop: "5%", elevation: 5 }}>
                   <Text style={{ color: global.mainColor, fontSize: 13 ,marginLeft:"5%"}}>{data.signature}</Text>
                   </View>
-                      {/* <View style={{ marginTop: "60%", marginLeft: "60%" }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold" }}>{data.nickname}</Text></View>
-                      <View style={{ marginTop: 10, width: width * 0.65 }}><Text style={{ color: "#fff", fontSize: 15, fontWeight: "bold", textAlign: "right" }}>{data.signature}</Text></View> */}
-                    {/* </View> */}
+                     
                   </ImageBackground>
                 </View>
                 <View>
@@ -255,8 +345,9 @@ export default class Personal extends Component {
                 </View>
                 <View style={{ width: width * 0.9, height: height * 0.25, backgroundColor: "#fff", marginHorizontal: width * 0.05 }}>
                 </View>
-              </View>
-              <TouchableOpacity onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.35, alignItems: "center", flexDirection: "row" }}>
+              </View> */}
+            <View style={{width:width,height:height*0.7,borderTopLeftRadius:15,marginTop:height*0.32,borderTopRightRadius:15,backgroundColor:"#fff",elevation:5}}>
+              <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.28, alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: width * 0.3 }}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <Text style={{ marginLeft: "15%", marginTop: "45%", fontSize: 15, color: global.mainColor, fontWeight: "bold" }}>我的发布</Text>
@@ -264,44 +355,44 @@ export default class Personal extends Component {
                       <LottieView source={require('../../../animal/publish.json')} autoPlay loop progress={this.state.progress} />
                     </View>
                   </View>
-                  <View style={{ width: width * 0.45, height: height * 0.05, backgroundColor: global.mainColor, justifyContent: "center", alignItems: "center", marginLeft: "15%", marginTop: "5%", elevation: 5 }}>
+                  <View style={{ width: width * 0.45, height: height * 0.04, backgroundColor: global.mainColor, justifyContent: "center", alignItems: "center", marginLeft: "15%", marginTop: "5%", elevation: 5 }}>
                     <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff" }}>MY MERCHANDISE</Text>
                   </View>
                 </View>
-                <View style={{ width: width * 0.702, height: height * 0.252, borderStyle: "dashed", borderWidth: 1, borderColor: global.mainColor, borderBottomLeftRadius: 10, borderTopLeftRadius: 10, justifyContent: "center", alignItems: "center" }}>
-                  <Image source={{ uri: "https://img1.baidu.com/it/u=1157957035,1350047874&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.7, height: height * 0.25, borderBottomLeftRadius: 10, borderTopLeftRadius: 10, elevation: 1 }} />
+                <View style={{ width: width * 0.702, height: height * 0.2, borderStyle: "dashed", borderWidth: 1, borderColor: global.mainColor, borderBottomLeftRadius: 10, borderTopLeftRadius: 10, justifyContent: "center", alignItems: "center" }}>
+                  <Image source={{ uri: "https://img1.baidu.com/it/u=1157957035,1350047874&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.7, height: height * 0.2, borderBottomLeftRadius: 10, borderTopLeftRadius: 10, elevation: 1 }} />
                 </View>
               </TouchableOpacity>
-              <View style={{ width: width * 1, height: height * 0.4, alignItems: "center", flexDirection: "row" }}>
-                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Goods2')} style={{ width: width * 0.452, height: height * 0.352, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: global.mainColor, borderTopRightRadius: 10, borderBottomRightRadius: 10, alignItems: "center", justifyContent: "center" }}>
-                  <ImageBackground resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1868037487,4029559003&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.45, height: height * 0.35, }} borderTopRightRadius={10} borderBottomRightRadius={10}>
-                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: "100%", justifyContent: "space-between", marginHorizontal: width * 0.05, width: width * 0.25 }}>
+              <View style={{ width: width * 1, height: height * 0.3, alignItems: "center", flexDirection: "row" }}>
+                <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Goods2')} style={{ width: width * 0.452, height: height * 0.3, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: global.mainColor, borderTopRightRadius: 10, borderBottomRightRadius: 10, alignItems: "center", justifyContent: "center" }}>
+                  <ImageBackground resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1868037487,4029559003&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.45, height: height * 0.3, }} borderTopRightRadius={10} borderBottomRightRadius={10}>
+                    <View style={{ flexDirection: "row", alignItems: "center", marginTop: "80%", justifyContent: "space-between", marginHorizontal: width * 0.05, width: width * 0.25 }}>
                       <Text style={{ fontSize: 15, color: global.mainColor, fontWeight: "bold" }}>我的商店</Text>
                       <Text style={{ fontSize: 20, fontWeight: "bold", color: global.mainColor }}>{shangdian.shangdian}</Text>
                     </View>
                     <View style={{ width: width * 0.25, height: height * 0.05, backgroundColor: global.mainColor, justifyContent: "center", alignItems: "center", marginHorizontal: width * 0.05, elevation: 5 }}><Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold" }}>MY STORE</Text></View>
                   </ImageBackground>
                 </TouchableOpacity>
-                <View style={{ width: width * 0.4, marginLeft: "5%" }}>
+                <View style={{ width: width * 0.4, marginLeft: "5%" ,height:height*0.3}}>
                   <View style={{ width: width * 0.4, height: height * 0.05, flexDirection: "row", justifyContent: "space-around", marginTop: "-25%", alignItems: "center" }}>
                     <Text style={{ fontSize: 15, color: global.mainColor }}>我的收藏</Text>
                     <Text style={{ fontSize: 20, fontWeight: "bold", color: global.mainColor }}>{shoucang.shoucang}</Text>
                   </View>
-                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Shoucang2')} style={{ width: width * 0.402, height: height * 0.152, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: global.mainColor, borderRadius: 10, alignItems: "center", justifyContent: "center" }}>
-                    <ImageBackground source={{ uri: "https://img1.baidu.com/it/u=1097602216,1708759335&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.4, height: height * 0.15 }} borderRadius={10} >
+                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Shoucang2')} style={{ width: width * 0.45, height: height * 0.125, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: global.mainColor, borderRadius: 10, alignItems: "center", justifyContent: "center" }}>
+                    <ImageBackground source={{ uri: "https://img1.baidu.com/it/u=1097602216,1708759335&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.45, height: height * 0.125 }} borderRadius={10} >
                     </ImageBackground>
                   </TouchableOpacity>
                   <View style={{ width: width * 0.4, height: height * 0.05, flexDirection: "row", justifyContent: "space-around", alignItems: "center" }}>
                     <Text style={{ fontSize: 15, color: global.mainColor }}>我的点赞</Text>
                     <Text style={{ fontSize: 20, fontWeight: "bold", color: global.mainColor }}>{dianzan.dianzan}</Text>
                   </View>
-                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Dianzan2')} style={{ width: width * 0.402, height: height * 0.152, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: global.mainColor, borderRadius: 10, alignItems: "center", justifyContent: "center" }}>
-                    <ImageBackground source={{ uri: "https://img0.baidu.com/it/u=1107750492,2231488047&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.4, height: height * 0.15 }} borderRadius={10} >
+                  <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Dianzan2')} style={{ width: width * 0.45, height: height * 0.125, borderStyle: "dashed", borderWidth: 1, borderRadius: 1, borderColor: global.mainColor, borderRadius: 10, alignItems: "center", justifyContent: "center" }}>
+                    <ImageBackground source={{ uri: "https://img0.baidu.com/it/u=1107750492,2231488047&fm=26&fmt=auto&gp=0.jpg" }} style={{ width: width * 0.45, height: height * 0.125 }} borderRadius={10} >
                     </ImageBackground>
                   </TouchableOpacity>
                 </View>
               </View>
-            </ScrollView>
+      </View>
           </View>
         </View>
       </SideMenu>

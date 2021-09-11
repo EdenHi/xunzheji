@@ -116,6 +116,7 @@ import {
   book_7,
   book_xiangqing_7,
   duihuan,
+  ColorPicker,
   duihuan_xiangqing,
 } from '../pages/index';
 import CityList from '../components/CityList';
@@ -255,6 +256,7 @@ export default function StackNav() {
       <Stack.Screen name="book_7" component={book_7} />
       <Stack.Screen name="book_xiangqing_7" component={book_xiangqing_7} />
       <Stack.Screen name="duihuan" component={duihuan} />
+      <Stack.Screen name="ColorPicker" component={ColorPicker} />
       <Stack.Screen name="duihuan_xiangqing" component={duihuan_xiangqing} />
     </Stack.Navigator>
   );

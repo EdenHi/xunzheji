@@ -97,6 +97,7 @@ export default class Clothe extends Component {
             marginTop: [height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2, height * 0.2],
             fresh: false,
             eye: true,
+            closeeye:true,
         };
     }
 
@@ -158,7 +159,6 @@ export default class Clothe extends Component {
             quality: 0.8
         }).then(
             uri => {
-
                 this.setState({ shoturi: uri })
             },
             error => console.error("Oops, snapshot failed", error)
@@ -170,6 +170,7 @@ export default class Clothe extends Component {
         for (let i = 0; i < Arr.length; i++) {
             Arr[i] = false;
         }
+        this.setState({closeeye:false})
         setTimeout(() => {
             this.capture()
         }, 50);
@@ -358,10 +359,10 @@ export default class Clothe extends Component {
                     visible={modalVisible4}
                     hardwareAccelerated={true}
                     onRequestClose={() => {
-                        this.setModalVisible4(!modalVisible4); y
+                        this.setModalVisible4(!modalVisible4); 
                     }}
                 >
-                    <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4), this.ShowBorder(true) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
+                    <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4), this.ShowBorder(true),this.setState({closeeye:true}) }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.4)' }}>
                         <ImageBackground resizeMode={'stretch'} style={{ flex: 5, width: width * 0.9, height: height * 0.6, marginLeft: width * 0.05, marginTop: height * 0.15, }} imageStyle={{ width: '100%' }} borderRadius={10} source={{ uri: this.state.shoturi }}>
                         </ImageBackground>
                         <View style={{ backgroundColor: '#fff', width, flex: 1, }}>
@@ -392,7 +393,7 @@ export default class Clothe extends Component {
                     <ImageBackground ref={viewRef} collapsable={false} source={{ uri: this.state.backImg }} resizeMode={'contain'} style={{ width: '100%', height: '100%', zIndex: 1, backgroundColor: '#5A849F' }}>
                         {this.ImageComponent()}
                         <TouchableOpacity onPress={()=>{this.setState({eye:!this.state.eye}),this.EyeControl()}} style={{ width: width * 0.07, height: width * 0.07, marginLeft: width * 0.92, marginTop: height * 0.6 }}>
-                            <Image style={{ width: '100%', height: '100%', }} source={{uri:this.state.eye ? "http://47.100.78.254:3000/public/images/openEye.png" : "http://47.100.78.254:3000/public/images/closeEye.png"}}></Image>
+                            <Image style={ this.state.closeeye?{width: '100%', height: '100%', }:null} source={{uri:this.state.eye ? "http://47.100.78.254:3000/public/images/openEye.png" : "http://47.100.78.254:3000/public/images/closeEye.png"}}></Image>
                         </TouchableOpacity>
                     </ImageBackground>
                 </View>

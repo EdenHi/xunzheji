@@ -323,7 +323,7 @@ export default class JiFen extends Component {
                                 </TouchableOpacity>
                             </View>
                             <View style={{ flexDirection: "row", marginTop: 10, height: 70, alignItems: "center", justifyContent: "space-between", marginHorizontal: width * 0.05, borderBottomWidth: 1, borderColor: global.mainColor }}>
-                                <View >
+                                <View>
                                     <View style={{ flexDirection: "row" }}>
                                         <Text style={{ marginRight: 20, color: "#333" }}>更换用户头像</Text>
                                         <FontAwesome5 name='coins' color='#daa520' size={15} />

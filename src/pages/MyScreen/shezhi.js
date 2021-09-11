@@ -1,17 +1,25 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity, Dimensions, AsyncStorage, ScrollView, DeviceEventEmitter } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, AsyncStorage, DeviceEventEmitter } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import SwitchSelector from "react-native-switch-selector";
+
 const { height, width } = Dimensions.get('window');
+const options = [
+    { label: "日间", value: ['#7cc0c0', '#fff', '#333'] },
+    { label: "黑夜", value: ['#145A59', '#1B1B1B', '#fff'] },
+    { label: "自定义", value: "2" }
+];
 export default class shezhi extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            f: 1
+            f: 1,
+     
         }
     }
 
@@ -20,9 +28,17 @@ export default class shezhi extends Component {
         AsyncStorage.removeItem('username');
         this.props.navigation.navigate('Login');
     }
+    componentDidMount(){
+        this.listerner=DeviceEventEmitter.addListener('PickColor',(msg)=>{global.back([msg,'#fff']), DeviceEventEmitter.emit('yanse', 1),this.setState({f:this.state.f+1})})
+    }
+    componentWillUnmount(){
+        this.listerner.remove();
+    }
     render() {
+
         return (
-            <View style={{ flex: 1 ,backgroundColor:global.backColor}}>
+            <View style={{ flex: 1, backgroundColor: global.backColor }}>
+
                 <View style={{ flexDirection: "row", backgroundColor: global.mainColor, alignItems: "center", height: height * 0.07, justifyContent: "center", marginBottom: "5%" }}>
                     <TouchableOpacity activeOpacity={1} style={{ width: width * 0.06, }}>
                         <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -31,7 +47,7 @@ export default class shezhi extends Component {
                     <Text style={{ fontSize: 18, fontWeight: "bold", color: global.backColor, width: width * 0.85 }}>设置</Text>
 
                 </View>
-<View>
+                {/* <View>
     <TouchableOpacity onPress={()=>{global.back(['#7cc0c0','#fff','#333']),console.log('global',global.mainColor,global.backColor),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}} style={{height:height*0.075,width:0.95*width,marginLeft:width*0.025,backgroundColor:'#eee',borderRadius:10,marginBottom:10}}>
         <Text style={{textAlignVertical:'center',height:'100%',fontSize:16,paddingLeft:width*0.075,color:'#333'}}>白天模式</Text>
     </TouchableOpacity>
@@ -39,14 +55,28 @@ export default class shezhi extends Component {
     <TouchableOpacity onPress={()=>{global.back(['#145A59','#1B1B1B','#fff']),console.log('global',global.mainColor,global.backColor),DeviceEventEmitter.emit('yanse',1),this.setState({f:this.state.f+1})}} style={{height:height*0.075,width:0.95*width,marginLeft:width*0.025,backgroundColor:'#eee',borderRadius:10,marginBottom:10}}>
         <Text style={{textAlignVertical:'center',height:'100%',fontSize:16,paddingLeft:width*0.075,color:'#333'}}>黑夜模式</Text>
     </TouchableOpacity>
-</View>
-
+</View> */}
+                <SwitchSelector
+                    selectedColor={'#fff'}
+                    buttonColor={global.mainColor}
+                    borderColor={global.mainColor}
+                    hasPadding
+                    options={options}
+                    initial={0}
+                    onPress={value => {
+                        if (value !== '2') 
+                        { global.back(value), DeviceEventEmitter.emit('yanse', 1), this.setState({ f: this.state.f + 1 }) } 
+                        else {
+                            this.props.navigation.navigate('ColorPicker')
+                        }
+                    }}
+                />
                 <View>
-                
 
-                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 15, width: width * 0.9, backgroundColor: global.mainColor, height: height * 0.05, elevation: 5, alignItems: 'center', justifyContent: 'center', marginLeft: width * 0.05, borderRadius: 30, marginBottom: 15 }}
+
+                    <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.mainColor, width: width * 0.8, marginLeft: width * 0.1, height: height * 0.075, borderRadius: 25, marginTop: height * 0.05 }}
                         onPress={() => this.go_back()}>
-                        <Text style={{ fontSize: 18, color: global.backColor }}>退出登录</Text>
+                        <Text style={{ fontSize: 18, color: global.backColor, height: '100%', textAlignVertical: 'center', textAlign: 'center' }}>退出登录</Text>
                     </TouchableOpacity>
                 </View>
             </View>

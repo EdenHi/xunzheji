@@ -142,17 +142,12 @@ export default class Dingdan extends Component {
                                                    this.props.navigation.goBack()
                                                 }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
-                        <Text style={{fontSize:18,fontWeight:"bold",color:"#fff"}}>订单</Text>
+                        <Text style={{fontSize:18,fontWeight:"bold",color:"#fff"}}>我的订单</Text>
                     </View>
-           
-
-
                         <FlatList
                         data={this.state.data}
                         keyExtractor={(item, index) => (index + '1')}
                         renderItem={this.renderDate.bind(this)}/>
-                       
-
                        <Modal
                             animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
                             transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
