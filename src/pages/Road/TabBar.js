@@ -23,11 +23,12 @@ export default class SegmentTabBar extends Component {
         };
     }
     renderTab(name, page, isTabActive, onPressHandler) {
-        const textColor = isTabActive ? global.mainColor : '#fff';
+        const textColor = isTabActive ? '#000' : '#333';
         const backgroundColor = isTabActive ? '#fff' : global.mainColor;
-
+        const cu = isTabActive ? 'bold':'100';
+        const size = isTabActive ? 20:15
         return <TouchableOpacity  activeOpacity={1}
-            style={{height: 35, backgroundColor:backgroundColor,width:70,marginTop:10,borderRadius:20,marginHorizontal:5,elevation:5}}
+            style={{height: 40,width:90,marginTop:10,marginHorizontal:5,elevation:5}}
             key={name}
             accessible={true}
             accessibilityLabel={name}
@@ -35,9 +36,11 @@ export default class SegmentTabBar extends Component {
             onPress={() => onPressHandler(page)}
         >
             <View style={[styles.tab]}>
-                <Text style={{color: textColor }}>
+            
+                <Text style={{color: textColor,fontSize: size,fontWeight:cu,zIndex:5 }}>
                     {name}
                 </Text>
+                {isTabActive ?<View style={{width:35,borderColor:global.mainColor,borderWidth:5,top:-8,borderRadius:10}}/>:null}
             </View>
         </TouchableOpacity>;
     }

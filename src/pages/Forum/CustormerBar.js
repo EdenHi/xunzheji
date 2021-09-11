@@ -60,29 +60,21 @@ class CustormerBar extends Component {
               onPress={() => goToPage(i)}
               style={{
                 justifyContent: 'center',
-                borderBottomColor: '#fff', //下划线颜色
-                borderBottomWidth: activeTab === i ? pxToDp(3) : 0,
-                borderRadius: 2,
-               
+                alignItems:'center'
+                // borderBottomColor: '#fff', //下划线颜色
+                // borderBottomWidth: activeTab === i ? pxToDp(3) : 0,
               }}>
               <Text
                 style={{
                   color: activeTab === i ? '#fff' : '#fff',
                   fontSize: activeTab === i ? pxToDp(20) : pxToDp(20),
                   textAlign:'center',
-                  fontWeight:"bold"
+                  fontWeight:"bold",
+                  zIndex:5
                 }}>
                 {v}
               </Text>
-              {/* <Text
-                style={{
-                  color: activeTab === i ? '#fff' : '#fff',
-                  fontSize: activeTab === i ? pxToDp(8) : pxToDp(8),
-                  textAlign:'center',
-                  marginTop:-2
-                }}>
-                {i == 0 ? 'ATTENTION' : 'HOTLISTS'}
-              </Text> */}
+              {activeTab === i ? <View style={{borderWidth:4,borderRadius:10,borderColor:'#000',top:-8,width:55}}/>:null}
             </TouchableOpacity>
           ))}
           <TouchableOpacity

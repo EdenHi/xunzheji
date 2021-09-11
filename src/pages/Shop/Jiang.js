@@ -17,7 +17,7 @@ export default class Jiang extends Component {
         const { navigation } = this.props;
         return (
             <View style={{flex:1}}>
-                <LinearGradient colors={[global.mainColor, "#fff", "#fff"]}>
+                <LinearGradient colors={[global.mainColor, "#fff", "#fff"]} style={{flex:1}}>
                     <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, width }}>
                         <TouchableOpacity style={{width:width*0.06,marginLeft:width*0.05}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
                         <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
@@ -25,22 +25,23 @@ export default class Jiang extends Component {
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", textAlign: "center" }}>全部匠人</Text>
                     </View>
-                    <View style={{ height: height * 0.93 }}>
-                        <ScrollView>
-                            <View style={{ height: height * 4.15 }}>
-                                <View style={{ width: width * 0.95, height: 150, overflow: "hidden", borderRadius: 10, marginHorizontal: width * 0.025 }}>
-                                    <Image style={{ width: width * 0.95, height: 150, borderRadius: 10 }} source={{ uri: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170920%2Ff955cac704834b7b9a11a76f591f46d3.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630802028&t=aecfaf4f313f389cc34c8f036de4c7f7" }} /></View>
+
+
+                                <View style={{ width: width * 0.95, borderRadius: 10, marginHorizontal: width * 0.025 }}>
+                                    <Image style={{ width: width * 0.95, height: 150, borderRadius: 10 }} source={{ uri: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170920%2Ff955cac704834b7b9a11a76f591f46d3.gif&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630802028&t=aecfaf4f313f389cc34c8f036de4c7f7" }} />
+                                </View>
                                 <ScrollableTabView horizontal renderTabBar={() => <TabBar />}  >
-                                    <JiangRen navigation={this.props.navigation} tabLabel='陶瓷器' />
-                                    <JiangRen navigation={this.props.navigation} tabLabel='雕刻' />
-                                    <JiangRen navigation={this.props.navigation} tabLabel='书画篆刻' />
-                                    <JiangRen navigation={this.props.navigation} tabLabel='刺绣纺织' />
-                                    <JiangRen navigation={this.props.navigation} tabLabel='民间艺术' />
-                                    <JiangRen navigation={this.props.navigation} tabLabel='文化生活' />
+                                    <JiangRen page={6} tabLabel='全部' />
+                                    <JiangRen page={0} tabLabel='陶瓷器' />
+                                    <JiangRen page={1} tabLabel='雕刻' />
+                                    <JiangRen page={2} tabLabel='书画篆刻' />
+                                    <JiangRen page={3} tabLabel='刺绣纺织' />
+                                    <JiangRen page={4} tabLabel='文房用品' />
+                                    <JiangRen page={5} tabLabel='印刷拓制' />
+                                    
                                 </ScrollableTabView>
-                            </View>
-                        </ScrollView>
-                    </View>
+
+
                 </LinearGradient>
             </View>
         )
