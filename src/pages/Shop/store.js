@@ -491,13 +491,13 @@ fresh(){
         <TouchableOpacity key={index} style={{ backgroundColor: global.backColor, width: width * 0.425, borderRadius: 10, margin: width * 0.025, elevation: 5 }} activeOpacity={1}
           onPress={() => this.props.navigation.navigate('Shopdetails', { shops: item, username: this.state.username })}>
           <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.425, height: width * 0.425, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: global.mainColor=='#7cc0c0'?"#333333":"#fff", fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
+          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: global.mainColor=='#145A59'?"#fff":'#333', fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
           <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
               <Text style={{ color:'#7cc0c0', fontSize: 15 }}>￥</Text>
               <Text style={{ color: '#7cc0c0', fontSize: 15 }}>{item.price}</Text>
             </View>
-            <Text style={{ color: global.mainColor=='#7cc0c0'?"#333333":"rgb(222,222,222)", fontSize: 10 }}>{item.sales}人付款</Text>
+            <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 10 }}>{item.sales}人付款</Text>
           </View>
         </TouchableOpacity>
       )
@@ -663,10 +663,10 @@ fresh(){
                 }}>
                   <View style={{ width: "60%", height: "100%", backgroundColor: global.backColor, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                     <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold", color: global.mainColor=="#7cc0c0"?"#333333":"#fff" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
+                      <Text style={{ fontSize: 15, fontWeight: "bold", color: global.mainColor=="#145A59"?"#fff":"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: global.mainColor=='#7cc0c0'?"#333333":"rgb(222,222,222)" }}>{item.jieshao}</Text>
+                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333" }}>{item.jieshao}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
                       <Text style={{ color: global.mainColor }}>￥<Text style={{ fontSize: 13, color: global.mainColor }}>{item.price}</Text></Text>
@@ -674,7 +674,7 @@ fresh(){
 
                     <View style={{ width: "90%", height: "18%", flexDirection: "row", alignItems: "center", marginLeft: "2%" }}>
                       <LottieView style={{ width: "50%", height: "100%" }} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
-                      <Text style={{ color: global.mainColor=='#7cc0c0'?"#333333":"rgb(222,222,222)", fontSize: 13 }}>5.0</Text>
+                      <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 13 }}>5.0</Text>
                     </View>
 
                     <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>

@@ -405,7 +405,7 @@ export default class LunTan extends Component {
                                                         <Text style={v.title === '' ? { height: 0 } : {
                                                             marginTop: 10,
                                                             fontSize: 15,
-                                                            color: global.mainColor == "#7cc0c0" ? '#333' : '#fff'
+                                                            color: global.mainColor == "#145A59" ? '#fff': '#333'
                                                         }}
                                                             ellipsizeMode="tail"
                                                             numberOfLines={8}>{v.title}</Text>
@@ -533,7 +533,7 @@ export default class LunTan extends Component {
                                                                     fontSize: 15,
                                                                     fontWeight: 'bold',
                                                                     marginBottom: 5,
-                                                                    color: global.mainColor == "#7cc0c0" ? '#333' : '#fff'
+                                                                    color: global.mainColor == "#145A59" ? '#fff': '#333'
                                                                 }}>{v.nickname}</Text>
                                                                 <Text style={{ color: '#aaa', fontSize: 12 }}>{time}</Text>
                                                             </View>
@@ -543,7 +543,7 @@ export default class LunTan extends Component {
                                                     <Text style={v.title === '' ? { height: 0 } : {
                                                         marginTop: 10,
                                                         fontSize: 15,
-                                                        color: global.mainColor == "#7cc0c0" ? '#333' : '#fff'
+                                                        color: global.mainColor == "#145A59" ? '#fff': '#333'
                                                     }}
                                                         ellipsizeMode="tail"
                                                         numberOfLines={8}>{v.title}</Text>

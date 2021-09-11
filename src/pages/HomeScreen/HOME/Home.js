@@ -248,48 +248,60 @@ export default class Home extends Component {
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                     {/* book top */}
-                                    <View style={{ borderWidth: 1, height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
-                                        <View style={{ borderWidth: 1, width: width * 0.195, height: height * 0.4 * 0.35, marginTop: 5, marginLeft: '3.15%' }}>
-
+                                    <View style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
+                                        <View style={{ width: width * 0.195, height: height * 0.4 * 0.35, marginTop: 5, marginLeft: '3.15%' }}>
+                                            <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
                                         </View>
-                                        <View style={{ borderWidth: 1, borderColor: 'green', width: '72.5%' }}>
-                                            <Text style={{borderWidth:1,fontSize:20,marginTop:height*0.01,paddingLeft:10}}>😄</Text>
-                                            <Text style={{borderWidth:1,marginTop:height*0.02}}></Text>
-                                            <Text style={{borderWidth:1,marginTop:height*0.02}}></Text>
+                                        <View style={{ borderColor: 'green', width: '72.5%', marginLeft: '3.15%' }}>
+                                            <Text style={{ fontSize: 20, marginTop: height * 0.01, paddingLeft: 10 ,color:'#333'}}>百年浙商</Text>
+                                            <Text style={{ marginTop: height * 0.02,color:'#333' }} numberOfLines={2}>浙商是中国社会的一个商业奇迹。他们是如何从无到有，由弱而强，缔造了东方奇迹？在百余年的商业奋斗史中，那些优秀的浙商典范，又是如何开创了伟大的商道智慧？
+                                                百年浙商，这样一部鲜活的大历史，这样一部商人史话，让人温故而知新，鉴往而察来，掩卷之余更添几分对中国商人的理解和对一切创造的敬畏。
+                                                作品以历史的眼光对浙商百年历史做了透视分析，对浙商人物事迹做了详尽记述，对浙商现象做了独到分析，是一部了解浙商进而了解商业借鉴成功经验的优秀作品。</Text>
+                                            <Text style={{ marginTop: height * 0.01 }}>
+                                                <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" />
+                                            </Text>
                                         </View>
                                     </View>
                                     {/* book 1 */}
-                                    <View style={{ borderWidth: 1, height: height * 0.4 * 0.46, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, flexDirection: 'row' }}>
-                                        <View style={{ width: '22%', borderWidth: 1, borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
-                                            <View style={{ borderWidth: 1, width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-
+                                    <View style={{ height: height * 0.4 * 0.46, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, flexDirection: 'row' }}>
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
                                             </View>
-                                            <Text style={{borderWidth:1,width:'95%',marginLeft:'2.5%'}}></Text>
-                                            <View style={{borderWidth:1,width:'95%',marginLeft:'2.5%',height:'12.5%'}}></View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={14} color="gold" /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" size={15} />
+                                            </View>
                                         </View>
-                                        {/* book 2 */}
-                                        <View style={{ width: '22%', borderWidth: 1, borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
-                                            <View style={{ borderWidth: 1, width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-
+                                        {/* 2 */}
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
                                             </View>
-                                            <Text style={{borderWidth:1,width:'95%',marginLeft:'2.5%'}}></Text>
-                                            <View style={{borderWidth:1,width:'95%',marginLeft:'2.5%',height:'12.5%'}}></View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={14} /><AntDesign name="star" size={15} /><AntDesign name="star" size={15} /><AntDesign name="star" size={15} />
+                                            </View>
                                         </View>
-                                        {/* book 3 */}
-                                        <View style={{ width: '22%', borderWidth: 1, borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
-                                            <View style={{ borderWidth: 1, width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-
+                                        {/* 3 */}
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
                                             </View>
-                                            <Text style={{borderWidth:1,width:'95%',marginLeft:'2.5%'}}></Text>
-                                            <View style={{borderWidth:1,width:'95%',marginLeft:'2.5%',height:'12.5%'}}></View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={14} /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" color="gold" size={15} /><AntDesign name="star" size={15} />
+                                            </View>
                                         </View>
-                                        {/* book 4 */}
-                                        <View style={{ width: '22%', borderWidth: 1, borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
-                                            <View style={{ borderWidth: 1, width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-
+                                        {/* 4 */}
+                                        <View style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                            <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
                                             </View>
-                                            <Text style={{borderWidth:1,width:'95%',marginLeft:'2.5%'}}></Text>
-                                            <View style={{borderWidth:1,width:'95%',marginLeft:'2.5%',height:'12.5%'}}></View>
+                                            <Text style={{ width: '95%', marginLeft: '2.5%', color: '#333' }} numberOfLines={1}>百年浙商</Text>
+                                            <View style={{ width: '95%', marginLeft: '2.5%', color: '#333', height: '12.5%', flexDirection: 'row' }}>
+                                                <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" />
+                                            </View>
                                         </View>
                                     </View>
 
