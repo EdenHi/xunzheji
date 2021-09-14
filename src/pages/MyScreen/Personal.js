@@ -10,6 +10,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 import LottieView from 'lottie-react-native';
+import changeSVGColor from '../../components/ChangeLottie';
 
 
 const { width, height } = Dimensions.get("window")
@@ -245,10 +246,10 @@ export default class Personal extends Component {
             <ImageBackground source={{ uri: data.backpic }} style={{width:width,height:height*0.4,position:"absolute"}}>
               <View style={{width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,0.5)"}}>
             <View style={{ flexDirection: "row", alignItems: "center",width:width*0.95,marginLeft:width*0.025,justifyContent:"space-between", }}>
-            <Feather name="menu" size={25} color="#7cc0c0" style={{ marginLeft: 10 }} onPress={() => this.setState({ isOpen: true, })} />
+            <Feather name="menu" size={25} color={global.mainColor} style={{ marginLeft: 10 }} onPress={() => this.setState({ isOpen: true, })} />
           
             <TouchableOpacity activeOpacity={1} style={{ width:50,height:50 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})}>
-            <LottieView source={require('../../../animal/bellblue.json')} autoPlay loop progress={this.state.progress} />
+            <LottieView source={changeSVGColor( require('../../../animal/bellblue.json'),global.mainColor)} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
             {/* <Feather name="bell" size={25} color="#fff" style={{ marginRight: 10 }} onPress={()=>this.props.navigation.navigate("XiaoXi",{username:this.state.username,nickname:this.state.data.nickname,avatar:this.state.data.portrait})} /> */}
           </View>
@@ -256,7 +257,7 @@ export default class Personal extends Component {
             <ImageBackground source={{ uri: data.portrait }} style={{width:width*0.25,elevation:5,height:width*0.25,marginLeft:width*0.05} } imageStyle={{borderRadius:50}}></ImageBackground>
             <View style={{height:"100%",marginLeft:width*0.02,justifyContent:"center"}}>
               <View style={{flexDirection:"row"}}>
-              <Text style={{ color: global.mainColor, fontSize: 18, fontWeight: "bold",marginLeft:"5%" }}>{data.nickname}</Text>
+              <Text style={{ color: '#fff', fontSize: 18, fontWeight: "bold",marginLeft:"5%" }}>{data.nickname}</Text>
            <TouchableOpacity activeOpacity={1} onPress={() => {
                       this.props.navigation.navigate('bianjiziliao', {
                         username: data.username,
@@ -273,7 +274,7 @@ export default class Personal extends Component {
             <Feather name='edit-3' size={20} color={global.mainColor} style={{marginLeft:width*0.025}} />
               </TouchableOpacity>
               </View>
-            <Text style={{ color: global.mainColor, fontSize: 13 ,marginLeft:"5%",marginTop:height*0.02}}>{data.signature}</Text>
+            <Text style={{ color: '#fff', fontSize: 13 ,marginLeft:"5%",marginTop:height*0.02}}>{data.signature}</Text>
             </View>
           </View>
           <View style={{width:width*0.4,height:height*0.09,marginLeft:width*0.05,marginTop:5,flexDirection:"row",alignItems:"center"}}>
@@ -286,7 +287,7 @@ export default class Personal extends Component {
             <Text style={{ fontSize: 15, color: "#fff"}}>关注</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('JiFen',{portrait:data.portrait})} style={{width:width*0.35,height:width*0.35,marginLeft:width*0.25,alignItems:"center",justifyContent:"center"}}>
-            <LottieView source={require('../../../animal/gifts')} autoPlay loop progress={this.state.progress} />
+            <LottieView source={changeSVGColor(require('../../../animal/gifts'),global.mainColor) } autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </View>
           
