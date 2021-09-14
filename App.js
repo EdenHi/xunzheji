@@ -11,11 +11,11 @@ export default class App extends Component {
     };
   }
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        isShowLauncher: false,
-      });
-    }, 2000);
+    // setTimeout(() => {
+    //   this.setState({
+    //     isShowLauncher: false,
+    //   });
+    // }, 2000);
   }
   render() {
     return (

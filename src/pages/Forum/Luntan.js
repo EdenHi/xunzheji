@@ -596,7 +596,7 @@ export default class LunTan extends Component {
                                                     <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0, elevation: 5 } : { flexDirection: 'row', marginTop: 10, alignItems: 'center', backgroundColor: global.mainColor, borderRadius: 20, width: 100, justifyContent: 'center', alignItems: 'center', elevation: 5 }}
                                                         onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                         <Fontisto name='hashtag' color='#fff' />
-                                                        <Text style={{ paddingTop: 5, paddingBottom: 5, color: global.mainColor == "#145A59" ? '#fff': '#333' }}>{v.tag}</Text>
+                                                        <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
                                                     </TouchableOpacity>
 
                                                     <View style={{ flexDirection: 'row', marginTop: 10, marginBottom: 10 }}>
@@ -695,7 +695,7 @@ export default class LunTan extends Component {
                         alignItems: "center",
                         borderRadius: 7
                     }}>
-                        <LottieView source={changeSVGColor(require('../../../animal/mail.json'),global.mainColor)} autoPlay loop progress={this.state.progress} />
+                        <LottieView source={global.mainColor=="#7cc0c0"?require('../../../animal/mail.json'):changeSVGColor(require('../../../animal/mail.json'),global.mainColor)} autoPlay loop progress={this.state.progress} />
                         {/* <ActivityIndicator size="large" color="#FFF" /> */}
                         {/* <Text style={{ marginLeft: 10,color:"#FFF",marginTop:10 }}>正在加载...</Text> */}
                     </View>

@@ -20,5 +20,8 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSFaceIDUsageDescription</key>
+<string>使用指纹解锁可让您快速安全的访问您的账户</string>
+
 </dict>
 </plist>

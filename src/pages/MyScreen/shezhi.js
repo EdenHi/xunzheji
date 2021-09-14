@@ -14,12 +14,17 @@ const options = [
     { label: "黑夜", value: ['#145A59', '#1B1B1B', '#fff'] },
     { label: "自定义", value: "2" }
 ];
+const Touchoptions=[
+    {label:'关闭',value:'关闭'},
+    {label:'开启',value:'开启'}
+]
 export default class shezhi extends Component {
     constructor(props) {
         super(props);
         this.state = {
             f: 1,
-     
+            TouchID:'关闭',
+            TouchNum:0
         }
     }
 
@@ -28,7 +33,19 @@ export default class shezhi extends Component {
         AsyncStorage.removeItem('username');
         this.props.navigation.navigate('Login');
     }
+    fresh(){
+        AsyncStorage.getItem('TouchID', (error, result) => {
+            if (!error) {
+              console.log(1, result);
+                if(result==="开启"){
+                    this.setState({TouchNum:1})
+                console.log('kaiqi',this.state.TouchNum);
+                }
+            }
+          })
+    }
     componentDidMount(){
+        this.fresh()
         this.listerner=DeviceEventEmitter.addListener('PickColor',(msg)=>{global.back([msg,'#fff']), DeviceEventEmitter.emit('yanse', 1),this.setState({f:this.state.f+1})})
     }
     componentWillUnmount(){
@@ -69,6 +86,26 @@ export default class shezhi extends Component {
                         else {
                             this.props.navigation.navigate('ColorPicker')
                         }
+                    }}
+                />
+                <Text>指纹解锁</Text>
+                                <SwitchSelector
+                    selectedColor={'#fff'}
+                    buttonColor={global.mainColor}
+                    borderColor={global.mainColor}
+                    hasPadding
+                    options={Touchoptions}
+                    initial={this.state.TouchNum}
+                    onPress={value => {
+
+                        {AsyncStorage.setItem('TouchID', value, (error) => {
+                            if (!error) {
+                                console.log('保存成功');
+                            } else {
+                                console.log('保存失败', error);
+                            }
+                        }), this.setState({ f: this.state.f + 1 },this.setState({TouchID:value}))} 
+                
                     }}
                 />
                 <View>
