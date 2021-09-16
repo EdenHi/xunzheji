@@ -339,12 +339,12 @@ export default class Home extends Component {
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                     {/* book top */}
-                                    <TouchableOpacity style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[0]].nav,{ii:bookList[this.state.BookList[0]].ii})} style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
                                         <View style={{ width: width * 0.195, height: height * 0.4 * 0.35, marginTop: 5, marginLeft: '3.15%' }}>
-                                            <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                            <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[0]].img }}></Image>
                                         </View>
                                         <View style={{ borderColor: 'green', width: '72.5%', marginLeft: '3.15%' }}>
-                                            <Text style={{ fontSize: 18, marginTop: height * 0.01, paddingLeft: 10, color: global.mainColor == '#145A59' ? '#fff' : "#333" }}>{bookList[this.state.BookList[0]].bookname}</Text>
+                                            <Text style={{ fontSize: 18, marginTop: height * 0.01, color: global.mainColor == '#145A59' ? '#fff' : "#333" }}>{bookList[this.state.BookList[0]].bookname}</Text>
                                             <Text style={{ marginTop: height * 0.02, color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={2}>{bookList[this.state.BookList[0]].bookintroduce}</Text>
                                             <Text style={{ marginTop: height * 0.01 }}>
                                                 {/* <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /> */}
@@ -354,9 +354,9 @@ export default class Home extends Component {
                                     </TouchableOpacity>
                                     {/* book 1 */}
                                     <View style={{ height: height * 0.4 * 0.46, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, flexDirection: 'row' }}>
-                                        <TouchableOpacity style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[1]].nav,{ii:bookList[this.state.BookList[1]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri:bookList[this.state.BookList[1]].img }}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[1]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>
@@ -364,9 +364,9 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 2 */}
-                                        <TouchableOpacity style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[2]].nav,{ii:bookList[this.state.BookList[2]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[2]].img }}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[2]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>
@@ -374,9 +374,9 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 3 */}
-                                        <TouchableOpacity style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[3]].nav,{ii:bookList[this.state.BookList[3]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri:bookList[this.state.BookList[3]].img }}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[3]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>
@@ -384,9 +384,9 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 4 */}
-                                        <TouchableOpacity style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[4]].nav,{ii:bookList[this.state.BookList[4]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: 'https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto' }}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[4]].img}}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[4]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>

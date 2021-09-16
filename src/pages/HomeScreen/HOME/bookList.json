@@ -1,82 +1,106 @@
 [
-    {"bookname":"1",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"中国共产党历史第一卷（上册）",
+        "bookintroduce":"中共中央党史研究室",
+        "bookstar":5,
+        "nav":"book_0",
+        "ii":3,
+        "img":"https://bkimg.cdn.bcebos.com/pic/a08b87d6277f9e2fbfd2794a1130e924b999f389?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"2",
-        "bookintroduce":"hahahaha",
-        "bookstar":2
+    {   "bookname":"鲁冠球：聚能向宇宙",
+        "bookintroduce":"魏江",
+        "bookstar":2,
+        "nav":"book_1",
+        "ii":4,
+        "img":"http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062"
     },
-    {"bookname":"3",
-        "bookintroduce":"hahahaha",
-        "bookstar":1
+    {   "bookname":"徐冠巨：勇立潮头",
+        "bookintroduce":"吴晓波",
+        "bookstar":1,
+        "nav":"book_2",
+        "ii":5,
+        "img":"https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
     },
-    {"bookname":"4",
-        "bookintroduce":"hahahaha",
-        "bookstar":2
+    {   "bookname":"百年浙商",
+        "bookintroduce":"毛祖棠",
+        "bookstar":2,
+        "nav":"book_6",
+        "ii":6,
+        "img":"https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"5",
-        "bookintroduce":"hahahaha",
-        "bookstar":3
+    {   "bookname":"茅理翔：创业式传承",
+        "bookintroduce":"陈凌",
+        "bookstar":3,
+        "nav":"book_7",
+        "ii":7,
+        "img":"https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a75c929dfadf43ad4bd01302d4?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"6",
-        "bookintroduce":"hahahaha",
-        "bookstar":4
+    {   "bookname":"中国共产党历史第一卷（上册）",
+        "bookintroduce":"中共中央党史研究室",
+        "bookstar":5,
+        "nav":"book_0",
+        "ii":3,
+        "img":"https://bkimg.cdn.bcebos.com/pic/a08b87d6277f9e2fbfd2794a1130e924b999f389?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"7",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"鲁冠球：聚能向宇宙",
+        "bookintroduce":"魏江",
+        "bookstar":2,
+        "nav":"book_1",
+        "ii":4,
+        "img":"http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062"
     },
-    {"bookname":"8",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"徐冠巨：勇立潮头",
+        "bookintroduce":"吴晓波",
+        "bookstar":1,
+        "nav":"book_2",
+        "ii":5,
+        "img":"https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
     },
-    {"bookname":"9",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"百年浙商",
+        "bookintroduce":"毛祖棠",
+        "bookstar":2,
+        "nav":"book_6",
+        "ii":6,
+        "img":"https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"10",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"茅理翔：创业式传承",
+        "bookintroduce":"陈凌",
+        "bookstar":3,
+        "nav":"book_7",
+        "ii":7,
+        "img":"https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a75c929dfadf43ad4bd01302d4?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
+    },{   "bookname":"中国共产党历史第一卷（上册）",
+        "bookintroduce":"中共中央党史研究室",
+        "bookstar":5,
+        "nav":"book_0",
+        "ii":3,
+        "img":"https://bkimg.cdn.bcebos.com/pic/a08b87d6277f9e2fbfd2794a1130e924b999f389?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"11",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"鲁冠球：聚能向宇宙",
+        "bookintroduce":"魏江",
+        "bookstar":2,
+        "nav":"book_1",
+        "ii":4,
+        "img":"http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062"
     },
-    {"bookname":"12",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"徐冠巨：勇立潮头",
+        "bookintroduce":"吴晓波",
+        "bookstar":1,
+        "nav":"book_2",
+        "ii":5,
+        "img":"https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
     },
-    {"bookname":"13",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"百年浙商",
+        "bookintroduce":"毛祖棠",
+        "bookstar":2,
+        "nav":"book_6",
+        "ii":6,
+        "img":"https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"14",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
+    {   "bookname":"茅理翔：创业式传承",
+        "bookintroduce":"陈凌",
+        "bookstar":3,
+        "nav":"book_7",
+        "ii":7,
+        "img":"https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a75c929dfadf43ad4bd01302d4?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
     },
-    {"bookname":"15",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
-    },
-    {"bookname":"16",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
-    },
-    {"bookname":"17",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
-    },
-    {"bookname":"18",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
-    },
-    {"bookname":"19",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
-    },
-    {"bookname":"20",
-        "bookintroduce":"hahahaha",
-        "bookstar":5
-    }
 ]
