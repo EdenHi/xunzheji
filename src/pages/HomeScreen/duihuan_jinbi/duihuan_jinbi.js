@@ -88,6 +88,7 @@ export default class duihuan_jinbi extends Component {
 
 
     renderItem = (itemData, itemIdx, itemContainer) => {
+        console.log('itemData',itemData);
         return (
         <View style={{ width: itemContainer.width,  borderRadius: 10, elevation: 5,backgroundColor:'white'}}>
             <TouchableOpacity activeOpacity={1} onPress={()=>this.props.navigation.navigate('duihuan_xiangqing',{index:itemIdx,haveJinbi:this.state.data.jinbi})} >
@@ -108,7 +109,7 @@ export default class duihuan_jinbi extends Component {
                     </View>
                 </View>
                 <TouchableOpacity activeOpacity={1} onPress={()=>{itemData.jinbi>this.state.data.jinbi?ToastAndroid.show('金币不足，无法兑换',2000):this.props.navigation.navigate('duihuan',{jinbi:itemData.jinbi,price:itemData.price,name:itemData.name,pic:itemData.img})}} style={{marginLeft:10,marginVertical:10}}>
-                            <View style={{width:75,backgroundColor:global.mainColor,borderRadius:10,alignItems:'center'}}>
+                            <View style={{width:75,backgroundColor:global.mainColor,borderRadius:15,alignItems:'center',elevation:5}}>
                                 <Text style={{color:'white',fontSize:13,paddingLeft:10,paddingRight:10,paddingTop:3,paddingBottom:3,}}>去抢兑</Text>
                             </View>
                         </TouchableOpacity>
@@ -119,6 +120,7 @@ export default class duihuan_jinbi extends Component {
 
     render() {
         const {data,shop} = this.state
+        console.log('shop',shop);
         return (
             <View style={{flex:1}}>
                 <View style={{ flexDirection: "row", alignItems: "center",width, height: height * 0.07, justifyContent:'space-between',alignItems:'center',backgroundColor:global.mainColor,paddingLeft:width*0.05,paddingRight:width*0.05 }}>
@@ -140,7 +142,6 @@ export default class duihuan_jinbi extends Component {
                    contentContainerStyle={{}}
                    data={shop}
                    renderItem={this.renderDate.bind(this)}/> */}
-                
                 <Waterfall
                     style={{backgroundColor: '#fff',}}
                     data={shop}

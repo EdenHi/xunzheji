@@ -28,7 +28,7 @@ export default class SegmentTabBar extends Component {
         const cu = isTabActive ? 'bold':'100';
         const size = isTabActive ? 20:15
         return <TouchableOpacity  activeOpacity={1}
-            style={{height: 40,width:90,marginTop:10,marginHorizontal:5,elevation:5}}
+            style={{height: 40,width:120,marginTop:10,marginHorizontal:5,elevation:5}}
             key={name}
             accessible={true}
             accessibilityLabel={name}
@@ -40,7 +40,7 @@ export default class SegmentTabBar extends Component {
                 <Text style={{color: textColor,fontSize: size,fontWeight:cu,zIndex:5 }}>
                     {name}
                 </Text>
-                {isTabActive ?<View style={{width:35,borderColor:global.mainColor,borderWidth:5,top:-8,borderRadius:10}}/>:null}
+                {isTabActive ?<View style={{width:90,borderColor:global.mainColor,borderWidth:5,top:-8,borderRadius:10}}/>:null}
             </View>
         </TouchableOpacity>;
     }

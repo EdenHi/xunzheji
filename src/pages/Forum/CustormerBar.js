@@ -66,7 +66,7 @@ class CustormerBar extends Component {
               }}>
               <Text
                 style={{
-                  color: activeTab === i ? '#fff' : '#fff',
+                  color: activeTab === i ? '#287D7D' : '#999',
                   fontSize: activeTab === i ? pxToDp(20) : pxToDp(20),
                   textAlign:'center',
                   fontWeight:"bold",
@@ -74,7 +74,7 @@ class CustormerBar extends Component {
                 }}>
                 {v}
               </Text>
-              {activeTab === i ? <View style={{borderWidth:4,borderRadius:10,borderColor:'#000',top:-8,width:55}}/>:null}
+              {activeTab === i ? <View style={{borderWidth:4,borderRadius:10,borderColor:'#fff',top:-8,width:55}}/>:null}
             </TouchableOpacity>
           ))}
           <TouchableOpacity

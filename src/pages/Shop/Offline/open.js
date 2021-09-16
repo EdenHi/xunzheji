@@ -54,13 +54,10 @@ export default class open extends React.Component {
                 x: pageX,
                 y: pageY
             })
-
             this.state.size.setValue({
                 x: width,
                 y: height
-
             })
-
             this.setState({
                 activeImage: Images[idx],
                 activeIndex: idx
@@ -87,7 +84,6 @@ export default class open extends React.Component {
             })
         })
     }
-
     handleClose = () => {
         Animated.parallel([
             Animated.timing(this.state.position.x, {
@@ -116,7 +112,6 @@ export default class open extends React.Component {
             })
         })
     }
-
     renderFocusableImages = () => {
 
         const activeIndexStyle = {
