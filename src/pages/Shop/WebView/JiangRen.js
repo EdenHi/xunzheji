@@ -31,6 +31,12 @@ export default class JiangRen extends Component {
         if(this.props.page===6){
             this.setState({data:Jiangren[6].all})
         }
+        if(this.props.page===7){
+            this.setState({data:Jiangren[7].gongyi})
+        }
+        if(this.props.page===8){
+            this.setState({data:Jiangren[8].muzhi})
+        }
     }
     renderItem({item,index}){
         return(
