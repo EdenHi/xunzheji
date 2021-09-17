@@ -7,6 +7,7 @@ import EZSwiper from 'react-native-ezswiper';
 import axios from 'axios';
 import { FlatList } from 'react-native';
 import {NavigationContext} from '@react-navigation/native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 
 const { width, height } = Dimensions.get('window');
@@ -100,16 +101,15 @@ export default class Concerns extends Component {
         return (
                 <View style={{width:width}}>
                      <LinearGradient colors={[global.mainColor, '#fff', '#fff']}>
-                    <View style={{ flexDirection: "row", justifyContent: "space-between", height: height*0.07,width:width*0.9,marginLeft:width*0.05, alignItems: "center" }}>
-                        <TouchableOpacity style={{ width: width * 0.2, height: 20 }} onPress={()=>this.goBack()}>
-                            <AntDesign name="left" size={20} color="#fff"   />
+                    <View style={{ flexDirection: "row", height: height*0.07,width:width*0.9,marginLeft:width*0.05, alignItems: "center" }}>
+                        <TouchableOpacity style={{ width: width * 0.06}} onPress={()=>this.goBack()}>
+                        <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
+                            {/* <AntDesign name="left" size={20} color="#fff"   /> */}
                         </TouchableOpacity>
-                        <View style={{ height: 30, marginTop: 5 }}>
-                            <Text style={{ fontSize: 15,color:"#fff" ,fontWeight:"bold"}}>
+                            <Text style={{ fontSize: 18,color:"#fff" ,fontWeight:"bold"}}>
                                 我的关注
                             </Text>
-                        </View>
-                        <TouchableOpacity style={{ width: width * 0.2, height: 20 }}></TouchableOpacity>
+                      
                     </View>
                     <View style={{height:height*0.93}}>
                         <FlatList

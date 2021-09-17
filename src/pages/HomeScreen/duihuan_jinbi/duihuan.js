@@ -8,6 +8,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import {NavigationContext} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import IconFont from "../../iconfont";
 // import global from "../../utils/global";
 const {height,width} = Dimensions.get('window');
@@ -159,16 +160,12 @@ console.log(this.props.route.params);
                 {/* <Nav title="等待买家付款" /> */}
                 <View style={{ width:width*0.9,height:height*0.07,flexDirection:"row",alignItems:"center"}}>
                        
-                       <TouchableOpacity style={{marginLeft:width*0.05}}
+                       <TouchableOpacity style={{marginLeft:width*0.05,width:width*0.06}}
                        onPress={() => this.props.navigation.goBack()}
                            >
-                           <AntDesign style={{ textAlign: 'center',textAlignVertical:'center',height:"100%" }}
-                               name="left"
-                               size={20}
-                               color="black"
-                               />
+                           <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                        </TouchableOpacity>
-                       <Text style={{fontSize:15,fontWeight:"bold",marginLeft:"2%",color:"#333333"}}>确认订单</Text>
+                       <Text style={{fontSize:18,fontWeight:"bold",color:"#fff"}}>确认订单</Text>
                    </View>
                 <ScrollView >
                     {/* 收货地址 */}
@@ -176,7 +173,7 @@ console.log(this.props.route.params);
                         <View style={{ marginTop: 5, marginLeft: 20, flexDirection: "row", }}>
                             <Text style={{ fontSize: 16 }}>{dizhi===''?'':dizhi.name}</Text>
                             <Text style={{ fontSize: 16, marginLeft: 40 }}>{dizhi===''?'':dizhi.phone}</Text>
-
+                           
                             {/* <IconFont name="jiantou" size={20} style={{ marginLeft: 130, marginTop: 15 }} /> */}
                         </View>
                         <View style={{ marginLeft: 20, marginBottom: 10 ,flexDirection:'row'}}>

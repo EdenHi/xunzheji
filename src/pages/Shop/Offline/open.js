@@ -3,6 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import { ImageBackground } from 'react-native';
 import axios from 'axios'
 import Feather from 'react-native-vector-icons/Feather'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import {
     StyleSheet,
     Text,
@@ -53,13 +54,10 @@ export default class open extends React.Component {
                 x: pageX,
                 y: pageY
             })
-
             this.state.size.setValue({
                 x: width,
                 y: height
-
             })
-
             this.setState({
                 activeImage: Images[idx],
                 activeIndex: idx
@@ -86,7 +84,6 @@ export default class open extends React.Component {
             })
         })
     }
-
     handleClose = () => {
         Animated.parallel([
             Animated.timing(this.state.position.x, {
@@ -115,7 +112,6 @@ export default class open extends React.Component {
             })
         })
     }
-
     renderFocusableImages = () => {
 
         const activeIndexStyle = {
@@ -130,23 +126,29 @@ export default class open extends React.Component {
                         const activeStyle = idx === this.state.activeIndex ? activeIndexStyle : undefined
                         return (
                             <TouchableOpacity
-                                style={{ flexDirection: "column-reverse" }}
+                            activeOpacity={1}
+                                style={{ flexDirection: "column-reverse" ,}}
                                 key={idx}
                                 onPress={() => this.handleOpeningImage(idx)}
                             >
                                 <Image
-                                    // imageStyle={{borderRadius:15}}
                                     source={{ uri: src.uri }}
-                                    resizeMode="stretch"
+                                    resizeMode="cover"
                                     style={[styles.photoStyle, activeStyle]}
                                     ref={image => this._gridImages[idx] = image}
                                 />
-                                <View style={{ width: width * 0.45, height: width * 0.28, borderBottomLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: "rgba(255,255,255,0.8)", position: "absolute", marginLeft: width * 0.033, }}>
-                                    <Text style={{ fontSize: 13, fontWeight: "bold", marginHorizontal: width * 0.01, marginTop: 5 }}>{src.txt}</Text>
-                                    <Text style={{ fontSize: 13, marginHorizontal: width * 0.01, height: 50, marginTop: 5 }}>{src.txt1}</Text>
-                                    <View style={{ width: 50, height: 20, backgroundColor: global.mainColor, borderRadius: 5, marginHorizontal: width * 0.01, alignItems: "center", justifyContent: "center" }}>
-                                        <Text style={{ fontSize: 13, color: "#fff" }}>{src.txt2}</Text>
+                                <View style={{ width: width * 0.45, height: width * 0.2, borderBottomLeftRadius: 15, borderBottomRightRadius: 15, backgroundColor: "rgba(255,255,255,0.8)", position: "absolute", marginLeft: width * 0.033, }}>
+                                    
+                                    <View style={{flexDirection:"row",alignItems:"center",marginTop:"2%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: "bold", marginHorizontal: width * 0.01,color:"#333" }}>{src.txt}</Text>
+                                    <View style={{width:40,height:20,elevation:5, backgroundColor: global.mainColor, borderRadius:15, marginHorizontal: width * 0.01, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{ fontSize: 12, color: "#fff" }}>{src.txt2}</Text>
                                     </View>
+                                    </View>
+                                    <Text style={{ fontSize: 13, marginHorizontal: width * 0.01, height: 50, marginTop: 5 ,color:"#666"}}>{src.txt1}</Text>
+                                    {/* <View style={{ width: 50, height: 20, backgroundColor: global.mainColor, borderRadius: 5, marginHorizontal: width * 0.01, alignItems: "center", justifyContent: "center" }}>
+                                        <Text style={{ fontSize: 13, color: "#fff" }}>{src.txt2}</Text>
+                                    </View> */}
                                 </View>
                                 {/* 外面图片的大小 */}
                             </TouchableOpacity>
@@ -173,148 +175,154 @@ export default class open extends React.Component {
             ]
         }
         return (
-            <Animated.View
-                style={[styles.content, animatedContentStyle]}
-            >
+            <Animated.View style={[styles.content, animatedContentStyle]}>
                 <View style={styles.headingStyle}>
-                    <ScrollView showsVerticalScrollIndicator={false}>
+                    <ScrollView >
                         {this.state.activeIndex === 0 ? this.state.daliheng.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
-                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10 }}>
-                                    <Image source={{ uri: v.photos[0].url }} style={{ height: 150, width: 100, margin: 20, borderRadius: 10 }} />
-                                    <View style={{ marginTop: 40 }}>
-                                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{v.name}</Text>
-                                        <Text>{v.cityname + v.adname + v.address}</Text>
-                                        <Text>电话：<Text style={{ fontSize: 16, fontWeight: 'bold' }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={{ uri: v.photos[0].url }}  style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1} >{v.name}</Text>
+                                        <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{color:"#333",fontSize:13}}>电话：<Text style={{ fontSize: 13,color:"#333" }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
+                                                color="#7cc0c0"
                                                 size={15}>
-                                                <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
-
-                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
-                                                <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 1 ? this.state.shaozhiyan.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
-                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 150, width: 100, margin: 20, borderRadius: 10 }} />
-                                    <View style={{ marginTop: 40 }}>
-                                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{v.name}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
-                                        <Text>电话：<Text style={{ fontSize: 16, fontWeight: 'bold' }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{ width:"50%"}}>
+                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
+                                          <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
+                                         <Text style={{color:"#333",fontSize:13}}>电话：<Text style={{ fontSize: 13,color:"#333" }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
+                                                color="#7cc0c0"
                                                 size={15}>
-                                                <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
-                                                <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                           <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 2 ? this.state.xilengyinshe.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
-                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 150, width: 100, margin: 20, borderRadius: 10 }} />
-                                    <View style={{ marginTop: 40 }}>
-                                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{v.name}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
-                                        <Text>电话：<Text style={{ fontSize: 16, fontWeight: 'bold' }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{ width:"50%" }}>
+                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
+                                          <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
+                                         <Text style={{color:"#333"}}>电话：<Text style={{ fontSize: 13,color:"#333" }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
+                                                color="#7cc0c0"
                                                 size={15}>
-                                                <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
-
-                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
-                                                <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 3 ? this.state.zhufutongyi.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
-                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 150, width: 100, margin: 20, borderRadius: 10 }} />
-                                    <View style={{ marginTop: 40 }}>
-                                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{v.name}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
-                                        <Text>电话：<Text style={{ fontSize: 16, fontWeight: 'bold' }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%" }}>
+                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333"}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{color:"#333"}}>电话：<Text style={{ fontSize: 16,color:"#333"}}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
+                                                color="#7cc0c0"
                                                 size={15}>
-                                                <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
-
-                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
-                                                <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 4 ? this.state.wangxingji.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
-                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 150, width: 100, margin: 20, borderRadius: 10 }} />
-                                    <View style={{ marginTop: 40 }}>
-                                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{v.name}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>电话：<Text style={{ fontSize: 16, fontWeight: 'bold' }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%" }}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
+                                          <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13}} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
+                                                color="#7cc0c0"
                                                 size={15}>
-                                                <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                                <Text style={{ marginLeft: 10, fontSize: 15 ,color:"#333"}}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
 
-                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
-                                                <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                           <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 5 ? this.state.zhangxiaoquan.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
-                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 150, width: 100, margin: 20, borderRadius: 10 }} />
-                                    <View style={{ marginTop: 40 }}>
-                                        <Text style={{ fontSize: 18, fontWeight: 'bold', width: width * 0.9 - 170 }} numberOfLines={5}>{v.name}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
-                                        <Text style={{ width: width * 0.9 - 170 }} numberOfLines={5}>电话：<Text style={{ fontSize: 16, fontWeight: 'bold' }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
+                                                color="#7cc0c0"
                                                 size={15}>
-                                                <Text style={{ marginLeft: 10, fontSize: 15 }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
                                             </Feather>
-
-                                            <TouchableOpacity style={{ backgroundColor: global.mainColor, borderRadius: 10 }} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
-                                                <Text style={{ fontSize: 15, paddingHorizontal: 20, paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
                                             </TouchableOpacity>
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                     </ScrollView>
                 </View>
@@ -326,7 +334,7 @@ export default class open extends React.Component {
             opacity: this.state.animation
         }
         return (
-            <TouchableWithoutFeedback onPress={this.handleClose}>
+            <TouchableWithoutFeedback  activeOpacity={1} onPress={this.handleClose}>
                 <Animated.View style={[styles.close, animatedCloseStyle]}>
                     <Text style={styles.closeText}>X</Text>
                 </Animated.View>
@@ -425,7 +433,7 @@ export default class open extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+       flex:1
         // backgroundColor: '#fff',
     },
     grid: {
@@ -450,18 +458,20 @@ const styles = StyleSheet.create({
         flex: 2,
     },
     content: {
-        flex: 3,
-        backgroundColor: 'rgb(240, 240, 240)'
+       width:width,
+       height:height*0.7,
+        backgroundColor: "#f1f1f1"
     },
     viewImage: {
-        width: width,
-        height: height * 0.01,
-        position: "absolute",
-        top: 0,
-        left: 0
+        // width: width,
+        // height: height * 0.01,
+        position: "absolute",//点击后图片的大小
     },
     headingStyle: {
-        marginHorizontal: width * 0.05,
+        width:width,
+        // marginLeft:width*0.05,
+        // backgroundColor:"red"
+        // marginHorizontal: width * 0.05,
     },
     title: {
         fontSize: 28,

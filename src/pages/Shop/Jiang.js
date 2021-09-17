@@ -38,6 +38,8 @@ export default class Jiang extends Component {
                                     <JiangRen page={3} tabLabel='刺绣纺织' />
                                     <JiangRen page={4} tabLabel='文房用品' />
                                     <JiangRen page={5} tabLabel='印刷拓制' />
+                                    <JiangRen page={7} tabLabel='工艺艺术' />
+                                    <JiangRen page={8} tabLabel='木制工艺' />
                                     
                                 </ScrollableTabView>
 

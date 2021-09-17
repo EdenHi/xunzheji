@@ -12,16 +12,16 @@ export default class OldBankTimer extends Component {
       <View style={styles.container}>
         <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff","#fff"]} >
         <View style={{flexDirection:"row",alignItems:"center",height:height*0.07,justifyContent:"center"}}> 
-                <TouchableOpacity activeOpacity={1} style={{ }}>
-                    <AntDesign onPress={()=>this.props.navigation.goBack()} style={{textAlignVertical:'center',height:"100%",color:"#fff" }} name="left" size={20} color="#000000" />
+                <TouchableOpacity activeOpacity={1} style={{width:width*0.06, }}>
+                <FontAwesome onPress={()=>this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                 </TouchableOpacity>
-                <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85,marginLeft:"2%"}}>线下老字号</Text>
+                <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85}}>线下老字号</Text>
 
               </View> 
-        <View style={{width:"100%",height:"100%"}}>
+      
           <Open></Open>
     {/* <Timer></Timer> */}
-        </View>
+    
         </LinearGradient>
       </View>
     );
