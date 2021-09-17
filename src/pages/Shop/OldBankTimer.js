@@ -18,10 +18,10 @@ export default class OldBankTimer extends Component {
                 <Text style={{fontSize:18,fontWeight:"bold",color:"#fff",width:width*0.85}}>线下老字号</Text>
 
               </View> 
-        <View style={{width:"100%",height:"100%"}}>
+      
           <Open></Open>
     {/* <Timer></Timer> */}
-        </View>
+    
         </LinearGradient>
       </View>
     );

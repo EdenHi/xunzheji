@@ -177,16 +177,17 @@ export default class open extends React.Component {
         return (
             <Animated.View style={[styles.content, animatedContentStyle]}>
                 <View style={styles.headingStyle}>
-                    <ScrollView showsVerticalScrollIndicator={false}>
+                    <ScrollView >
                         {this.state.activeIndex === 0 ? this.state.daliheng.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
-                                    <Image source={{ uri: v.photos[0].url }}  style={{ height: 110, width: 110, margin: 20, borderRadius: 10 }} />
+                                    <Image source={{ uri: v.photos[0].url }}  style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
                                     <View style={{width:"50%"}}>
-                                        <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}}>{v.name}</Text>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1} >{v.name}</Text>
                                         <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
                                         <Text style={{color:"#333",fontSize:13}}>电话：<Text style={{ fontSize: 13,color:"#333" }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
                                                 color="#7cc0c0"
@@ -199,17 +200,18 @@ export default class open extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 1 ? this.state.shaozhiyan.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 20, borderRadius: 10 }} />
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
                                     <View style={{ width:"50%"}}>
-                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}}>{v.name}</Text>
+                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
                                           <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
                                          <Text style={{color:"#333",fontSize:13}}>电话：<Text style={{ fontSize: 13,color:"#333" }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
                                                 color="#7cc0c0"
@@ -223,17 +225,18 @@ export default class open extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 2 ? this.state.xilengyinshe.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 20, borderRadius: 10 }} />
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
                                     <View style={{ width:"50%" }}>
-                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}}>{v.name}</Text>
+                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
                                           <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
                                          <Text style={{color:"#333"}}>电话：<Text style={{ fontSize: 13,color:"#333" }}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
                                                 color="#7cc0c0"
@@ -246,17 +249,18 @@ export default class open extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 3 ? this.state.zhufutongyi.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 20, borderRadius: 10 }} />
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
                                     <View style={{width:"50%" }}>
-                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}}>{v.name}</Text>
+                                         <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
                                         <Text style={{ width: width * 0.9 - 170 ,color:"#333"}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
                                         <Text style={{color:"#333"}}>电话：<Text style={{ fontSize: 16,color:"#333"}}>{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
                                                 color="#7cc0c0"
@@ -269,17 +273,18 @@ export default class open extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 4 ? this.state.wangxingji.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 20, borderRadius: 10 }} />
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
                                     <View style={{width:"50%" }}>
-                                        <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}}>{v.name}</Text>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold' ,color:"#333"}} numberOfLines={1}>{v.name}</Text>
                                           <Text style={{color:"#333",fontSize:13}}>{v.cityname + v.adname + v.address}</Text>
                                         <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13}} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
                                                 color="#7cc0c0"
@@ -293,17 +298,18 @@ export default class open extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                         {this.state.activeIndex === 5 ? this.state.zhangxiaoquan.map((v, k) => {
+                            if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
-                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 20, borderRadius: 10 }} />
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
                                     <View style={{width:"50%"}}>
-                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333", width: width * 0.9 - 170 }} numberOfLines={5}>{v.name}</Text>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
                                         <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
                                         <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
-                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 170, alignItems: 'center' }}>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
                                             <Feather
                                                 name='map-pin'
                                                 color="#7cc0c0"
@@ -316,7 +322,7 @@ export default class open extends React.Component {
                                         </View>
                                     </View>
                                 </View>
-                            )
+                            )}
                         }) : null}
                     </ScrollView>
                 </View>
@@ -427,8 +433,7 @@ export default class open extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-       width:width,
-       height:height
+       flex:1
         // backgroundColor: '#fff',
     },
     grid: {
