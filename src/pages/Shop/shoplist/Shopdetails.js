@@ -364,8 +364,8 @@ export default class Shopdetails extends Component {
                             <Text style={{ fontWeight: 'bold', fontSize: 16, color: "#333333" }}>{shops.dianpu}</Text>
                         </View>
                         <View style={{ marginRight: width * 0.025 }}>
-                            <TouchableOpacity style={{ borderWidth: 1, borderColor: global.mainColor, borderRadius: 20, marginTop: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: global.mainColor }} onPress={() => this.dianpu()}>进店逛逛</Text></TouchableOpacity>
-                            <TouchableOpacity style={{ borderWidth: 1, borderColor: global.mainColor, borderRadius: 20, marginTop: 10, marginBottom: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: global.mainColor }} onPress={() => this.dianpu()}>全部商品</Text></TouchableOpacity>
+                            <TouchableOpacity style={{ borderWidth: 1, borderColor: global.mainColor, borderRadius: 20}} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: global.mainColor }} onPress={() => this.dianpu()}>进店逛逛</Text></TouchableOpacity>
+                            {/* <TouchableOpacity style={{ borderWidth: 1, borderColor: global.mainColor, borderRadius: 20, marginTop: 10, marginBottom: 10 }} activeOpacity={1}><Text style={{ padding: 5, fontWeight: 'bold', color: global.mainColor }} onPress={() => this.dianpu()}>全部商品</Text></TouchableOpacity> */}
                         </View>
                     </View>
 
@@ -407,6 +407,14 @@ export default class Shopdetails extends Component {
                             color={global.mainColor}
                             onPress={() => this.dianpu()} />
                         <Text style={{ fontSize: 12 }}>店铺</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={1} style={{ marginTop: 5 }}>
+                        <AntDesign
+                            name="customerservice"
+                            size={25}
+                            color={global.mainColor}
+                            onPress={() => this.dianpu()} />
+                        <Text style={{ fontSize: 12 }}>客服</Text>
                     </TouchableOpacity>
                     <View style={{ flexDirection: 'row' }}>
                         <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.mainColor, borderTopLeftRadius: 20, borderBottomLeftRadius: 20, marginTop: 5, marginBottom: 5, width: 100, justifyContent: 'center', alignItems: 'center' }}
