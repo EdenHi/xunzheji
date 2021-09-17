@@ -76,7 +76,7 @@ import {
   ClothesMade,
   musicPlayer,
   MatchGame,
-  book_1,
+
   book_xiangqing,
   discuss,
   Shoucang2,
@@ -108,16 +108,17 @@ import {
   ZhenCe2,
   ZhenCe3,
   ZhenCe4,
-  book_6,
+
   book_xiangqing_6,
   shicha2,
-  book_2,
+
   book_xiangqing_2,
-  book_7,
+
   book_xiangqing_7,
   duihuan,
   ColorPicker,
   duihuan_xiangqing,
+  book_xiangqing_9,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -216,7 +217,7 @@ export default function StackNav() {
       <Stack.Screen name="ClothesMade" component={ClothesMade} />
       <Stack.Screen name="musicPlayer" component={musicPlayer} />
       <Stack.Screen name="MatchGame" component={MatchGame} />
-      <Stack.Screen name="book_1" component={book_1} />
+
       <Stack.Screen name="book_xiangqing" component={book_xiangqing} />
       <Stack.Screen name="discuss" component={discuss} />
       <Stack.Screen name="Dianzan2" component={Dianzan2} />
@@ -247,17 +248,18 @@ export default function StackNav() {
       <Stack.Screen name="ZhenCe2" component={ZhenCe2} />
       <Stack.Screen name="ZhenCe3" component={ZhenCe3} />
       <Stack.Screen name="ZhenCe4" component={ZhenCe4} />
-      <Stack.Screen name="book_6" component={book_6} />
+
       <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
       <Stack.Screen name="Live" component={Live} />
-      <Stack.Screen name="book_2" component={book_2} />
+
       <Stack.Screen name="book_xiangqing_2" component={book_xiangqing_2} />
-      <Stack.Screen name="book_7" component={book_7} />
+
       <Stack.Screen name="book_xiangqing_7" component={book_xiangqing_7} />
       <Stack.Screen name="duihuan" component={duihuan} />
       <Stack.Screen name="ColorPicker" component={ColorPicker} />
       <Stack.Screen name="duihuan_xiangqing" component={duihuan_xiangqing} />
+      <Stack.Screen name="book_xiangqing_9" component={book_xiangqing_9} />
     </Stack.Navigator>
   );
 }

@@ -6,13 +6,10 @@ import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import BookRoute from '../../../nav/BookRoute'
-import bookList from '../HOME/bookList.json';
 const {height,width} = Dimensions.get('window')
-export default class book_0 extends Component {
+export default class book_8 extends Component {
     
     render() {
-        console.log("id",bookList[this.props.route.params.id]);
-        let data  = bookList[this.props.route.params.id]
         return (
             <View style={{flex:1}}>
                 <LinearGradient style={{ flex: 1 }} colors={[global.mainColor, "#fff", "#fff"]}>
@@ -29,14 +26,14 @@ export default class book_0 extends Component {
                     <ScrollView>
                     <View style={{flexDirection:'row',justifyContent:'space-between',marginBottom:20}}>
                         <View style={{marginLeft:width*0.05}}>
-                            <Text style={{marginTop:20,fontSize:18,color:'#fff'}}>{data.bookname}</Text>
-                            <Text style={{marginTop:20,color:'#fff',fontSize:13}}>{data.bookintroduce}</Text>
+                            <Text style={{marginTop:20,fontSize:18,color:'#fff'}}>李书福：守正出奇</Text>
+                            <Text style={{marginTop:20,color:'#fff',fontSize:13}}>魏江 刘洋</Text>
                         </View>
-                        <Image source={{uri:data.img}} style={{height:150,width:100,marginRight:width*0.05}}/>
+                        <Image source={{uri:'https://img13.360buyimg.com/n1/jfs/t1/139163/15/120/494089/5edc492eE639bc590/dc3113a8f1c39eed.png'}} style={{height:150,width:100,marginRight:width*0.05}}/>
                     </View>
                     
                     <View style={{backgroundColor:'#fff'}}>
-                        <BookRoute route={data.ii}/>
+                        <BookRoute route={this.props.route.params.ii}/>
                     </View>
                         
 
@@ -60,7 +57,7 @@ export default class book_0 extends Component {
                             size={30}/>
                             <Text style={{color:"#333",fontSize:13}}>听书</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundColor:global.mainColor,borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate(data.nav,{k:0})}>
+                        <TouchableOpacity activeOpacity={1} style={{elevation:5,justifyContent:'center',backgroundColor:global.mainColor,borderRadius:20,width:width*0.4,alignItems:"center",height:height*0.06}}  onPress={()=>this.props.navigation.navigate('book_xiangqing_0',{k:0})}>
                             <Text style={{fontSize:15,color:"#fff"}}>立即阅读</Text>
                         </TouchableOpacity>
                     </View>
