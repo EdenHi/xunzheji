@@ -118,6 +118,7 @@ import {
   duihuan,
   ColorPicker,
   duihuan_xiangqing,
+  wallet,
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -258,6 +259,7 @@ export default function StackNav() {
       <Stack.Screen name="duihuan" component={duihuan} />
       <Stack.Screen name="ColorPicker" component={ColorPicker} />
       <Stack.Screen name="duihuan_xiangqing" component={duihuan_xiangqing} />
+      <Stack.Screen name="wallet" component={wallet} />
     </Stack.Navigator>
   );
 }

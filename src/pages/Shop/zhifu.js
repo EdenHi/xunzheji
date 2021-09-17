@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image,Dimensions,Animated, Modal,
-    Easing, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
-    import { ToastAndroid } from "react-native";
+    Easing, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter,TextInput ,ToastAndroid} from "react-native";
 // import { Nav } from "../../component";//顶部标签看
 import LinearGradient from 'react-native-linear-gradient';
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -11,6 +10,8 @@ import LottieView from 'lottie-react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 // import IconFont from "../../iconfont";
 // import global from "../../utils/global";
+import { PasswordInput } from 'react-native-pay-password';
+const Password=666666;
 const {height,width} = Dimensions.get('window');
 export default class zhifu extends Component {
     static contextType = NavigationContext;
@@ -19,6 +20,9 @@ export default class zhifu extends Component {
         this.state = {
             progress: new Animated.Value(0),
             modalVisible: false,
+            
+            password:'',
+
             paidway: [
                 {
                     id: 1,
@@ -55,6 +59,7 @@ export default class zhifu extends Component {
             dizhi:'',
             username:'',
             total:1,
+            money:0
         }
     }
     static defaultProps = {
@@ -139,6 +144,22 @@ console.log(this.props.route.params);
         });
     }
     componentDidMount(){
+        fetch('http://47.100.78.254:3000/users/selectmoney', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username: "Eden"
+            }),
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                console.log(responseJson[0].usermoney);
+                this.setState({
+                    money: responseJson[0].usermoney
+                });
+            });
         console.log(this.props.route.params);
         this.get_dizhi();
         this.listener = DeviceEventEmitter.addListener('test',this.update.bind(this))
@@ -173,10 +194,25 @@ console.log(this.props.route.params);
                 dianpu_img:this.props.route.params.loge
             }),
         });
+        if(this.state.money>=parseFloat(this.state.price*this.state.total).toFixed(2)){
+            fetch('http://47.100.78.254:3000/users/addmoney', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username:this.state.username,
+                    addmoney:-parseFloat(this.state.price*this.state.total).toFixed(2)
+                }),
+            }).then()
+            
+            this._closeModalWin(),this.props.navigation.goBack(),  ToastAndroid.showWithGravity('支付成功',2000,ToastAndroid.BOTTOM)
+        }else{
 
+        this._closeModalWin(),this.props.navigation.goBack(),  ToastAndroid.showWithGravity('余额不足！',2000,ToastAndroid.BOTTOM)
+        }
         
-        this.props.navigation.goBack();
-        ToastAndroid.show('提交订单成功',2000)
     }
 
 
@@ -282,49 +318,33 @@ console.log(this.props.route.params);
                             onRequestClose={() => { this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
                             onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
                         >
-                            <TouchableOpacity
 
-                                style={{ height: '100%', width: '100%', position: "absolute", top: 0, left: 0 }}
-                            // onPress={this._closeModalWin}
-                            >
-                                <View style={styles.modalLayer}>
+                            <View style={{backgroundColor:'rgba(0,0,0,0.5)',flex:1}}>
+                                <View style={{width:width*0.8,marginLeft:width*0.1,height:height*0.33,backgroundColor:'#fff',marginTop:height*0.3,borderRadius:15,}}>
+                                    <View style={{flexDirection:'row',height:'20%',justifyContent:'space-between'}}>
+                                        <AntDesign onPress={()=>{this._closeModalWin()}} style={{paddingLeft:width*0.05,paddingTop:width*0.05}} name="close" size={20} />
+                                        <Text style={{height:'100%',textAlignVertical:'center',fontsize:25,fontWeight:'bold',paddingRight:width*0.05}}>忘记密码</Text>
+                                    </View>
+                                    <Text style={{textAlign:'center',color:'#333',fontSize:20}}>付款金额</Text>
+                                    <Text style={{textAlign:'center',fontSize:30,color:'#000',fontWeight:'bold',marginTop:height*0.01}}>￥{parseFloat(this.state.price*this.state.total).toFixed(2)}</Text>
+                                    <View style={{alignSelf:'center'}}>
+                            
+                                    <PasswordInput  onDone={(password)=>{this.setState({password})}}/>
 
-                                    <TouchableOpacity
-                                        activeOpacity={1}
-                                        onPress={() => {
 
-                                        }}
-                                    >
-                                        <View style={styles.modalContainer}>
-                                            <View style={{
-                                                width: 150,
-                                                height: '45%',
-                                                alignItems: 'center',
-                                                justifyContent: 'center'
-                                            }}>
-                                                <LottieView source={require('../../../animal/success.json')} autoPlay loop progress={this.state.progress} />
-                                            </View>
-                                            <View style={{
-                                                width: '100%',
-                                                height: '25%',
-                                                alignItems: 'center',
+                                    </View>
+                                    <TouchableOpacity onPress={()=>{
+                                        console.log(this.state.password);
+                                        if(this.state.password==Password){
+                                           this.buy()
 
-                                            }}>
-                                                <Text style={{ fontSize: 20, color: global.mainColor }}>提交成功</Text>
-                                            </View>
-                                            <TouchableOpacity style={styles.modalButtonStyle}
-                                                onPress={() => {
-                                                    this._closeModalWin()
-                                                   this.buy();
-                                                }}
-
-                                            >
-                                                <Text style={{ fontSize: 15 }}>确定</Text>
-                                            </TouchableOpacity>
-                                        </View>
+                                        }
+                                    }} activeOpacity={1} style={{height:height*0.07,width:width*0.3,alignSelf:'center',}}>
+                                        <Text style={{height:'100%',width:'100%',textAlign:'center',textAlignVertical:'center',fontSize:20,fontWeight:'bold',backgroundColor:global.mainColor,color:'#333',borderRadius:15,marginTop:height*0.03}}>确认支付</Text>
                                     </TouchableOpacity>
                                 </View>
-                            </TouchableOpacity>
+
+                            </View>
                         </Modal>
                     
                 </View>
