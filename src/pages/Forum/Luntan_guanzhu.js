@@ -412,45 +412,48 @@ export default class Luntan_guanzhu extends Component {
                                                             ellipsizeMode="tail"
                                                             numberOfLines={8}>{v.title}</Text>
                                                         <View style={styles.box}>
-                                                            <FlatList
-                                                                contentContainerStyle={styles.listViewStyle}
-                                                                keyExtractor={(item, index) => (index + '1')}
-                                                                data={v.pic}
-                                                                renderItem={({ item, index }) => {
-                                                                    if (item === null) {
-                                                                        return;
-                                                                    } else if (v.pic.length > 1 && v.pic.length < 5) {
-                                                                        return (
-                                                                            <View style={styles.box2}>
-                                                                                <TouchableOpacity activeOpacity={1}
-                                                                                    key={index}
-                                                                                    onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }} />
-                                                                                </TouchableOpacity>
-                                                                            </View>
-                                                                        );
-                                                                    } else if (v.pic.length >= 5 && v.pic.length <= 9) {
-                                                                        return (
-                                                                            <View style={styles.box2}>
-                                                                                <TouchableOpacity activeOpacity={1}
-                                                                                    key={index}
-                                                                                    onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9 - 7) / 3 }} />
-                                                                                </TouchableOpacity>
-                                                                            </View>
-                                                                        );
-                                                                    } else {
-                                                                        return (
-                                                                            <View style={styles.box2}>
-                                                                                <TouchableOpacity activeOpacity={1}
-                                                                                    key={index}
-                                                                                    onPress={() => this.handleShowAlbum(k, index)}>
-                                                                                    <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }} />
-                                                                                </TouchableOpacity>
-                                                                            </View>
-                                                                        );
-                                                                    }
-                                                                }} />
+                                                        <FlatList
+                                                            contentContainerStyle={styles.listViewStyle}
+                                                            keyExtractor={(item, index) => (index + '1')}
+                                                            data={v.pic}
+                                                            renderItem={({ item, index }) => {
+                                                                if (item === null) {
+                                                                    return;
+                                                                } else if (v.pic.length > 1 && v.pic.length < 5) {
+                                                                    return (
+                                                                        <View style={styles.box2}>
+                                                                            <TouchableOpacity
+                                                                                activeOpacity={1}
+                                                                                key={index}
+                                                                                onPress={() => this.handleShowAlbum(k, index)}>
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 10) / 2 }} />
+                                                                            </TouchableOpacity>
+                                                                        </View>
+                                                                    );
+                                                                } else if (v.pic.length >= 5 && v.pic.length <= 9) {
+                                                                    return (
+                                                                        <View style={styles.box2}>
+                                                                            <TouchableOpacity
+                                                                                activeOpacity={1}
+                                                                                key={index}
+                                                                                onPress={() => this.handleShowAlbum(k, index)}>
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 7) / 3, width: (width * 0.9-12 ) / 3 }} />
+                                                                            </TouchableOpacity>
+                                                                        </View>
+                                                                    );
+                                                                } else {
+                                                                    return (
+                                                                        <View style={styles.box2}>
+                                                                            <TouchableOpacity
+                                                                                activeOpacity={1}
+                                                                                key={index}
+                                                                                onPress={() => this.handleShowAlbum(k, index)}>
+                                                                                <Image source={{ uri: item }} style={{ height: width * 0.9 - 2, width: width * 0.9 - 2 }} />
+                                                                            </TouchableOpacity>
+                                                                        </View>
+                                                                    );
+                                                                }
+                                                            }} />
                                                         </View>
 
                                                         {/* tag标签 */}
