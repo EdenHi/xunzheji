@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity, Dimensions, AsyncStorage, DeviceEventEmitter } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, AsyncStorage, DeviceEventEmitter, Touchable } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import SwitchSelector from "react-native-switch-selector";
-
+import ClearCaches from './Caches'
+import { getCacheSize, clearCache } from '@damoness/react-native-http-cache';
 const { height, width } = Dimensions.get('window');
 const options = [
     { label: "日间", value: ['#7cc0c0', '#fff', '#333'] },
@@ -24,7 +25,8 @@ export default class shezhi extends Component {
         this.state = {
             f: 1,
             TouchID:'关闭',
-            TouchNum:0
+            TouchNum:0,
+            caches:0
         }
     }
 
@@ -44,7 +46,11 @@ export default class shezhi extends Component {
             }
           })
     }
+    refresh(){
+        this.setState({f:0})
+    }
     componentDidMount(){
+       
         this.fresh()
         this.listerner=DeviceEventEmitter.addListener('PickColor',(msg)=>{global.back([msg,'#fff']), DeviceEventEmitter.emit('yanse', 1),this.setState({f:this.state.f+1})})
     }
@@ -108,6 +114,8 @@ export default class shezhi extends Component {
                 
                     }}
                 />
+               
+                <ClearCaches/>
                 <View>
 
 

@@ -647,7 +647,6 @@ fresh(){
 
 
           <FlatList
-            //   style={{width:width,height:10000}}
             data={this.state.shops}
             keyExtractor={(item, index) => (index + '1')}
             renderItem={({ item }) =>
@@ -655,13 +654,13 @@ fresh(){
                 <TouchableOpacity onPress={() => { this.props.navigation.navigate("Shopdetails", { shops: item, username: this.state.username }) }} activeOpacity={1} style={{
                   width: width * 0.9,
                   height: height * 0.18,
-                  // marginLeft:width*0.05,
                   backgroundColor: 'grey',
                   marginBottom: "3%",
                   borderRadius: 10,
                   elevation: 5,
                   flexDirection: "row",
                 }}>
+                  
                   <View style={{ width: "60%", height: "100%", backgroundColor: global.backColor, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                     <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
                       <Text style={{ fontSize: 15, fontWeight: "bold", color: global.mainColor=="#145A59"?"#fff":"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>

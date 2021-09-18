@@ -24,13 +24,13 @@ export default class JuBao extends Component {
     }
     componentDidMount() {
 
-        this.listener = DeviceEventEmitter.addListener('yanse',this.f.bind(this))
+
  }
  f(){
      this.setState({f:this.state.f+1})
  }
  componentWillUnmount(){
-    this.listener.remove();
+
     }
 
     isType(index) {
