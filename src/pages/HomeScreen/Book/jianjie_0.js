@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { TouchableOpacity } from 'react-native';
 import {BottomSheet,ListItem} from 'react-native-elements'
 import {View,Text,Dimensions } from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign'
 const {width} = Dimensions.get('window')
 export default class jianjie_0 extends Component {
     constructor(props){
@@ -14,7 +15,7 @@ export default class jianjie_0 extends Component {
     
 //底部弹窗
 list = [
-    { title: '第一章  鸦片战争后的中国社会和国际环境',
+    { title: '第  一  章: 鸦片战争后的中国社会和国际环境',
     onPress: () => this.go(0) },
     { title: '第  二  章：五四运动和中国共产党的诞生',
     onPress: () => this.go(43) },
@@ -42,8 +43,8 @@ go(kk){
                     <TouchableOpacity activeOpacity={1} onPress={()=>this.setState({isVisible:false})} style={{height:250}}/>
                     {this.list.map((l, i) => (
                         <ListItem key={i} containerStyle={l.containerStyle} onPress={l.onPress}>
-                        <ListItem.Content style={{justifyContent:'center',alignItems:'center'}}>
-                            <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
+                        <ListItem.Content style={{}}>
+                            <ListItem.Title style={{borderWidth:0}}>{l.title}</ListItem.Title>
                         </ListItem.Content>
                         </ListItem>
                     ))}
@@ -58,7 +59,7 @@ go(kk){
                             <Text style={{fontSize:18,fontWeight:'bold',color:"#333"}}>目录</Text>
                             <Text style={{color:'#ccc',marginLeft:10}}>已完结  共五章</Text>
                         </View>
-                        <Text>{`>`}</Text>
+                        <AntDesign  style={{ textAlignVertical: 'center', height: "100%",}} name="right" size={20} color="#333" />
                     </TouchableOpacity>
                 </View>
             </View>

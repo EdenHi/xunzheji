@@ -227,7 +227,6 @@ export default class zhifu extends Component {
                 <LinearGradient style={{ width: width, height: "100%" }} colors={[global.mainColor, "#fff", "#fff"]} >
                     {/* <Nav title="等待买家付款" /> */}
                     <View style={{ width: width * 0.9, height: height * 0.07, flexDirection: "row", alignItems: "center" }}>
-
                         <TouchableOpacity style={{ marginLeft: width * 0.05 }}
                             onPress={() => this.props.navigation.goBack()}
                         >

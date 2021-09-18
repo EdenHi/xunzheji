@@ -116,8 +116,5 @@ export {default as book_xiangqing_7} from './HomeScreen/Book/book_xiangqing_7'
 export {default as duihuan} from './HomeScreen/duihuan_jinbi/duihuan'
 export {default as ColorPicker} from '../components/ColorPicker'
 export {default as duihuan_xiangqing} from './HomeScreen/duihuan_jinbi/duihuan_xiangqing'
-<<<<<<< HEAD
 export {default as wallet} from './MyScreen/wallet'
-=======
 export {default as book_xiangqing_9} from './HomeScreen/Book/book_xiangqing_9'
->>>>>>> cc848746c4b5ef0873bc5ebd08daf0f95abbdc6a

@@ -18,6 +18,7 @@ export default class book_xiangqing_0 extends Component {
     }
 
     componentDidMount(){
+        console.log(1);
         let scrollview = this.refs.scrollview;
         if(this.props.route.params.k){
             scrollview.scrollTo({x:this.props.route.params.k* width,y:0})
@@ -101,7 +102,7 @@ export default class book_xiangqing_0 extends Component {
                 onTouchEnd={(e)=>this.go_page(e)}>
                     <View style={{height,width:width*0.9,marginLeft:width*0.05,marginRight:width*0.05,justifyContent:'center'}}>
                         <View style={{alignItems:'center'}}>
-                            <Text style={{color:'rgb(0,122,195)',fontWeight:'bold',fontSize:20}}>第  一  章</Text>
+                            <Text style={{color:'rgb(0,122,195)',fontWeight:'bold',fontSize:20}}>第  一  章:</Text>
                             <Text style={{color:'rgb(81,122,205)',fontSize:25}}>鸦片战争后的中国社会和国际环境</Text>
                         </View>
                     </View>

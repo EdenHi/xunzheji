@@ -118,11 +118,8 @@ import {
   duihuan,
   ColorPicker,
   duihuan_xiangqing,
-<<<<<<< HEAD
   wallet,
-=======
   book_xiangqing_9,
->>>>>>> cc848746c4b5ef0873bc5ebd08daf0f95abbdc6a
 } from '../pages/index';
 import CityList from '../components/CityList';
 import Ranking from '../Ranking';
@@ -263,11 +260,8 @@ export default function StackNav() {
       <Stack.Screen name="duihuan" component={duihuan} />
       <Stack.Screen name="ColorPicker" component={ColorPicker} />
       <Stack.Screen name="duihuan_xiangqing" component={duihuan_xiangqing} />
-<<<<<<< HEAD
       <Stack.Screen name="wallet" component={wallet} />
-=======
       <Stack.Screen name="book_xiangqing_9" component={book_xiangqing_9} />
->>>>>>> cc848746c4b5ef0873bc5ebd08daf0f95abbdc6a
     </Stack.Navigator>
   );
 }
