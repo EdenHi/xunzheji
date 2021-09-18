@@ -463,7 +463,7 @@ export default class componentName extends Component {
 
                     <View>
                         <Video
-                            source={{ uri: 'http://47.100.78.254:8080/1.mp4' }}
+                            source={{ uri: 'http://47.100.78.254:3000/public/images/nan.mp4' }}
                             paused={this.state.poused}
                             resizeMode="stretch"
                             posterResizeMode='contain'
