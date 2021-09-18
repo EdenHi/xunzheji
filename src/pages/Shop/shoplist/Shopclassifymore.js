@@ -210,31 +210,31 @@ export default class Shopclassifymore extends Component {
         console.log('dalei',this.props.route.params.dalei);
         return (
             <View style={{ flex: 1 }}>
-                <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff"]} >
+                {/* <LinearGradient style={{width:width,height:"100%"}} colors={[global.mainColor,"#fff"]} > */}
                     {/* 标题 */}
                     <View style={{
                        height:height*0.07,
-                       width:width*0.9,
-                       marginLeft:width*0.05,
-                        alignItems: "center",
+                       width:width*1,
                     
+                        alignItems: "center",
+                        backgroundColor:global.mainColor,
                         flexDirection: 'row',
                     }}>
                         <TouchableOpacity
                             activeOpacity={0.8}
                             onPress={() => navigation.goBack()}
                             style={{
-                             
+                             marginLeft:width*0.05
                             }}>
                             <FontAwesome name={'angle-left'} size={25} color={'#fff'} />
                         </TouchableOpacity>
                        
                             <Text style={{
-                                fontSize: 15
+                                fontSize: 18
                                 ,color:"#fff",
                                 fontWeight:"bold",
                                 marginLeft:"5%"
-                            
+                                
 
                             }}>{this.props.route.params.title}</Text>
                      
@@ -245,7 +245,7 @@ export default class Shopclassifymore extends Component {
                     data={this.state.dalei}
                     renderItem={this.props.route.params.num%2 === 0 ?this.renderDate.bind(this) : this.renderDate2.bind(this)}
                     ListFooterComponent={this.ListFooterComponent.bind(this)}/>
-                </LinearGradient>
+                {/* </LinearGradient> */}
             </View>
         );
     }

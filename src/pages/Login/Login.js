@@ -1,6 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
+
 let { height, width } = Dimensions.get('window');
 import Feather from 'react-native-vector-icons/Feather';
 import LottieView from 'lottie-react-native';
@@ -14,8 +15,12 @@ import {
   ImageBackground,
   TextInput,
   AsyncStorage,
-  DeviceEventEmitter, Easing, Animated
+  DeviceEventEmitter,
+  Easing,
+  Animated,
+
 } from 'react-native';
+import { CheckBox } from 'react-native-elements';
 import axios from 'axios';
 import Textinput from '../../components/textInput';
 import LinearGradient from 'react-native-linear-gradient';
@@ -25,35 +30,42 @@ import TouchTest from '../../components/TouchId';
 const ratio_w = Dimensions.get('window').width / 375;
 export default class Login extends Component {
   load() {
-    if (this.state.username === '') {
-      alert('用户名不能为空')
+    if(this.state.checked==true){
+      if (this.state.username === '') {
+        alert('用户名不能为空')
+      }
+      else if (this.state.password === '') {
+        alert('密码不能为空')
+      }
+      else {
+        axios
+          .post('http://47.100.78.254:3000/index/login', {
+
+            username: this.state.username,
+            password: this.state.password,
+            
+          })
+          .then(resp => {
+            if (resp.data === '登录成功'&&this.state.checked==true) {
+              AsyncStorage.setItem('username', this.state.username, (error) => {
+                if (!error) {
+                  console.log('保存成功');
+                } else {
+                  console.log('保存失败');
+                }
+              });
+              this.props.navigation.navigate('BtnRoute');
+              DeviceEventEmitter.emit('test', 1)
+              DeviceEventEmitter.emit('denglu', 1)
+            } else {
+              alert(resp.data);
+            }
+          });
+      }
+    }else{
+      alert('请确认条款')
     }
-    else if (this.state.password === '') {
-      alert('密码不能为空')
-    }
-    else {
-      axios
-        .post('http://47.100.78.254:3000/index/login', {
-          username: this.state.username,
-          password: this.state.password,
-        })
-        .then(resp => {
-          if (resp.data === '登录成功') {
-            AsyncStorage.setItem('username', this.state.username, (error) => {
-              if (!error) {
-                console.log('保存成功');
-              } else {
-                console.log('保存失败');
-              }
-            });
-            this.props.navigation.navigate('BtnRoute');
-            DeviceEventEmitter.emit('test', 1)
-            DeviceEventEmitter.emit('denglu', 1)
-          } else {
-            alert(resp.data);
-          }
-        });
-    }
+
   }
 
   constructor(props) {
@@ -62,19 +74,20 @@ export default class Login extends Component {
       progress: new Animated.Value(0),
       username: '',
       password: '',
-      Touchable:''
+      Touchable: '',
+      checked: false
     };
   }
   get_shuju() {
-    AsyncStorage.getItem('TouchID',(error,result)=>{
-      if(!error){
-        this.setState({Touchable:result})
+    AsyncStorage.getItem('TouchID', (error, result) => {
+      if (!error) {
+        this.setState({ Touchable: result })
       }
     })
     AsyncStorage.getItem('username', (error, result) => {
       if (!error) {
         console.log(1, result);
-        if (result !== null&&this.state.Touchable=='开启') {
+        if (result !== null && this.state.Touchable == '开启') {
           this.childList.handleTouch()
         }
 
@@ -140,6 +153,7 @@ export default class Login extends Component {
                 </TouchableOpacity>
               </View>
               <TouchableOpacity style={styles.btn} onPress={() => { this.load(); }} >
+
                 <LottieView source={require('../../../animal/loginicon.json')} autoPlay loop progress={this.state.progress} />
                 {/* <View borderRadius={20} style={{ height: '100%', width: '100%',backgroundColor:global.mainColor,elevation:5 }}>
               <Text style={{ fontSize: 20 * ratio_w, textAlign: 'center', textAlignVertical: 'center', height: '100%', color: '#ffffff', borderRadius: 20 }}  >登录</Text>
@@ -149,8 +163,25 @@ export default class Login extends Component {
                 <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', borderWidth: 0 }}>还没有账号？</Text>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Register')}>
                   <Text style={{ fontSize: 12 * ratio_w, marginTop: height * 0.01, textAlign: 'center', color: global.mainColor }}>此处注册</Text>
+
                 </TouchableOpacity>
+
               </View>
+              <View style={{flexDirection:'row',alignSelf:'center'}}>
+                <CheckBox
+                  onPress={() => { this.setState({ checked: !this.state.checked }) }}
+                  title=""
+                  checkedColor={global.mainColor}
+                  size={20}
+                  checkedIcon='dot-circle-o'
+                  uncheckedIcon='circle-o'
+                  containerStyle={{ backgroundColor: '#fff', width: '8%',marginLeft:-5 }}
+                  checked={this.state.checked}
+                />
+                <Text style={{height:'100%',textAlignVertical:'center',marginLeft:-5}}>已阅读并同意</Text><Text style={{height:'100%',textAlignVertical:'center',color:global.mainColor}}>《隐私条款》</Text>
+              </View>
+
+
 
               <View style={{ width: width, height: height * 0.5, backgroundColor: global.backColor }}>
                 <LottieView style={{ marginTop: "-30%" }} source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />

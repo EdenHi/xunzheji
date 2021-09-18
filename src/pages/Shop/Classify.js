@@ -136,7 +136,6 @@ go_page(v){
                                         width: "33%",
                                         height: "100%",
                                         resizeMode: "stretch",
-
                                     }}
                                         source={{ uri: 'https://img0.baidu.com/it/u=2771862817,827489450&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
@@ -168,18 +167,17 @@ go_page(v){
                                         width: "33%",
                                         height: "100%",
                                         resizeMode: "stretch",
-
                                     }}
                                         source={{ uri: 'https://img1.baidu.com/it/u=2744198785,555913146&fm=15&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
-                                </View></TouchableOpacity>
+                                </View>
+                                </TouchableOpacity>
                             <TouchableOpacity
                                 activeOpacity={0.8}
                                 onPress={() => {
                                     navigation.navigate('Shoplist', { shops: list[1].meishi[2].shops })
-                                }}
-                            >
+                                }}>
                                 <View style={{
                                     width: "100%",
                                     height: 80,
@@ -193,18 +191,18 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>陈源昌</Text>
-                                        <Text style={{ color: "#333333" }}>CHENYUANCHANG</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>CHENYUANCHANG</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
                                         height: "100%",
                                         resizeMode: "stretch",
-
                                     }}
                                         source={{ uri: 'https://img1.baidu.com/it/u=4291292563,390012538&fm=15&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
-                                </View></TouchableOpacity>
+                                </View>
+                                </TouchableOpacity>
                             <TouchableOpacity
                                 activeOpacity={0.8}
                                 onPress={() => {

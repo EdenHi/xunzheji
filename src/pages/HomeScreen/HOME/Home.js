@@ -345,8 +345,8 @@ export default class Home extends Component {
                                         </View>
                                         <View style={{ borderColor: 'green', width: '72.5%', marginLeft: '3.15%' }}>
                                             <Text style={{ fontSize: 18, marginTop: height * 0.01, color: global.mainColor == '#145A59' ? '#fff' : "#333" }}>{bookList[this.state.BookList[0]].bookname}</Text>
-                                            <Text style={{ marginTop: height * 0.02, color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={2}>{bookList[this.state.BookList[0]].bookintroduce}</Text>
-                                            <Text style={{ marginTop: height * 0.01 }}>
+                                            <Text style={{ marginTop: height * 0.03, color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={2}>{bookList[this.state.BookList[0]].bookintroduce}</Text>
+                                            <Text style={{ marginTop: height * 0.02 }}>
                                                 {/* <AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /><AntDesign name="star" size={15} color="gold" /> */}
                                                 <Stars star={bookList[this.state.BookList[0]].bookstar} />
                                             </Text>
