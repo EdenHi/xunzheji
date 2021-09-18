@@ -5,6 +5,7 @@ import jianjie_6 from '../pages/HomeScreen/Book/jianjie_6';
 import jianjie_0 from '../pages/HomeScreen/Book/jianjie_0';
 import jianjie_2 from '../pages/HomeScreen/Book/jianjie_2';
 import jianjie_7 from '../pages/HomeScreen/Book/jianjie_7';
+import jianjie_9 from '../pages/HomeScreen/Book/jianjie_9';
 import shuping from '../pages/HomeScreen/Book/shuping';
 import {Dimensions} from 'react-native'
 import {NavigationContainer} from '@react-navigation/native';
@@ -29,6 +30,7 @@ export default  function BookRoute({route}) {
        {route===5?<Tab.Screen name="简介" component={jianjie}/>:null}
        {route===6?<Tab.Screen name="简介" component={jianjie_6}/>:null}
        {route===7?<Tab.Screen name="简介" component={jianjie_7}/>:null}
+       {route===9?<Tab.Screen name="简介" component={jianjie_9}/>:null}
        <Tab.Screen name="书评" component={shuping} />
     </Tab.Navigator>
 

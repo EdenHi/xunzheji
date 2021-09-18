@@ -78,12 +78,12 @@ export default class Home extends Component {
     }
     changeBook() {
         let Arr = this.state.BookList
-        console.log(1,this.state.BookList);
-        Arr.splice(0, Arr.length)
-        for(let i=0;i<bookList.length;i++){
-            Arr.push(this.getRandomNum()[i])
-        }
-        console.log(this.getRandomNum());
+        Arr.splice(0,1)
+        var len = Arr[Arr.length-1];
+
+        Arr.push(len+1)
+        console.log('len',len);
+        console.log('arr',Arr);
     }
     _renderItem({ item, index }) {
         return (
@@ -339,7 +339,7 @@ export default class Home extends Component {
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                     {/* book top */}
-                                    <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[0]].nav,{ii:bookList[this.state.BookList[0]].ii})} style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[0]].id})} style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
                                         <View style={{ width: width * 0.195, height: height * 0.4 * 0.35, marginTop: 5, marginLeft: '3.15%' }}>
                                             <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[0]].img }}></Image>
                                         </View>
@@ -354,7 +354,7 @@ export default class Home extends Component {
                                     </TouchableOpacity>
                                     {/* book 1 */}
                                     <View style={{ height: height * 0.4 * 0.46, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, flexDirection: 'row' }}>
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[1]].nav,{ii:bookList[this.state.BookList[1]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[1]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
                                                 <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri:bookList[this.state.BookList[1]].img }}></Image>
                                             </View>
@@ -364,7 +364,7 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 2 */}
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[2]].nav,{ii:bookList[this.state.BookList[2]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[2]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
                                                 <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[2]].img }}></Image>
                                             </View>
@@ -374,7 +374,7 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 3 */}
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[3]].nav,{ii:bookList[this.state.BookList[3]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[3]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
                                                 <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri:bookList[this.state.BookList[3]].img }}></Image>
                                             </View>
@@ -384,7 +384,7 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 4 */}
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate(bookList[this.state.BookList[4]].nav,{ii:bookList[this.state.BookList[4]].ii})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[4]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
                                                 <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[4]].img}}></Image>
                                             </View>

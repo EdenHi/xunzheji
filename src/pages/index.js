@@ -75,7 +75,7 @@ export { default as culture } from "./Shop/culture.js"
 export { default as ClothesMade } from './Shop/ClothesMade.js'
 export { default as musicPlayer } from './HomeScreen/Read/musicPlayer'
 export {default as MatchGame} from './MyScreen/MatchGame'
-export {default as book_1} from './HomeScreen/Book/book_1'
+
 export {default as book_xiangqing} from './HomeScreen/Book/book_xiangqing'
 export {default as discuss} from './Shop/discuss'
 export {default as Shoucang2} from './MyScreen/zhanshi2_geren/Shoucang2'
@@ -106,14 +106,18 @@ export {default as ZhenCe} from './HomeScreen/HOME/ZhenCe'
 export {default as ZhenCe2} from './HomeScreen/HOME/ZhenCe2'
 export {default as ZhenCe3} from './HomeScreen/HOME/ZhenCe3'
 export {default as ZhenCe4} from './HomeScreen/HOME/ZhenCe4'
-export {default as book_6} from './HomeScreen/Book/book_6'
+
 export {default as book_xiangqing_6} from './HomeScreen/Book/book_xiangqing_6'
 export {default as shicha2} from './HomeScreen/HOME/shicha2'
-export {default as book_2} from './HomeScreen/Book/book_2'
+
 export {default as book_xiangqing_2} from './HomeScreen/Book/book_xiangqing_2'
-export {default as book_7} from './HomeScreen/Book/book_7'
+
 export {default as book_xiangqing_7} from './HomeScreen/Book/book_xiangqing_7'
 export {default as duihuan} from './HomeScreen/duihuan_jinbi/duihuan'
 export {default as ColorPicker} from '../components/ColorPicker'
 export {default as duihuan_xiangqing} from './HomeScreen/duihuan_jinbi/duihuan_xiangqing'
+<<<<<<< HEAD
 export {default as wallet} from './MyScreen/wallet'
+=======
+export {default as book_xiangqing_9} from './HomeScreen/Book/book_xiangqing_9'
+>>>>>>> cc848746c4b5ef0873bc5ebd08daf0f95abbdc6a
