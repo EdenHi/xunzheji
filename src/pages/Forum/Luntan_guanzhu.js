@@ -244,128 +244,128 @@ export default class Luntan_guanzhu extends Component {
                                                     <ScrollView
                                                         horizontal
                                                         showsHorizontalScrollIndicator={false}
-                                                        style={{ marginTop: 10, marginBottom: 10, backgroundColor: global.backColor }}>
-                                                        <TouchableOpacity activeOpacity={1} style={{ elevation: 5 }}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                        style={{ marginTop: 10, marginBottom: 10 }}>
+                                                        <TouchableOpacity activeOpacity={1}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={require('../img/laowujian.jpg')} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, '#fff']} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>圣诞COS</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>老物件</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>历史沉淀</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: '圣诞COS' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '老物件' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>
                                                             </ImageBackground>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img0.baidu.com/it/u=2567442348,174032819&fm=26&fmt=auto' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>猫和老鼠</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>美食</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>沁人心脾</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: '猫和老鼠' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '美食' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>
                                                             </ImageBackground>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.meituan.net%2Fdeal%2F652f50dd927fdbc9f39559c7aa1076c6259870.jpg&refer=http%3A%2F%2Fp0.meituan.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634631017&t=d5214137d8e0564d3a02c8ec698fca6f' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>lolita</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>鸡毛换糖路</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>重新感受</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: 'lolita' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '鸡毛换糖路' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>
                                                             </ImageBackground>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnimg.ws.126.net%2F%3Furl%3Dhttp%253A%252F%252Fdingyue.ws.126.net%252F2021%252F0828%252F2414ca8dj00qyibjv000wc000hs00d4g.jpg%26thumbnail%3D650x2147483647%26quality%3D80%26type%3Djpg&refer=http%3A%2F%2Fnimg.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634630998&t=67bbb60cfa40a864fca20b057069149f' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>新年祝福姬</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>浙商文化</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>源远流长</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: '新年祝福姬' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '浙商文化' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>
                                                             </ImageBackground>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.jiweixin168.com%2FUploads%2F2016%2F10%2F22%2F580ad24cb012a.jpg&refer=http%3A%2F%2Fwww.jiweixin168.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634631146&t=9033562f0cb2f46e4bba1bd8e3d0ae89' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>动漫嘉年华</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>书香</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>使人沉醉</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: '动漫嘉年华' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '书香' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>
                                                             </ImageBackground>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img0.baidu.com/it/u=3234694964,3408344979&fm=26&fmt=auto' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>漫展返图</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>茶酒</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>唇齿留香</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: '漫展返图' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '茶酒' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>
                                                             </ImageBackground>
                                                         </TouchableOpacity>
                                                         <TouchableOpacity activeOpacity={1}>
-                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://img2.baidu.com/it/u=3197198635,147065671&fm=26&fmt=auto&gp=0.jpg' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
+                                                            <ImageBackground imageStyle={{ borderRadius: 10 }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.jj20.com%2Fup%2Fallimg%2F1113%2F041R0115343%2F20041Q15343-6-1200.jpg&refer=http%3A%2F%2Fpic.jj20.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634631244&t=83522d4a486614b5b8fb1b40e9f0e55b' }} resizeMode="stretch" style={{ height: 250, width: 180, borderRadius: 10, marginLeft: 10 }}>
                                                                 <View style={{ alignItems: 'center', marginTop: 50 }}>
                                                                     <View style={{ elevation: 5, borderRadius: 50, height: 35, width: 35, justifyContent: 'center', alignItems: 'center' }}>
-                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, "#fff"]} >
+                                                                        <LinearGradient style={{ width: "100%", height: "100%", alignItems: "center", borderRadius: 50 }} colors={[global.mainColor, global.backColor]} >
                                                                             <Text style={{ color: '#fff', fontSize: 20, fontWeight: 'bold' }}>#</Text>
                                                                         </LinearGradient>
 
                                                                     </View>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>凉宫春日</Text>
-                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>朝气蓬勃</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 18, fontWeight: 'bold' }}>日常</Text>
+                                                                    <Text style={{ color: 'white', marginTop: 20, fontSize: 12 }}>分享现在</Text>
                                                                     <TouchableOpacity activeOpacity={1} style={{ marginTop: 10, width: "40%", height: "20%", elevation: 5, backgroundColor: global.mainColor, borderRadius: 20, alignItems: "center", justifyContent: "center" }}
-                                                                        onPress={() => this.context.navigate('huati', { tag: '凉宫春日' })}>
+                                                                        onPress={() => this.context.navigate('huati', { tag: '日常' })}>
                                                                         <Text style={{ color: 'white', fontSize: 15, padding: 5 }}>参与 </Text>
                                                                     </TouchableOpacity>
                                                                 </View>

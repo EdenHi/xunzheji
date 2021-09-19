@@ -686,7 +686,7 @@ export default class Comment extends React.Component {
                                                         </TouchableOpacity>
                                                         <View style={{ marginLeft: 10, width: width * 0.8 }}>
                                                             <Text style={styles.name}>{v.nickname}</Text>
-                                                            <Text>{v.content}</Text>
+                                                            <Text style={{ color: "#333",width:width * 0.8 - 60 }}>{v.content}</Text>
                                                             <TouchableOpacity activeOpacity={1} onPress={() => this.goComment(v)}
                                                                 style={{ marginTop: 5, width: width * 0.6, backgroundColor: '#eee', height: width * 0.08, justifyContent: 'center', borderRadius: 15 }}>
                                                                 <Text style={{ color: 'skyblue', paddingLeft: 10 }}>{'共' + v.counts + '条回复'}</Text>
@@ -723,7 +723,7 @@ export default class Comment extends React.Component {
                                                         </TouchableOpacity>
                                                         <View style={{ marginLeft: 10, width: width * 0.8 }}>
                                                             <Text style={styles.name}>{v.nickname}</Text>
-                                                            <Text style={{ color: "#333" }}>{v.content}</Text>
+                                                            <Text style={{ color: "#333",width:width * 0.8 - 60 }}>{v.content}</Text>
                                                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 }}>
                                                                 <View style={{ flexDirection: 'row' }}>
                                                                     <TouchableOpacity activeOpacity={1} onPress={() => this.setState({ heart: !this.state.heart })}>

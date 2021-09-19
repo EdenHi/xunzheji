@@ -189,7 +189,7 @@ export default class comment_huifu extends Component {
                                 <View style={{width:"100%",flexDirection:"row"}}><Text style={styles.name1}>{data.nickname}</Text>
                                 
                                 </View>
-                                <Text>{data.content}</Text>
+                                <Text style={{ color: "#333",width:width * 0.8 - 60 }}>{data.content}</Text>
                                 <Text style={{color:'#aaa',fontSize:12}}>{time}</Text>
                             </View>
                         </View>
