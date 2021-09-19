@@ -285,13 +285,18 @@ export default class Topic1 extends Component {
                     />
 
                     <View style={{ width, height: height * 0.07, backgroundColor: "white", flexDirection: "row", alignItems: "center", justifyContent: 'space-around' }} >
-                        <View style={{ width: 250, height: 40, backgroundColor: "#999", opacity: 0.4, marginLeft: 20, borderRadius: 20 }}>
-                            <TextInput style={{ marginLeft: 20 }} placeholder="欢迎发表你的观点" onEndEditing={() => { this.insert_pinglun(), Keyboard.dismiss(), this.textInput.clear() }} onChangeText={(send_pinglun) => this.setState({ send_pinglun })}
+                        
+                        <View style={{ width: 250, height: 40, backgroundColor: "#f1f1f1", marginLeft: 20, borderRadius: 20 }}>
+                            <TextInput style={{ marginLeft: 20, }}  placeholder="欢迎发表你的观点" onEndEditing={() => { this.insert_pinglun(), Keyboard.dismiss(), this.textInput.clear() }} onChangeText={(send_pinglun) => this.setState({ send_pinglun })}
                                 ref={input => { this.textInput = input }} />
                         </View>
+                        
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor, marginLeft: 5, alignItems: 'center', justifyContent: 'center' }}>
+                            
                             <AntDesign name={this.state.data.username === this.state.denglu_username ? "star" : "staro"} size={25} color={this.state.data.username === this.state.denglu_username ? 'yellow' : global.mainColor}
+                                
                                 onPress={() => this.shoucang()} />
+
                         </TouchableOpacity>
                         <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor }}>
                             <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: global.mainColor }} name="export" size={25} color="#000000" />

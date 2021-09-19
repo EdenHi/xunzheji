@@ -136,7 +136,6 @@ go_page(v){
                                         width: "33%",
                                         height: "100%",
                                         resizeMode: "stretch",
-
                                     }}
                                         source={{ uri: 'https://img0.baidu.com/it/u=2771862817,827489450&fm=26&fmt=auto&gp=0.jpg' }}
                                     >
@@ -162,24 +161,23 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>翠沁斋</Text>
-                                        <Text style={{ color: "#333333" }}>CUIXINZHAI</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>CUIXINZHAI</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
                                         height: "100%",
                                         resizeMode: "stretch",
-
                                     }}
                                         source={{ uri: 'https://img1.baidu.com/it/u=2744198785,555913146&fm=15&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
-                                </View></TouchableOpacity>
+                                </View>
+                                </TouchableOpacity>
                             <TouchableOpacity
                                 activeOpacity={0.8}
                                 onPress={() => {
                                     navigation.navigate('Shoplist', { shops: list[1].meishi[2].shops })
-                                }}
-                            >
+                                }}>
                                 <View style={{
                                     width: "100%",
                                     height: 80,
@@ -193,18 +191,18 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>陈源昌</Text>
-                                        <Text style={{ color: "#333333" }}>CHENYUANCHANG</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>CHENYUANCHANG</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
                                         height: "100%",
                                         resizeMode: "stretch",
-
                                     }}
                                         source={{ uri: 'https://img1.baidu.com/it/u=4291292563,390012538&fm=15&fmt=auto&gp=0.jpg' }}
                                     >
                                     </Image>
-                                </View></TouchableOpacity>
+                                </View>
+                                </TouchableOpacity>
                             <TouchableOpacity
                                 activeOpacity={0.8}
                                 onPress={() => {
@@ -225,7 +223,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>朱一堂</Text>
-                                        <Text style={{ color: "#333333" }}>ZHUYITANG</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>ZHUYITANG</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
@@ -293,7 +291,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>张小泉</Text>
-                                        <Text style={{ color: "#333333" }}>ZHANGXIAOQUAN</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>ZHANGXIAOQUAN</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -324,7 +322,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>毛源昌</Text>
-                                        <Text style={{ color: "#333333" }}>MAOYUANCHANG</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>MAOYUANCHANG</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -356,7 +354,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>邵芝岩</Text>
-                                        <Text style={{ color: "#333333" }}>SHAOZHIYAN</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>SHAOZHIYAN</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -387,7 +385,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>龙泉宝剑</Text>
-                                        <Text style={{ color: "#333333" }}>LONGQUANBAOJIAN</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>LONGQUANJIAN</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -436,7 +434,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>王星记</Text>
-                                        <Text style={{ color: "#333333" }}>WANGXINGJI</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>WANGXINGJI</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
@@ -468,7 +466,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>朱府铜艺</Text>
-                                        <Text style={{ color: "#333333" }}>ZHUFUTONGYI</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>ZHUFUTONGYI</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
@@ -499,7 +497,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>善琏湖笔</Text>
-                                        <Text style={{ color: "#333333" }}>SHANLIANHUBI</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>SHANLIANHUBI</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
@@ -531,7 +529,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>大竹元宣纸</Text>
-                                        <Text style={{ color: "#333333" }}>DAZHUYUANXUANZHI</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>ZHUYUANXUANZHI</Text>
                                     </View>
                                     <Image style={{
                                         width: "33%",
@@ -599,7 +597,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>益龙芳</Text>
-                                        <Text style={{ color: "#333333" }}>YILONGFANG</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>YILONGFANG</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -630,7 +628,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>会稽山</Text>
-                                        <Text style={{ color: "#333333" }}>KUAIJISHAN</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>KUAIJISHAN</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -662,7 +660,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>福茂和记</Text>
-                                        <Text style={{ color: "#333333" }}>FUMAOHEJI</Text>
+                                        <Text style={{ color: "#333333",fontSize:12 }}>FUMAOHEJI</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -693,7 +691,7 @@ go_page(v){
                                         alignItems: "center"
                                     }}>
                                         <Text style={{ fontSize: 21, fontWeight: "bold", color: "#333333" }}>女儿红</Text>
-                                        <Text style={{ color: "#333333" }}>NVERHONG</Text>
+                                        <Text style={{ color: "#333333" ,fontSize:12}}>NVERHONG</Text>
                                     </View>
                                 </View></TouchableOpacity>
                             <TouchableOpacity
@@ -719,7 +717,8 @@ go_page(v){
 
                         </View>
                     </View>
-                    <Text style={{ textAlign: "center", marginTop: 20, marginBottom: 10, color: "#333333" }}>—————————————到底啦—————————————</Text>
+                    <Text style={{ textAlign: "center", marginTop: 20, marginBottom: 10, color: "#333333",textDecorationLine:'underline',width:'100%'}}>到底啦</Text>
+                    <Text style={{  color: "#333333",width:'100%',borderWidth:0.5,borderStyle:'dashed',borderRadius:5,marginTop:height*-0.01}}></Text>
                 </ScrollView>
            
                 <Modal

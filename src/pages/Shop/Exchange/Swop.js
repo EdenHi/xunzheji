@@ -178,10 +178,10 @@ export default class Swop extends Component {
         </BlurView> 
         <View style={{ flexDirection: "row", alignItems: "center", height: height * 0.07, justifyContent: "center" }}>
           <TouchableOpacity style={{width:width*0.06}} activeOpacity={1} onPress={() => this.props.navigation.goBack()}>
-          <FontAwesome  name={'angle-left'} size={25} color={'#fff'} />
-            {/* <AntDesign name="left" size={20} color="#fff" /> */}
+          {/* <FontAwesome  name={'angle-left'} size={25} color={'#fff'} /> */}
+            <AntDesign name="left" size={20} color="#fff" />
           </TouchableOpacity>
-          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>以物换物</Text>
+          <Text style={{ fontSize: 15, fontWeight: "bold", color: "#fff", width: width * 0.85}}>以物换物</Text>
         </View>
         <FlatList
           data={data}

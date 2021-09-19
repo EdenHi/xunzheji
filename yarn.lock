@@ -718,6 +718,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@damoness/react-native-http-cache@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@damoness/react-native-http-cache/-/react-native-http-cache-1.2.1.tgz#2476ec13b22c6deeb2598914a51488efa5a3914f"
+  integrity sha512-p8VjT+rg8dUMXmypPeE1etAa1m1uET+2EvddjmQ33FdQ9juXYOQ4uNBwdB5uug+3+zwWom8lRlfcxJbMLWklGA==
+
 "@egjs/hammerjs@^2.0.17":
   version "2.0.17"
   resolved "https://registry.npm.taobao.org/@egjs/hammerjs/download/@egjs/hammerjs-2.0.17.tgz"
@@ -6052,6 +6057,11 @@ react-native-parsed-text@0.0.22:
   integrity sha1-ojx1bqpdZyQpaBR1UIUSf5By5fU=
   dependencies:
     prop-types "^15.7.x"
+
+react-native-pay-password@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-pay-password/-/react-native-pay-password-1.0.1.tgz#ecc7570e261bb6c6b5c852fd072034dac8f40c81"
+  integrity sha512-yn1/bAamGlHJphjbYmA6bt/tLRg7M620TCnMT6kIdtDg/coQKvYISgvnvG7MiSaTdrabvwwR9JwoO0hrJ28U4w==
 
 react-native-picker@^4.3.7:
   version "4.3.7"

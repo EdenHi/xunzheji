@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, {Component} from 'react';
 
-import {View,TouchableOpacity,Text,Dimensions,Image, ScrollView } from 'react-native';
+import {View,TouchableOpacity,Text,Dimensions,Image, ScrollView,Share } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import AntDesign from "react-native-vector-icons/AntDesign"
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -9,7 +9,25 @@ import BookRoute from '../../../nav/BookRoute'
 import bookList from '../HOME/bookList.json';
 const {height,width} = Dimensions.get('window')
 export default class book_0 extends Component {
-    
+    onShare = async () => {
+        try {
+            const result = await Share.share({
+                message:
+                    '是寻商迹哦',
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
     render() {
         console.log("id",bookList[this.props.route.params.id]);
         let data  = bookList[this.props.route.params.id]
@@ -22,7 +40,7 @@ export default class book_0 extends Component {
                             <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" />
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", }}>书籍详情</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
+                        <TouchableOpacity onPress={()=>{this.onShare()}} activeOpacity={1} style={{}}>
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="export" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>
