@@ -89,9 +89,9 @@ export default class Shoucang2 extends Component {
                         <View style={{ flex: 2 }}><Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>{item.title}</Text></View>
                         <View style={{ flex: 1 }}>
                             <View style={{ flexDirection: 'row' }}>
-                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: global.mainColor, paddingHorizontal:5, alignItems: 'center' }}><Text style={{ fontSize: 12 }}>{item.tag1}</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: global.mainColor, paddingHorizontal:5,  alignItems: 'center' }}><Text style={{ fontSize: 12 }}>{item.tag2}</Text></View></TouchableOpacity>
-                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: global.mainColor, paddingHorizontal:5,  alignItems: 'center' }}><Text style={{ fontSize: 12 }}>{item.tag3}</Text></View></TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: global.mainColor, paddingHorizontal:5, alignItems: 'center' }}><Text style={{ fontSize: 12 ,color:'#fff'}}>{item.tag1}</Text></View></TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: global.mainColor, paddingHorizontal:5,  alignItems: 'center' }}><Text style={{ fontSize: 12,color:'#fff' }}>{item.tag2}</Text></View></TouchableOpacity>
+                                <TouchableOpacity activeOpacity={1}><View style={{ borderRadius: 5, marginRight: 5, backgroundColor: global.mainColor, paddingHorizontal:5,  alignItems: 'center' }}><Text style={{ fontSize: 12 ,color:'#fff'}}>{item.tag3}</Text></View></TouchableOpacity>
                             </View>
                         </View>
                     </TouchableOpacity>

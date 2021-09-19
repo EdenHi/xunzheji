@@ -151,8 +151,8 @@ export default class chat extends Component {
             })
 
     }
-    go_back(){
-        DeviceEventEmitter.emit('updatemessage',1);
+    go_back() {
+        DeviceEventEmitter.emit('updatemessage', 1);
         this.props.navigation.goBack();
     }
     /* 发送消息 */
@@ -352,16 +352,16 @@ export default class chat extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ borderWidth: 0, width: '100%', height: '7%', backgroundColor: global.mainColor,}}>
-                   <View style={{width:'95%',marginLeft:'2.5%',flexDirection: 'row' ,justifyContent:'space-between'}}>
-                   <TouchableOpacity activeOpacity={1} style={{ }}>
-                        <AntDesign onPress={() => { this. go_back(); clearInterval(this.backInterval) }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" ,}} name="left" size={25} color="#000000" />
-                    </TouchableOpacity>
-                    <Text style={{ height: '100%', width: '40%',textAlignVertical: 'center', textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', }}>{this.props.route.params.nickname}</Text>
-                    <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
-                        <AntDesign onPress={() => { this.props.navigation.navigate('Live') }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="videocamera" size={25} color="#000000" />
-                    </TouchableOpacity>
-                   </View>
+                <View style={{ borderWidth: 0, width: '100%', height: '7%', backgroundColor: global.mainColor, }}>
+                    <View style={{ width: '95%', marginLeft: '2.5%', flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <TouchableOpacity activeOpacity={1} style={{}}>
+                            <AntDesign onPress={() => { this.go_back(); clearInterval(this.backInterval) }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff", }} name="left" size={25} color="#000000" />
+                        </TouchableOpacity>
+                        <Text style={{ height: '100%', width: '40%', textAlignVertical: 'center', textAlign: 'center', fontSize: 20, fontWeight: 'bold', color: '#fff', }}>{this.props.route.params.nickname}</Text>
+                        <TouchableOpacity activeOpacity={1} style={{ marginLeft: '2%' }}>
+                            <AntDesign onPress={() => { this.props.navigation.navigate('Live') }} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="videocamera" size={25} color="#000000" />
+                        </TouchableOpacity>
+                    </View>
 
                 </View>
                 <GiftedChat

@@ -130,7 +130,7 @@ export default class Personal extends Component {
             />
             <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>实名认证</Text>
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats', { room: '1' }), this.setState({ isOpen: false }) }}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats', { room: '1',nickname:'客服' }), this.setState({ isOpen: false }) }}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
         <AntDesign 
               name="customerservice"
               size={30}

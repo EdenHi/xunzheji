@@ -28,8 +28,8 @@ export default class Live extends Component<Props, State> {
     super(props)
     this.state = {
       appId: 'afd79a4ac84e49cbb69c28c8eab69f69',
-      token: '006afd79a4ac84e49cbb69c28c8eab69f69IADkIyROGzKVQjqHp1qXzVCPj3m+QTSsbEAEQAbz5mdrdAfFc8kAAAAAEAAMCq6ySc0yYQEAAQBIzTJh',
-      channelName: 'zhangyi',
+      token: '006afd79a4ac84e49cbb69c28c8eab69f69IABUlLbHj9ApM6FgO6f6vu63pAViAqzpb5qSnE7yxd3/ydxEAZkAAAAAEADkBngOdO9HYQEAAQB070dh',
+      channelName: '666',
       joinSucceed: false,
       peerIds: [],
       localvoice: true

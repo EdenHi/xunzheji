@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { StyleSheet, View, Text,Dimensions, Button } from 'react-native';
 import { getCacheSize, clearCache } from '@damoness/react-native-http-cache';
-
+import { TouchableOpacity } from 'react-native-gesture-handler';
+const { height, width } = Dimensions.get('window');
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
   const fresh=()=>{
@@ -15,13 +16,13 @@ export default function App() {
 
   return (
     <View >
-      <Text>缓存大小{(result/1024/500).toFixed(2)}Mb</Text>
-      <Button
-        title="清除"
-        onPress={() => {
-fresh()
-        }}
-      />
+      <TouchableOpacity onPress={()=>{fresh()}} style={{ height: height * 0.05 ,backgroundColor:'#fff',marginVertical:5,borderRadius:10,flexDirection:'row'}}>
+      <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>清除缓存</Text><Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 200,color:'grey' }}>{(result/1024/500).toFixed(2)}Mb</Text>
+      </TouchableOpacity>
+
+     
+
+     
     </View>
   );
 }
