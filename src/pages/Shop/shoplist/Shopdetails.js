@@ -92,6 +92,7 @@ export default class Shopdetails extends Component {
                 username: this.state.username,
                 createdAt: new Date,
                 price: this.props.route.params.shops.price,
+                leibie:this.props.route.params.shops.leibie,
             })
         })
     }
@@ -279,7 +280,7 @@ export default class Shopdetails extends Component {
 
     render() {
         const { modalVisible, imgUrls, currentIndex, shops } = this.state;
-        // console.log(this.props.route.params.shops);
+        console.log(this.props.route.params.shops);
         return (
             <View style={{ flex: 1 }}>
                 {/* 标题 */}

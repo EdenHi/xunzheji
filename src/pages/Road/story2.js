@@ -16,35 +16,35 @@ export default class Zs extends Component {
             denglu_username: '',
         }
     }
-    // get_pinglun() {
-    //     AsyncStorage.getItem('username', (err, result) => {
-    //         if (!err) {
-    //             this.setState({
-    //                 denglu_username: result,
-    //             })
-    //             fetch('http://47.100.78.254:3000/shouye/get_pinglun', {
-    //                 method: 'POST',
-    //                 headers: {
-    //                     Accept: 'application/json',
-    //                     'Content-Type': 'application/json',
-    //                 },
-    //                 body: JSON.stringify({
-    //                     username: result,
-    //                     wenzhang_id: this.props.route.params.wenzhang_id
-    //                 })
-    //             })
-    //                 .then((response) => response.json())
-    //                 .then((json) => {
-    //                     this.setState({
-    //                         pinglun: json
-    //                     })
-    //                 });
-    //         }
-    //     })
-    // }
-    // componentDidMount() {
-    //     this.get_pinglun();
-    // }
+    get_pinglun() {
+        AsyncStorage.getItem('username', (err, result) => {
+            if (!err) {
+                this.setState({
+                    denglu_username: result,
+                })
+                fetch('http://47.100.78.254:3000/shouye/get_pinglun', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: result,
+                        wenzhang_id: 16
+                    })
+                })
+                    .then((response) => response.json())
+                    .then((json) => {
+                        this.setState({
+                            pinglun: json
+                        })
+                    });
+            }
+        })
+    }
+    componentDidMount() {
+        this.get_pinglun();
+    }
     //更新文章评论点赞
     update_dianzan(v) {
         if (v.wenzhang_dianzan === this.state.denglu_username) {

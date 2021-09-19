@@ -19,9 +19,9 @@ export default  function BookRoute({route}) {
     <Tab.Navigator
     tabBarOptions={{
         labelStyle:{fontSize:18,padding:0,margin:0},
-        tabStyle:{width:width*0.15},
-        indicatorStyle:{backgroundColor:global.mainColor,width:width*0.1,marginHorizontal:width*0.025},
-        style:{width:width*0.3,elevation:0,marginLeft:20},
+        tabStyle:{width:width*0.2},
+        indicatorStyle:{backgroundColor:global.mainColor,width:width*0.1,marginHorizontal:width*0.05},
+        style:{width:width*0.4,elevation:0,marginLeft:20},
        
     }}>
 

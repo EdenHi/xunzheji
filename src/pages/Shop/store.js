@@ -91,6 +91,7 @@ export default class Store extends Component {
           "name": "绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
           "jieshao": "知味观",
           "price": "12.90",
+          "leibie":"meishi",
           "sales": "8W+",
           "pic": [
             "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
@@ -108,6 +109,7 @@ export default class Store extends Component {
           "name": "翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
           "jieshao": "中华老字号",
           "price": "24.90",
+          "leibie":"meishi",
           "sales": "200+",
           "pic": [
             "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
@@ -125,6 +127,7 @@ export default class Store extends Component {
           "name": "陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
           "jieshao": "",
           "price": "57.00",
+          "leibie":"meishi",
           "sales": "1K+",
           "pic": [
             "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
@@ -144,6 +147,7 @@ export default class Store extends Component {
           "name": "知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
           "jieshao": "清香绵软",
           "price": "12.90",
+          "leibie":"meishi",
           "sales": "8W+",
           "pic": [
             "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
@@ -161,6 +165,7 @@ export default class Store extends Component {
           "name": "翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
           "jieshao": "中华老字号",
           "price": "24.90",
+          "leibie":"meishi",
           "sales": "200+",
           "pic": [
             "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg",
@@ -178,6 +183,7 @@ export default class Store extends Component {
           "name": "陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
           "jieshao": "",
           "price": "57.00",
+          "leibie":"meishi",
           "sales": "1K+",
           "pic": [
             "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
@@ -195,6 +201,7 @@ export default class Store extends Component {
           "name": "朱府铜艺 全铜香炉《古檀香炉》家用盘香炉香薰书房茶桌摆件",
           "jieshao": "",
           "price": "420.00",
+          "leibie":"gongmei",
           "sales": "15",
           "pic": [
             "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01n3K7km1QS8Vu08yFy_!!2211562091974.jpg_500x500q90.jpg",
@@ -212,6 +219,7 @@ export default class Store extends Component {
           "name": "朱府铜艺 全铜香炉《莲花香炉》铜工艺品香炉",
           "jieshao": "",
           "price": "1080.00",
+          "leibie":"gongmei",
           "sales": "7",
           "pic": [
             "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01ABGPtP1QS8VzUuFxN_!!0-item_pic.jpg_500x500q90.jpg",
@@ -229,6 +237,7 @@ export default class Store extends Component {
           "name": "2021年益龙芳茶叶开化龙顶高山土茶春茶250g袋装茶叶绿茶野茶",
           "jieshao": "茶客挚爱口粮茶，醇厚耐泡。",
           "price": "138.00",
+          "leibie":"chajiu",
           "sales": "100+",
           "pic": [
             "https://img.alicdn.com/imgextra/i4/1665326773/TB2b8ZlnnJYBeNjy1zeXXahzVXa_!!1665326773.jpg_500x500q90.jpg",
@@ -321,36 +330,22 @@ export default class Store extends Component {
     )
   }
 
-  componentDidMount() {
-    AsyncStorage.getItem('username', (err, result) => { this.setState({ username: result }) })
-    this.handleGetLocation();
-    Animated.timing(this.state.progress, {
-      toValue: 1,
-      duration: 3500,
-      easing: Easing.linear,
-    }).start();
-
-    this.tuijian();
-    this.subscription = DeviceEventEmitter.addListener('dizhi', (msg) => {
-      console.log(msg);
-      this.setState({ zuobiao: msg })
-    })
-    this.listener = DeviceEventEmitter.addListener('yanse',this.fresh.bind(this))
-  }
-fresh(){
-  this.setState({fresh:!this.state.fresh})
-}
-  //移除监听
-  componentWillUnmount() {
-    this.subscription.remove();
-    this.listener.remove();
-  }
-
-
-  tuijian() {
+  get_tuijian(){
     AsyncStorage.getItem('username', (err, result) => {
       if (!err) {
-        fetch('http://47.100.78.254:3000/index/selectTuijian', {
+        fetch('http://47.100.78.254:3000/shop/selectfootmark_2', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: result,
+          })
+        })
+        .then((response) => response.json())
+          .then((ress) => {
+            fetch('http://47.100.78.254:3000/index/selectTuijian', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -436,6 +431,45 @@ fresh(){
 
 
           })
+          })
+
+        
+
+      }
+    })
+
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('username', (err, result) => { this.setState({ username: result }) })
+    this.handleGetLocation();
+    Animated.timing(this.state.progress, {
+      toValue: 1,
+      duration: 3500,
+      easing: Easing.linear,
+    }).start();
+
+    this.get_tuijian();
+    this.subscription = DeviceEventEmitter.addListener('dizhi', (msg) => {
+      console.log(msg);
+      this.setState({ zuobiao: msg })
+    })
+    this.listener = DeviceEventEmitter.addListener('yanse',this.fresh.bind(this))
+  }
+fresh(){
+  this.setState({fresh:!this.state.fresh})
+}
+  //移除监听
+  componentWillUnmount() {
+    this.subscription.remove();
+    this.listener.remove();
+  }
+
+
+  tuijian() {
+    AsyncStorage.getItem('username', (err, result) => {
+      if (!err) {
+        
       }
     })
 

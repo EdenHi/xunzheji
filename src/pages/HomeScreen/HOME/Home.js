@@ -42,13 +42,13 @@ export default class Home extends Component {
             f: 1,
             carouselItems: [
                 {
-                    img: "http://47.100.78.254:3000/public/images/a.png",
+                    img: "http://47.100.78.254:3000/public/images/tangdan.png",
                 },
                 {
-                    img: "http://47.100.78.254:3000/public/images/b.png",
+                    img: "http://47.100.78.254:3000/public/images/yayun.png",
                 },
                 {
-                    img: "http://47.100.78.254:3000/public/images/c.png",
+                    img: "http://47.100.78.254:3000/public/images/changgui.png",
                 },
 
             ],
