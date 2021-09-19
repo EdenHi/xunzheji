@@ -8,6 +8,7 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 const { height, width } = Dimensions.get('window');
 
 export default class Locked extends Component {
+  
   constructor(props) {
     super(props)
     this.state = {
@@ -17,11 +18,19 @@ export default class Locked extends Component {
       refresh: '',
       road: this.props.roadNumber,
       lastStep: 0,
+      picture:''
     }
   }
   //第一次渲染
   componentDidMount() {
     this.getThisData();
+    if(this.props.roadNumber>=1&&this.props.roadNumber<=4){
+      this.setState({picture:'http://47.100.78.254:3000/public/images/a.png'})
+    }else if(this.props.roadNumber>=5&&this.props.roadNumber<=7){
+      this.setState({picture:'http://47.100.78.254:3000/public/images/c.png'})
+    }else{
+      this.setState({picture:'http://47.100.78.254:3000/public/images/b.png'})  
+    }
   }
 
   //获取上一条路线信息
@@ -156,7 +165,7 @@ export default class Locked extends Component {
         <FlipCard>
           <View style={{ width: '100%', height: height * 0.55, marginTop: height * 0.01, borderRadius: 15, backgroundColor:"#fff",elevation:2 }}>
             <View style={{ width: '85%', marginHorizontal: '7%', height: '60%', borderRadius: 60, marginTop: "5%" }}>
-              <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: 'http://47.100.78.254:3000/public/images/a.png' }}></Image>
+              <Image style={{ width: '100%', height: '100%', }} resizeMode="stretch" borderRadius={30} source={{ uri: this.state.picture }}></Image>
               <View style={{ borderColor: 'orange', height: '25%', width: '25%', marginTop: '-23%', marginLeft: '73%', borderRadius: 15 }}>
                 <ImageBackground style={{ width: '100%', height: '100%', }} borderRadius={15} source={{ uri: 'http://47.100.78.254:3000/public/images/nanlu.jpg' }}>
                   <AntDesign style={{ backgroundColor: global.mainColor, width: '35%', height: '35%', borderRadius: 50, textAlign: 'center', textAlignVertical: 'center', marginTop: '60%', marginLeft: '60%' }}
@@ -201,7 +210,7 @@ export default class Locked extends Component {
       );
     } else
       return (
-        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#fff', elevation:2 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
+        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#7cc0c0', elevation:2 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
           <Text style={{ marginTop: '7%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#333' }}>{this.props.roadname}</Text>
           <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#333' }}>可获得 <FontAwesome5
               name='coins'
@@ -249,10 +258,10 @@ export default class Locked extends Component {
             message="您还没有完成上一条路线，无法解锁!"
             closeOnTouchOutside={true}
             closeOnHardwareBackPress={false}
-            showCancelButton={true}
+            showCancelButton={false}
             showConfirmButton={true}
             confirmText="确认"
-
+            confirmButtonColor={global.mainColor}
 
             onConfirmPressed={() => {
               this.hideAlert_unAbleToUnLock();

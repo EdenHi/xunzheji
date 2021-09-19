@@ -556,7 +556,18 @@ export default class LunTan extends Component {
                                                             renderItem={({ item, index }) => {
                                                                 if (item === null) {
                                                                     return;
-                                                                } else if (v.pic.length > 1 && v.pic.length < 5) {
+                                                                } else if (v.pic.length == 2) {
+                                                                    return (
+                                                                        <View style={styles.box2}>
+                                                                            <TouchableOpacity
+                                                                                activeOpacity={1}
+                                                                                key={index}
+                                                                                onPress={() => this.handleShowAlbum(k, index)}>
+                                                                                <Image source={{ uri: item }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 5) / 2 }}/>
+                                                                            </TouchableOpacity>
+                                                                        </View>
+                                                                    );
+                                                                } else if (v.pic.length > 2 && v.pic.length < 5) {
                                                                     return (
                                                                         <View style={styles.box2}>
                                                                             <TouchableOpacity
@@ -570,6 +581,7 @@ export default class LunTan extends Component {
                                                                 } else if (v.pic.length >= 5 && v.pic.length <= 9) {
                                                                     return (
                                                                         <View style={styles.box2}>
+                                                                            
                                                                             <TouchableOpacity
                                                                                 activeOpacity={1}
                                                                                 key={index}

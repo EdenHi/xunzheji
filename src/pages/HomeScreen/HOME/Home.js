@@ -31,6 +31,7 @@ export default class Home extends Component {
         this.state = {
             progress: new Animated.Value(0),
             username: '',
+            circle: new Animated.Value(0),
             isShowToTop: true,
             BookList: [0, 1, 2, 3, 4],
             isLoding: false,
@@ -47,7 +48,7 @@ export default class Home extends Component {
                     img: "http://47.100.78.254:3000/public/images/b.png",
                 },
                 {
-                    img: "http://47.100.78.254:3000/public/images/c3.png",
+                    img: "http://47.100.78.254:3000/public/images/c.png",
                 },
 
             ],
@@ -78,12 +79,12 @@ export default class Home extends Component {
     }
     changeBook() {
         let Arr = this.state.BookList
-        Arr.splice(0,1)
-        var len = Arr[Arr.length-1];
+        Arr.splice(0, 1)
+        var len = Arr[Arr.length - 1];
 
-        Arr.push(len+1)
-        console.log('len',len);
-        console.log('arr',Arr);
+        Arr.push(len + 1)
+        console.log('len', len);
+        console.log('arr', Arr);
     }
     _renderItem({ item, index }) {
         return (
@@ -332,14 +333,17 @@ export default class Home extends Component {
                                             <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>浙商必知丛书</Text>
                                             <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>ZHEJIANG MERCHANTS MUST KNOW SERIES</Text>
                                         </View>
-                                        <TouchableOpacity activeOpacity={1} onPress={() => { this.changeBook(), this.setState({ f: 0 }) }} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: global.mainColor, }}>
-                                            <Text style={{ fontSize: 14, color: 'grey',marginLeft:-width*0.1,marginTop:height*0.01,paddingLeft:width*0.02 }}>换一批</Text>
-                                            <LottieView source={changeSVGColor(require('../../../../animal/right.json'), global.mainColor)} autoPlay loop progress={this.state.progress} />
-
+                                        <TouchableOpacity activeOpacity={1} onPress={() => {
+                                            this.animation.play(), this.changeBook(), this.setState({ f: 0 })
+                                            }} activeOpacity={1} style={{ width: width * 0.2, height: width * 0.1, color: global.mainColor ,marginLeft:-width*0.08}}>
+                                            <Text style={{ fontSize: 14, color: 'grey',  marginTop: height * 0.01, paddingLeft: width * 0.02, width: width * 0.15 }}>换一批</Text>
+                                            <LottieView style={{ width: width * 0.08, marginTop: -12 ,paddingLeft:43}} source={changeSVGColor(require('../../../../animal/lf30_editor_k7r6hiyb.json'), global.mainColor)} ref={animation => {
+                                                this.animation = animation;
+                                            }} loop={false}/>
                                         </TouchableOpacity>
                                     </TouchableOpacity>
                                     {/* book top */}
-                                    <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[0]].id})} style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
+                                    <TouchableOpacity onPress={() => this.props.navigation.navigate("book_0", { id: bookList[this.state.BookList[0]].id })} style={{ height: height * 0.4 * 0.4, borderTopRightRadius: 10, borderTopLeftRadius: 10, flexDirection: 'row' }}>
                                         <View style={{ width: width * 0.195, height: height * 0.4 * 0.35, marginTop: 5, marginLeft: '3.15%' }}>
                                             <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[0]].img }}></Image>
                                         </View>
@@ -354,9 +358,9 @@ export default class Home extends Component {
                                     </TouchableOpacity>
                                     {/* book 1 */}
                                     <View style={{ height: height * 0.4 * 0.46, borderBottomLeftRadius: 10, borderBottomRightRadius: 10, flexDirection: 'row' }}>
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[1]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate("book_0", { id: bookList[this.state.BookList[1]].id })} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri:bookList[this.state.BookList[1]].img }}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[1]].img }}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[1]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>
@@ -364,7 +368,7 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 2 */}
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[2]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate("book_0", { id: bookList[this.state.BookList[2]].id })} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
                                                 <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[2]].img }}></Image>
                                             </View>
@@ -374,9 +378,9 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 3 */}
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[3]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate("book_0", { id: bookList[this.state.BookList[3]].id })} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri:bookList[this.state.BookList[3]].img }}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[3]].img }}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[3]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>
@@ -384,9 +388,9 @@ export default class Home extends Component {
                                             </View>
                                         </TouchableOpacity>
                                         {/* 4 */}
-                                        <TouchableOpacity onPress={()=>this.props.navigation.navigate("book_0",{id:bookList[this.state.BookList[4]].id})} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
+                                        <TouchableOpacity onPress={() => this.props.navigation.navigate("book_0", { id: bookList[this.state.BookList[4]].id })} style={{ width: '22%', borderColor: 'red', height: '100%', marginLeft: '2.5%' }}>
                                             <View style={{ width: '95%', height: '70%', marginTop: 5, marginLeft: '2.5%' }}>
-                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[4]].img}}></Image>
+                                                <Image style={{ height: '100%', width: '100%', borderRadius: 10 }} source={{ uri: bookList[this.state.BookList[4]].img }}></Image>
                                             </View>
                                             <Text style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333" }} numberOfLines={1}>{bookList[this.state.BookList[4]].bookname}</Text>
                                             <View style={{ width: '95%', marginLeft: '2.5%', color: global.mainColor == '#145A59' ? '#fff' : "#333", height: '12.5%', flexDirection: 'row' }}>

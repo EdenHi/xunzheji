@@ -124,14 +124,10 @@ export default class Live extends Component<Props, State> {
   render() {
     return (
       <View style={{ width, height }}>
-
         {this.state.joinSucceed ? null : <View >
           <TouchableOpacity style={{ width: width, height: height * 0.2 }} onPress={() => { this.startCall() }}></TouchableOpacity>
         </View>}
-
         {this._renderVideos()}
-
-
       </View>
     )
   }
@@ -155,7 +151,6 @@ export default class Live extends Component<Props, State> {
                   height: height,
                   zIndex: 0,
                   position: 'absolute',
-
                   borderWidth: 5, borderColor: '#fff'
                 }}
                 zOrderMediaOverlay

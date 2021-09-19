@@ -18,24 +18,64 @@ import {
   DeviceEventEmitter,
   Easing,
   Animated,
-
+  ToastAndroid
 } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import axios from 'axios';
 import Textinput from '../../components/textInput';
 import LinearGradient from 'react-native-linear-gradient';
 import TouchTest from '../../components/TouchId';
-
+import AwesomeAlert from 'react-native-awesome-alerts';
 
 const ratio_w = Dimensions.get('window').width / 375;
 export default class Login extends Component {
+
+  /* 用户名不可为空 */
+  showAlert = () => {
+    this.setState({
+      showAlert: true
+    });
+  };
+
+  hideAlert = () => {
+    this.setState({
+      showAlert: false
+    });
+  };
+  /* 密码不可为空 */
+  showpassAlert = () => {
+    this.setState({
+      passAlert: true
+    });
+  };
+
+  hidepassAlert = () => {
+    this.setState({
+      passAlert: false
+    });
+  };
+  /* 请确认条款 */
+  showtiaoAlert = () => {
+    this.setState({
+      tiaoAlert: true
+    });
+  };
+
+  hidetiaoAlert = () => {
+    this.setState({
+      tiaoAlert: false
+    });
+  };
+
+
   load() {
-    if(this.state.checked==true){
+    if (this.state.checked == true) {
       if (this.state.username === '') {
-        alert('用户名不能为空')
+        this.showAlert()
+        // alert('用户名不能为空')
       }
       else if (this.state.password === '') {
-        alert('密码不能为空')
+        this.showtiaoAlert()
       }
       else {
         axios
@@ -43,10 +83,10 @@ export default class Login extends Component {
 
             username: this.state.username,
             password: this.state.password,
-            
+
           })
           .then(resp => {
-            if (resp.data === '登录成功'&&this.state.checked==true) {
+            if (resp.data === '登录成功' && this.state.checked == true) {
               AsyncStorage.setItem('username', this.state.username, (error) => {
                 if (!error) {
                   console.log('保存成功');
@@ -55,6 +95,7 @@ export default class Login extends Component {
                 }
               });
               this.props.navigation.navigate('BtnRoute');
+              ToastAndroid.showWithGravity('登录成功！', 500, ToastAndroid.BOTTOM)
               DeviceEventEmitter.emit('test', 1)
               DeviceEventEmitter.emit('denglu', 1)
             } else {
@@ -62,8 +103,8 @@ export default class Login extends Component {
             }
           });
       }
-    }else{
-      alert('请确认条款')
+    } else {
+      this.showtiaoAlert()
     }
 
   }
@@ -75,7 +116,10 @@ export default class Login extends Component {
       username: '',
       password: '',
       Touchable: '',
-      checked: false
+      checked: false,
+      showAlert: false,
+      passAlert: false,
+      tiaoAlert: false,
     };
   }
   get_shuju() {
@@ -104,8 +148,72 @@ export default class Login extends Component {
     }).start();
   }
   render() {
+    const { showAlert, passAlert, tiaoAlert } = this.state;
     return (
       <View style={{ width: width, height: height, }}>
+        {/* 用户名不可为空 */}
+        <AwesomeAlert
+          show={showAlert}
+          showProgress={false}
+          title="提示"
+          message="           用户名不可为空!            "
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={false}
+          showConfirmButton={true}
+          confirmText="确认"
+          confirmButtonColor={global.mainColor}
+
+          onCancelPressed={() => {
+            this.hideAlert();
+
+          }}
+          onConfirmPressed={() => {
+            this.hideAlert();
+          }}
+        />
+        {/* pass不可为空 */}
+        <AwesomeAlert
+          show={passAlert}
+          showProgress={false}
+          title="提示"
+          message="           密码不可为空!            "
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={false}
+          showConfirmButton={true}
+          confirmText="确认"
+          confirmButtonColor={global.mainColor}
+
+          onCancelPressed={() => {
+            this.hidepassAlert();
+
+          }}
+          onConfirmPressed={() => {
+            this.hidepassAlert();
+          }}
+        />
+        {/* 条例 */}
+        <AwesomeAlert
+          show={tiaoAlert}
+          showProgress={false}
+          title="提示"
+          message="           请勾选同意《隐私条款》!            "
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={false}
+          showConfirmButton={true}
+          confirmText="确认"
+          confirmButtonColor={global.mainColor}
+
+          onCancelPressed={() => {
+            this.hidetiaoAlert();
+
+          }}
+          onConfirmPressed={() => {
+            this.hidetiaoAlert();
+          }}
+        />
         <TouchTest ref={(view) => this.childList = view} navigation={this.props.navigation} />
         <LinearGradient style={{ width: width, height: height, }} colors={[global.mainColor, global.backColor, global.backColor, global.backColor]} >
           <View style={{ width: width, height: height * 0.3 }}>
@@ -167,7 +275,7 @@ export default class Login extends Component {
                 </TouchableOpacity>
 
               </View>
-              <View style={{flexDirection:'row',alignSelf:'center'}}>
+              <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
                 <CheckBox
                   onPress={() => { this.setState({ checked: !this.state.checked }) }}
                   title=""
@@ -175,10 +283,10 @@ export default class Login extends Component {
                   size={20}
                   checkedIcon='dot-circle-o'
                   uncheckedIcon='circle-o'
-                  containerStyle={{ backgroundColor: '#fff', width: '8%',marginLeft:-5 }}
+                  containerStyle={{ backgroundColor: '#fff', width: '8%', marginLeft: -5 }}
                   checked={this.state.checked}
                 />
-                <Text style={{height:'100%',textAlignVertical:'center',marginLeft:-5}}>已阅读并同意</Text><Text style={{height:'100%',textAlignVertical:'center',color:global.mainColor}}>《隐私条款》</Text>
+                <Text style={{ height: '100%', textAlignVertical: 'center', marginLeft: -5 }}>已阅读并同意</Text><Text style={{ height: '100%', textAlignVertical: 'center', color: global.mainColor }}>《隐私条款》</Text>
               </View>
 
 

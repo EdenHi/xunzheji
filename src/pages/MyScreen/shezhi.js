@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import React, { Component } from 'react';
 
-import { View, Text, TouchableOpacity, Dimensions, AsyncStorage, DeviceEventEmitter, Touchable } from 'react-native';
+import { View, Text, TouchableOpacity, Dimensions, AsyncStorage, DeviceEventEmitter, ToastAndroid } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import LinearGradient from 'react-native-linear-gradient'
@@ -35,6 +35,7 @@ export default class shezhi extends Component {
         AsyncStorage.removeItem('username');
         this.props.navigation.navigate('Login');
     }
+    
     fresh() {
         AsyncStorage.getItem('TouchID', (error, result) => {
             if (!error) {
@@ -120,7 +121,7 @@ export default class shezhi extends Component {
                     <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
                         <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>支付密码</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10, }}>
+                    <TouchableOpacity onPress={()=>{ToastAndroid.show('已经是最新版本无需更新',2000)}} style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10, }}>
                         <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>版本更新</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
@@ -132,14 +133,11 @@ export default class shezhi extends Component {
                     <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
                         <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>关于寻商迹</Text>
                     </TouchableOpacity>
-
                 </View>
 
 
 
                 <View>
-
-
                     <TouchableOpacity activeOpacity={1} style={{ backgroundColor: global.mainColor, width: width * 0.8, marginLeft: width * 0.1, height: height * 0.075, borderRadius: 25, marginTop: height * 0.05 }}
                         onPress={() => this.go_back()}>
                         <Text style={{ fontSize: 18, color: global.backColor, height: '100%', textAlignVertical: 'center', textAlign: 'center' }}>退出登录</Text>

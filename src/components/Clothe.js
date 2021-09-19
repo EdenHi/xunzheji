@@ -288,10 +288,10 @@ export default class Clothe extends Component {
                 }
             });
             const A = this.state.showBorder[key] ? <View style={{ flexDirection: "row-reverse", justifyContent: 'space-around' }}>
-                <TouchableOpacity onPress={() => { this.HideBorder(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/钩-03.png')}></Image></TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.ZoomSmall(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/减.png')}></Image></TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.ZoomBig(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/加.png')}></Image></TouchableOpacity>
-                <TouchableOpacity onPress={() => { this.delete(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/叉.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.HideBorder(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/gou.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.ZoomSmall(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/jian.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.ZoomBig(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/jia.png')}></Image></TouchableOpacity>
+                <TouchableOpacity onPress={() => { this.delete(key) }} style={{ width: width * 0.08, height: width * 0.08, borderWidth: 0.3, marginTop: height * 0.01, borderRadius: 5 }}><Image style={{ height: '100%', width: '100%' }} source={require('../pages/img/cuo.png')}></Image></TouchableOpacity>
             </View> : null
             // 从state中取出pan
             const { pan, scale } = this.state;

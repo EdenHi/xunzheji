@@ -138,14 +138,15 @@ export default class Personal extends Component {
             />
             <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的客服</Text>
         </TouchableOpacity>
-        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('shezhi')}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
-        <AntDesign name='setting' size={30} color={global.mainColor}/>
-            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的设置</Text>
-        </TouchableOpacity>
         <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('wallet')}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
         <AntDesign name='wallet' size={30} color={global.mainColor}/>
             <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的钱包</Text>
         </TouchableOpacity>
+        <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('shezhi')}  style={{width:width*0.5,marginLeft:width*0.05,height:height*0.06,alignItems:"center",marginTop:height*0.01,flexDirection:"row"}}>
+        <AntDesign name='setting' size={30} color={global.mainColor}/>
+            <Text style={{fontSize:15,color:"#333" ,marginLeft:"5%"}}>我的设置</Text>
+        </TouchableOpacity>
+
        
 {/* 
         <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: "center", marginTop: '5%' }}>
