@@ -208,17 +208,17 @@ export default class componentName extends Component {
                                 <ScrollView>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170329%2Ff767b2d8563b46d787b6e8f4459fa110_th.jpeg&refer=http%3A%2F%2Fimg.mp.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631497805&t=1cb7cdd93f00c78d6bb54740699a55ac' }}>
-                                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
                                                 </View>
                                                 <View style={{ height: '70%' }}>
-                                                    <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>时空难阻货郎情</Text>
+                                                    <Text style={{ height: '60%', fontSize: 18, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>时空难阻货郎情</Text>
                                                     <View style={{ flexDirection: 'row', height: '40%', marginVertical: '-1%', paddingLeft: width * 0.03 }}>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
@@ -228,18 +228,18 @@ export default class componentName extends Component {
                                     </View>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'http://5b0988e595225.cdn.sohucs.com/images/20190416/b33d693950ed4c57a465d3b447a7b660.jpeg' }}>
-                                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story2'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Story2'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
 
                                                 </View>
                                                 <View style={{ height: '70%' }}>
-                                                    <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>朱耀俊：谱写新丝路传奇 </Text>
+                                                    <Text style={{ height: '60%', fontSize: 18, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>朱耀俊：谱写新丝路传奇 </Text>
                                                     <View style={{ flexDirection: 'row', height: '40%', marginVertical: '-1%', paddingLeft: width * 0.03 }}>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
@@ -249,18 +249,18 @@ export default class componentName extends Component {
                                     </View>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=744598801,3259292112&fm=26&fmt=auto&gp=0.jpg' }}>
-                                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
 
                                                 </View>
                                                 <View style={{ height: '70%' }}>
-                                                    <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>一段难以忘却的辛酸记忆</Text>
+                                                    <Text style={{ height: '60%', fontSize: 18, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>一段难以忘却的辛酸记忆</Text>
                                                     <View style={{ flexDirection: 'row', height: '40%', marginVertical: '-1%', paddingLeft: width * 0.03 }}>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
@@ -270,18 +270,18 @@ export default class componentName extends Component {
                                     </View>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=1024542878,1224044941&fm=26&fmt=auto&gp=0.jpg' }}>
-                                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
 
                                                 </View>
                                                 <View style={{ height: '70%' }}>
-                                                    <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>在报恩中感受别样人生</Text>
+                                                    <Text style={{ height: '60%', fontSize: 18, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>在报恩中感受别样人生</Text>
                                                     <View style={{ flexDirection: 'row', height: '40%', marginVertical: '-1%', paddingLeft: width * 0.03 }}>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
@@ -291,18 +291,18 @@ export default class componentName extends Component {
                                     </View>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://img0.baidu.com/it/u=3379326313,336250877&fm=15&fmt=auto&gp=0.jpg' }}>
-                                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
 
                                                 </View>
                                                 <View style={{ height: '70%' }}>
-                                                    <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>唱一曲团结协作的歌</Text>
+                                                    <Text style={{ height: '60%', fontSize: 18, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>唱一曲团结协作的歌</Text>
                                                     <View style={{ flexDirection: 'row', height: '40%', marginVertical: '-1%', paddingLeft: width * 0.03 }}>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
@@ -312,17 +312,17 @@ export default class componentName extends Component {
                                     </View>
                                     <View style={{ borderRadius: 10, height: height * 0.15, backgroundColor: '#eee', marginTop: height * 0.01, width: width * 0.9, marginHorizontal: width * 0.05, }}>
                                         <ImageBackground style={{ height: '100%', marginBottom: 10, width: '100%' }} borderRadius={10} source={{ uri: 'https://img1.baidu.com/it/u=3419080691,3340640814&fm=26&fmt=auto&gp=0.jpg' }}>
-                                            <TouchableOpacity onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
+                                            <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Story'), this.setModalVisible(!modalVisible) }} style={{ height: '100%', borderRadius: 10, width: '100%', }}>
                                                 <View style={{ height: '30%' }}>
                                                 </View>
                                                 <View style={{ height: '70%' }}>
-                                                    <Text style={{ height: '60%', fontSize: 23, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>唱一曲团结协作的歌</Text>
+                                                    <Text style={{ height: '60%', fontSize: 18, textAlignVertical: 'center', paddingLeft: width * 0.05, color: '#fff' }}>唱一曲团结协作的歌</Text>
                                                     <View style={{ flexDirection: 'row', height: '40%', marginVertical: '-1%', paddingLeft: width * 0.03 }}>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>政务专题</Text>
                                                         </TouchableOpacity>
-                                                        <TouchableOpacity style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor: 'rgba(255,255,255,0.4)' }}>
-                                                            <Text style={{ color: '#fff', fontSize: 15, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
+                                                        <TouchableOpacity activeOpacity={1} style={{ height: '80%', width: '25%', borderRadius: 10, marginHorizontal: '2%', backgroundColor:"#7cc0c0" }}>
+                                                            <Text style={{ color: '#fff', fontSize: 13, width: '100%', textAlignVertical: 'center', textAlign: 'center', height: '100%' }}>义乌政府</Text>
                                                         </TouchableOpacity>
                                                     </View>
                                                 </View>
@@ -407,7 +407,7 @@ export default class componentName extends Component {
                                 <View style={{ borderWidth: 0, flex: 1, flexDirection: 'row', width: '90%', marginLeft: '5%' }}>
 
                                     <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
-                                        <TouchableOpacity onPress={() => {
+                                        <TouchableOpacity activeOpacity={1} onPress={() => {
                                             captureRef(viewRef, {
                                                 format: "jpg",
                                                 quality: 0.8
@@ -427,7 +427,7 @@ export default class componentName extends Component {
                                         </Text>
                                     </View>
                                     <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
-                                        <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
+                                        <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
                                             <Image style={{ width: '100%', height: '100%', }} source={require('../img/wx.png')}></Image>
 
                                         </TouchableOpacity>
@@ -436,7 +436,7 @@ export default class componentName extends Component {
                                         </Text>
                                     </View>
                                     <View style={{ width: '33.33333%', height: '100%', borderWidth: 0, }}>
-                                        <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4), ToastAndroid.showWithGravity('保存成功', 1000, ToastAndroid.BOTTOM) }} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
+                                        <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4), ToastAndroid.showWithGravity('保存成功', 1000, ToastAndroid.BOTTOM) }} style={{ borderWidth: 1, width: height * 0.07, height: height * 0.07, alignSelf: 'center', marginTop: height * 0.02, borderRadius: 100, backgroundColor: '#333333' }}>
                                             <Image style={{ width: '100%', height: '100%', }} source={require('../img/bc.png')}></Image>
 
                                         </TouchableOpacity>
@@ -476,16 +476,16 @@ export default class componentName extends Component {
                         <TouchableOpacity activeOpacity={1} onPress={() => this.setModalVisible(!modalVisible)} style={{ height: '100%', width: '18%' }}>
                             <Image style={{ width: width * 0.15, height: width * 0.15, }} source={require("../HomeScreen/photos/icon1.png")}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate('AR') }} style={{ height: '100%', width: '18%'}}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('AR') }} style={{ height: '100%', width: '18%'}}>
                             <Image style={{  width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../HomeScreen/photos/icon2.png")}></Image>
                         </TouchableOpacity>
                         <TouchableOpacity activeOpacity={1} onPress={() => { this.Start(), this.continuePlay(), this.updateStep(), console.log(this.state.play); }} style={{ width: width * 0.20, height: width * 0.20, borderRadius: 60, backgroundColor: global.mainColor, alignSelf: 'center',borderWidth: 5, borderColor: '#fff',marginHorizontal:width*0.03,marginTop:"-50%"}}>
                             <Text style={{ textAlign: 'center', textAlignVertical: 'center', height: '100%', fontSize: 30, fontWeight: 'bold', color: '#fff' }}>Go</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '18%'}}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible2(!modalVisible2) }} style={{ height: '100%', width: '18%'}}>
                             <Image style={{  width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require("../HomeScreen/photos/icon3.png")}></Image>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ height: '100%', width: '18%'}}>
+                        <TouchableOpacity activeOpacity={1} onPress={() => { this.setModalVisible4(!modalVisible4) }} style={{ height: '100%', width: '18%'}}>
                             <Image style={{width: width * 0.15, height: width * 0.15, marginTop: 0, alignSelf: 'center' }} source={require('../HomeScreen/photos/icon4.png')}></Image>
                         </TouchableOpacity>
                     </View>
@@ -539,7 +539,7 @@ class ThisMission extends Component {
                         <Text style={{ marginLeft: '5%', borderWidth: 0, color: '#333333' }}>大约走过{this.props.progress}00公里，进度为{this.props.progress}/3</Text>
                     </View>
                 </View>
-                <TouchableOpacity onPress={() => { this.getGold() }} activeOpacity={1} style={{ borderWidth: 0, width: width * 0.2, height: '50%', backgroundColor: 'rgb(249,200,159)', marginVertical: '6%', borderRadius: 20, marginHorizontal: '0%', }}>
+                <TouchableOpacity activeOpacity={1} onPress={() => { this.getGold() }} activeOpacity={1} style={{ borderWidth: 0, width: width * 0.2, height: '50%', backgroundColor: 'rgb(249,200,159)', marginVertical: '6%', borderRadius: 20, marginHorizontal: '0%', }}>
                     {Lingqu}
                 </TouchableOpacity>
             </View>
