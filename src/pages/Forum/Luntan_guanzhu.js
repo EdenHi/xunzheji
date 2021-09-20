@@ -460,7 +460,7 @@ export default class Luntan_guanzhu extends Component {
                                                         <TouchableOpacity activeOpacity={1} style={v.tag === '' || v.tag === null ? { height: 0, width: 0 } : { flexDirection: 'row', alignItems: 'center', marginTop: 10, backgroundColor: global.mainColor, borderRadius: 20, width: width * 0.25, justifyContent: 'center', alignItems: 'center' }}
                                                             onPress={() => this.context.navigate('huati', { tag: v.tag })}>
                                                             <Fontisto name='hashtag' color='#fff' />
-                                                            <Text style={{ paddingTop: 5, paddingBottom: 5, color: global.mainColor == "#145A59" ? '#fff' : '#333' }}>{v.tag}</Text>
+                                                            <Text style={{ paddingTop: 5, paddingBottom: 5, color: '#fff' }}>{v.tag}</Text>
 
                                                         </TouchableOpacity>
 

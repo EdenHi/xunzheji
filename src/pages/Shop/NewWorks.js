@@ -31,6 +31,7 @@ export default class NewWorks extends Component {
           "name":"知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
           "jieshao":"清香绵软",
           "price":"12.90",
+          "leibie":"meishi",
           "sales":"8W+",
           "pic":[
               "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
@@ -48,6 +49,7 @@ export default class NewWorks extends Component {
           "name":"翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
           "jieshao":"中华老字号",
           "price":"24.90",
+          "leibie":"meishi",
           "sales":"200+",
           "pic":[
               "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
@@ -65,6 +67,7 @@ export default class NewWorks extends Component {
           "name":"陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
           "jieshao":"",
           "price":"57.00",
+          "leibie":"meishi",
           "sales":"1K+",
           "pic":[
               "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
@@ -82,6 +85,7 @@ export default class NewWorks extends Component {
           "name":"张小泉菜刀 家用厨师专用超快锋利切片刀手工厨房切斩肉刀具 厨房",
           "jieshao":"锋利复合钢 高硬度 95Cr18Mov 花梨木手柄",
           "price":"139.00",
+          "leibie":"zhizao",
           "sales":"3K+",
           "pic":[
               "https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i3/684978371/O1CN01xNf6SM2Bhy4HrXGM1_!!684978371.jpg_500x500q90.jpg",
@@ -99,6 +103,7 @@ export default class NewWorks extends Component {
           "name":"朱府铜艺《万签春意》高端创意牙签盒家居饰品铜工艺品餐厅摆件",
           "jieshao":"",
           "price":"298.00",
+          "leibie":"gongmei",
           "sales":"5",
           "pic":[
               "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN017uWHIr1QS8VtcLJJV_!!0-item_pic.jpg_500x500q90.jpg",

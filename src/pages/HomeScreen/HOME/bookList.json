@@ -10,7 +10,7 @@
     {   "id":1,
         "bookname":"鲁冠球：聚能向宇宙",
         "bookintroduce":"魏江",
-        "bookstar":2,
+        "bookstar":4,
         "nav":"book_xiangqing",
         "ii":4,
         "img":"http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062"
@@ -18,15 +18,15 @@
     {   "id":2,
         "bookname":"徐冠巨：勇立潮头",
         "bookintroduce":"吴晓波",
-        "bookstar":1,
+        "bookstar":4,
         "nav":"book_xiangqing_2",
         "ii":5,
-        "img":"https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
+        "img":"http://t15.baidu.com/it/u=2169554409,4013842767&fm=224&app=112&f=JPEG?w=500&h=500&s=D924397703576BDA40DD90C30100E0A0"
     },
     {   "id":3,
         "bookname":"百年浙商",
         "bookintroduce":"毛祖棠",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -34,7 +34,7 @@
     {   "id":4,
         "bookname":"茅理翔：创业式传承",
         "bookintroduce":"陈凌",
-        "bookstar":3,
+        "bookstar":4,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a75c929dfadf43ad4bd01302d4?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -50,7 +50,7 @@
     {   "id":6,
         "bookname":"“可怕”的浙商",
         "bookintroduce":"吴思",
-        "bookstar":2,
+        "bookstar":4,
         "nav":"book_xiangqing_9",
         "ii":9,
         "img":"https://bkimg.cdn.bcebos.com/pic/f9dcd100baa1cd11d682549eb712c8fcc3ce2d53?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -58,7 +58,7 @@
     {   "id":7,
         "bookname":"浙商是怎样炼成的",
         "bookintroduce":"杨宏建",
-        "bookstar":1,
+        "bookstar":5,
         "nav":"book_xiangqing_2",
         "ii":5,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/119705/5/2767/22736/5eabe59aE20fcd13d/04abc05e9bd71985.jpg"
@@ -66,7 +66,7 @@
     {   "id":8,
         "bookname":"浙商的崛起与挑战：改革开放30年",
         "bookintroduce":"吕福新",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/150441/24/1668/58696/5f7022e8E8e56c8f9/c8066b110f55d5d5.jpg"
@@ -74,7 +74,7 @@
     {   "id":9,
         "bookname":"蜀浙商地2：100名蜀地浙商的财富传奇",
         "bookintroduce":"刘良绪，唐金根",
-        "bookstar":3,
+        "bookstar":5,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/139567/23/10298/32576/5f801675E37002124/f62248c2be21ac3c.jpg"
@@ -90,7 +90,7 @@
     {   "id":11,
         "bookname":"浙商商道",
         "bookintroduce":"黄永军",
-        "bookstar":2,
+        "bookstar":4,
         "nav":"book_xiangqing",
         "ii":4,
         "img":"https://bkimg.cdn.bcebos.com/pic/35a85edf8db1cb13ded40a7ad854564e92584b1d?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -98,7 +98,7 @@
     {   "id":12,
         "bookname":"浙商纵横-商帮传奇-第四部",
         "bookintroduce":"孙科柳，刘鹏著",
-        "bookstar":1,
+        "bookstar":5,
         "nav":"book_xiangqing_2",
         "ii":5,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/193630/14/2814/50202/609cb2d8E0ad2ff12/fae087aaf4d18d04.jpg"
@@ -106,7 +106,7 @@
     {   "id":13,
         "bookname":"解读温州商人",
         "bookintroduce":"周德文，张建营",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://bkimg.cdn.bcebos.com/pic/b90e7bec54e736d14bf0a46f9b504fc2d46269f1?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -114,7 +114,7 @@
     {   "id":14,
         "bookname":"当代浙商发展",
         "bookintroduce":"李建华",
-        "bookstar":3,
+        "bookstar":5,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://bkimg.cdn.bcebos.com/pic/34fae6cd7b899e510bedee5c42a7d933c8950d12?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -130,7 +130,7 @@
     {   "id":16,
         "bookname":"浙江人凭什么",
         "bookintroduce":"王福振",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_9",
         "ii":9,
         "img":"https://bkimg.cdn.bcebos.com/pic/0b55b319ebc4b74568b250e3cffc1e178a821524?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -138,7 +138,7 @@
     {   "id":17,
         "bookname":"品味浙江",
         "bookintroduce":"周晓音",
-        "bookstar":1,
+        "bookstar":5,
         "nav":"book_xiangqing_2",
         "ii":5,
         "img":"https://bkimg.cdn.bcebos.com/pic/8718367adab44aed37fd784bb01c8701a08bfbea?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -146,7 +146,7 @@
     {   "id":18,
         "bookname":"浙东学派与浙江精神",
         "bookintroduce":"浙江省社会科学界联合会",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://bkimg.cdn.bcebos.com/pic/d058ccbf6c81800a69c28442b23533fa828b4752?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -154,7 +154,7 @@
     {   "id":19,
         "bookname":"宁波商帮史",
         "bookintroduce":"张守广",
-        "bookstar":3,
+        "bookstar":5,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://bkimg.cdn.bcebos.com/pic/3b292df5e0fe992536ec514636a85edf8cb171c7?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -170,7 +170,7 @@
     {   "id":1,
         "bookname":"鲁冠球：聚能向宇宙",
         "bookintroduce":"魏江",
-        "bookstar":2,
+        "bookstar":4,
         "nav":"book_xiangqing",
         "ii":4,
         "img":"http://t14.baidu.com/it/u=2886258601,610126850&fm=224&app=112&f=JPEG?w=500&h=500&s=25307D93442F57AD70CC0D630300E062"
@@ -178,15 +178,15 @@
     {   "id":2,
         "bookname":"徐冠巨：勇立潮头",
         "bookintroduce":"吴晓波",
-        "bookstar":1,
+        "bookstar":4,
         "nav":"book_xiangqing_2",
         "ii":5,
-        "img":"https://img.dushu.com/2012/10/08/00162664135308.jpg_200.jpg"
+        "img":"http://t15.baidu.com/it/u=2169554409,4013842767&fm=224&app=112&f=JPEG?w=500&h=500&s=D924397703576BDA40DD90C30100E0A0"
     },
     {   "id":3,
         "bookname":"百年浙商",
         "bookintroduce":"毛祖棠",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://bkimg.cdn.bcebos.com/pic/574e9258d109b3de1a56cf08cebf6c81810a4ce0?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -194,7 +194,7 @@
     {   "id":4,
         "bookname":"茅理翔：创业式传承",
         "bookintroduce":"陈凌",
-        "bookstar":3,
+        "bookstar":4,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://bkimg.cdn.bcebos.com/pic/9f510fb30f2442a75c929dfadf43ad4bd01302d4?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -210,7 +210,7 @@
     {   "id":6,
         "bookname":"“可怕”的浙商",
         "bookintroduce":"吴思",
-        "bookstar":2,
+        "bookstar":4,
         "nav":"book_xiangqing_9",
         "ii":9,
         "img":"https://bkimg.cdn.bcebos.com/pic/f9dcd100baa1cd11d682549eb712c8fcc3ce2d53?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -218,7 +218,7 @@
     {   "id":7,
         "bookname":"浙商是怎样炼成的",
         "bookintroduce":"杨宏建",
-        "bookstar":1,
+        "bookstar":5,
         "nav":"book_xiangqing_2",
         "ii":5,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/119705/5/2767/22736/5eabe59aE20fcd13d/04abc05e9bd71985.jpg"
@@ -226,7 +226,7 @@
     {   "id":8,
         "bookname":"浙商的崛起与挑战：改革开放30年",
         "bookintroduce":"吕福新",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/150441/24/1668/58696/5f7022e8E8e56c8f9/c8066b110f55d5d5.jpg"
@@ -234,7 +234,7 @@
     {   "id":9,
         "bookname":"蜀浙商地2：100名蜀地浙商的财富传奇",
         "bookintroduce":"刘良绪，唐金根",
-        "bookstar":3,
+        "bookstar":5,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/139567/23/10298/32576/5f801675E37002124/f62248c2be21ac3c.jpg"
@@ -250,7 +250,7 @@
     {   "id":11,
         "bookname":"浙商商道",
         "bookintroduce":"黄永军",
-        "bookstar":2,
+        "bookstar":4,
         "nav":"book_xiangqing",
         "ii":4,
         "img":"https://bkimg.cdn.bcebos.com/pic/35a85edf8db1cb13ded40a7ad854564e92584b1d?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -258,7 +258,7 @@
     {   "id":12,
         "bookname":"浙商纵横-商帮传奇-第四部",
         "bookintroduce":"孙科柳，刘鹏著",
-        "bookstar":1,
+        "bookstar":5,
         "nav":"book_xiangqing_2",
         "ii":5,
         "img":"https://img14.360buyimg.com/n0/jfs/t1/193630/14/2814/50202/609cb2d8E0ad2ff12/fae087aaf4d18d04.jpg"
@@ -266,7 +266,7 @@
     {   "id":13,
         "bookname":"解读温州商人",
         "bookintroduce":"周德文，张建营",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://bkimg.cdn.bcebos.com/pic/b90e7bec54e736d14bf0a46f9b504fc2d46269f1?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -274,7 +274,7 @@
     {   "id":14,
         "bookname":"当代浙商发展",
         "bookintroduce":"李建华",
-        "bookstar":3,
+        "bookstar":5,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://bkimg.cdn.bcebos.com/pic/34fae6cd7b899e510bedee5c42a7d933c8950d12?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -290,7 +290,7 @@
     {   "id":16,
         "bookname":"浙江人凭什么",
         "bookintroduce":"王福振",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_9",
         "ii":9,
         "img":"https://bkimg.cdn.bcebos.com/pic/0b55b319ebc4b74568b250e3cffc1e178a821524?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -298,7 +298,7 @@
     {   "id":17,
         "bookname":"品味浙江",
         "bookintroduce":"周晓音",
-        "bookstar":1,
+        "bookstar":5,
         "nav":"book_xiangqing_2",
         "ii":5,
         "img":"https://bkimg.cdn.bcebos.com/pic/8718367adab44aed37fd784bb01c8701a08bfbea?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -306,7 +306,7 @@
     {   "id":18,
         "bookname":"浙东学派与浙江精神",
         "bookintroduce":"浙江省社会科学界联合会",
-        "bookstar":2,
+        "bookstar":5,
         "nav":"book_xiangqing_6",
         "ii":6,
         "img":"https://bkimg.cdn.bcebos.com/pic/d058ccbf6c81800a69c28442b23533fa828b4752?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
@@ -314,7 +314,7 @@
     {   "id":19,
         "bookname":"宁波商帮史",
         "bookintroduce":"张守广",
-        "bookstar":3,
+        "bookstar":5,
         "nav":"book_xiangqing_7",
         "ii":7,
         "img":"https://bkimg.cdn.bcebos.com/pic/3b292df5e0fe992536ec514636a85edf8cb171c7?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg"
