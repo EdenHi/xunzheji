@@ -247,7 +247,7 @@ export default class Personal extends Component {
       >
         {/* <LottieView source={require('../../../animal/background')} autoPlay loop progress={this.state.progress} /> */}
         <View style={{width:width,height:height}}>
-          <View style={{ width: width * 1, height: height  ,backgroundColor:global.backColor}}>
+          <View style={{ width: width * 1, height: height  ,}}>
             <ImageBackground source={{ uri: data.backpic }} style={{width:width,height:height*0.4,position:"absolute"}}>
               <View style={{width:"100%",height:"100%",backgroundColor:"rgba(0,0,0,0.5)"}}>
             <View style={{ flexDirection: "row", alignItems: "center",width:width*0.95,marginLeft:width*0.025,justifyContent:"space-between", }}>
@@ -283,11 +283,11 @@ export default class Personal extends Component {
             </View>
           </View>
           <View style={{width:width*0.4,height:height*0.09,marginLeft:width*0.05,marginTop:5,flexDirection:"row",alignItems:"center"}}>
-            <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }} style={{width:width*0.15,height:width*0.15,backgroundColor:"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+            <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.props.navigation.push('fans', this.state.username) }} style={{width:width*0.15,height:width*0.15,backgroundColor:global.mainColor=='#145A59'?"rgba(0,0,0,0.5)":"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
             <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold"}}>{this.state.username === '' ? '0' : data.fensi}</Text>
             <Text style={{ fontSize: 15, color: "#fff"}}>粉丝</Text>      
             </TouchableOpacity>
-            <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.context.navigate('Concerns', this.state.username) }} style={{width:width*0.15,height:width*0.15,marginLeft:width*0.025,backgroundColor:"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
+            <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.context.navigate('Concerns', this.state.username) }} style={{width:width*0.15,height:width*0.15,marginLeft:width*0.025,backgroundColor:global.mainColor=='#145A59'?"rgba(0,0,0,0.5)":"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
             <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold"}}>{this.state.username === '' ? '0' : data.guanzhu}</Text>
             <Text style={{ fontSize: 15, color: "#fff"}}>关注</Text>
             </TouchableOpacity>
@@ -352,7 +352,7 @@ export default class Personal extends Component {
                 <View style={{ width: width * 0.9, height: height * 0.25, backgroundColor: "#fff", marginHorizontal: width * 0.05 }}>
                 </View>
               </View> */}
-            <View style={{width:width,height:height*0.7,borderTopLeftRadius:15,marginTop:height*0.32,borderTopRightRadius:15,backgroundColor:"#fff",elevation:5}}>
+            <View style={{width:width,height:height*0.7,borderTopLeftRadius:15,marginTop:height*0.32,borderTopRightRadius:15,backgroundColor:global.backColor,elevation:5}}>
               <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('Output2')} activeOpacity={1} style={{ width: width * 1, height: height * 0.28, alignItems: "center", flexDirection: "row" }}>
                 <View style={{ width: width * 0.3 }}>
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
