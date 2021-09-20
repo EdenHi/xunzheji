@@ -61,18 +61,18 @@ export default class shezhi extends Component {
     render() {
 
         return (
-            <View style={{ flex: 1, backgroundColor: "#eee" }}>
+            <View style={{ flex: 1, backgroundColor:global.mainColor=="#145A59" ?"#rgba(0,0,0,0.5)":'#eee' }}>
                 <View style={{ flexDirection: "row", backgroundColor: global.mainColor, alignItems: "center", height: height * 0.07, justifyContent: "center", marginBottom: "5%" }}>
                     <TouchableOpacity activeOpacity={1} style={{ width: width * 0.06, }}>
                         <FontAwesome onPress={() => this.props.navigation.goBack()} name={'angle-left'} size={25} color={'#fff'} />
                     </TouchableOpacity>
-                    <Text style={{ fontSize: 18, fontWeight: "bold", color: global.backColor, width: width * 0.85 }}>设置</Text>
+                    <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85 }}>设置</Text>
                 </View>
                 <View style={{ width: '95%', alignSelf: 'center', height: height * 0.7 }}>
 
                     {/* 主题色 */}
-                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: "#fff", marginVertical: 5, borderRadius: 10 }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>主题色</Text>
+                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5, borderRadius: 10 ,}}>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20,color:global.mainColor=="#145A59" ?'#fff':'#333' }}>主题色</Text>
                     </TouchableOpacity>
                     <SwitchSelector
                         style={{ marginTop: 10 }}
@@ -91,7 +91,7 @@ export default class shezhi extends Component {
                     />
                     {/* 指纹解锁 */}
                     <TouchableOpacity style={{ height: height * 0.05, marginVertical: 7 }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20, backgroundColor: '#fff', marginVertical: 5 ,borderRadius:10}}>指纹解锁</Text>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5 ,borderRadius:10,color:global.mainColor=="#145A59" ?'#fff':'#333'}}>指纹解锁</Text>
                     </TouchableOpacity>
 
                     <SwitchSelector
@@ -118,20 +118,20 @@ export default class shezhi extends Component {
                     />
 
                     <ClearCaches />
-                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>支付密码</Text>
+                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5, borderRadius: 10 }}>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20,color:global.mainColor=="#145A59" ?'#fff':'#333' }}>支付密码</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>{ToastAndroid.show('已经是最新版本无需更新',2000)}} style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10, }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>版本更新</Text>
+                    <TouchableOpacity onPress={()=>{ToastAndroid.show('已经是最新版本无需更新',2000)}} style={{ height: height * 0.05, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5, borderRadius: 10, }}>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 ,color:global.mainColor=="#145A59" ?'#fff':'#333'}}>版本更新</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>账号与安全</Text>
+                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5, borderRadius: 10 }}>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20,color:global.mainColor=="#145A59" ?'#fff':'#333' }}>账号与安全</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>帮助与反馈</Text>
+                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5, borderRadius: 10 }}>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 ,color:global.mainColor=="#145A59" ?'#fff':'#333'}}>帮助与反馈</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: '#fff', marginVertical: 5, borderRadius: 10 }}>
-                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>关于寻商迹</Text>
+                    <TouchableOpacity style={{ height: height * 0.05, backgroundColor: global.mainColor=="#145A59" ?global.backColor:'#fff', marginVertical: 5, borderRadius: 10 }}>
+                        <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 ,color:global.mainColor=="#145A59" ?'#fff':'#333'}}>关于寻商迹</Text>
                     </TouchableOpacity>
                 </View>
 
