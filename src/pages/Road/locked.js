@@ -210,7 +210,7 @@ export default class Locked extends Component {
       );
     } else
       return (
-        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#7cc0c0', elevation:2 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
+        <View style={{ width: '100%',bottom:10, height: height * 0.15, backgroundColor: '#B4E0E0', elevation:2 ,marginTop: height * 0.04, borderColor: 'yellow', borderRadius: 15}}>
           <Text style={{ marginTop: '7%', fontSize: 20, paddingLeft: '7.5%', width: '70%', color: '#333' }}>{this.props.roadname}</Text>
           <Text style={{ fontSize: 15, paddingLeft: '7.5%', width: '70%', color: '#333' }}>可获得 <FontAwesome5
               name='coins'

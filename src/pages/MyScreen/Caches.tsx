@@ -17,8 +17,8 @@ export default function App() {
 
   return (
     <View >
-      <TouchableOpacity onPress={()=>{fresh()}} style={{ height: height * 0.05 ,backgroundColor:'#fff',marginVertical:5,borderRadius:10,flexDirection:'row'}}>
-      <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20 }}>清除缓存</Text><Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 200,color:'grey' }}>{(result/1024/500/4).toFixed(2)}Mb</Text>
+      <TouchableOpacity onPress={()=>{fresh()}} style={{ height: height * 0.05 ,backgroundColor:global.mainColor=="#145A59" ?global.backColor:'#fff',marginVertical:5,borderRadius:10,flexDirection:'row'}}>
+      <Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 20,color:global.mainColor=="#145A59" ?'#fff':'#333' }}>清除缓存</Text><Text style={{ height: '100%', textAlignVertical: 'center', paddingLeft: 200,color:'grey' }}>{(result/1024/500/4).toFixed(2)}Mb</Text>
       </TouchableOpacity>
 
     </View>

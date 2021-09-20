@@ -241,7 +241,7 @@ export default class huati extends Component {
 
                                                 onPress={() => this.handleShowAlbum(index, k)}
                                             >
-                                                <Image source={{ uri: v }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 4) / 2 }} />
+                                                <Image source={{ uri: v }} style={{ height: (width * 0.9 - 4) / 2, width: (width * 0.9 - 5) / 2 }} />
                                             </TouchableOpacity>
                                         </View>
                                     );
