@@ -272,7 +272,7 @@ export default class Topic1 extends Component {
                             {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                         </TouchableOpacity>
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
-                        <TouchableOpacity activeOpacity={1} style={{}}>
+                        <TouchableOpacity onPress={()=>{this.props.navigation.navigate('musicplayer')}} activeOpacity={1} style={{}}>
                             <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
                         </TouchableOpacity>
                     </View>

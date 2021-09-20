@@ -89,11 +89,15 @@ export default class Wallet extends Component {
                 username: "Eden",
                 addmoney: this.state.addMoney
             }),
-        }), this.setState({ money: Number(this.state.addMoney)  + this.state.money })
+        }), this.setState({ money: Number(this.state.addMoney)  + this.state.money }),
+        
         console.log('充值成功');
         ToastAndroid.showWithGravity('充值成功！', 500, ToastAndroid.BOTTOM)
         this.setState({modalVisible:false})
-        this.fetchData()
+        setTimeout(() => {
+            this.fetchData()
+        }, 500);
+        
     }
     render() {
 
