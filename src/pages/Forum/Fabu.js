@@ -30,7 +30,7 @@ export default class Fabu extends Component {
             modalVisible1: false,
             f: 1,
             tag: [],
-            Tags: ['美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常', '美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常','美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常','美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常' ]
+            Tags: ['美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常', '美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常', '美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常', '美食', '老物件', '鸡毛换糖路', '浙商文化', '书香', '茶酒', '日常']
         };
 
     }
@@ -276,19 +276,26 @@ export default class Fabu extends Component {
                             onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
                         >
                             <View style={{ flex: 1 }}>
-                                <TouchableOpacity onPress={() => { this._closeModalWin1() }} style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)' }}></TouchableOpacity>
+                                <TouchableOpacity onPress={() => { this._closeModalWin1() }} style={{ flex: 4, backgroundColor: 'rgba(0,0,0,0.5)' }}></TouchableOpacity>
 
-                                <ScrollView style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>
+                                <View style={{ flexDirection: 'row', flexWrap: 'wrap', flex: 1 }}>
 
-                                    <FlatList
+                                    {/* <FlatList
                                         renderItem={this.TagRender.bind(this)}
                                         data={this.state.Tags}
                                         showsVerticalScrollIndicator={false}
                                         numColumns={3}
-                                    />
+                                    /> */}
 
+                                    <Text onPress={() => { this.tag("美食") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff', }}>#美食</Text>
+                                    <Text onPress={() => { this.tag("老物件") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#老物件</Text>
+                                    <Text onPress={() => { this.tag("浙商文化") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff', }}>#浙商文化</Text>
+                                    <Text onPress={() => { this.tag("书香") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#书香</Text>
+                                    <Text onPress={() => { this.tag("鸡毛换糖路") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#鸡毛换糖路</Text>
+                                    <Text onPress={() => { this.tag("茶酒") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#茶酒</Text>
+                                    <Text onPress={() => { this.tag("日常") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#日常</Text>
 
-                                </ScrollView>
+                                </View>
 
                             </View>
 
