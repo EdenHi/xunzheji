@@ -604,9 +604,7 @@ fresh(){
             onPress={() => navigation.navigate('CustomMade')}
           >
             <View style={{ width: "100%", height: "50%", alignItems: "center", justifyContent: "center" }}>
-
               <Text style={{ fontSize: 18, fontWeight: "bold", color: global.mainColor, marginTop: "7%" }}>文化定制</Text>
-
               {/* <Text style={{fontSize:20,fontWeight:"bold"}}>文化定制</Text> */}
             </View>
             <View style={{ width: "100%", height: "50%" }}>
