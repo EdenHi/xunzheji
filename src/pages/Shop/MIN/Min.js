@@ -18,24 +18,24 @@ export default class Min extends Component {
             roomID: 10,
             entries: [
                 {
-                    title: "张继钢",
-                    img: "https://img0.baidu.com/it/u=4232791948,1821944607&fm=26&fmt=auto&gp=0.jpg"
+                    title: "何士扬",
+                    img: "https://img0.baidu.com/it/u=632352887,1110488995&fm=26&fmt=auto"
                 },
                 {
                     title: "范扬",
-                    img: "https://img0.baidu.com/it/u=4232791948,1821944607&fm=26&fmt=auto&gp=0.jpg"
+                    img: "https://img1.baidu.com/it/u=4232791948,1821944607&fm=26&fmt=auto"
                 },
                 {
                     title: "霍春阳",
-                    img: "https://img0.baidu.com/it/u=4232791948,1821944607&fm=26&fmt=auto&gp=0.jpg"
+                    img: "https://img1.baidu.com/it/u=2055805123,4217949613&fm=26&fmt=auto"
                 },
                 {
-                    title: "霍春阳",
-                    img: "https://img0.baidu.com/it/u=4232791948,1821944607&fm=26&fmt=auto&gp=0.jpg"
+                    title: "程大利",
+                    img: "https://img0.baidu.com/it/u=3618821348,3191669522&fm=26&fmt=auto"
                 },
                 {
-                    title: "霍春阳",
-                    img: "https://img0.baidu.com/it/u=4232791948,1821944607&fm=26&fmt=auto&gp=0.jpg"
+                    title: "邹平朝",
+                    img: "https://img1.baidu.com/it/u=2192082569,518403466&fm=26&fmt=auto"
                 },
             ]
         }
@@ -80,19 +80,19 @@ export default class Min extends Component {
     goto_page(index) {
         console.log(index)
         if (index === 0) {
-            this.props.navigation.navigate('JieShao')
+            this.props.navigation.navigate('JieShao',{id:0})
         }
         if (index === 1) {
-            this.props.navigation.navigate('JieShao')
+            this.props.navigation.navigate('JieShao',{id:1})
         }
         if (index === 2) {
-            this.props.navigation.navigate('JieShao')
+            this.props.navigation.navigate('JieShao',{id:2})
         }
-        if (index === 2) {
-            this.props.navigation.navigate('JieShao')
+        if (index === 3) {
+            this.props.navigation.navigate('JieShao',{id:3})
         }
-        if (index === 2) {
-            this.props.navigation.navigate('JieShao')
+        if (index === 4) {
+            this.props.navigation.navigate('JieShao',{id:4})
         }
     }
 
