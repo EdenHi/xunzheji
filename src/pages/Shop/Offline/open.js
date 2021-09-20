@@ -37,6 +37,12 @@ export default class open extends React.Component {
         zhufutongyi: [],
         wangxingji: [],
         zhangxiaoquan: [],
+        yaoshengji:[],
+        wufangzhai:[],
+        maoyuanchang:[],
+        xianheng:[],
+        zhiweiguan:[],
+        louwailou:[],
     }
 
     componentWillMount() {
@@ -160,7 +166,7 @@ export default class open extends React.Component {
     }
 
     renderImageDummyData = () => {
-        // console.log('activeIndex',this.state.daliheng);
+        //console.log('activeIndex',this.state.activeIndex);
         const animatedContentTranslate = this.state.animation.interpolate({
             inputRange: [0, 1],
             outputRange: [500, 0]
@@ -300,7 +306,151 @@ export default class open extends React.Component {
                                 </View>
                             )}
                         }) : null}
-                        {this.state.activeIndex === 5 ? this.state.zhangxiaoquan.map((v, k) => {
+                        {this.state.activeIndex === 8 ? this.state.zhangxiaoquan.map((v, k) => {
+                            if(v.photos.length > 0 ){
+                            return (
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
+                                            <Feather
+                                                name='map-pin'
+                                                color="#7cc0c0"
+                                                size={15}>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                            </Feather>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                        }) : null}
+                        {this.state.activeIndex === 6 ? this.state.wufangzhai.map((v, k) => {
+                            if(v.photos.length > 0 ){
+                            return (
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
+                                            <Feather
+                                                name='map-pin'
+                                                color="#7cc0c0"
+                                                size={15}>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                            </Feather>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                        }) : null}
+                        {this.state.activeIndex === 7 ? this.state.yaoshengji.map((v, k) => {
+                            if(v.photos.length > 0 ){
+                            return (
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
+                                            <Feather
+                                                name='map-pin'
+                                                color="#7cc0c0"
+                                                size={15}>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                            </Feather>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                        }) : null}
+                        {this.state.activeIndex === 5 ? this.state.xianheng.map((v, k) => {
+                            if(v.photos.length > 0 ){
+                            return (
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
+                                            <Feather
+                                                name='map-pin'
+                                                color="#7cc0c0"
+                                                size={15}>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                            </Feather>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                        }) : null}
+                        {this.state.activeIndex === 9 ? this.state.maoyuanchang.map((v, k) => {
+                            if(v.photos.length > 0 ){
+                            return (
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
+                                            <Feather
+                                                name='map-pin'
+                                                color="#7cc0c0"
+                                                size={15}>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                            </Feather>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                        }) : null}
+                        {this.state.activeIndex === 10 ? this.state.zhiweiguan.map((v, k) => {
+                            if(v.photos.length > 0 ){
+                            return (
+                                <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
+                                    <Image source={v.photos.length > 0 ? { uri: v.photos[0].url } : { uri: 'https://ss1.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b90e7bec54e736d13303db2498504fc2d562698d.jpg' }} style={{ height: 110, width: 110, margin: 10, borderRadius: 10 }} />
+                                    <View style={{width:"50%"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: 'bold',color:"#333" }} numberOfLines={1}>{v.name}</Text>
+                                        <Text style={{ width: width * 0.9 - 170 ,color:"#333",fontSize:13}} numberOfLines={5}>{v.cityname + v.adname + v.address}</Text>
+                                        <Text style={{ width: width * 0.9 - 170,color:"#333" ,fontSize:13}} numberOfLines={5}>电话：<Text style={{ fontSize: 13,  }} >{v.tel.length > 0 ? v.tel : "暂无"}</Text></Text>
+                                        <View style={{ flexDirection: 'row', marginTop: 5, justifyContent: 'space-between', width: width * 0.9 - 140, alignItems: 'center' }}>
+                                            <Feather
+                                                name='map-pin'
+                                                color="#7cc0c0"
+                                                size={15}>
+                                                <Text style={{ marginLeft: 10, fontSize: 15,color:"#333" }}>{' ' + v.distance / 1000 + "km"}</Text>
+                                            </Feather>
+                                            <TouchableOpacity   activeOpacity={1} style={{ backgroundColor: global.mainColor, borderRadius: 15,elevation:5,marginLeft:5}} activeOpacity={1} onPress={() => this.context.navigate('go_map', { to: v.location })}>
+                                                <Text style={{ fontSize: 15, paddingHorizontal: 20,color:"#333", paddingVertical: 5, color: '#fff' }}>导航</Text>
+                                            </TouchableOpacity>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                        }) : null}
+                        {this.state.activeIndex === 11 ? this.state.louwailou.map((v, k) => {
                             if(v.photos.length > 0 ){
                             return (
                                 <View style={{ flexDirection: 'row', backgroundColor: '#fff', borderRadius: 10, marginTop: 10,elevation:5,width:width*0.9,marginLeft:width*0.05,height:height*0.18,alignItems:"center",marginBottom:8 }}>
@@ -402,6 +552,37 @@ export default class open extends React.Component {
             .then((response) => response.json())
             .then((json) => {
                 this.setState({ zhangxiaoquan: json.pois })
+            })
+
+        fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=知味观&types=&radius=50000&offset=20&page=1&extensions=all')
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ zhiweiguan: json.pois })
+            })
+            fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=楼外楼&types=&radius=50000&offset=20&page=1&extensions=all')
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ louwailou: json.pois })
+            })
+            fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=咸亨酒店&types=&radius=50000&offset=20&page=1&extensions=all')
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ xianheng: json.pois })
+            })
+            fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=毛源昌&types=&radius=50000&offset=20&page=1&extensions=all')
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ maoyuanchang: json.pois })
+            })
+            fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=五芳斋&types=&radius=50000&offset=20&page=1&extensions=all')
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ wufangzhai: json.pois })
+            })
+            fetch('https://restapi.amap.com/v3/place/around?key=bd30ae3e640c5c5416ea671e713a6cfc&location=120.156339,30.315248&keywords=姚生记&types=&radius=50000&offset=20&page=1&extensions=all')
+            .then((response) => response.json())
+            .then((json) => {
+                this.setState({ yaoshengji: json.pois })
             })
     }
 
