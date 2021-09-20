@@ -19,22 +19,22 @@ export default class JieShao extends Component {
                     zuopin:[
                         {
                             name:"人物",
-                            img:"https://img2.baidu.com/it/u=1550506993,3286030962&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=1550506993,3286030962&fm=26&fmt=auto"],
                             price:"7851"
                         },
                         {
                             name:"仙翁",
-                            img:"https://img1.baidu.com/it/u=3179329933,311083409&fm=26&fmt=auto",
+                            img:["https://img1.baidu.com/it/u=3179329933,311083409&fm=26&fmt=auto"],
                             price:"4846"
                         },
                         {
                             name:"张天师",
-                            img:"https://img1.baidu.com/it/u=1941885774,639371645&fm=26&fmt=auto",
+                            img:["https://img1.baidu.com/it/u=1941885774,639371645&fm=26&fmt=auto"],
                             price:"5999"
                         },
                         {
                             name:"书香无尽",
-                            img:"https://img1.baidu.com/it/u=2215736727,4004580940&fm=15&fmt=auto",
+                            img:["https://img1.baidu.com/it/u=2215736727,4004580940&fm=15&fmt=auto"],
                             price:"8999"
                         },
                     ],
@@ -46,22 +46,22 @@ export default class JieShao extends Component {
                     zuopin:[
                         {
                             name:"观鹿图",
-                            img:"https://img0.baidu.com/it/u=10635308,2975863411&fm=26&fmt=auto",
+                            img:["https://img0.baidu.com/it/u=10635308,2975863411&fm=26&fmt=auto"],
                             price:"7851"
                         },
                         {
                             name:"听泉图",
-                            img:"https://img2.baidu.com/it/u=3251416891,3829879054&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=3251416891,3829879054&fm=26&fmt=auto"],
                             price:"4846"
                         },
                         {
                             name:"听泉图",
-                            img:"https://img0.baidu.com/it/u=2369351754,3522384890&fm=26&fmt=auto",
+                            img:["https://img0.baidu.com/it/u=2369351754,3522384890&fm=26&fmt=auto"],
                             price:"5999"
                         },
                         {
                             name:"山水画",
-                            img:"https://img2.baidu.com/it/u=2712246654,17517957&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=2712246654,17517957&fm=26&fmt=auto"],
                             price:"8999"
                         },
                     ],
@@ -73,22 +73,22 @@ export default class JieShao extends Component {
                     zuopin:[
                         {
                             name:"山花烂漫",
-                            img:"https://img0.baidu.com/it/u=2744419164,3932587431&fm=26&fmt=auto",
+                            img:["https://img0.baidu.com/it/u=2744419164,3932587431&fm=26&fmt=auto"],
                             price:"7851"
                         },
                         {
                             name:"林间",
-                            img:"https://img1.baidu.com/it/u=3023166249,605688877&fm=26&fmt=auto",
+                            img:["https://img1.baidu.com/it/u=3023166249,605688877&fm=26&fmt=auto"],
                             price:"4846"
                         },
                         {
                             name:"秀春色",
-                            img:"https://img1.baidu.com/it/u=3029969381,1888462620&fm=26&fmt=auto",
+                            img:["https://img1.baidu.com/it/u=3029969381,1888462620&fm=26&fmt=auto"],
                             price:"5999"
                         },
                         {
                             name:"浩然天地秋",
-                            img:"https://img0.baidu.com/it/u=2248036890,1982832994&fm=26&fmt=auto",
+                            img:["https://img0.baidu.com/it/u=2248036890,1982832994&fm=26&fmt=auto"],
                             price:"8999"
                         },
                     ],
@@ -100,22 +100,22 @@ export default class JieShao extends Component {
                     zuopin:[
                         {
                             name:"曲尽箫笙息",
-                            img:"https://img2.baidu.com/it/u=2795068971,2032590105&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=2795068971,2032590105&fm=26&fmt=auto"],
                             price:"7851"
                         },
                         {
                             name:"风云际会时",
-                            img:"https://img0.baidu.com/it/u=3940585354,2265403360&fm=26&fmt=auto",
+                            img:["https://img0.baidu.com/it/u=3940585354,2265403360&fm=26&fmt=auto"],
                             price:"4846"
                         },
                         {
                             name:"闲云",
-                            img:"https://img2.baidu.com/it/u=2386640679,1907445832&fm=15&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=2386640679,1907445832&fm=15&fmt=auto"],
                             price:"5999"
                         },
                         {
                             name:"汉风流宕",
-                            img:"https://img2.baidu.com/it/u=787951238,1914859105&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=787951238,1914859105&fm=26&fmt=auto"],
                             price:"8999"
                         },
                     ],
@@ -127,22 +127,22 @@ export default class JieShao extends Component {
                     zuopin:[
                         {
                             name:"南湖红船",
-                            img:"https://img1.baidu.com/it/u=2352438939,3195416015&fm=26&fmt=auto",
+                            img:["https://img1.baidu.com/it/u=2352438939,3195416015&fm=26&fmt=auto"],
                             price:"7851"
                         },
                         {
                             name:"枫叶林",
-                            img:"https://img2.baidu.com/it/u=3486293142,437646683&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=3486293142,437646683&fm=26&fmt=auto"],
                             price:"4846"
                         },
                         {
                             name:"田野",
-                            img:"https://img2.baidu.com/it/u=2452861264,1316172989&fm=15&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=2452861264,1316172989&fm=15&fmt=auto"],
                             price:"5999"
                         },
                         {
                             name:"雄风",
-                            img:"https://img2.baidu.com/it/u=1341946975,2636299415&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=1341946975,2636299415&fm=26&fmt=auto"],
                             price:"8999"
                         },
                     ],
@@ -154,22 +154,22 @@ export default class JieShao extends Component {
                     zuopin:[
                         {
                             name:"山乡农校",
-                            img:"https://img2.baidu.com/it/u=371943286,2845586141&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=371943286,2845586141&fm=26&fmt=auto"],
                             price:"7851"
                         },
                         {
                             name:"幽燕秋趣",
-                            img:"https://img1.baidu.com/it/u=3170187240,1208657124&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=736",
+                            img:["https://img1.baidu.com/it/u=3170187240,1208657124&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=736"],
                             price:"4846"
                         },
                         {
                             name:"龙瑞水墨画集",
-                            img:"https://img0.baidu.com/it/u=628175593,103172417&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=762",
+                            img:["https://img0.baidu.com/it/u=628175593,103172417&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=762"],
                             price:"5999"
                         },
                         {
                             name:"西岳华山",
-                            img:"https://img2.baidu.com/it/u=59490081,3577643877&fm=26&fmt=auto",
+                            img:["https://img2.baidu.com/it/u=59490081,3577643877&fm=26&fmt=auto"],
                             price:"8999"
                         },
                     ],
@@ -182,7 +182,7 @@ export default class JieShao extends Component {
     renderItem({item,index}){
         return(
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Zhifu', {price:item.price,name:item.name,pic:item.img})} activeOpacity={1} style={{ width: width * 0.4, height: width * 0.6,elevation:5,backgroundColor:"#fff",borderRadius:10}}>
-                <Image style={{ width: width * 0.4, height: width * 0.43, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: item.img }} />
+                <Image style={{ width: width * 0.4, height: width * 0.43, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} resizeMode="stretch" source={{ uri: item.img[0] }} />
                 <View style={{ width: width * 0.4, height: width * 0.1, backgroundColor: "#fff", borderBottomLeftRadius: 10, borderBottomRightRadius: 10 }}>
                     <Text style={{ marginTop: '5%' ,color:'#333',marginLeft:"5%"}}>{item.name}</Text>
                     <Text style={{color:'#7cc0c0',width: '100%',marginTop:'5%',marginLeft:"5%"}}>￥{item.price}</Text>
