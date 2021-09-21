@@ -190,25 +190,7 @@ export default class JieShao extends Component {
             </TouchableOpacity>
         )
     }
-    ListHeaderComponent(){
-        return(
-            <View style={{  }}>
-                <View style={{width:width,alignItems:"center"}}>
-                    <Image style={{ width: width * 0.2, height: width * 0.2, borderRadius: 100 }} source={{ uri:this.state.data[this.props.route.params.id].tx }} />
-                </View>
-                <View style={{width:width,alignItems:"center"}}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>{this.state.data[this.props.route.params.id].name}</Text>
-                </View>
-                <View style={{width:width*0.9,padding:5}}>
-                    <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 5 }}>简介</Text>
-                </View>
-                <View style={{width:width*0.9,padding:5}}>
-                    <Text style={{ fontSize: 13, lineHeight: 25, marginTop: 5 }}>{this.state.data[this.props.route.params.id].jieshao}</Text>
-                </View>
-                
-            </View>
-        )
-    }
+
     render() {
         return (
             <View style={{flex:1}}>
@@ -224,7 +206,7 @@ export default class JieShao extends Component {
 
                                 
                             
-                                <FlatList
+                                {/* <FlatList
                                 style={{height:height*0.93 - 30}}
                                 showsVerticalScrollIndicator={false}
                                 ListHeaderComponent={this.ListHeaderComponent.bind(this)}
@@ -233,9 +215,26 @@ export default class JieShao extends Component {
                                 numColumns={2}
                                 data={this.state.data[this.props.route.params.id].zuopin}
                                 renderItem={this.renderItem.bind(this)}
-                                keyExtractor={(index) => index+1}/>
+                                keyExtractor={(index) => index+1}/> */}
                                 
-                            
+                            <ScrollView showsVerticalScrollIndicator={false}
+                            style={{height:height*0.93 - 20 }}>
+                            <View style={{  }}>
+                                    <View style={{width:width,alignItems:"center"}}>
+                                        <Image style={{ width: width * 0.2, height: width * 0.2, borderRadius: 100 }} source={{ uri:this.state.data[this.props.route.params.id].tx }} />
+                                    </View>
+                                    <View style={{width:width,alignItems:"center"}}>
+                                        <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 10 }}>{this.state.data[this.props.route.params.id].name}</Text>
+                                    </View>
+                                    <View style={{width:width*0.9,padding:5}}>
+                                        <Text style={{ fontSize: 15, fontWeight: "bold", marginTop: 5 }}>简介</Text>
+                                    </View>
+                                    <View style={{width:width*0.9,padding:5}}>
+                                        <Text style={{ fontSize: 13, lineHeight: 25, marginTop: 5 }}>{this.state.data[this.props.route.params.id].jieshao}</Text>
+                                    </View>
+                                    
+                                </View>
+                            </ScrollView>
                     </View>
                 </LinearGradient>
             </View>
