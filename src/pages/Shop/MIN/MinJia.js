@@ -25,28 +25,28 @@ export default class MinJia extends Component {
                         <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", width: width * 0.85}}>名家定制</Text>
                     </View>
               
-                         <ScrollView showsVerticalScrollIndicator={false}>
+                         
                                 <Min navigation={this.props.navigation}/>
-                                <View style={{ height:height*1.37}}>
+                                
                                 <ScrollableTabView renderTabBar={() => <SegmentTabBar />}>
-                                    <View tabLabel='山水' >
-                                        <Characters navigation={this.props.navigation}/>
-                                    </View>
-                                    <View tabLabel='人物' >
-                                        <Characters navigation={this.props.navigation}/>
-                                    </View>
-                                    <View tabLabel='花鸟' >
-                                        <Characters navigation={this.props.navigation}/>
-                                    </View>
-                                    <View tabLabel='简笔' >
-                                        <Characters navigation={this.props.navigation}/>
-                                    </View>
-                                    <View tabLabel='素描' >
-                                        <Characters navigation={this.props.navigation}/>
-                                    </View>
+                                    <ScrollView showsVerticalScrollIndicator={false} tabLabel='何士扬' >
+                                        <Characters page={0}/>
+                                    </ScrollView>
+                                    <ScrollView showsVerticalScrollIndicator={false} tabLabel='范扬' >
+                                        <Characters page={1}/>
+                                    </ScrollView>
+                                    <ScrollView showsVerticalScrollIndicator={false} tabLabel='霍春阳' >
+                                        <Characters page={2}/>
+                                    </ScrollView>
+                                    <ScrollView showsVerticalScrollIndicator={false} tabLabel='程大利' >
+                                        <Characters page={3}/>
+                                    </ScrollView>
+                                    <ScrollView showsVerticalScrollIndicator={false} tabLabel='邹平朝' >
+                                        <Characters page={4}/>
+                                    </ScrollView>
                                 </ScrollableTabView>
-                </View>
-                        </ScrollView>
+               
+                       
                 </LinearGradient>
             </View>
         )
