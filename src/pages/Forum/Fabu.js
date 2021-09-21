@@ -286,7 +286,7 @@ export default class Fabu extends Component {
                                         showsVerticalScrollIndicator={false}
                                         numColumns={3}
                                     /> */}
-
+                                    <Text style={{ width: '100%', height: 20 }}></Text>
                                     <Text onPress={() => { this.tag("美食") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff', }}>#美食</Text>
                                     <Text onPress={() => { this.tag("老物件") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff' }}>#老物件</Text>
                                     <Text onPress={() => { this.tag("浙商文化") }} style={{ backgroundColor: global.mainColor, fontSize: 20, padding: 7, borderRadius: 10, margin: 5, color: '#fff', }}>#浙商文化</Text>
