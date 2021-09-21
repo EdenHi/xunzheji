@@ -5,6 +5,7 @@ import { View, Text, TouchableOpacity, Dimensions, Image, TextInput, ScrollView,
 import AntDesign from "react-native-vector-icons/AntDesign"
 import LinearGradient from 'react-native-linear-gradient'
 import Picker from 'react-native-picker';
+import AwesomeAlert from 'react-native-awesome-alerts';
 const { width, height } = Dimensions.get('window')
 const year = ["2024年", "2023年", "2022年", "2021年"]
 const month = ["01月", "02月", "03月", "04月", "05月", "06月", "07月", "08月", "09月", "10月", "11月", "12月"]
@@ -25,6 +26,7 @@ export default class dingzhi_xuqiu extends Component {
             month:'',
             day:'',
             arr:[],
+            passAlert:false,
         }
     }
 
@@ -143,7 +145,17 @@ export default class dingzhi_xuqiu extends Component {
         });
         Picker.show();
     }
-
+    showpassAlert = () => {
+        this.setState({
+          passAlert: true
+        });
+      };
+    
+      hidepassAlert = () => {
+        this.setState({
+          passAlert: false
+        });
+      };
     _day() {
         Picker.init({
             pickerData: day,
@@ -179,9 +191,31 @@ export default class dingzhi_xuqiu extends Component {
 
 
     render() {
+        const { passAlert} = this.state;
         const {arr} = this.state
         return (
             <View style={{ flex: 1 }}>
+                 <AwesomeAlert
+          show={passAlert}
+          showProgress={false}
+          title="提示"
+          message="已收到您的定制需求，客服将在一个工作日内与您联系。"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={false}
+          showConfirmButton={true}
+          confirmText="确认"
+          confirmButtonColor={global.mainColor}
+
+          onCancelPressed={() => {
+            this.hidepassAlert();
+
+          }}
+          onConfirmPressed={() => {
+            this.hidepassAlert();
+            this.props.navigation.goBack();
+          }}
+        />
                 <LinearGradient style={{ width: width, height: "100%" }} colors={[global.mainColor, "#fff", "#fff"]} >
                     <View style={{ width: width * 0.9, marginLeft: width * 0.05, marginRight: width * 0.05, height }}>
                         {/* 标题 */}
@@ -329,8 +363,8 @@ export default class dingzhi_xuqiu extends Component {
 
                         </ScrollView>
 
-                        <View style={{ height: 50, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 20, backgroundColor: global.mainColor, height: '80%', width: '80%' }}>
+                        <View style={{ height: height*0.07, width: '100%', justifyContent: 'center', alignItems: 'center'}}>
+                            <TouchableOpacity activeOpacity={1} onPress={()=>{this.showpassAlert()}} style={{ justifyContent: 'center', alignItems: 'center', borderRadius: 20, backgroundColor: global.mainColor, height: '80%', width: '80%' ,marginBottom:30}}>
                                 <Text style={{ color: '#fff', fontWeight: 'bold' }}>下定制需求</Text>
                             </TouchableOpacity>
                         </View>

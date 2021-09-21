@@ -29,6 +29,7 @@ export default class Personal extends Component {
       shoucang: '',
       dianzan: '',
       shangdian:'',
+      num:0,
     }
   }
 
@@ -72,6 +73,7 @@ export default class Personal extends Component {
     this.listener = DeviceEventEmitter.addListener('wenzhang', this.get_shuju.bind(this));
     this.listener = DeviceEventEmitter.addListener('dianzan_1', this.get_shuju.bind(this));
     this.listener = DeviceEventEmitter.addListener('yanse', this.get_shuju.bind(this));
+    this.listener1 = DeviceEventEmitter.addListener('quxiaoguanzhu', ()=>{this.setState({num:this.state.num+1})});
   }
 
 
@@ -83,6 +85,7 @@ export default class Personal extends Component {
   //移除监听
   componentWillUnmount() {
     this.listener.remove();
+    this.listener1.remove()
   }
 
   menu() {
@@ -288,7 +291,7 @@ export default class Personal extends Component {
             <Text style={{ fontSize: 15, color: "#fff"}}>粉丝</Text>      
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1} onPress={() => { this.state.username === '' ? this.showAlert() : this.context.navigate('Concerns', this.state.username) }} style={{width:width*0.15,height:width*0.15,marginLeft:width*0.025,backgroundColor:global.mainColor=='#145A59'?"rgba(0,0,0,0.5)":"rgba(255,255,255,0.5)",borderRadius:15,alignItems:"center",justifyContent:"center"}}>
-            <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold"}}>{this.state.username === '' ? '0' : data.guanzhu}</Text>
+            <Text style={{ fontSize: 18, color: "#fff", fontWeight: "bold"}}>{this.state.username === '' ? '0' : data.guanzhu-this.state.num}</Text>
             <Text style={{ fontSize: 15, color: "#fff"}}>关注</Text>
             </TouchableOpacity>
             <TouchableOpacity activeOpacity={1} onPress={() => this.props.navigation.navigate('JiFen',{portrait:data.portrait})} style={{width:width*0.35,height:width*0.35,marginLeft:width*0.25,alignItems:"center",justifyContent:"center"}}>

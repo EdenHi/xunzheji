@@ -96,6 +96,7 @@ export default class Concerns extends Component {
                     Arr.splice(index,1)
                     console.log(this.state.data);
                     this.setState({f:1})
+                    DeviceEventEmitter.emit('quxiaoguanzhu', 1)
                     }} style={styles.btn1} >
                         <Text style={{ fontSize: 12 }}>取消关注</Text>
                     </TouchableOpacity>
