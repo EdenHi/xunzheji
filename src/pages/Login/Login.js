@@ -289,10 +289,14 @@ export default class Login extends Component {
                 <Text style={{ height: '100%', textAlignVertical: 'center', marginLeft: -5 }}>已阅读并同意</Text><Text style={{ height: '100%', textAlignVertical: 'center', color: global.mainColor }}>《隐私条款》</Text>
               </View>
 
+<View style={{width:'60%',height:40,flexDirection:'row',alignSelf:'center',justifyContent:'space-around',marginTop:20}}>
+<Image style={{width:40,height:40}} source={require('../img/Weixing.png')}></Image>
+<Image style={{width:40,height:40}}  source={require('../img/QQ.png')}></Image>
+</View>
 
 
               <View style={{ width: width, height: height * 0.5, backgroundColor: global.backColor }}>
-                <LottieView style={{ marginTop: "-30%" }} source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
+                <LottieView style={{ marginTop: "-60%" }} source={require('../../../animal/zhuceWave.json')} autoPlay loop progress={this.state.progress} />
               </View>
 
             </View>
