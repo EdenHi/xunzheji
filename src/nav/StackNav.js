@@ -249,13 +249,10 @@ export default function StackNav() {
       <Stack.Screen name="ZhenCe2" component={ZhenCe2} />
       <Stack.Screen name="ZhenCe3" component={ZhenCe3} />
       <Stack.Screen name="ZhenCe4" component={ZhenCe4} />
-
       <Stack.Screen name="book_xiangqing_6" component={book_xiangqing_6} />
       <Stack.Screen name="shicha2" component={shicha2} />
       <Stack.Screen name="Live" component={Live} />
-
       <Stack.Screen name="book_xiangqing_2" component={book_xiangqing_2} />
-
       <Stack.Screen name="book_xiangqing_7" component={book_xiangqing_7} />
       <Stack.Screen name="duihuan" component={duihuan} />
       <Stack.Screen name="ColorPicker" component={ColorPicker} />

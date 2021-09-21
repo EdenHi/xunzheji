@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dimensions, Image, View, TouchableOpacity, Text, FlatList,AsyncStorage, Keyboard,TextInput } from 'react-native'
+import { Dimensions, Image, View, TouchableOpacity, Text, FlatList,AsyncStorage, Keyboard,TextInput,Share } from 'react-native'
 import AntDesign from "react-native-vector-icons/AntDesign"
 import Entypo from "react-native-vector-icons/Entypo"
 import LinearGradient from 'react-native-linear-gradient'
@@ -73,7 +73,25 @@ export default class ZhenCe3 extends Component {
             })
 
     }
-
+    onShare = async () => {
+        try {
+            const result = await Share.share({
+                message:
+                    '是寻商迹哦',
+            });
+            if (result.action === Share.sharedAction) {
+                if (result.activityType) {
+                    // shared with activity type of result.activityType
+                } else {
+                    // shared
+                }
+            } else if (result.action === Share.dismissedAction) {
+                // dismissed
+            }
+        } catch (error) {
+            alert(error.message);
+        }
+    };
     //对文章进行评论
     insert_pinglun() {
         fetch('http://47.100.78.254:3000/shouye/insert_wenzhang', {
@@ -221,7 +239,7 @@ export default class ZhenCe3 extends Component {
                         {/* <AntDesign onPress={() => this.props.navigation.goBack()} style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="left" size={20} color="#000000" /> */}
                     </TouchableOpacity>
                     <Text style={{ fontSize: 18, fontWeight: "bold", color: "#fff", }}>文章详情</Text>
-                    <TouchableOpacity activeOpacity={1} style={{marginRight:width*0.05}}>
+                    <TouchableOpacity onPress={()=>{this.props.navigation.navigate('musicPlayer')}}activeOpacity={1} style={{marginRight:width*0.05}}>
                         <AntDesign style={{ textAlignVertical: 'center', height: "100%", color: "#fff" }} name="sound" size={20} color="#000000" />
                     </TouchableOpacity>
                 </View>
@@ -243,7 +261,7 @@ export default class ZhenCe3 extends Component {
                         <AntDesign name={this.state.data.username === this.state.denglu_username ? "star" : "staro"} size={25} color={this.state.data.username === this.state.denglu_username ? 'yellow' : global.mainColor }
                             />
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ width: width * 0.1, height: width * 0.1, color:global.mainColor }}>
+                    <TouchableOpacity onPress={()=>{this.onShare()}}style={{ width: width * 0.1, height: width * 0.1, color:global.mainColor }}>
                         <Entypo style={{ textAlign: 'center', textAlignVertical: 'center', height: "100%", color: global.mainColor  }} name="export" size={25} color="#000000" />
                     </TouchableOpacity>
                     </View>

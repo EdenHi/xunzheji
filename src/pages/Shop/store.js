@@ -53,7 +53,7 @@ export default class Store extends Component {
       activeIndex: 0,
       zuobiao: '查询',
       username: '',
-      fresh:false,
+      fresh: false,
       carouselItems: [
         {
           title: "亨达利",
@@ -91,7 +91,7 @@ export default class Store extends Component {
           "name": "绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
           "jieshao": "知味观",
           "price": "12.90",
-          "leibie":"meishi",
+          "leibie": "meishi",
           "sales": "8W+",
           "pic": [
             "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01vnfZVZ2HGNwoO10hJ_!!2200646689123.jpg_500x500q90.jpg",
@@ -109,7 +109,7 @@ export default class Store extends Component {
           "name": "翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
           "jieshao": "中华老字号",
           "price": "24.90",
-          "leibie":"meishi",
+          "leibie": "meishi",
           "sales": "200+",
           "pic": [
             "https://img.alicdn.com/imgextra/i1/2086085971/O1CN01x1Ny0Y1tylbc4cZbe_!!2086085971.jpg_500x500q90.jpg",
@@ -127,7 +127,7 @@ export default class Store extends Component {
           "name": "陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
           "jieshao": "",
           "price": "57.00",
-          "leibie":"meishi",
+          "leibie": "meishi",
           "sales": "1K+",
           "pic": [
             "https://cbu01.alicdn.com/img/ibank/2018/359/558/9223855953_1063743152.500x500.jpg",
@@ -147,7 +147,7 @@ export default class Store extends Component {
           "name": "知味观绿豆糕杭州特产小吃绿豆饼网红糕点办公室零食好吃的点心",
           "jieshao": "清香绵软",
           "price": "12.90",
-          "leibie":"meishi",
+          "leibie": "meishi",
           "sales": "8W+",
           "pic": [
             "https://img.alicdn.com/imgextra/i1/2200646689123/O1CN01lGZiEM2HGNwoNz44Z_!!2200646689123.jpg_500x500q90.jpg",
@@ -165,7 +165,7 @@ export default class Store extends Component {
           "name": "翠沁斋麻糕黑麻酥糖老字号杭州特产点心网红食品零食小吃糕点推荐",
           "jieshao": "中华老字号",
           "price": "24.90",
-          "leibie":"meishi",
+          "leibie": "meishi",
           "sales": "200+",
           "pic": [
             "https://img.alicdn.com/imgextra/i3/2086085971/O1CN01QyR8uR1tylb93pDpP_!!2086085971.jpg_500x500q90.jpg",
@@ -183,7 +183,7 @@ export default class Store extends Component {
           "name": "陈源昌 东北开口松子大颗粒200g独立包厂家直销坚果休闲零食批发",
           "jieshao": "",
           "price": "57.00",
-          "leibie":"meishi",
+          "leibie": "meishi",
           "sales": "1K+",
           "pic": [
             "https://cbu01.alicdn.com/img/ibank/2017/145/079/5245970541_1063743152.500x500.jpg",
@@ -201,7 +201,7 @@ export default class Store extends Component {
           "name": "朱府铜艺 全铜香炉《古檀香炉》家用盘香炉香薰书房茶桌摆件",
           "jieshao": "",
           "price": "420.00",
-          "leibie":"gongmei",
+          "leibie": "gongmei",
           "sales": "15",
           "pic": [
             "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01n3K7km1QS8Vu08yFy_!!2211562091974.jpg_500x500q90.jpg",
@@ -219,7 +219,7 @@ export default class Store extends Component {
           "name": "朱府铜艺 全铜香炉《莲花香炉》铜工艺品香炉",
           "jieshao": "",
           "price": "1080.00",
-          "leibie":"gongmei",
+          "leibie": "gongmei",
           "sales": "7",
           "pic": [
             "https://img.alicdn.com/imgextra/i4/2211562091974/O1CN01ABGPtP1QS8VzUuFxN_!!0-item_pic.jpg_500x500q90.jpg",
@@ -237,7 +237,7 @@ export default class Store extends Component {
           "name": "2021年益龙芳茶叶开化龙顶高山土茶春茶250g袋装茶叶绿茶野茶",
           "jieshao": "茶客挚爱口粮茶，醇厚耐泡。",
           "price": "138.00",
-          "leibie":"chajiu",
+          "leibie": "chajiu",
           "sales": "100+",
           "pic": [
             "https://img.alicdn.com/imgextra/i4/1665326773/TB2b8ZlnnJYBeNjy1zeXXahzVXa_!!1665326773.jpg_500x500q90.jpg",
@@ -330,7 +330,7 @@ export default class Store extends Component {
     )
   }
 
-  get_tuijian(){
+  get_tuijian() {
     AsyncStorage.getItem('username', (err, result) => {
       if (!err) {
         fetch('http://47.100.78.254:3000/shop/selectfootmark_2', {
@@ -343,97 +343,97 @@ export default class Store extends Component {
             username: result,
           })
         })
-       // .then((response) => response.json())
+          // .then((response) => response.json())
           .then((ress) => {
             fetch('http://47.100.78.254:3000/index/selectTuijian', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username: result,
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                username: result,
+              })
+            })
+              .then((response) => response.json())
+              .then((ress) => {
+
+                let x = ress.tuijian
+                console.log('x', x);
+                let newJson = [];
+                let json = eval(shoplist);
+                //先查询最外层的分类  
+                if (x === 'meishi') {
+                  //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+                  for (var k = 0; k < json[1].meishi.length; k++) {
+                    //这里是商品的查询
+                    for (var j = 0; j < json[1].meishi[k].shops.length; j++) {
+                      //查询商品中，含有知味的商品数据
+                      if ((json[1].meishi[k].shops[j].name).indexOf('') > -1) {
+                        var tempJson = {
+                          "shops": json[1].meishi[k].shops[j],
+                        }
+                        newJson.push(tempJson.shops);
+                      }
+                    }
+                  }
+                  this.setState({ shops2: newJson })
+                }
+                if (x === 'zhizao') {
+                  //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+                  for (var k = 0; k < json[2].zhizao.length; k++) {
+                    //这里是商品的查询
+                    for (var j = 0; j < json[2].zhizao[k].shops.length; j++) {
+                      //查询商品中，含有知味的商品数据
+                      if ((json[2].zhizao[k].shops[j].name).indexOf('') > -1) {
+                        var tempJson = {
+                          "shops": json[2].zhizao[k].shops[j],
+                        }
+                        newJson.push(tempJson.shops);
+                      }
+                    }
+                  }
+                  this.setState({ shops2: newJson })
+                }
+                if (x === 'gongmei') {
+                  //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+                  for (var k = 0; k < json[3].gongmei.length; k++) {
+                    //这里是商品的查询
+                    for (var j = 0; j < json[3].gongmei[k].shops.length; j++) {
+                      //查询商品中，含有知味的商品数据
+                      if ((json[3].gongmei[k].shops[j].name).indexOf('') > -1) {
+                        var tempJson = {
+                          "shops": json[3].gongmei[k].shops[j],
+                        }
+                        newJson.push(tempJson.shops);
+                      }
+                    }
+                  }
+                  this.setState({ shops2: newJson })
+                }
+                if (x === 'chajiu') {
+                  //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
+                  for (var k = 0; k < json[4].chajiu.length; k++) {
+                    //这里是商品的查询
+                    for (var j = 0; j < json[4].chajiu[k].shops.length; j++) {
+                      //查询商品中，含有知味的商品数据
+                      if ((json[4].chajiu[k].shops[j].name).indexOf('') > -1) {
+                        var tempJson = {
+                          "shops": json[4].chajiu[k].shops[j],
+                        }
+                        newJson.push(tempJson.shops);
+                      }
+                    }
+                  }
+                  this.setState({ shops2: newJson })
+                }
+
+
+
+              })
           })
-        })
-          .then((response) => response.json())
-          .then((ress) => {
-
-            let x = ress.tuijian
-            console.log('x', x);
-            let newJson = [];
-            let json = eval(shoplist);
-            //先查询最外层的分类  
-            if (x === 'meishi') {
-              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-              for (var k = 0; k < json[1].meishi.length; k++) {
-                //这里是商品的查询
-                for (var j = 0; j < json[1].meishi[k].shops.length; j++) {
-                  //查询商品中，含有知味的商品数据
-                  if ((json[1].meishi[k].shops[j].name).indexOf('') > -1) {
-                    var tempJson = {
-                      "shops": json[1].meishi[k].shops[j],
-                    }
-                    newJson.push(tempJson.shops);
-                  }
-                }
-              }
-              this.setState({ shops2: newJson })
-            }
-            if (x === 'zhizao') {
-              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-              for (var k = 0; k < json[2].zhizao.length; k++) {
-                //这里是商品的查询
-                for (var j = 0; j < json[2].zhizao[k].shops.length; j++) {
-                  //查询商品中，含有知味的商品数据
-                  if ((json[2].zhizao[k].shops[j].name).indexOf('') > -1) {
-                    var tempJson = {
-                      "shops": json[2].zhizao[k].shops[j],
-                    }
-                    newJson.push(tempJson.shops);
-                  }
-                }
-              }
-              this.setState({ shops2: newJson })
-            }
-            if (x === 'gongmei') {
-              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-              for (var k = 0; k < json[3].gongmei.length; k++) {
-                //这里是商品的查询
-                for (var j = 0; j < json[3].gongmei[k].shops.length; j++) {
-                  //查询商品中，含有知味的商品数据
-                  if ((json[3].gongmei[k].shops[j].name).indexOf('') > -1) {
-                    var tempJson = {
-                      "shops": json[3].gongmei[k].shops[j],
-                    }
-                    newJson.push(tempJson.shops);
-                  }
-                }
-              }
-              this.setState({ shops2: newJson })
-            }
-            if (x === 'chajiu') {
-              //因为键值是数组，所以继续循环查询键值里的数据,这里是小类里的查询
-              for (var k = 0; k < json[4].chajiu.length; k++) {
-                //这里是商品的查询
-                for (var j = 0; j < json[4].chajiu[k].shops.length; j++) {
-                  //查询商品中，含有知味的商品数据
-                  if ((json[4].chajiu[k].shops[j].name).indexOf('') > -1) {
-                    var tempJson = {
-                      "shops": json[4].chajiu[k].shops[j],
-                    }
-                    newJson.push(tempJson.shops);
-                  }
-                }
-              }
-              this.setState({ shops2: newJson })
-            }
 
 
-
-          })
-          })
-
-        
 
       }
     })
@@ -454,11 +454,11 @@ export default class Store extends Component {
       console.log(msg);
       this.setState({ zuobiao: msg })
     })
-    this.listener = DeviceEventEmitter.addListener('yanse',this.fresh.bind(this))
+    this.listener = DeviceEventEmitter.addListener('yanse', this.fresh.bind(this))
   }
-fresh(){
-  this.setState({fresh:!this.state.fresh})
-}
+  fresh() {
+    this.setState({ fresh: !this.state.fresh })
+  }
   //移除监听
   componentWillUnmount() {
     this.subscription.remove();
@@ -469,7 +469,7 @@ fresh(){
   tuijian() {
     AsyncStorage.getItem('username', (err, result) => {
       if (!err) {
-        
+
       }
     })
 
@@ -526,13 +526,13 @@ fresh(){
         <TouchableOpacity key={index} style={{ backgroundColor: global.backColor, width: width * 0.425, borderRadius: 10, margin: width * 0.025, elevation: 5 }} activeOpacity={1}
           onPress={() => this.props.navigation.navigate('Shopdetails', { shops: item, username: this.state.username })}>
           <Image source={{ uri: item.pic[0] }} style={{ width: width * 0.425, height: width * 0.425, borderTopLeftRadius: 10, borderTopRightRadius: 10 }} />
-          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: global.mainColor=='#145A59'?"#fff":'#333', fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
+          <Text style={{ width: "100%", paddingLeft: 8, paddingRight: 8, paddingTop: 8, paddingBottom: 2, color: global.mainColor == '#145A59' ? "#fff" : '#333', fontSize: 13 }} numberOfLines={2}>{item.name}</Text>
           <View style={{ flexDirection: 'row', paddingLeft: 8, alignItems: 'baseline', justifyContent: 'space-between', paddingRight: 8, marginBottom: 5 }}>
             <View style={{ flexDirection: 'row', alignItems: 'baseline' }}>
-              <Text style={{ color:global.mainColor, fontSize: 15 }}>￥</Text>
+              <Text style={{ color: global.mainColor, fontSize: 15 }}>￥</Text>
               <Text style={{ color: global.mainColor, fontSize: 15 }}>{item.price}</Text>
             </View>
-            <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 10 }}>{item.sales}人付款</Text>
+            <Text style={{ color: global.mainColor == '#145A59' ? "rgb(222,222,222)" : "#333333", fontSize: 10 }}>{item.sales}人付款</Text>
           </View>
         </TouchableOpacity>
       )
@@ -613,12 +613,24 @@ fresh(){
               borderRadius: 15
             }} />}
           >
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store1.png" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store2.png" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store3.png" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store1.png" }} />
-            <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
+            <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Classify')}}>
+              <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store1.png" }} />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Classify')}}>
+              <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store2.png" }} />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('CulturalCreation')}}> 
+              <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store3.png" }} />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Heritage')}}>
+              <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1910157183,2748145307&fm=26&fmt=auto&gp=0.jpg" }} />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Swop')}}>
+              <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "http://47.100.78.254:3000/public/images/store1.png" }} />
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={1} onPress={()=>{this.props.navigation.navigate('Classify')}}>
+              <Image style={{ width: width * 0.95, height: 180, borderRadius: 10 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=2924370352,4021490996&fm=26&fmt=auto&gp=0.jpg" }} />
+            </TouchableOpacity>
           </Swiper>
           {/* <ShiCha /> */}
           {/* <EZSwiper style={{ width: "100%", height: "100%",marginBottom:"2%" }}
@@ -672,7 +684,7 @@ fresh(){
 
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate('NewWorks')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
-              <LottieView source={changeSVGColor(require('../../../animal/right.json'),global.mainColor) } autoPlay loop progress={this.state.progress} />
+              <LottieView source={changeSVGColor(require('../../../animal/right.json'), global.mainColor)} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </TouchableOpacity>
 
@@ -692,13 +704,13 @@ fresh(){
                   elevation: 5,
                   flexDirection: "row",
                 }}>
-                  
+
                   <View style={{ width: "60%", height: "100%", backgroundColor: global.backColor, borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }}>
                     <View style={{ width: "80%", height: "18%", marginLeft: "5%", marginTop: "2%" }}>
-                      <Text style={{ fontSize: 15, fontWeight: "bold", color: global.mainColor=="#145A59"?"#fff":"#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
+                      <Text style={{ fontSize: 15, fontWeight: "bold", color: global.mainColor == "#145A59" ? "#fff" : "#333333" }} numberOfLines={1} ellipsizeMode='tail'>{item.name}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
-                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333" }}>{item.jieshao}</Text>
+                      <Text numberOfLines={1} ellipsizeMode='tail' style={{ fontSize: 13, color: global.mainColor == '#145A59' ? "rgb(222,222,222)" : "#333333" }}>{item.jieshao}</Text>
                     </View>
                     <View style={{ width: "80%", height: "15%", marginLeft: "5%" }}>
                       <Text style={{ color: global.mainColor }}>￥<Text style={{ fontSize: 13, color: global.mainColor }}>{item.price}</Text></Text>
@@ -706,7 +718,7 @@ fresh(){
 
                     <View style={{ width: "90%", height: "18%", flexDirection: "row", alignItems: "center", marginLeft: "2%" }}>
                       <LottieView style={{ width: "50%", height: "100%" }} source={require('../../../animal/67511-stars (1).json')} progress={this.state.progress} />
-                      <Text style={{ color: global.mainColor=='#145A59'?"rgb(222,222,222)":"#333333", fontSize: 13 }}>5.0</Text>
+                      <Text style={{ color: global.mainColor == '#145A59' ? "rgb(222,222,222)" : "#333333", fontSize: 13 }}>5.0</Text>
                     </View>
 
                     <View style={{ width: "100%", height: "25%", marginLeft: "5%", flexDirection: "row", }}>
@@ -740,13 +752,13 @@ fresh(){
           marginTop: "2%"
         }}>
           <TouchableOpacity activeOpacity={1} onPress={() => navigation.navigate('OldBankTimer')} style={{ width: "100%", height: "12%", alignItems: "center", flexDirection: "row" }}>
-            <View style={{ backgroundColor:global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
+            <View style={{ backgroundColor: global.mainColor, width: 3, height: 29, marginLeft: 10 }} />
             <View style={{ marginLeft: 10, width: width * 0.75 }}>
               <Text style={{ fontSize: 16, fontWeight: 'bold', color: global.mainColor }}>线下老字号</Text>
               <Text style={{ fontSize: 9, fontWeight: 'bold', color: global.mainColor }}>OFFLINE TIME-HONONER BRANDS</Text>
             </View>
             <TouchableOpacity onPress={() => this.props.navigation.navigate('OldBankTimer')} activeOpacity={1} style={{ width: width * 0.1, height: width * 0.1, color: '#7cc0bf' }}>
-            <LottieView source={changeSVGColor(require('../../../animal/right.json'),global.mainColor) } autoPlay loop progress={this.state.progress} />
+              <LottieView source={changeSVGColor(require('../../../animal/right.json'), global.mainColor)} autoPlay loop progress={this.state.progress} />
             </TouchableOpacity>
           </TouchableOpacity>
           <View style={styles.oldname}>
@@ -811,7 +823,7 @@ fresh(){
                     />
                     <Text style={{ borderWidth: 0, textAlign: 'center', marginTop: "-20%" }}>订单</Text>
                   </TouchableOpacity>
-                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats', { room: '1',nickname:'客服' }), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
+                  <TouchableOpacity activeOpacity={1} onPress={() => { this.props.navigation.navigate('Chats', { room: '1', nickname: '客服' }), this.setModalVisible(!modalVisible) }} style={{ marginVertical: '4%', height: width * 0.2, width: width * 0.2, backgroundColor: '#fff', borderRadius: 20 }}>
                     <AntDesign style={{ textAlign: 'center', marginTop: "-15%", height: '100%', textAlignVertical: 'center' }}
                       name="customerservice"
                       size={35}

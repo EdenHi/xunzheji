@@ -18,7 +18,7 @@ const images = [
   {img:"http://47.100.78.254:3000/public/images/home2.png",jump:"ZhenCe"},
   {img:"http://47.100.78.254:3000/public/images/home3.png",jump:"ZhenCe2"},
   {img:"http://47.100.78.254:3000/public/images/home4.png",jump:"ZhenCe3"},
-  {img:"http://47.100.78.254:3000/public/images/home5.png",jump:"ZhenCe4"},
+  {img:"http://47.100.78.254:3000/public/images/home1.png",jump:"ZhenCe4"},
 
 ];
 

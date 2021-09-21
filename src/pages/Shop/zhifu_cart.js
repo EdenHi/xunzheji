@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FlatList } from "react-native";
-import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter } from "react-native";
+import { View, Text, Image,Dimensions, TouchableOpacity, ScrollView, StyleSheet, AsyncStorage,DeviceEventEmitter,Modal } from "react-native";
 // import { Nav } from "../../component";//顶部标签看
 import LinearGradient from 'react-native-linear-gradient';
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -9,11 +9,14 @@ import AntDesign from "react-native-vector-icons/AntDesign"
 // import global from "../../utils/global";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 const {height,width} = Dimensions.get('window');
+import { PasswordInput } from 'react-native-pay-password';
+const Password = 666666;
 export default class zhifu_cart extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            modalVisible: false,
             paidway: [
                 {
                     id: 1,
@@ -53,6 +56,13 @@ export default class zhifu_cart extends Component {
         style: {},
         textStyle: {},
         cisabled: false
+    }
+    _openModalWin = () => {
+        this.setState({ modalVisible: true });
+    }
+
+    _closeModalWin = () => {
+        this.setState({ modalVisible: false });
     }
     changeTab = (index) => {
         this.setState({ activeTab: index })
@@ -180,7 +190,44 @@ export default class zhifu_cart extends Component {
                 </View>
             )
         }
-
+        buy() {
+            fetch('http://47.100.78.254:3000/shop/insert_dingdan', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ddianpu: this.props.route.params.dianpu,
+                    shop_name: this.props.route.params.name,
+                    price: parseFloat(this.state.price * this.state.total).toFixed(2),
+                    num: this.state.total,
+                    img: this.props.route.params.pic[0],
+                    username: this.state.username,
+                    time: new Date(),
+                    dianpu_img: this.props.route.params.loge
+                }),
+            });
+            if (this.state.money >= parseFloat(this.state.price * this.state.total).toFixed(2)) {
+                fetch('http://47.100.78.254:3000/users/addmoney', {
+                    method: 'POST',
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: "Eden",
+                        addmoney: -parseFloat(this.state.price * this.state.total).toFixed(2)
+                    }),
+                }).then()
+    
+                this._closeModalWin(), this.props.navigation.goBack(), ToastAndroid.showWithGravity('支付成功', 2000, ToastAndroid.BOTTOM)
+            } else {
+    
+                this._closeModalWin(), this.props.navigation.goBack(), ToastAndroid.showWithGravity('余额不足！', 2000, ToastAndroid.BOTTOM)
+            }
+    
+        }
         ListHeaderComponent(){
             const {dizhi} = this.state
             return(
@@ -214,6 +261,41 @@ export default class zhifu_cart extends Component {
 
         return (
             <View style={{flex:1}}>
+                 <Modal
+                            animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
+                            transparent={true} // 背景是否透明，默认为白色，当为true时表示背景为透明。
+                            visible={this.state.modalVisible} // 是否显示 modal 窗口
+                            onRequestClose={() => { this._closeModalWin(); }} // 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止BackHandler事件
+                            onShow={() => { console.log('modal窗口显示了'); }} // 回调函数会在 modal 显示时调用
+                        >
+
+                            <View style={{ backgroundColor: 'rgba(0,0,0,0.5)', flex: 1 }}>
+                                <View style={{ width: width * 0.8, marginLeft: width * 0.1, height: height * 0.33, backgroundColor: '#fff', marginTop: height * 0.3, borderRadius: 15, }}>
+                                    <View style={{ flexDirection: 'row', height: '20%', justifyContent: 'space-between' }}>
+                                        <AntDesign onPress={() => { this._closeModalWin() }} style={{ paddingLeft: width * 0.05, paddingTop: width * 0.05 }} name="close" size={20} />
+                                        <Text style={{ height: '100%', textAlignVertical: 'center', fontsize: 25, fontWeight: 'bold', paddingRight: width * 0.05 }}>忘记密码</Text>
+                                    </View>
+                                    <Text style={{ textAlign: 'center', color: '#333', fontSize: 20 }}>付款金额</Text>
+                                    <Text style={{ textAlign: 'center', fontSize: 30, color: '#000', fontWeight: 'bold', marginTop: height * 0.01 }}>￥{this.props.route.params.total}</Text>
+                                    <View style={{ alignSelf: 'center' }}>
+
+                                        <PasswordInput onDone={(password) => { this.setState({ password }) }} />
+
+
+                                    </View>
+                                    <TouchableOpacity onPress={() => {
+                                        console.log(this.state.password);
+                                        if (this.state.password == Password) {
+                                            this.buy()
+
+                                        }
+                                    }} activeOpacity={1} style={{ height: height * 0.07, width: width * 0.3, alignSelf: 'center', }}>
+                                        <Text style={{ height: '100%', width: '100%', textAlign: 'center', textAlignVertical: 'center', fontSize: 20, fontWeight: 'bold', backgroundColor: global.mainColor, color: '#333', borderRadius: 15, marginTop: height * 0.03 }}>确认支付</Text>
+                                    </TouchableOpacity>
+                                </View>
+
+                            </View>
+                        </Modal>
                 {/* <Nav title="等待买家付款" /> */}
                 <View style={{ width:width,height:height*0.07,backgroundColor:global.mainColor,flexDirection:"row",justifyContent:"space-between",alignItems:"center"}}>
                        
@@ -247,7 +329,7 @@ export default class zhifu_cart extends Component {
                         <Text style={{ fontSize: 15, marginLeft: 5, fontWeight: "bold", color: global.mainColor }}>￥{this.props.route.params.total}</Text>
                     </View>
                   
-                        <TouchableOpacity style={{width:width*0.3,height:"50%",backgroundColor:global.mainColor,justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
+                        <TouchableOpacity onPress={this._openModalWin} style={{width:width*0.3,height:"50%",backgroundColor:global.mainColor,justifyContent:"center",alignItems:"center",marginRight:"5%",borderRadius:20,elevation:5}}>
 
                             <Text  style={{fontSize:15,color:"#fff"}}>提交订单</Text>
                        

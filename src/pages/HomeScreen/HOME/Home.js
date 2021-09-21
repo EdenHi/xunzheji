@@ -49,7 +49,7 @@ export default class Home extends Component {
                 },
                 {
                     img: "http://47.100.78.254:3000/public/images/changui.png",
-                },
+                }, 
 
             ],
 

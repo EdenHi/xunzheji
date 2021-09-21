@@ -189,6 +189,7 @@ export default class Goods2 extends Component {
               }}
             />
           <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{}}
           ref={ref => this.scrollRef = ref}
           onScroll={(e) =>{
