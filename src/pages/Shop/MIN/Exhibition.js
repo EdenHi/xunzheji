@@ -42,7 +42,7 @@ export default class Exhibition extends React.Component {
                     <ImageBackground resizeMode="stretch" style={{ width: width * 0.95, height: width * 0.7, marginHorizontal: width * 0.025, marginVertical: height * 0.25, justifyContent: "center", alignItems: "center", elevation: 1 }} source={{ uri: "https://img0.baidu.com/it/u=260609161,2032145387&fm=26&fmt=auto&gp=0.jpg" }}>
                         <View >
                             <TouchableOpacity onPress={this._openModalWin} >
-                                <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
+                                <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img2.baidu.com/it/u=1550506993,3286030962&fm=26&fmt=auto" }} />
                             </TouchableOpacity>
                             <Modal
                                 animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
@@ -52,7 +52,7 @@ export default class Exhibition extends React.Component {
                             >
                                 <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)', flex: 1, justifyContent: 'center', alignItems: "center" }}>
                                     <TouchableOpacity style={{ width, height, justifyContent: "center", alignItems: "center" }} onPress={this._closeModalWin}        >
-                                        <Image style={{ width: width * 0.9, height: width * 0.6 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
+                                        <Image style={{ width: width * 0.9, height: width * 0.6 }} resizeMode="stretch" source={{ uri: "https://img2.baidu.com/it/u=1550506993,3286030962&fm=26&fmt=auto" }} />
                                     </TouchableOpacity>
                                 </View>
                             </Modal>
@@ -61,7 +61,7 @@ export default class Exhibition extends React.Component {
                     <ImageBackground resizeMode="stretch" style={{ width: width * 0.95, height: width * 0.7, marginHorizontal: width * 0.025, marginVertical: height * 0.25, justifyContent: "center", alignItems: "center", elevation: 1 }} source={{ uri: "https://img0.baidu.com/it/u=260609161,2032145387&fm=26&fmt=auto&gp=0.jpg" }}>
                         <View >
                             <TouchableOpacity onPress={this._openModalWin2} >
-                                <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
+                                <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img1.baidu.com/it/u=3179329933,311083409&fm=26&fmt=auto" }} />
                             </TouchableOpacity>
                             <Modal
                                 animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
@@ -71,7 +71,7 @@ export default class Exhibition extends React.Component {
                             >
                                 <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)', flex: 1, justifyContent: 'center', alignItems: "center" }}>
                                     <TouchableOpacity style={{ width, height, justifyContent: "center", alignItems: "center" }} onPress={this._closeModalWin2}        >
-                                        <Image style={{ width: width * 0.9, height: width * 0.6 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
+                                        <Image style={{ width: width * 0.9, height: width * 0.6 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=3179329933,311083409&fm=26&fmt=auto" }} />
                                     </TouchableOpacity>
                                 </View>
                             </Modal>
@@ -80,7 +80,7 @@ export default class Exhibition extends React.Component {
                     <ImageBackground resizeMode="stretch" style={{ width: width * 0.95, height: width * 0.7, marginHorizontal: width * 0.025, marginVertical: height * 0.25, justifyContent: "center", alignItems: "center", elevation: 1 }} source={{ uri: "https://img0.baidu.com/it/u=260609161,2032145387&fm=26&fmt=auto&gp=0.jpg" }}>
                         <View >
                             <TouchableOpacity onPress={this._openModalWin3} >
-                                <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
+                                <Image style={{ width: width * 0.7, height: width * 0.45 }} resizeMode='stretch' source={{ uri: "https://img1.baidu.com/it/u=1941885774,639371645&fm=26&fmt=auto" }} />
                             </TouchableOpacity>
                             <Modal
                                 animationType='fade' // 指定了 modal 的动画类型。类型：slide 从底部滑入滑出|fade 淡入淡出|none 没有动画
@@ -90,7 +90,7 @@ export default class Exhibition extends React.Component {
                             >
                                 <View style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)', flex: 1, justifyContent: 'center', alignItems: "center" }}>
                                     <TouchableOpacity style={{ width, height, justifyContent: "center", alignItems: "center" }} onPress={this._closeModalWin3}        >
-                                        <Image style={{ width: width * 0.9, height: width * 0.6 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1355609132,2203892174&fm=26&fmt=auto&gp=0.jpg" }} />
+                                        <Image style={{ width: width * 0.9, height: width * 0.6 }} resizeMode="stretch" source={{ uri: "https://img1.baidu.com/it/u=1941885774,639371645&fm=26&fmt=auto" }} />
                                     </TouchableOpacity>
                                 </View>
                             </Modal>
