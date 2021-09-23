@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TouchableOpacity } from 'react-native'
+import { ToastAndroid, TouchableOpacity } from 'react-native'
 import { Image } from 'react-native'
 import { Dimensions } from 'react-native'
 import { View, Text, Animated, Easing, TextInput } from 'react-native'
@@ -79,15 +79,23 @@ export default class ShiMin extends Component {
                 </View>
                 <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: width * 0.1, marginHorizontal: width * 0.1 }}>
                     <TouchableOpacity onPress={()=>this._openPicker()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: global.mainColor, borderWidth: 1 }}>
-                        {this.state.img===''?<Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />:null}
+                        {this.state.img===''?
+                        <View>
+                        <Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop:45, marginLeft: 50 ,}} />
+                        <Text style={{width:'100%',textAlign:'center',marginTop:10}}>正面</Text>
+                        </View>:null}
                         {this.state.img===''?null:<Image source={{uri:img.path}} style={{ width: "100%", height:"100%"}} />}
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>this._openPicker2()} style={{ width: width * 0.35, height: height * 0.15, borderRadius: 10, borderColor: global.mainColor, borderWidth: 1 }}>
-                        {this.state.img2===''?<Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop: 80, marginLeft: 60 }} />:null}
+                    {this.state.img===''?
+                        <View>
+                        <Image source={require("../../pages/HomeScreen/photos/camera.png")} style={{ width: width * 0.1, height: width * 0.1, marginTop:45, marginLeft: 50  }} />
+                        <Text style={{width:'100%',textAlign:'center',marginTop:10}}>反面</Text>
+                        </View>:null}
                         {this.state.img2===''?null:<Image source={{uri:img2.path}} style={{ width: "100%", height:"100%"}} />}
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity style={{ width: width * 0.9, height: height * 0.05, borderRadius: 20, backgroundColor: global.mainColor, alignItems: "center", justifyContent: "center",marginLeft:width*0.05,elevation:5, marginTop: width * 0.2 }}>
+                <TouchableOpacity onPress={()=>{ToastAndroid.show('提交成功！',2000),this.props.navigation.goBack()}} style={{ width: width * 0.9, height: height * 0.05, borderRadius: 20, backgroundColor: global.mainColor, alignItems: "center", justifyContent: "center",marginLeft:width*0.05,elevation:5, marginTop: width * 0.2 }}>
                     <Text style={{ fontWeight: "bold", fontSize: 15, color: "#fff" }}>提交</Text>
                 </TouchableOpacity>
 

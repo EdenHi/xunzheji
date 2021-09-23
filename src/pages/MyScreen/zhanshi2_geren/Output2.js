@@ -221,7 +221,7 @@ export default class Output2 extends Component {
                       </TouchableOpacity>
                   </View>
             <ScrollView
-
+showsVerticalScrollIndicator={false}
               style={{ height: height - 50 - 120 ,width:width*0.9,marginLeft:width*0.05,marginTop:"2%"}}
               >
               <TouchableOpacity activeOpacity={1} onPress={() => this.select()}>

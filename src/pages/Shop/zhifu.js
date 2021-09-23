@@ -198,7 +198,7 @@ export default class zhifu extends Component {
             }),
         });
         if (this.state.money >= parseFloat(this.state.price * this.state.total).toFixed(2)) {
-            fetch('http://47.100.78.254:3000/users/addmoney', {
+            fetch('http://47.100.78.254:3000/users/delmoney', {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',

@@ -359,7 +359,7 @@ export default class componentName extends Component {
                                     name='coins'
                                     size={15}
                                     color='gold'
-                                /> {this.state.jinbi}个 </Text>
+                                /> {this.state.jinbi+this.state.gold}个 </Text>
                             </View>
                             <View style={{ flex: 0.9, backgroundColor: global.mainColor, elevation: 5 }}>
                                 <View style={{ height: height * 0.1, width, flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.25)', marginVertical: '0.25%' }}>
